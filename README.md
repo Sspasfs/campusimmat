@@ -41,6 +41,6 @@ CampusImmat est une application web permettant de gérer les informations des é
 
 ## Contributeurs
 
-- [LE BLAY Alex]- Développeur principal
+- LE BLAY Alex- Développeur principal
 
 

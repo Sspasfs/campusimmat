@@ -1,4 +1,7 @@
-![Logo de l'application](/public/images/logo.png)
+<p align="center">
+  <img src="/public/images/logo.png" alt="Logo de l'application" width="100px">
+</p>
+
 
 # CampusImmat
 

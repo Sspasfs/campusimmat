@@ -1,3 +1,5 @@
+![Logo de l'application](/public/logo.png)
+
 # CampusImmat
 
 CampusImmat est une application web permettant de gérer les informations des étudiants et des plaques d'immatriculation dans une école.

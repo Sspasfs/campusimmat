@@ -1,4 +1,4 @@
-![Logo de l'application](/public/logo.png)
+![Logo de l'application](/public/images/logo.png)
 
 # CampusImmat
 

@@ -3,10 +3,12 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EleveController;
 use App\Http\Controllers\PlaqueImmatriculationController;
-
+use App\Http\Controllers\AuthController;
+use Illuminate\Support\Facades\Auth;
 
 // Route pour la page d'accueil
-Route::get('/', function () {
+// Route pour la page d'accueil
+Route::get('/welcome', function () {
     return view('welcome');
 })->name('welcome');
 
@@ -61,3 +63,12 @@ Route::prefix('plaques')->group(function () {
 Route::get('/glpi', function () {
     return redirect('/glpi/index.php'); // Assurez-vous d'ajuster l'URL en fonction de votre configuration
 });
+
+// Route pour afficher le formulaire de connexion comme la page d'accueil
+Route::get('/', [AuthController::class, 'showLoginForm'])->name('auth.login');
+
+// Route pour traiter la soumission du formulaire de connexion
+Route::post('/', [AuthController::class, 'login']);
+
+// Route pour se déconnecter
+Route::post('/logout', [AuthController::class, 'logout'])->name('auth.logout');

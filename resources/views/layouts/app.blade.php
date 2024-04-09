@@ -43,6 +43,10 @@
             max-width: 200px;
             /* Remplacez 200px par la largeur maximale souhaitée */
         }
+
+        .welcome-message {
+            margin-bottom: 20px;
+        }
     </style>
 </head>
 
@@ -67,12 +71,25 @@
                     <a class="nav-link" href="{{ route('plaques.index') }}">Plaques d'immatriculation</a>
                 </li>
             </ul>
+            @auth
+                <form action="{{ route('auth.logout') }}" method="POST">
+                    @csrf
+                    <button type="submit" class="btn btn-danger btn-block">Se déconnecter</button>
+                </form>
+            @endauth
         </div>
     </nav>
 
     <!-- Contenu principal -->
     <main class="main-content">
         <div class="container mt-5">
+            <div class="welcome-message">
+                @auth
+                    <p>Bonjour, {{ Auth::user()->name }}</p>
+                @else
+                    <p>Bienvenue sur CampusImmat ! Veuillez vous connecter pour accéder au contenu.</p>
+                @endauth
+            </div>
             @yield('content')
         </div>
     </main>

@@ -10,15 +10,10 @@ class UsersTableSeeder extends Seeder
     public function run()
     {
         User::create([
-            'name' => 'Olivier PITOIS',
-            'mail' => 'olivier.pitois@aftec.fr',
-            'password' => bcrypt('aftecvannes'), // Assurez-vous de hasher le mot de passe
+            'name' => 'Test',
+            'mail' => 'test@test.fr',
+            'password' => bcrypt('test'), // Assurez-vous de hasher le mot de passe
         ]);
 
-        User::create([
-            'name' => 'Alex LE BLAY',
-            'mail' => 'alex.leblay@aftec.fr',
-            'password' => bcrypt('aftecvannes'), // Assurez-vous de hasher le mot de passe
-        ]);
     }
 }

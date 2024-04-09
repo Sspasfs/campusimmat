@@ -40,7 +40,7 @@
                     <div class="card-body">
                         <h5 class="card-title" style="text-align: center;">Faire une réclamation via GLPI</h5>
                         <p class="card-text" style="text-align: center;">Accédez à notre système de gestion de tickets pour faire une réclamation.</p>
-                        <a href="http://87.98.128.37/index.php" class="btn btn-secondary btn-block" target="_blank">Accéder à GLPI</a>
+                        <a href="http://87.98.128.37:85/index.php" class="btn btn-secondary btn-block" target="_blank">Accéder à GLPI</a>
                     </div>
                 </div>
             </div>

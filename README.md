@@ -33,6 +33,7 @@ CampusImmat est une application web permettant de gérer les informations des é
 
 ## Note importante
 - Un fichier ".env" est déjà présent sur le projet afin de facilité l'installation
+- Un compte "Test" est créé afin d'accèder au projet (mail: test@test.fr / mot de passe: test)
   
 ## Utilisation
 

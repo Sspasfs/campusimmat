@@ -37,7 +37,7 @@ CampusImmat est une application web permettant de gérer les informations des é
   
 ## Utilisation
 
-- Accédez à l'application dans votre navigateur : `http://localhost:8000`
+- Accédez à l'application dans votre navigateur : `http://127.0.0.1:8000`
 - Explorez les fonctionnalités de gestion des étudiants et des plaques d'immatriculation.
 
 ## Contributeurs

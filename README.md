@@ -34,6 +34,7 @@ CampusImmat est une application web permettant de gérer les informations des é
 ## Note importante
 - Un fichier ".env" est déjà présent sur le projet afin de facilité l'installation, vous pouvez le modifier en fonction de votre configuration avec MySQL et PHP
 - Un compte "Test" est créé afin d'accèder au projet (mail: test@test.fr / mot de passe: test)
+- Vous avez également un accès GLPI avec les identifiants (test_exam, mot de passe: test)
   
 ## Utilisation
 

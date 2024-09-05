@@ -1,0 +1,151 @@
+\chapter{Drivers}
+\hypertarget{md_public_2glpi_2vendor_2wapmorgan_2unified-archive_2docs_2_drivers}{}\label{md_public_2glpi_2vendor_2wapmorgan_2unified-archive_2docs_2_drivers}\index{Drivers@{Drivers}}
+
+\begin{DoxyItemize}
+\item \doxylink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{Proposals for installation drivers}
+\end{DoxyItemize}
+
+\doxylink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{Drivers}
+\begin{DoxyItemize}
+\item \doxylink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{PHP Extensions}
+\item \doxylink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{Utilities + bridge}
+\item \doxylink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{Pure PHP}
+\end{DoxyItemize}
+
+\doxylink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{Full support matrix}
+
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{4}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Type   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Pros   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Cons   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Useful for    }\\\cline{1-4}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Type   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Pros   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Cons   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Useful for    }\\\cline{1-4}
+\endhead
+PHP Exteniosn   &Fast, supports a lot of functions   &Sometimes can not support specific functions (e.\+g. password-\/protection in zip on old php versions)   &Use it when possible (when extensions installed)    \\\cline{1-4}
+Utilities + bridge   &Uses system utilities, so should be fast (and even faster PHP Extensions)   &Do not support streaming   &Packing a lot of files / Unpacking the whole archives without streaming    \\\cline{1-4}
+Pure PHP   &Works without PHP Extensions or system utilities, can be installed via composer only   &Uses a lot of memory, lack of speed   &Fallback method   \\\cline{1-4}
+\end{longtabu}
+\hypertarget{md_public_2glpi_2vendor_2wapmorgan_2unified-archive_2docs_2_drivers_autotoc_md7496}{}\doxysection{\texorpdfstring{Proposals for installation drivers}{Proposals for installation drivers}}\label{md_public_2glpi_2vendor_2wapmorgan_2unified-archive_2docs_2_drivers_autotoc_md7496}
+
+\begin{DoxyItemize}
+\item {\bfseries{In common case\+:}}
+\begin{DoxyItemize}
+\item install {\ttfamily Tar\+By\+Pear}, {\ttfamily Nelexa\+Zip}
+\item If installed {\ttfamily 7za} utility -\/ configure {\ttfamily Seven\+Zip} driver
+\item Else if installed {\ttfamily tar} or {\ttfamily unzip} utilities -\/ configure {\ttfamily Alchemy\+Zippy} driver
+\end{DoxyItemize}
+\item {\bfseries{In docker/on VDS\+:}}
+\begin{DoxyItemize}
+\item install all php extensions ({\ttfamily zip, rar, phar, zlib, bz2})
+\item install utility ({\ttfamily 7za} -\/ {\ttfamily p7zip-\/full} on ubuntu) and {\ttfamily Seven\+Zip} driver
+\end{DoxyItemize}
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2wapmorgan_2unified-archive_2docs_2_drivers_autotoc_md7497}{}\doxysection{\texorpdfstring{Drivers}{Drivers}}\label{md_public_2glpi_2vendor_2wapmorgan_2unified-archive_2docs_2_drivers_autotoc_md7497}
+\hypertarget{md_public_2glpi_2vendor_2wapmorgan_2unified-archive_2docs_2_drivers_autotoc_md7498}{}\doxysubsection{\texorpdfstring{PHP extensions}{PHP extensions}}\label{md_public_2glpi_2vendor_2wapmorgan_2unified-archive_2docs_2_drivers_autotoc_md7498}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{4}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Driver   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Formats   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ php extension   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ notes    }\\\cline{1-4}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Driver   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Formats   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ php extension   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ notes    }\\\cline{1-4}
+\endhead
+Zip   &zip, jar   &{\ttfamily zip}   &supports password-\/protection since 7.\+2.\+0    \\\cline{1-4}
+Rar   &rar   &{\ttfamily rar}   &read-\/only mode    \\\cline{1-4}
+Tar\+By\+Phar   &zip, tar, tar.\+gz, tar.\+bz2   &{\ttfamily phar}   &Has a bug \href{https://bugs.php.net/bug.php?id=71966&thanks=10}{\texttt{ \#71966}} in {\ttfamily ext-\/phar} (\href{https://github.com/wapmorgan/UnifiedArchive/issues/12}{\texttt{ related issue}}) -\/ an archive will {\ttfamily ./} in paths cannot be opened.   \\\cline{1-4}
+\end{longtabu}
+\hypertarget{md_public_2glpi_2vendor_2wapmorgan_2unified-archive_2docs_2_drivers_autotoc_md7499}{}\doxysubsubsection{\texorpdfstring{PHP extensions for compression only}{PHP extensions for compression only}}\label{md_public_2glpi_2vendor_2wapmorgan_2unified-archive_2docs_2_drivers_autotoc_md7499}
+These drivers support only compressed (not archived) data. They support opening, extracting\&streaming and creation.
+
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{3}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Driver   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Formats   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ PHP extension    }\\\cline{1-3}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Driver   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Formats   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ PHP extension    }\\\cline{1-3}
+\endhead
+Bzip   &.bz2   &{\ttfamily bzip2}    \\\cline{1-3}
+Gzip   &.gz   &{\ttfamily zlib}    \\\cline{1-3}
+Lzma   &.xz   &{\ttfamily xz} -\/ \href{https://github.com/payden/php-xz}{\texttt{ 5.\+x}} / \href{https://github.com/codemasher/php-ext-xz}{\texttt{ 7.\+x}}   \\\cline{1-3}
+\end{longtabu}
+\hypertarget{md_public_2glpi_2vendor_2wapmorgan_2unified-archive_2docs_2_drivers_autotoc_md7500}{}\doxysubsection{\texorpdfstring{Utilities + bridge}{Utilities + bridge}}\label{md_public_2glpi_2vendor_2wapmorgan_2unified-archive_2docs_2_drivers_autotoc_md7500}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{3}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Driver   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Formats   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ utility + bridge    }\\\cline{1-3}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Driver   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Formats   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ utility + bridge    }\\\cline{1-3}
+\endhead
+Seven\+Zip   &7z, xz, bzip2, gzip, tar, zip, wim, ar, arj, cab, chm, cpio, cramfs, dmg, ext, fat, gpt, hfs, ihex, iso, lzh, lzma, mbr, msi, nsis, ntfs, qcow2, rar, rpm, squashfs, udf, uefi, vdi, vhd, vmdk, wim, xar, z   &p7zip (\href{http://p7zip.sourceforge.net/}{\texttt{ {\ttfamily 7za}}}) + \href{https://packagist.org/packages/gemorroj/archive7z}{\texttt{ {\ttfamily gemorroj/archive7z}}}    \\\cline{1-3}
+Alchemy\+Zippy   &zip, tar, tar.\+gz, tar.\+bz2   &{\ttfamily zip}/{\ttfamily tar} + \href{https://packagist.org/packages/alchemy/zippy}{\texttt{ {\ttfamily alchemy/zippy}}}   \\\cline{1-3}
+\end{longtabu}
+
+
+{\bfseries{If you install Seven\+Zip and Alchemy\+Zippy at the same time}}\+:
+\begin{DoxyEnumerate}
+\item You should specify symfony/console version before installation to any {\bfseries{3.\+x.\+x version}}\+: {\ttfamily composer require symfony/process\+:\texorpdfstring{$\sim$}{\string~}3.4}, because they require different {\ttfamily symfony/process} versions.
+\item Install archive7z version 4.\+0.\+0\+: {\ttfamily composer require gemorroj/archive7z\+:\texorpdfstring{$\sim$}{\string~}4.0}
+\end{DoxyEnumerate}\hypertarget{md_public_2glpi_2vendor_2wapmorgan_2unified-archive_2docs_2_drivers_autotoc_md7501}{}\doxysubsection{\texorpdfstring{Pure php implementation}{Pure php implementation}}\label{md_public_2glpi_2vendor_2wapmorgan_2unified-archive_2docs_2_drivers_autotoc_md7501}
+Works with binary data in php-\/land (= eats a lot of memory for big archives).
+
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{4}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Driver   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Formats   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ library   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ notes    }\\\cline{1-4}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Driver   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Formats   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ library   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ notes    }\\\cline{1-4}
+\endhead
+Nelexa\+Zip   &zip   &\href{https://packagist.org/packages/nelexa/zip}{\texttt{ {\ttfamily nelexa/zip}}} and optionally php-\/extensions ({\ttfamily bz2}, {\ttfamily fileinfo}, {\ttfamily iconv}, {\ttfamily openssl})   &\\\cline{1-4}
+Tar\+By\+Pear   &tar, tar.\+gz, tar.\+bz2, tar.\+xz, tar.\+Z   &\href{https://packagist.org/packages/pear/archive_tar}{\texttt{ {\ttfamily pear/archive\+\_\+tar}}} and optionally php-\/extensions ({\ttfamily zlib}, {\ttfamily bzip2}, {\ttfamily xz} -\/ \href{https://github.com/payden/php-xz}{\texttt{ 5.\+x}} / \href{https://github.com/codemasher/php-ext-xz}{\texttt{ 7.\+x}}   &dont support updating archive (delete\+Files)    \\\cline{1-4}
+Cab   &cab   &\href{https://packagist.org/packages/wapmorgan/cab-archive}{\texttt{ {\ttfamily wapmorgan/cab-\/archive}}}   &Getting files content and extraction is supported only on PHP 7.\+0.\+22+, 7.\+1.\+8+, 7.\+2.\+0. Support only opening \& extraction    \\\cline{1-4}
+Iso   &iso   &\href{https://packagist.org/packages/phpclasses/php-iso-file}{\texttt{ {\ttfamily phpclasses/php-\/iso-\/file}}}   &Support only opening \& extraction   \\\cline{1-4}
+\end{longtabu}
+\hypertarget{md_public_2glpi_2vendor_2wapmorgan_2unified-archive_2docs_2_drivers_autotoc_md7502}{}\doxysection{\texorpdfstring{Full support matrix}{Full support matrix}}\label{md_public_2glpi_2vendor_2wapmorgan_2unified-archive_2docs_2_drivers_autotoc_md7502}
+Result of {\ttfamily ./vendor/bin/cam system\+:formats} when all drivers installed and configured (except of Alchemy\+Zippy)\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{+-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/+-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/+-\/-\/-\/-\/-\/-\/+-\/-\/-\/-\/-\/-\/+-\/-\/-\/-\/-\/-\/+-\/-\/-\/-\/-\/-\/-\/+-\/-\/-\/-\/-\/-\/-\/-\/+-\/-\/-\/-\/-\/-\/-\/-\/+-\/-\/-\/-\/-\/-\/-\/-\/+-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/+-\/-\/-\/-\/-\/+-\/-\/-\/-\/-\/+-\/-\/-\/-\/-\/+-\/-\/-\/-\/-\/-\/+-\/-\/-\/-\/-\/+-\/-\/-\/-\/-\/+-\/-\/-\/-\/-\/+-\/-\/-\/-\/-\/+-\/-\/-\/-\/-\/+-\/-\/-\/-\/-\/+-\/-\/-\/-\/-\/+-\/-\/-\/-\/-\/-\/+-\/-\/-\/-\/-\/-\/-\/+}
+\DoxyCodeLine{|\ driver\ /\ format\ |\ zip\ \ \ \ \ \ \ \ |\ rar\ \ |\ gz\ \ \ |\ bz2\ \ |\ xz\ \ \ \ |\ tar\ \ \ \ |\ tgz\ \ \ \ |\ tbz2\ \ \ |\ 7z\ \ \ \ \ \ \ \ |\ cab\ |\ iso\ |\ arj\ |\ uefi\ |\ gpt\ |\ mbr\ |\ msi\ |\ dmg\ |\ rpm\ |\ deb\ |\ udf\ |\ txz\ \ |\ tar.z\ |}
+\DoxyCodeLine{+-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/+-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/+-\/-\/-\/-\/-\/-\/+-\/-\/-\/-\/-\/-\/+-\/-\/-\/-\/-\/-\/+-\/-\/-\/-\/-\/-\/-\/+-\/-\/-\/-\/-\/-\/-\/-\/+-\/-\/-\/-\/-\/-\/-\/-\/+-\/-\/-\/-\/-\/-\/-\/-\/+-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/+-\/-\/-\/-\/-\/+-\/-\/-\/-\/-\/+-\/-\/-\/-\/-\/+-\/-\/-\/-\/-\/-\/+-\/-\/-\/-\/-\/+-\/-\/-\/-\/-\/+-\/-\/-\/-\/-\/+-\/-\/-\/-\/-\/+-\/-\/-\/-\/-\/+-\/-\/-\/-\/-\/+-\/-\/-\/-\/-\/+-\/-\/-\/-\/-\/-\/+-\/-\/-\/-\/-\/-\/-\/+}
+\DoxyCodeLine{|\ Zip\ \ \ \ \ \ \ \ \ \ \ \ \ |\ oOtxsadTcC\ |\ \ \ \ \ \ |\ \ \ \ \ \ |\ \ \ \ \ \ |\ \ \ \ \ \ \ |\ \ \ \ \ \ \ \ |\ \ \ \ \ \ \ \ |\ \ \ \ \ \ \ \ |\ \ \ \ \ \ \ \ \ \ \ |\ \ \ \ \ |\ \ \ \ \ |\ \ \ \ \ |\ \ \ \ \ \ |\ \ \ \ \ |\ \ \ \ \ |\ \ \ \ \ |\ \ \ \ \ |\ \ \ \ \ |\ \ \ \ \ |\ \ \ \ \ |\ \ \ \ \ \ |\ \ \ \ \ \ \ |}
+\DoxyCodeLine{|\ Rar\ \ \ \ \ \ \ \ \ \ \ \ \ |\ \ \ \ \ \ \ \ \ \ \ \ |\ oOxs\ |\ \ \ \ \ \ |\ \ \ \ \ \ |\ \ \ \ \ \ \ |\ \ \ \ \ \ \ \ |\ \ \ \ \ \ \ \ |\ \ \ \ \ \ \ \ |\ \ \ \ \ \ \ \ \ \ \ |\ \ \ \ \ |\ \ \ \ \ |\ \ \ \ \ |\ \ \ \ \ \ |\ \ \ \ \ |\ \ \ \ \ |\ \ \ \ \ |\ \ \ \ \ |\ \ \ \ \ |\ \ \ \ \ |\ \ \ \ \ |\ \ \ \ \ \ |\ \ \ \ \ \ \ |}
+\DoxyCodeLine{|\ Gzip\ \ \ \ \ \ \ \ \ \ \ \ |\ \ \ \ \ \ \ \ \ \ \ \ |\ \ \ \ \ \ |\ oxsc\ |\ \ \ \ \ \ |\ \ \ \ \ \ \ |\ \ \ \ \ \ \ \ |\ \ \ \ \ \ \ \ |\ \ \ \ \ \ \ \ |\ \ \ \ \ \ \ \ \ \ \ |\ \ \ \ \ |\ \ \ \ \ |\ \ \ \ \ |\ \ \ \ \ \ |\ \ \ \ \ |\ \ \ \ \ |\ \ \ \ \ |\ \ \ \ \ |\ \ \ \ \ |\ \ \ \ \ |\ \ \ \ \ |\ \ \ \ \ \ |\ \ \ \ \ \ \ |}
+\DoxyCodeLine{|\ Bzip\ \ \ \ \ \ \ \ \ \ \ \ |\ \ \ \ \ \ \ \ \ \ \ \ |\ \ \ \ \ \ |\ \ \ \ \ \ |\ oxsc\ |\ \ \ \ \ \ \ |\ \ \ \ \ \ \ \ |\ \ \ \ \ \ \ \ |\ \ \ \ \ \ \ \ |\ \ \ \ \ \ \ \ \ \ \ |\ \ \ \ \ |\ \ \ \ \ |\ \ \ \ \ |\ \ \ \ \ \ |\ \ \ \ \ |\ \ \ \ \ |\ \ \ \ \ |\ \ \ \ \ |\ \ \ \ \ |\ \ \ \ \ |\ \ \ \ \ |\ \ \ \ \ \ |\ \ \ \ \ \ \ |}
+\DoxyCodeLine{|\ Lzma\ \ \ \ \ \ \ \ \ \ \ \ |\ \ \ \ \ \ \ \ \ \ \ \ |\ \ \ \ \ \ |\ \ \ \ \ \ |\ \ \ \ \ \ |\ oxsc\ \ |\ \ \ \ \ \ \ \ |\ \ \ \ \ \ \ \ |\ \ \ \ \ \ \ \ |\ \ \ \ \ \ \ \ \ \ \ |\ \ \ \ \ |\ \ \ \ \ |\ \ \ \ \ |\ \ \ \ \ \ |\ \ \ \ \ |\ \ \ \ \ |\ \ \ \ \ |\ \ \ \ \ |\ \ \ \ \ |\ \ \ \ \ |\ \ \ \ \ |\ \ \ \ \ \ |\ \ \ \ \ \ \ |}
+\DoxyCodeLine{|\ TarByPhar\ \ \ \ \ \ \ |\ oxsadc\ \ \ \ \ |\ \ \ \ \ \ |\ \ \ \ \ \ |\ \ \ \ \ \ |\ \ \ \ \ \ \ |\ oxsadc\ |\ oxsadc\ |\ oxsadc\ |\ \ \ \ \ \ \ \ \ \ \ |\ \ \ \ \ |\ \ \ \ \ |\ \ \ \ \ |\ \ \ \ \ \ |\ \ \ \ \ |\ \ \ \ \ |\ \ \ \ \ |\ \ \ \ \ |\ \ \ \ \ |\ \ \ \ \ |\ \ \ \ \ |\ \ \ \ \ \ |\ \ \ \ \ \ \ |}
+\DoxyCodeLine{|\ SevenZip\ \ \ \ \ \ \ \ |\ oOxadcC\ \ \ \ |\ \ \ \ \ \ |\ \ \ \ \ \ |\ \ \ \ \ \ |\ oxadc\ |\ oxadc\ \ |\ \ \ \ \ \ \ \ |\ \ \ \ \ \ \ \ |\ oOtxadTcC\ |\ ox\ \ |\ ox\ \ |\ ox\ \ |\ ox\ \ \ |\ ox\ \ |\ ox\ \ |\ ox\ \ |\ ox\ \ |\ ox\ \ |\ ox\ \ |\ ox\ \ |\ \ \ \ \ \ |\ \ \ \ \ \ \ |}
+\DoxyCodeLine{|\ AlchemyZippy\ \ \ \ |\ \ \ \ \ \ \ \ \ \ \ \ |\ \ \ \ \ \ |\ \ \ \ \ \ |\ \ \ \ \ \ |\ \ \ \ \ \ \ |\ \ \ \ \ \ \ \ |\ \ \ \ \ \ \ \ |\ \ \ \ \ \ \ \ |\ \ \ \ \ \ \ \ \ \ \ |\ \ \ \ \ |\ \ \ \ \ |\ \ \ \ \ |\ \ \ \ \ \ |\ \ \ \ \ |\ \ \ \ \ |\ \ \ \ \ |\ \ \ \ \ |\ \ \ \ \ |\ \ \ \ \ |\ \ \ \ \ |\ \ \ \ \ \ |\ \ \ \ \ \ \ |}
+\DoxyCodeLine{|\ NelexaZip\ \ \ \ \ \ \ |\ oOxad\ \ \ \ \ \ |\ \ \ \ \ \ |\ \ \ \ \ \ |\ \ \ \ \ \ |\ \ \ \ \ \ \ |\ \ \ \ \ \ \ \ |\ \ \ \ \ \ \ \ |\ \ \ \ \ \ \ \ |\ \ \ \ \ \ \ \ \ \ \ |\ \ \ \ \ |\ \ \ \ \ |\ \ \ \ \ |\ \ \ \ \ \ |\ \ \ \ \ |\ \ \ \ \ |\ \ \ \ \ |\ \ \ \ \ |\ \ \ \ \ |\ \ \ \ \ |\ \ \ \ \ |\ \ \ \ \ \ |\ \ \ \ \ \ \ |}
+\DoxyCodeLine{|\ TarByPear\ \ \ \ \ \ \ |\ \ \ \ \ \ \ \ \ \ \ \ |\ \ \ \ \ \ |\ \ \ \ \ \ |\ \ \ \ \ \ |\ \ \ \ \ \ \ |\ oxac\ \ \ |\ oxac\ \ \ |\ oxac\ \ \ |\ \ \ \ \ \ \ \ \ \ \ |\ \ \ \ \ |\ \ \ \ \ |\ \ \ \ \ |\ \ \ \ \ \ |\ \ \ \ \ |\ \ \ \ \ |\ \ \ \ \ |\ \ \ \ \ |\ \ \ \ \ |\ \ \ \ \ |\ \ \ \ \ |\ oxac\ |\ \ \ \ \ \ \ |}
+\DoxyCodeLine{|\ Iso\ \ \ \ \ \ \ \ \ \ \ \ \ |\ \ \ \ \ \ \ \ \ \ \ \ |\ \ \ \ \ \ |\ \ \ \ \ \ |\ \ \ \ \ \ |\ \ \ \ \ \ \ |\ \ \ \ \ \ \ \ |\ \ \ \ \ \ \ \ |\ \ \ \ \ \ \ \ |\ \ \ \ \ \ \ \ \ \ \ |\ \ \ \ \ |\ ox\ \ |\ \ \ \ \ |\ \ \ \ \ \ |\ \ \ \ \ |\ \ \ \ \ |\ \ \ \ \ |\ \ \ \ \ |\ \ \ \ \ |\ \ \ \ \ |\ \ \ \ \ |\ \ \ \ \ \ |\ \ \ \ \ \ \ |}
+\DoxyCodeLine{|\ Cab\ \ \ \ \ \ \ \ \ \ \ \ \ |\ \ \ \ \ \ \ \ \ \ \ \ |\ \ \ \ \ \ |\ \ \ \ \ \ |\ \ \ \ \ \ |\ \ \ \ \ \ \ |\ \ \ \ \ \ \ \ |\ \ \ \ \ \ \ \ |\ \ \ \ \ \ \ \ |\ \ \ \ \ \ \ \ \ \ \ |\ ox\ \ |\ \ \ \ \ |\ \ \ \ \ |\ \ \ \ \ \ |\ \ \ \ \ |\ \ \ \ \ |\ \ \ \ \ |\ \ \ \ \ |\ \ \ \ \ |\ \ \ \ \ |\ \ \ \ \ |\ \ \ \ \ \ |\ \ \ \ \ \ \ |}
+\DoxyCodeLine{+-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/+-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/+-\/-\/-\/-\/-\/-\/+-\/-\/-\/-\/-\/-\/+-\/-\/-\/-\/-\/-\/+-\/-\/-\/-\/-\/-\/-\/+-\/-\/-\/-\/-\/-\/-\/-\/+-\/-\/-\/-\/-\/-\/-\/-\/+-\/-\/-\/-\/-\/-\/-\/-\/+-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/+-\/-\/-\/-\/-\/+-\/-\/-\/-\/-\/+-\/-\/-\/-\/-\/+-\/-\/-\/-\/-\/-\/+-\/-\/-\/-\/-\/+-\/-\/-\/-\/-\/+-\/-\/-\/-\/-\/+-\/-\/-\/-\/-\/+-\/-\/-\/-\/-\/+-\/-\/-\/-\/-\/+-\/-\/-\/-\/-\/+-\/-\/-\/-\/-\/-\/+-\/-\/-\/-\/-\/-\/-\/+}
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyItemize}
+\item o -\/ open
+\item O -\/ open (+password)
+\item t -\/ get comment
+\item x -\/ extract
+\item s -\/ stream
+\item a -\/ append
+\item d -\/ delete
+\item T -\/ set comment
+\item c -\/ create
+\item C -\/ create (+password) 
+\end{DoxyItemize}

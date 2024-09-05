@@ -1,0 +1,731 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.10.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>CampusImmat: Référence de la classe DatabaseSchemaIntegrityChecker</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">CampusImmat
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.10.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="namespace_glpi.html">Glpi</a></li><li class="navelem"><a class="el" href="namespace_glpi_1_1_system.html">System</a></li><li class="navelem"><a class="el" href="namespace_glpi_1_1_system_1_1_diagnostic.html">Diagnostic</a></li><li class="navelem"><a class="el" href="class_glpi_1_1_system_1_1_diagnostic_1_1_database_schema_integrity_checker.html">DatabaseSchemaIntegrityChecker</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Fonctions membres publiques</a> &#124;
+<a href="#pub-attribs">Champs de données</a> &#124;
+<a href="#pro-methods">Fonctions membres protégées</a> &#124;
+<a href="#pro-attribs">Attributs protégés</a>  </div>
+  <div class="headertitle"><div class="title">Référence de la classe DatabaseSchemaIntegrityChecker</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="dynheader">
+Graphe de collaboration de DatabaseSchemaIntegrityChecker:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="class_glpi_1_1_system_1_1_diagnostic_1_1_database_schema_integrity_checker__coll__graph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Fonctions membres publiques</h2></td></tr>
+<tr class="memitem:aa43e77cf877df43957c033ecebf1b5bf" id="r_aa43e77cf877df43957c033ecebf1b5bf"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa43e77cf877df43957c033ecebf1b5bf">__construct</a> (<a class="el" href="class_d_bmysql.html">DBmysql</a> $<a class="el" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">db</a>, bool $<a class="el" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">strict</a>=true, bool $<a class="el" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">ignore_innodb_migration</a>=false, bool $<a class="el" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">ignore_timestamps_migration</a>=false, bool $<a class="el" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">ignore_utf8mb4_migration</a>=false, bool $<a class="el" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">ignore_dynamic_row_format_migration</a>=false, bool $<a class="el" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">ignore_unsigned_keys_migration</a>=false)</td></tr>
+<tr class="separator:aa43e77cf877df43957c033ecebf1b5bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a860e840a234afe151ed9371eab4e0d81" id="r_a860e840a234afe151ed9371eab4e0d81"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a860e840a234afe151ed9371eab4e0d81">hasDifferences</a> (string $<a class="el" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">table_name</a>, string $<a class="el" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">proper_create_table_sql</a>)</td></tr>
+<tr class="separator:a860e840a234afe151ed9371eab4e0d81"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aae389d36e40f551fad003fad4f0e8525" id="r_aae389d36e40f551fad003fad4f0e8525"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aae389d36e40f551fad003fad4f0e8525">getDiff</a> (string $<a class="el" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">table_name</a>, string $<a class="el" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">proper_create_table_sql</a>)</td></tr>
+<tr class="separator:aae389d36e40f551fad003fad4f0e8525"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aba9c3d52b2e0eaeed50ef51e59b59db7" id="r_aba9c3d52b2e0eaeed50ef51e59b59db7"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aba9c3d52b2e0eaeed50ef51e59b59db7">extractSchemaFromFile</a> (string $<a class="el" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">schema_path</a>)</td></tr>
+<tr class="separator:aba9c3d52b2e0eaeed50ef51e59b59db7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a50c0f0c99ab8ad35d734f5eb235ab4dc" id="r_a50c0f0c99ab8ad35d734f5eb235ab4dc"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a50c0f0c99ab8ad35d734f5eb235ab4dc">checkCompleteSchema</a> (string $<a class="el" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">schema_path</a>, bool $<a class="el" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">include_unknown_tables</a>=false, string $context='<a class="el" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">core</a>')</td></tr>
+<tr class="separator:a50c0f0c99ab8ad35d734f5eb235ab4dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a93940790b08aacd5a895a8507681141f" id="r_a93940790b08aacd5a895a8507681141f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a93940790b08aacd5a895a8507681141f">checkCompleteSchemaForVersion</a> (?string $<a class="el" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">schema_version</a>=null, bool $<a class="el" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">include_unknown_tables</a>=false, string $context='<a class="el" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">core</a>')</td></tr>
+<tr class="separator:a93940790b08aacd5a895a8507681141f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad4e14e6ee393dffb23b769d4289215d5" id="r_ad4e14e6ee393dffb23b769d4289215d5"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad4e14e6ee393dffb23b769d4289215d5">canCheckIntegrity</a> (?string $<a class="el" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">schema_version</a>=null, string $context='<a class="el" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">core</a>')</td></tr>
+<tr class="separator:ad4e14e6ee393dffb23b769d4289215d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
+Champs de données</h2></td></tr>
+<tr class="memitem:ab767d09b460f5a926705a88260313d8c" id="r_ab767d09b460f5a926705a88260313d8c"><td class="memItemLeft" align="right" valign="top">const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab767d09b460f5a926705a88260313d8c">RESULT_TYPE_ALTERED_TABLE</a> = '<a class="el" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">altered_table</a>'</td></tr>
+<tr class="separator:ab767d09b460f5a926705a88260313d8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab3e0a8fe2c5f4efee0a02e7e2b5dd6ed" id="r_ab3e0a8fe2c5f4efee0a02e7e2b5dd6ed"><td class="memItemLeft" align="right" valign="top">const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab3e0a8fe2c5f4efee0a02e7e2b5dd6ed">RESULT_TYPE_MISSING_TABLE</a> = '<a class="el" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">missing_table</a>'</td></tr>
+<tr class="separator:ab3e0a8fe2c5f4efee0a02e7e2b5dd6ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adf05e6022dcb1d4736ad8641d2a1735c" id="r_adf05e6022dcb1d4736ad8641d2a1735c"><td class="memItemLeft" align="right" valign="top">const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adf05e6022dcb1d4736ad8641d2a1735c">RESULT_TYPE_UNKNOWN_TABLE</a> = '<a class="el" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">unknown_table</a>'</td></tr>
+<tr class="separator:adf05e6022dcb1d4736ad8641d2a1735c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-methods" name="pro-methods"></a>
+Fonctions membres protégées</h2></td></tr>
+<tr class="memitem:aab5b81e9c189abb9b74e98c8cf060096" id="r_aab5b81e9c189abb9b74e98c8cf060096"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aab5b81e9c189abb9b74e98c8cf060096">getEffectiveCreateTableSql</a> (string $<a class="el" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">table_name</a>)</td></tr>
+<tr class="separator:aab5b81e9c189abb9b74e98c8cf060096"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a422847aac349318c345970deeb622cc6" id="r_a422847aac349318c345970deeb622cc6"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a422847aac349318c345970deeb622cc6">getNormalizedSql</a> (string $<a class="el" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">create_table_sql</a>)</td></tr>
+<tr class="separator:a422847aac349318c345970deeb622cc6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
+Attributs protégés</h2></td></tr>
+<tr class="memitem:a1fa3127fc82f96b1436d871ef02be319" id="r_a1fa3127fc82f96b1436d871ef02be319"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1fa3127fc82f96b1436d871ef02be319">$db</a></td></tr>
+<tr class="separator:a1fa3127fc82f96b1436d871ef02be319"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7289a9a925c0ae403a7c138057185130" id="r_a7289a9a925c0ae403a7c138057185130"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7289a9a925c0ae403a7c138057185130">$ignore_dynamic_row_format_migration</a></td></tr>
+<tr class="separator:a7289a9a925c0ae403a7c138057185130"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a19722c5a6ad59cd50109ad20aed2f415" id="r_a19722c5a6ad59cd50109ad20aed2f415"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a19722c5a6ad59cd50109ad20aed2f415">$ignore_innodb_migration</a></td></tr>
+<tr class="separator:a19722c5a6ad59cd50109ad20aed2f415"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a19cd0131380433ef8c9888abf25c8d22" id="r_a19cd0131380433ef8c9888abf25c8d22"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a19cd0131380433ef8c9888abf25c8d22">$ignore_timestamps_migration</a></td></tr>
+<tr class="separator:a19cd0131380433ef8c9888abf25c8d22"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab913f18e94ded83fbe9e613e14e66db7" id="r_ab913f18e94ded83fbe9e613e14e66db7"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab913f18e94ded83fbe9e613e14e66db7">$ignore_unsigned_keys_migration</a></td></tr>
+<tr class="separator:ab913f18e94ded83fbe9e613e14e66db7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9873cf5bc6858aaa1b89b248841493b0" id="r_a9873cf5bc6858aaa1b89b248841493b0"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9873cf5bc6858aaa1b89b248841493b0">$ignore_utf8mb4_migration</a></td></tr>
+<tr class="separator:a9873cf5bc6858aaa1b89b248841493b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a856bf794dded1ba70be4dfae635a1b06" id="r_a856bf794dded1ba70be4dfae635a1b06"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a856bf794dded1ba70be4dfae635a1b06">$strict</a></td></tr>
+<tr class="separator:a856bf794dded1ba70be4dfae635a1b06"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
+<div class="textblock"><dl class="section since"><dt>Depuis</dt><dd>10.0.0 </dd></dl>
+</div><h2 class="groupheader">Documentation des constructeurs et destructeur</h2>
+<a id="aa43e77cf877df43957c033ecebf1b5bf" name="aa43e77cf877df43957c033ecebf1b5bf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa43e77cf877df43957c033ecebf1b5bf">&#9670;&#160;</a></span>__construct()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">__construct </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_d_bmysql.html">DBmysql</a></td>          <td class="paramname"><span class="paramname"><em>$db</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>$strict</em><span class="paramdefsep"> = </span><span class="paramdefval">true</span>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>$ignore_innodb_migration</em><span class="paramdefsep"> = </span><span class="paramdefval">false</span>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>$ignore_timestamps_migration</em><span class="paramdefsep"> = </span><span class="paramdefval">false</span>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>$ignore_utf8mb4_migration</em><span class="paramdefsep"> = </span><span class="paramdefval">false</span>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>$ignore_dynamic_row_format_migration</em><span class="paramdefsep"> = </span><span class="paramdefval">false</span>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>$ignore_unsigned_keys_migration</em><span class="paramdefsep"> = </span><span class="paramdefval">false</span></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramtype"><a class="el" href="class_d_bmysql.html">DBmysql</a></td><td class="paramname">$db</td><td><a class="el" href="class_d_b.html">DB</a> instance. </td></tr>
+    <tr><td class="paramtype">bool</td><td class="paramname">$strict</td><td>Ignore differences that has no effect on application (columns and keys order for instance). </td></tr>
+    <tr><td class="paramtype">bool</td><td class="paramname">$ignore_innodb_migration</td><td>Do not check tokens related to migration from "MyISAM" to "InnoDB". </td></tr>
+    <tr><td class="paramtype">bool</td><td class="paramname">$ignore_timestamps_migration</td><td>Do not check tokens related to migration from "datetime" to "timestamp". </td></tr>
+    <tr><td class="paramtype">bool</td><td class="paramname">$ignore_utf8mb4_migration</td><td>Do not check tokens related to migration from "utf8" to "utf8mb4". </td></tr>
+    <tr><td class="paramtype">bool</td><td class="paramname">$ignore_dynamic_row_format_migration</td><td>Do not check tokens related to "DYNAMIC" row format migration. </td></tr>
+    <tr><td class="paramtype">bool</td><td class="paramname">$ignore_unsigned_keys_migration</td><td>Do not check tokens related to migration from signed to unsigned integers in primary/foreign keys. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Documentation des fonctions membres</h2>
+<a id="ad4e14e6ee393dffb23b769d4289215d5" name="ad4e14e6ee393dffb23b769d4289215d5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad4e14e6ee393dffb23b769d4289215d5">&#9670;&#160;</a></span>canCheckIntegrity()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">canCheckIntegrity </td>
+          <td>(</td>
+          <td class="paramtype">?string</td>          <td class="paramname"><span class="paramname"><em>$schema_version</em><span class="paramdefsep"> = </span><span class="paramdefval">null</span>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string</td>          <td class="paramname"><span class="paramname"><em>$context</em><span class="paramdefsep"> = </span><span class="paramdefval">'<a class="el" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">core</a>'</span></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">final</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Check if schema integrity can be checked for given version/context.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramtype">string&#160;|&#160;null</td><td class="paramname">$schema_version</td><td>Installed schema version </td></tr>
+    <tr><td class="paramtype">string</td><td class="paramname">$context</td><td>Context used for unknown tables identification (could be 'core' or 'plugin:plugin_key')</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>bool </dd></dl>
+
+</div>
+</div>
+<a id="a50c0f0c99ab8ad35d734f5eb235ab4dc" name="a50c0f0c99ab8ad35d734f5eb235ab4dc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a50c0f0c99ab8ad35d734f5eb235ab4dc">&#9670;&#160;</a></span>checkCompleteSchema()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">checkCompleteSchema </td>
+          <td>(</td>
+          <td class="paramtype">string</td>          <td class="paramname"><span class="paramname"><em>$schema_path</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>$include_unknown_tables</em><span class="paramdefsep"> = </span><span class="paramdefval">false</span>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string</td>          <td class="paramname"><span class="paramname"><em>$context</em><span class="paramdefsep"> = </span><span class="paramdefval">'<a class="el" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">core</a>'</span></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Check if there is differences between effective schema and schema contained in given file.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramtype">string</td><td class="paramname">$schema_path</td><td>The absolute path to the schema file </td></tr>
+    <tr><td class="paramtype">bool</td><td class="paramname">$include_unknown_tables</td><td>Indicates whether unknown existing tables should be include in results </td></tr>
+    <tr><td class="paramtype">string</td><td class="paramname">$context</td><td>Context used for unknown tables identification (could be 'core' or 'plugin:plugin_key')</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>array List of tables that differs from the expected schema. Keys are table names, and each entry has following properties:<ul>
+<li><code>type</code>: difference type, see self::RESULT_TYPE_* constants;</li>
+<li><code>diff</code>: diff string. </li>
+</ul>
+</dd></dl>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_glpi_1_1_system_1_1_diagnostic_1_1_database_schema_integrity_checker_a50c0f0c99ab8ad35d734f5eb235ab4dc_cgraph.svg" width="400" height="86"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a93940790b08aacd5a895a8507681141f" name="a93940790b08aacd5a895a8507681141f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a93940790b08aacd5a895a8507681141f">&#9670;&#160;</a></span>checkCompleteSchemaForVersion()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">checkCompleteSchemaForVersion </td>
+          <td>(</td>
+          <td class="paramtype">?string</td>          <td class="paramname"><span class="paramname"><em>$schema_version</em><span class="paramdefsep"> = </span><span class="paramdefval">null</span>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>$include_unknown_tables</em><span class="paramdefsep"> = </span><span class="paramdefval">false</span>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string</td>          <td class="paramname"><span class="paramname"><em>$context</em><span class="paramdefsep"> = </span><span class="paramdefval">'<a class="el" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">core</a>'</span></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">final</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Check if there is differences between effective schema and expected schema for given version/context.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramtype">string&#160;|&#160;null</td><td class="paramname">$schema_version</td><td>Installed schema version </td></tr>
+    <tr><td class="paramtype">bool</td><td class="paramname">$include_unknown_tables</td><td>Indicates whether unknown existing tables should be include in results </td></tr>
+    <tr><td class="paramtype">string</td><td class="paramname">$context</td><td>Context used for unknown tables identification (could be 'core' or 'plugin:plugin_key')</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>array List of tables that differs from the expected schema. Keys are table names, and each entry has following properties:<ul>
+<li><code>type</code>: difference type, see self::RESULT_TYPE_* constants;</li>
+<li><code>diff</code>: diff string.</li>
+</ul>
+</dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname"></td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<p>RuntimeException Thrown if schema file is not available. </p>
+
+</div>
+</div>
+<a id="aba9c3d52b2e0eaeed50ef51e59b59db7" name="aba9c3d52b2e0eaeed50ef51e59b59db7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aba9c3d52b2e0eaeed50ef51e59b59db7">&#9670;&#160;</a></span>extractSchemaFromFile()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">extractSchemaFromFile </td>
+          <td>(</td>
+          <td class="paramtype">string</td>          <td class="paramname"><span class="paramname"><em>$schema_path</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Extract the contents of the schema file.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramtype">string</td><td class="paramname">$schema_path</td><td>The absolute path to the schema file</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>array The parsed contents of the schema file. Keys contains table names and values contains CREATE TABLE SQL queries.</dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname"></td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<p>RuntimeException Thrown if the specified schema file cannot be read. </p>
+
+</div>
+</div>
+<a id="aae389d36e40f551fad003fad4f0e8525" name="aae389d36e40f551fad003fad4f0e8525"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aae389d36e40f551fad003fad4f0e8525">&#9670;&#160;</a></span>getDiff()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">getDiff </td>
+          <td>(</td>
+          <td class="paramtype">string</td>          <td class="paramname"><span class="paramname"><em>$table_name</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string</td>          <td class="paramname"><span class="paramname"><em>$proper_create_table_sql</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Get diff between effective table structure and proper structure contained in "CREATE TABLE" sql query.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramtype">string</td><td class="paramname">$table_name</td><td></td></tr>
+    <tr><td class="paramtype">string</td><td class="paramname">$proper_create_table_sql</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>string </dd></dl>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_glpi_1_1_system_1_1_diagnostic_1_1_database_schema_integrity_checker_aae389d36e40f551fad003fad4f0e8525_cgraph.svg" width="300" height="86"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div class="dynheader">
+Voici le graphe des appelants de cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_glpi_1_1_system_1_1_diagnostic_1_1_database_schema_integrity_checker_aae389d36e40f551fad003fad4f0e8525_icgraph.svg" width="228" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="aab5b81e9c189abb9b74e98c8cf060096" name="aab5b81e9c189abb9b74e98c8cf060096"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aab5b81e9c189abb9b74e98c8cf060096">&#9670;&#160;</a></span>getEffectiveCreateTableSql()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">getEffectiveCreateTableSql </td>
+          <td>(</td>
+          <td class="paramtype">string</td>          <td class="paramname"><span class="paramname"><em>$table_name</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Returns "CREATE TABLE" SQL returned by <a class="el" href="class_d_b.html">DB</a> itself.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramtype">string</td><td class="paramname">$table_name</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>string </dd></dl>
+<div class="dynheader">
+Voici le graphe des appelants de cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_glpi_1_1_system_1_1_diagnostic_1_1_database_schema_integrity_checker_aab5b81e9c189abb9b74e98c8cf060096_icgraph.svg" width="558" height="86"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a422847aac349318c345970deeb622cc6" name="a422847aac349318c345970deeb622cc6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a422847aac349318c345970deeb622cc6">&#9670;&#160;</a></span>getNormalizedSql()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">getNormalizedSql </td>
+          <td>(</td>
+          <td class="paramtype">string</td>          <td class="paramname"><span class="paramname"><em>$create_table_sql</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Returns normalized SQL. Normalization replace/remove tokens that can reveal differences we do not want to see.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramtype">string</td><td class="paramname">$create_table_sql</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>string </dd></dl>
+<div class="dynheader">
+Voici le graphe des appelants de cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_glpi_1_1_system_1_1_diagnostic_1_1_database_schema_integrity_checker_a422847aac349318c345970deeb622cc6_icgraph.svg" width="502" height="86"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a860e840a234afe151ed9371eab4e0d81" name="a860e840a234afe151ed9371eab4e0d81"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a860e840a234afe151ed9371eab4e0d81">&#9670;&#160;</a></span>hasDifferences()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">hasDifferences </td>
+          <td>(</td>
+          <td class="paramtype">string</td>          <td class="paramname"><span class="paramname"><em>$table_name</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string</td>          <td class="paramname"><span class="paramname"><em>$proper_create_table_sql</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Check is there is differences between effective table structure and proper structure contained in "CREATE TABLE" sql query.</p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramtype">string</td><td class="paramname">$table_name</td><td></td></tr>
+    <tr><td class="paramtype">string</td><td class="paramname">$proper_create_table_sql</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>bool </dd></dl>
+<div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_glpi_1_1_system_1_1_diagnostic_1_1_database_schema_integrity_checker_a860e840a234afe151ed9371eab4e0d81_cgraph.svg" width="458" height="86"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<h2 class="groupheader">Documentation des champs</h2>
+<a id="a1fa3127fc82f96b1436d871ef02be319" name="a1fa3127fc82f96b1436d871ef02be319"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1fa3127fc82f96b1436d871ef02be319">&#9670;&#160;</a></span>$db</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">$<a class="el" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">db</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7289a9a925c0ae403a7c138057185130" name="a7289a9a925c0ae403a7c138057185130"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7289a9a925c0ae403a7c138057185130">&#9670;&#160;</a></span>$ignore_dynamic_row_format_migration</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">$<a class="el" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">ignore_dynamic_row_format_migration</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a19722c5a6ad59cd50109ad20aed2f415" name="a19722c5a6ad59cd50109ad20aed2f415"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a19722c5a6ad59cd50109ad20aed2f415">&#9670;&#160;</a></span>$ignore_innodb_migration</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">$<a class="el" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">ignore_innodb_migration</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a19cd0131380433ef8c9888abf25c8d22" name="a19cd0131380433ef8c9888abf25c8d22"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a19cd0131380433ef8c9888abf25c8d22">&#9670;&#160;</a></span>$ignore_timestamps_migration</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">$<a class="el" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">ignore_timestamps_migration</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab913f18e94ded83fbe9e613e14e66db7" name="ab913f18e94ded83fbe9e613e14e66db7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab913f18e94ded83fbe9e613e14e66db7">&#9670;&#160;</a></span>$ignore_unsigned_keys_migration</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">$<a class="el" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">ignore_unsigned_keys_migration</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9873cf5bc6858aaa1b89b248841493b0" name="a9873cf5bc6858aaa1b89b248841493b0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9873cf5bc6858aaa1b89b248841493b0">&#9670;&#160;</a></span>$ignore_utf8mb4_migration</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">$<a class="el" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">ignore_utf8mb4_migration</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a856bf794dded1ba70be4dfae635a1b06" name="a856bf794dded1ba70be4dfae635a1b06"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a856bf794dded1ba70be4dfae635a1b06">&#9670;&#160;</a></span>$strict</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">$<a class="el" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">strict</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab767d09b460f5a926705a88260313d8c" name="ab767d09b460f5a926705a88260313d8c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab767d09b460f5a926705a88260313d8c">&#9670;&#160;</a></span>RESULT_TYPE_ALTERED_TABLE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const RESULT_TYPE_ALTERED_TABLE = '<a class="el" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">altered_table</a>'</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab3e0a8fe2c5f4efee0a02e7e2b5dd6ed" name="ab3e0a8fe2c5f4efee0a02e7e2b5dd6ed"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab3e0a8fe2c5f4efee0a02e7e2b5dd6ed">&#9670;&#160;</a></span>RESULT_TYPE_MISSING_TABLE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const RESULT_TYPE_MISSING_TABLE = '<a class="el" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">missing_table</a>'</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="adf05e6022dcb1d4736ad8641d2a1735c" name="adf05e6022dcb1d4736ad8641d2a1735c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adf05e6022dcb1d4736ad8641d2a1735c">&#9670;&#160;</a></span>RESULT_TYPE_UNKNOWN_TABLE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const RESULT_TYPE_UNKNOWN_TABLE = '<a class="el" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">unknown_table</a>'</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<hr/>La documentation de cette classe a été générée à partir du fichier suivant :<ul>
+<li>public/glpi/src/System/Diagnostic/<a class="el" href="_database_schema_integrity_checker_8php.html">DatabaseSchemaIntegrityChecker.php</a></li>
+</ul>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0
+</small></address>
+</body>
+</html>

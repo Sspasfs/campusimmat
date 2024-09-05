@@ -1,0 +1,78 @@
+\doxysection{Référence du fichier public/glpi/install/update.php}
+\hypertarget{install_2update_8php}{}\label{install_2update_8php}\index{public/glpi/install/update.php@{public/glpi/install/update.php}}
+\doxysubsubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{dropdown_location_8php_a52332c22f84432520971794825a5a8e7}{if}}(\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{isset}}( \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\+\_\+\+POST}}\mbox{[} \textquotesingle{}\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{update\+\_\+end}}\textquotesingle{}\mbox{]})) \mbox{\hyperlink{install_2update_8php_a265927a298995a29fee91a3a35562c68}{display\+Migration\+Message}} (\$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{id}}, \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{msg}}="{}"{})
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{install_2update_8php_a903d70c262a4e644cb5af1f114d1f58e}{if}} (!defined( \textquotesingle{}\mbox{\hyperlink{apirest_8php_af6315dcee605fda09b6c3109c1b739b1}{GLPI\+\_\+\+ROOT}}\textquotesingle{}))
+\item 
+\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{global}} \mbox{\hyperlink{install_2update_8php_a56f6c6070edb21a35cfa9e1df79ba61c}{\$\+DB}}
+\item 
+\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{global}} \mbox{\hyperlink{install_2update_8php_aa9fe133cd0add44f9368cd127b144111}{\$\+GLPI}} = \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{new}} \mbox{\hyperlink{class_g_l_p_i}{GLPI}}()
+\item 
+\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{global}} \mbox{\hyperlink{install_2update_8php_a829bfa0114cf4c327b3ad59afda570fb}{\$\+GLPI\+\_\+\+CACHE}} = (\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{new}} \mbox{\hyperlink{class_glpi_1_1_cache_1_1_cache_manager}{Cache\+Manager}}())-\/$>$get\+Installer\+Cache\+Instance()
+\item 
+\mbox{\hyperlink{install_2update_8php_a13a7db07df65d01cfbca768f443084cc}{\$update}} = \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{new}} \mbox{\hyperlink{class_update}{Update}}(\$\mbox{\hyperlink{class_d_b}{DB}})
+\item 
+\mbox{\hyperlink{install_2update_8php_a300b0fc015de2b2043ea33e932d73d3f}{\$\+HEADER\+\_\+\+LOADED}} = true
+\item 
+\mbox{\hyperlink{dropdown_location_8php_a52332c22f84432520971794825a5a8e7}{if}}(\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{empty}}(\$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\+\_\+\+POST}}\mbox{[}"{}continuer"{}\mbox{]}) \&\&\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{empty}}(\$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\+\_\+\+POST}}\mbox{[}"{}from\+\_\+update"{}\mbox{]})) \mbox{\hyperlink{install_2update_8php_a224ad154ede3a358af27a26e088abced}{else}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Documentation des fonctions}
+\Hypertarget{install_2update_8php_a265927a298995a29fee91a3a35562c68}\label{install_2update_8php_a265927a298995a29fee91a3a35562c68} 
+\index{update.php@{update.php}!displayMigrationMessage@{displayMigrationMessage}}
+\index{displayMigrationMessage@{displayMigrationMessage}!update.php@{update.php}}
+\doxysubsubsection{\texorpdfstring{displayMigrationMessage()}{displayMigrationMessage()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{dropdown_location_8php_a52332c22f84432520971794825a5a8e7}{if}}(\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{isset}}(\$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\+\_\+\+POST}}\mbox{[}\textquotesingle{}\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{update\+\_\+end}}\textquotesingle{}\mbox{]})) display\+Migration\+Message (\begin{DoxyParamCaption}\item[{}]{\$id,  }\item[{}]{\$msg = {\ttfamily "{}"{}} }\end{DoxyParamCaption})}
+
+To be conserved to migrations before 0.\+80 since 0.\+80, migration is a new class 
+
+\doxysubsection{Documentation des variables}
+\Hypertarget{install_2update_8php_a56f6c6070edb21a35cfa9e1df79ba61c}\label{install_2update_8php_a56f6c6070edb21a35cfa9e1df79ba61c} 
+\index{update.php@{update.php}!\$DB@{\$DB}}
+\index{\$DB@{\$DB}!update.php@{update.php}}
+\doxysubsubsection{\texorpdfstring{\$DB}{\$DB}}
+{\footnotesize\ttfamily \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{global}} \$\mbox{\hyperlink{class_d_b}{DB}}}
+
+\Hypertarget{install_2update_8php_aa9fe133cd0add44f9368cd127b144111}\label{install_2update_8php_aa9fe133cd0add44f9368cd127b144111} 
+\index{update.php@{update.php}!\$GLPI@{\$GLPI}}
+\index{\$GLPI@{\$GLPI}!update.php@{update.php}}
+\doxysubsubsection{\texorpdfstring{\$GLPI}{\$GLPI}}
+{\footnotesize\ttfamily \$\mbox{\hyperlink{class_g_l_p_i}{GLPI}} = \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{new}} \mbox{\hyperlink{class_g_l_p_i}{GLPI}}()}
+
+\Hypertarget{install_2update_8php_a829bfa0114cf4c327b3ad59afda570fb}\label{install_2update_8php_a829bfa0114cf4c327b3ad59afda570fb} 
+\index{update.php@{update.php}!\$GLPI\_CACHE@{\$GLPI\_CACHE}}
+\index{\$GLPI\_CACHE@{\$GLPI\_CACHE}!update.php@{update.php}}
+\doxysubsubsection{\texorpdfstring{\$GLPI\_CACHE}{\$GLPI\_CACHE}}
+{\footnotesize\ttfamily \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{GLPI\+\_\+\+CACHE}} = (\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{new}} \mbox{\hyperlink{class_glpi_1_1_cache_1_1_cache_manager}{Cache\+Manager}}())-\/$>$get\+Installer\+Cache\+Instance()}
+
+\Hypertarget{install_2update_8php_a300b0fc015de2b2043ea33e932d73d3f}\label{install_2update_8php_a300b0fc015de2b2043ea33e932d73d3f} 
+\index{update.php@{update.php}!\$HEADER\_LOADED@{\$HEADER\_LOADED}}
+\index{\$HEADER\_LOADED@{\$HEADER\_LOADED}!update.php@{update.php}}
+\doxysubsubsection{\texorpdfstring{\$HEADER\_LOADED}{\$HEADER\_LOADED}}
+{\footnotesize\ttfamily \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{HEADER\+\_\+\+LOADED}} = true}
+
+\Hypertarget{install_2update_8php_a13a7db07df65d01cfbca768f443084cc}\label{install_2update_8php_a13a7db07df65d01cfbca768f443084cc} 
+\index{update.php@{update.php}!\$update@{\$update}}
+\index{\$update@{\$update}!update.php@{update.php}}
+\doxysubsubsection{\texorpdfstring{\$update}{\$update}}
+{\footnotesize\ttfamily \$update = \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{new}} \mbox{\hyperlink{class_update}{Update}}(\$\mbox{\hyperlink{class_d_b}{DB}})}
+
+\Hypertarget{install_2update_8php_a224ad154ede3a358af27a26e088abced}\label{install_2update_8php_a224ad154ede3a358af27a26e088abced} 
+\index{update.php@{update.php}!else@{else}}
+\index{else@{else}!update.php@{update.php}}
+\doxysubsubsection{\texorpdfstring{else}{else}}
+{\footnotesize\ttfamily \mbox{\hyperlink{dropdown_location_8php_a52332c22f84432520971794825a5a8e7}{if}} (\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{empty}}( \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\+\_\+\+POST}}\mbox{[}"{}continuer"{}\mbox{]}) \&\&\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{empty}}( \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\+\_\+\+POST}}\mbox{[}"{}from\+\_\+update"{}\mbox{]})) else}
+
+\Hypertarget{install_2update_8php_a903d70c262a4e644cb5af1f114d1f58e}\label{install_2update_8php_a903d70c262a4e644cb5af1f114d1f58e} 
+\index{update.php@{update.php}!if@{if}}
+\index{if@{if}!update.php@{update.php}}
+\doxysubsubsection{\texorpdfstring{if}{if}}
+{\footnotesize\ttfamily if(!defined(\textquotesingle{}\mbox{\hyperlink{apirest_8php_af6315dcee605fda09b6c3109c1b739b1}{GLPI\+\_\+\+ROOT}}\textquotesingle{})) (\begin{DoxyParamCaption}\item[{!}]{defined \textquotesingle{}\+GLPI\+\_\+\+ROOT\textquotesingle{} }\end{DoxyParamCaption})}
+

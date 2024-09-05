@@ -1,0 +1,139 @@
+\doxysection{Référence de l\textquotesingle{}interface Item\+Interface}
+\hypertarget{interface_symfony_1_1_contracts_1_1_cache_1_1_item_interface}{}\label{interface_symfony_1_1_contracts_1_1_cache_1_1_item_interface}\index{ItemInterface@{ItemInterface}}
+
+
+Graphe d\textquotesingle{}héritage de Item\+Interface\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{interface_symfony_1_1_contracts_1_1_cache_1_1_item_interface__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Graphe de collaboration de Item\+Interface\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=343pt]{interface_symfony_1_1_contracts_1_1_cache_1_1_item_interface__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{interface_symfony_1_1_contracts_1_1_cache_1_1_item_interface_a91200f994ee2d710072ddeec8f99d494}{tag}} (\$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{tags}})
+\item 
+\mbox{\hyperlink{interface_symfony_1_1_contracts_1_1_cache_1_1_item_interface_a0150021c084b4ba5db6c51e6dbb0e5b8}{get\+Metadata}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Fonctions membres publiques hérités de \mbox{\hyperlink{interface_psr_1_1_cache_1_1_cache_item_interface}{Cache\+Item\+Interface}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{interface_psr_1_1_cache_1_1_cache_item_interface_ad40c766ec8aced9770fe6ae269a1e781}{get\+Key}} ()
+\item 
+\mbox{\hyperlink{interface_psr_1_1_cache_1_1_cache_item_interface_ac33ee765f5ad9f134540bac393721cfe}{get}} ()
+\item 
+\mbox{\hyperlink{interface_psr_1_1_cache_1_1_cache_item_interface_a9edde1a99d52816445bf060251c49c01}{is\+Hit}} ()
+\item 
+\mbox{\hyperlink{interface_psr_1_1_cache_1_1_cache_item_interface_a4cb9716a3dead296474d25838294ed39}{set}} (\$value)
+\item 
+\mbox{\hyperlink{interface_psr_1_1_cache_1_1_cache_item_interface_a510b58afc5eb34fe1b3c63d157164fd2}{expires\+At}} (\$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{expiration}})
+\item 
+\mbox{\hyperlink{interface_psr_1_1_cache_1_1_cache_item_interface_af8b16c2a1196d10c281b9165811ca9ad}{expires\+After}} (\$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{time}})
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Champs de données}
+\begin{DoxyCompactItemize}
+\item 
+const \mbox{\hyperlink{interface_symfony_1_1_contracts_1_1_cache_1_1_item_interface_a87cca27024b7a29ecebfd85de244bba5}{METADATA\+\_\+\+EXPIRY}} = \textquotesingle{}\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{expiry}}\textquotesingle{}
+\item 
+const \mbox{\hyperlink{interface_symfony_1_1_contracts_1_1_cache_1_1_item_interface_a6f8d09087d8f9ea20f8a2ae3c494d9af}{METADATA\+\_\+\+CTIME}} = \textquotesingle{}\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{ctime}}\textquotesingle{}
+\item 
+const \mbox{\hyperlink{interface_symfony_1_1_contracts_1_1_cache_1_1_item_interface_a88e0936a0348ca87e7da50f2249e4a40}{METADATA\+\_\+\+TAGS}} = \textquotesingle{}\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{tags}}\textquotesingle{}
+\item 
+const \mbox{\hyperlink{interface_symfony_1_1_contracts_1_1_cache_1_1_item_interface_a2d94b5cb18e8a032bfe0a2c86b8d2808}{RESERVED\+\_\+\+CHARACTERS}} = \textquotesingle{}\{\}()/\textbackslash{}@\+:\textquotesingle{}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Augments PSR-\/6\textquotesingle{}s Cache\+Item\+Interface with support for tags and metadata.
+
+\begin{DoxyAuthor}{Auteur}
+Nicolas Grekas \href{mailto:p@tchwork.com}{\texttt{ p@tchwork.\+com}} 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Documentation des fonctions membres}
+\Hypertarget{interface_symfony_1_1_contracts_1_1_cache_1_1_item_interface_a0150021c084b4ba5db6c51e6dbb0e5b8}\label{interface_symfony_1_1_contracts_1_1_cache_1_1_item_interface_a0150021c084b4ba5db6c51e6dbb0e5b8} 
+\index{ItemInterface@{ItemInterface}!getMetadata@{getMetadata}}
+\index{getMetadata@{getMetadata}!ItemInterface@{ItemInterface}}
+\doxysubsubsection{\texorpdfstring{getMetadata()}{getMetadata()}}
+{\footnotesize\ttfamily get\+Metadata (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Returns a list of metadata info that were saved alongside with the cached value.
+
+See Item\+Interface\+::\+METADATA\+\_\+\texorpdfstring{$\ast$}{*} consts for keys potentially found in the returned array. 
+
+Implémenté dans \mbox{\hyperlink{class_symfony_1_1_component_1_1_cache_1_1_cache_item_a0150021c084b4ba5db6c51e6dbb0e5b8}{Cache\+Item}}.
+
+\Hypertarget{interface_symfony_1_1_contracts_1_1_cache_1_1_item_interface_a91200f994ee2d710072ddeec8f99d494}\label{interface_symfony_1_1_contracts_1_1_cache_1_1_item_interface_a91200f994ee2d710072ddeec8f99d494} 
+\index{ItemInterface@{ItemInterface}!tag@{tag}}
+\index{tag@{tag}!ItemInterface@{ItemInterface}}
+\doxysubsubsection{\texorpdfstring{tag()}{tag()}}
+{\footnotesize\ttfamily tag (\begin{DoxyParamCaption}\item[{}]{\$tags }\end{DoxyParamCaption})}
+
+Adds a tag to a cache item.
+
+Tags are strings that follow the same validation rules as keys.
+
+
+\begin{DoxyParams}[1]{Paramètres}
+string | string\mbox{[}$\,$\mbox{]} & {\em \$tags} & A tag or array of tags\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+\$this
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Invalid\+Argument\+Exception} & When \$tag is not valid \\
+\hline
+{\em Cache\+Exception} & When the item comes from a pool that is not tag-\/aware \\
+\hline
+\end{DoxyExceptions}
+
+
+Implémenté dans \mbox{\hyperlink{class_symfony_1_1_component_1_1_cache_1_1_cache_item_a91200f994ee2d710072ddeec8f99d494}{Cache\+Item}}.
+
+
+
+\doxysubsection{Documentation des champs}
+\Hypertarget{interface_symfony_1_1_contracts_1_1_cache_1_1_item_interface_a6f8d09087d8f9ea20f8a2ae3c494d9af}\label{interface_symfony_1_1_contracts_1_1_cache_1_1_item_interface_a6f8d09087d8f9ea20f8a2ae3c494d9af} 
+\index{ItemInterface@{ItemInterface}!METADATA\_CTIME@{METADATA\_CTIME}}
+\index{METADATA\_CTIME@{METADATA\_CTIME}!ItemInterface@{ItemInterface}}
+\doxysubsubsection{\texorpdfstring{METADATA\_CTIME}{METADATA\_CTIME}}
+{\footnotesize\ttfamily const METADATA\+\_\+\+CTIME = \textquotesingle{}\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{ctime}}\textquotesingle{}}
+
+References the time the item took to be created, in milliseconds. \Hypertarget{interface_symfony_1_1_contracts_1_1_cache_1_1_item_interface_a87cca27024b7a29ecebfd85de244bba5}\label{interface_symfony_1_1_contracts_1_1_cache_1_1_item_interface_a87cca27024b7a29ecebfd85de244bba5} 
+\index{ItemInterface@{ItemInterface}!METADATA\_EXPIRY@{METADATA\_EXPIRY}}
+\index{METADATA\_EXPIRY@{METADATA\_EXPIRY}!ItemInterface@{ItemInterface}}
+\doxysubsubsection{\texorpdfstring{METADATA\_EXPIRY}{METADATA\_EXPIRY}}
+{\footnotesize\ttfamily const METADATA\+\_\+\+EXPIRY = \textquotesingle{}\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{expiry}}\textquotesingle{}}
+
+References the Unix timestamp stating when the item will expire. \Hypertarget{interface_symfony_1_1_contracts_1_1_cache_1_1_item_interface_a88e0936a0348ca87e7da50f2249e4a40}\label{interface_symfony_1_1_contracts_1_1_cache_1_1_item_interface_a88e0936a0348ca87e7da50f2249e4a40} 
+\index{ItemInterface@{ItemInterface}!METADATA\_TAGS@{METADATA\_TAGS}}
+\index{METADATA\_TAGS@{METADATA\_TAGS}!ItemInterface@{ItemInterface}}
+\doxysubsubsection{\texorpdfstring{METADATA\_TAGS}{METADATA\_TAGS}}
+{\footnotesize\ttfamily const METADATA\+\_\+\+TAGS = \textquotesingle{}\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{tags}}\textquotesingle{}}
+
+References the list of tags that were assigned to the item, as string\mbox{[}\mbox{]}. \Hypertarget{interface_symfony_1_1_contracts_1_1_cache_1_1_item_interface_a2d94b5cb18e8a032bfe0a2c86b8d2808}\label{interface_symfony_1_1_contracts_1_1_cache_1_1_item_interface_a2d94b5cb18e8a032bfe0a2c86b8d2808} 
+\index{ItemInterface@{ItemInterface}!RESERVED\_CHARACTERS@{RESERVED\_CHARACTERS}}
+\index{RESERVED\_CHARACTERS@{RESERVED\_CHARACTERS}!ItemInterface@{ItemInterface}}
+\doxysubsubsection{\texorpdfstring{RESERVED\_CHARACTERS}{RESERVED\_CHARACTERS}}
+{\footnotesize\ttfamily const RESERVED\+\_\+\+CHARACTERS = \textquotesingle{}\{\}()/\textbackslash{}@\+:\textquotesingle{}}
+
+Reserved characters that cannot be used in a key or tag. 
+
+La documentation de cette interface a été générée à partir du fichier suivant \+:\begin{DoxyCompactItemize}
+\item 
+public/glpi/vendor/symfony/cache-\/contracts/\mbox{\hyperlink{_item_interface_8php}{Item\+Interface.\+php}}\end{DoxyCompactItemize}

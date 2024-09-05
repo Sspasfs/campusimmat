@@ -1,0 +1,80 @@
+\doxysection{Référence de l\textquotesingle{}interface Protocol\+Interface}
+\hypertarget{interface_glpi_1_1_mail_1_1_protocol_1_1_protocol_interface}{}\label{interface_glpi_1_1_mail_1_1_protocol_1_1_protocol_interface}\index{ProtocolInterface@{ProtocolInterface}}
+
+
+Graphe de collaboration de Protocol\+Interface\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=200pt]{interface_glpi_1_1_mail_1_1_protocol_1_1_protocol_interface__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{interface_glpi_1_1_mail_1_1_protocol_1_1_protocol_interface_a801d1842a28565ff02993b526ba0c693}{set\+No\+Validate\+Cert}} (bool \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{novalidatecert}})
+\item 
+\mbox{\hyperlink{interface_glpi_1_1_mail_1_1_protocol_1_1_protocol_interface_ab10ea11736fd728de44d4a1e4284f947}{connect}} (\$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{host}}, \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{port}}=null, \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{ssl}}=false)
+\item 
+\mbox{\hyperlink{interface_glpi_1_1_mail_1_1_protocol_1_1_protocol_interface_ae99dd092732ecd5e009bbaf741cbd8f4}{login}} (\$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{user}}, \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{password}})
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Documentation des fonctions membres}
+\Hypertarget{interface_glpi_1_1_mail_1_1_protocol_1_1_protocol_interface_ab10ea11736fd728de44d4a1e4284f947}\label{interface_glpi_1_1_mail_1_1_protocol_1_1_protocol_interface_ab10ea11736fd728de44d4a1e4284f947} 
+\index{ProtocolInterface@{ProtocolInterface}!connect@{connect}}
+\index{connect@{connect}!ProtocolInterface@{ProtocolInterface}}
+\doxysubsubsection{\texorpdfstring{connect()}{connect()}}
+{\footnotesize\ttfamily connect (\begin{DoxyParamCaption}\item[{}]{\$host,  }\item[{}]{\$port = {\ttfamily null},  }\item[{}]{\$ssl = {\ttfamily false} }\end{DoxyParamCaption})}
+
+Open connection to server.
+
+
+\begin{DoxyParams}[1]{Paramètres}
+string & {\em \$host} & hostname or IP address of POP3 server \\
+\hline
+int | null & {\em \$port} & server port, null value with fallback to default port \\
+\hline
+string | bool & {\em \$ssl} & use \textquotesingle{}SSL\textquotesingle{}, \textquotesingle{}TLS\textquotesingle{} or false \\
+\hline
+\end{DoxyParams}
+\Hypertarget{interface_glpi_1_1_mail_1_1_protocol_1_1_protocol_interface_ae99dd092732ecd5e009bbaf741cbd8f4}\label{interface_glpi_1_1_mail_1_1_protocol_1_1_protocol_interface_ae99dd092732ecd5e009bbaf741cbd8f4} 
+\index{ProtocolInterface@{ProtocolInterface}!login@{login}}
+\index{login@{login}!ProtocolInterface@{ProtocolInterface}}
+\doxysubsubsection{\texorpdfstring{login()}{login()}}
+{\footnotesize\ttfamily login (\begin{DoxyParamCaption}\item[{}]{\$user,  }\item[{}]{\$password }\end{DoxyParamCaption})}
+
+Login to server.
+
+
+\begin{DoxyParams}[1]{Paramètres}
+string & {\em \$user} & username \\
+\hline
+string & {\em \$password} & password\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+bool 
+\end{DoxyReturn}
+\Hypertarget{interface_glpi_1_1_mail_1_1_protocol_1_1_protocol_interface_a801d1842a28565ff02993b526ba0c693}\label{interface_glpi_1_1_mail_1_1_protocol_1_1_protocol_interface_a801d1842a28565ff02993b526ba0c693} 
+\index{ProtocolInterface@{ProtocolInterface}!setNoValidateCert@{setNoValidateCert}}
+\index{setNoValidateCert@{setNoValidateCert}!ProtocolInterface@{ProtocolInterface}}
+\doxysubsubsection{\texorpdfstring{setNoValidateCert()}{setNoValidateCert()}}
+{\footnotesize\ttfamily set\+No\+Validate\+Cert (\begin{DoxyParamCaption}\item[{bool}]{\$novalidatecert }\end{DoxyParamCaption})}
+
+Do not validate SSL certificate
+
+
+\begin{DoxyParams}[1]{Paramètres}
+bool & {\em \$novalidatecert} & Set to true to disable certificate validation\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+self 
+\end{DoxyReturn}
+
+
+La documentation de cette interface a été générée à partir du fichier suivant \+:\begin{DoxyCompactItemize}
+\item 
+public/glpi/src/\+Mail/\+Protocol/\mbox{\hyperlink{_protocol_interface_8php}{Protocol\+Interface.\+php}}\end{DoxyCompactItemize}

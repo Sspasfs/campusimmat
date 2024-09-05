@@ -1,0 +1,118 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_sabre_1_1_h_t_t_p_1_1_sapi" xml:lang="fr">
+<title>Référence de la classe Sapi</title>
+<indexterm><primary>Sapi</primary></indexterm>
+Graphe de collaboration de Sapi:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_sabre_1_1_h_t_t_p_1_1_sapi__coll__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Fonctions membres publiques statiques    </title>
+        <itemizedlist>
+            <listitem><para>static <link linkend="_class_sabre_1_1_h_t_t_p_1_1_sapi_1a8bc323d82e5265f16d9cd356d0a02dba">getRequest</link> ()</para>
+</listitem>
+            <listitem><para>static <link linkend="_class_sabre_1_1_h_t_t_p_1_1_sapi_1a400d4ff4eb312fc5e37f2d5e454b4df6">sendResponse</link> (<link linkend="_interface_sabre_1_1_h_t_t_p_1_1_response_interface">ResponseInterface</link> $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">response</link>)</para>
+</listitem>
+            <listitem><para>static <link linkend="_class_sabre_1_1_h_t_t_p_1_1_sapi_1a8c3273b75d87a95310c80e00ccd66ff1">createFromServerArray</link> (array $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">serverArray</link>)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Description détaillée</title>
+
+<para>PHP SAPI.</para>
+
+<para>This object is responsible for:<orderedlist>
+<listitem>
+<para>Constructing a Request object based on the current HTTP request sent to the PHP process.</para>
+</listitem><listitem>
+<para>Sending the Response object back to the client.</para>
+</listitem></orderedlist>
+</para>
+
+<para>It could be said that this class provides a mapping between the Request and Response objects, and php&apos;s:</para>
+
+<para><itemizedlist>
+<listitem>
+<para>$_SERVER</para>
+</listitem><listitem>
+<para>$_POST</para>
+</listitem><listitem>
+<para>$_FILES</para>
+</listitem><listitem>
+<para>php://input</para>
+</listitem><listitem>
+<para><link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">echo()</link></para>
+</listitem><listitem>
+<para>header()</para>
+</listitem><listitem>
+<para>php://output</para>
+</listitem></itemizedlist>
+</para>
+
+<para>You can choose to either call all these methods statically, but you can also instantiate this as an object to allow for polymorphism.</para>
+
+<para><formalpara><title>Copyright</title>
+
+<para>Copyright (C) fruux GmbH (<link xlink:href="https://fruux.com/">https://fruux.com/</link>) </para>
+</formalpara>
+<formalpara><title>Auteur</title>
+
+<para>Evert Pot (<link xlink:href="http://evertpot.com/">http://evertpot.com/</link>) @license <link xlink:href="http://sabre.io/license/">http://sabre.io/license/</link> Modified BSD License </para>
+</formalpara>
+</para>
+</section>
+<section>
+<title>Documentation des fonctions membres</title>
+<anchor xml:id="_class_sabre_1_1_h_t_t_p_1_1_sapi_1a8c3273b75d87a95310c80e00ccd66ff1"/><section>
+    <title>createFromServerArray()</title>
+<indexterm><primary>createFromServerArray</primary><secondary>Sapi</secondary></indexterm>
+<indexterm><primary>Sapi</primary><secondary>createFromServerArray</secondary></indexterm>
+<para><computeroutput>static createFromServerArray (array $serverArray)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>This static method will create a new Request object, based on a PHP $_SERVER array.</para>
+
+<para>REQUEST_URI and REQUEST_METHOD are required. </para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_sabre_1_1_h_t_t_p_1_1_sapi_a8c3273b75d87a95310c80e00ccd66ff1_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_sabre_1_1_h_t_t_p_1_1_sapi_1a8bc323d82e5265f16d9cd356d0a02dba"/><section>
+    <title>getRequest()</title>
+<indexterm><primary>getRequest</primary><secondary>Sapi</secondary></indexterm>
+<indexterm><primary>Sapi</primary><secondary>getRequest</secondary></indexterm>
+<para><computeroutput>static getRequest ( )<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>This static method will create a new Request object, based on the current PHP request. </para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_sabre_1_1_h_t_t_p_1_1_sapi_a8bc323d82e5265f16d9cd356d0a02dba_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_sabre_1_1_h_t_t_p_1_1_sapi_1a400d4ff4eb312fc5e37f2d5e454b4df6"/><section>
+    <title>sendResponse()</title>
+<indexterm><primary>sendResponse</primary><secondary>Sapi</secondary></indexterm>
+<indexterm><primary>Sapi</primary><secondary>sendResponse</secondary></indexterm>
+<para><computeroutput>static sendResponse (<link linkend="_interface_sabre_1_1_h_t_t_p_1_1_response_interface">ResponseInterface</link> $response)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>Sends the HTTP response back to a HTTP client.</para>
+
+<para>This calls php&apos;s header() function and streams the body to php://output. </para>
+</section>
+<para>
+La documentation de cette classe a été générée à partir du fichier suivant :</para>
+public/glpi/vendor/sabre/http/lib/<link linkend="__sapi_8php">Sapi.php</link></section>
+</section>

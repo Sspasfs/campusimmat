@@ -1,0 +1,98 @@
+\doxysection{Référence de l\textquotesingle{}interface Cache\+Interface}
+\hypertarget{interface_symfony_1_1_contracts_1_1_cache_1_1_cache_interface}{}\label{interface_symfony_1_1_contracts_1_1_cache_1_1_cache_interface}\index{CacheInterface@{CacheInterface}}
+
+
+Graphe d\textquotesingle{}héritage de Cache\+Interface\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{interface_symfony_1_1_contracts_1_1_cache_1_1_cache_interface__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Graphe de collaboration de Cache\+Interface\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=226pt]{interface_symfony_1_1_contracts_1_1_cache_1_1_cache_interface__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{interface_symfony_1_1_contracts_1_1_cache_1_1_cache_interface_abf2340ccf994c063bd1e7e3a94445108}{get}} (string \$key, \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{callable}} \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{callback}}, float \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{beta}}=null, array \&\$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{metadata}}=null)
+\item 
+\mbox{\hyperlink{interface_symfony_1_1_contracts_1_1_cache_1_1_cache_interface_ac03d0331371567f0a97a6782746abd55}{delete}} (string \$key)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Covers most simple to advanced caching needs.
+
+\begin{DoxyAuthor}{Auteur}
+Nicolas Grekas \href{mailto:p@tchwork.com}{\texttt{ p@tchwork.\+com}} 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Documentation des fonctions membres}
+\Hypertarget{interface_symfony_1_1_contracts_1_1_cache_1_1_cache_interface_ac03d0331371567f0a97a6782746abd55}\label{interface_symfony_1_1_contracts_1_1_cache_1_1_cache_interface_ac03d0331371567f0a97a6782746abd55} 
+\index{CacheInterface@{CacheInterface}!delete@{delete}}
+\index{delete@{delete}!CacheInterface@{CacheInterface}}
+\doxysubsubsection{\texorpdfstring{delete()}{delete()}}
+{\footnotesize\ttfamily delete (\begin{DoxyParamCaption}\item[{string}]{\$key }\end{DoxyParamCaption})}
+
+Removes an item from the pool.
+
+
+\begin{DoxyParams}[1]{Paramètres}
+string & {\em \$key} & The key to delete\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Invalid\+Argument\+Exception} & When \$key is not valid\\
+\hline
+\end{DoxyExceptions}
+\begin{DoxyReturn}{Renvoie}
+bool True if the item was successfully removed, false if there was any error 
+\end{DoxyReturn}
+\Hypertarget{interface_symfony_1_1_contracts_1_1_cache_1_1_cache_interface_abf2340ccf994c063bd1e7e3a94445108}\label{interface_symfony_1_1_contracts_1_1_cache_1_1_cache_interface_abf2340ccf994c063bd1e7e3a94445108} 
+\index{CacheInterface@{CacheInterface}!get@{get}}
+\index{get@{get}!CacheInterface@{CacheInterface}}
+\doxysubsubsection{\texorpdfstring{get()}{get()}}
+{\footnotesize\ttfamily get (\begin{DoxyParamCaption}\item[{string}]{\$key,  }\item[{\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{callable}}}]{\$callback,  }\item[{float}]{\$beta = {\ttfamily null},  }\item[{array \&}]{\$metadata = {\ttfamily null} }\end{DoxyParamCaption})}
+
+Fetches a value from the pool or computes it if not found.
+
+On cache misses, a callback is called that should return the missing value. This callback is given a PSR-\/6 Cache\+Item\+Interface instance corresponding to the requested key, that could be used e.\+g. for expiration control. It could also be an Item\+Interface instance when its additional features are needed.
+
+
+\begin{DoxyParams}[1]{Paramètres}
+string & {\em \$key} & The key of the item to retrieve from the cache \\
+\hline
+callable | Callback\+Interface & {\em \$callback} & Should return the computed value for the given key/item \\
+\hline
+float | null & {\em \$beta} & A float that, as it grows, controls the likeliness of triggering early expiration. 0 disables it, INF forces immediate expiration. The default (or providing null) is implementation dependent but should typically be 1.\+0, which should provide optimal stampede protection. See \href{https://en.wikipedia.org/wiki/Cache_stampede\#Probabilistic_early_expiration}{\texttt{ https\+://en.\+wikipedia.\+org/wiki/\+Cache\+\_\+stampede\#\+Probabilistic\+\_\+early\+\_\+expiration}} \\
+\hline
+array & {\em \&\$metadata} & The metadata of the cached item \{\\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{Voir également}
+Item\+Interface\+::get\+Metadata()\}
+\end{DoxySeeAlso}
+\begin{DoxyReturn}{Renvoie}
+mixed
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Invalid\+Argument\+Exception} & When \$key is not valid or when \$beta is negative \\
+\hline
+\end{DoxyExceptions}
+
+
+La documentation de cette interface a été générée à partir du fichier suivant \+:\begin{DoxyCompactItemize}
+\item 
+public/glpi/vendor/symfony/cache-\/contracts/\mbox{\hyperlink{symfony_2cache-contracts_2_cache_interface_8php}{Cache\+Interface.\+php}}\end{DoxyCompactItemize}

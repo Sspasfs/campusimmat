@@ -1,0 +1,372 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_guzzle_http_1_1_middleware" xml:lang="fr">
+<title>Référence de la classe Middleware</title>
+<indexterm><primary>Middleware</primary></indexterm>
+Graphe de collaboration de Middleware:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_guzzle_http_1_1_middleware__coll__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Fonctions membres publiques statiques    </title>
+        <itemizedlist>
+            <listitem><para>static <link linkend="_class_guzzle_http_1_1_middleware_1a0a7386d15097842933da8159c4921c90">cookies</link> ()</para>
+</listitem>
+            <listitem><para>static <link linkend="_class_guzzle_http_1_1_middleware_1aa8c949b69dd0b7a273d99cd3fdc4d334">httpErrors</link> (<link linkend="_interface_guzzle_http_1_1_body_summarizer_interface">BodySummarizerInterface</link> $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">bodySummarizer</link>=null)</para>
+</listitem>
+            <listitem><para>static <link linkend="_class_guzzle_http_1_1_middleware_1abf75088bbab516ae9edd82d01b1b1244">history</link> (&amp;$<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">container</link>)</para>
+</listitem>
+            <listitem><para>static <link linkend="_class_guzzle_http_1_1_middleware_1ae094fc8227e09488590d64fde257a73a">tap</link> (<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">callable</link> $before=null, <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">callable</link> $after=null)</para>
+</listitem>
+            <listitem><para>static <link linkend="_class_guzzle_http_1_1_middleware_1a0ae541ec78dc5ad44024ab710600611b">redirect</link> ()</para>
+</listitem>
+            <listitem><para>static <link linkend="_class_guzzle_http_1_1_middleware_1a9fabac6fd889e6675788e8ec083e069b">retry</link> (<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">callable</link> $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">decider</link>, <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">callable</link> $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">delay</link>=null)</para>
+</listitem>
+            <listitem><para>static <link linkend="_class_guzzle_http_1_1_middleware_1abb36cb3bde4197bf46e2daba27f63359">log</link> (<link linkend="_interface_psr_1_1_log_1_1_logger_interface">LoggerInterface</link> $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">logger</link>, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">formatter</link>, string $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">logLevel</link>=&apos;info&apos;)</para>
+</listitem>
+            <listitem><para>static <link linkend="_class_guzzle_http_1_1_middleware_1a0e5486498b3a2342a5b8370fa696380c">prepareBody</link> ()</para>
+</listitem>
+            <listitem><para>static <link linkend="_class_guzzle_http_1_1_middleware_1a9018f0e7032d680fb3c4c2d479bf3b65">mapRequest</link> (<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">callable</link> $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">fn</link>)</para>
+</listitem>
+            <listitem><para>static <link linkend="_class_guzzle_http_1_1_middleware_1a1bc5b856b7d9d0bb24f42b81dd2a654b">mapResponse</link> (<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">callable</link> $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">fn</link>)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Description détaillée</title>
+
+<para>Functions used to create and wrap handlers with handler middleware. </para>
+</section>
+<section>
+<title>Documentation des fonctions membres</title>
+<anchor xml:id="_class_guzzle_http_1_1_middleware_1a0a7386d15097842933da8159c4921c90"/><section>
+    <title>cookies()</title>
+<indexterm><primary>cookies</primary><secondary>Middleware</secondary></indexterm>
+<indexterm><primary>Middleware</primary><secondary>cookies</secondary></indexterm>
+<para><computeroutput>static cookies ( )<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>Middleware that adds cookies to requests.</para>
+
+<para>The options array must be set to a CookieJarInterface in order to use cookies. This is typically handled for you by a client.</para>
+
+<para><formalpara><title>Renvoie</title>
+
+<para>callable Returns a function that accepts the next handler. </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_class_guzzle_http_1_1_middleware_1abf75088bbab516ae9edd82d01b1b1244"/><section>
+    <title>history()</title>
+<indexterm><primary>history</primary><secondary>Middleware</secondary></indexterm>
+<indexterm><primary>Middleware</primary><secondary>history</secondary></indexterm>
+<para><computeroutput>static history (&amp; $container)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>Middleware that pushes history data to an ArrayAccess container.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>array|</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                ArrayAccess&lt;int, array&gt; $container Container to hold the history (by reference).</para>
+
+<para><formalpara><title>Renvoie</title>
+
+<para><link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">callable(callable)</link>: callable Returns a function that accepts the next handler.</para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry></entry>
+<entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                InvalidArgumentException if container is not an array or ArrayAccess. </para>
+</section>
+<anchor xml:id="_class_guzzle_http_1_1_middleware_1aa8c949b69dd0b7a273d99cd3fdc4d334"/><section>
+    <title>httpErrors()</title>
+<indexterm><primary>httpErrors</primary><secondary>Middleware</secondary></indexterm>
+<indexterm><primary>Middleware</primary><secondary>httpErrors</secondary></indexterm>
+<para><computeroutput>static httpErrors (<link linkend="_interface_guzzle_http_1_1_body_summarizer_interface">BodySummarizerInterface</link> $bodySummarizer = <computeroutput>null</computeroutput>
+)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>Middleware that throws exceptions for 4xx or 5xx responses when the &quot;http_errors&quot; request option is set to true.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>BodySummarizerInterface | null</entry><entry>$bodySummarizer</entry><entry>
+<para>The body summarizer to use in exception messages.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para><link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">callable(callable)</link>: callable Returns a function that accepts the next handler. </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_class_guzzle_http_1_1_middleware_1abb36cb3bde4197bf46e2daba27f63359"/><section>
+    <title>log()</title>
+<indexterm><primary>log</primary><secondary>Middleware</secondary></indexterm>
+<indexterm><primary>Middleware</primary><secondary>log</secondary></indexterm>
+<para><computeroutput>static log (<link linkend="_interface_psr_1_1_log_1_1_logger_interface">LoggerInterface</link> $logger,  $formatter, string $logLevel = <computeroutput>&apos;info&apos;</computeroutput>
+)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>Middleware that logs requests, responses, and errors using a message formatter.</para>
+
+<para>@phpstan-param \Psr\Log\LogLevel::* $logLevel Level at which to log requests.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>LoggerInterface</entry><entry>$logger</entry><entry>
+<para>Logs messages. </para>
+</entry>
+                            </row>
+                            <row>
+<entry>MessageFormatterInterface | MessageFormatter</entry><entry>$formatter</entry><entry>
+<para>Formatter used to create message strings. </para>
+</entry>
+                            </row>
+                            <row>
+<entry>string</entry><entry>$logLevel</entry><entry>
+<para>Level at which to log requests.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>callable Returns a function that accepts the next handler. </para>
+</formalpara>
+</para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_guzzle_http_1_1_middleware_abb36cb3bde4197bf46e2daba27f63359_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_guzzle_http_1_1_middleware_1a9018f0e7032d680fb3c4c2d479bf3b65"/><section>
+    <title>mapRequest()</title>
+<indexterm><primary>mapRequest</primary><secondary>Middleware</secondary></indexterm>
+<indexterm><primary>Middleware</primary><secondary>mapRequest</secondary></indexterm>
+<para><computeroutput>static mapRequest (<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">callable</link> $fn)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>Middleware that applies a map function to the request before passing to the next handler.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>callable</entry><entry>$fn</entry><entry>
+<para>Function that accepts a RequestInterface and returns a RequestInterface. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
+<anchor xml:id="_class_guzzle_http_1_1_middleware_1a1bc5b856b7d9d0bb24f42b81dd2a654b"/><section>
+    <title>mapResponse()</title>
+<indexterm><primary>mapResponse</primary><secondary>Middleware</secondary></indexterm>
+<indexterm><primary>Middleware</primary><secondary>mapResponse</secondary></indexterm>
+<para><computeroutput>static mapResponse (<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">callable</link> $fn)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>Middleware that applies a map function to the resolved promise&apos;s response.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>callable</entry><entry>$fn</entry><entry>
+<para>Function that accepts a ResponseInterface and returns a ResponseInterface. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
+<anchor xml:id="_class_guzzle_http_1_1_middleware_1a0e5486498b3a2342a5b8370fa696380c"/><section>
+    <title>prepareBody()</title>
+<indexterm><primary>prepareBody</primary><secondary>Middleware</secondary></indexterm>
+<indexterm><primary>Middleware</primary><secondary>prepareBody</secondary></indexterm>
+<para><computeroutput>static prepareBody ( )<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>This middleware adds a default content-type if possible, a default content-length or transfer-encoding header, and the expect header. </para>
+</section>
+<anchor xml:id="_class_guzzle_http_1_1_middleware_1a0ae541ec78dc5ad44024ab710600611b"/><section>
+    <title>redirect()</title>
+<indexterm><primary>redirect</primary><secondary>Middleware</secondary></indexterm>
+<indexterm><primary>Middleware</primary><secondary>redirect</secondary></indexterm>
+<para><computeroutput>static redirect ( )<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>Middleware that handles request redirects.</para>
+
+<para><formalpara><title>Renvoie</title>
+
+<para>callable Returns a function that accepts the next handler. </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_class_guzzle_http_1_1_middleware_1a9fabac6fd889e6675788e8ec083e069b"/><section>
+    <title>retry()</title>
+<indexterm><primary>retry</primary><secondary>Middleware</secondary></indexterm>
+<indexterm><primary>Middleware</primary><secondary>retry</secondary></indexterm>
+<para><computeroutput>static retry (<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">callable</link> $decider, <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">callable</link> $delay = <computeroutput>null</computeroutput>
+)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>Middleware that retries requests based on the boolean result of invoking the provided &quot;decider&quot; function.</para>
+
+<para>If no delay function is provided, a simple implementation of exponential backoff will be utilized.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>callable</entry><entry>$decider</entry><entry>
+<para>Function that accepts the number of retries, a request, [response], and [exception] and returns true if the request is to be retried. </para>
+</entry>
+                            </row>
+                            <row>
+<entry>callable</entry><entry>$delay</entry><entry>
+<para>Function that accepts the number of retries and returns the number of milliseconds to delay.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>callable Returns a function that accepts the next handler. </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_class_guzzle_http_1_1_middleware_1ae094fc8227e09488590d64fde257a73a"/><section>
+    <title>tap()</title>
+<indexterm><primary>tap</primary><secondary>Middleware</secondary></indexterm>
+<indexterm><primary>Middleware</primary><secondary>tap</secondary></indexterm>
+<para><computeroutput>static tap (<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">callable</link> $before = <computeroutput>null</computeroutput>
+, <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">callable</link> $after = <computeroutput>null</computeroutput>
+)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>Middleware that invokes a callback before and after sending a request.</para>
+
+<para>The provided listener cannot modify or alter the response. It simply &quot;taps&quot; into the chain to be notified before returning the promise. The before listener accepts a request and options array, and the after listener accepts a request, options array, and response promise.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>callable</entry><entry>$before</entry><entry>
+<para>Function to invoke before forwarding the request. </para>
+</entry>
+                            </row>
+                            <row>
+<entry>callable</entry><entry>$after</entry><entry>
+<para>Function invoked after forwarding.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>callable Returns a function that accepts the next handler. </para>
+</formalpara>
+</para>
+</section>
+<para>
+La documentation de cette classe a été générée à partir du fichier suivant :</para>
+public/glpi/vendor/guzzlehttp/guzzle/src/<link linkend="__middleware_8php">Middleware.php</link></section>
+</section>

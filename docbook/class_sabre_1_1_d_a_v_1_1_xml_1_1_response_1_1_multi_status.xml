@@ -1,0 +1,221 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_sabre_1_1_d_a_v_1_1_xml_1_1_response_1_1_multi_status" xml:lang="fr">
+<title>Référence de la classe MultiStatus</title>
+<indexterm><primary>MultiStatus</primary></indexterm>
+Graphe d&apos;héritage de MultiStatus:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_sabre_1_1_d_a_v_1_1_xml_1_1_response_1_1_multi_status__inherit__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Graphe de collaboration de MultiStatus:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_sabre_1_1_d_a_v_1_1_xml_1_1_response_1_1_multi_status__coll__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Fonctions membres publiques    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_sabre_1_1_d_a_v_1_1_xml_1_1_response_1_1_multi_status_1a8124ca8d4554db733d6402cbcb3ec2e9">__construct</link> (array $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">responses</link>, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">syncToken</link>=null)</para>
+</listitem>
+            <listitem><para><link linkend="_class_sabre_1_1_d_a_v_1_1_xml_1_1_response_1_1_multi_status_1a23b5694091fd594edd4b7e2d9ea7ab08">getResponses</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_class_sabre_1_1_d_a_v_1_1_xml_1_1_response_1_1_multi_status_1a88cf40715fea416e00bc445278bc704b">getSyncToken</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_class_sabre_1_1_d_a_v_1_1_xml_1_1_response_1_1_multi_status_1a6f00760b1f920df7bb8ecf88455eb143">xmlSerialize</link> (<link linkend="_class_sabre_1_1_xml_1_1_writer">Writer</link> $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">writer</link>)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Fonctions membres publiques statiques    </title>
+        <itemizedlist>
+            <listitem><para>static <link linkend="_class_sabre_1_1_d_a_v_1_1_xml_1_1_response_1_1_multi_status_1ab84ab21637e9a2aabd4659e15d9c6804">xmlDeserialize</link> (<link linkend="_class_sabre_1_1_xml_1_1_reader">Reader</link> $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">reader</link>)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Attributs protégés    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_sabre_1_1_d_a_v_1_1_xml_1_1_response_1_1_multi_status_1aa8987136fed3960c6c78dedb68a3b061">$responses</link></para>
+</listitem>
+            <listitem><para><link linkend="_class_sabre_1_1_d_a_v_1_1_xml_1_1_response_1_1_multi_status_1a9a83756c49779547e8d86f12221d6e1b">$syncToken</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Description détaillée</title>
+
+<para>WebDAV MultiStatus parser.</para>
+
+<para>This class parses the {DAV:}multistatus response, as defined in: <link xlink:href="https://tools.ietf.org/html/rfc4918#section-14.16">https://tools.ietf.org/html/rfc4918#section-14.16</link></para>
+
+<para>And it also adds the {DAV:}synctoken change from: <link xlink:href="http://tools.ietf.org/html/rfc6578#section-6.4">http://tools.ietf.org/html/rfc6578#section-6.4</link></para>
+
+<para><formalpara><title>Copyright</title>
+
+<para>Copyright (C) fruux GmbH (<link xlink:href="https://fruux.com/">https://fruux.com/</link>) </para>
+</formalpara>
+<formalpara><title>Auteur</title>
+
+<para>Evert Pot (<link xlink:href="http://evertpot.com/">http://evertpot.com/</link>) @license <link xlink:href="http://sabre.io/license/">http://sabre.io/license/</link> Modified BSD License </para>
+</formalpara>
+</para>
+</section>
+<section>
+<title>Documentation des constructeurs et destructeur</title>
+<anchor xml:id="_class_sabre_1_1_d_a_v_1_1_xml_1_1_response_1_1_multi_status_1a8124ca8d4554db733d6402cbcb3ec2e9"/><section>
+    <title>__construct()</title>
+<indexterm><primary>__construct</primary><secondary>MultiStatus</secondary></indexterm>
+<indexterm><primary>MultiStatus</primary><secondary>__construct</secondary></indexterm>
+<para><computeroutput>__construct (array $responses,  $syncToken = <computeroutput>null</computeroutput>
+)</computeroutput></para>
+<para>Constructor.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>\Sabre\DAV\Xml\Element\Response[]</entry><entry>$responses</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>string</entry><entry>$syncToken</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
+</section>
+<section>
+<title>Documentation des fonctions membres</title>
+<anchor xml:id="_class_sabre_1_1_d_a_v_1_1_xml_1_1_response_1_1_multi_status_1a23b5694091fd594edd4b7e2d9ea7ab08"/><section>
+    <title>getResponses()</title>
+<indexterm><primary>getResponses</primary><secondary>MultiStatus</secondary></indexterm>
+<indexterm><primary>MultiStatus</primary><secondary>getResponses</secondary></indexterm>
+<para><computeroutput>getResponses ( )</computeroutput></para>
+<para>Returns the response list.</para>
+
+<para><formalpara><title>Renvoie</title>
+
+<para>\Sabre\DAV\Xml\Element\Response[] </para>
+</formalpara>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_sabre_1_1_d_a_v_1_1_xml_1_1_response_1_1_multi_status_a23b5694091fd594edd4b7e2d9ea7ab08_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_sabre_1_1_d_a_v_1_1_xml_1_1_response_1_1_multi_status_1a88cf40715fea416e00bc445278bc704b"/><section>
+    <title>getSyncToken()</title>
+<indexterm><primary>getSyncToken</primary><secondary>MultiStatus</secondary></indexterm>
+<indexterm><primary>MultiStatus</primary><secondary>getSyncToken</secondary></indexterm>
+<para><computeroutput>getSyncToken ( )</computeroutput></para>
+<para>Returns the sync-token, if available.</para>
+
+<para><formalpara><title>Renvoie</title>
+
+<para>string|null </para>
+</formalpara>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_sabre_1_1_d_a_v_1_1_xml_1_1_response_1_1_multi_status_a88cf40715fea416e00bc445278bc704b_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_sabre_1_1_d_a_v_1_1_xml_1_1_response_1_1_multi_status_1ab84ab21637e9a2aabd4659e15d9c6804"/><section>
+    <title>xmlDeserialize()</title>
+<indexterm><primary>xmlDeserialize</primary><secondary>MultiStatus</secondary></indexterm>
+<indexterm><primary>MultiStatus</primary><secondary>xmlDeserialize</secondary></indexterm>
+<para><computeroutput>static xmlDeserialize (<link linkend="_class_sabre_1_1_xml_1_1_reader">Reader</link> $reader)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>The deserialize method is called during xml parsing.</para>
+
+<para>This method is called statically, this is because in theory this method may be used as a type of constructor, or factory method.</para>
+
+<para>Often you want to return an instance of the current class, but you are free to return other data as well.</para>
+
+<para>You are responsible for advancing the reader to the next element. Not doing anything will result in a never-ending loop.</para>
+
+<para>If you just want to skip parsing for this element altogether, you can just call $reader-&gt;next();</para>
+
+<para>$reader-&gt;parseInnerTree() will parse the entire sub-tree, and advance to the next element.</para>
+
+<para><formalpara><title>Renvoie</title>
+
+<para>mixed </para>
+</formalpara>
+</para>
+<para>
+Implémente <link linkend="_interface_sabre_1_1_xml_1_1_xml_deserializable_1ab84ab21637e9a2aabd4659e15d9c6804">XmlDeserializable</link>.</para>
+</section>
+<anchor xml:id="_class_sabre_1_1_d_a_v_1_1_xml_1_1_response_1_1_multi_status_1a6f00760b1f920df7bb8ecf88455eb143"/><section>
+    <title>xmlSerialize()</title>
+<indexterm><primary>xmlSerialize</primary><secondary>MultiStatus</secondary></indexterm>
+<indexterm><primary>MultiStatus</primary><secondary>xmlSerialize</secondary></indexterm>
+<para><computeroutput>xmlSerialize (<link linkend="_class_sabre_1_1_xml_1_1_writer">Writer</link> $writer)</computeroutput></para>
+<para>The serialize method is called during xml writing.</para>
+
+<para>It should use the $writer argument to encode this object into <link linkend="_class_x_m_l">XML</link>.</para>
+
+<para>Important note: it is not needed to create the parent element. The parent element is already created, and we only have to worry about attributes, child elements and text (if any).</para>
+
+<para>Important note 2: If you are writing any new elements, you are also responsible for closing them. </para>
+<para>
+Implémente <link linkend="_interface_sabre_1_1_xml_1_1_xml_serializable_1a6f00760b1f920df7bb8ecf88455eb143">XmlSerializable</link>.</para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_sabre_1_1_d_a_v_1_1_xml_1_1_response_1_1_multi_status_a6f00760b1f920df7bb8ecf88455eb143_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+</section>
+<section>
+<title>Documentation des champs</title>
+<anchor xml:id="_class_sabre_1_1_d_a_v_1_1_xml_1_1_response_1_1_multi_status_1aa8987136fed3960c6c78dedb68a3b061"/><section>
+    <title>$responses</title>
+<indexterm><primary>$responses</primary><secondary>MultiStatus</secondary></indexterm>
+<indexterm><primary>MultiStatus</primary><secondary>$responses</secondary></indexterm>
+<para><computeroutput>$<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">responses</link><computeroutput>[protected]</computeroutput></computeroutput></para></section>
+<anchor xml:id="_class_sabre_1_1_d_a_v_1_1_xml_1_1_response_1_1_multi_status_1a9a83756c49779547e8d86f12221d6e1b"/><section>
+    <title>$syncToken</title>
+<indexterm><primary>$syncToken</primary><secondary>MultiStatus</secondary></indexterm>
+<indexterm><primary>MultiStatus</primary><secondary>$syncToken</secondary></indexterm>
+<para><computeroutput>$<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">syncToken</link><computeroutput>[protected]</computeroutput></computeroutput></para></section>
+<para>
+La documentation de cette classe a été générée à partir du fichier suivant :</para>
+public/glpi/vendor/sabre/dav/lib/DAV/Xml/Response/<link linkend="__multi_status_8php">MultiStatus.php</link></section>
+</section>

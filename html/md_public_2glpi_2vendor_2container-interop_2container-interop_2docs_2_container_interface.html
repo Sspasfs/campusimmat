@@ -1,0 +1,161 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.10.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>CampusImmat: Container interface</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">CampusImmat
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.10.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+</div><!-- top -->
+<div><div class="header">
+  <div class="headertitle"><div class="title">Container interface</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><p>This document describes a common interface for dependency injection containers.</p>
+<p>The goal set by <code>ContainerInterface</code> is to standardize how frameworks and libraries make use of a container to obtain objects and parameters (called <em>entries</em> in the rest of this document).</p>
+<p>The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this document are to be interpreted as described in <a href="http://tools.ietf.org/html/rfc2119">RFC 2119</a>.</p>
+<p>The word <code>implementor</code> in this document is to be interpreted as someone implementing the <code>ContainerInterface</code> in a dependency injection-related library or framework. Users of dependency injections containers (DIC) are referred to as <code>user</code>.</p>
+<h1><a class="anchor" id="autotoc_md5710"></a>
+1. Specification</h1>
+<h2><a class="anchor" id="autotoc_md5711"></a>
+1.1 Basics</h2>
+<ul>
+<li>The <code>Interop\Container\ContainerInterface</code> exposes two methods : <code>get</code> and <code>has</code>.</li>
+<li><code>get</code> takes one mandatory parameter: an entry identifier. It MUST be a string. A call to <code>get</code> can return anything (a <em>mixed</em> value), or throws an exception if the identifier is not known to the container. Two successive calls to <code>get</code> with the same identifier SHOULD return the same value. However, depending on the <code>implementor</code> design and/or <code>user</code> configuration, different values might be returned, so <code>user</code> SHOULD NOT rely on getting the same value on 2 successive calls. While <code>ContainerInterface</code> only defines one mandatory parameter in <code>get()</code>, implementations MAY accept additional optional parameters.</li>
+<li><code>has</code> takes one unique parameter: an entry identifier. It MUST return <code>true</code> if an entry identifier is known to the container and <code>false</code> if it is not. <code>has($id)</code> returning true does not mean that <code>get($id)</code> will not throw an exception. It does however mean that <code>get($id)</code> will not throw a <code>NotFoundException</code>.</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md5712"></a>
+1.2 Exceptions</h2>
+<p>Exceptions directly thrown by the container MUST implement the <a href="../src/Interop/Container/Exception/ContainerException.php"><code>Interop\Container\Exception\ContainerException</code></a>.</p>
+<p>A call to the <code>get</code> method with a non-existing id SHOULD throw a <a href="../src/Interop/Container/Exception/NotFoundException.php"><code>Interop\Container\Exception\NotFoundException</code></a>.</p>
+<h2><a class="anchor" id="autotoc_md5713"></a>
+1.3 Additional features</h2>
+<p>This section describes additional features that MAY be added to a container. Containers are not required to implement these features to respect the ContainerInterface.</p>
+<h3><a class="anchor" id="autotoc_md5714"></a>
+1.3.1 Delegate lookup feature</h3>
+<p>The goal of the <em>delegate lookup</em> feature is to allow several containers to share entries. Containers implementing this feature can perform dependency lookups in other containers.</p>
+<p>Containers implementing this feature will offer a greater lever of interoperability with other containers. Implementation of this feature is therefore RECOMMENDED.</p>
+<p>A container implementing this feature:</p>
+<ul>
+<li>MUST implement the <code>ContainerInterface</code></li>
+<li>MUST provide a way to register a delegate container (using a constructor parameter, or a setter, or any possible way). The delegate container MUST implement the <code>ContainerInterface</code>.</li>
+</ul>
+<p>When a container is configured to use a delegate container for dependencies:</p>
+<ul>
+<li>Calls to the <code>get</code> method should only return an entry if the entry is part of the container. If the entry is not part of the container, an exception should be thrown (as requested by the <code>ContainerInterface</code>).</li>
+<li>Calls to the <code>has</code> method should only return <code>true</code> if the entry is part of the container. If the entry is not part of the container, <code>false</code> should be returned.</li>
+<li>If the fetched entry has dependencies, <b>instead</b> of performing the dependency lookup in the container, the lookup is performed on the <em>delegate container</em>.</li>
+</ul>
+<p>Important! By default, the lookup SHOULD be performed on the delegate container <b>only</b>, not on the container itself.</p>
+<p>It is however allowed for containers to provide exception cases for special entries, and a way to lookup into the same container (or another container) instead of the delegate container.</p>
+<h1><a class="anchor" id="autotoc_md5715"></a>
+2. Package</h1>
+<p>The interfaces and classes described as well as relevant exception are provided as part of the <a href="https://packagist.org/packages/container-interop/container-interop">container-interop/container-interop</a> package.</p>
+<h1><a class="anchor" id="autotoc_md5716"></a>
+3. <code>Interop\Container\ContainerInterface</code></h1>
+<div class="fragment"><div class="line">&lt;?<a class="code hl_namespace" href="namespacephp.html">php</a></div>
+<div class="line"><span class="keyword">namespace </span><a class="code hl_namespace" href="namespace_interop_1_1_container.html">Interop\Container</a>;</div>
+<div class="line"> </div>
+<div class="line"><a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">use</a> <a class="code hl_interface" href="interface_interop_1_1_container_1_1_exception_1_1_container_exception.html">Interop\Container\Exception\ContainerException</a>;</div>
+<div class="line"><a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">use</a> <a class="code hl_interface" href="interface_interop_1_1_container_1_1_exception_1_1_not_found_exception.html">Interop\Container\Exception\NotFoundException</a>;</div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">interface </span>ContainerInterface</div>
+<div class="line">{</div>
+<div class="line">    <span class="keyword">public</span> <span class="keyword">function</span> <span class="keyword">get</span>(<a class="code hl_variable" href="dcroom__size_8php.html#a486874338c68ffaacd31e2ea5d28495f">$id</a>);</div>
+<div class="line"> </div>
+<div class="line">    <span class="keyword">public</span> <span class="keyword">function</span> has(<a class="code hl_variable" href="dcroom__size_8php.html#a486874338c68ffaacd31e2ea5d28495f">$id</a>);</div>
+<div class="line">}</div>
+<div class="ttc" id="adcroom__size_8php_html_a486874338c68ffaacd31e2ea5d28495f"><div class="ttname"><a href="dcroom__size_8php.html#a486874338c68ffaacd31e2ea5d28495f">$id</a></div><div class="ttdeci">if(!isset($_REQUEST['id'])) $id</div><div class="ttdef"><b>Definition</b> dcroom_size.php:45</div></div>
+<div class="ttc" id="ainterface_interop_1_1_container_1_1_exception_1_1_container_exception_html"><div class="ttname"><a href="interface_interop_1_1_container_1_1_exception_1_1_container_exception.html">Interop\Container\Exception\ContainerException</a></div><div class="ttdef"><b>Definition</b> ContainerException.php:14</div></div>
+<div class="ttc" id="ainterface_interop_1_1_container_1_1_exception_1_1_not_found_exception_html"><div class="ttname"><a href="interface_interop_1_1_container_1_1_exception_1_1_not_found_exception.html">Interop\Container\Exception\NotFoundException</a></div><div class="ttdef"><b>Definition</b> NotFoundException.php:14</div></div>
+<div class="ttc" id="anamespace_interop_1_1_container_html"><div class="ttname"><a href="namespace_interop_1_1_container.html">Interop\Container</a></div><div class="ttdef"><b>Definition</b> ContainerInterface.php:6</div></div>
+<div class="ttc" id="anamespacephp_html"><div class="ttname"><a href="namespacephp.html">php</a></div></div>
+<div class="ttc" id="areport_8contract_8php_html_a77b973d137fb33212e018b042df6e3e7"><div class="ttname"><a href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">$y</a></div><div class="ttdeci">$y</div><div class="ttdef"><b>Definition</b> report.contract.php:71</div></div>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md5717"></a>
+4. <code>Interop\Container\Exception\ContainerException</code></h1>
+<div class="fragment"><div class="line">&lt;?<a class="code hl_namespace" href="namespacephp.html">php</a></div>
+<div class="line"><span class="keyword">namespace </span><a class="code hl_namespace" href="namespace_interop_1_1_container_1_1_exception.html">Interop\Container\Exception</a>;</div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">interface </span>ContainerException</div>
+<div class="line">{</div>
+<div class="line">}</div>
+<div class="ttc" id="anamespace_interop_1_1_container_1_1_exception_html"><div class="ttname"><a href="namespace_interop_1_1_container_1_1_exception.html">Interop\Container\Exception</a></div><div class="ttdef"><b>Definition</b> ContainerException.php:6</div></div>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md5718"></a>
+5. <code>Interop\Container\Exception\NotFoundException</code></h1>
+<div class="fragment"><div class="line">&lt;?<a class="code hl_namespace" href="namespacephp.html">php</a></div>
+<div class="line"><span class="keyword">namespace </span><a class="code hl_namespace" href="namespace_interop_1_1_container_1_1_exception.html">Interop\Container\Exception</a>;</div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">interface </span>NotFoundException <span class="keyword">extends</span> ContainerException</div>
+<div class="line">{</div>
+<div class="line">}</div>
+</div><!-- fragment --> </div></div><!-- contents -->
+</div><!-- PageDoc -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0
+</small></address>
+</body>
+</html>

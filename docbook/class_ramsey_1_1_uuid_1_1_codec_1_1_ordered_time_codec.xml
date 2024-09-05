@@ -1,0 +1,122 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_ramsey_1_1_uuid_1_1_codec_1_1_ordered_time_codec" xml:lang="fr">
+<title>Référence de la classe OrderedTimeCodec</title>
+<indexterm><primary>OrderedTimeCodec</primary></indexterm>
+Graphe d&apos;héritage de OrderedTimeCodec:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_ramsey_1_1_uuid_1_1_codec_1_1_ordered_time_codec__inherit__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Graphe de collaboration de OrderedTimeCodec:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_ramsey_1_1_uuid_1_1_codec_1_1_ordered_time_codec__coll__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Fonctions membres publiques    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_ramsey_1_1_uuid_1_1_codec_1_1_ordered_time_codec_1a3c78fb7e30c430ec86edd907d580541a">encodeBinary</link> (<link linkend="_interface_ramsey_1_1_uuid_1_1_uuid_interface">UuidInterface</link> $uuid)</para>
+</listitem>
+            <listitem><para><link linkend="_class_ramsey_1_1_uuid_1_1_codec_1_1_ordered_time_codec_1ad7dad29f1dbff24b63f686b1af1ba2f3">decodeBytes</link> (string $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">bytes</link>)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+Fonctions membres publiques hérités de <link linkend="_class_ramsey_1_1_uuid_1_1_codec_1_1_string_codec">StringCodec</link>        <itemizedlist>
+            <listitem><para><link linkend="_class_ramsey_1_1_uuid_1_1_codec_1_1_string_codec_1ae68b36c240936e65bbb4186480e51cf3">__construct</link> (<link linkend="_interface_ramsey_1_1_uuid_1_1_builder_1_1_uuid_builder_interface">UuidBuilderInterface</link> $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">builder</link>)</para>
+</listitem>
+            <listitem><para><link linkend="_class_ramsey_1_1_uuid_1_1_codec_1_1_string_codec_1ab4189bfc952c2c92c053a789aa62ef38">decode</link> (string $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">encodedUuid</link>)</para>
+</listitem>
+        </itemizedlist>
+Fonctions membres publiques hérités de <link linkend="_interface_ramsey_1_1_uuid_1_1_codec_1_1_codec_interface">CodecInterface</link>        <itemizedlist>
+            <listitem><para><link linkend="_interface_ramsey_1_1_uuid_1_1_codec_1_1_codec_interface_1a2b51c9f6a06e2cfa3b855676fa3b3fd7">encode</link> (<link linkend="_interface_ramsey_1_1_uuid_1_1_uuid_interface">UuidInterface</link> $uuid)</para>
+</listitem>
+        </itemizedlist>
+<simplesect>
+    <title>Membres hérités additionnels    </title>
+Fonctions membres protégées hérités de <link linkend="_class_ramsey_1_1_uuid_1_1_codec_1_1_string_codec">StringCodec</link>        <itemizedlist>
+            <listitem><para><link linkend="_class_ramsey_1_1_uuid_1_1_codec_1_1_string_codec_1afc5c516de38077f2436fe7ad6a89d196">getBuilder</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_class_ramsey_1_1_uuid_1_1_codec_1_1_string_codec_1aff803176924b217190b338c5a8cea424">getBytes</link> (string $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">encodedUuid</link>)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Description détaillée</title>
+
+<para>OrderedTimeCodec encodes and decodes a UUID, optimizing the byte order for more efficient storage</para>
+
+<para>For binary representations of version 1 UUID, this codec may be used to reorganize the time fields, making the UUID closer to sequential when storing the bytes. According to Percona, this optimization can improve database INSERTs and SELECTs using the UUID column as a key.</para>
+
+<para>The string representation of the UUID will remain unchanged. Only the binary representation is reordered.</para>
+
+<para><emphasis role="bold">PLEASE NOTE:</emphasis> Binary representations of UUIDs encoded with this codec must be decoded with this codec. Decoding using another codec can result in malformed UUIDs.</para>
+
+<para><link linkend="_">Storing UUID Values in MySQL -immutable </link></para>
+</section>
+<section>
+<title>Documentation des fonctions membres</title>
+<anchor xml:id="_class_ramsey_1_1_uuid_1_1_codec_1_1_ordered_time_codec_1ad7dad29f1dbff24b63f686b1af1ba2f3"/><section>
+    <title>decodeBytes()</title>
+<indexterm><primary>decodeBytes</primary><secondary>OrderedTimeCodec</secondary></indexterm>
+<indexterm><primary>OrderedTimeCodec</primary><secondary>decodeBytes</secondary></indexterm>
+<para><computeroutput>decodeBytes (string $bytes)</computeroutput></para>
+<para>Returns a UuidInterface derived from an ordered-time binary string representation</para>
+
+<para>
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>InvalidArgumentException</entry><entry>
+<para>if $bytes is an invalid length</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                @inheritDoc </para>
+<para>
+Réimplémentée à partir de <link linkend="_class_ramsey_1_1_uuid_1_1_codec_1_1_string_codec_1ad7dad29f1dbff24b63f686b1af1ba2f3">StringCodec</link>.</para>
+</section>
+<anchor xml:id="_class_ramsey_1_1_uuid_1_1_codec_1_1_ordered_time_codec_1a3c78fb7e30c430ec86edd907d580541a"/><section>
+    <title>encodeBinary()</title>
+<indexterm><primary>encodeBinary</primary><secondary>OrderedTimeCodec</secondary></indexterm>
+<indexterm><primary>OrderedTimeCodec</primary><secondary>encodeBinary</secondary></indexterm>
+<para><computeroutput>encodeBinary (<link linkend="_interface_ramsey_1_1_uuid_1_1_uuid_interface">UuidInterface</link> $uuid)</computeroutput></para>
+<para>Returns a binary string representation of a UUID, with the timestamp fields rearranged for optimized storage</para>
+
+<para>@inheritDoc @psalm-return non-empty-string @psalm-suppress MoreSpecificReturnType we know that the retrieved <computeroutput>string</computeroutput> is never empty @psalm-suppress LessSpecificReturnStatement we know that the retrieved <computeroutput>string</computeroutput> is never empty </para>
+
+<para>@phpstan-ignore-next-line PHPStan complains that this is not a non-empty-string.</para>
+<para>
+Réimplémentée à partir de <link linkend="_class_ramsey_1_1_uuid_1_1_codec_1_1_string_codec_1a3c78fb7e30c430ec86edd907d580541a">StringCodec</link>.</para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_ramsey_1_1_uuid_1_1_codec_1_1_ordered_time_codec_a3c78fb7e30c430ec86edd907d580541a_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<para>
+La documentation de cette classe a été générée à partir du fichier suivant :</para>
+public/glpi/vendor/ramsey/uuid/src/Codec/<link linkend="__ordered_time_codec_8php">OrderedTimeCodec.php</link></section>
+</section>

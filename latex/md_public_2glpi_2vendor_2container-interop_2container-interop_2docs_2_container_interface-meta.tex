@@ -1,0 +1,95 @@
+\chapter{Container\+Interface Meta Document}
+\hypertarget{md_public_2glpi_2vendor_2container-interop_2container-interop_2docs_2_container_interface-meta}{}\label{md_public_2glpi_2vendor_2container-interop_2container-interop_2docs_2_container_interface-meta}\index{ContainerInterface Meta Document@{ContainerInterface Meta Document}}
+\label{md_public_2glpi_2vendor_2container-interop_2container-interop_2docs_2_container_interface-meta_autotoc_md5701}%
+\Hypertarget{md_public_2glpi_2vendor_2container-interop_2container-interop_2docs_2_container_interface-meta_autotoc_md5701}%
+ \hypertarget{md_public_2glpi_2vendor_2container-interop_2container-interop_2docs_2_container_interface-meta_autotoc_md5702}{}\doxysection{\texorpdfstring{Introduction}{Introduction}}\label{md_public_2glpi_2vendor_2container-interop_2container-interop_2docs_2_container_interface-meta_autotoc_md5702}
+This document describes the process and discussions that lead to the {\ttfamily Container\+Interface}. Its goal is to explain the reasons behind each decision.\hypertarget{md_public_2glpi_2vendor_2container-interop_2container-interop_2docs_2_container_interface-meta_autotoc_md5703}{}\doxysection{\texorpdfstring{Goal}{Goal}}\label{md_public_2glpi_2vendor_2container-interop_2container-interop_2docs_2_container_interface-meta_autotoc_md5703}
+The goal set by {\ttfamily Container\+Interface} is to standardize how frameworks and libraries make use of a container to obtain objects and parameters.
+
+By standardizing such a behavior, frameworks and libraries using the {\ttfamily Container\+Interface} could work with any compatible container. That would allow end users to choose their own container based on their own preferences.
+
+It is important to distinguish the two usages of a container\+:
+
+
+\begin{DoxyItemize}
+\item configuring entries
+\item fetching entries
+\end{DoxyItemize}
+
+Most of the time, those two sides are not used by the same party. While it is often end users who tend to configure entries, it is generally the framework that fetch entries to build the application.
+
+This is why this interface focuses only on how entries can be fetched from a container.\hypertarget{md_public_2glpi_2vendor_2container-interop_2container-interop_2docs_2_container_interface-meta_autotoc_md5704}{}\doxysection{\texorpdfstring{Interface name}{Interface name}}\label{md_public_2glpi_2vendor_2container-interop_2container-interop_2docs_2_container_interface-meta_autotoc_md5704}
+The interface name has been thoroughly discussed and was decided by a vote.
+
+The list of options considered with their respective votes are\+:
+
+
+\begin{DoxyItemize}
+\item {\ttfamily Container\+Interface}\+: +8
+\item {\ttfamily Provider\+Interface}\+: +2
+\item {\ttfamily Locator\+Interface}\+: 0
+\item {\ttfamily Readable\+Container\+Interface}\+: -\/5
+\item {\ttfamily Service\+Locator\+Interface}\+: -\/6
+\item {\ttfamily Object\+Factory}\+: -\/6
+\item {\ttfamily Object\+Store}\+: -\/8
+\item {\ttfamily Consumer\+Interface}\+: -\/9
+\end{DoxyItemize}
+
+\href{https://github.com/container-interop/container-interop/wiki/\%231-interface-name:-Vote}{\texttt{ Full results of the vote}}
+
+The complete discussion can be read in \href{https://github.com/container-interop/container-interop/issues/1}{\texttt{ the issue \#1}}.\hypertarget{md_public_2glpi_2vendor_2container-interop_2container-interop_2docs_2_container_interface-meta_autotoc_md5705}{}\doxysection{\texorpdfstring{Interface methods}{Interface methods}}\label{md_public_2glpi_2vendor_2container-interop_2container-interop_2docs_2_container_interface-meta_autotoc_md5705}
+The choice of which methods the interface would contain was made after a statistical analysis of existing containers. The results of this analysis are available \href{https://gist.github.com/mnapoli/6159681}{\texttt{ in this document}}.
+
+The summary of the analysis showed that\+:
+
+
+\begin{DoxyItemize}
+\item all containers offer a method to get an entry by its id
+\item a large majority name such method {\ttfamily get()}
+\item for all containers, the {\ttfamily get()} method has 1 mandatory parameter of type string
+\item some containers have an optional additional argument for {\ttfamily get()}, but it doesn\textquotesingle{}t have the same purpose between containers
+\item a large majority of the containers offer a method to test if it can return an entry by its id
+\item a majority name such method {\ttfamily has()}
+\item for all containers offering {\ttfamily has()}, the method has exactly 1 parameter of type string
+\item a large majority of the containers throw an exception rather than returning null when an entry is not found in {\ttfamily get()}
+\item a large majority of the containers don\textquotesingle{}t implement {\ttfamily Array\+Access}
+\end{DoxyItemize}
+
+The question of whether to include methods to define entries has been discussed in \href{https://github.com/container-interop/container-interop/issues/1}{\texttt{ issue \#1}}. It has been judged that such methods do not belong in the interface described here because it is out of its scope (see the "{}\+Goal"{} section).
+
+As a result, the {\ttfamily Container\+Interface} contains two methods\+:
+
+
+\begin{DoxyItemize}
+\item {\ttfamily get()}, returning anything, with one mandatory string parameter. Should throw an exception if the entry is not found.
+\item {\ttfamily has()}, returning a boolean, with one mandatory string parameter.
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2container-interop_2container-interop_2docs_2_container_interface-meta_autotoc_md5706}{}\doxysubsection{\texorpdfstring{Number of parameters in {\ttfamily get()} method}{Number of parameters in {\ttfamily get()} method}}\label{md_public_2glpi_2vendor_2container-interop_2container-interop_2docs_2_container_interface-meta_autotoc_md5706}
+While {\ttfamily Container\+Interface} only defines one mandatory parameter in {\ttfamily get()}, it is not incompatible with existing containers that have additional optional parameters. PHP allows an implementation to offer more parameters as long as they are optional, because the implementation {\itshape does} satisfy the interface.
+
+This issue has been discussed in \href{https://github.com/container-interop/container-interop/issues/6}{\texttt{ issue \#6}}.\hypertarget{md_public_2glpi_2vendor_2container-interop_2container-interop_2docs_2_container_interface-meta_autotoc_md5707}{}\doxysubsection{\texorpdfstring{Type of the {\ttfamily \$id} parameter}{Type of the {\ttfamily \$id} parameter}}\label{md_public_2glpi_2vendor_2container-interop_2container-interop_2docs_2_container_interface-meta_autotoc_md5707}
+The type of the {\ttfamily \$id} parameter in {\ttfamily get()} and {\ttfamily has()} has been discussed in \href{https://github.com/container-interop/container-interop/issues/6}{\texttt{ issue \#6}}. While {\ttfamily string} is used in all the containers that were analyzed, it was suggested that allowing anything (such as objects) could allow containers to offer a more advanced query API.
+
+An example given was to use the container as an object builder. The {\ttfamily \$id} parameter would then be an object that would describe how to create an instance.
+
+The conclusion of the discussion was that this was beyond the scope of getting entries from a container without knowing how the container provided them, and it was more fit for a factory.\hypertarget{md_public_2glpi_2vendor_2container-interop_2container-interop_2docs_2_container_interface-meta_autotoc_md5708}{}\doxysection{\texorpdfstring{Contributors}{Contributors}}\label{md_public_2glpi_2vendor_2container-interop_2container-interop_2docs_2_container_interface-meta_autotoc_md5708}
+Are listed here all people that contributed in the discussions or votes, by alphabetical order\+:
+
+
+\begin{DoxyItemize}
+\item \href{https://github.com/AmyStephen}{\texttt{ Amy Stephen}}
+\item \href{https://github.com/moufmouf}{\texttt{ David Négrier}}
+\item \href{https://github.com/dongilbert}{\texttt{ Don Gilbert}}
+\item \href{https://github.com/judgej}{\texttt{ Jason Judge}}
+\item \href{https://github.com/jeremeamia}{\texttt{ Jeremy Lindblom}}
+\item \href{https://github.com/Ocramius}{\texttt{ Marco Pivetta}}
+\item \href{https://github.com/mnapoli}{\texttt{ Matthieu Napoli}}
+\item \href{https://github.com/pmjones}{\texttt{ Paul M. Jones}}
+\item \href{https://github.com/shochdoerfer}{\texttt{ Stephan Hochdörfer}}
+\item \href{https://github.com/taylorotwell}{\texttt{ Taylor Otwell}}
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2container-interop_2container-interop_2docs_2_container_interface-meta_autotoc_md5709}{}\doxysection{\texorpdfstring{Relevant links}{Relevant links}}\label{md_public_2glpi_2vendor_2container-interop_2container-interop_2docs_2_container_interface-meta_autotoc_md5709}
+
+\begin{DoxyItemize}
+\item \href{https://github.com/container-interop/container-interop/blob/master/src/Interop/Container/ContainerInterface.php}{\texttt{ {\ttfamily Container\+Interface.\+php}}}
+\item \href{https://github.com/container-interop/container-interop/issues?labels=ContainerInterface&milestone=&page=1&state=closed}{\texttt{ List of all issues}}
+\item \href{https://github.com/container-interop/container-interop/wiki/\%231-interface-name:-Vote}{\texttt{ Vote for the interface name}} 
+\end{DoxyItemize}

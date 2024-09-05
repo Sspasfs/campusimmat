@@ -1,0 +1,235 @@
+\doxysection{Référence de la classe GLPIKey}
+\hypertarget{class_g_l_p_i_key}{}\label{class_g_l_p_i_key}\index{GLPIKey@{GLPIKey}}
+
+
+Graphe de collaboration de GLPIKey\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=247pt]{class_g_l_p_i_key__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_g_l_p_i_key_adec3aa58490fcba03feee8dc1003462f}{\+\_\+\+\_\+construct}} (string \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{config\+\_\+dir}}=\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{GLPI\+\_\+\+CONFIG\+\_\+\+DIR}})
+\item 
+\mbox{\hyperlink{class_g_l_p_i_key_a17a70a6d5546b8850b5050062bc8b103}{get\+Expected\+Key\+Path}} (string \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{glpi\+\_\+version}})
+\item 
+\mbox{\hyperlink{class_g_l_p_i_key_a2f6b6303e9454f006faf2a24c3f24dac}{key\+Exists}} ()
+\item 
+\mbox{\hyperlink{class_g_l_p_i_key_ac33ee765f5ad9f134540bac393721cfe}{get}} ()
+\item 
+\mbox{\hyperlink{class_g_l_p_i_key_a5bc7f0f24018e2fa87798d1481c2ee6f}{get\+Legacy\+Key}} ()
+\item 
+\mbox{\hyperlink{class_g_l_p_i_key_a9d007fd56d8ded061c02fb0b68c98a8f}{is\+Config\+Secured}} (string \$context, string \$name)
+\item 
+\mbox{\hyperlink{class_g_l_p_i_key_aac54ccb7dd12e6e915d857107d2c3806}{encrypt}} (string \$string, ?string \$key=null)
+\item 
+\mbox{\hyperlink{class_g_l_p_i_key_a15e6bfda38c2aef8dcd366743d7a2a8a}{decrypt}} (?string \$string, \$key=null)
+\item 
+\mbox{\hyperlink{class_g_l_p_i_key_a929e6fce888f56cd8b98a7b4b8ba89ed}{decrypt\+Using\+Legacy\+Key}} (string \$string, ?string \$key=null)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Attributs protégés}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_g_l_p_i_key_ab2303c817e3b402b77b7f99627b9c319}{\$fields}}
+\item 
+\mbox{\hyperlink{class_g_l_p_i_key_a95691168d68a876ecc24c7dad14ef24e}{\$configs}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+\doxylink{class_g_l_p_i}{GLPI} security key 
+
+\doxysubsection{Documentation des constructeurs et destructeur}
+\Hypertarget{class_g_l_p_i_key_adec3aa58490fcba03feee8dc1003462f}\label{class_g_l_p_i_key_adec3aa58490fcba03feee8dc1003462f} 
+\index{GLPIKey@{GLPIKey}!\_\_construct@{\_\_construct}}
+\index{\_\_construct@{\_\_construct}!GLPIKey@{GLPIKey}}
+\doxysubsubsection{\texorpdfstring{\_\_construct()}{\_\_construct()}}
+{\footnotesize\ttfamily \+\_\+\+\_\+construct (\begin{DoxyParamCaption}\item[{string}]{\$config\+\_\+dir = {\ttfamily \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{GLPI\+\_\+\+CONFIG\+\_\+\+DIR}}} }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Documentation des fonctions membres}
+\Hypertarget{class_g_l_p_i_key_a15e6bfda38c2aef8dcd366743d7a2a8a}\label{class_g_l_p_i_key_a15e6bfda38c2aef8dcd366743d7a2a8a} 
+\index{GLPIKey@{GLPIKey}!decrypt@{decrypt}}
+\index{decrypt@{decrypt}!GLPIKey@{GLPIKey}}
+\doxysubsubsection{\texorpdfstring{decrypt()}{decrypt()}}
+{\footnotesize\ttfamily decrypt (\begin{DoxyParamCaption}\item[{?string}]{\$string,  }\item[{}]{\$key = {\ttfamily null} }\end{DoxyParamCaption})}
+
+Descrypt a string.
+
+
+\begin{DoxyParams}[1]{Paramètres}
+string | null & {\em \$string} & String to decrypt. \\
+\hline
+string | null & {\em \$key} & Key to use, fallback to default key if null.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+string\texorpdfstring{$\vert$}{|}null 
+\end{DoxyReturn}
+\Hypertarget{class_g_l_p_i_key_a929e6fce888f56cd8b98a7b4b8ba89ed}\label{class_g_l_p_i_key_a929e6fce888f56cd8b98a7b4b8ba89ed} 
+\index{GLPIKey@{GLPIKey}!decryptUsingLegacyKey@{decryptUsingLegacyKey}}
+\index{decryptUsingLegacyKey@{decryptUsingLegacyKey}!GLPIKey@{GLPIKey}}
+\doxysubsubsection{\texorpdfstring{decryptUsingLegacyKey()}{decryptUsingLegacyKey()}}
+{\footnotesize\ttfamily decrypt\+Using\+Legacy\+Key (\begin{DoxyParamCaption}\item[{string}]{\$string,  }\item[{?string}]{\$key = {\ttfamily null} }\end{DoxyParamCaption})}
+
+Decrypt a string using a legacy key. If key is not provided, the default legacy key will be used.
+
+
+\begin{DoxyParams}[1]{Paramètres}
+string & {\em \$string} & \\
+\hline
+string | null & {\em \$key} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+string 
+\end{DoxyReturn}
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=317pt]{class_g_l_p_i_key_a929e6fce888f56cd8b98a7b4b8ba89ed_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_g_l_p_i_key_aac54ccb7dd12e6e915d857107d2c3806}\label{class_g_l_p_i_key_aac54ccb7dd12e6e915d857107d2c3806} 
+\index{GLPIKey@{GLPIKey}!encrypt@{encrypt}}
+\index{encrypt@{encrypt}!GLPIKey@{GLPIKey}}
+\doxysubsubsection{\texorpdfstring{encrypt()}{encrypt()}}
+{\footnotesize\ttfamily encrypt (\begin{DoxyParamCaption}\item[{string}]{\$string,  }\item[{?string}]{\$key = {\ttfamily null} }\end{DoxyParamCaption})}
+
+Encrypt a string.
+
+
+\begin{DoxyParams}[1]{Paramètres}
+string & {\em \$string} & String to encrypt. \\
+\hline
+string | null & {\em \$key} & Key to use, fallback to default key if null.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+string 
+\end{DoxyReturn}
+\Hypertarget{class_g_l_p_i_key_ac33ee765f5ad9f134540bac393721cfe}\label{class_g_l_p_i_key_ac33ee765f5ad9f134540bac393721cfe} 
+\index{GLPIKey@{GLPIKey}!get@{get}}
+\index{get@{get}!GLPIKey@{GLPIKey}}
+\doxysubsubsection{\texorpdfstring{get()}{get()}}
+{\footnotesize\ttfamily get (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Get \doxylink{class_g_l_p_i}{GLPI} security key used for decryptable passwords
+
+\begin{DoxyReturn}{Renvoie}
+string\texorpdfstring{$\vert$}{|}null 
+\end{DoxyReturn}
+\Hypertarget{class_g_l_p_i_key_a17a70a6d5546b8850b5050062bc8b103}\label{class_g_l_p_i_key_a17a70a6d5546b8850b5050062bc8b103} 
+\index{GLPIKey@{GLPIKey}!getExpectedKeyPath@{getExpectedKeyPath}}
+\index{getExpectedKeyPath@{getExpectedKeyPath}!GLPIKey@{GLPIKey}}
+\doxysubsubsection{\texorpdfstring{getExpectedKeyPath()}{getExpectedKeyPath()}}
+{\footnotesize\ttfamily get\+Expected\+Key\+Path (\begin{DoxyParamCaption}\item[{string}]{\$glpi\+\_\+version }\end{DoxyParamCaption})}
+
+Returns expected key path for given \doxylink{class_g_l_p_i}{GLPI} version. Will return null for \doxylink{class_g_l_p_i}{GLPI} versions that was not yet handling a custom security key.
+
+
+\begin{DoxyParams}[1]{Paramètres}
+string & {\em \$glpi\+\_\+version} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+string\texorpdfstring{$\vert$}{|}null 
+\end{DoxyReturn}
+\Hypertarget{class_g_l_p_i_key_a5bc7f0f24018e2fa87798d1481c2ee6f}\label{class_g_l_p_i_key_a5bc7f0f24018e2fa87798d1481c2ee6f} 
+\index{GLPIKey@{GLPIKey}!getLegacyKey@{getLegacyKey}}
+\index{getLegacyKey@{getLegacyKey}!GLPIKey@{GLPIKey}}
+\doxysubsubsection{\texorpdfstring{getLegacyKey()}{getLegacyKey()}}
+{\footnotesize\ttfamily get\+Legacy\+Key (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Get \doxylink{class_g_l_p_i}{GLPI} security legacy key that was used for decryptable passwords. Usage of this key should only be used during migration from \doxylink{class_g_l_p_i}{GLPI} \texorpdfstring{$<$}{<} 9.\+5 to \doxylink{class_g_l_p_i}{GLPI} \texorpdfstring{$>$}{>}= 9.\+5.\+0.
+
+\begin{DoxyReturn}{Renvoie}
+string\texorpdfstring{$\vert$}{|}null 
+\end{DoxyReturn}
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=317pt]{class_g_l_p_i_key_a5bc7f0f24018e2fa87798d1481c2ee6f_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_g_l_p_i_key_a9d007fd56d8ded061c02fb0b68c98a8f}\label{class_g_l_p_i_key_a9d007fd56d8ded061c02fb0b68c98a8f} 
+\index{GLPIKey@{GLPIKey}!isConfigSecured@{isConfigSecured}}
+\index{isConfigSecured@{isConfigSecured}!GLPIKey@{GLPIKey}}
+\doxysubsubsection{\texorpdfstring{isConfigSecured()}{isConfigSecured()}}
+{\footnotesize\ttfamily is\+Config\+Secured (\begin{DoxyParamCaption}\item[{string}]{\$context,  }\item[{string}]{\$name }\end{DoxyParamCaption})}
+
+Check if configuration is secured.
+
+
+\begin{DoxyParams}[1]{Paramètres}
+string & {\em \$context} & \\
+\hline
+string & {\em \$name} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+bool 
+\end{DoxyReturn}
+\Hypertarget{class_g_l_p_i_key_a2f6b6303e9454f006faf2a24c3f24dac}\label{class_g_l_p_i_key_a2f6b6303e9454f006faf2a24c3f24dac} 
+\index{GLPIKey@{GLPIKey}!keyExists@{keyExists}}
+\index{keyExists@{keyExists}!GLPIKey@{GLPIKey}}
+\doxysubsubsection{\texorpdfstring{keyExists()}{keyExists()}}
+{\footnotesize\ttfamily key\+Exists (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Check if \doxylink{class_g_l_p_i}{GLPI} security key used for decryptable passwords exists
+
+\begin{DoxyReturn}{Renvoie}
+string 
+\end{DoxyReturn}
+
+
+\doxysubsection{Documentation des champs}
+\Hypertarget{class_g_l_p_i_key_a95691168d68a876ecc24c7dad14ef24e}\label{class_g_l_p_i_key_a95691168d68a876ecc24c7dad14ef24e} 
+\index{GLPIKey@{GLPIKey}!\$configs@{\$configs}}
+\index{\$configs@{\$configs}!GLPIKey@{GLPIKey}}
+\doxysubsubsection{\texorpdfstring{\$configs}{\$configs}}
+{\footnotesize\ttfamily \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{configs}}\hspace{0.3cm}{\ttfamily [protected]}}
+
+{\bfseries Valeur initiale \+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ [}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{'core'}\ \ \ =>\ [}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{'glpinetwork\_registration\_key'},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{'proxy\_passwd'},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{'smtp\_passwd'},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{'smtp\_oauth\_client\_secret'},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{'smtp\_oauth\_refresh\_token'},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ ]}
+\DoxyCodeLine{\ \ \ \ ]}
+
+\end{DoxyCode}
+\Hypertarget{class_g_l_p_i_key_ab2303c817e3b402b77b7f99627b9c319}\label{class_g_l_p_i_key_ab2303c817e3b402b77b7f99627b9c319} 
+\index{GLPIKey@{GLPIKey}!\$fields@{\$fields}}
+\index{\$fields@{\$fields}!GLPIKey@{GLPIKey}}
+\doxysubsubsection{\texorpdfstring{\$fields}{\$fields}}
+{\footnotesize\ttfamily \$\mbox{\hyperlink{dropdown_fields_blacklist_8php_a5c75a53080fde91f4f343f206474308d}{fields}}\hspace{0.3cm}{\ttfamily [protected]}}
+
+{\bfseries Valeur initiale \+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ [}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{'glpi\_authldaps.rootdn\_passwd'},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{'glpi\_mailcollectors.passwd'},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{'glpi\_snmpcredentials.auth\_passphrase'},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{'glpi\_snmpcredentials.priv\_passphrase'},}
+\DoxyCodeLine{\ \ \ \ ]}
+
+\end{DoxyCode}
+
+
+La documentation de cette classe a été générée à partir du fichier suivant \+:\begin{DoxyCompactItemize}
+\item 
+public/glpi/src/\mbox{\hyperlink{_g_l_p_i_key_8php}{GLPIKey.\+php}}\end{DoxyCompactItemize}

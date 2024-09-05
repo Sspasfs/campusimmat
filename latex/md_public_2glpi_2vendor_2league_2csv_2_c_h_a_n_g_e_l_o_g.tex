@@ -1,0 +1,1233 @@
+\chapter{Changelog}
+\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g}{}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g}\index{Changelog@{Changelog}}
+\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6441}%
+\Hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6441}%
+ All Notable changes to {\ttfamily Csv} will be documented in this file\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6442}{}\doxysection{\texorpdfstring{\href{https://github.com/thephpleague/csv/compare/9.7.4...9.8.0}{\texttt{ 9.\+8.\+0}} -\/ 2022-\/01-\/04}{\href{https://github.com/thephpleague/csv/compare/9.7.4...9.8.0}{\texttt{ 9.\+8.\+0}} -\/ 2022-\/01-\/04}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6442}
+\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6443}{}\doxysubsection{\texorpdfstring{Added}{Added}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6443}
+
+\begin{DoxyItemize}
+\item Added PHP7.\+4 typed properties where applicable
+\item {\ttfamily Tabular\+Data\+Reader\+::fetch\+Column\+By\+Name} to replace {\ttfamily Tabular\+Data\+Reader\+::fetch\+Column}
+\item {\ttfamily Tabular\+Data\+Reader\+::fetch\+Column\+By\+Offset} to replace {\ttfamily Tabular\+Data\+Reader\+::fetch\+Column}
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6444}{}\doxysubsection{\texorpdfstring{Deprecated}{Deprecated}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6444}
+
+\begin{DoxyItemize}
+\item {\ttfamily Tabular\+Data\+Reader\+::fetch\+Column} use {\ttfamily Tabular\+Data\+Reader\+::fetch\+Column\+By\+Offset} or {\ttfamily Tabular\+Data\+Reader\+::fetch\+Column\+By\+Name} instead
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6445}{}\doxysubsection{\texorpdfstring{Fixed}{Fixed}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6445}
+
+\begin{DoxyItemize}
+\item {\ttfamily Abstract\+Csv} constructor is marked final via docblock. ~\newline
+ The method should never be extended or changed in child classes to avoid unexpected behaviour
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6446}{}\doxysubsection{\texorpdfstring{Removed}{Removed}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6446}
+
+\begin{DoxyItemize}
+\item PHP7.\+3 support
+\item Remove internal {\ttfamily Empty\+Escape\+Parser} Polyfill used in {\ttfamily Reader} class
+\item Remove PHP7.\+4 polyfill features in {\ttfamily Writer} class
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6447}{}\doxysection{\texorpdfstring{\href{https://github.com/thephpleague/csv/compare/9.7.3...9.7.4}{\texttt{ 9.\+7.\+4}} -\/ 2021-\/11-\/30}{\href{https://github.com/thephpleague/csv/compare/9.7.3...9.7.4}{\texttt{ 9.\+7.\+4}} -\/ 2021-\/11-\/30}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6447}
+\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6448}{}\doxysubsection{\texorpdfstring{Added}{Added}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6448}
+
+\begin{DoxyItemize}
+\item None
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6449}{}\doxysubsection{\texorpdfstring{Deprecated}{Deprecated}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6449}
+
+\begin{DoxyItemize}
+\item None
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6450}{}\doxysubsection{\texorpdfstring{Fixed}{Fixed}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6450}
+
+\begin{DoxyItemize}
+\item Bug fix {\ttfamily Escape\+Formula} to follow OWASP latest recommendation \href{https://github.com/thephpleague/csv/pull/452}{\texttt{ PR \#452}} ~\newline
+ thanks to \href{https://github.com/robertfausk}{\texttt{ @robertfausk}} and \href{https://github.com/Lehmhub}{\texttt{ @\+Lehmub}}
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6451}{}\doxysubsection{\texorpdfstring{Removed}{Removed}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6451}
+
+\begin{DoxyItemize}
+\item None
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6452}{}\doxysection{\texorpdfstring{\href{https://github.com/thephpleague/csv/compare/9.7.2...9.7.3}{\texttt{ 9.\+7.\+3}} -\/ 2021-\/11-\/21}{\href{https://github.com/thephpleague/csv/compare/9.7.2...9.7.3}{\texttt{ 9.\+7.\+3}} -\/ 2021-\/11-\/21}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6452}
+\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6453}{}\doxysubsection{\texorpdfstring{Added}{Added}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6453}
+
+\begin{DoxyItemize}
+\item None
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6454}{}\doxysubsection{\texorpdfstring{Deprecated}{Deprecated}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6454}
+
+\begin{DoxyItemize}
+\item None
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6455}{}\doxysubsection{\texorpdfstring{Fixed}{Fixed}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6455}
+
+\begin{DoxyItemize}
+\item \doxylink{class_update}{Update} PHPStan requirement for development
+\item Improve Documentation generation thanks to \href{https://github.com/pdelre}{\texttt{ pdelre}}
+\item PHP8.\+1 compliance\+: using {\ttfamily Return\+Type\+Will\+Change} to avoid emitting a unnecessary deprecation notice. thanks to \href{https://github.com/cedric-anne}{\texttt{ cedric-\/anne}}
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6456}{}\doxysubsection{\texorpdfstring{Removed}{Removed}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6456}
+
+\begin{DoxyItemize}
+\item None
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6457}{}\doxysection{\texorpdfstring{\href{https://github.com/thephpleague/csv/compare/9.7.1...9.7.2}{\texttt{ 9.\+7.\+2}} -\/ 2021-\/10-\/05}{\href{https://github.com/thephpleague/csv/compare/9.7.1...9.7.2}{\texttt{ 9.\+7.\+2}} -\/ 2021-\/10-\/05}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6457}
+\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6458}{}\doxysubsection{\texorpdfstring{Added}{Added}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6458}
+
+\begin{DoxyItemize}
+\item None
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6459}{}\doxysubsection{\texorpdfstring{Deprecated}{Deprecated}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6459}
+
+\begin{DoxyItemize}
+\item None
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6460}{}\doxysubsection{\texorpdfstring{Fixed}{Fixed}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6460}
+
+\begin{DoxyItemize}
+\item \doxylink{class_update}{Update} dependencies requirement for development
+\item PHP8.\+1 compliance\+: replace {\ttfamily FILTER\+\_\+\+SANITIZE\+\_\+\+STRING} by {\ttfamily FILTER\+\_\+\+UNSAFE\+\_\+\+RAW}
+\item PHP8.\+1 compliance\+: remove duplicated public properties declaration
+\item PHP8.\+1 compliance\+: add support for fputcsv {\ttfamily \$eol} argument
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6461}{}\doxysubsection{\texorpdfstring{Removed}{Removed}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6461}
+
+\begin{DoxyItemize}
+\item None
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6462}{}\doxysection{\texorpdfstring{\href{https://github.com/thephpleague/csv/compare/9.7.0...9.7.1}{\texttt{ 9.\+7.\+1}} -\/ 2021-\/04-\/17}{\href{https://github.com/thephpleague/csv/compare/9.7.0...9.7.1}{\texttt{ 9.\+7.\+1}} -\/ 2021-\/04-\/17}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6462}
+\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6463}{}\doxysubsection{\texorpdfstring{Added}{Added}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6463}
+
+\begin{DoxyItemize}
+\item None
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6464}{}\doxysubsection{\texorpdfstring{Deprecated}{Deprecated}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6464}
+
+\begin{DoxyItemize}
+\item None
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6465}{}\doxysubsection{\texorpdfstring{Fixed}{Fixed}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6465}
+
+\begin{DoxyItemize}
+\item fix writer filter \href{https://github.com/thephpleague/csv/pull/421}{\texttt{ \#421}} by \href{https://github.com/cpj555}{\texttt{ Losing\+Battle}}
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6466}{}\doxysubsection{\texorpdfstring{Removed}{Removed}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6466}
+
+\begin{DoxyItemize}
+\item None
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6467}{}\doxysection{\texorpdfstring{\href{https://github.com/thephpleague/csv/compare/9.6.2...9.7.0}{\texttt{ 9.\+7.\+0}} -\/ 2021-\/03-\/26}{\href{https://github.com/thephpleague/csv/compare/9.6.2...9.7.0}{\texttt{ 9.\+7.\+0}} -\/ 2021-\/03-\/26}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6467}
+\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6468}{}\doxysubsection{\texorpdfstring{Added}{Added}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6468}
+
+\begin{DoxyItemize}
+\item {\ttfamily League\textbackslash{}Csv\textbackslash{}Syntax\+Error\+::duplicate\+Column\+Names} to expose column name duplicates during header usage
+\item {\ttfamily League\textbackslash{}Csv\textbackslash{}Unable\+To\+Process\+Csv} as the new Exception Marker Interface
+\item {\ttfamily League\textbackslash{}Csv\textbackslash{}Unavailable\+Stream} as the new Exception
+\item {\ttfamily League\textbackslash{}Csv\textbackslash{}Info\+::get\+Delimiter\+Stats} to replace the namespace function {\ttfamily delimiter\+\_\+detect}
+\item {\ttfamily League\textbackslash{}Csv\textbackslash{}Info\+::fetch\+BOMSequence} to replace the namespace function {\ttfamily bom\+\_\+match}
+\item {\ttfamily League\textbackslash{}Csv\textbackslash{}Abstract\+Csv\+::to\+String} to replace {\ttfamily League\textbackslash{}Csv\textbackslash{}Abstract\+Csv\+::get\+Content} and {\ttfamily League\textbackslash{}Csv\textbackslash{}Abstract\+Csv\+::\+\_\+\+\_\+to\+String}
+\item {\ttfamily League\textbackslash{}Csv\textbackslash{}XMLConverter\+::create} to replace {\ttfamily League\textbackslash{}Csv\textbackslash{}XMLConverter\+::\+\_\+\+\_\+construct}
+\item {\ttfamily League\textbackslash{}Csv\textbackslash{}HTMLConverter\+::create} to replace {\ttfamily League\textbackslash{}Csv\textbackslash{}HTMLConverter\+::\+\_\+\+\_\+construct}
+\item {\ttfamily League\textbackslash{}Csv\textbackslash{}Abstract\+Csv\+::supports\+Stream\+Filter\+On\+Read} and {\ttfamily League\textbackslash{}Csv\textbackslash{}Abstract\+Csv\+::supports\+Stream\+Filter\+On\+Write} to replace {\ttfamily League\textbackslash{}Csv\textbackslash{}Abstract\+Csv\+::supports\+Stream\+Filter} and {\ttfamily League\textbackslash{}Csv\textbackslash{}Abstract\+Csv\+::get\+Stream\+Filter\+Mode}
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6469}{}\doxysubsection{\texorpdfstring{Deprecated}{Deprecated}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6469}
+
+\begin{DoxyItemize}
+\item {\ttfamily League\textbackslash{}Csv\textbackslash{}delimiter\+\_\+detect} use {\ttfamily League\textbackslash{}Csv\textbackslash{}Info\+::get\+Delimiter\+Stats}
+\item {\ttfamily League\textbackslash{}Csv\textbackslash{}bom\+\_\+match} use {\ttfamily League\textbackslash{}Csv\textbackslash{}Info\+::fetch\+BOMSequence}
+\item {\ttfamily League\textbackslash{}Csv\textbackslash{}Abstract\+Csv\+::get\+Content} use {\ttfamily League\textbackslash{}Csv\textbackslash{}Abstract\+Csv\+::to\+String}
+\item {\ttfamily League\textbackslash{}Csv\textbackslash{}Abstract\+Csv\+::get\+Stream\+Filter\+Mode} use {\ttfamily League\textbackslash{}Csv\textbackslash{}Abstract\+Csv\+::supports\+Stream\+Filter\+On\+Read} or {\ttfamily League\textbackslash{}Csv\textbackslash{}Abstract\+Csv\+::supports\+Stream\+Filter\+On\+Write}
+\item {\ttfamily League\textbackslash{}Csv\textbackslash{}Abstract\+Csv\+::supports\+Stream\+Filter} use {\ttfamily League\textbackslash{}Csv\textbackslash{}Abstract\+Csv\+::supports\+Stream\+Filter\+On\+Read} or {\ttfamily League\textbackslash{}Csv\textbackslash{}Abstract\+Csv\+::supports\+Stream\+Filter\+On\+Write}
+\item Calling exceptions constructor, use named constructors instead.
+\item {\ttfamily League\textbackslash{}Csv\textbackslash{}XMLConverter\+::\+\_\+\+\_\+construct} use {\ttfamily League\textbackslash{}Csv\textbackslash{}XMLConverter\+::create}
+\item {\ttfamily League\textbackslash{}Csv\textbackslash{}HTMLConverter\+::\+\_\+\+\_\+construct} use {\ttfamily League\textbackslash{}Csv\textbackslash{}HTMLConverter\+::create}
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6470}{}\doxysubsection{\texorpdfstring{Fixed}{Fixed}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6470}
+
+\begin{DoxyItemize}
+\item Move tests into the {\ttfamily src} directory
+\item Fixed encoder method resolver implementation
+\item all classes marked as {\ttfamily @internal} are now final
+\item {\ttfamily League\textbackslash{}Csv\textbackslash{}Abstract\+Csv\+::\+STREAM\+\_\+\+FILTER\+\_\+\+MODE} constant replaces {\ttfamily League\textbackslash{}Csv\textbackslash{}Abstract\+Csv\+:\+:\$stream\+\_\+filter\+\_\+mode}
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6471}{}\doxysubsection{\texorpdfstring{Removed}{Removed}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6471}
+
+\begin{DoxyItemize}
+\item PHP7.\+2 support
+\item {\ttfamily League\textbackslash{}Csv\textbackslash{}Abstract\+Csv\+:\+:\$stream\+\_\+filter\+\_\+mode}
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6472}{}\doxysection{\texorpdfstring{\href{https://github.com/thephpleague/csv/compare/9.6.1...9.6.2}{\texttt{ 9.\+6.\+2}} -\/ 2020-\/12-\/10}{\href{https://github.com/thephpleague/csv/compare/9.6.1...9.6.2}{\texttt{ 9.\+6.\+2}} -\/ 2020-\/12-\/10}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6472}
+\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6473}{}\doxysubsection{\texorpdfstring{Added}{Added}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6473}
+
+\begin{DoxyItemize}
+\item Using Github actions as development tools.
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6474}{}\doxysubsection{\texorpdfstring{Deprecated}{Deprecated}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6474}
+
+\begin{DoxyItemize}
+\item None
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6475}{}\doxysubsection{\texorpdfstring{Fixed}{Fixed}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6475}
+
+\begin{DoxyItemize}
+\item Adding official support for PHP8 \href{https://github.com/thephpleague/csv/pull/405}{\texttt{ \#405}} and \href{https://github.com/thephpleague/csv/pull/406}{\texttt{ \#406}} by \href{https://github.com/IonBazan}{\texttt{ Ion Bazan}}
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6476}{}\doxysubsection{\texorpdfstring{Removed}{Removed}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6476}
+
+\begin{DoxyItemize}
+\item Removing Travis and Scrutinizr as development tools
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6477}{}\doxysection{\texorpdfstring{\href{https://github.com/thephpleague/csv/compare/9.6.0...9.6.1}{\texttt{ 9.\+6.\+1}} -\/ 2020-\/09-\/05}{\href{https://github.com/thephpleague/csv/compare/9.6.0...9.6.1}{\texttt{ 9.\+6.\+1}} -\/ 2020-\/09-\/05}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6477}
+\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6478}{}\doxysubsection{\texorpdfstring{Added}{Added}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6478}
+
+\begin{DoxyItemize}
+\item None
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6479}{}\doxysubsection{\texorpdfstring{Deprecated}{Deprecated}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6479}
+
+\begin{DoxyItemize}
+\item None
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6480}{}\doxysubsection{\texorpdfstring{Fixed}{Fixed}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6480}
+
+\begin{DoxyItemize}
+\item BOM sequence processing fix \href{https://github.com/thephpleague/csv/issues/394}{\texttt{ \#394}}
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6481}{}\doxysubsection{\texorpdfstring{Removed}{Removed}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6481}
+
+\begin{DoxyItemize}
+\item None
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6482}{}\doxysection{\texorpdfstring{\href{https://github.com/thephpleague/csv/compare/9.5.0...9.6.0}{\texttt{ 9.\+6.\+0}} -\/ 2020-\/03-\/17}{\href{https://github.com/thephpleague/csv/compare/9.5.0...9.6.0}{\texttt{ 9.\+6.\+0}} -\/ 2020-\/03-\/17}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6482}
+\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6483}{}\doxysubsection{\texorpdfstring{Added}{Added}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6483}
+
+\begin{DoxyItemize}
+\item More return types and type parameters as supported in PHP7.\+2+
+\item {\ttfamily League\textbackslash{}Csv\textbackslash{}Statement\+::create} named constructor to ease constraint builder instantiation
+\item {\ttfamily League\textbackslash{}Csv\textbackslash{}Statement} can now also process {\ttfamily League\textbackslash{}Csv\textbackslash{}Result\+Set} instances.
+\item {\ttfamily League\textbackslash{}Csv\textbackslash{}Tabular\+Data\+Reader} interface to represent how to read tabular data
+\item {\ttfamily League\textbackslash{}Csv\textbackslash{}Result\+Set\+::get\+Records} has an optional {\ttfamily \$header} second argument to make the method works like {\ttfamily League\textbackslash{}Csv\textbackslash{}Reader\+::get\+Records}
+\item {\ttfamily League\textbackslash{}Csv\textbackslash{}Result\+Set\+::create\+From\+Tabular\+Data\+Reader} create a new instance from {\ttfamily League\textbackslash{}Csv\textbackslash{}Tabular\+Data\+Reader} implementing class.
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6484}{}\doxysubsection{\texorpdfstring{Deprecated}{Deprecated}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6484}
+
+\begin{DoxyItemize}
+\item Nothing
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6485}{}\doxysubsection{\texorpdfstring{Fixed}{Fixed}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6485}
+
+\begin{DoxyItemize}
+\item {\ttfamily League\textbackslash{}Csv\textbackslash{}Reader} no longer uses {\ttfamily \+\_\+\+\_\+call} to implement {\ttfamily fetch\+One}, {\ttfamily fetch\+Pairs} and {\ttfamily fetch\+Column} methods.
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6486}{}\doxysubsection{\texorpdfstring{Removed}{Removed}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6486}
+
+\begin{DoxyItemize}
+\item Internal polyfill for {\ttfamily is\+\_\+iterable}
+\item Internal polyfill for {\ttfamily is\+\_\+nullable\+\_\+int}
+\item Support for PHP7.\+0 and PHP7.\+1
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6487}{}\doxysection{\texorpdfstring{\href{https://github.com/thephpleague/csv/compare/9.4.1...9.5.0}{\texttt{ 9.\+5.\+0}} -\/ 2019-\/12-\/15}{\href{https://github.com/thephpleague/csv/compare/9.4.1...9.5.0}{\texttt{ 9.\+5.\+0}} -\/ 2019-\/12-\/15}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6487}
+\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6488}{}\doxysubsection{\texorpdfstring{Added}{Added}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6488}
+
+\begin{DoxyItemize}
+\item Improve package exception throwing by adding new exceptions classes that extends the {\ttfamily League\textbackslash{}Csv\textbackslash{}Exception} exception marker class \href{https://github.com/thephpleague/csv/issues/360}{\texttt{ \#360}}, \href{https://github.com/thephpleague/csv/issues/360}{\texttt{ \#361}} feature proposed and developed by \href{https://github.com/dmlogic}{\texttt{ Darren Miller}}
+\begin{DoxyItemize}
+\item {\ttfamily League\textbackslash{}Csv\textbackslash{}Unavailable\+Feature}
+\item {\ttfamily League\textbackslash{}Csv\textbackslash{}Invalid\+Argument}
+\item {\ttfamily League\textbackslash{}Csv\textbackslash{}Syntax\+Error}
+\end{DoxyItemize}
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6489}{}\doxysubsection{\texorpdfstring{Deprecated}{Deprecated}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6489}
+
+\begin{DoxyItemize}
+\item Nothing
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6490}{}\doxysubsection{\texorpdfstring{Fixed}{Fixed}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6490}
+
+\begin{DoxyItemize}
+\item bug fix {\ttfamily bom\+\_\+match} function see issue \href{https://github.com/thephpleague/csv/issues/363}{\texttt{ \#363}} resolved based on PR from \href{https://github.com/jmwebservices}{\texttt{ Jerry Martinez}}
+\item bug fix {\ttfamily delemiter\+\_\+detect} function see issue \href{https://github.com/thephpleague/csv/issues/366}{\texttt{ \#366}}
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6491}{}\doxysubsection{\texorpdfstring{Removed}{Removed}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6491}
+
+\begin{DoxyItemize}
+\item Nothing
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6492}{}\doxysection{\texorpdfstring{\href{https://github.com/thephpleague/csv/compare/9.4.0...9.4.1}{\texttt{ 9.\+4.\+1}} -\/ 2019-\/10-\/17}{\href{https://github.com/thephpleague/csv/compare/9.4.0...9.4.1}{\texttt{ 9.\+4.\+1}} -\/ 2019-\/10-\/17}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6492}
+\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6493}{}\doxysubsection{\texorpdfstring{Added}{Added}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6493}
+
+\begin{DoxyItemize}
+\item Nothing
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6494}{}\doxysubsection{\texorpdfstring{Deprecated}{Deprecated}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6494}
+
+\begin{DoxyItemize}
+\item Nothing
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6495}{}\doxysubsection{\texorpdfstring{Fixed}{Fixed}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6495}
+
+\begin{DoxyItemize}
+\item bug fix the escape mechanism polyfill \href{https://github.com/thephpleague/csv/pull/358}{\texttt{ \#358}} fix provided by \href{https://github.com/on2}{\texttt{ on2}}
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6496}{}\doxysubsection{\texorpdfstring{Removed}{Removed}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6496}
+
+\begin{DoxyItemize}
+\item Nothing
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6497}{}\doxysection{\texorpdfstring{\href{https://github.com/thephpleague/csv/compare/9.3.0...9.4.0}{\texttt{ 9.\+4.\+0}} -\/ 2019-\/10-\/02}{\href{https://github.com/thephpleague/csv/compare/9.3.0...9.4.0}{\texttt{ 9.\+4.\+0}} -\/ 2019-\/10-\/02}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6497}
+\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6498}{}\doxysubsection{\texorpdfstring{Added}{Added}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6498}
+
+\begin{DoxyItemize}
+\item Adding support for controlling empty record presence in {\ttfamily Reader\+::get\+Records} return value.
+\begin{DoxyItemize}
+\item {\ttfamily Reader\+::include\+Empty\+Records}
+\item {\ttfamily Reader\+::skip\+Empty\+Records}
+\item {\ttfamily Reader\+::is\+Empty\+Records\+Included}
+\end{DoxyItemize}
+\item Adding support for controlling Input BOM usage in the library\+:
+\begin{DoxyItemize}
+\item {\ttfamily Abstract\+Csv\+::skip\+Input\+BOM}
+\item {\ttfamily Abstract\+Csv\+::include\+Input\+BOM}
+\item {\ttfamily Abstract\+Csv\+::is\+Input\+BOMIncluded}
+\end{DoxyItemize}
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6499}{}\doxysubsection{\texorpdfstring{Deprecated}{Deprecated}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6499}
+
+\begin{DoxyItemize}
+\item Nothing
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6500}{}\doxysubsection{\texorpdfstring{Fixed}{Fixed}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6500}
+
+\begin{DoxyItemize}
+\item {\ttfamily Empty\+Escape\+Parser\+::parse} no longer auto skip empty records
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6501}{}\doxysubsection{\texorpdfstring{Removed}{Removed}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6501}
+
+\begin{DoxyItemize}
+\item Nothing
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6502}{}\doxysection{\texorpdfstring{\href{https://github.com/thephpleague/csv/compare/9.2.1...9.3.0}{\texttt{ 9.\+3.\+0}} -\/ 2019-\/07-\/30}{\href{https://github.com/thephpleague/csv/compare/9.2.1...9.3.0}{\texttt{ 9.\+3.\+0}} -\/ 2019-\/07-\/30}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6502}
+\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6503}{}\doxysubsection{\texorpdfstring{Added}{Added}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6503}
+
+\begin{DoxyItemize}
+\item {\ttfamily XMLConverter\+::import} see \href{https://github.com/thephpleague/csv/pull/348}{\texttt{ \#348}} thanks \href{https://github.com/kusabi}{\texttt{ @kusabi}}
+\item Support for {\ttfamily thead}, {\ttfamily tfoot} and {\ttfamily tbody} in {\ttfamily HTMLConverter\+::convert} via the addition of protected methods {\ttfamily HTMLConverter\+::add\+HTMLAttributes} and {\ttfamily HTMLConverter\+::append\+Header\+Section} \href{https://github.com/thephpleague/csv/pull/348}{\texttt{ \#348}} thanks \href{https://github.com/kusabi}{\texttt{ @kusabi}}
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6504}{}\doxysubsection{\texorpdfstring{Deprecated}{Deprecated}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6504}
+
+\begin{DoxyItemize}
+\item Nothing
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6505}{}\doxysubsection{\texorpdfstring{Fixed}{Fixed}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6505}
+
+\begin{DoxyItemize}
+\item Internal improvement in {\ttfamily Reader} dockblock thanks \href{https://github.com/ghobaty}{\texttt{ @ghobaty}}.
+\item Improve strict comparison when using {\ttfamily preg\+\_\+match}.
+\item Improve CSV control in {\ttfamily Stream}.
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6506}{}\doxysubsection{\texorpdfstring{Removed}{Removed}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6506}
+
+\begin{DoxyItemize}
+\item Nothing
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6507}{}\doxysection{\texorpdfstring{\href{https://github.com/thephpleague/csv/compare/9.2.0...9.2.1}{\texttt{ 9.\+2.\+1}} -\/ 2019-\/06-\/08}{\href{https://github.com/thephpleague/csv/compare/9.2.0...9.2.1}{\texttt{ 9.\+2.\+1}} -\/ 2019-\/06-\/08}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6507}
+\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6508}{}\doxysubsection{\texorpdfstring{Added}{Added}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6508}
+
+\begin{DoxyItemize}
+\item Nothing
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6509}{}\doxysubsection{\texorpdfstring{Deprecated}{Deprecated}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6509}
+
+\begin{DoxyItemize}
+\item Nothing
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6510}{}\doxysubsection{\texorpdfstring{Fixed}{Fixed}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6510}
+
+\begin{DoxyItemize}
+\item {\ttfamily Abstract\+CSV\+::chunk} see \href{https://github.com/thephpleague/csv/pull/325}{\texttt{ \#325}} remove CSV flags from the Stream class to avoid infinite loop.
+\item Internal improve {\ttfamily HTMLConverter}.
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6511}{}\doxysubsection{\texorpdfstring{Removed}{Removed}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6511}
+
+\begin{DoxyItemize}
+\item Nothing
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6512}{}\doxysection{\texorpdfstring{\href{https://github.com/thephpleague/csv/compare/9.1.4...9.2.0}{\texttt{ 9.\+2.\+0}} -\/ 2019-\/03-\/08}{\href{https://github.com/thephpleague/csv/compare/9.1.4...9.2.0}{\texttt{ 9.\+2.\+0}} -\/ 2019-\/03-\/08}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6512}
+\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6513}{}\doxysubsection{\texorpdfstring{Added}{Added}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6513}
+
+\begin{DoxyItemize}
+\item Supports for PHP7.\+4 empty string for the escape character
+\item Supports for empty string for the escape character with a polyfill for PHP7.\+4-\/ versions.
+\item {\ttfamily Abstract\+CSV\+::get\+Pathname} see \href{https://github.com/thephpleague/csv/pull/321}{\texttt{ \#321}} thanks \href{https://github.com/tomkyle}{\texttt{ @tomkyle}}
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6514}{}\doxysubsection{\texorpdfstring{Deprecated}{Deprecated}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6514}
+
+\begin{DoxyItemize}
+\item {\ttfamily League\textbackslash{}Csv\textbackslash{}RFC4180\+Field} use {\ttfamily Abstract\+CSV\+::set\+Escape} method with an empty string instead.
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6515}{}\doxysubsection{\texorpdfstring{Fixed}{Fixed}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6515}
+
+\begin{DoxyItemize}
+\item {\ttfamily Abstract\+CSV\+::\+\_\+\+\_\+construct} correctly initializes properties
+\item {\ttfamily Abstract\+CSV\+::create\+From\+String} named constructor default argument is now the empty string
+\item {\ttfamily Abstract\+CSV\+::set\+Escape} now accepts the empty string like {\ttfamily fputcsv} and {\ttfamily fgetcsv}
+\item {\ttfamily Writer\+::insert\+One} fixes throwing exception when record can not be inserted
+\item {\ttfamily XMLConverter} convert to string the record value to avoid PHP warning on {\ttfamily null} value
+\item Internal {\ttfamily Stream\+::create\+From\+String} named constructor default argument is now the empty string
+\item Internal {\ttfamily Stream\+::fwrite} improved
+\item Internal {\ttfamily Stream\+::\+\_\+\+\_\+destruct} no longer emit warning on invalid stream filter removal.
+\item Internal {\ttfamily Stream\+::seek} returns {\ttfamily 0} if the seeked position {\ttfamily 0} is valid see \href{https://github.com/thephpleague/csv/pull/332}{\texttt{ \#321}} thanks \href{https://github.com/HaozhouChen}{\texttt{ @\+Haozhou\+Chen}}
+\item {\ttfamily Reader\+:get\+Header} when the record is an empty line.
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6516}{}\doxysubsection{\texorpdfstring{Removed}{Removed}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6516}
+
+\begin{DoxyItemize}
+\item Nothing
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6517}{}\doxysection{\texorpdfstring{\href{https://github.com/thephpleague/csv/compare/9.1.3...9.1.4}{\texttt{ 9.\+1.\+4}} -\/ 2018-\/05-\/01}{\href{https://github.com/thephpleague/csv/compare/9.1.3...9.1.4}{\texttt{ 9.\+1.\+4}} -\/ 2018-\/05-\/01}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6517}
+\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6518}{}\doxysubsection{\texorpdfstring{Added}{Added}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6518}
+
+\begin{DoxyItemize}
+\item Nothing
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6519}{}\doxysubsection{\texorpdfstring{Deprecated}{Deprecated}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6519}
+
+\begin{DoxyItemize}
+\item Nothing
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6520}{}\doxysubsection{\texorpdfstring{Fixed}{Fixed}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6520}
+
+\begin{DoxyItemize}
+\item {\ttfamily Writer\+::set\+Flush\+Threshold} should accept 1 as an argument \href{https://github.com/thephpleague/csv/issue/289}{\texttt{ \#289}}
+\item {\ttfamily Charset\+Converter\+::convert} should not try to convert numeric value \href{https://github.com/thephpleague/csv/issue/287}{\texttt{ \#287}}
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6521}{}\doxysubsection{\texorpdfstring{Removed}{Removed}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6521}
+
+\begin{DoxyItemize}
+\item Nothing
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6522}{}\doxysection{\texorpdfstring{\href{https://github.com/thephpleague/csv/compare/9.1.2...9.1.3}{\texttt{ 9.\+1.\+3}} -\/ 2018-\/03-\/12}{\href{https://github.com/thephpleague/csv/compare/9.1.2...9.1.3}{\texttt{ 9.\+1.\+3}} -\/ 2018-\/03-\/12}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6522}
+\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6523}{}\doxysubsection{\texorpdfstring{Added}{Added}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6523}
+
+\begin{DoxyItemize}
+\item Nothing
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6524}{}\doxysubsection{\texorpdfstring{Deprecated}{Deprecated}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6524}
+
+\begin{DoxyItemize}
+\item Nothing
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6525}{}\doxysubsection{\texorpdfstring{Fixed}{Fixed}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6525}
+
+\begin{DoxyItemize}
+\item {\ttfamily Writer\+::insert\+One} allow empty array to be added to the CSV (allow inserting empty row)
+\item Removed all return type from named constructor see \href{https://github.com/thephpleague/csv/pull/285}{\texttt{ \#285}}
+\item Added PHPStan for static code analysis
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6526}{}\doxysubsection{\texorpdfstring{Removed}{Removed}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6526}
+
+\begin{DoxyItemize}
+\item Nothing
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6527}{}\doxysection{\texorpdfstring{\href{https://github.com/thephpleague/csv/compare/9.1.1...9.1.2}{\texttt{ 9.\+1.\+2}} -\/ 2018-\/02-\/05}{\href{https://github.com/thephpleague/csv/compare/9.1.1...9.1.2}{\texttt{ 9.\+1.\+2}} -\/ 2018-\/02-\/05}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6527}
+\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6528}{}\doxysubsection{\texorpdfstring{Added}{Added}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6528}
+
+\begin{DoxyItemize}
+\item Nothing
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6529}{}\doxysubsection{\texorpdfstring{Deprecated}{Deprecated}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6529}
+
+\begin{DoxyItemize}
+\item Nothing
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6530}{}\doxysubsection{\texorpdfstring{Fixed}{Fixed}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6530}
+
+\begin{DoxyItemize}
+\item {\ttfamily is\+\_\+iterable} polyfill for PHP7.\+0
+\item {\ttfamily Reader\+::get\+Header} no longer throws exception because of a bug in PHP7.\+2+ \href{https://github.com/thephpleague/csv/issues/279}{\texttt{ issue \#279}}
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6531}{}\doxysubsection{\texorpdfstring{Removed}{Removed}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6531}
+
+\begin{DoxyItemize}
+\item Nothing
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6532}{}\doxysection{\texorpdfstring{\href{https://github.com/thephpleague/csv/compare/9.1.0...9.1.1}{\texttt{ 9.\+1.\+1}} -\/ 2017-\/11-\/28}{\href{https://github.com/thephpleague/csv/compare/9.1.0...9.1.1}{\texttt{ 9.\+1.\+1}} -\/ 2017-\/11-\/28}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6532}
+\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6533}{}\doxysubsection{\texorpdfstring{Added}{Added}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6533}
+
+\begin{DoxyItemize}
+\item Nothing
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6534}{}\doxysubsection{\texorpdfstring{Deprecated}{Deprecated}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6534}
+
+\begin{DoxyItemize}
+\item Nothing
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6535}{}\doxysubsection{\texorpdfstring{Fixed}{Fixed}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6535}
+
+\begin{DoxyItemize}
+\item issue with {\ttfamily error\+\_\+get\+\_\+last} usage when using a modified PHP error handler see \href{https://github.com/thephpleague/csv/issues/254}{\texttt{ \#254}} -\/ fixed by \href{https://github.com/csiszarattila}{\texttt{ @csiszarattila}}
+\item Removed seekable word from Stream exception messages.
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6536}{}\doxysubsection{\texorpdfstring{Removed}{Removed}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6536}
+
+\begin{DoxyItemize}
+\item Nothing
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6537}{}\doxysection{\texorpdfstring{\href{https://github.com/thephpleague/csv/compare/9.0.1...9.1.0}{\texttt{ 9.\+1.\+0}} -\/ 2017-\/10-\/20}{\href{https://github.com/thephpleague/csv/compare/9.0.1...9.1.0}{\texttt{ 9.\+1.\+0}} -\/ 2017-\/10-\/20}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6537}
+\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6538}{}\doxysubsection{\texorpdfstring{Added}{Added}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6538}
+
+\begin{DoxyItemize}
+\item Support for non seekable stream. When seekable feature are required an exceptions will be thrown.
+\item {\ttfamily League\textbackslash{}Csv\textbackslash{}Enclose\+Field} to force enclosure insertion on every field. \href{https://github.com/thephpleague/csv/pull/269}{\texttt{ \#269}}
+\item {\ttfamily League\textbackslash{}Csv\textbackslash{}Escape\+Formula} a League CSV formatter to prevent CSV Formula Injection in Spreadsheet programs.
+\item {\ttfamily League\textbackslash{}Csv\textbackslash{}RFC4180\+Field\+::add\+To} accept an option {\ttfamily \$replace\+\_\+whitespace} argument to improve RFC4180 compliance.
+\item {\ttfamily League\textbackslash{}Csv\textbackslash{}Abstract\+::get\+Content} to replace {\ttfamily League\textbackslash{}Csv\textbackslash{}Abstract\+::\+\_\+\+\_\+to\+String}. The {\ttfamily \+\_\+\+\_\+to\+String} method may trigger a Fatal Error with non seekable stream, instead you are recommended to used the new {\ttfamily get\+Content} method which will trigger an exception instead.
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6539}{}\doxysubsection{\texorpdfstring{Deprecated}{Deprecated}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6539}
+
+\begin{DoxyItemize}
+\item {\ttfamily League\textbackslash{}Csv\textbackslash{}Abstract\+::\+\_\+\+\_\+to\+String} use {\ttfamily League\textbackslash{}Csv\textbackslash{}Abstract\+::get\+Content} instead. the {\ttfamily \+\_\+\+\_\+to\+String} triggers a Fatal Error when used on a non-\/seekable CSV document. use the {\ttfamily get\+Content} method instead which will trigger an exception instead.
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6540}{}\doxysubsection{\texorpdfstring{Fixed}{Fixed}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6540}
+
+\begin{DoxyItemize}
+\item Bug fixes headers from Abstract\+Csv\+::output according to RFC6266 \href{https://github.com/thephpleague/csv/issues/250}{\texttt{ \#250}}
+\item Make sure the internal source still exists before closing it \href{https://github.com/thephpleague/csv/issues/251}{\texttt{ \#251}}
+\item Make sure the {\ttfamily Reader\+::create\+From\+Path} default open mode is {\ttfamily r} see \href{https://github.com/thephpleague/csv/pull/258}{\texttt{ \#258}} and \href{https://github.com/thephpleague/csv/pull/266}{\texttt{ \#266}}
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6541}{}\doxysubsection{\texorpdfstring{Removed}{Removed}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6541}
+
+\begin{DoxyItemize}
+\item Nothing
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6542}{}\doxysection{\texorpdfstring{\href{https://github.com/thephpleague/csv/compare/9.0.0...9.0.1}{\texttt{ 9.\+0.\+1}} -\/ 2017-\/08-\/21}{\href{https://github.com/thephpleague/csv/compare/9.0.0...9.0.1}{\texttt{ 9.\+0.\+1}} -\/ 2017-\/08-\/21}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6542}
+\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6543}{}\doxysubsection{\texorpdfstring{Added}{Added}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6543}
+
+\begin{DoxyItemize}
+\item Nothing
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6544}{}\doxysubsection{\texorpdfstring{Deprecated}{Deprecated}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6544}
+
+\begin{DoxyItemize}
+\item Nothing
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6545}{}\doxysubsection{\texorpdfstring{Fixed}{Fixed}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6545}
+
+\begin{DoxyItemize}
+\item CSV controls not applied when calling Writer\+::insert\+One
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6546}{}\doxysubsection{\texorpdfstring{Removed}{Removed}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6546}
+
+\begin{DoxyItemize}
+\item Nothing
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6547}{}\doxysection{\texorpdfstring{\href{https://github.com/thephpleague/csv/compare/8.2.2...9.0.0}{\texttt{ 9.\+0.\+0}} -\/ 2017-\/08-\/18}{\href{https://github.com/thephpleague/csv/compare/8.2.2...9.0.0}{\texttt{ 9.\+0.\+0}} -\/ 2017-\/08-\/18}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6547}
+\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6548}{}\doxysubsection{\texorpdfstring{Added}{Added}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6548}
+
+\begin{DoxyItemize}
+\item Improved CSV Records selection
+\begin{DoxyItemize}
+\item {\ttfamily League\textbackslash{}Csv\textbackslash{}Reader\+::get\+Records} to access all CSV records
+\item {\ttfamily League\textbackslash{}Csv\textbackslash{}Statement} provides a constraint builder to select CSV records.
+\item {\ttfamily League\textbackslash{}Csv\textbackslash{}Result\+Set} represents the result set of the selected CSV records.
+\item {\ttfamily League\textbackslash{}Csv\textbackslash{}delimiter\+\_\+detect} function to detect CSV delimiter character
+\end{DoxyItemize}
+\item Improved CSV document header selection.
+\begin{DoxyItemize}
+\item {\ttfamily League\textbackslash{}Csv\textbackslash{}Reader\+::get\+Header}
+\item {\ttfamily League\textbackslash{}Csv\textbackslash{}Reader\+::get\+Header\+Offset}
+\item {\ttfamily League\textbackslash{}Csv\textbackslash{}Reader\+::set\+Header\+Offset}
+\end{DoxyItemize}
+\item Improved CSV Records conversion
+\begin{DoxyItemize}
+\item {\ttfamily League\textbackslash{}Csv\textbackslash{}Charset\+Converter} converts CSV records charset.
+\item {\ttfamily League\textbackslash{}Csv\textbackslash{}XMLConverter} converts CSV records into DOMDocument
+\item {\ttfamily League\textbackslash{}Csv\textbackslash{}HTMLConverter} converts CSV records into HTML table.
+\end{DoxyItemize}
+\item Improved Exception handling
+\begin{DoxyItemize}
+\item {\ttfamily League\textbackslash{}Csv\textbackslash{}Exception} the default exception
+\item {\ttfamily League\textbackslash{}Csv\textbackslash{}Cannot\+Insert\+Record}
+\end{DoxyItemize}
+\item Improved CSV document output
+\begin{DoxyItemize}
+\item {\ttfamily League\textbackslash{}Csv\textbackslash{}Abstract\+Csv\+::chunk} method to output the CSV document in chunk
+\item {\ttfamily League\textbackslash{}Csv\textbackslash{}bom\+\_\+match} function to detect BOM sequence in a given string
+\item {\ttfamily League\textbackslash{}Csv\textbackslash{}Byte\+Sequence} interface to decoupled BOM sequence from CSV documents
+\end{DoxyItemize}
+\item Improved CSV records column count consistency on insertion
+\begin{DoxyItemize}
+\item {\ttfamily League\textbackslash{}Csv\textbackslash{}Column\+Consistency}
+\end{DoxyItemize}
+\item Improved CSV document flush mechanism on insertion
+\begin{DoxyItemize}
+\item {\ttfamily League\textbackslash{}Csv\textbackslash{}Writer\+::set\+Flush\+Threshold}
+\item {\ttfamily League\textbackslash{}Csv\textbackslash{}Writer\+::get\+Flush\+Threshold}
+\end{DoxyItemize}
+\item Improve RFC4180 compliance
+\begin{DoxyItemize}
+\item {\ttfamily League\textbackslash{}Csv\textbackslash{}RFC4180\+Field} to format field according to RFC4180 rules
+\end{DoxyItemize}
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6549}{}\doxysubsection{\texorpdfstring{Deprecated}{Deprecated}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6549}
+
+\begin{DoxyItemize}
+\item Nothing
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6550}{}\doxysubsection{\texorpdfstring{Fixed}{Fixed}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6550}
+
+\begin{DoxyItemize}
+\item Improved CSV record insertion
+\begin{DoxyItemize}
+\item {\ttfamily League\textbackslash{}Csv\textbackslash{}Writer\+::insert\+One} only accepts an array and returns a integer
+\item {\ttfamily League\textbackslash{}Csv\textbackslash{}Writer\+::insert\+All} only accepts an iterable of array and returns an integer
+\end{DoxyItemize}
+\item Normalized CSV offset returned value
+\begin{DoxyItemize}
+\item {\ttfamily League\textbackslash{}Csv\textbackslash{}Reader\+::fetch\+Column} always returns the CSV document original offset.
+\end{DoxyItemize}
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6551}{}\doxysubsection{\texorpdfstring{Removed}{Removed}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6551}
+
+\begin{DoxyItemize}
+\item {\ttfamily examples} directory
+\item {\ttfamily PHP5} support
+\item The following method is removed because The BOM API is simplified\+:
+\begin{DoxyItemize}
+\item {\ttfamily League\textbackslash{}Csv\textbackslash{}Abstract\+Csv\+::strip\+BOM}
+\end{DoxyItemize}
+\item All conversion methods are removed in favor of the conversion classes\+:
+\begin{DoxyItemize}
+\item {\ttfamily League\textbackslash{}Csv\textbackslash{}Writer\+::json\+Serialize}
+\item {\ttfamily League\textbackslash{}Csv\textbackslash{}Abstract\+Csv\+::to\+HTML}
+\item {\ttfamily League\textbackslash{}Csv\textbackslash{}Abstract\+Csv\+::to\+XML}
+\item {\ttfamily League\textbackslash{}Csv\textbackslash{}Abstract\+Csv\+::set\+Input\+Encoding}
+\item {\ttfamily League\textbackslash{}Csv\textbackslash{}Abstract\+Csv\+::get\+Input\+Encoding}
+\end{DoxyItemize}
+\item The following methods are removed because the PHP stream filter API is simplified\+:
+\begin{DoxyItemize}
+\item {\ttfamily League\textbackslash{}Csv\textbackslash{}Abstract\+Csv\+::is\+Active\+Stream\+Filter}
+\item {\ttfamily League\textbackslash{}Csv\textbackslash{}Abstract\+Csv\+::set\+Stream\+Filter\+Mode}
+\item {\ttfamily League\textbackslash{}Csv\textbackslash{}Abstract\+Csv\+::append\+Stream\+Filter}
+\item {\ttfamily League\textbackslash{}Csv\textbackslash{}Abstract\+Csv\+::prepend\+Stream\+Filter}
+\item {\ttfamily League\textbackslash{}Csv\textbackslash{}Abstract\+Csv\+::remove\+Stream\+Filter}
+\item {\ttfamily League\textbackslash{}Csv\textbackslash{}Abstract\+Csv\+::clear\+Stream\+Filters}
+\end{DoxyItemize}
+\item The following methods are removed because switching between connections is no longer possible\+:
+\begin{DoxyItemize}
+\item {\ttfamily League\textbackslash{}Csv\textbackslash{}Abstract\+Csv\+::new\+Reader}
+\item {\ttfamily League\textbackslash{}Csv\textbackslash{}Abstract\+Csv\+::new\+Writer}
+\item {\ttfamily League\textbackslash{}Csv\textbackslash{}Reader\+::get\+Newline}
+\item {\ttfamily League\textbackslash{}Csv\textbackslash{}Reader\+::set\+Newline}
+\end{DoxyItemize}
+\item The Exception mechanism is improved thus the following class is removed\+:
+\begin{DoxyItemize}
+\item {\ttfamily League\textbackslash{}Csv\textbackslash{}Exception\textbackslash{}Invalid\+Row\+Exception};
+\end{DoxyItemize}
+\item The CSV records filtering methods are removed in favor of the {\ttfamily League\textbackslash{}Csv\textbackslash{}Statement} class\+:
+\begin{DoxyItemize}
+\item {\ttfamily League\textbackslash{}Csv\textbackslash{}Abstract\+Csv\+::add\+Filter},
+\item {\ttfamily League\textbackslash{}Csv\textbackslash{}Abstract\+Csv\+::add\+Sort\+By},
+\item {\ttfamily League\textbackslash{}Csv\textbackslash{}Abstract\+Csv\+::set\+Offset},
+\item {\ttfamily League\textbackslash{}Csv\textbackslash{}Abstract\+Csv\+::set\+Limit};
+\end{DoxyItemize}
+\item CSV records selecting API methods is simplified\+:
+\begin{DoxyItemize}
+\item {\ttfamily League\textbackslash{}Csv\textbackslash{}Reader\+::each}
+\item {\ttfamily League\textbackslash{}Csv\textbackslash{}Reader\+::fetch}
+\item {\ttfamily League\textbackslash{}Csv\textbackslash{}Reader\+::fetch\+All}
+\item {\ttfamily League\textbackslash{}Csv\textbackslash{}Reader\+::fetch\+Assoc}
+\item {\ttfamily League\textbackslash{}Csv\textbackslash{}Reader\+::fetch\+Pairs\+Without\+Duplicates}
+\end{DoxyItemize}
+\item Formatting and validating CSV records on insertion is simplified, the following methods are removed\+:
+\begin{DoxyItemize}
+\item {\ttfamily League\textbackslash{}Csv\textbackslash{}Writer\+::has\+Formatter}
+\item {\ttfamily League\textbackslash{}Csv\textbackslash{}Writer\+::remove\+Formatter}
+\item {\ttfamily League\textbackslash{}Csv\textbackslash{}Writer\+::clear\+Formatters}
+\item {\ttfamily League\textbackslash{}Csv\textbackslash{}Writer\+::has\+Validator}
+\item {\ttfamily League\textbackslash{}Csv\textbackslash{}Writer\+::remove\+Validator}
+\item {\ttfamily League\textbackslash{}Csv\textbackslash{}Writer\+::clear\+Validators}
+\item {\ttfamily League\textbackslash{}Csv\textbackslash{}Writer\+::get\+Iterator}
+\end{DoxyItemize}
+\item The following Formatters and Validators classes are removed from the package\+:
+\begin{DoxyItemize}
+\item {\ttfamily League\textbackslash{}Csv\textbackslash{}\doxylink{class_plugin}{Plugin}\textbackslash{}Skip\+Null\+Values\+Formatter}
+\item {\ttfamily League\textbackslash{}Csv\textbackslash{}\doxylink{class_plugin}{Plugin}\textbackslash{}Forbidden\+Null\+Values\+Validator}
+\item {\ttfamily League\textbackslash{}Csv\textbackslash{}\doxylink{class_plugin}{Plugin}\textbackslash{}Column\+Consistency\+Validator} {\itshape replace by {\ttfamily League\textbackslash{}Csv\textbackslash{}Column\+Consistency}}
+\end{DoxyItemize}
+\item {\ttfamily League\textbackslash{}Csv\textbackslash{}Writer} no longers implements the {\ttfamily Iterator\+Aggregate} interface
+\item {\ttfamily League\textbackslash{}Csv\textbackslash{}Abstract\+Csv\+::fetch\+Delimiters\+Occurrence} is removed {\itshape replace by {\ttfamily League\textbackslash{}Csv\textbackslash{}delimiter\+\_\+detect} function}
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6552}{}\doxysection{\texorpdfstring{8.\+2.\+2 -\/ 2017-\/07-\/12}{8.\+2.\+2 -\/ 2017-\/07-\/12}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6552}
+\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6553}{}\doxysubsection{\texorpdfstring{Added}{Added}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6553}
+
+\begin{DoxyItemize}
+\item None
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6554}{}\doxysubsection{\texorpdfstring{Deprecated}{Deprecated}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6554}
+
+\begin{DoxyItemize}
+\item None
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6555}{}\doxysubsection{\texorpdfstring{Fixed}{Fixed}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6555}
+
+\begin{DoxyItemize}
+\item {\ttfamily Writer\+::insert\+One} was silently failing when inserting record in a CSV document in non-\/writing mode.
+\item bug fix docblock
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6556}{}\doxysubsection{\texorpdfstring{Removed}{Removed}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6556}
+
+\begin{DoxyItemize}
+\item None
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6557}{}\doxysection{\texorpdfstring{8.\+2.\+1 -\/ 2017-\/02-\/22}{8.\+2.\+1 -\/ 2017-\/02-\/22}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6557}
+\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6558}{}\doxysubsection{\texorpdfstring{Added}{Added}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6558}
+
+\begin{DoxyItemize}
+\item Nothing
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6559}{}\doxysubsection{\texorpdfstring{Deprecated}{Deprecated}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6559}
+
+\begin{DoxyItemize}
+\item Nothing
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6560}{}\doxysubsection{\texorpdfstring{Fixed}{Fixed}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6560}
+
+\begin{DoxyItemize}
+\item internal {\ttfamily Reader\+::get\+Row} when using a {\ttfamily Stream\+Iterator} \href{https://github.com/thephpleague/csv/issues/213}{\texttt{ issue \#213}}
+\item Removed {\ttfamily @deprecated} from selected methods \href{https://github.com/thephpleague/csv/issues/213}{\texttt{ issue \#208}}
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6561}{}\doxysubsection{\texorpdfstring{Removed}{Removed}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6561}
+
+\begin{DoxyItemize}
+\item Nothing
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6562}{}\doxysection{\texorpdfstring{8.\+2.\+0 -\/ 2017-\/01-\/25}{8.\+2.\+0 -\/ 2017-\/01-\/25}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6562}
+\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6563}{}\doxysubsection{\texorpdfstring{Added}{Added}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6563}
+
+\begin{DoxyItemize}
+\item {\ttfamily Abstract\+Csv\+::create\+From\+Stream} to enable working with resource stream \href{https://github.com/thephpleague/csv/issues/202}{\texttt{ issue \#202}}
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6564}{}\doxysubsection{\texorpdfstring{Deprecated}{Deprecated}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6564}
+
+\begin{DoxyItemize}
+\item {\ttfamily League\textbackslash{}Csv\textbackslash{}Abstract\+Csv\+::strip\+Bom}
+\item {\ttfamily League\textbackslash{}Csv\textbackslash{}Reader\+::get\+Offset}
+\item {\ttfamily League\textbackslash{}Csv\textbackslash{}Reader\+::get\+Limit}
+\item {\ttfamily League\textbackslash{}Csv\textbackslash{}Reader\+::get\+Sort\+By}
+\item {\ttfamily League\textbackslash{}Csv\textbackslash{}Reader\+::get\+Filter}
+\item {\ttfamily League\textbackslash{}Csv\textbackslash{}Reader\+::set\+Offset}
+\item {\ttfamily League\textbackslash{}Csv\textbackslash{}Reader\+::set\+Limit}
+\item {\ttfamily League\textbackslash{}Csv\textbackslash{}Reader\+::add\+Sort\+By}
+\item {\ttfamily League\textbackslash{}Csv\textbackslash{}Reader\+::add\+Filter}
+\item {\ttfamily League\textbackslash{}Csv\textbackslash{}Reader\+::fetch}
+\item {\ttfamily League\textbackslash{}Csv\textbackslash{}Reader\+::each}
+\item {\ttfamily League\textbackslash{}Csv\textbackslash{}Reader\+::fetch\+Pairs\+Without\+Duplicates}
+\item {\ttfamily League\textbackslash{}Csv\textbackslash{}Reader\+::fetch\+Assoc}
+\item {\ttfamily League\textbackslash{}Csv\textbackslash{}Writer\+::remove\+Formatter}
+\item {\ttfamily League\textbackslash{}Csv\textbackslash{}Writer\+::has\+Formatter}
+\item {\ttfamily League\textbackslash{}Csv\textbackslash{}Writer\+::clear\+Formatters}
+\item {\ttfamily League\textbackslash{}Csv\textbackslash{}Writer\+::remove\+Validator}
+\item {\ttfamily League\textbackslash{}Csv\textbackslash{}Writer\+::has\+Validator}
+\item {\ttfamily League\textbackslash{}Csv\textbackslash{}Writer\+::clear\+Validators}
+\item {\ttfamily League\textbackslash{}Csv\textbackslash{}Writer\+::json\+Serialize}
+\item {\ttfamily League\textbackslash{}Csv\textbackslash{}Writer\+::to\+HTML}
+\item {\ttfamily League\textbackslash{}Csv\textbackslash{}Writer\+::to\+XML}
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6565}{}\doxysubsection{\texorpdfstring{Fixed}{Fixed}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6565}
+
+\begin{DoxyItemize}
+\item Nothing
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6566}{}\doxysubsection{\texorpdfstring{Removed}{Removed}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6566}
+
+\begin{DoxyItemize}
+\item Nothing
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6567}{}\doxysection{\texorpdfstring{8.\+1.\+2 -\/ 2016-\/10-\/27}{8.\+1.\+2 -\/ 2016-\/10-\/27}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6567}
+\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6568}{}\doxysubsection{\texorpdfstring{Added}{Added}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6568}
+
+\begin{DoxyItemize}
+\item Nothing
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6569}{}\doxysubsection{\texorpdfstring{Deprecated}{Deprecated}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6569}
+
+\begin{DoxyItemize}
+\item Nothing
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6570}{}\doxysubsection{\texorpdfstring{Fixed}{Fixed}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6570}
+
+\begin{DoxyItemize}
+\item BOM filtering fix \href{https://github.com/thephpleague/csv/issues/184}{\texttt{ issue \#184}}
+\item {\ttfamily Abstract\+Csv\+::\+BOM\+\_\+\+UTF32\+\_\+\+LE} value fixed
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6571}{}\doxysubsection{\texorpdfstring{Removed}{Removed}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6571}
+
+\begin{DoxyItemize}
+\item Nothing
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6572}{}\doxysection{\texorpdfstring{8.\+1.\+1 -\/ 2016-\/09-\/05}{8.\+1.\+1 -\/ 2016-\/09-\/05}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6572}
+\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6573}{}\doxysubsection{\texorpdfstring{Added}{Added}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6573}
+
+\begin{DoxyItemize}
+\item Nothing
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6574}{}\doxysubsection{\texorpdfstring{Deprecated}{Deprecated}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6574}
+
+\begin{DoxyItemize}
+\item Nothing
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6575}{}\doxysubsection{\texorpdfstring{Fixed}{Fixed}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6575}
+
+\begin{DoxyItemize}
+\item {\ttfamily get\+Input\+BOM} method name is now consistent everywhere in the API \href{https://github.com/thephpleague/csv/pull/171}{\texttt{ PR \#171}}
+\item preserve file\+Object CSV controls \href{https://github.com/thephpleague/csv/commit/8a20c56144effa552a8cba5d8c626063222975b7}{\texttt{ commit \#8a20c56}}
+\item \doxylink{class_change}{Change} {\ttfamily output} method header content-\/type value to {\ttfamily text/csv} \href{https://github.com/thephpleague/csv/pull/175}{\texttt{ PR \#175}}
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6576}{}\doxysubsection{\texorpdfstring{Removed}{Removed}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6576}
+
+\begin{DoxyItemize}
+\item Nothing
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6577}{}\doxysection{\texorpdfstring{8.\+1.\+0 -\/ 2016-\/05-\/31}{8.\+1.\+0 -\/ 2016-\/05-\/31}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6577}
+\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6578}{}\doxysubsection{\texorpdfstring{Added}{Added}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6578}
+
+\begin{DoxyItemize}
+\item The package now includes its own autoloader.
+\item {\ttfamily Ouput\+::get\+Input\+Encoding}
+\item {\ttfamily Ouput\+::set\+Input\+Encoding}
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6579}{}\doxysubsection{\texorpdfstring{Deprecated}{Deprecated}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6579}
+
+\begin{DoxyItemize}
+\item {\ttfamily Ouput\+::get\+Encoding\+From} replaced by {\ttfamily Ouput\+::get\+Input\+Encoding}
+\item {\ttfamily Ouput\+::set\+Encoding\+From} replaced by {\ttfamily Ouput\+::set\+Input\+Encoding}
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6580}{}\doxysubsection{\texorpdfstring{Fixed}{Fixed}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6580}
+
+\begin{DoxyItemize}
+\item Stream Filters are now url encoded before usage \href{https://github.com/thephpleague/csv/issues/72}{\texttt{ issue \#72}}
+\item All internal parameters are now using the snake case format
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6581}{}\doxysubsection{\texorpdfstring{Removed}{Removed}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6581}
+
+\begin{DoxyItemize}
+\item Nothing
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6582}{}\doxysection{\texorpdfstring{8.\+0.\+0 -\/ 2015-\/12-\/11}{8.\+0.\+0 -\/ 2015-\/12-\/11}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6582}
+\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6583}{}\doxysubsection{\texorpdfstring{Added}{Added}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6583}
+
+\begin{DoxyItemize}
+\item {\ttfamily Reader\+::fetch\+Pairs}
+\item {\ttfamily Reader\+::fetch\+Pairs\+Without\+Duplicates}
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6584}{}\doxysubsection{\texorpdfstring{Deprecated}{Deprecated}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6584}
+
+\begin{DoxyItemize}
+\item Nothing
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6585}{}\doxysubsection{\texorpdfstring{Fixed}{Fixed}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6585}
+
+\begin{DoxyItemize}
+\item {\ttfamily Reader\+::fetch\+Column} and {\ttfamily Reader\+::fetch\+Assoc} now return {\ttfamily Iterator}
+\item {\ttfamily Reader\+::fetch\+Assoc} callable argument expects an indexed row using the submitted keys as its first argument
+\item {\ttfamily Reader\+::fetch\+Column} callable argument expects the selected column value as its first argument
+\item Default value on {\ttfamily set\+Output\+BOM} is removed
+\item {\ttfamily Abstract\+Csv\+::get\+Output\+BOM} always return a string
+\item {\ttfamily Abstract\+Csv\+::get\+Input\+BOM} always return a string
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6586}{}\doxysubsection{\texorpdfstring{Removed}{Removed}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6586}
+
+\begin{DoxyItemize}
+\item {\ttfamily Controls\+::set\+Flags}
+\item {\ttfamily Controls\+::get\+Flags}
+\item {\ttfamily Controls\+::detect\+Delimiter\+List}
+\item {\ttfamily Query\+Filter\+::remove\+Filter}
+\item {\ttfamily Query\+Filter\+::remove\+Sort\+By}
+\item {\ttfamily Query\+Filter\+::has\+Filter}
+\item {\ttfamily Query\+Filter\+::has\+Sort\+By}
+\item {\ttfamily Query\+Filter\+::clear\+Filter}
+\item {\ttfamily Query\+Filter\+::clear\+Sort\+By}
+\item {\ttfamily Reader\+::query}
+\item The {\ttfamily \$newline} argument from {\ttfamily Abstract\+Csv\+::create\+From\+String}
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6587}{}\doxysection{\texorpdfstring{7.\+2.\+0 -\/ 2015-\/11-\/02}{7.\+2.\+0 -\/ 2015-\/11-\/02}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6587}
+\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6588}{}\doxysubsection{\texorpdfstring{Added}{Added}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6588}
+
+\begin{DoxyItemize}
+\item {\ttfamily Reader\+::fetch} replaces {\ttfamily League\textbackslash{}Csv\textbackslash{}Reader\+::query} for naming consistency
+\item {\ttfamily Controls\+::fetch\+Delimiters\+Occurrence} to replace {\ttfamily Controls\+::detect\+Delimiter\+List} the latter gives erronous results
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6589}{}\doxysubsection{\texorpdfstring{Deprecated}{Deprecated}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6589}
+
+\begin{DoxyItemize}
+\item {\ttfamily Controls\+::detect\+Delimiter\+List}
+\item {\ttfamily Reader\+::query}
+\item The {\ttfamily \$newline} argument from {\ttfamily Abstract\+Csv\+::create\+From\+String}
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6590}{}\doxysubsection{\texorpdfstring{Fixed}{Fixed}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6590}
+
+\begin{DoxyItemize}
+\item Streamming feature no longer trim filter name argument \href{https://github.com/thephpleague/csv/issues/122}{\texttt{ issue \#122}}
+\item Fix default {\ttfamily Spl\+File\+Object} flags usage \href{https://github.com/thephpleague/csv/pull/130}{\texttt{ PR \#130}}
+\item {\ttfamily Abstract\+Csv\+::create\+From\+String} no longer trim the submitted string \href{https://github.com/thephpleague/csv/issues/132}{\texttt{ issue \#132}}
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6591}{}\doxysubsection{\texorpdfstring{Removed}{Removed}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6591}
+
+\begin{DoxyItemize}
+\item Nothing
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6592}{}\doxysection{\texorpdfstring{7.\+1.\+2 -\/ 2015-\/06-\/10}{7.\+1.\+2 -\/ 2015-\/06-\/10}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6592}
+\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6593}{}\doxysubsection{\texorpdfstring{Added}{Added}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6593}
+
+\begin{DoxyItemize}
+\item Nothing
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6594}{}\doxysubsection{\texorpdfstring{Deprecated}{Deprecated}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6594}
+
+\begin{DoxyItemize}
+\item Nothing
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6595}{}\doxysubsection{\texorpdfstring{Fixed}{Fixed}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6595}
+
+\begin{DoxyItemize}
+\item Enclosures should be removed when a BOM sequence is stripped \href{http://github.com/thephpleague/csv/issues/99}{\texttt{ issue \#102}}
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6596}{}\doxysubsection{\texorpdfstring{Removed}{Removed}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6596}
+
+\begin{DoxyItemize}
+\item Nothing
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6597}{}\doxysection{\texorpdfstring{7.\+1.\+1 -\/ 2015-\/05-\/20}{7.\+1.\+1 -\/ 2015-\/05-\/20}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6597}
+\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6598}{}\doxysubsection{\texorpdfstring{Added}{Added}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6598}
+
+\begin{DoxyItemize}
+\item Nothing
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6599}{}\doxysubsection{\texorpdfstring{Deprecated}{Deprecated}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6599}
+
+\begin{DoxyItemize}
+\item Nothing
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6600}{}\doxysubsection{\texorpdfstring{Fixed}{Fixed}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6600}
+
+\begin{DoxyItemize}
+\item {\ttfamily Spl\+File\+Object} flags were not always applied using query filter \href{http://github.com/thephpleague/csv/issues/99}{\texttt{ issue \#99}}
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6601}{}\doxysubsection{\texorpdfstring{Removed}{Removed}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6601}
+
+\begin{DoxyItemize}
+\item Nothing
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6602}{}\doxysection{\texorpdfstring{7.\+1.\+0 -\/ 2015-\/05-\/06}{7.\+1.\+0 -\/ 2015-\/05-\/06}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6602}
+\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6603}{}\doxysubsection{\texorpdfstring{Added}{Added}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6603}
+
+\begin{DoxyItemize}
+\item {\ttfamily strip\+BOM} query filtering method to ease removing the BOM sequence when querying the CSV document.
+\item All query filters are now accessible in the {\ttfamily Writer} class for conversion methods.
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6604}{}\doxysubsection{\texorpdfstring{Deprecated}{Deprecated}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6604}
+
+\begin{DoxyItemize}
+\item Nothing
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6605}{}\doxysubsection{\texorpdfstring{Fixed}{Fixed}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6605}
+
+\begin{DoxyItemize}
+\item Internal code has been updated to take into account \href{http://bugs.php.net/68479}{\texttt{ issue \#68479}}
+\item {\ttfamily set\+Flags} on conversion methods Spl\+File\+Object default flags are {\ttfamily Spl\+File\+Object\+::\+READ\+\_\+\+AHEAD\texorpdfstring{$\vert$}{|}\+Spl\+File\+Object\doxylink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{SKIP\+\_\+\+EMPTY}}
+\item {\ttfamily insert\+One} now takes into account the escape character when modified after the first insert.
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6606}{}\doxysubsection{\texorpdfstring{Removed}{Removed}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6606}
+
+\begin{DoxyItemize}
+\item Nothing
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6607}{}\doxysection{\texorpdfstring{7.\+0.\+1 -\/ 2015-\/03-\/23}{7.\+0.\+1 -\/ 2015-\/03-\/23}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6607}
+\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6608}{}\doxysubsection{\texorpdfstring{Added}{Added}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6608}
+
+\begin{DoxyItemize}
+\item Nothing
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6609}{}\doxysubsection{\texorpdfstring{Deprecated}{Deprecated}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6609}
+
+\begin{DoxyItemize}
+\item Nothing
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6610}{}\doxysubsection{\texorpdfstring{Fixed}{Fixed}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6610}
+
+\begin{DoxyItemize}
+\item {\ttfamily set\+Flags}\+: {\ttfamily Spl\+File\+Object\+::\+DROP\+\_\+\+NEW\+\_\+\+LINE} can be remove using {\ttfamily set\+Flags} method.
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6611}{}\doxysubsection{\texorpdfstring{Removed}{Removed}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6611}
+
+\begin{DoxyItemize}
+\item Nothing
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6612}{}\doxysection{\texorpdfstring{7.\+0.\+0 -\/ 2015-\/02-\/19}{7.\+0.\+0 -\/ 2015-\/02-\/19}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6612}
+\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6613}{}\doxysubsection{\texorpdfstring{Added}{Added}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6613}
+
+\begin{DoxyItemize}
+\item A new flexible mechanism to format and validate a row before its insertion by adding
+\begin{DoxyItemize}
+\item {\ttfamily Writer\+::add\+Formatter} to add a formatter to the {\ttfamily Writer} object
+\item {\ttfamily Writer\+::remove\+Formatter} to remove an already registered formatter
+\item {\ttfamily Writer\+::has\+Formatter} to detect the presence of a formatter
+\item {\ttfamily Writer\+::clear\+Formatters} to clear all registered formatter
+\item {\ttfamily Writer\+::add\+Validator} to add a validator to the {\ttfamily Writer} object
+\item {\ttfamily Writer\+::remove\+Validator} to remove an already registered validator
+\item {\ttfamily Writer\+::has\+Validator} to detect the presence of a validator
+\item {\ttfamily Writer\+::clear\+Validators} to clear all registered validator
+\item {\ttfamily League\textbackslash{}Csv\textbackslash{}Exception\textbackslash{}Invalid\+Row\+Exception} exception thrown when row validation failed
+\end{DoxyItemize}
+\item Classes to maintain removed features from the {\ttfamily Writer} class
+\begin{DoxyItemize}
+\item {\ttfamily League\textbackslash{}Csv\textbackslash{}\doxylink{class_plugin}{Plugin}\textbackslash{}Column\+Consistency\+Validator} to validate column consistency on insertion
+\item {\ttfamily League\textbackslash{}Csv\textbackslash{}\doxylink{class_plugin}{Plugin}\textbackslash{}Forbidden\+Null\+Values\+Validator} to validate {\ttfamily null} value on insertion
+\item {\ttfamily League\textbackslash{}Csv\textbackslash{}\doxylink{class_plugin}{Plugin}\textbackslash{}Skip\+Null\+Values\+Formatter} to format {\ttfamily null} value on insertion
+\end{DoxyItemize}
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6614}{}\doxysubsection{\texorpdfstring{Deprecated}{Deprecated}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6614}
+
+\begin{DoxyItemize}
+\item Nothing
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6615}{}\doxysubsection{\texorpdfstring{Fixed}{Fixed}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6615}
+
+\begin{DoxyItemize}
+\item {\ttfamily json\+Serialize}, {\ttfamily to\+XML} and {\ttfamily to\+HTML} output can be modified using {\ttfamily Reader} query options methods.
+\item {\ttfamily Abstract\+CSV\+::detect\+Delimiter\+List} index keys now represents the occurrence of the found delimiter.
+\item {\ttfamily get\+Newline} and {\ttfamily set\+Newline} are accessible on the {\ttfamily Reader} class too.
+\item the named constructor {\ttfamily create\+From\+String} now accepts the {\ttfamily \$newline} sequence as a second argument to specify the last added new line character to better work with interoperability.
+\item Default value on CSV controls setter methods {\ttfamily set\+Delimiter}, {\ttfamily set\+Enclosure} and {\ttfamily set\+Escape} are removed
+\item Default {\ttfamily Spl\+File\+Object} flags value is now {\ttfamily Spl\+File\+Object\+::\+READ\+\_\+\+CSV\texorpdfstring{$\vert$}{|}\+Spl\+File\+Object\doxylink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{DROP\+\_\+\+NEW\+\_\+\+LINE}}
+\item All CSV properties are now copied when using {\ttfamily new\+Reader} and {\ttfamily new\+Writer} methods
+\item BOM addition on output improved by removing if found the existing BOM character
+\item the {\ttfamily Abstract\+CSV\+::output} method now returns the number of bytes send to the output buffer
+\item {\ttfamily Reader\+::fetch\+Column} will automatically filter out non existing values from the return array
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6616}{}\doxysubsection{\texorpdfstring{Removed}{Removed}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6616}
+
+\begin{DoxyItemize}
+\item Setting {\ttfamily ini\+\_\+set("{}auto\+\_\+detect\+\_\+line\+\_\+endings"{}, true);} is no longer set in the class constructor. Mac OS X users must explicitly set this ini options in their script.
+\item {\ttfamily Writer} and {\ttfamily Reader} default constructor are removed from public API in favor of the named constructors.
+\item All {\ttfamily Writer} methods and constant related to CSV data validation and formatting before insertion
+\begin{DoxyItemize}
+\item {\ttfamily Writer\+::get\+Null\+Handling\+Mode}
+\item {\ttfamily Writer\+::set\+Null\+Handling\+Mode}
+\item {\ttfamily Writer\+::set\+Columns\+Count}
+\item {\ttfamily Writer\+::get\+Columns\+Count}
+\item {\ttfamily Writer\+::autodetect\+Columns\+Count}
+\item {\ttfamily Writer\+::\+NULL\+\_\+\+AS\+\_\+\+EXCEPTION}
+\item {\ttfamily Writer\+::\+NULL\+\_\+\+AS\+\_\+\+EMPTY}
+\item {\ttfamily Writer\+::\+NULL\+\_\+\+AS\+\_\+\+SKIP\+\_\+\+CELL}
+\end{DoxyItemize}
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6617}{}\doxysection{\texorpdfstring{6.\+3.\+0 -\/ 2015-\/01-\/21}{6.\+3.\+0 -\/ 2015-\/01-\/21}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6617}
+\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6618}{}\doxysubsection{\texorpdfstring{Added}{Added}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6618}
+
+\begin{DoxyItemize}
+\item {\ttfamily Abstract\+CSV\+::set\+Output\+BOM}
+\item {\ttfamily Abstract\+CSV\+::get\+Output\+BOM}
+\item {\ttfamily Abstract\+CSV\+::get\+Input\+BOM}
+\end{DoxyItemize}
+
+to manage BOM character with CSV.\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6619}{}\doxysubsection{\texorpdfstring{Deprecated}{Deprecated}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6619}
+
+\begin{DoxyItemize}
+\item Nothing
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6620}{}\doxysubsection{\texorpdfstring{Fixed}{Fixed}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6620}
+
+\begin{DoxyItemize}
+\item Nothing
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6621}{}\doxysubsection{\texorpdfstring{Removed}{Removed}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6621}
+
+\begin{DoxyItemize}
+\item Nothing
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6622}{}\doxysection{\texorpdfstring{6.\+2.\+0 -\/ 2014-\/12-\/12}{6.\+2.\+0 -\/ 2014-\/12-\/12}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6622}
+\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6623}{}\doxysubsection{\texorpdfstring{Added}{Added}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6623}
+
+\begin{DoxyItemize}
+\item {\ttfamily Writer\+::set\+Newline} , {\ttfamily Writer\+::get\+Newline} to control the newline sequence character added at the end of each CSV row.
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6624}{}\doxysubsection{\texorpdfstring{Deprecated}{Deprecated}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6624}
+
+\begin{DoxyItemize}
+\item Nothing
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6625}{}\doxysubsection{\texorpdfstring{Fixed}{Fixed}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6625}
+
+\begin{DoxyItemize}
+\item Nothing
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6626}{}\doxysubsection{\texorpdfstring{Removed}{Removed}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6626}
+
+\begin{DoxyItemize}
+\item Nothing
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6627}{}\doxysection{\texorpdfstring{6.\+1.\+0 -\/ 2014-\/12-\/08}{6.\+1.\+0 -\/ 2014-\/12-\/08}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6627}
+\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6628}{}\doxysubsection{\texorpdfstring{Added}{Added}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6628}
+
+\begin{DoxyItemize}
+\item {\ttfamily Reader\+::fetch\+Assoc} now also accepts an integer as first argument representing a row index.
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6629}{}\doxysubsection{\texorpdfstring{Deprecated}{Deprecated}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6629}
+
+\begin{DoxyItemize}
+\item Nothing
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6630}{}\doxysubsection{\texorpdfstring{Fixed}{Fixed}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6630}
+
+\begin{DoxyItemize}
+\item Nothing
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6631}{}\doxysubsection{\texorpdfstring{Removed}{Removed}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6631}
+
+\begin{DoxyItemize}
+\item Nothing
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6632}{}\doxysection{\texorpdfstring{6.\+0.\+1 -\/ 2014-\/11-\/12}{6.\+0.\+1 -\/ 2014-\/11-\/12}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6632}
+\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6633}{}\doxysubsection{\texorpdfstring{Added}{Added}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6633}
+
+\begin{DoxyItemize}
+\item Nothing
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6634}{}\doxysubsection{\texorpdfstring{Deprecated}{Deprecated}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6634}
+
+\begin{DoxyItemize}
+\item Nothing
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6635}{}\doxysubsection{\texorpdfstring{Fixed}{Fixed}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6635}
+
+\begin{DoxyItemize}
+\item Bug Fixed {\ttfamily detect\+Delimiter\+List}
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6636}{}\doxysubsection{\texorpdfstring{Removed}{Removed}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6636}
+
+\begin{DoxyItemize}
+\item Nothing
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6637}{}\doxysection{\texorpdfstring{6.\+0.\+0 -\/ 2014-\/08-\/28}{6.\+0.\+0 -\/ 2014-\/08-\/28}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6637}
+\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6638}{}\doxysubsection{\texorpdfstring{Added}{Added}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6638}
+
+\begin{DoxyItemize}
+\item Stream Filter API in {\ttfamily League\textbackslash{}Csv\textbackslash{}Abstract\+Csv}
+\item named constructors {\ttfamily create\+From\+Path} and {\ttfamily create\+From\+File\+Object} in {\ttfamily League\textbackslash{}Csv\textbackslash{}Abstract\+Csv} to ease CSV object instantiation
+\item {\ttfamily detect\+Delimiter\+List} in {\ttfamily League\textbackslash{}Csv\textbackslash{}Abstract\+Csv} to replace and remove the use of {\ttfamily Runtime\+Exception} in {\ttfamily detect\+Delimiter}
+\item {\ttfamily set\+Encoding\+From} and {\ttfamily set\+Decoding\+From} in {\ttfamily League\textbackslash{}Csv\textbackslash{}Abstract\+Csv} to replace {\ttfamily set\+Encoding} and {\ttfamily get\+Encoding} for naming consistency
+\item {\ttfamily new\+Writer} and {\ttfamily new\+Reader} methods in {\ttfamily League\textbackslash{}Csv\textbackslash{}Abstract\+Csv} to replace {\ttfamily Writer\+::get\+Reader} and {\ttfamily Reader\+::get\+Writer}
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6639}{}\doxysubsection{\texorpdfstring{Deprecated}{Deprecated}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6639}
+
+\begin{DoxyItemize}
+\item Nothing
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6640}{}\doxysubsection{\texorpdfstring{Fixed}{Fixed}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6640}
+
+\begin{DoxyItemize}
+\item {\ttfamily League\textbackslash{}Csv\textbackslash{}Reader\+::each} more strict {\ttfamily \$callable} MUST returns {\ttfamily true}
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6641}{}\doxysubsection{\texorpdfstring{Remove}{Remove}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6641}
+
+\begin{DoxyItemize}
+\item {\ttfamily League\textbackslash{}Csv\textbackslash{}Abstract\+Csv\+::detect\+Delimiter}
+\item {\ttfamily League\textbackslash{}Csv\textbackslash{}Abstract\+Csv\+::set\+Encoding} and {\ttfamily League\textbackslash{}Csv\textbackslash{}Abstract\+Csv\+::get\+Encoding}
+\item {\ttfamily League\textbackslash{}Csv\textbackslash{}Reader\+::set\+Sort\+By}
+\item {\ttfamily League\textbackslash{}Csv\textbackslash{}Reader\+::set\+Filter}
+\item {\ttfamily League\textbackslash{}Csv\textbackslash{}Reader\+::get\+Writer}
+\item {\ttfamily League\textbackslash{}Csv\textbackslash{}Writer\+::get\+Reader}
+\item {\ttfamily League\textbackslash{}Csv\textbackslash{}Reader\+::fetch\+Col}
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6642}{}\doxysection{\texorpdfstring{5.\+4.\+0 -\/ 2014-\/04-\/17}{5.\+4.\+0 -\/ 2014-\/04-\/17}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6642}
+\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6643}{}\doxysubsection{\texorpdfstring{Added}{Added}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6643}
+
+\begin{DoxyItemize}
+\item {\ttfamily League\textbackslash{}Csv\textbackslash{}Writer\+::set\+Columns\+Count}, {\ttfamily League\textbackslash{}Csv\textbackslash{}Writer\+::get\+Columns\+Count}, {\ttfamily League\textbackslash{}Csv\textbackslash{}Writer\+::autodetect\+Columns\+Count} to enable column consistency in writer mode
+\item {\ttfamily League\textbackslash{}Csv\textbackslash{}Reader\+::fetch\+Column} replaces {\ttfamily League\textbackslash{}Csv\textbackslash{}Reader\+::fetch\+Col} for naming consistency
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6644}{}\doxysubsection{\texorpdfstring{Deprecated}{Deprecated}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6644}
+
+\begin{DoxyItemize}
+\item {\ttfamily League\textbackslash{}Csv\textbackslash{}Reader\+::fetch\+Col}
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6645}{}\doxysubsection{\texorpdfstring{Fixed}{Fixed}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6645}
+
+\begin{DoxyItemize}
+\item Nothing
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6646}{}\doxysubsection{\texorpdfstring{Removed}{Removed}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6646}
+
+\begin{DoxyItemize}
+\item Nothing
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6647}{}\doxysection{\texorpdfstring{5.\+3.\+1 -\/ 2014-\/04-\/09}{5.\+3.\+1 -\/ 2014-\/04-\/09}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6647}
+\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6648}{}\doxysubsection{\texorpdfstring{Added}{Added}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6648}
+
+\begin{DoxyItemize}
+\item Nothing
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6649}{}\doxysubsection{\texorpdfstring{Deprecated}{Deprecated}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6649}
+
+\begin{DoxyItemize}
+\item Nothing
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6650}{}\doxysubsection{\texorpdfstring{Fixed}{Fixed}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6650}
+
+\begin{DoxyItemize}
+\item {\ttfamily \$open\+\_\+mode} default to {\ttfamily r+} in {\ttfamily League\textbackslash{}Csv\textbackslash{}Abstract\+Csv} constructors
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6651}{}\doxysubsection{\texorpdfstring{Removed}{Removed}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6651}
+
+\begin{DoxyItemize}
+\item Nothing
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6652}{}\doxysection{\texorpdfstring{5.\+3.\+0 -\/ 2014-\/03-\/24}{5.\+3.\+0 -\/ 2014-\/03-\/24}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6652}
+\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6653}{}\doxysubsection{\texorpdfstring{Added}{Added}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6653}
+
+\begin{DoxyItemize}
+\item {\ttfamily League\textbackslash{}Csv\textbackslash{}Writer\+::set\+Null\+Handling\+Mode} and {\ttfamily League\textbackslash{}Csv\textbackslash{}Writer\+::get\+Null\+Handling\+Mode} to handle {\ttfamily null} value
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6654}{}\doxysubsection{\texorpdfstring{Deprecated}{Deprecated}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6654}
+
+\begin{DoxyItemize}
+\item Nothing
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6655}{}\doxysubsection{\texorpdfstring{Fixed}{Fixed}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6655}
+
+\begin{DoxyItemize}
+\item {\ttfamily setting ini\+\_\+set("{}auto\+\_\+detect\+\_\+line\+\_\+endings"{}, true);} no longer needed for Mac OS
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6656}{}\doxysubsection{\texorpdfstring{Removed}{Removed}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6656}
+
+\begin{DoxyItemize}
+\item Nothing
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6657}{}\doxysection{\texorpdfstring{5.\+2.\+0 -\/ 2014-\/03-\/13}{5.\+2.\+0 -\/ 2014-\/03-\/13}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6657}
+\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6658}{}\doxysubsection{\texorpdfstring{Added}{Added}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6658}
+
+\begin{DoxyItemize}
+\item {\ttfamily League\textbackslash{}Csv\textbackslash{}Reader\+::add\+Sort\+By}, {\ttfamily League\textbackslash{}Csv\textbackslash{}Reader\+::remove\+Sort\+By}, {\ttfamily League\textbackslash{}Csv\textbackslash{}Reader\+::has\+Sort\+By}, {\ttfamily League\textbackslash{}Csv\textbackslash{}Reader\+::clear\+Sort\+By} to improve sorting
+\item {\ttfamily League\textbackslash{}Csv\textbackslash{}Reader\+::clear\+Filter} to align extract filter capabilities to sorting capabilities
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6659}{}\doxysubsection{\texorpdfstring{Deprecated}{Deprecated}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6659}
+
+\begin{DoxyItemize}
+\item {\ttfamily League\textbackslash{}Csv\textbackslash{}Reader\+::set\+Sort\+By} replaced by a better implementation
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6660}{}\doxysubsection{\texorpdfstring{Fixed}{Fixed}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6660}
+
+\begin{DoxyItemize}
+\item {\ttfamily League\textbackslash{}Csv\textbackslash{}Reader\+::set\+Offset} now default to 0;
+\item {\ttfamily League\textbackslash{}Csv\textbackslash{}Reader\+::set\+Limit} now default to -\/1;
+\item {\ttfamily detect\+Delimiter} bug fixes
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6661}{}\doxysubsection{\texorpdfstring{Removed}{Removed}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6661}
+
+\begin{DoxyItemize}
+\item Nothing
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6662}{}\doxysection{\texorpdfstring{5.\+1.\+0 -\/ 2014-\/03-\/11}{5.\+1.\+0 -\/ 2014-\/03-\/11}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6662}
+\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6663}{}\doxysubsection{\texorpdfstring{Added}{Added}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6663}
+
+\begin{DoxyItemize}
+\item {\ttfamily League\textbackslash{}Csv\textbackslash{}Reader\+::each} to ease CSV import data
+\item {\ttfamily League\textbackslash{}Csv\textbackslash{}Reader\+::add\+Filter}, {\ttfamily League\textbackslash{}Csv\textbackslash{}Reader\+::remove\+Filter}, {\ttfamily League\textbackslash{}Csv\textbackslash{}Reader\+::has\+Filter} to improve extract filter capabilities
+\item {\ttfamily detect\+Delimiter} method to {\ttfamily League\textbackslash{}Csv\textbackslash{}Abstract\+Csv} to sniff CSV delimiter character.
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6664}{}\doxysubsection{\texorpdfstring{Deprecated}{Deprecated}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6664}
+
+\begin{DoxyItemize}
+\item {\ttfamily League\textbackslash{}Csv\textbackslash{}Reader\+::set\+Filter} replaced by a better implementation
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6665}{}\doxysubsection{\texorpdfstring{Fixed}{Fixed}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6665}
+
+\begin{DoxyItemize}
+\item Nothing
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6666}{}\doxysubsection{\texorpdfstring{Removed}{Removed}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6666}
+
+\begin{DoxyItemize}
+\item Nothing
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6667}{}\doxysection{\texorpdfstring{5.\+0.\+0 -\/ 2014-\/02-\/28}{5.\+0.\+0 -\/ 2014-\/02-\/28}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6667}
+\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6668}{}\doxysubsection{\texorpdfstring{Added}{Added}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6668}
+
+\begin{DoxyItemize}
+\item \doxylink{class_change}{Change} namespace from {\ttfamily Bakame\textbackslash{}Csv} to {\ttfamily League\textbackslash{}Csv}
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6669}{}\doxysubsection{\texorpdfstring{Deprecated}{Deprecated}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6669}
+
+\begin{DoxyItemize}
+\item Nothing
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6670}{}\doxysubsection{\texorpdfstring{Fixed}{Fixed}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6670}
+
+\begin{DoxyItemize}
+\item Nothing
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6671}{}\doxysubsection{\texorpdfstring{Removed}{Removed}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6671}
+
+\begin{DoxyItemize}
+\item Nothing
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6672}{}\doxysection{\texorpdfstring{4.\+2.\+1 -\/ 2014-\/02-\/22}{4.\+2.\+1 -\/ 2014-\/02-\/22}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6672}
+\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6673}{}\doxysubsection{\texorpdfstring{Fixed}{Fixed}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6673}
+
+\begin{DoxyItemize}
+\item {\ttfamily \$open\+\_\+mode} validation is done by PHP internals directly
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6674}{}\doxysubsection{\texorpdfstring{Removed}{Removed}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6674}
+
+\begin{DoxyItemize}
+\item Nothing
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6675}{}\doxysection{\texorpdfstring{4.\+2.\+0 -\/ 2014-\/02-\/17}{4.\+2.\+0 -\/ 2014-\/02-\/17}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6675}
+\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6676}{}\doxysubsection{\texorpdfstring{Added}{Added}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6676}
+
+\begin{DoxyItemize}
+\item {\ttfamily to\+XML} method to transcode the CSV into a \doxylink{class_x_m_l}{XML} in {\ttfamily Bakame\textbackslash{}Csv\textbackslash{}Abstract\+Csv}
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6677}{}\doxysubsection{\texorpdfstring{Fixed}{Fixed}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6677}
+
+\begin{DoxyItemize}
+\item {\ttfamily to\+HTML} method bug in {\ttfamily Bakame\textbackslash{}Csv\textbackslash{}Abstract\+Csv}
+\item {\ttfamily output} method accepts an optional {\ttfamily \$filename} argument
+\item {\ttfamily Bakame\textbackslash{}Csv\textbackslash{}Reader\+::fetch\+Col} default to {\ttfamily \$column\+Index = 0}
+\item {\ttfamily Bakame\textbackslash{}Csv\textbackslash{}Reader\+::fetch\+One} default to {\ttfamily \$offset = 0}
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6678}{}\doxysection{\texorpdfstring{4.\+1.\+2 -\/ 2014-\/02-\/14}{4.\+1.\+2 -\/ 2014-\/02-\/14}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6678}
+\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6679}{}\doxysubsection{\texorpdfstring{Added}{Added}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6679}
+
+\begin{DoxyItemize}
+\item Move from {\ttfamily PSR-\/0} to {\ttfamily PSR-\/4} to autoload the library
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6680}{}\doxysection{\texorpdfstring{4.\+1.\+1 -\/ 2014-\/02-\/14}{4.\+1.\+1 -\/ 2014-\/02-\/14}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6680}
+\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6681}{}\doxysubsection{\texorpdfstring{Fixed}{Fixed}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6681}
+
+\begin{DoxyItemize}
+\item {\ttfamily Bakame\textbackslash{}Csv\textbackslash{}Reader} methods fixed
+\item {\ttfamily json\+Serialize} bug fixed
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6682}{}\doxysection{\texorpdfstring{4.\+1.\+0 -\/ 2014-\/02-\/07}{4.\+1.\+0 -\/ 2014-\/02-\/07}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6682}
+\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6683}{}\doxysubsection{\texorpdfstring{Added}{Added}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6683}
+
+\begin{DoxyItemize}
+\item {\ttfamily get\+Encoding} and {\ttfamily set\+Encoding} methods to {\ttfamily Bakame\textbackslash{}Csv\textbackslash{}Abstract\+Csv}
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6684}{}\doxysubsection{\texorpdfstring{Fixed}{Fixed}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6684}
+
+\begin{DoxyItemize}
+\item {\ttfamily Bakame\textbackslash{}Csv\textbackslash{}Writer\+::insert\+One} takes into account CSV controls
+\item {\ttfamily to\+HTML} method takes into account encoding
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6685}{}\doxysection{\texorpdfstring{4.\+0.\+0 -\/ 2014-\/02-\/05}{4.\+0.\+0 -\/ 2014-\/02-\/05}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6685}
+\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6686}{}\doxysubsection{\texorpdfstring{Added}{Added}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6686}
+
+\begin{DoxyItemize}
+\item {\ttfamily Bakame\textbackslash{}Csv\textbackslash{}Writer}
+\item {\ttfamily Bakame\textbackslash{}Csv\textbackslash{}Writer} and {\ttfamily Bakame\textbackslash{}Csv\textbackslash{}Reader} extend {\ttfamily Bakame\textbackslash{}Csv\textbackslash{}Abstract\+Csv}
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6687}{}\doxysubsection{\texorpdfstring{Deprecated}{Deprecated}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6687}
+
+\begin{DoxyItemize}
+\item Nothing
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6688}{}\doxysubsection{\texorpdfstring{Fixed}{Fixed}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6688}
+
+\begin{DoxyItemize}
+\item {\ttfamily Bakame\textbackslash{}Csv\textbackslash{}Reader\+::fetch\+One} is no longer deprecated
+\item {\ttfamily Bakame\textbackslash{}Csv\textbackslash{}Reader\+::fetch\+Col} no longer accepts a third parameter {\ttfamily \$strict}
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6689}{}\doxysubsection{\texorpdfstring{Removed}{Removed}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6689}
+
+\begin{DoxyItemize}
+\item {\ttfamily Bakame\textbackslash{}Csv\textbackslash{}Codec} now the library is composer of 2 main classes
+\item {\ttfamily Bakame\textbackslash{}Csv\textbackslash{}Reader\+::get\+File}
+\item {\ttfamily Bakame\textbackslash{}Csv\textbackslash{}Reader\+::fetch\+Value}
+\item {\ttfamily Bakame\textbackslash{}Csv\textbackslash{}Reader} no longer implements the {\ttfamily Array\+Access} interface
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6690}{}\doxysection{\texorpdfstring{3.\+3.\+0 -\/ 2014-\/01-\/28}{3.\+3.\+0 -\/ 2014-\/01-\/28}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6690}
+\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6691}{}\doxysubsection{\texorpdfstring{Added}{Added}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6691}
+
+\begin{DoxyItemize}
+\item {\ttfamily Bakame\textbackslash{}Csv\textbackslash{}Reader} implements {\ttfamily Iterator\+Aggregate} Interface
+\item {\ttfamily Bakame\textbackslash{}Csv\textbackslash{}Reader\+::create\+From\+String} to create a CSV object from a raw string
+\item {\ttfamily Bakame\textbackslash{}Csv\textbackslash{}Reader\+::query} accept an optional {\ttfamily \$callable} parameter
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6692}{}\doxysubsection{\texorpdfstring{Deprecated}{Deprecated}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6692}
+
+\begin{DoxyItemize}
+\item {\ttfamily Bakame\textbackslash{}Csv\textbackslash{}Reader\+::get\+File} in favor of {\ttfamily Bakame\textbackslash{}Csv\textbackslash{}Reader\+::get\+Iterator}
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6693}{}\doxysubsection{\texorpdfstring{Removed}{Removed}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6693}
+
+\begin{DoxyItemize}
+\item {\ttfamily Bakame\textbackslash{}Csv\textbackslash{}Reader\+Interface} useless interface
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6694}{}\doxysubsection{\texorpdfstring{Fixed}{Fixed}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6694}
+
+\begin{DoxyItemize}
+\item {\ttfamily Bakame\textbackslash{}Csv\textbackslash{}Reader\+::fetch\texorpdfstring{$\ast$}{*}} {\ttfamily \$callable} parameter is normalized to accept an array
+\item {\ttfamily Bakame\textbackslash{}Csv\textbackslash{}Reader\+::fetch\+Col} accepts a third parameter {\ttfamily \$strict}
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6695}{}\doxysection{\texorpdfstring{3.\+2.\+0 -\/ 2014-\/01-\/16}{3.\+2.\+0 -\/ 2014-\/01-\/16}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6695}
+\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6696}{}\doxysubsection{\texorpdfstring{Added}{Added}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6696}
+
+\begin{DoxyItemize}
+\item {\ttfamily Bakame\textbackslash{}Csv\textbackslash{}Reader} implements the following interfaces {\ttfamily Json\+Serializable} and {\ttfamily Array\+Access}
+\item {\ttfamily Bakame\textbackslash{}Csv\textbackslash{}Reader\+::to\+HTML} to output the CSV as a HTML table
+\item {\ttfamily Bakame\textbackslash{}Csv\textbackslash{}Reader\+::set\+Filter}, {\ttfamily Bakame\textbackslash{}Csv\textbackslash{}Reader\+::set\+Sort\+By}, {\ttfamily Bakame\textbackslash{}Csv\textbackslash{}Reader\+::set\+Offset}, {\ttfamily Bakame\textbackslash{}Csv\textbackslash{}Reader\+::set\+Limit}, {\ttfamily Bakame\textbackslash{}Csv\textbackslash{}Reader\+::query} to perform SQL like queries on the CSV content.
+\item {\ttfamily Bakame\textbackslash{}Csv\textbackslash{}Codec\+::set\+Flags}, {\ttfamily Bakame\textbackslash{}Csv\textbackslash{}Codec\+::get\+Flags}, Bakame\textbackslash{}\+Csv\textbackslash{}\+Codec\+::\+\_\+\+\_\+construct \+: add an optional {\ttfamily \$flags} parameter to enable the use of {\ttfamily Spl\+File\+Object} constants flags
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6697}{}\doxysubsection{\texorpdfstring{Deprecated}{Deprecated}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6697}
+
+\begin{DoxyItemize}
+\item {\ttfamily Bakame\textbackslash{}Csv\textbackslash{}Reader\+::fetch\+One} replaced by {\ttfamily Bakame\textbackslash{}Csv\textbackslash{}Reader\+::offset\+Get}
+\item {\ttfamily Bakame\textbackslash{}Csv\textbackslash{}Reader\+::fetch\+Value} useless method
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6698}{}\doxysection{\texorpdfstring{3.\+1.\+0 -\/ 2014-\/01-\/13}{3.\+1.\+0 -\/ 2014-\/01-\/13}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6698}
+\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6699}{}\doxysubsection{\texorpdfstring{Added}{Added}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6699}
+
+\begin{DoxyItemize}
+\item {\ttfamily Bakame\textbackslash{}Csv\textbackslash{}Reader\+::output} output the CSV data directly in the output buffer
+\item {\ttfamily Bakame\textbackslash{}Csv\textbackslash{}Reader\+::\+\_\+\+\_\+to\+String} can be use to echo the raw CSV
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6700}{}\doxysection{\texorpdfstring{3.\+0.\+1 -\/ 2014-\/01-\/10}{3.\+0.\+1 -\/ 2014-\/01-\/10}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6700}
+\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6701}{}\doxysubsection{\texorpdfstring{Fixed}{Fixed}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6701}
+
+\begin{DoxyItemize}
+\item {\ttfamily Bakame\textbackslash{}Csv\textbackslash{}Reader\+::fetch\+Assoc} when users keys and CSV row data don\textquotesingle{}t have the same length
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6702}{}\doxysection{\texorpdfstring{3.\+0.\+0 -\/ 2014-\/01-\/10}{3.\+0.\+0 -\/ 2014-\/01-\/10}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6702}
+\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6703}{}\doxysubsection{\texorpdfstring{Added}{Added}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6703}
+
+\begin{DoxyItemize}
+\item {\ttfamily Bakame\textbackslash{}Csv\textbackslash{}Reader\+Interface}
+\item {\ttfamily Bakame\textbackslash{}Csv\textbackslash{}Reader} class
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6704}{}\doxysubsection{\texorpdfstring{Fixed}{Fixed}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6704}
+
+\begin{DoxyItemize}
+\item {\ttfamily Bakame\textbackslash{}Csv\textbackslash{}Codec\+::load\+String}returns a {\ttfamily Bakame\textbackslash{}Csv\textbackslash{}Reader} object
+\item {\ttfamily Bakame\textbackslash{}Csv\textbackslash{}Codec\+::load\+File} returns a {\ttfamily Bakame\textbackslash{}Csv\textbackslash{}Reader} object
+\item {\ttfamily Bakame\textbackslash{}Csv\textbackslash{}Codec\+::save} returns a {\ttfamily Bakame\textbackslash{}Csv\textbackslash{}Reader} object
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6705}{}\doxysection{\texorpdfstring{2.\+0.\+0 -\/ 2014-\/01-\/09}{2.\+0.\+0 -\/ 2014-\/01-\/09}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6705}
+\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6706}{}\doxysubsection{\texorpdfstring{Added}{Added}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6706}
+
+\begin{DoxyItemize}
+\item {\ttfamily Bakame\textbackslash{}Csv\textbackslash{}Csv\+Codec} class renamed {\ttfamily Bakame\textbackslash{}Csv\textbackslash{}Codec}
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6707}{}\doxysubsection{\texorpdfstring{Deprecated}{Deprecated}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6707}
+
+\begin{DoxyItemize}
+\item Nothing
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6708}{}\doxysubsection{\texorpdfstring{Fixed}{Fixed}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6708}
+
+\begin{DoxyItemize}
+\item Nothing
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6709}{}\doxysubsection{\texorpdfstring{Removed}{Removed}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6709}
+
+\begin{DoxyItemize}
+\item {\ttfamily Bakame\textbackslash{}Csv\textbackslash{}Codec\+::create} from public API
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6710}{}\doxysection{\texorpdfstring{1.\+0.\+0 -\/ 2013-\/12-\/03}{1.\+0.\+0 -\/ 2013-\/12-\/03}}\label{md_public_2glpi_2vendor_2league_2csv_2_c_h_a_n_g_e_l_o_g_autotoc_md6710}
+Initial Release of {\ttfamily Bakame\textbackslash{}Csv} 

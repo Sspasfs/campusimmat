@@ -1,0 +1,103 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_md_public_2glpi_2vendor_2monolog_2monolog_2_u_p_g_r_a_d_e" xml:lang="fr">
+<title>2.0.0</title>
+<indexterm><primary>2.0.0</primary></indexterm>
+
+<para><anchor xml:id="_md_public_2glpi_2vendor_2monolog_2monolog_2_u_p_g_r_a_d_e_1autotoc_md6862"/><itemizedlist>
+<listitem>
+<para><computeroutput><link linkend="_namespace_monolog">Monolog</link>\Logger::API</computeroutput> can be used to distinguish between a <link linkend="_namespace_monolog">Monolog</link> <computeroutput>1</computeroutput> and <computeroutput>2</computeroutput> install of <link linkend="_namespace_monolog">Monolog</link> when writing integration code.</para>
+</listitem><listitem>
+<para>Removed non-PSR-3 methods to add records, all the <computeroutput>add*</computeroutput> (e.g. <computeroutput>addWarning</computeroutput>) methods as well as <computeroutput>emerg</computeroutput>, <computeroutput>crit</computeroutput>, <computeroutput>err</computeroutput> and <computeroutput>warn</computeroutput>.</para>
+</listitem><listitem>
+<para>DateTime are now formatted with a timezone and microseconds (unless disabled). Various formatters and log output might be affected, which may mess with log parsing in some cases.</para>
+</listitem><listitem>
+<para>The <computeroutput>datetime</computeroutput> in every record array is now a DateTimeImmutable, not that you should have been modifying these anyway.</para>
+</listitem><listitem>
+<para>The timezone is now set per Logger instance and not statically, either via -&gt;setTimezone or passed in the constructor. Calls to Logger::setTimezone should be converted.</para>
+</listitem><listitem>
+<para><computeroutput>HandlerInterface</computeroutput> has been split off and two new interfaces now exist for more granular controls: <computeroutput>ProcessableHandlerInterface</computeroutput> and <computeroutput>FormattableHandlerInterface</computeroutput>. Handlers not extending <computeroutput>AbstractHandler</computeroutput> should make sure to implement the relevant interfaces.</para>
+</listitem><listitem>
+<para><computeroutput>HandlerInterface</computeroutput> now requires the <computeroutput>close</computeroutput> method to be implemented. This only impacts you if you implement the interface yourself, but you can extend the new <computeroutput><link linkend="_namespace_monolog">Monolog</link>\Handler\Handler</computeroutput> base class too.</para>
+</listitem><listitem>
+<para>There is no more default handler configured on empty Logger instances, if you were relying on that you will not get any output anymore, make sure to configure the handler you need.</para>
+</listitem></itemizedlist>
+</para>
+<section xml:id="_md_public_2glpi_2vendor_2monolog_2monolog_2_u_p_g_r_a_d_e_1autotoc_md6863">
+<title><title>LogglyFormatter</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>The records&apos; <computeroutput>datetime</computeroutput> is not sent anymore. Only <computeroutput>timestamp</computeroutput> is sent to Loggly.</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2monolog_2monolog_2_u_p_g_r_a_d_e_1autotoc_md6864">
+<title><title>AmqpHandler</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para><link linkend="_class_log">Log</link> levels are not shortened to 4 characters anymore. e.g. a warning record will be sent using the <computeroutput>warning.channel</computeroutput> routing key instead of <computeroutput>warn.channel</computeroutput> as in 1.x.</para>
+</listitem><listitem>
+<para>The exchange name does not default to &apos;log&apos; anymore, and it is completely ignored now for the AMQP extension users. Only PHPAmqpLib uses it if provided.</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2monolog_2monolog_2_u_p_g_r_a_d_e_1autotoc_md6865">
+<title><title>RotatingFileHandler</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>The file name format must now contain <computeroutput>{date}</computeroutput> and the date format must be set to one of the predefined FILE_PER_* constants to avoid issues with file rotation. See <computeroutput>setFilenameFormat</computeroutput>.</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2monolog_2monolog_2_u_p_g_r_a_d_e_1autotoc_md6866">
+<title><title>LogstashFormatter</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Removed Logstash V0 support</para>
+</listitem><listitem>
+<para>Context/extra prefix has been removed in favor of letting users configure the exact key being sent</para>
+</listitem><listitem>
+<para>Context/extra data are now sent as an object instead of single keys</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2monolog_2monolog_2_u_p_g_r_a_d_e_1autotoc_md6867">
+<title><title>HipChatHandler</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Removed deprecated HipChat handler, migrate to Slack and use SlackWebhookHandler or SlackHandler instead</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2monolog_2monolog_2_u_p_g_r_a_d_e_1autotoc_md6868">
+<title><title>SlackbotHandler</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Removed deprecated SlackbotHandler handler, use SlackWebhookHandler or SlackHandler instead</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2monolog_2monolog_2_u_p_g_r_a_d_e_1autotoc_md6869">
+<title><title>RavenHandler</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Removed deprecated RavenHandler handler, use sentry/sentry 2.x and their Sentry\Monolog\Handler instead</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2monolog_2monolog_2_u_p_g_r_a_d_e_1autotoc_md6870">
+<title><title>ElasticSearchHandler</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>As support for the official Elasticsearch library was added, the former ElasticSearchHandler has been renamed to ElasticaHandler and the new one added as ElasticsearchHandler. </para>
+</listitem></itemizedlist>
+</para>
+</section>
+</section>

@@ -1,0 +1,85 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_solution_8php" xml:lang="fr">
+<title>Référence du fichier public/glpi/ajax/solution.php</title>
+<indexterm><primary>public/glpi/ajax/solution.php</primary></indexterm>
+<simplesect>
+    <title>Variables    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_solution_8php_1a552d3624f6937978f96deed2b8b13fdc">$AJAX_INCLUDE</link> = 1</para>
+</listitem>
+            <listitem><para><link linkend="_solution_8php_1a0400e387ca231211e3ce72c9c95d2e22">$solutiontemplates_id</link> = $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">_POST</link>[&apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">solutiontemplates_id</link>&apos;] ?? null</para>
+</listitem>
+            <listitem><para><link linkend="_dropdown_location_8php_1a52332c22f84432520971794825a5a8e7">if</link>( $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">solutiontemplates_id</link>===null) <link linkend="_actorinformation_8php_1a261cb4406f3e438761eb84a7d2102c75">else</link> <link linkend="_dropdown_location_8php_1a52332c22f84432520971794825a5a8e7">if</link>($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">solutiontemplates_id</link>==0) <link linkend="_solution_8php_1a3dd796c25b46a12c3ec83f03751240dc">$apply_twig</link> = true</para>
+</listitem>
+            <listitem><para><link linkend="_solution_8php_1a21436db57f8d3b8570bb8ef4b5a46931">$parents_id</link> = $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">_POST</link>[&apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">items_id</link>&apos;] ?? 0</para>
+</listitem>
+            <listitem><para><link linkend="_dropdown_location_8php_1a52332c22f84432520971794825a5a8e7">if</link>($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">parents_id</link>==0) <link linkend="_solution_8php_1a4f251fc19c1a243be21d0a9cc9760c8f">$parents_itemtype</link> = $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">_POST</link>[&apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">itemtype</link>&apos;] ?? &apos;&apos;</para>
+</listitem>
+            <listitem><para><link linkend="_dropdown_location_8php_1a52332c22f84432520971794825a5a8e7">if</link>(<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">empty</link>($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">parents_itemtype</link>)||!is_subclass_of($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">parents_itemtype</link>, <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">CommonITILObject::class</link>)) <link linkend="_solution_8php_1ae6d46796200bb084bf0b277152a47a42">$template</link> = <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">new</link> <link linkend="_class_solution_template">SolutionTemplate</link>()</para>
+</listitem>
+            <listitem><para><link linkend="_dropdown_location_8php_1a52332c22f84432520971794825a5a8e7">if</link>(! $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">template</link>-&gt;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">getFromDB</link>( $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">solutiontemplates_id</link>)) <link linkend="_dropdown_location_8php_1a52332c22f84432520971794825a5a8e7">if</link>($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">apply_twig</link>) <link linkend="_solution_8php_1a7f2fcba94528e0dfd07a5546f5c9b5d5">else</link></para>
+</listitem>
+            <listitem><para><link linkend="_dropdown_location_8php_1a52332c22f84432520971794825a5a8e7">if</link>(<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">DropdownTranslation::isDropdownTranslationActive</link>()) $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">template</link> <link linkend="_solution_8php_1ae4187de528d956eeecbbc4c042d05bc2">fields</link> [&apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">content</link>&apos;] = RichText::getSafeHtml($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">content</link>)</para>
+</listitem>
+            <listitem><para>$<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">template</link> <link linkend="_solution_8php_1a662cfba59fb1137399c16dd5672fc5b1">fields</link> [&apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">solutiontypes_name</link>&apos;] = &quot;&quot;</para>
+</listitem>
+            <listitem><para><link linkend="_solution_8php_1abffbbc3f50e287d6c15798fb4c957771">if</link> ( $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">template</link>-&gt;<link linkend="_dropdown_fields_blacklist_8php_1a5c75a53080fde91f4f343f206474308d">fields</link>[ &apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">solutiontypes_id</link>&apos;])</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Documentation des variables</title>
+<anchor xml:id="_solution_8php_1a552d3624f6937978f96deed2b8b13fdc"/><section>
+    <title>$AJAX_INCLUDE</title>
+<indexterm><primary>$AJAX_INCLUDE</primary><secondary>solution.php</secondary></indexterm>
+<indexterm><primary>solution.php</primary><secondary>$AJAX_INCLUDE</secondary></indexterm>
+<para><computeroutput>$<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">AJAX_INCLUDE</link> = 1</computeroutput></para></section>
+<anchor xml:id="_solution_8php_1a3dd796c25b46a12c3ec83f03751240dc"/><section>
+    <title>$apply_twig</title>
+<indexterm><primary>$apply_twig</primary><secondary>solution.php</secondary></indexterm>
+<indexterm><primary>solution.php</primary><secondary>$apply_twig</secondary></indexterm>
+<para><computeroutput><link linkend="_dropdown_location_8php_1a52332c22f84432520971794825a5a8e7">if</link>($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">solutiontemplates_id</link>===null) <link linkend="_actorinformation_8php_1a261cb4406f3e438761eb84a7d2102c75">else</link> <link linkend="_dropdown_location_8php_1a52332c22f84432520971794825a5a8e7">if</link> ( $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">solutiontemplates_id</link>==0) $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">apply_twig</link> = true</computeroutput></para></section>
+<anchor xml:id="_solution_8php_1a21436db57f8d3b8570bb8ef4b5a46931"/><section>
+    <title>$parents_id</title>
+<indexterm><primary>$parents_id</primary><secondary>solution.php</secondary></indexterm>
+<indexterm><primary>solution.php</primary><secondary>$parents_id</secondary></indexterm>
+<para><computeroutput>$<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">parents_id</link> = $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">_POST</link>[&apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">items_id</link>&apos;] ?? 0</computeroutput></para></section>
+<anchor xml:id="_solution_8php_1a4f251fc19c1a243be21d0a9cc9760c8f"/><section>
+    <title>$parents_itemtype</title>
+<indexterm><primary>$parents_itemtype</primary><secondary>solution.php</secondary></indexterm>
+<indexterm><primary>solution.php</primary><secondary>$parents_itemtype</secondary></indexterm>
+<para><computeroutput><link linkend="_dropdown_location_8php_1a52332c22f84432520971794825a5a8e7">if</link> ( $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">parents_id</link>==0) $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">parents_itemtype</link> = $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">_POST</link>[&apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">itemtype</link>&apos;] ?? &apos;&apos;</computeroutput></para></section>
+<anchor xml:id="_solution_8php_1a0400e387ca231211e3ce72c9c95d2e22"/><section>
+    <title>$solutiontemplates_id</title>
+<indexterm><primary>$solutiontemplates_id</primary><secondary>solution.php</secondary></indexterm>
+<indexterm><primary>solution.php</primary><secondary>$solutiontemplates_id</secondary></indexterm>
+<para><computeroutput>$<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">solutiontemplates_id</link> = $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">_POST</link>[&apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">solutiontemplates_id</link>&apos;] ?? null</computeroutput></para></section>
+<anchor xml:id="_solution_8php_1ae6d46796200bb084bf0b277152a47a42"/><section>
+    <title>$template</title>
+<indexterm><primary>$template</primary><secondary>solution.php</secondary></indexterm>
+<indexterm><primary>solution.php</primary><secondary>$template</secondary></indexterm>
+<para><computeroutput><link linkend="_dropdown_location_8php_1a52332c22f84432520971794825a5a8e7">if</link> (<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">empty</link>( $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">parents_itemtype</link>)||!is_subclass_of( $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">parents_itemtype</link>, <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">CommonITILObject::class</link>)) $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">template</link> = <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">new</link> <link linkend="_class_solution_template">SolutionTemplate</link>()</computeroutput></para></section>
+<anchor xml:id="_solution_8php_1a7f2fcba94528e0dfd07a5546f5c9b5d5"/><section>
+    <title>else</title>
+<indexterm><primary>else</primary><secondary>solution.php</secondary></indexterm>
+<indexterm><primary>solution.php</primary><secondary>else</secondary></indexterm>
+<para><computeroutput><link linkend="_dropdown_location_8php_1a52332c22f84432520971794825a5a8e7">if</link>(! $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">template</link>-&gt;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">getFromDB</link>($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">solutiontemplates_id</link>)) <link linkend="_dropdown_location_8php_1a52332c22f84432520971794825a5a8e7">if</link> ( $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">apply_twig</link>) else</computeroutput></para><emphasis role="strong">Valeur initiale :</emphasis><programlisting linenumbering="unnumbered">{
+&#32;&#32;&#32;&#32;$content&#32;=&#32;<link linkend="_solution_8php_1ae6d46796200bb084bf0b277152a47a42">$template</link>-&gt;fields[<emphasis role="stringliteral">&apos;content&apos;</emphasis>]
+</programlisting></section>
+<anchor xml:id="_solution_8php_1ae4187de528d956eeecbbc4c042d05bc2"/><section>
+    <title>fields<computeroutput>[1/2]</computeroutput></title>
+<indexterm><primary>fields</primary><secondary>solution.php</secondary></indexterm>
+<indexterm><primary>solution.php</primary><secondary>fields</secondary></indexterm>
+<para><computeroutput><link linkend="_dropdown_location_8php_1a52332c22f84432520971794825a5a8e7">if</link> (<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">DropdownTranslation::isDropdownTranslationActive</link>()) $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">template</link> fields[ &apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">content</link>&apos;] = RichText::getSafeHtml($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">content</link>)</computeroutput></para></section>
+<anchor xml:id="_solution_8php_1a662cfba59fb1137399c16dd5672fc5b1"/><section>
+    <title>fields<computeroutput>[2/2]</computeroutput></title>
+<indexterm><primary>fields</primary><secondary>solution.php</secondary></indexterm>
+<indexterm><primary>solution.php</primary><secondary>fields</secondary></indexterm>
+<para><computeroutput>$<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">template</link> fields[ &apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">solutiontypes_name</link>&apos;] = &quot;&quot;</computeroutput></para></section>
+<anchor xml:id="_solution_8php_1abffbbc3f50e287d6c15798fb4c957771"/><section>
+    <title>if</title>
+<indexterm><primary>if</primary><secondary>solution.php</secondary></indexterm>
+<indexterm><primary>solution.php</primary><secondary>if</secondary></indexterm>
+<para><computeroutput>if($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">template</link>-&gt;<link linkend="_dropdown_fields_blacklist_8php_1a5c75a53080fde91f4f343f206474308d">fields</link>[&apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">solutiontypes_id</link>&apos;]) ( $template-&gt;[ &apos;solutiontypes_id&apos;])</computeroutput></para></section>
+</section>
+</section>

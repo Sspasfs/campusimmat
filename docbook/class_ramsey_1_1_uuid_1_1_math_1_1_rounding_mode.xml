@@ -1,0 +1,141 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_ramsey_1_1_uuid_1_1_math_1_1_rounding_mode" xml:lang="fr">
+<title>Référence de la classe RoundingMode</title>
+<indexterm><primary>RoundingMode</primary></indexterm>
+Graphe de collaboration de RoundingMode:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_ramsey_1_1_uuid_1_1_math_1_1_rounding_mode__coll__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Champs de données    </title>
+        <itemizedlist>
+            <listitem><para>const <link linkend="_class_ramsey_1_1_uuid_1_1_math_1_1_rounding_mode_1a91be30d2d5343f30d7d280e5729c240b">UNNECESSARY</link> = 0</para>
+</listitem>
+            <listitem><para>const <link linkend="_class_ramsey_1_1_uuid_1_1_math_1_1_rounding_mode_1adbafd104ed891ca2bc12a42e1a9f3ec8">UP</link> = 1</para>
+</listitem>
+            <listitem><para>const <link linkend="_class_ramsey_1_1_uuid_1_1_math_1_1_rounding_mode_1a5c6499c8d074ecc6bd418c0a3da70622">DOWN</link> = 2</para>
+</listitem>
+            <listitem><para>const <link linkend="_class_ramsey_1_1_uuid_1_1_math_1_1_rounding_mode_1a99907571adc85aa6bcb216b45cf4d140">CEILING</link> = 3</para>
+</listitem>
+            <listitem><para>const <link linkend="_class_ramsey_1_1_uuid_1_1_math_1_1_rounding_mode_1a7bf75a29bbffa71e5617d00bde6bf2fb">FLOOR</link> = 4</para>
+</listitem>
+            <listitem><para>const <link linkend="_class_ramsey_1_1_uuid_1_1_math_1_1_rounding_mode_1a90dca4b6ce335841e79cbb96a398370d">HALF_UP</link> = 5</para>
+</listitem>
+            <listitem><para>const <link linkend="_class_ramsey_1_1_uuid_1_1_math_1_1_rounding_mode_1a0caad230847b8bdd45d122099e343a9d">HALF_DOWN</link> = 6</para>
+</listitem>
+            <listitem><para>const <link linkend="_class_ramsey_1_1_uuid_1_1_math_1_1_rounding_mode_1ae7e5a114804c80662af289c07e5bc17a">HALF_CEILING</link> = 7</para>
+</listitem>
+            <listitem><para>const <link linkend="_class_ramsey_1_1_uuid_1_1_math_1_1_rounding_mode_1a67bc9294a5f137d13b9a8b09929017d8">HALF_FLOOR</link> = 8</para>
+</listitem>
+            <listitem><para>const <link linkend="_class_ramsey_1_1_uuid_1_1_math_1_1_rounding_mode_1a1c33d1511d8272dc60342d86b7397e19">HALF_EVEN</link> = 9</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Description détaillée</title>
+
+<para>Specifies a rounding behavior for numerical operations capable of discarding precision.</para>
+
+<para>Each rounding mode indicates how the least significant returned digit of a rounded result is to be calculated. If fewer digits are returned than the digits needed to represent the exact numerical result, the discarded digits will be referred to as the discarded fraction regardless the digits&apos; contribution to the value of the number. In other words, considered as a numerical value, the discarded fraction could have an absolute value greater than one. </para>
+</section>
+<section>
+<title>Documentation des champs</title>
+<anchor xml:id="_class_ramsey_1_1_uuid_1_1_math_1_1_rounding_mode_1a99907571adc85aa6bcb216b45cf4d140"/><section>
+    <title>CEILING</title>
+<indexterm><primary>CEILING</primary><secondary>RoundingMode</secondary></indexterm>
+<indexterm><primary>RoundingMode</primary><secondary>CEILING</secondary></indexterm>
+<para><computeroutput>const CEILING = 3</computeroutput></para>
+<para>Rounds towards positive infinity.</para>
+
+<para>If the result is positive, behaves as for UP; if negative, behaves as for DOWN. Note that this rounding mode never decreases the calculated value. </para>
+</section>
+<anchor xml:id="_class_ramsey_1_1_uuid_1_1_math_1_1_rounding_mode_1a5c6499c8d074ecc6bd418c0a3da70622"/><section>
+    <title>DOWN</title>
+<indexterm><primary>DOWN</primary><secondary>RoundingMode</secondary></indexterm>
+<indexterm><primary>RoundingMode</primary><secondary>DOWN</secondary></indexterm>
+<para><computeroutput>const DOWN = 2</computeroutput></para>
+<para>Rounds towards zero.</para>
+
+<para>Never increments the digit prior to a discarded fraction (i.e., truncates). Note that this rounding mode never increases the magnitude of the calculated value. </para>
+</section>
+<anchor xml:id="_class_ramsey_1_1_uuid_1_1_math_1_1_rounding_mode_1a7bf75a29bbffa71e5617d00bde6bf2fb"/><section>
+    <title>FLOOR</title>
+<indexterm><primary>FLOOR</primary><secondary>RoundingMode</secondary></indexterm>
+<indexterm><primary>RoundingMode</primary><secondary>FLOOR</secondary></indexterm>
+<para><computeroutput>const FLOOR = 4</computeroutput></para>
+<para>Rounds towards negative infinity.</para>
+
+<para>If the result is positive, behave as for DOWN; if negative, behave as for UP. Note that this rounding mode never increases the calculated value. </para>
+</section>
+<anchor xml:id="_class_ramsey_1_1_uuid_1_1_math_1_1_rounding_mode_1ae7e5a114804c80662af289c07e5bc17a"/><section>
+    <title>HALF_CEILING</title>
+<indexterm><primary>HALF_CEILING</primary><secondary>RoundingMode</secondary></indexterm>
+<indexterm><primary>RoundingMode</primary><secondary>HALF_CEILING</secondary></indexterm>
+<para><computeroutput>const HALF_CEILING = 7</computeroutput></para>
+<para>Rounds towards &quot;nearest neighbor&quot; unless both neighbors are equidistant, in which case round towards positive infinity.</para>
+
+<para>If the result is positive, behaves as for HALF_UP; if negative, behaves as for HALF_DOWN. </para>
+</section>
+<anchor xml:id="_class_ramsey_1_1_uuid_1_1_math_1_1_rounding_mode_1a0caad230847b8bdd45d122099e343a9d"/><section>
+    <title>HALF_DOWN</title>
+<indexterm><primary>HALF_DOWN</primary><secondary>RoundingMode</secondary></indexterm>
+<indexterm><primary>RoundingMode</primary><secondary>HALF_DOWN</secondary></indexterm>
+<para><computeroutput>const HALF_DOWN = 6</computeroutput></para>
+<para>Rounds towards &quot;nearest neighbor&quot; unless both neighbors are equidistant, in which case round down.</para>
+
+<para>Behaves as for UP if the discarded fraction is &gt; 0.5; otherwise, behaves as for DOWN. </para>
+</section>
+<anchor xml:id="_class_ramsey_1_1_uuid_1_1_math_1_1_rounding_mode_1a1c33d1511d8272dc60342d86b7397e19"/><section>
+    <title>HALF_EVEN</title>
+<indexterm><primary>HALF_EVEN</primary><secondary>RoundingMode</secondary></indexterm>
+<indexterm><primary>RoundingMode</primary><secondary>HALF_EVEN</secondary></indexterm>
+<para><computeroutput>const HALF_EVEN = 9</computeroutput></para>
+<para>Rounds towards the &quot;nearest neighbor&quot; unless both neighbors are equidistant, in which case rounds towards the even neighbor.</para>
+
+<para>Behaves as for HALF_UP if the digit to the left of the discarded fraction is odd; behaves as for HALF_DOWN if it&apos;s even.</para>
+
+<para>Note that this is the rounding mode that statistically minimizes cumulative error when applied repeatedly over a sequence of calculations. It is sometimes known as &quot;Banker&apos;s rounding&quot;, and is chiefly used in the USA. </para>
+</section>
+<anchor xml:id="_class_ramsey_1_1_uuid_1_1_math_1_1_rounding_mode_1a67bc9294a5f137d13b9a8b09929017d8"/><section>
+    <title>HALF_FLOOR</title>
+<indexterm><primary>HALF_FLOOR</primary><secondary>RoundingMode</secondary></indexterm>
+<indexterm><primary>RoundingMode</primary><secondary>HALF_FLOOR</secondary></indexterm>
+<para><computeroutput>const HALF_FLOOR = 8</computeroutput></para>
+<para>Rounds towards &quot;nearest neighbor&quot; unless both neighbors are equidistant, in which case round towards negative infinity.</para>
+
+<para>If the result is positive, behaves as for HALF_DOWN; if negative, behaves as for HALF_UP. </para>
+</section>
+<anchor xml:id="_class_ramsey_1_1_uuid_1_1_math_1_1_rounding_mode_1a90dca4b6ce335841e79cbb96a398370d"/><section>
+    <title>HALF_UP</title>
+<indexterm><primary>HALF_UP</primary><secondary>RoundingMode</secondary></indexterm>
+<indexterm><primary>RoundingMode</primary><secondary>HALF_UP</secondary></indexterm>
+<para><computeroutput>const HALF_UP = 5</computeroutput></para>
+<para>Rounds towards &quot;nearest neighbor&quot; unless both neighbors are equidistant, in which case round up.</para>
+
+<para>Behaves as for UP if the discarded fraction is &gt;= 0.5; otherwise, behaves as for DOWN. Note that this is the rounding mode commonly taught at school. </para>
+</section>
+<anchor xml:id="_class_ramsey_1_1_uuid_1_1_math_1_1_rounding_mode_1a91be30d2d5343f30d7d280e5729c240b"/><section>
+    <title>UNNECESSARY</title>
+<indexterm><primary>UNNECESSARY</primary><secondary>RoundingMode</secondary></indexterm>
+<indexterm><primary>RoundingMode</primary><secondary>UNNECESSARY</secondary></indexterm>
+<para><computeroutput>const UNNECESSARY = 0</computeroutput></para>
+<para>Asserts that the requested operation has an exact result, hence no rounding is necessary. </para>
+</section>
+<anchor xml:id="_class_ramsey_1_1_uuid_1_1_math_1_1_rounding_mode_1adbafd104ed891ca2bc12a42e1a9f3ec8"/><section>
+    <title>UP</title>
+<indexterm><primary>UP</primary><secondary>RoundingMode</secondary></indexterm>
+<indexterm><primary>RoundingMode</primary><secondary>UP</secondary></indexterm>
+<para><computeroutput>const UP = 1</computeroutput></para>
+<para>Rounds away from zero.</para>
+
+<para>Always increments the digit prior to a nonzero discarded fraction. Note that this rounding mode never decreases the magnitude of the calculated value. </para>
+</section>
+<para>
+La documentation de cette classe a été générée à partir du fichier suivant :</para>
+public/glpi/vendor/ramsey/uuid/src/Math/<link linkend="_ramsey_2uuid_2src_2_math_2_rounding_mode_8php">RoundingMode.php</link></section>
+</section>

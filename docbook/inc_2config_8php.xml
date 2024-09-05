@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_inc_2config_8php" xml:lang="fr">
+<title>Référence du fichier public/glpi/inc/config.php</title>
+<indexterm><primary>public/glpi/inc/config.php</primary></indexterm>
+<simplesect>
+    <title>Variables    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">global</link> <link linkend="_inc_2config_8php_1a2e00a61703ee4673cdfb5eb376a9b295">$CFG_GLPI</link></para>
+</listitem>
+            <listitem><para><link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">global</link> <link linkend="_inc_2config_8php_1afbbfb0fec011d4cb90ba39184f1939c8">$GLPI</link> = <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">new</link> <link linkend="_class_g_l_p_i">GLPI</link>()</para>
+</listitem>
+            <listitem><para><link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">global</link> <link linkend="_inc_2config_8php_1a829bfa0114cf4c327b3ad59afda570fb">$GLPI_CACHE</link> = $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">cache_manager</link>-&gt;getCoreCacheInstance()</para>
+</listitem>
+            <listitem><para><link linkend="_inc_2config_8php_1a58c8c85ef924907b8db4bd27120f0b8f">$cache_manager</link> = <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">new</link> <link linkend="_class_glpi_1_1_cache_1_1_cache_manager">CacheManager</link>()</para>
+</listitem>
+            <listitem><para><link linkend="_dropdown_location_8php_1a52332c22f84432520971794825a5a8e7">if</link>( $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">skip_db_check</link> ?? false) <link linkend="_paragonie_2sodium__compat_2autoload_8php_1a996627e786133d369a87f2710aab5bcf">elseif</link>(!file_exists(<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">GLPI_CONFIG_DIR</link> . &quot;/config_db.php&quot;)) <link linkend="_inc_2config_8php_1a92e36e9bde543dd73e4040cc6dc8eb0a">else</link></para>
+</listitem>
+            <listitem><para><link linkend="_inc_2config_8php_1aab4542c6fdf7dcc6752de57c2d3e18eb">$missing_db_config</link> = !class_exists(&apos;<link linkend="_class_d_b">DB</link>&apos;, false)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Documentation des variables</title>
+<anchor xml:id="_inc_2config_8php_1a58c8c85ef924907b8db4bd27120f0b8f"/><section>
+    <title>$cache_manager</title>
+<indexterm><primary>$cache_manager</primary><secondary>config.php</secondary></indexterm>
+<indexterm><primary>config.php</primary><secondary>$cache_manager</secondary></indexterm>
+<para><computeroutput>$<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">cache_manager</link> = <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">new</link> <link linkend="_class_glpi_1_1_cache_1_1_cache_manager">CacheManager</link>()</computeroutput></para></section>
+<anchor xml:id="_inc_2config_8php_1a2e00a61703ee4673cdfb5eb376a9b295"/><section>
+    <title>$CFG_GLPI</title>
+<indexterm><primary>$CFG_GLPI</primary><secondary>config.php</secondary></indexterm>
+<indexterm><primary>config.php</primary><secondary>$CFG_GLPI</secondary></indexterm>
+<para><computeroutput><link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">global</link> $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">CFG_GLPI</link></computeroutput></para></section>
+<anchor xml:id="_inc_2config_8php_1afbbfb0fec011d4cb90ba39184f1939c8"/><section>
+    <title>$GLPI</title>
+<indexterm><primary>$GLPI</primary><secondary>config.php</secondary></indexterm>
+<indexterm><primary>config.php</primary><secondary>$GLPI</secondary></indexterm>
+<para><computeroutput><link linkend="_dropdown_location_8php_1a52332c22f84432520971794825a5a8e7">if</link> (!<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">isset</link>( $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">_SESSION</link>[ &apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">glpi_use_mode</link>&apos;])) $<link linkend="_class_g_l_p_i">GLPI</link> = <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">new</link> <link linkend="_class_g_l_p_i">GLPI</link>()</computeroutput></para></section>
+<anchor xml:id="_inc_2config_8php_1a829bfa0114cf4c327b3ad59afda570fb"/><section>
+    <title>$GLPI_CACHE</title>
+<indexterm><primary>$GLPI_CACHE</primary><secondary>config.php</secondary></indexterm>
+<indexterm><primary>config.php</primary><secondary>$GLPI_CACHE</secondary></indexterm>
+<para><computeroutput>$<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">GLPI_CACHE</link> = $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">cache_manager</link>-&gt;getCoreCacheInstance()</computeroutput></para></section>
+<anchor xml:id="_inc_2config_8php_1aab4542c6fdf7dcc6752de57c2d3e18eb"/><section>
+    <title>$missing_db_config</title>
+<indexterm><primary>$missing_db_config</primary><secondary>config.php</secondary></indexterm>
+<indexterm><primary>config.php</primary><secondary>$missing_db_config</secondary></indexterm>
+<para><computeroutput>$<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">missing_db_config</link> = !class_exists(&apos;<link linkend="_class_d_b">DB</link>&apos;, false)</computeroutput></para></section>
+<anchor xml:id="_inc_2config_8php_1a92e36e9bde543dd73e4040cc6dc8eb0a"/><section>
+    <title>else</title>
+<indexterm><primary>else</primary><secondary>config.php</secondary></indexterm>
+<indexterm><primary>config.php</primary><secondary>else</secondary></indexterm>
+<para><computeroutput><link linkend="_dropdown_location_8php_1a52332c22f84432520971794825a5a8e7">if</link> ( $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">missing_db_config</link>) else</computeroutput></para><emphasis role="strong">Valeur initiale :</emphasis><programlisting linenumbering="unnumbered">{
+&#32;&#32;&#32;&#32;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">include_once</link>(<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">GLPI_CONFIG_DIR</link>&#32;.&#32;<emphasis role="stringliteral">&quot;/config_db.php&quot;</emphasis>)
+</programlisting></section>
+</section>
+</section>

@@ -1,0 +1,88 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_md_public_2glpi_2vendor_2rlanvin_2php-rrule_2_r_e_a_d_m_e" xml:lang="fr">
+<title>RRULE for PHP</title>
+<indexterm><primary>RRULE for PHP</primary></indexterm>
+
+<para><anchor xml:id="_md_public_2glpi_2vendor_2rlanvin_2php-rrule_2_r_e_a_d_m_e_1autotoc_md7035"/> Lightweight and fast implementation of recurrence rules for PHP (<computeroutput>RRULE</computeroutput> from RFC 5545), to easily calculate recurring/repeating dates and events (such as in a calendar). This library started as a port of <link xlink:href="https://labix.org/python-dateutil">python-dateutil</link>.</para>
+
+<para><link xlink:href="https://github.com/rlanvin/php-rrule/actions"></link> <link xlink:href="https://packagist.org/packages/rlanvin/php-rrule"></link> <link xlink:href="https://packagist.org/packages/rlanvin/php-rrule"></link></para>
+<section xml:id="_md_public_2glpi_2vendor_2rlanvin_2php-rrule_2_r_e_a_d_m_e_1autotoc_md7036">
+<title><title>Basic example</title></title>
+
+<para><literallayout><computeroutput>use&#32;RRule\RRule;
+
+$rrule&#32;=&#32;new&#32;RRule([
+&#32;&#32;&#32;&#32;&apos;FREQ&apos;&#32;=&gt;&#32;&apos;MONTHLY&apos;,
+&#32;&#32;&#32;&#32;&apos;INTERVAL&apos;&#32;=&gt;&#32;1,
+&#32;&#32;&#32;&#32;&apos;DTSTART&apos;&#32;=&gt;&#32;&apos;2015-06-01&apos;,
+&#32;&#32;&#32;&#32;&apos;COUNT&apos;&#32;=&gt;&#32;6
+]);
+
+foreach&#32;($rrule&#32;as&#32;$occurrence)&#32;{
+&#32;&#32;&#32;&#32;echo&#32;$occurrence-&gt;format(&apos;D&#32;d&#32;M&#32;Y&apos;),&quot;,&#32;&quot;;
+}
+//&#32;Mon&#32;01&#32;Jun&#32;2015,&#32;Wed&#32;01&#32;Jul&#32;2015,&#32;Sat&#32;01&#32;Aug&#32;2015,&#32;Tue&#32;01&#32;Sep&#32;2015,&#32;Thu&#32;01&#32;Oct&#32;2015,&#32;Sun&#32;01&#32;Nov&#32;2015
+
+echo&#32;$rrule-&gt;humanReadable(),&quot;\n&quot;;
+//&#32;monthly&#32;on&#32;the&#32;1st&#32;of&#32;the&#32;month,&#32;starting&#32;from&#32;01/06/2015,&#32;6&#32;times
+</computeroutput></literallayout></para>
+
+<para>Complete documentation and more examples are available in <link xlink:href="https://github.com/rlanvin/php-rrule/wiki">the wiki</link>.</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2rlanvin_2php-rrule_2_r_e_a_d_m_e_1autotoc_md7037">
+<title><title>Requirements</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>PHP &gt;= 5.6</para>
+</listitem><listitem>
+<para><link xlink:href="http://php.net/manual/en/book.intl.php">intl extension</link> is recommended for <computeroutput>humanReadable()</computeroutput> but not strictly required</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2rlanvin_2php-rrule_2_r_e_a_d_m_e_1autotoc_md7038">
+<title><title>Installation</title></title>
+
+<para>The recommended way is to install the lib <link xlink:href="http://getcomposer.org/">through Composer</link>.</para>
+
+<para>Simply run <computeroutput>composer require rlanvin/php-rrule</computeroutput> for it to be automatically installed and included in your <computeroutput>composer.json</computeroutput>.</para>
+
+<para>Now you can use the autoloader, and you will have access to the library:</para>
+
+<para><literallayout><computeroutput>require&#32;&apos;vendor/autoload.php&apos;;
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2rlanvin_2php-rrule_2_r_e_a_d_m_e_1autotoc_md7039">
+<title><title>Documentation</title></title>
+
+<para>Complete documentation is available in <link xlink:href="https://github.com/rlanvin/php-rrule/wiki">the wiki</link>.</para>
+
+<para>You will also find useful information in the <link xlink:href="https://tools.ietf.org/html/rfc5545#section-3.3.10">RFC 5545 section 3.3.10</link>.</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2rlanvin_2php-rrule_2_r_e_a_d_m_e_1autotoc_md7040">
+<title><title>Contribution</title></title>
+
+<para>Feel free to contribute! Just create a new issue or a new pull request.</para>
+
+<para>The coding style is (mostly) PSR-2, but with tabs.</para>
+<section xml:id="_md_public_2glpi_2vendor_2rlanvin_2php-rrule_2_r_e_a_d_m_e_1autotoc_md7041">
+<title><title>Translation</title></title>
+
+<para>Use <computeroutput>./bin/review_translations.php --locale &lt;locale&gt;</computeroutput> to print a list of examples using the locale specified (default is English). Use <computeroutput>./bin/review_translations.php --rule &quot;&lt;rule&gt;&quot;</computeroutput> to test a specific rule in all available locales.</para>
+</section>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2rlanvin_2php-rrule_2_r_e_a_d_m_e_1autotoc_md7042">
+<title><title>Note</title></title>
+
+<para>I started this library because I wasn&apos;t happy with the existing implementations in PHP, so I thought it would be a good learning project to port the python-dateutil rrule implementation into PHP.</para>
+
+<para>The Python lib was a bit difficult to understand because the algorithms are not commented and the variables are very opaque (I&apos;m looking at you <computeroutput>lno1wkst</computeroutput>). I tried to comment and explain as much of the algorithm as possible in this PHP port, so feel free to check the code if you&apos;re interested.</para>
+
+<para>The lib differs from the python version in various aspects, notably in the respect of the RFC. This version is a bit strictier and will not accept many non-compliant combinations of rule parts, that the python version otherwise accepts. There are also some additional features in this version.</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2rlanvin_2php-rrule_2_r_e_a_d_m_e_1autotoc_md7043">
+<title><title>License</title></title>
+
+<para>This library is released under the MIT License. </para>
+</section>
+</section>

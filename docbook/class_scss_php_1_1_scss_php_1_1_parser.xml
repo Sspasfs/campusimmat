@@ -1,0 +1,3624 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_scss_php_1_1_scss_php_1_1_parser" xml:lang="fr">
+<title>Référence de la classe Parser</title>
+<indexterm><primary>Parser</primary></indexterm>
+Graphe de collaboration de Parser:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_scss_php_1_1_scss_php_1_1_parser__coll__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Fonctions membres publiques    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_scss_php_1_1_scss_php_1_1_parser_1aa24f3fff188939ae35d91438619d1d10">__construct</link> ($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">sourceName</link>, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">sourceIndex</link>=0, $encoding=&apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">utf</link>-8&apos;, <link linkend="_class_scss_php_1_1_scss_php_1_1_cache">Cache</link> $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">cache</link>=null, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">cssOnly</link>=false, <link linkend="_interface_scss_php_1_1_scss_php_1_1_logger_1_1_logger_interface">LoggerInterface</link> $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">logger</link>=null)</para>
+</listitem>
+            <listitem><para><link linkend="_class_scss_php_1_1_scss_php_1_1_parser_1a8f07eeb2982c6017bceed0e27105da99">getSourceName</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_class_scss_php_1_1_scss_php_1_1_parser_1a59b9b1977be748ee78d27c1ea4245518">throwParseError</link> ($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">msg</link>=&apos;<link linkend="_class_scss_php_1_1_scss_php_1_1_parser_1aa8a8d9dfb6c2868176488a9acfb4a0d8">parse</link> error&apos;)</para>
+</listitem>
+            <listitem><para><link linkend="_class_scss_php_1_1_scss_php_1_1_parser_1a718d44b09142aa117d40c30b2145d5f0">parseError</link> ($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">msg</link>=&apos;<link linkend="_class_scss_php_1_1_scss_php_1_1_parser_1aa8a8d9dfb6c2868176488a9acfb4a0d8">parse</link> error&apos;)</para>
+</listitem>
+            <listitem><para><link linkend="_class_scss_php_1_1_scss_php_1_1_parser_1aa8a8d9dfb6c2868176488a9acfb4a0d8">parse</link> ($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">buffer</link>)</para>
+</listitem>
+            <listitem><para><link linkend="_class_scss_php_1_1_scss_php_1_1_parser_1a10a27610237746163e5ae1aca24e9bef">parseValue</link> ($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">buffer</link>, &amp;$out)</para>
+</listitem>
+            <listitem><para><link linkend="_class_scss_php_1_1_scss_php_1_1_parser_1a3a6749c4e069e254508f43c7f59c9689">parseSelector</link> ($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">buffer</link>, &amp;$out, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">shouldValidate</link>=true)</para>
+</listitem>
+            <listitem><para><link linkend="_class_scss_php_1_1_scss_php_1_1_parser_1a7dcc300287888f7c8ea079537a77f542">parseMediaQueryList</link> ($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">buffer</link>, &amp;$out)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Champs de données    </title>
+        <itemizedlist>
+            <listitem><para>const <link linkend="_class_scss_php_1_1_scss_php_1_1_parser_1a022aab80ecbd75662e0687b9db61956e">SOURCE_INDEX</link> = -1</para>
+</listitem>
+            <listitem><para>const <link linkend="_class_scss_php_1_1_scss_php_1_1_parser_1a2c05e52e7ab30bd0ccf8cfa486a04fd6">SOURCE_LINE</link> = -2</para>
+</listitem>
+            <listitem><para>const <link linkend="_class_scss_php_1_1_scss_php_1_1_parser_1af5b5b87a6d9c467748ea95f4061aa27f">SOURCE_COLUMN</link> = -3</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Fonctions membres protégées    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_scss_php_1_1_scss_php_1_1_parser_1aad08aa6a0ec11e63f98abc5a2999c71a">parseChunk</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_class_scss_php_1_1_scss_php_1_1_parser_1aef5ce8af0fcc48c08d811d909395a53b">pushBlock</link> ($<link linkend="_class_scss_php_1_1_scss_php_1_1_parser_1aad2da2f34b326c87c7ae779d5793dff9">selectors</link>, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">pos</link>=0)</para>
+</listitem>
+            <listitem><para><link linkend="_class_scss_php_1_1_scss_php_1_1_parser_1aca9d9483bd553fd260f1f518609a8749">pushSpecialBlock</link> ($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">type</link>, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">pos</link>)</para>
+</listitem>
+            <listitem><para><link linkend="_class_scss_php_1_1_scss_php_1_1_parser_1a2f5b9f3991727a291e7925e548bc9ab7">popBlock</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_class_scss_php_1_1_scss_php_1_1_parser_1add3e69e5298cfe700994604c7269610f">peek</link> ($regex, &amp;$out, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">from</link>=null)</para>
+</listitem>
+            <listitem><para><link linkend="_class_scss_php_1_1_scss_php_1_1_parser_1a89c39f90ddcfdfb013eebc9a0921423f">seek</link> ($where)</para>
+</listitem>
+            <listitem><para><link linkend="_class_scss_php_1_1_scss_php_1_1_parser_1a392fcd7f5b8c20ea6c2104bb580d12c7">assertPlainCssValid</link> ($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">parsed</link>, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">startPos</link>=null)</para>
+</listitem>
+            <listitem><para><link linkend="_class_scss_php_1_1_scss_php_1_1_parser_1a1ad7cfcc2046e0b90c7606a671e8bfaa">isPlainCssValidElement</link> ($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">parsed</link>, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">allowExpression</link>=false)</para>
+</listitem>
+            <listitem><para><link linkend="_class_scss_php_1_1_scss_php_1_1_parser_1a34ec52398f6876bf36dbcc50e2e58a57">matchString</link> (&amp;$<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">m</link>, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">delim</link>)</para>
+</listitem>
+            <listitem><para><link linkend="_class_scss_php_1_1_scss_php_1_1_parser_1a486fd5e6a9b7f8c57940e0808c17a9f1">match</link> ($regex, &amp;$out, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">eatWhitespace</link>=null)</para>
+</listitem>
+            <listitem><para><link linkend="_class_scss_php_1_1_scss_php_1_1_parser_1a5515137d066859ea31187cba42be4525">matchChar</link> ($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">char</link>, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">eatWhitespace</link>=null)</para>
+</listitem>
+            <listitem><para><link linkend="_class_scss_php_1_1_scss_php_1_1_parser_1a7548704846076882815845b28b95c19f">literal</link> ($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">what</link>, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">len</link>, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">eatWhitespace</link>=null)</para>
+</listitem>
+            <listitem><para><link linkend="_class_scss_php_1_1_scss_php_1_1_parser_1a20c53f113ff646c98fc4046e932f2be8">whitespace</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_class_scss_php_1_1_scss_php_1_1_parser_1a8ae3372dfb0bc032ac5017aa211ab4b7">appendComment</link> ($comment)</para>
+</listitem>
+            <listitem><para><link linkend="_class_scss_php_1_1_scss_php_1_1_parser_1ad703d18cef81fbdde6a207bda27484b2">append</link> ($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">statement</link>, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">pos</link>=null)</para>
+</listitem>
+            <listitem><para><link linkend="_class_scss_php_1_1_scss_php_1_1_parser_1ac90cadb327363232bb2d83a4f8ebd613">last</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_class_scss_php_1_1_scss_php_1_1_parser_1a474ccd8044e3559aac01e7a11cb7b4e2">mediaQueryList</link> (&amp;$out)</para>
+</listitem>
+            <listitem><para><link linkend="_class_scss_php_1_1_scss_php_1_1_parser_1a696f8f0a99d3dac142c5f27351583ea6">mediaQuery</link> (&amp;$out)</para>
+</listitem>
+            <listitem><para><link linkend="_class_scss_php_1_1_scss_php_1_1_parser_1a070a67b9830efd084ec483207e7f8c95">supportsQuery</link> (&amp;$out)</para>
+</listitem>
+            <listitem><para><link linkend="_class_scss_php_1_1_scss_php_1_1_parser_1a4fb3d4c92795ab19ad708540e28e82ab">mediaExpression</link> (&amp;$out)</para>
+</listitem>
+            <listitem><para><link linkend="_class_scss_php_1_1_scss_php_1_1_parser_1ae383fe4d9cea6bc42d37149e3abf790a">argValues</link> (&amp;$out)</para>
+</listitem>
+            <listitem><para><link linkend="_class_scss_php_1_1_scss_php_1_1_parser_1a4e472d5f791ad523ffeb81db53611dd6">argValue</link> (&amp;$out)</para>
+</listitem>
+            <listitem><para><link linkend="_class_scss_php_1_1_scss_php_1_1_parser_1a176d9a76a6a216ac68dcd3f5392b25ce">isKnownGenericDirective</link> ($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">directiveName</link>)</para>
+</listitem>
+            <listitem><para><link linkend="_class_scss_php_1_1_scss_php_1_1_parser_1a0c4874d925c1803f0b64648fbac1a75d">directiveValue</link> (&amp;$out, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">endChar</link>=false)</para>
+</listitem>
+            <listitem><para><link linkend="_class_scss_php_1_1_scss_php_1_1_parser_1a07d34cbbe25fe4d6db7aa89e5bbdba5f">valueList</link> (&amp;$out)</para>
+</listitem>
+            <listitem><para><link linkend="_class_scss_php_1_1_scss_php_1_1_parser_1a4f0068fe504e712c0dd5d0fb68643da4">functionCallArgumentsList</link> (&amp;$out, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">mandatoryEnclos</link>=true, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">charAfter</link>=null, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">eatWhiteSp</link>=null)</para>
+</listitem>
+            <listitem><para><link linkend="_class_scss_php_1_1_scss_php_1_1_parser_1ae98562558360361a1cf8020a50856d57">spaceList</link> (&amp;$out)</para>
+</listitem>
+            <listitem><para><link linkend="_class_scss_php_1_1_scss_php_1_1_parser_1afdc6addaef9b9d546008c0af8407cbc5">expression</link> (&amp;$out, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">listOnly</link>=false, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">lookForExp</link>=true)</para>
+</listitem>
+            <listitem><para><link linkend="_class_scss_php_1_1_scss_php_1_1_parser_1aa821a6eac65d348ea480da78745a8fe7">enclosedExpression</link> (&amp;$out, $s, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">closingParen</link>=&apos;)&apos;, $allowedTypes=[<link linkend="_class_scss_php_1_1_scss_php_1_1_type_1ac3a675e21ce0d08e79516f4a8ac4b7bf">Type::T_LIST</link>, <link linkend="_class_scss_php_1_1_scss_php_1_1_type_1a8e0dabb572045bfa07d75bdc802a4973">Type::T_MAP</link>])</para>
+</listitem>
+            <listitem><para><link linkend="_class_scss_php_1_1_scss_php_1_1_parser_1a1794c74dcb086ef3bce9a84c0dcb0aec">expHelper</link> ($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">lhs</link>, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">minP</link>)</para>
+</listitem>
+            <listitem><para><link linkend="_class_scss_php_1_1_scss_php_1_1_parser_1ad41b7ffcd7da73cd005c7966e2991974">value</link> (&amp;$out)</para>
+</listitem>
+            <listitem><para><link linkend="_class_scss_php_1_1_scss_php_1_1_parser_1a93eb94b3b9accfd8512fddba20d673a7">parenValue</link> (&amp;$out)</para>
+</listitem>
+            <listitem><para><link linkend="_class_scss_php_1_1_scss_php_1_1_parser_1a352c9fb76317d08015fb8e2fa5247106">progid</link> (&amp;$out)</para>
+</listitem>
+            <listitem><para><link linkend="_class_scss_php_1_1_scss_php_1_1_parser_1a9c90ea96cf400cb76c61ffa26ff2a05c">func</link> ($name, &amp;$func)</para>
+</listitem>
+            <listitem><para><link linkend="_class_scss_php_1_1_scss_php_1_1_parser_1a0c091d8c7ba93de7f08bc6ef94af827c">argumentList</link> (&amp;$out)</para>
+</listitem>
+            <listitem><para><link linkend="_class_scss_php_1_1_scss_php_1_1_parser_1a6e486ec25ba7d0921ee116ed71351f52">argumentDef</link> (&amp;$out)</para>
+</listitem>
+            <listitem><para><link linkend="_class_scss_php_1_1_scss_php_1_1_parser_1a95d7dd58ffdd3961de1579e743ef6361">map</link> (&amp;$out)</para>
+</listitem>
+            <listitem><para><link linkend="_class_scss_php_1_1_scss_php_1_1_parser_1a42d58d95ca35d91c23343c5bfa216477">color</link> (&amp;$out)</para>
+</listitem>
+            <listitem><para><link linkend="_class_scss_php_1_1_scss_php_1_1_parser_1ac5e663633898c559aabc132c58310064">unit</link> (&amp;$unit)</para>
+</listitem>
+            <listitem><para><link linkend="_class_scss_php_1_1_scss_php_1_1_parser_1abd8d6292ccbfeede57fa0108e87712d5">string</link> (&amp;$out, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">keepDelimWithInterpolation</link>=false)</para>
+</listitem>
+            <listitem><para><link linkend="_class_scss_php_1_1_scss_php_1_1_parser_1abb9e281e2eeef89c0025aade2939c5bb">matchEscapeCharacter</link> (&amp;$out, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">inKeywords</link>=false)</para>
+</listitem>
+            <listitem><para><link linkend="_class_scss_php_1_1_scss_php_1_1_parser_1a99fc227a90b869c17ff829ee37db5240">mixedKeyword</link> (&amp;$out, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">restricted</link>=false)</para>
+</listitem>
+            <listitem><para><link linkend="_class_scss_php_1_1_scss_php_1_1_parser_1a21f87fd7a9c113fc7f4f137076ad80ed">openString</link> ($<link linkend="_class_scss_php_1_1_scss_php_1_1_parser_1aba4d795b06c0dcde2e560f4e260b59b6">end</link>, &amp;$out, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">nestOpen</link>=null, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">nestClose</link>=null, $rtrim=true, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">disallow</link>=null)</para>
+</listitem>
+            <listitem><para><link linkend="_class_scss_php_1_1_scss_php_1_1_parser_1a87605379ec2e6b1e1dd7a7b6071b3bd5">interpolation</link> (&amp;$out, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">lookWhite</link>=true)</para>
+</listitem>
+            <listitem><para><link linkend="_class_scss_php_1_1_scss_php_1_1_parser_1a8d95bbda40f94c5f8ba227bf14c4baf0">propertyName</link> (&amp;$out)</para>
+</listitem>
+            <listitem><para><link linkend="_class_scss_php_1_1_scss_php_1_1_parser_1a5bca4106cb08896e1150ea37600dc96a">customProperty</link> (&amp;$out)</para>
+</listitem>
+            <listitem><para><link linkend="_class_scss_php_1_1_scss_php_1_1_parser_1aad2da2f34b326c87c7ae779d5793dff9">selectors</link> (&amp;$out, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">subSelector</link>=false)</para>
+</listitem>
+            <listitem><para><link linkend="_class_scss_php_1_1_scss_php_1_1_parser_1af1cf35bd8342debfef41e49865e7c96a">selector</link> (&amp;$out, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">subSelector</link>=false)</para>
+</listitem>
+            <listitem><para><link linkend="_class_scss_php_1_1_scss_php_1_1_parser_1a8ad45961e8b121e10ce64f6817615f54">matchEscapeCharacterInSelector</link> (&amp;$out, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">keepEscapedNumber</link>=false)</para>
+</listitem>
+            <listitem><para><link linkend="_class_scss_php_1_1_scss_php_1_1_parser_1ad9187fc8c1a68081a290297b2c17faf4">selectorSingle</link> (&amp;$out, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">subSelector</link>=false)</para>
+</listitem>
+            <listitem><para><link linkend="_class_scss_php_1_1_scss_php_1_1_parser_1a3330816e71c0639733ebe08ca9d84851">variable</link> (&amp;$out)</para>
+</listitem>
+            <listitem><para><link linkend="_class_scss_php_1_1_scss_php_1_1_parser_1a74c0839e19290bef575d3394b86b1c32">keyword</link> (&amp;$<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">word</link>, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">eatWhitespace</link>=null, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">inSelector</link>=false)</para>
+</listitem>
+            <listitem><para><link linkend="_class_scss_php_1_1_scss_php_1_1_parser_1a8a1b2c48711498fed00e9f4e023819a1">restrictedKeyword</link> (&amp;$<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">word</link>, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">eatWhitespace</link>=null, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">inSelector</link>=false)</para>
+</listitem>
+            <listitem><para><link linkend="_class_scss_php_1_1_scss_php_1_1_parser_1a8f57b147e9197c0d21700ec81ef08657">placeholder</link> (&amp;$placeholder)</para>
+</listitem>
+            <listitem><para><link linkend="_class_scss_php_1_1_scss_php_1_1_parser_1a3f338dcd188412e4cd023d7c7e8cfb11">url</link> (&amp;$out)</para>
+</listitem>
+            <listitem><para><link linkend="_class_scss_php_1_1_scss_php_1_1_parser_1aba4d795b06c0dcde2e560f4e260b59b6">end</link> ($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">eatWhitespace</link>=null)</para>
+</listitem>
+            <listitem><para><link linkend="_class_scss_php_1_1_scss_php_1_1_parser_1a6a29746d39765950b0b9d110ebe569e9">stripAssignmentFlags</link> (&amp;$<link linkend="_class_scss_php_1_1_scss_php_1_1_parser_1ad41b7ffcd7da73cd005c7966e2991974">value</link>)</para>
+</listitem>
+            <listitem><para><link linkend="_class_scss_php_1_1_scss_php_1_1_parser_1a89008179b29dc987f9ae34d290b483a0">stripOptionalFlag</link> (&amp;$<link linkend="_class_scss_php_1_1_scss_php_1_1_parser_1aad2da2f34b326c87c7ae779d5793dff9">selectors</link>)</para>
+</listitem>
+            <listitem><para><link linkend="_class_scss_php_1_1_scss_php_1_1_parser_1ae3baab60c8f5bcb48d6530f4e827936a">flattenList</link> ($<link linkend="_class_scss_php_1_1_scss_php_1_1_parser_1ad41b7ffcd7da73cd005c7966e2991974">value</link>)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Attributs protégés    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_scss_php_1_1_scss_php_1_1_parser_1ac2dc76d756ec398393d4b1d23659276c">$cache</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Attributs protégés statiques    </title>
+        <itemizedlist>
+            <listitem><para>static <link linkend="_class_scss_php_1_1_scss_php_1_1_parser_1aefe90f3f33b3aabdee5ce2cb428dff39">$precedence</link></para>
+</listitem>
+            <listitem><para>static <link linkend="_class_scss_php_1_1_scss_php_1_1_parser_1ae4fdaed3e6117cd73007dd24aec8697d">$commentPattern</link></para>
+</listitem>
+            <listitem><para>static <link linkend="_class_scss_php_1_1_scss_php_1_1_parser_1ae3ec9ef4891d51d53850aa60c4969950">$operatorPattern</link></para>
+</listitem>
+            <listitem><para>static <link linkend="_class_scss_php_1_1_scss_php_1_1_parser_1aa23721cc34534741f866fc0b750582a0">$whitePattern</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Description détaillée</title>
+
+<para>Parser</para>
+
+<para><formalpara><title>Auteur</title>
+
+<para>Leaf Corcoran <link xlink:href="mailto:leafot@gmail.com">leafot@gmail.com</link> </para>
+</formalpara>
+</para>
+</section>
+<section>
+<title>Documentation des constructeurs et destructeur</title>
+<anchor xml:id="_class_scss_php_1_1_scss_php_1_1_parser_1aa24f3fff188939ae35d91438619d1d10"/><section>
+    <title>__construct()</title>
+<indexterm><primary>__construct</primary><secondary>Parser</secondary></indexterm>
+<indexterm><primary>Parser</primary><secondary>__construct</secondary></indexterm>
+<para><computeroutput>__construct ( $sourceName,  $sourceIndex = <computeroutput>0</computeroutput>
+,  $encoding = <computeroutput>&apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">utf</link>-8&apos;</computeroutput>
+, <link linkend="_class_scss_php_1_1_scss_php_1_1_cache">Cache</link> $cache = <computeroutput>null</computeroutput>
+,  $cssOnly = <computeroutput>false</computeroutput>
+, <link linkend="_interface_scss_php_1_1_scss_php_1_1_logger_1_1_logger_interface">LoggerInterface</link> $logger = <computeroutput>null</computeroutput>
+)</computeroutput></para>
+<para>Constructor</para>
+
+<para>@api</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string | null</entry><entry>$sourceName</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>int</entry><entry>$sourceIndex</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>string | null</entry><entry>$encoding</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>Cache | null</entry><entry>$cache</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>bool</entry><entry>$cssOnly</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>LoggerInterface | null</entry><entry>$logger</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
+</section>
+<section>
+<title>Documentation des fonctions membres</title>
+<anchor xml:id="_class_scss_php_1_1_scss_php_1_1_parser_1ad703d18cef81fbdde6a207bda27484b2"/><section>
+    <title>append()</title>
+<indexterm><primary>append</primary><secondary>Parser</secondary></indexterm>
+<indexterm><primary>Parser</primary><secondary>append</secondary></indexterm>
+<para><computeroutput>append ( $statement,  $pos = <computeroutput>null</computeroutput>
+)<computeroutput>[protected]</computeroutput></computeroutput></para>
+<para>Append statement to current block</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>array | null</entry><entry>$statement</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>int</entry><entry>$pos</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>void </para>
+</formalpara>
+</para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_scss_php_1_1_scss_php_1_1_parser_ad703d18cef81fbdde6a207bda27484b2_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_scss_php_1_1_scss_php_1_1_parser_ad703d18cef81fbdde6a207bda27484b2_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_scss_php_1_1_scss_php_1_1_parser_1a8ae3372dfb0bc032ac5017aa211ab4b7"/><section>
+    <title>appendComment()</title>
+<indexterm><primary>appendComment</primary><secondary>Parser</secondary></indexterm>
+<indexterm><primary>Parser</primary><secondary>appendComment</secondary></indexterm>
+<para><computeroutput>appendComment ( $comment)<computeroutput>[protected]</computeroutput></computeroutput></para>
+<para>Append comment to current block</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>array</entry><entry>$comment</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>void </para>
+</formalpara>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_scss_php_1_1_scss_php_1_1_parser_a8ae3372dfb0bc032ac5017aa211ab4b7_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_scss_php_1_1_scss_php_1_1_parser_1a6e486ec25ba7d0921ee116ed71351f52"/><section>
+    <title>argumentDef()</title>
+<indexterm><primary>argumentDef</primary><secondary>Parser</secondary></indexterm>
+<indexterm><primary>Parser</primary><secondary>argumentDef</secondary></indexterm>
+<para><computeroutput>argumentDef (&amp; $out)<computeroutput>[protected]</computeroutput></computeroutput></para>
+<para>Parse mixin/function definition argument list</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>array</entry><entry>$out</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>bool </para>
+</formalpara>
+</para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_scss_php_1_1_scss_php_1_1_parser_a6e486ec25ba7d0921ee116ed71351f52_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_scss_php_1_1_scss_php_1_1_parser_a6e486ec25ba7d0921ee116ed71351f52_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_scss_php_1_1_scss_php_1_1_parser_1a0c091d8c7ba93de7f08bc6ef94af827c"/><section>
+    <title>argumentList()</title>
+<indexterm><primary>argumentList</primary><secondary>Parser</secondary></indexterm>
+<indexterm><primary>Parser</primary><secondary>argumentList</secondary></indexterm>
+<para><computeroutput>argumentList (&amp; $out)<computeroutput>[protected]</computeroutput></computeroutput></para>
+<para>Parse function call argument list</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>array</entry><entry>$out</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>bool </para>
+</formalpara>
+</para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_scss_php_1_1_scss_php_1_1_parser_a0c091d8c7ba93de7f08bc6ef94af827c_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_scss_php_1_1_scss_php_1_1_parser_a0c091d8c7ba93de7f08bc6ef94af827c_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_scss_php_1_1_scss_php_1_1_parser_1a4e472d5f791ad523ffeb81db53611dd6"/><section>
+    <title>argValue()</title>
+<indexterm><primary>argValue</primary><secondary>Parser</secondary></indexterm>
+<indexterm><primary>Parser</primary><secondary>argValue</secondary></indexterm>
+<para><computeroutput>argValue (&amp; $out)<computeroutput>[protected]</computeroutput></computeroutput></para>
+<para>Parse argument value</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>array</entry><entry>$out</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>bool </para>
+</formalpara>
+</para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_scss_php_1_1_scss_php_1_1_parser_a4e472d5f791ad523ffeb81db53611dd6_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_scss_php_1_1_scss_php_1_1_parser_1ae383fe4d9cea6bc42d37149e3abf790a"/><section>
+    <title>argValues()</title>
+<indexterm><primary>argValues</primary><secondary>Parser</secondary></indexterm>
+<indexterm><primary>Parser</primary><secondary>argValues</secondary></indexterm>
+<para><computeroutput>argValues (&amp; $out)<computeroutput>[protected]</computeroutput></computeroutput></para>
+<para>Parse argument values</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>array</entry><entry>$out</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>bool </para>
+</formalpara>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_scss_php_1_1_scss_php_1_1_parser_ae383fe4d9cea6bc42d37149e3abf790a_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_scss_php_1_1_scss_php_1_1_parser_1a392fcd7f5b8c20ea6c2104bb580d12c7"/><section>
+    <title>assertPlainCssValid()</title>
+<indexterm><primary>assertPlainCssValid</primary><secondary>Parser</secondary></indexterm>
+<indexterm><primary>Parser</primary><secondary>assertPlainCssValid</secondary></indexterm>
+<para><computeroutput>assertPlainCssValid ( $parsed,  $startPos = <computeroutput>null</computeroutput>
+)<computeroutput>[protected]</computeroutput></computeroutput></para>
+<para>Assert a parsed part is plain CSS Valid</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>array | false</entry><entry>$parsed</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>int</entry><entry>$startPos</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>array</para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>ParserException</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_scss_php_1_1_scss_php_1_1_parser_a392fcd7f5b8c20ea6c2104bb580d12c7_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_scss_php_1_1_scss_php_1_1_parser_a392fcd7f5b8c20ea6c2104bb580d12c7_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_scss_php_1_1_scss_php_1_1_parser_1a42d58d95ca35d91c23343c5bfa216477"/><section>
+    <title>color()</title>
+<indexterm><primary>color</primary><secondary>Parser</secondary></indexterm>
+<indexterm><primary>Parser</primary><secondary>color</secondary></indexterm>
+<para><computeroutput>color (&amp; $out)<computeroutput>[protected]</computeroutput></computeroutput></para>
+<para>Parse color</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>array</entry><entry>$out</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>bool </para>
+</formalpara>
+</para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_scss_php_1_1_scss_php_1_1_parser_a42d58d95ca35d91c23343c5bfa216477_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_scss_php_1_1_scss_php_1_1_parser_a42d58d95ca35d91c23343c5bfa216477_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_scss_php_1_1_scss_php_1_1_parser_1a5bca4106cb08896e1150ea37600dc96a"/><section>
+    <title>customProperty()</title>
+<indexterm><primary>customProperty</primary><secondary>Parser</secondary></indexterm>
+<indexterm><primary>Parser</primary><secondary>customProperty</secondary></indexterm>
+<para><computeroutput>customProperty (&amp; $out)<computeroutput>[protected]</computeroutput></computeroutput></para>
+<para>Parse custom property name (as an array of parts or a string)</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>array</entry><entry>$out</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>bool </para>
+</formalpara>
+</para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_scss_php_1_1_scss_php_1_1_parser_a5bca4106cb08896e1150ea37600dc96a_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_scss_php_1_1_scss_php_1_1_parser_a5bca4106cb08896e1150ea37600dc96a_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_scss_php_1_1_scss_php_1_1_parser_1a0c4874d925c1803f0b64648fbac1a75d"/><section>
+    <title>directiveValue()</title>
+<indexterm><primary>directiveValue</primary><secondary>Parser</secondary></indexterm>
+<indexterm><primary>Parser</primary><secondary>directiveValue</secondary></indexterm>
+<para><computeroutput>directiveValue (&amp; $out,  $endChar = <computeroutput>false</computeroutput>
+)<computeroutput>[protected]</computeroutput></computeroutput></para>
+<para>Parse directive value list that considers $vars as keyword</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>array</entry><entry>$out</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>string | false</entry><entry>$endChar</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>bool</para>
+</formalpara>
+@phpstan-impure </para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_scss_php_1_1_scss_php_1_1_parser_a0c4874d925c1803f0b64648fbac1a75d_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_scss_php_1_1_scss_php_1_1_parser_a0c4874d925c1803f0b64648fbac1a75d_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_scss_php_1_1_scss_php_1_1_parser_1aa821a6eac65d348ea480da78745a8fe7"/><section>
+    <title>enclosedExpression()</title>
+<indexterm><primary>enclosedExpression</primary><secondary>Parser</secondary></indexterm>
+<indexterm><primary>Parser</primary><secondary>enclosedExpression</secondary></indexterm>
+<para><computeroutput>enclosedExpression (&amp; $out,  $s,  $closingParen = <computeroutput>&apos;)&apos;</computeroutput>
+,  $allowedTypes = <computeroutput>[<link linkend="_class_scss_php_1_1_scss_php_1_1_type_1ac3a675e21ce0d08e79516f4a8ac4b7bf">Type::T_LIST</link>,&#160;<link linkend="_class_scss_php_1_1_scss_php_1_1_type_1a8e0dabb572045bfa07d75bdc802a4973">Type::T_MAP</link>]</computeroutput>
+)<computeroutput>[protected]</computeroutput></computeroutput></para>
+<para>Parse expression specifically checking for lists in parenthesis or brackets</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>array</entry><entry>$out</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>int</entry><entry>$s</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>string</entry><entry>$closingParen</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>string[]</entry><entry>$allowedTypes</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>bool</para>
+</formalpara>
+@phpstan-param array&lt;Type::*&gt; $allowedTypes </para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_scss_php_1_1_scss_php_1_1_parser_aa821a6eac65d348ea480da78745a8fe7_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_scss_php_1_1_scss_php_1_1_parser_aa821a6eac65d348ea480da78745a8fe7_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_scss_php_1_1_scss_php_1_1_parser_1aba4d795b06c0dcde2e560f4e260b59b6"/><section>
+    <title>end()</title>
+<indexterm><primary>end</primary><secondary>Parser</secondary></indexterm>
+<indexterm><primary>Parser</primary><secondary>end</secondary></indexterm>
+<para><computeroutput>end ( $eatWhitespace = <computeroutput>null</computeroutput>
+)<computeroutput>[protected]</computeroutput></computeroutput></para>
+<para>Consume an end of statement delimiter 
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>bool</entry><entry>$eatWhitespace</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>bool </para>
+</formalpara>
+</para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_scss_php_1_1_scss_php_1_1_parser_aba4d795b06c0dcde2e560f4e260b59b6_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_scss_php_1_1_scss_php_1_1_parser_1a1794c74dcb086ef3bce9a84c0dcb0aec"/><section>
+    <title>expHelper()</title>
+<indexterm><primary>expHelper</primary><secondary>Parser</secondary></indexterm>
+<indexterm><primary>Parser</primary><secondary>expHelper</secondary></indexterm>
+<para><computeroutput>expHelper ( $lhs,  $minP)<computeroutput>[protected]</computeroutput></computeroutput></para>
+<para>Parse left-hand side of subexpression</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>array</entry><entry>$lhs</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>int</entry><entry>$minP</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>array </para>
+</formalpara>
+</para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_scss_php_1_1_scss_php_1_1_parser_a1794c74dcb086ef3bce9a84c0dcb0aec_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_scss_php_1_1_scss_php_1_1_parser_a1794c74dcb086ef3bce9a84c0dcb0aec_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_scss_php_1_1_scss_php_1_1_parser_1afdc6addaef9b9d546008c0af8407cbc5"/><section>
+    <title>expression()</title>
+<indexterm><primary>expression</primary><secondary>Parser</secondary></indexterm>
+<indexterm><primary>Parser</primary><secondary>expression</secondary></indexterm>
+<para><computeroutput>expression (&amp; $out,  $listOnly = <computeroutput>false</computeroutput>
+,  $lookForExp = <computeroutput>true</computeroutput>
+)<computeroutput>[protected]</computeroutput></computeroutput></para>
+<para>Parse expression</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>array</entry><entry>$out</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>bool</entry><entry>$listOnly</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>bool</entry><entry>$lookForExp</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>bool</para>
+</formalpara>
+@phpstan-impure </para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_scss_php_1_1_scss_php_1_1_parser_afdc6addaef9b9d546008c0af8407cbc5_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_scss_php_1_1_scss_php_1_1_parser_afdc6addaef9b9d546008c0af8407cbc5_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_scss_php_1_1_scss_php_1_1_parser_1ae3baab60c8f5bcb48d6530f4e827936a"/><section>
+    <title>flattenList()</title>
+<indexterm><primary>flattenList</primary><secondary>Parser</secondary></indexterm>
+<indexterm><primary>Parser</primary><secondary>flattenList</secondary></indexterm>
+<para><computeroutput>flattenList ( $value)<computeroutput>[protected]</computeroutput></computeroutput></para>
+<para>Turn list of length 1 into value type</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>array</entry><entry>$value</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>array </para>
+</formalpara>
+</para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_scss_php_1_1_scss_php_1_1_parser_ae3baab60c8f5bcb48d6530f4e827936a_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_scss_php_1_1_scss_php_1_1_parser_ae3baab60c8f5bcb48d6530f4e827936a_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_scss_php_1_1_scss_php_1_1_parser_1a9c90ea96cf400cb76c61ffa26ff2a05c"/><section>
+    <title>func()</title>
+<indexterm><primary>func</primary><secondary>Parser</secondary></indexterm>
+<indexterm><primary>Parser</primary><secondary>func</secondary></indexterm>
+<para><computeroutput>func ( $name, &amp; $func)<computeroutput>[protected]</computeroutput></computeroutput></para>
+<para>Parse function call</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$name</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>array</entry><entry>$func</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>bool </para>
+</formalpara>
+</para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_scss_php_1_1_scss_php_1_1_parser_a9c90ea96cf400cb76c61ffa26ff2a05c_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_scss_php_1_1_scss_php_1_1_parser_a9c90ea96cf400cb76c61ffa26ff2a05c_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_scss_php_1_1_scss_php_1_1_parser_1a4f0068fe504e712c0dd5d0fb68643da4"/><section>
+    <title>functionCallArgumentsList()</title>
+<indexterm><primary>functionCallArgumentsList</primary><secondary>Parser</secondary></indexterm>
+<indexterm><primary>Parser</primary><secondary>functionCallArgumentsList</secondary></indexterm>
+<para><computeroutput>functionCallArgumentsList (&amp; $out,  $mandatoryEnclos = <computeroutput>true</computeroutput>
+,  $charAfter = <computeroutput>null</computeroutput>
+,  $eatWhiteSp = <computeroutput>null</computeroutput>
+)<computeroutput>[protected]</computeroutput></computeroutput></para>
+<para>Parse a function call, where externals () are part of the call and not of the value list</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>array</entry><entry>$out</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>bool</entry><entry>$mandatoryEnclos</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>null | string</entry><entry>$charAfter</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>null | bool</entry><entry>$eatWhiteSp</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>bool </para>
+</formalpara>
+</para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_scss_php_1_1_scss_php_1_1_parser_a4f0068fe504e712c0dd5d0fb68643da4_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_scss_php_1_1_scss_php_1_1_parser_a4f0068fe504e712c0dd5d0fb68643da4_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_scss_php_1_1_scss_php_1_1_parser_1a8f07eeb2982c6017bceed0e27105da99"/><section>
+    <title>getSourceName()</title>
+<indexterm><primary>getSourceName</primary><secondary>Parser</secondary></indexterm>
+<indexterm><primary>Parser</primary><secondary>getSourceName</secondary></indexterm>
+<para><computeroutput>getSourceName ( )</computeroutput></para>
+<para>Get source file name</para>
+
+<para>@api</para>
+
+<para><formalpara><title>Renvoie</title>
+
+<para>string </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_class_scss_php_1_1_scss_php_1_1_parser_1a87605379ec2e6b1e1dd7a7b6071b3bd5"/><section>
+    <title>interpolation()</title>
+<indexterm><primary>interpolation</primary><secondary>Parser</secondary></indexterm>
+<indexterm><primary>Parser</primary><secondary>interpolation</secondary></indexterm>
+<para><computeroutput>interpolation (&amp; $out,  $lookWhite = <computeroutput>true</computeroutput>
+)<computeroutput>[protected]</computeroutput></computeroutput></para>
+<para>Parser interpolation</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string | array</entry><entry>$out</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>bool</entry><entry>$lookWhite</entry><entry>
+<para>save information about whitespace before and after</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>bool </para>
+</formalpara>
+</para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_scss_php_1_1_scss_php_1_1_parser_a87605379ec2e6b1e1dd7a7b6071b3bd5_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_scss_php_1_1_scss_php_1_1_parser_a87605379ec2e6b1e1dd7a7b6071b3bd5_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_scss_php_1_1_scss_php_1_1_parser_1a176d9a76a6a216ac68dcd3f5392b25ce"/><section>
+    <title>isKnownGenericDirective()</title>
+<indexterm><primary>isKnownGenericDirective</primary><secondary>Parser</secondary></indexterm>
+<indexterm><primary>Parser</primary><secondary>isKnownGenericDirective</secondary></indexterm>
+<para><computeroutput>isKnownGenericDirective ( $directiveName)<computeroutput>[protected]</computeroutput></computeroutput></para>
+<para>Check if a generic directive is known to be able to allow almost any syntax or not 
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>mixed</entry><entry>$directiveName</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>bool </para>
+</formalpara>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_scss_php_1_1_scss_php_1_1_parser_a176d9a76a6a216ac68dcd3f5392b25ce_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_scss_php_1_1_scss_php_1_1_parser_1a1ad7cfcc2046e0b90c7606a671e8bfaa"/><section>
+    <title>isPlainCssValidElement()</title>
+<indexterm><primary>isPlainCssValidElement</primary><secondary>Parser</secondary></indexterm>
+<indexterm><primary>Parser</primary><secondary>isPlainCssValidElement</secondary></indexterm>
+<para><computeroutput>isPlainCssValidElement ( $parsed,  $allowExpression = <computeroutput>false</computeroutput>
+)<computeroutput>[protected]</computeroutput></computeroutput></para>
+<para>Check a parsed element is plain CSS Valid</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>array</entry><entry>$parsed</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>bool</entry><entry>$allowExpression</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>array|false </para>
+</formalpara>
+</para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_scss_php_1_1_scss_php_1_1_parser_a1ad7cfcc2046e0b90c7606a671e8bfaa_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_scss_php_1_1_scss_php_1_1_parser_a1ad7cfcc2046e0b90c7606a671e8bfaa_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_scss_php_1_1_scss_php_1_1_parser_1a74c0839e19290bef575d3394b86b1c32"/><section>
+    <title>keyword()</title>
+<indexterm><primary>keyword</primary><secondary>Parser</secondary></indexterm>
+<indexterm><primary>Parser</primary><secondary>keyword</secondary></indexterm>
+<para><computeroutput>keyword (&amp; $word,  $eatWhitespace = <computeroutput>null</computeroutput>
+,  $inSelector = <computeroutput>false</computeroutput>
+)<computeroutput>[protected]</computeroutput></computeroutput></para>
+<para>Parse a keyword</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$word</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>bool</entry><entry>$eatWhitespace</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>bool</entry><entry>$inSelector</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>bool </para>
+</formalpara>
+</para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_scss_php_1_1_scss_php_1_1_parser_a74c0839e19290bef575d3394b86b1c32_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_scss_php_1_1_scss_php_1_1_parser_a74c0839e19290bef575d3394b86b1c32_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_scss_php_1_1_scss_php_1_1_parser_1ac90cadb327363232bb2d83a4f8ebd613"/><section>
+    <title>last()</title>
+<indexterm><primary>last</primary><secondary>Parser</secondary></indexterm>
+<indexterm><primary>Parser</primary><secondary>last</secondary></indexterm>
+<para><computeroutput>last ( )<computeroutput>[protected]</computeroutput></computeroutput></para>
+<para>Returns last child was appended</para>
+
+<para><formalpara><title>Renvoie</title>
+
+<para>array|null </para>
+</formalpara>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_scss_php_1_1_scss_php_1_1_parser_ac90cadb327363232bb2d83a4f8ebd613_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_scss_php_1_1_scss_php_1_1_parser_1a7548704846076882815845b28b95c19f"/><section>
+    <title>literal()</title>
+<indexterm><primary>literal</primary><secondary>Parser</secondary></indexterm>
+<indexterm><primary>Parser</primary><secondary>literal</secondary></indexterm>
+<para><computeroutput>literal ( $what,  $len,  $eatWhitespace = <computeroutput>null</computeroutput>
+)<computeroutput>[protected]</computeroutput></computeroutput></para>
+<para>Match literal string</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$what</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>int</entry><entry>$len</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>bool</entry><entry>$eatWhitespace</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>bool</para>
+</formalpara>
+@phpstan-impure </para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_scss_php_1_1_scss_php_1_1_parser_a7548704846076882815845b28b95c19f_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_scss_php_1_1_scss_php_1_1_parser_a7548704846076882815845b28b95c19f_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_scss_php_1_1_scss_php_1_1_parser_1a95d7dd58ffdd3961de1579e743ef6361"/><section>
+    <title>map()</title>
+<indexterm><primary>map</primary><secondary>Parser</secondary></indexterm>
+<indexterm><primary>Parser</primary><secondary>map</secondary></indexterm>
+<para><computeroutput>map (&amp; $out)<computeroutput>[protected]</computeroutput></computeroutput></para>
+<para>Parse map</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>array</entry><entry>$out</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>bool </para>
+</formalpara>
+</para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_scss_php_1_1_scss_php_1_1_parser_a95d7dd58ffdd3961de1579e743ef6361_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_scss_php_1_1_scss_php_1_1_parser_a95d7dd58ffdd3961de1579e743ef6361_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_scss_php_1_1_scss_php_1_1_parser_1a486fd5e6a9b7f8c57940e0808c17a9f1"/><section>
+    <title>match()</title>
+<indexterm><primary>match</primary><secondary>Parser</secondary></indexterm>
+<indexterm><primary>Parser</primary><secondary>match</secondary></indexterm>
+<para><computeroutput>match ( $regex, &amp; $out,  $eatWhitespace = <computeroutput>null</computeroutput>
+)<computeroutput>[protected]</computeroutput></computeroutput></para>
+<para>Try to match something on head of buffer</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$regex</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>array</entry><entry>$out</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>bool</entry><entry>$eatWhitespace</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>bool</para>
+</formalpara>
+@phpstan-impure </para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_scss_php_1_1_scss_php_1_1_parser_a486fd5e6a9b7f8c57940e0808c17a9f1_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_scss_php_1_1_scss_php_1_1_parser_a486fd5e6a9b7f8c57940e0808c17a9f1_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_scss_php_1_1_scss_php_1_1_parser_1a5515137d066859ea31187cba42be4525"/><section>
+    <title>matchChar()</title>
+<indexterm><primary>matchChar</primary><secondary>Parser</secondary></indexterm>
+<indexterm><primary>Parser</primary><secondary>matchChar</secondary></indexterm>
+<para><computeroutput>matchChar ( $char,  $eatWhitespace = <computeroutput>null</computeroutput>
+)<computeroutput>[protected]</computeroutput></computeroutput></para>
+<para>Match a single string</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$char</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>bool</entry><entry>$eatWhitespace</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>bool</para>
+</formalpara>
+@phpstan-impure </para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_scss_php_1_1_scss_php_1_1_parser_a5515137d066859ea31187cba42be4525_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_scss_php_1_1_scss_php_1_1_parser_a5515137d066859ea31187cba42be4525_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_scss_php_1_1_scss_php_1_1_parser_1abb9e281e2eeef89c0025aade2939c5bb"/><section>
+    <title>matchEscapeCharacter()</title>
+<indexterm><primary>matchEscapeCharacter</primary><secondary>Parser</secondary></indexterm>
+<indexterm><primary>Parser</primary><secondary>matchEscapeCharacter</secondary></indexterm>
+<para><computeroutput>matchEscapeCharacter (&amp; $out,  $inKeywords = <computeroutput>false</computeroutput>
+)<computeroutput>[protected]</computeroutput></computeroutput></para>
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$out</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>bool</entry><entry>$inKeywords</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>bool </para>
+</formalpara>
+</para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_scss_php_1_1_scss_php_1_1_parser_abb9e281e2eeef89c0025aade2939c5bb_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_scss_php_1_1_scss_php_1_1_parser_abb9e281e2eeef89c0025aade2939c5bb_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_scss_php_1_1_scss_php_1_1_parser_1a8ad45961e8b121e10ce64f6817615f54"/><section>
+    <title>matchEscapeCharacterInSelector()</title>
+<indexterm><primary>matchEscapeCharacterInSelector</primary><secondary>Parser</secondary></indexterm>
+<indexterm><primary>Parser</primary><secondary>matchEscapeCharacterInSelector</secondary></indexterm>
+<para><computeroutput>matchEscapeCharacterInSelector (&amp; $out,  $keepEscapedNumber = <computeroutput>false</computeroutput>
+)<computeroutput>[protected]</computeroutput></computeroutput></para>
+<para>parsing escaped chars in selectors:<itemizedlist>
+<listitem>
+<para>escaped single chars are kept escaped in the selector but in a normalized form (if not in 0-9a-f range as this would be ambigous)</para>
+</listitem><listitem>
+<para>other escaped sequences (multibyte chars or 0-9a-f) are kept in their initial escaped form, normalized to lowercase</para>
+</listitem></itemizedlist>
+</para>
+
+<para>TODO: this is a fallback solution. Ideally escaped chars in selectors should be encoded as the genuine chars, and escaping added when printing in the Compiler, where/if it&apos;s mandatory<itemizedlist>
+<listitem>
+<para>but this require a better formal selector representation instead of the array we have now</para>
+</listitem></itemizedlist>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$out</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>bool</entry><entry>$keepEscapedNumber</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>bool </para>
+</formalpara>
+</para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_scss_php_1_1_scss_php_1_1_parser_a8ad45961e8b121e10ce64f6817615f54_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_scss_php_1_1_scss_php_1_1_parser_a8ad45961e8b121e10ce64f6817615f54_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_scss_php_1_1_scss_php_1_1_parser_1a34ec52398f6876bf36dbcc50e2e58a57"/><section>
+    <title>matchString()</title>
+<indexterm><primary>matchString</primary><secondary>Parser</secondary></indexterm>
+<indexterm><primary>Parser</primary><secondary>matchString</secondary></indexterm>
+<para><computeroutput>matchString (&amp; $m,  $delim)<computeroutput>[protected]</computeroutput></computeroutput></para>
+<para>Match string looking for either ending delim, escape, or string interpolation</para>
+
+<para>{ </para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_scss_php_1_1_scss_php_1_1_parser_a34ec52398f6876bf36dbcc50e2e58a57_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_scss_php_1_1_scss_php_1_1_parser_1a4fb3d4c92795ab19ad708540e28e82ab"/><section>
+    <title>mediaExpression()</title>
+<indexterm><primary>mediaExpression</primary><secondary>Parser</secondary></indexterm>
+<indexterm><primary>Parser</primary><secondary>mediaExpression</secondary></indexterm>
+<para><computeroutput>mediaExpression (&amp; $out)<computeroutput>[protected]</computeroutput></computeroutput></para>
+<para>Parse media expression</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>array</entry><entry>$out</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>bool </para>
+</formalpara>
+</para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_scss_php_1_1_scss_php_1_1_parser_a4fb3d4c92795ab19ad708540e28e82ab_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_scss_php_1_1_scss_php_1_1_parser_1a696f8f0a99d3dac142c5f27351583ea6"/><section>
+    <title>mediaQuery()</title>
+<indexterm><primary>mediaQuery</primary><secondary>Parser</secondary></indexterm>
+<indexterm><primary>Parser</primary><secondary>mediaQuery</secondary></indexterm>
+<para><computeroutput>mediaQuery (&amp; $out)<computeroutput>[protected]</computeroutput></computeroutput></para>
+<para>Parse media query</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>array</entry><entry>$out</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>bool </para>
+</formalpara>
+</para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_scss_php_1_1_scss_php_1_1_parser_a696f8f0a99d3dac142c5f27351583ea6_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_scss_php_1_1_scss_php_1_1_parser_1a474ccd8044e3559aac01e7a11cb7b4e2"/><section>
+    <title>mediaQueryList()</title>
+<indexterm><primary>mediaQueryList</primary><secondary>Parser</secondary></indexterm>
+<indexterm><primary>Parser</primary><secondary>mediaQueryList</secondary></indexterm>
+<para><computeroutput>mediaQueryList (&amp; $out)<computeroutput>[protected]</computeroutput></computeroutput></para>
+<para>Parse media query list</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>array</entry><entry>$out</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>bool </para>
+</formalpara>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_scss_php_1_1_scss_php_1_1_parser_a474ccd8044e3559aac01e7a11cb7b4e2_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_scss_php_1_1_scss_php_1_1_parser_1a99fc227a90b869c17ff829ee37db5240"/><section>
+    <title>mixedKeyword()</title>
+<indexterm><primary>mixedKeyword</primary><secondary>Parser</secondary></indexterm>
+<indexterm><primary>Parser</primary><secondary>mixedKeyword</secondary></indexterm>
+<para><computeroutput>mixedKeyword (&amp; $out,  $restricted = <computeroutput>false</computeroutput>
+)<computeroutput>[protected]</computeroutput></computeroutput></para>
+<para>Parse keyword or interpolation</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>array</entry><entry>$out</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>bool</entry><entry>$restricted</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>bool </para>
+</formalpara>
+</para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_scss_php_1_1_scss_php_1_1_parser_a99fc227a90b869c17ff829ee37db5240_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_scss_php_1_1_scss_php_1_1_parser_a99fc227a90b869c17ff829ee37db5240_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_scss_php_1_1_scss_php_1_1_parser_1a21f87fd7a9c113fc7f4f137076ad80ed"/><section>
+    <title>openString()</title>
+<indexterm><primary>openString</primary><secondary>Parser</secondary></indexterm>
+<indexterm><primary>Parser</primary><secondary>openString</secondary></indexterm>
+<para><computeroutput>openString ( $end, &amp; $out,  $nestOpen = <computeroutput>null</computeroutput>
+,  $nestClose = <computeroutput>null</computeroutput>
+,  $rtrim = <computeroutput>true</computeroutput>
+,  $disallow = <computeroutput>null</computeroutput>
+)<computeroutput>[protected]</computeroutput></computeroutput></para>
+<para>Parse an unbounded string stopped by $end</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$end</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>array</entry><entry>$out</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>string</entry><entry>$nestOpen</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>string</entry><entry>$nestClose</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>bool</entry><entry>$rtrim</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>string</entry><entry>$disallow</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>bool </para>
+</formalpara>
+</para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_scss_php_1_1_scss_php_1_1_parser_a21f87fd7a9c113fc7f4f137076ad80ed_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_scss_php_1_1_scss_php_1_1_parser_a21f87fd7a9c113fc7f4f137076ad80ed_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_scss_php_1_1_scss_php_1_1_parser_1a93eb94b3b9accfd8512fddba20d673a7"/><section>
+    <title>parenValue()</title>
+<indexterm><primary>parenValue</primary><secondary>Parser</secondary></indexterm>
+<indexterm><primary>Parser</primary><secondary>parenValue</secondary></indexterm>
+<para><computeroutput>parenValue (&amp; $out)<computeroutput>[protected]</computeroutput></computeroutput></para>
+<para>Parse parenthesized value</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>array</entry><entry>$out</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>bool </para>
+</formalpara>
+</para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_scss_php_1_1_scss_php_1_1_parser_a93eb94b3b9accfd8512fddba20d673a7_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_scss_php_1_1_scss_php_1_1_parser_a93eb94b3b9accfd8512fddba20d673a7_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_scss_php_1_1_scss_php_1_1_parser_1aa8a8d9dfb6c2868176488a9acfb4a0d8"/><section>
+    <title>parse()</title>
+<indexterm><primary>parse</primary><secondary>Parser</secondary></indexterm>
+<indexterm><primary>Parser</primary><secondary>parse</secondary></indexterm>
+<para><computeroutput>parse ( $buffer)</computeroutput></para>
+<para>Parser buffer</para>
+
+<para>@api</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$buffer</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>Block </para>
+</formalpara>
+</para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_scss_php_1_1_scss_php_1_1_parser_aa8a8d9dfb6c2868176488a9acfb4a0d8_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_scss_php_1_1_scss_php_1_1_parser_1aad08aa6a0ec11e63f98abc5a2999c71a"/><section>
+    <title>parseChunk()</title>
+<indexterm><primary>parseChunk</primary><secondary>Parser</secondary></indexterm>
+<indexterm><primary>Parser</primary><secondary>parseChunk</secondary></indexterm>
+<para><computeroutput>parseChunk ( )<computeroutput>[protected]</computeroutput></computeroutput></para>
+<para>Parse a single chunk off the head of the buffer and append it to the current parse environment.</para>
+
+<para>Returns false when the buffer is empty, or when there is an error.</para>
+
+<para>This function is called repeatedly until the entire document is parsed.</para>
+
+<para>This parser is most similar to a recursive descent parser. Single functions represent discrete grammatical rules for the language, and they are able to capture the text that represents those rules.</para>
+
+<para>Consider the function Compiler::keyword(). (All parse functions are structured the same.)</para>
+
+<para>The function takes a single reference argument. When calling the function it will attempt to match a keyword on the head of the buffer. If it is successful, it will place the keyword in the referenced argument, advance the position in the buffer, and return true. If it fails then it won&apos;t advance the buffer and it will return false.</para>
+
+<para>All of these parse functions are powered by Compiler::match(), which behaves the same way, but takes a literal regular expression. Sometimes it is more convenient to use match instead of creating a new function.</para>
+
+<para>Because of the format of the functions, to parse an entire string of grammatical rules, you can chain them together using &amp;&amp;.</para>
+
+<para>But, if some of the rules in the chain succeed before one fails, then the buffer position will be left at an invalid state. In order to avoid this, Compiler::seek() is used to remember and set buffer positions.</para>
+
+<para>Before parsing a chain, use $s = $this-&gt;count to remember the current position into $s. Then if a chain fails, use $this-&gt;seek($s) to go back where we started.</para>
+
+<para><formalpara><title>Renvoie</title>
+
+<para>bool </para>
+</formalpara>
+</para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_scss_php_1_1_scss_php_1_1_parser_aad08aa6a0ec11e63f98abc5a2999c71a_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_scss_php_1_1_scss_php_1_1_parser_aad08aa6a0ec11e63f98abc5a2999c71a_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_scss_php_1_1_scss_php_1_1_parser_1a718d44b09142aa117d40c30b2145d5f0"/><section>
+    <title>parseError()</title>
+<indexterm><primary>parseError</primary><secondary>Parser</secondary></indexterm>
+<indexterm><primary>Parser</primary><secondary>parseError</secondary></indexterm>
+<para><computeroutput>parseError ( $msg = <computeroutput>&apos;<link linkend="_class_scss_php_1_1_scss_php_1_1_parser_1aa8a8d9dfb6c2868176488a9acfb4a0d8">parse</link>&#160;error&apos;</computeroutput>
+)</computeroutput></para>
+<para>Creates a parser error</para>
+
+<para>@api</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$msg</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>ParserException </para>
+</formalpara>
+</para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_scss_php_1_1_scss_php_1_1_parser_a718d44b09142aa117d40c30b2145d5f0_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_scss_php_1_1_scss_php_1_1_parser_a718d44b09142aa117d40c30b2145d5f0_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_scss_php_1_1_scss_php_1_1_parser_1a7dcc300287888f7c8ea079537a77f542"/><section>
+    <title>parseMediaQueryList()</title>
+<indexterm><primary>parseMediaQueryList</primary><secondary>Parser</secondary></indexterm>
+<indexterm><primary>Parser</primary><secondary>parseMediaQueryList</secondary></indexterm>
+<para><computeroutput>parseMediaQueryList ( $buffer, &amp; $out)</computeroutput></para>
+<para>Parse a media Query</para>
+
+<para>@api</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$buffer</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>array</entry><entry>$out</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>bool </para>
+</formalpara>
+</para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_scss_php_1_1_scss_php_1_1_parser_a7dcc300287888f7c8ea079537a77f542_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_scss_php_1_1_scss_php_1_1_parser_1a3a6749c4e069e254508f43c7f59c9689"/><section>
+    <title>parseSelector()</title>
+<indexterm><primary>parseSelector</primary><secondary>Parser</secondary></indexterm>
+<indexterm><primary>Parser</primary><secondary>parseSelector</secondary></indexterm>
+<para><computeroutput>parseSelector ( $buffer, &amp; $out,  $shouldValidate = <computeroutput>true</computeroutput>
+)</computeroutput></para>
+<para>Parse a selector or selector list</para>
+
+<para>@api</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$buffer</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>string | array</entry><entry>$out</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>bool</entry><entry>$shouldValidate</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>bool </para>
+</formalpara>
+</para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_scss_php_1_1_scss_php_1_1_parser_a3a6749c4e069e254508f43c7f59c9689_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_scss_php_1_1_scss_php_1_1_parser_1a10a27610237746163e5ae1aca24e9bef"/><section>
+    <title>parseValue()</title>
+<indexterm><primary>parseValue</primary><secondary>Parser</secondary></indexterm>
+<indexterm><primary>Parser</primary><secondary>parseValue</secondary></indexterm>
+<para><computeroutput>parseValue ( $buffer, &amp; $out)</computeroutput></para>
+<para>Parse a value or value list</para>
+
+<para>@api</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$buffer</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>string | array</entry><entry>$out</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>bool </para>
+</formalpara>
+</para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_scss_php_1_1_scss_php_1_1_parser_a10a27610237746163e5ae1aca24e9bef_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_scss_php_1_1_scss_php_1_1_parser_1add3e69e5298cfe700994604c7269610f"/><section>
+    <title>peek()</title>
+<indexterm><primary>peek</primary><secondary>Parser</secondary></indexterm>
+<indexterm><primary>Parser</primary><secondary>peek</secondary></indexterm>
+<para><computeroutput>peek ( $regex, &amp; $out,  $from = <computeroutput>null</computeroutput>
+)<computeroutput>[protected]</computeroutput></computeroutput></para>
+<para>Peek input stream</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$regex</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>array</entry><entry>$out</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>int</entry><entry>$from</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>int </para>
+</formalpara>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_scss_php_1_1_scss_php_1_1_parser_add3e69e5298cfe700994604c7269610f_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_scss_php_1_1_scss_php_1_1_parser_1a8f57b147e9197c0d21700ec81ef08657"/><section>
+    <title>placeholder()</title>
+<indexterm><primary>placeholder</primary><secondary>Parser</secondary></indexterm>
+<indexterm><primary>Parser</primary><secondary>placeholder</secondary></indexterm>
+<para><computeroutput>placeholder (&amp; $placeholder)<computeroutput>[protected]</computeroutput></computeroutput></para>
+<para>Parse a placeholder</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string | array</entry><entry>$placeholder</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>bool </para>
+</formalpara>
+</para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_scss_php_1_1_scss_php_1_1_parser_a8f57b147e9197c0d21700ec81ef08657_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_scss_php_1_1_scss_php_1_1_parser_a8f57b147e9197c0d21700ec81ef08657_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_scss_php_1_1_scss_php_1_1_parser_1a2f5b9f3991727a291e7925e548bc9ab7"/><section>
+    <title>popBlock()</title>
+<indexterm><primary>popBlock</primary><secondary>Parser</secondary></indexterm>
+<indexterm><primary>Parser</primary><secondary>popBlock</secondary></indexterm>
+<para><computeroutput>popBlock ( )<computeroutput>[protected]</computeroutput></computeroutput></para>
+<para>Pop scope and return last block</para>
+
+<para><formalpara><title>Renvoie</title>
+
+<para>Block</para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry></entry>
+<entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                Exception </para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_scss_php_1_1_scss_php_1_1_parser_a2f5b9f3991727a291e7925e548bc9ab7_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_scss_php_1_1_scss_php_1_1_parser_a2f5b9f3991727a291e7925e548bc9ab7_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_scss_php_1_1_scss_php_1_1_parser_1a352c9fb76317d08015fb8e2fa5247106"/><section>
+    <title>progid()</title>
+<indexterm><primary>progid</primary><secondary>Parser</secondary></indexterm>
+<indexterm><primary>Parser</primary><secondary>progid</secondary></indexterm>
+<para><computeroutput>progid (&amp; $out)<computeroutput>[protected]</computeroutput></computeroutput></para>
+<para>Parse &quot;progid:&quot;</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>array</entry><entry>$out</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>bool </para>
+</formalpara>
+</para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_scss_php_1_1_scss_php_1_1_parser_a352c9fb76317d08015fb8e2fa5247106_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_scss_php_1_1_scss_php_1_1_parser_a352c9fb76317d08015fb8e2fa5247106_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_scss_php_1_1_scss_php_1_1_parser_1a8d95bbda40f94c5f8ba227bf14c4baf0"/><section>
+    <title>propertyName()</title>
+<indexterm><primary>propertyName</primary><secondary>Parser</secondary></indexterm>
+<indexterm><primary>Parser</primary><secondary>propertyName</secondary></indexterm>
+<para><computeroutput>propertyName (&amp; $out)<computeroutput>[protected]</computeroutput></computeroutput></para>
+<para>Parse property name (as an array of parts or a string)</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>array</entry><entry>$out</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>bool </para>
+</formalpara>
+</para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_scss_php_1_1_scss_php_1_1_parser_a8d95bbda40f94c5f8ba227bf14c4baf0_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_scss_php_1_1_scss_php_1_1_parser_a8d95bbda40f94c5f8ba227bf14c4baf0_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_scss_php_1_1_scss_php_1_1_parser_1aef5ce8af0fcc48c08d811d909395a53b"/><section>
+    <title>pushBlock()</title>
+<indexterm><primary>pushBlock</primary><secondary>Parser</secondary></indexterm>
+<indexterm><primary>Parser</primary><secondary>pushBlock</secondary></indexterm>
+<para><computeroutput>pushBlock ( $selectors,  $pos = <computeroutput>0</computeroutput>
+)<computeroutput>[protected]</computeroutput></computeroutput></para>
+<para>Push block onto parse tree</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>array | null</entry><entry>$selectors</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>int</entry><entry>$pos</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>Block </para>
+</formalpara>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_scss_php_1_1_scss_php_1_1_parser_aef5ce8af0fcc48c08d811d909395a53b_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_scss_php_1_1_scss_php_1_1_parser_1aca9d9483bd553fd260f1f518609a8749"/><section>
+    <title>pushSpecialBlock()</title>
+<indexterm><primary>pushSpecialBlock</primary><secondary>Parser</secondary></indexterm>
+<indexterm><primary>Parser</primary><secondary>pushSpecialBlock</secondary></indexterm>
+<para><computeroutput>pushSpecialBlock ( $type,  $pos)<computeroutput>[protected]</computeroutput></computeroutput></para>
+<para>Push special (named) block onto parse tree</para>
+
+<para><para><link linkend="_deprecated_1_deprecated000209">Obsolète</link> </para></para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$type</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>int</entry><entry>$pos</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>Block </para>
+</formalpara>
+</para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_scss_php_1_1_scss_php_1_1_parser_aca9d9483bd553fd260f1f518609a8749_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_scss_php_1_1_scss_php_1_1_parser_1a8a1b2c48711498fed00e9f4e023819a1"/><section>
+    <title>restrictedKeyword()</title>
+<indexterm><primary>restrictedKeyword</primary><secondary>Parser</secondary></indexterm>
+<indexterm><primary>Parser</primary><secondary>restrictedKeyword</secondary></indexterm>
+<para><computeroutput>restrictedKeyword (&amp; $word,  $eatWhitespace = <computeroutput>null</computeroutput>
+,  $inSelector = <computeroutput>false</computeroutput>
+)<computeroutput>[protected]</computeroutput></computeroutput></para>
+<para>Parse a keyword that should not start with a number</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$word</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>bool</entry><entry>$eatWhitespace</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>bool</entry><entry>$inSelector</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>bool </para>
+</formalpara>
+</para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_scss_php_1_1_scss_php_1_1_parser_a8a1b2c48711498fed00e9f4e023819a1_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_scss_php_1_1_scss_php_1_1_parser_a8a1b2c48711498fed00e9f4e023819a1_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_scss_php_1_1_scss_php_1_1_parser_1a89c39f90ddcfdfb013eebc9a0921423f"/><section>
+    <title>seek()</title>
+<indexterm><primary>seek</primary><secondary>Parser</secondary></indexterm>
+<indexterm><primary>Parser</primary><secondary>seek</secondary></indexterm>
+<para><computeroutput>seek ( $where)<computeroutput>[protected]</computeroutput></computeroutput></para>
+<para>Seek to position in input stream (or return current position in input stream)</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>int</entry><entry>$where</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>void </para>
+</formalpara>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_scss_php_1_1_scss_php_1_1_parser_a89c39f90ddcfdfb013eebc9a0921423f_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_scss_php_1_1_scss_php_1_1_parser_1af1cf35bd8342debfef41e49865e7c96a"/><section>
+    <title>selector()</title>
+<indexterm><primary>selector</primary><secondary>Parser</secondary></indexterm>
+<indexterm><primary>Parser</primary><secondary>selector</secondary></indexterm>
+<para><computeroutput>selector (&amp; $out,  $subSelector = <computeroutput>false</computeroutput>
+)<computeroutput>[protected]</computeroutput></computeroutput></para>
+<para>Parse whitespace separated selector list</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>array</entry><entry>$out</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>string | bool</entry><entry>$subSelector</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>bool </para>
+</formalpara>
+</para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_scss_php_1_1_scss_php_1_1_parser_af1cf35bd8342debfef41e49865e7c96a_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_scss_php_1_1_scss_php_1_1_parser_af1cf35bd8342debfef41e49865e7c96a_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_scss_php_1_1_scss_php_1_1_parser_1aad2da2f34b326c87c7ae779d5793dff9"/><section>
+    <title>selectors()</title>
+<indexterm><primary>selectors</primary><secondary>Parser</secondary></indexterm>
+<indexterm><primary>Parser</primary><secondary>selectors</secondary></indexterm>
+<para><computeroutput>selectors (&amp; $out,  $subSelector = <computeroutput>false</computeroutput>
+)<computeroutput>[protected]</computeroutput></computeroutput></para>
+<para>Parse comma separated selector list</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>array</entry><entry>$out</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>string | bool</entry><entry>$subSelector</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>bool </para>
+</formalpara>
+</para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_scss_php_1_1_scss_php_1_1_parser_aad2da2f34b326c87c7ae779d5793dff9_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_scss_php_1_1_scss_php_1_1_parser_aad2da2f34b326c87c7ae779d5793dff9_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_scss_php_1_1_scss_php_1_1_parser_1ad9187fc8c1a68081a290297b2c17faf4"/><section>
+    <title>selectorSingle()</title>
+<indexterm><primary>selectorSingle</primary><secondary>Parser</secondary></indexterm>
+<indexterm><primary>Parser</primary><secondary>selectorSingle</secondary></indexterm>
+<para><computeroutput>selectorSingle (&amp; $out,  $subSelector = <computeroutput>false</computeroutput>
+)<computeroutput>[protected]</computeroutput></computeroutput></para>
+<para>Parse the parts that make up a selector</para>
+
+<para>{ </para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_scss_php_1_1_scss_php_1_1_parser_ad9187fc8c1a68081a290297b2c17faf4_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_scss_php_1_1_scss_php_1_1_parser_ad9187fc8c1a68081a290297b2c17faf4_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_scss_php_1_1_scss_php_1_1_parser_1ae98562558360361a1cf8020a50856d57"/><section>
+    <title>spaceList()</title>
+<indexterm><primary>spaceList</primary><secondary>Parser</secondary></indexterm>
+<indexterm><primary>Parser</primary><secondary>spaceList</secondary></indexterm>
+<para><computeroutput>spaceList (&amp; $out)<computeroutput>[protected]</computeroutput></computeroutput></para>
+<para>Parse space separated value list</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>array</entry><entry>$out</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>bool </para>
+</formalpara>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_scss_php_1_1_scss_php_1_1_parser_ae98562558360361a1cf8020a50856d57_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_scss_php_1_1_scss_php_1_1_parser_1abd8d6292ccbfeede57fa0108e87712d5"/><section>
+    <title>string()</title>
+<indexterm><primary>string</primary><secondary>Parser</secondary></indexterm>
+<indexterm><primary>Parser</primary><secondary>string</secondary></indexterm>
+<para><computeroutput>string (&amp; $out,  $keepDelimWithInterpolation = <computeroutput>false</computeroutput>
+)<computeroutput>[protected]</computeroutput></computeroutput></para>
+<para>Parse string</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>array</entry><entry>$out</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>bool</entry><entry>$keepDelimWithInterpolation</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>bool</para>
+</formalpara>
+String to parse. </para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_scss_php_1_1_scss_php_1_1_parser_abd8d6292ccbfeede57fa0108e87712d5_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_scss_php_1_1_scss_php_1_1_parser_abd8d6292ccbfeede57fa0108e87712d5_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_scss_php_1_1_scss_php_1_1_parser_1a6a29746d39765950b0b9d110ebe569e9"/><section>
+    <title>stripAssignmentFlags()</title>
+<indexterm><primary>stripAssignmentFlags</primary><secondary>Parser</secondary></indexterm>
+<indexterm><primary>Parser</primary><secondary>stripAssignmentFlags</secondary></indexterm>
+<para><computeroutput>stripAssignmentFlags (&amp; $value)<computeroutput>[protected]</computeroutput></computeroutput></para>
+<para>Strip assignment flag from the list</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>array</entry><entry>$value</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>string[] </para>
+</formalpara>
+</para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_scss_php_1_1_scss_php_1_1_parser_a6a29746d39765950b0b9d110ebe569e9_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_scss_php_1_1_scss_php_1_1_parser_a6a29746d39765950b0b9d110ebe569e9_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_scss_php_1_1_scss_php_1_1_parser_1a89008179b29dc987f9ae34d290b483a0"/><section>
+    <title>stripOptionalFlag()</title>
+<indexterm><primary>stripOptionalFlag</primary><secondary>Parser</secondary></indexterm>
+<indexterm><primary>Parser</primary><secondary>stripOptionalFlag</secondary></indexterm>
+<para><computeroutput>stripOptionalFlag (&amp; $selectors)<computeroutput>[protected]</computeroutput></computeroutput></para>
+<para>Strip optional flag from selector list</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>array</entry><entry>$selectors</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>bool </para>
+</formalpara>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_scss_php_1_1_scss_php_1_1_parser_a89008179b29dc987f9ae34d290b483a0_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_scss_php_1_1_scss_php_1_1_parser_1a070a67b9830efd084ec483207e7f8c95"/><section>
+    <title>supportsQuery()</title>
+<indexterm><primary>supportsQuery</primary><secondary>Parser</secondary></indexterm>
+<indexterm><primary>Parser</primary><secondary>supportsQuery</secondary></indexterm>
+<para><computeroutput>supportsQuery (&amp; $out)<computeroutput>[protected]</computeroutput></computeroutput></para>
+<para>Parse supports query</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>array</entry><entry>$out</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>bool </para>
+</formalpara>
+</para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_scss_php_1_1_scss_php_1_1_parser_a070a67b9830efd084ec483207e7f8c95_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_scss_php_1_1_scss_php_1_1_parser_a070a67b9830efd084ec483207e7f8c95_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_scss_php_1_1_scss_php_1_1_parser_1a59b9b1977be748ee78d27c1ea4245518"/><section>
+    <title>throwParseError()</title>
+<indexterm><primary>throwParseError</primary><secondary>Parser</secondary></indexterm>
+<indexterm><primary>Parser</primary><secondary>throwParseError</secondary></indexterm>
+<para><computeroutput>throwParseError ( $msg = <computeroutput>&apos;<link linkend="_class_scss_php_1_1_scss_php_1_1_parser_1aa8a8d9dfb6c2868176488a9acfb4a0d8">parse</link>&#160;error&apos;</computeroutput>
+)</computeroutput></para>
+<para>Throw parser error</para>
+
+<para>@api</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$msg</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                @phpstan-return never-return</para>
+
+<para>
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>ParserException</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <para><link linkend="_deprecated_1_deprecated000208">Obsolète</link> 
+<para>use &quot;parseError&quot; and throw the exception in the caller instead. </para>
+</para></para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_scss_php_1_1_scss_php_1_1_parser_a59b9b1977be748ee78d27c1ea4245518_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_scss_php_1_1_scss_php_1_1_parser_1ac5e663633898c559aabc132c58310064"/><section>
+    <title>unit()</title>
+<indexterm><primary>unit</primary><secondary>Parser</secondary></indexterm>
+<indexterm><primary>Parser</primary><secondary>unit</secondary></indexterm>
+<para><computeroutput>unit (&amp; $unit)<computeroutput>[protected]</computeroutput></computeroutput></para>
+<para>Parse number with unit</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>array</entry><entry>$unit</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>bool </para>
+</formalpara>
+</para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_scss_php_1_1_scss_php_1_1_parser_ac5e663633898c559aabc132c58310064_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_scss_php_1_1_scss_php_1_1_parser_ac5e663633898c559aabc132c58310064_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_scss_php_1_1_scss_php_1_1_parser_1a3f338dcd188412e4cd023d7c7e8cfb11"/><section>
+    <title>url()</title>
+<indexterm><primary>url</primary><secondary>Parser</secondary></indexterm>
+<indexterm><primary>Parser</primary><secondary>url</secondary></indexterm>
+<para><computeroutput>url (&amp; $out)<computeroutput>[protected]</computeroutput></computeroutput></para>
+<para>Parse a url</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>array</entry><entry>$out</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>bool </para>
+</formalpara>
+</para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_scss_php_1_1_scss_php_1_1_parser_a3f338dcd188412e4cd023d7c7e8cfb11_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_scss_php_1_1_scss_php_1_1_parser_a3f338dcd188412e4cd023d7c7e8cfb11_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_scss_php_1_1_scss_php_1_1_parser_1ad41b7ffcd7da73cd005c7966e2991974"/><section>
+    <title>value()</title>
+<indexterm><primary>value</primary><secondary>Parser</secondary></indexterm>
+<indexterm><primary>Parser</primary><secondary>value</secondary></indexterm>
+<para><computeroutput>value (&amp; $out)<computeroutput>[protected]</computeroutput></computeroutput></para>
+<para>Parse value</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>array</entry><entry>$out</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>bool </para>
+</formalpara>
+</para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_scss_php_1_1_scss_php_1_1_parser_ad41b7ffcd7da73cd005c7966e2991974_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_scss_php_1_1_scss_php_1_1_parser_ad41b7ffcd7da73cd005c7966e2991974_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_scss_php_1_1_scss_php_1_1_parser_1a07d34cbbe25fe4d6db7aa89e5bbdba5f"/><section>
+    <title>valueList()</title>
+<indexterm><primary>valueList</primary><secondary>Parser</secondary></indexterm>
+<indexterm><primary>Parser</primary><secondary>valueList</secondary></indexterm>
+<para><computeroutput>valueList (&amp; $out)<computeroutput>[protected]</computeroutput></computeroutput></para>
+<para>Parse comma separated value list</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>array</entry><entry>$out</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>bool </para>
+</formalpara>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_scss_php_1_1_scss_php_1_1_parser_a07d34cbbe25fe4d6db7aa89e5bbdba5f_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_scss_php_1_1_scss_php_1_1_parser_1a3330816e71c0639733ebe08ca9d84851"/><section>
+    <title>variable()</title>
+<indexterm><primary>variable</primary><secondary>Parser</secondary></indexterm>
+<indexterm><primary>Parser</primary><secondary>variable</secondary></indexterm>
+<para><computeroutput>variable (&amp; $out)<computeroutput>[protected]</computeroutput></computeroutput></para>
+<para>Parse a variable</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>array</entry><entry>$out</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>bool </para>
+</formalpara>
+</para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_scss_php_1_1_scss_php_1_1_parser_a3330816e71c0639733ebe08ca9d84851_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_scss_php_1_1_scss_php_1_1_parser_a3330816e71c0639733ebe08ca9d84851_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_scss_php_1_1_scss_php_1_1_parser_1a20c53f113ff646c98fc4046e932f2be8"/><section>
+    <title>whitespace()</title>
+<indexterm><primary>whitespace</primary><secondary>Parser</secondary></indexterm>
+<indexterm><primary>Parser</primary><secondary>whitespace</secondary></indexterm>
+<para><computeroutput>whitespace ( )<computeroutput>[protected]</computeroutput></computeroutput></para>
+<para>Match some whitespace</para>
+
+<para><formalpara><title>Renvoie</title>
+
+<para>bool</para>
+</formalpara>
+@phpstan-impure </para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_scss_php_1_1_scss_php_1_1_parser_a20c53f113ff646c98fc4046e932f2be8_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_scss_php_1_1_scss_php_1_1_parser_a20c53f113ff646c98fc4046e932f2be8_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+</section>
+<section>
+<title>Documentation des champs</title>
+<anchor xml:id="_class_scss_php_1_1_scss_php_1_1_parser_1ac2dc76d756ec398393d4b1d23659276c"/><section>
+    <title>$cache</title>
+<indexterm><primary>$cache</primary><secondary>Parser</secondary></indexterm>
+<indexterm><primary>Parser</primary><secondary>$cache</secondary></indexterm>
+<para><computeroutput>$<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">cache</link><computeroutput>[protected]</computeroutput></computeroutput></para></section>
+<anchor xml:id="_class_scss_php_1_1_scss_php_1_1_parser_1ae4fdaed3e6117cd73007dd24aec8697d"/><section>
+    <title>$commentPattern</title>
+<indexterm><primary>$commentPattern</primary><secondary>Parser</secondary></indexterm>
+<indexterm><primary>Parser</primary><secondary>$commentPattern</secondary></indexterm>
+<para><computeroutput>$<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">commentPattern</link><computeroutput>[static]</computeroutput>, <computeroutput>[protected]</computeroutput></computeroutput></para></section>
+<anchor xml:id="_class_scss_php_1_1_scss_php_1_1_parser_1ae3ec9ef4891d51d53850aa60c4969950"/><section>
+    <title>$operatorPattern</title>
+<indexterm><primary>$operatorPattern</primary><secondary>Parser</secondary></indexterm>
+<indexterm><primary>Parser</primary><secondary>$operatorPattern</secondary></indexterm>
+<para><computeroutput>$<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">operatorPattern</link><computeroutput>[static]</computeroutput>, <computeroutput>[protected]</computeroutput></computeroutput></para></section>
+<anchor xml:id="_class_scss_php_1_1_scss_php_1_1_parser_1aefe90f3f33b3aabdee5ce2cb428dff39"/><section>
+    <title>$precedence</title>
+<indexterm><primary>$precedence</primary><secondary>Parser</secondary></indexterm>
+<indexterm><primary>Parser</primary><secondary>$precedence</secondary></indexterm>
+<para><computeroutput>$<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">precedence</link><computeroutput>[static]</computeroutput>, <computeroutput>[protected]</computeroutput></computeroutput></para><emphasis role="strong">Valeur initiale :</emphasis><programlisting linenumbering="unnumbered">=&#32;[
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="charliteral">&apos;=&apos;</emphasis>&#32;&#32;&#32;=&gt;&#32;0,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&apos;or&apos;</emphasis>&#32;&#32;=&gt;&#32;1,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&apos;and&apos;</emphasis>&#32;=&gt;&#32;2,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&apos;==&apos;</emphasis>&#32;&#32;=&gt;&#32;3,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&apos;!=&apos;</emphasis>&#32;&#32;=&gt;&#32;3,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&apos;&lt;=&apos;</emphasis>&#32;&#32;=&gt;&#32;4,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&apos;&gt;=&apos;</emphasis>&#32;&#32;=&gt;&#32;4,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="charliteral">&apos;&lt;&apos;</emphasis>&#32;&#32;&#32;=&gt;&#32;4,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="charliteral">&apos;&gt;&apos;</emphasis>&#32;&#32;&#32;=&gt;&#32;4,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="charliteral">&apos;+&apos;</emphasis>&#32;&#32;&#32;=&gt;&#32;5,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="charliteral">&apos;-&apos;</emphasis>&#32;&#32;&#32;=&gt;&#32;5,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="charliteral">&apos;*&apos;</emphasis>&#32;&#32;&#32;=&gt;&#32;6,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="charliteral">&apos;/&apos;</emphasis>&#32;&#32;&#32;=&gt;&#32;6,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="charliteral">&apos;%&apos;</emphasis>&#32;&#32;&#32;=&gt;&#32;6,
+&#32;&#32;&#32;&#32;]
+</programlisting></section>
+<anchor xml:id="_class_scss_php_1_1_scss_php_1_1_parser_1aa23721cc34534741f866fc0b750582a0"/><section>
+    <title>$whitePattern</title>
+<indexterm><primary>$whitePattern</primary><secondary>Parser</secondary></indexterm>
+<indexterm><primary>Parser</primary><secondary>$whitePattern</secondary></indexterm>
+<para><computeroutput>$<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">whitePattern</link><computeroutput>[static]</computeroutput>, <computeroutput>[protected]</computeroutput></computeroutput></para></section>
+<anchor xml:id="_class_scss_php_1_1_scss_php_1_1_parser_1af5b5b87a6d9c467748ea95f4061aa27f"/><section>
+    <title>SOURCE_COLUMN</title>
+<indexterm><primary>SOURCE_COLUMN</primary><secondary>Parser</secondary></indexterm>
+<indexterm><primary>Parser</primary><secondary>SOURCE_COLUMN</secondary></indexterm>
+<para><computeroutput>const SOURCE_COLUMN = -3</computeroutput></para></section>
+<anchor xml:id="_class_scss_php_1_1_scss_php_1_1_parser_1a022aab80ecbd75662e0687b9db61956e"/><section>
+    <title>SOURCE_INDEX</title>
+<indexterm><primary>SOURCE_INDEX</primary><secondary>Parser</secondary></indexterm>
+<indexterm><primary>Parser</primary><secondary>SOURCE_INDEX</secondary></indexterm>
+<para><computeroutput>const SOURCE_INDEX = -1</computeroutput></para></section>
+<anchor xml:id="_class_scss_php_1_1_scss_php_1_1_parser_1a2c05e52e7ab30bd0ccf8cfa486a04fd6"/><section>
+    <title>SOURCE_LINE</title>
+<indexterm><primary>SOURCE_LINE</primary><secondary>Parser</secondary></indexterm>
+<indexterm><primary>Parser</primary><secondary>SOURCE_LINE</secondary></indexterm>
+<para><computeroutput>const SOURCE_LINE = -2</computeroutput></para></section>
+<para>
+La documentation de cette classe a été générée à partir des fichiers suivants :</para>
+public/glpi/vendor/scssphp/scssphp/src/<link linkend="_scssphp_2scssphp_2src_2_parser_8php">Parser.php</link>public/glpi/vendor/laminas/laminas-i18n/src/Translator/Plural/<link linkend="_laminas_2laminas-i18n_2src_2_translator_2_plural_2_parser_8php">Parser.php</link></section>
+</section>

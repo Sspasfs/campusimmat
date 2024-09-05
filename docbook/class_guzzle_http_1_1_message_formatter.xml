@@ -1,0 +1,150 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_guzzle_http_1_1_message_formatter" xml:lang="fr">
+<title>Référence de la classe MessageFormatter</title>
+<indexterm><primary>MessageFormatter</primary></indexterm>
+Graphe d&apos;héritage de MessageFormatter:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_guzzle_http_1_1_message_formatter__inherit__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Graphe de collaboration de MessageFormatter:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_guzzle_http_1_1_message_formatter__coll__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Fonctions membres publiques    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_guzzle_http_1_1_message_formatter_1a08192a89461bec6147eea83eeb1d23ba">__construct</link> (?string $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">template</link>=self::CLF)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+Fonctions membres publiques hérités de <link linkend="_interface_guzzle_http_1_1_message_formatter_interface">MessageFormatterInterface</link>        <itemizedlist>
+            <listitem><para><link linkend="_interface_guzzle_http_1_1_message_formatter_interface_1a43c4c440ae549c8f341f9eaf1b4e4a7c">format</link> (<link linkend="_interface_psr_1_1_http_1_1_message_1_1_request_interface">RequestInterface</link> $request, ?<link linkend="_interface_psr_1_1_http_1_1_message_1_1_response_interface">ResponseInterface</link> $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">response</link>=null, ?\Throwable $error=null)</para>
+</listitem>
+        </itemizedlist>
+<simplesect>
+    <title>Champs de données    </title>
+        <itemizedlist>
+            <listitem><para>const <link linkend="_class_guzzle_http_1_1_message_formatter_1a60ac1427723e34beabc9427fd6929bed">CLF</link> = &quot;{hostname} {<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">req_header_User</link>-<link linkend="_class_agent">Agent</link>} - [{<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">date_common_log</link>}] \&quot;{<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">method</link>} {<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">target</link>} HTTP/{<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">version</link>}\&quot; {code} {<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">res_header_Content</link>-<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">Length</link>}&quot;</para>
+</listitem>
+            <listitem><para>const <link linkend="_class_guzzle_http_1_1_message_formatter_1a758c150b67e476ecf77478f16b387c61">DEBUG</link> = &quot;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;\n{request}\<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">n</link>&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;\<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">n</link>{<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">response</link>}\<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">n</link>--------\<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">n</link>{error}&quot;</para>
+</listitem>
+            <listitem><para>const <link linkend="_class_guzzle_http_1_1_message_formatter_1a7c5b0c14382692b4f858ae0e29abc6be">SHORT</link> = &apos;[{<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">ts</link>}] &quot;{method} {<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">target</link>} HTTP/{<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">version</link>}&quot; {code}&apos;</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Description détaillée</title>
+
+<para>Formats log messages using variable substitutions for requests, responses, and other transactional data.</para>
+
+<para>The following variable substitutions are supported:</para>
+
+<para><itemizedlist>
+<listitem>
+<para>{request}: Full HTTP request message</para>
+</listitem><listitem>
+<para>{response}: Full HTTP response message</para>
+</listitem><listitem>
+<para>{ts}: ISO 8601 date in GMT</para>
+</listitem><listitem>
+<para>{date_iso_8601} ISO 8601 date in GMT</para>
+</listitem><listitem>
+<para>{date_common_log} Apache common log date using the configured timezone.</para>
+</listitem><listitem>
+<para>{host}: Host of the request</para>
+</listitem><listitem>
+<para>{method}: Method of the request</para>
+</listitem><listitem>
+<para>{uri}: URI of the request</para>
+</listitem><listitem>
+<para>{version}: Protocol version</para>
+</listitem><listitem>
+<para>{target}: Request target of the request (path + query + fragment)</para>
+</listitem><listitem>
+<para>{hostname}: Hostname of the machine that sent the request</para>
+</listitem><listitem>
+<para>{code}: Status code of the response (if available)</para>
+</listitem><listitem>
+<para>{phrase}: Reason phrase of the response (if available)</para>
+</listitem><listitem>
+<para>{error}: Any error messages (if available)</para>
+</listitem><listitem>
+<para>{req_header_*}: Replace <computeroutput>*</computeroutput> with the lowercased name of a request header to add to the message</para>
+</listitem><listitem>
+<para>{res_header_*}: Replace <computeroutput>*</computeroutput> with the lowercased name of a response header to add to the message</para>
+</listitem><listitem>
+<para>{req_headers}: Request headers</para>
+</listitem><listitem>
+<para>{res_headers}: Response headers</para>
+</listitem><listitem>
+<para>{req_body}: Request body</para>
+</listitem><listitem>
+<para>{res_body}: Response body</para>
+</listitem></itemizedlist>
+</para>
+
+<para>@final </para>
+</section>
+<section>
+<title>Documentation des constructeurs et destructeur</title>
+<anchor xml:id="_class_guzzle_http_1_1_message_formatter_1a08192a89461bec6147eea83eeb1d23ba"/><section>
+    <title>__construct()</title>
+<indexterm><primary>__construct</primary><secondary>MessageFormatter</secondary></indexterm>
+<indexterm><primary>MessageFormatter</primary><secondary>__construct</secondary></indexterm>
+<para><computeroutput>__construct (?string $template = <computeroutput>self::CLF</computeroutput>
+)</computeroutput></para>
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$template</entry><entry>
+<para><link linkend="_class_log">Log</link> message template </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
+</section>
+<section>
+<title>Documentation des champs</title>
+<anchor xml:id="_class_guzzle_http_1_1_message_formatter_1a60ac1427723e34beabc9427fd6929bed"/><section>
+    <title>CLF</title>
+<indexterm><primary>CLF</primary><secondary>MessageFormatter</secondary></indexterm>
+<indexterm><primary>MessageFormatter</primary><secondary>CLF</secondary></indexterm>
+<para><computeroutput>const CLF = &quot;{hostname} {<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">req_header_User</link>-<link linkend="_class_agent">Agent</link>} - [{<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">date_common_log</link>}] \&quot;{<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">method</link>} {<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">target</link>} HTTP/{<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">version</link>}\&quot; {code} {<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">res_header_Content</link>-<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">Length</link>}&quot;</computeroutput></para></section>
+<anchor xml:id="_class_guzzle_http_1_1_message_formatter_1a758c150b67e476ecf77478f16b387c61"/><section>
+    <title>DEBUG</title>
+<indexterm><primary>DEBUG</primary><secondary>MessageFormatter</secondary></indexterm>
+<indexterm><primary>MessageFormatter</primary><secondary>DEBUG</secondary></indexterm>
+<para><computeroutput>const DEBUG = &quot;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;\n{request}\<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">n</link>&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;\<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">n</link>{<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">response</link>}\<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">n</link>--------\<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">n</link>{error}&quot;</computeroutput></para></section>
+<anchor xml:id="_class_guzzle_http_1_1_message_formatter_1a7c5b0c14382692b4f858ae0e29abc6be"/><section>
+    <title>SHORT</title>
+<indexterm><primary>SHORT</primary><secondary>MessageFormatter</secondary></indexterm>
+<indexterm><primary>MessageFormatter</primary><secondary>SHORT</secondary></indexterm>
+<para><computeroutput>const SHORT = &apos;[{<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">ts</link>}] &quot;{method} {<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">target</link>} HTTP/{<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">version</link>}&quot; {code}&apos;</computeroutput></para></section>
+<para>
+La documentation de cette classe a été générée à partir du fichier suivant :</para>
+public/glpi/vendor/guzzlehttp/guzzle/src/<link linkend="__message_formatter_8php">MessageFormatter.php</link></section>
+</section>

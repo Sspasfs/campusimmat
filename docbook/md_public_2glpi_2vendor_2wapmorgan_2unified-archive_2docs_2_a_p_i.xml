@@ -1,0 +1,622 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_md_public_2glpi_2vendor_2wapmorgan_2unified-archive_2docs_2_a_p_i" xml:lang="fr">
+<title>API</title>
+<indexterm><primary>API</primary></indexterm>
+
+<para>This file describes all UnifiedArchive API.</para>
+
+<para>UnifiedArchive is represented by few basic classes under <computeroutput>\wapmorgan\UnifiedArchive</computeroutput> namespace:</para>
+
+<para><orderedlist>
+<listitem>
+<para>`Formats` keeps information about formats support and specific format functions.</para>
+</listitem><listitem>
+<para>`UnifiedArchive` - represents an archive and provides related functions.</para>
+</listitem><listitem>
+<para>`ArchiveEntry` - represents information about a specific file from archive. This object can be obtained by call to one of <computeroutput>UnifiedArchive</computeroutput> methods.</para>
+</listitem></orderedlist>
+</para>
+<section xml:id="_md_public_2glpi_2vendor_2wapmorgan_2unified-archive_2docs_2_a_p_i_1autotoc_md7487">
+<title><title>Formats</title></title>
+
+<para><computeroutput>$format</computeroutput> should be one of <computeroutput>Formats</computeroutput> constants (such as <computeroutput>Formats::ZIP</computeroutput> and so on). Full list of constants provided in the <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">appendix of this document</link>. <emphasis>If you want to enabled specific format support, you need to install an additional program or php extension. List of extensions that should be installed can be obtained by executing built-in <computeroutput>cam</computeroutput>: <computeroutput>./vendor/bin/cam system:drivers</computeroutput></emphasis></para>
+
+<para>All methods are static.</para>
+
+<para><informaltable frame="all">
+    <tgroup cols="4" align="left" colsep="1" rowsep="1">
+      <colspec colname='c1'/>
+      <colspec colname='c2'/>
+      <colspec colname='c3'/>
+      <colspec colname='c4'/>
+<thead>
+      <row  class='markdownTableHead'>
+<entry>
+<para>Method   </para>
+</entry><entry>
+<para>Arguments   </para>
+</entry><entry>
+<para>Result   </para>
+</entry><entry>
+<para>Description    </para>
+</entry></row>
+</thead><tbody>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>Formats::detectArchiveFormat</computeroutput>   </para>
+</entry><entry>
+<para><computeroutput>string $archiveFileName, bool $contentCheck = true</computeroutput>   </para>
+</entry><entry>
+<para><computeroutput>string/false</computeroutput>   </para>
+</entry><entry>
+<para>Detects a format of given archive <computeroutput>$archiveFileName</computeroutput>. Checks file name and file content (if <computeroutput>$contentCheck = true</computeroutput>). Returns one of <computeroutput>Formats</computeroutput> constant or <computeroutput>false</computeroutput> if format is not detected.    </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para><computeroutput>Formats::canOpen</computeroutput>   </para>
+</entry><entry>
+<para><computeroutput>string $format</computeroutput>   </para>
+</entry><entry>
+<para><computeroutput>boolean</computeroutput>   </para>
+</entry><entry>
+<para><link linkend="_namespace_tests">Tests</link> if an archive format can be opened by any driver with current system and php configuration.    </para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>Formats::canStream</computeroutput>   </para>
+</entry><entry>
+<para><computeroutput>string $format</computeroutput>   </para>
+</entry><entry>
+<para><computeroutput>boolean</computeroutput>   </para>
+</entry><entry>
+<para><link linkend="_namespace_tests">Tests</link> if a specified archive can be streamed (getFileStream).    </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para><computeroutput>Formats::canCreate</computeroutput>   </para>
+</entry><entry>
+<para><computeroutput>string $format</computeroutput>   </para>
+</entry><entry>
+<para><computeroutput>boolean</computeroutput>   </para>
+</entry><entry>
+<para><link linkend="_namespace_tests">Tests</link> if an archive format can be created by any driver with current system and php configuration.    </para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>Formats::canAppend</computeroutput>   </para>
+</entry><entry>
+<para><computeroutput>string $format</computeroutput>   </para>
+</entry><entry>
+<para><computeroutput>boolean</computeroutput>   </para>
+</entry><entry>
+<para><link linkend="_namespace_tests">Tests</link> if an archive format can be appended (add).    </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para><computeroutput>Formats::canUpdate</computeroutput>   </para>
+</entry><entry>
+<para><computeroutput>string $format</computeroutput>   </para>
+</entry><entry>
+<para><computeroutput>boolean</computeroutput>   </para>
+</entry><entry>
+<para><link linkend="_namespace_tests">Tests</link> if an archive format can be updated (delete).    </para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>Formats::canEncrypt</computeroutput>   </para>
+</entry><entry>
+<para><computeroutput>string $format</computeroutput>   </para>
+</entry><entry>
+<para><computeroutput>boolean</computeroutput>   </para>
+</entry><entry>
+<para><link linkend="_namespace_tests">Tests</link> if an archive format can be encrypted or opened with encryption by any driver with new files.    </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para><computeroutput>Formats::checkFormatSupportAbility</computeroutput>   </para>
+</entry><entry>
+<para>string <computeroutput>$format, int $ability</computeroutput>   </para>
+</entry><entry>
+<para>boolean   </para>
+</entry><entry>
+<para>Check if any driver supports passed ability for passed format    </para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>Formats::getFormatMimeType</computeroutput>   </para>
+</entry><entry>
+<para><computeroutput>string $format</computeroutput>   </para>
+</entry><entry>
+<para><computeroutput>string/false</computeroutput>   </para>
+</entry><entry>
+<para>Returns mime type for passed format. Returns <computeroutput>false</computeroutput> if not found.   </para>
+</entry></row>
+    </tbody>
+    </tgroup>
+</informaltable>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2wapmorgan_2unified-archive_2docs_2_a_p_i_1autotoc_md7488">
+<title><title>UnifiedArchive</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Opening an archive<itemizedlist>
+<listitem>
+<para><link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">`UnifiedArchive::canOpen`</link></para>
+</listitem><listitem>
+<para><link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">`UnifiedArchive::open`</link></para>
+</listitem><listitem>
+<para><link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">`UnifiedArchive-&gt;getPclZipInterface`</link></para>
+</listitem></itemizedlist>
+</para>
+</listitem><listitem>
+<para>Archive information:<itemizedlist>
+<listitem>
+<para><computeroutput>UnifiedArchive-&gt;getFormat</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>UnifiedArchive-&gt;getSize</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>UnifiedArchive-&gt;getCompressedSize</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>UnifiedArchive-&gt;getOriginalSize</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>UnifiedArchive-&gt;countFiles</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>UnifiedArchive-&gt;getComment</computeroutput></para>
+</listitem></itemizedlist>
+</para>
+</listitem><listitem>
+<para>Extracting an archive:<itemizedlist>
+<listitem>
+<para><link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">`UnifiedArchive-&gt;getFiles`</link></para>
+</listitem><listitem>
+<para><link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">`UnifiedArchive-&gt;hasFile`</link></para>
+</listitem><listitem>
+<para><link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">`UnifiedArchive-&gt;getFileData`</link></para>
+</listitem><listitem>
+<para><link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">`UnifiedArchive-&gt;getFileStream`</link></para>
+</listitem><listitem>
+<para><link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">`UnifiedArchive-&gt;getFileContent`</link></para>
+</listitem><listitem>
+<para><link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">`UnifiedArchive-&gt;extract`</link></para>
+</listitem></itemizedlist>
+</para>
+</listitem><listitem>
+<para>Updating an archive:<itemizedlist>
+<listitem>
+<para><link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">`UnifiedArchive-&gt;addDirectory`</link></para>
+</listitem><listitem>
+<para><link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">`UnifiedArchive-&gt;addFile`</link></para>
+</listitem><listitem>
+<para><link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">`UnifiedArchive-&gt;addFileFromString`</link></para>
+</listitem><listitem>
+<para><link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">`UnifiedArchive-&gt;add`</link></para>
+</listitem><listitem>
+<para><link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">`UnifiedArchive-&gt;delete`</link></para>
+</listitem></itemizedlist>
+</para>
+</listitem><listitem>
+<para>Making an archive:<itemizedlist>
+<listitem>
+<para><link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">`UnifiedArchive::archiveDirectory`</link></para>
+</listitem><listitem>
+<para><link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">`UnifiedArchive::archiveFile`</link></para>
+</listitem><listitem>
+<para><link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">`UnifiedArchive::archive`</link></para>
+</listitem></itemizedlist>
+</para>
+</listitem></itemizedlist>
+</para>
+<section xml:id="_md_public_2glpi_2vendor_2wapmorgan_2unified-archive_2docs_2_a_p_i_1autotoc_md7489">
+<title><title>Archive opening</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para> <literallayout><computeroutput>UnifiedArchive::canOpen(string&#32;$fileName):&#32;boolean
+</computeroutput></literallayout></para>
+
+<para><link linkend="_namespace_tests">Tests</link> if an archive (format is resolved by extension) can be opened with current system and php configuration. <emphasis>If you want to enabled specific format support, you need to install an additional program or php extension. List of extensions that should be installed can be obtained by executing built-in <computeroutput>cam</computeroutput>: <computeroutput> ./vendor/bin/cam system:formats</computeroutput></emphasis> Returns <computeroutput>true</computeroutput> if given archive can be opened and <computeroutput>false</computeroutput> otherwise.</para>
+</listitem><listitem>
+<para> <literallayout><computeroutput>UnifiedArchive::open(
+&#32;&#32;&#32;&#32;string&#32;$fileName,
+&#32;&#32;&#32;&#32;int[]&#32;$abilities&#32;=&#32;[],
+&#32;&#32;&#32;&#32;?string&#32;$password&#32;=&#32;null
+):&#32;UnifiedArchive|null
+</computeroutput></literallayout></para>
+
+<para>Opens an archive and returns instance of <computeroutput>UnifiedArchive</computeroutput>. If you provide <computeroutput>$password</computeroutput>, it will be used to open encrypted archive. If you provide <computeroutput>$abilities</computeroutput>, it will be used to determine driver for format, that supports ALL of passed abilities. In case of failure (format is not supported or recognized), null will be returned.</para>
+</listitem><listitem>
+<para> <literallayout><computeroutput>UnifiedArchive::getPclZipInterface():&#32;PclzipZipInterface
+</computeroutput></literallayout></para>
+
+<para>Returns a <computeroutput>PclzipZipInterface</computeroutput> handler for an archive. It provides all PclZip functions in PclZip-like interface for an archive.</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2wapmorgan_2unified-archive_2docs_2_a_p_i_1autotoc_md7490">
+<title><title>Archive information</title></title>
+
+<para>All following methods is intended to be called to <computeroutput>UnifiedArchive</computeroutput> instance.</para>
+
+<para><informaltable frame="all">
+    <tgroup cols="3" align="left" colsep="1" rowsep="1">
+      <colspec colname='c1'/>
+      <colspec colname='c2'/>
+      <colspec colname='c3'/>
+<thead>
+      <row  class='markdownTableHead'>
+<entry>
+<para>Method   </para>
+</entry><entry>
+<para>Result   </para>
+</entry><entry>
+<para>Description    </para>
+</entry></row>
+</thead><tbody>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>UnifiedArchive::getFormat()</computeroutput>   </para>
+</entry><entry>
+<para><computeroutput>string</computeroutput>   </para>
+</entry><entry>
+<para>Returns format of archive as one of <computeroutput>Formats</computeroutput> constants.    </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para><computeroutput>UnifiedArchive::getMimeType()</computeroutput>   </para>
+</entry><entry>
+<para><computeroutput>string/false</computeroutput>   </para>
+</entry><entry>
+<para>Returns mime type of archive.    </para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>UnifiedArchive::getSize()</computeroutput>   </para>
+</entry><entry>
+<para><computeroutput>int</computeroutput>   </para>
+</entry><entry>
+<para>Returns size of archive file in bytes.    </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para><computeroutput>UnifiedArchive::getCompressedSize()</computeroutput>   </para>
+</entry><entry>
+<para><computeroutput>int</computeroutput>   </para>
+</entry><entry>
+<para>Returns size of all stored files in archive with archive compression in bytes. This can be used to measure efficiency of format compression.    </para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>UnifiedArchive::getOriginalSize()</computeroutput>   </para>
+</entry><entry>
+<para><computeroutput>int</computeroutput>   </para>
+</entry><entry>
+<para>Returns size of all stored files in archive without compression in bytes. This can be used to measure size that extracted files will use.    </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para><computeroutput>UnifiedArchive::countFiles()</computeroutput>   </para>
+</entry><entry>
+<para><computeroutput>int</computeroutput>   </para>
+</entry><entry>
+<para>Returns number of files stored in an archive.    </para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>UnifiedArchive::getComment()</computeroutput>   </para>
+</entry><entry>
+<para><computeroutput>?string</computeroutput>   </para>
+</entry><entry>
+<para>Returns comment of archive or null (if not supported nor present).   </para>
+</entry></row>
+    </tbody>
+    </tgroup>
+</informaltable>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2wapmorgan_2unified-archive_2docs_2_a_p_i_1autotoc_md7491">
+<title><title>Archive content</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para> <literallayout><computeroutput>UnifiedArchive::getFiles(?string&#32;$filter&#32;=&#32;null):&#32;string[]
+</computeroutput></literallayout> Returns full list of files stored in an archive. If <computeroutput>$filter</computeroutput> is passed, will return only matched by <computeroutput><link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">fnmatch()</link></computeroutput> files.</para>
+</listitem><listitem>
+<para> <literallayout><computeroutput>UnifiedArchive::hasFile(string&#32;$fileName):&#32;boolean
+</computeroutput></literallayout> Checks whether file is presented in an archive.</para>
+</listitem><listitem>
+<para> <literallayout><computeroutput>UnifiedArchive::getFileData(string&#32;$fileName):&#32;ArchiveEntry
+</computeroutput></literallayout></para>
+
+<para>Returns <computeroutput>ArchiveEntry</computeroutput> that contains all specific information about file stored in archive and described <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">later in the document</link>. If file is not in archive, <computeroutput>NonExistentArchiveFileException</computeroutput> is thrown.</para>
+</listitem><listitem>
+<para> <literallayout><computeroutput>UnifiedArchive::getFileStream(string&#32;$fileName):&#32;resource
+</computeroutput></literallayout></para>
+
+<para>Returns a resource of in-archive file that can be used to get it&apos;s content (by <computeroutput>fread()</computeroutput> and so on). This method of extraction is useful for large files or when you need to read files in portions. If file is not in archive, <computeroutput>NonExistentArchiveFileException</computeroutput> is thrown.</para>
+</listitem><listitem>
+<para> <literallayout><computeroutput>UnifiedArchive::getFileContent(string&#32;$fileName):&#32;string
+</computeroutput></literallayout></para>
+
+<para>Returns content of in-archive file as raw string. If file is not in archive, <computeroutput>NonExistentArchiveFileException</computeroutput> is thrown.</para>
+</listitem><listitem>
+<para> <literallayout><computeroutput>UnifiedArchive::extract(string&#32;$outputFolder):&#32;int
+</computeroutput></literallayout></para>
+
+<para>Extracts all archive content with full paths to output folder and rewriting existing files. In case of success, number of extracted files is returned.</para>
+
+<para>Throws:<itemizedlist>
+<listitem>
+<para><computeroutput>ArchiveExtractionException</computeroutput></para>
+</listitem></itemizedlist>
+</para>
+</listitem><listitem>
+<para> <literallayout><computeroutput>UnifiedArchive::extract(
+&#32;&#32;&#32;&#32;string&#32;$outputFolder,
+&#32;&#32;&#32;&#32;array&#32;$files,
+&#32;&#32;&#32;&#32;boolean&#32;$expandFilesList&#32;=&#32;false
+):&#32;int|false
+</computeroutput></literallayout></para>
+
+<para>Extracts given files or directories to output folder. If directories is passed, you need to use <computeroutput>$expandFilesList</computeroutput> feature that will expand directory names to all nested files (e.g <computeroutput>dir</computeroutput> will be expanded to <computeroutput>dir/file1, dir/file2, dir/subdir/file3</computeroutput>). In case of success, number of extracted files is returned.</para>
+
+<para>Throws:<itemizedlist>
+<listitem>
+<para><computeroutput>EmptyFileListException</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>ArchiveExtractionException</computeroutput></para>
+</listitem></itemizedlist>
+</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2wapmorgan_2unified-archive_2docs_2_a_p_i_1autotoc_md7492">
+<title><title>Archive modification</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para> <literallayout><computeroutput>UnifiedArchive::addDirectory(
+&#32;&#32;&#32;&#32;string&#32;$directory,
+&#32;&#32;&#32;&#32;string&#32;$inArchivePath&#32;=&#32;null
+):&#32;boolean
+</computeroutput></literallayout></para>
+
+<para>Packs all nested files from <computeroutput>$directory</computeroutput> in archive. If in-archive path is not specified, all contents will be stored with full directory path. If in-archive path is set, all nested files will have given in-archive path. If case of success, <computeroutput>true</computeroutput> is returned.</para>
+
+<para>Throws:<itemizedlist>
+<listitem>
+<para><computeroutput>EmptyFileListException</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>UnsupportedOperationException</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>ArchiveModificationException</computeroutput></para>
+</listitem></itemizedlist>
+</para>
+</listitem><listitem>
+<para> <literallayout><computeroutput>UnifiedArchive::addFile(
+&#32;&#32;&#32;&#32;string&#32;$file,
+&#32;&#32;&#32;&#32;string&#32;$inArchiveName&#32;=&#32;null
+):&#32;boolean
+</computeroutput></literallayout></para>
+
+<para>Packs file in an archive. If in-archive path is not specified, file will have it&apos;s original path. If in-archive path is set, file wil be packed with given path. If case of success, <computeroutput>true</computeroutput> is returned.</para>
+
+<para>Throws:<itemizedlist>
+<listitem>
+<para><computeroutput>EmptyFileListException</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>UnsupportedOperationException</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>ArchiveModificationException</computeroutput></para>
+</listitem></itemizedlist>
+</para>
+</listitem><listitem>
+<para> <literallayout><computeroutput>UnifiedArchive::addFileFromString(
+&#32;&#32;&#32;&#32;string&#32;$inArchiveName,
+&#32;&#32;&#32;&#32;string&#32;$content
+):&#32;boolean
+</computeroutput></literallayout></para>
+
+<para>Packs file in an archive. If case of success, <computeroutput>true</computeroutput> is returned.</para>
+
+<para>Throws:<itemizedlist>
+<listitem>
+<para><computeroutput>ArchiveModificationException</computeroutput></para>
+</listitem></itemizedlist>
+</para>
+</listitem><listitem>
+<para> <literallayout><computeroutput>UnifiedArchive::add(array&#32;$files):&#32;int|false
+</computeroutput></literallayout></para>
+
+<para>Packs given <computeroutput>$files</computeroutput> into archive. <computeroutput>$files</computeroutput> is an array of files or directories. If file/directory passed with numeric key (e.g &#8216;[&apos;file&#8217;, &apos;directory&apos;]<computeroutput>), then file/directory will have it&apos;s full path in archive. If file/directory is a key (e.g</computeroutput>[&apos;in_archive_path&apos; =&gt; &apos;file1&apos;]<computeroutput>), then file/directory will have path as it&apos;s key. If any error occurred (such as file already exists, files list is empty, ...), an</computeroutput>\Exception` is throwing. In case of success, number of packed files will be returned.</para>
+
+<para>Throws:<itemizedlist>
+<listitem>
+<para><computeroutput>EmptyFileListException</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>UnsupportedOperationException</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>ArchiveModificationException</computeroutput></para>
+</listitem></itemizedlist>
+</para>
+</listitem><listitem>
+<para> <literallayout><computeroutput>UnifiedArchive::delete(
+&#32;&#32;&#32;&#32;string|array&#32;$fileOrFiles,
+&#32;&#32;&#32;&#32;$expandFilesList&#32;=&#32;false
+):&#32;int|false
+</computeroutput></literallayout></para>
+
+<para>Deletes passed <computeroutput>$fileOrFiles</computeroutput> from archive. <computeroutput>$fileOrFiles</computeroutput> is a string with file/directory name or an array of files or directories. In case of success, number of deleted files will be returned.</para>
+
+<para>Throws:<itemizedlist>
+<listitem>
+<para><computeroutput>EmptyFileListException</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>UnsupportedOperationException</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>ArchiveModificationException</computeroutput></para>
+</listitem></itemizedlist>
+</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2wapmorgan_2unified-archive_2docs_2_a_p_i_1autotoc_md7493">
+<title><title>Making an archive</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para> <literallayout><computeroutput>UnifiedArchive::archiveDirectory(
+&#32;&#32;&#32;&#32;string&#32;$directory,
+&#32;&#32;&#32;&#32;string&#32;$archiveName,
+&#32;&#32;&#32;&#32;int&#32;$compressionLevel&#32;=&#32;BasicFormat::COMPRESSION_AVERAGE,
+&#32;&#32;&#32;&#32;?string&#32;$password&#32;=&#32;null
+):&#32;boolean
+</computeroutput></literallayout></para>
+
+<para>Creates an archive with all content from given directory and saves archive to <computeroutput>$archiveName</computeroutput> (format is resolved by extension). All files have relative path in the archive. By <computeroutput>$compressionLevel</computeroutput> you can adjust compression level for files. By <computeroutput>$password</computeroutput> you can set password for an archive. If case of success, <computeroutput>true</computeroutput> is returned.</para>
+
+<para>Available values for compression:<itemizedlist>
+<listitem>
+<para><computeroutput>BasicFormat::COMPRESSION_NONE</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>BasicFormat::COMPRESSION_WEAK</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>BasicFormat::COMPRESSION_AVERAGE</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>BasicFormat::COMPRESSION_STRONG</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>BasicFormat::COMPRESSION_MAXIMUM</computeroutput></para>
+</listitem></itemizedlist>
+</para>
+
+<para>Throws:<itemizedlist>
+<listitem>
+<para><computeroutput>UnsupportedOperationException</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>FileAlreadyExistsException</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>EmptyFileListException</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>ArchiveCreationException</computeroutput></para>
+</listitem></itemizedlist>
+</para>
+</listitem><listitem>
+<para> <literallayout><computeroutput>UnifiedArchive::archiveFile(
+&#32;&#32;&#32;&#32;string&#32;$file,
+&#32;&#32;&#32;&#32;string&#32;$archiveName,
+&#32;&#32;&#32;&#32;int&#32;$compressionLevel&#32;=&#32;BasicFormat::COMPRESSION_AVERAGE,
+&#32;&#32;&#32;&#32;?string&#32;$password&#32;=&#32;null
+):&#32;boolean
+</computeroutput></literallayout></para>
+
+<para>Creates an archive with file <computeroutput>$file</computeroutput> and saves archive to <computeroutput>$archiveName</computeroutput> (format is resolved by extension). File will have only relative name in the archive. If case of success, <computeroutput>true</computeroutput> is returned.</para>
+
+<para>Throws:<itemizedlist>
+<listitem>
+<para><computeroutput>UnsupportedOperationException</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>FileAlreadyExistsException</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>EmptyFileListException</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>ArchiveCreationException</computeroutput></para>
+</listitem></itemizedlist>
+</para>
+</listitem><listitem>
+<para> <literallayout><computeroutput>UnifiedArchive::archive(
+&#32;&#32;&#32;&#32;array&#32;$files,
+&#32;&#32;&#32;&#32;string&#32;$archiveName,
+&#32;&#32;&#32;&#32;int&#32;$compressionLevel&#32;=&#32;BasicFormat::COMPRESSION_AVERAGE,
+&#32;&#32;&#32;&#32;?string&#32;$password&#32;=&#32;null
+):&#32;int
+</computeroutput></literallayout></para>
+
+<para>Creates an archive with given <computeroutput>$files</computeroutput> list. <computeroutput>$files</computeroutput> is an array of files or directories. If file/directory passed with numeric key (e.g &#8216;[&apos;file&#8217;, &apos;directory&apos;]<computeroutput>), then file/directory will have it&apos;s full path in an archive. If file/directory is a key (e.g</computeroutput>[&apos;in_archive_path&apos; =&gt; &apos;file1&apos;]`), then file/directory will have path as it&apos;s value. In case of success, number of stored files will be returned.</para>
+
+<para>Throws:<itemizedlist>
+<listitem>
+<para><computeroutput>UnsupportedOperationException</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>FileAlreadyExistsException</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>EmptyFileListException</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>ArchiveCreationException</computeroutput></para>
+</listitem></itemizedlist>
+</para>
+</listitem></itemizedlist>
+</para>
+</section>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2wapmorgan_2unified-archive_2docs_2_a_p_i_1autotoc_md7494">
+<title><title>ArchiveEntry</title></title>
+
+<para>The class represents a file from archive as result of a call to <computeroutput>UnifiedArchive::getFileData(string $fileName)</computeroutput>. It contains fields with file information:</para>
+
+<para><itemizedlist>
+<listitem>
+<para><computeroutput>string $path</computeroutput> - full file path in archive.</para>
+</listitem><listitem>
+<para><computeroutput>integer $modificationTime</computeroutput> - time of change of the file (the integer value containing number of seconds passed</para>
+</listitem><listitem>
+<para><computeroutput>boolean $isCompressed</computeroutput> - a flag indicates if file stored with compression.</para>
+</listitem><listitem>
+<para><computeroutput>integer $compressedSize</computeroutput> - size of the file with compression in bytes.</para>
+</listitem><listitem>
+<para><computeroutput>integer $uncompressedSize</computeroutput> - size of the file without compression in bytes. since the beginning of an era of Unix).</para>
+</listitem></itemizedlist>
+</para>
+<section xml:id="_md_public_2glpi_2vendor_2wapmorgan_2unified-archive_2docs_2_a_p_i_1autotoc_md7495">
+<title><title>Formats list</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para><computeroutput>Formats::ZIP</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>Formats::SEVEN_ZIP</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>Formats::RAR</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>Formats::CAB</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>Formats::TAR</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>Formats::TAR_GZIP</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>Formats::TAR_BZIP</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>Formats::TAR_LZMA</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>Formats::TAR_LZW</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>Formats::ARJ</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>Formats::GZIP</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>Formats::BZIP</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>Formats::LZMA</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>Formats::UEFI</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>Formats::GPT</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>Formats::MBR</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>Formats::MSI</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>Formats::ISO</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>Formats::DMG</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>Formats::UDF</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>Formats::RPM</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>Formats::DEB</computeroutput> </para>
+</listitem></itemizedlist>
+</para>
+</section>
+</section>
+</section>

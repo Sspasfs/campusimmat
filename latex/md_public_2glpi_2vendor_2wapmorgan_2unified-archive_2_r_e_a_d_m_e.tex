@@ -1,0 +1,133 @@
+\chapter{README}
+\hypertarget{md_public_2glpi_2vendor_2wapmorgan_2unified-archive_2_r_e_a_d_m_e}{}\label{md_public_2glpi_2vendor_2wapmorgan_2unified-archive_2_r_e_a_d_m_e}\index{README@{README}}
+{\itshape Unified\+Archive} -\/ an archive manager with unified interface for different formats that works on wide variety of system configuration. It supports all basic operations on widespread formats and some format-\/specific features for most popular ones (zip, rar, 7z, tar).
+
+Main purpose of this library is to create unified interface for popular archive formats, that works in various system configurations via different drivers, when there is no ability to update system configuration, when code delivered to another system configurations, or when you just want to install libraries and work. It\textquotesingle{}s handy when there\textquotesingle{}s need to support archive types regardless of the system configuration.
+
+\href{https://packagist.org/packages/wapmorgan/unified-archive}{\texttt{ }} \href{https://packagist.org/packages/wapmorgan/unified-archive}{\texttt{ }} \href{https://packagist.org/packages/wapmorgan/unified-archive}{\texttt{ }} \href{https://packagist.org/packages/wapmorgan/unified-archive}{\texttt{ }} \href{https://packagist.org/packages/wapmorgan/unified-archive}{\texttt{ }}
+
+\doxylink{namespace_tests}{Tests} \& Quality\+: \href{https://scrutinizer-ci.com/g/wapmorgan/UnifiedArchive/?branch=master}{\texttt{ }} \href{https://scrutinizer-ci.com/g/wapmorgan/UnifiedArchive/?branch=master}{\texttt{ }}
+
+
+\begin{DoxyEnumerate}
+\item \doxylink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{Functions \& Features}
+\item \doxylink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{How it works}
+\item \doxylink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{Quick start}
+\item \doxylink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{Built-\/in console archive manager}
+\item \doxysectlink{md_public_2glpi_2vendor_2wapmorgan_2unified-archive_2docs_2_usage}{Usage}{0}
+\item \doxysectlink{md_public_2glpi_2vendor_2wapmorgan_2unified-archive_2docs_2_drivers}{Drivers \& formats}{0}
+\item \doxysectlink{md_public_2glpi_2vendor_2wapmorgan_2unified-archive_2docs_2_a_p_i}{Full API description}{0}
+\item \doxysectlink{md_public_2glpi_2vendor_2wapmorgan_2unified-archive_2_c_h_a_n_g_e_l_o_g}{Changelog}{0}
+\end{DoxyEnumerate}\hypertarget{md_public_2glpi_2vendor_2wapmorgan_2unified-archive_2_r_e_a_d_m_e_autotoc_md7507}{}\doxysection{\texorpdfstring{Functions \& Features}{Functions \& Features}}\label{md_public_2glpi_2vendor_2wapmorgan_2unified-archive_2_r_e_a_d_m_e_autotoc_md7507}
+Unified\+Archive is aimed to provide all operations on popular archive formats (zip, tar, rar, 7z) by all means and at better performance (depends on your OS/\+PHP configuration). Also, it allows to work with less popular archive types (with lack of functions).
+
+Main functions\+:
+\begin{DoxyItemize}
+\item Open an archive with automatic format detection (more 20 formats).
+\item List archive content, calculate original size of archive
+\item Get details (original size, date of modification) of every archived file. Extract or stream archived file content
+\item Extract all archive content. Append an archive with new files or directories. Remove files from archive
+\item Create new archives with files/directories on disk and stream from memory
+\item Fully implemented \href{docs/API.md\#UnifiedArchive--getPclZipInterface}{\texttt{ Pcl\+Zip-\/like interface for archives}} for all formats. Easy transition from old Pcl\+Zip.
+\item Bundled with cli utility
+\end{DoxyItemize}
+
+Specific functions\+:
+\begin{DoxyItemize}
+\item Read (zip, rar) \& set (zip) archive comment
+\item \href{docs/API.md\#UnifiedArchive--open}{\texttt{ Open archives encrypted with password (zip, rar, 7z)}}
+\item Set passwords (7z, zip) for new archives
+\item \href{docs/API.md\#UnifiedArchive--archiveFiles}{\texttt{ Adjust compression level (zip, gzip, 7zip)}} for new archives
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2wapmorgan_2unified-archive_2_r_e_a_d_m_e_autotoc_md7508}{}\doxysection{\texorpdfstring{How it works}{How it works}}\label{md_public_2glpi_2vendor_2wapmorgan_2unified-archive_2_r_e_a_d_m_e_autotoc_md7508}
+Unified\+Archive uses "{}drivers"{}, which can be one of types\+:
+\begin{DoxyEnumerate}
+\item PHP Extensions
+\item Utilities + bridge
+\item Pure PHP
+\end{DoxyEnumerate}
+
+By default, UA goes top-\/down to select first available driver for passed archive. So, PHP Extension driver will be used (if available), then Utilities + bridge driver (if available), and then Pure PHP driver.
+
+There is at least one driver in all three types, which handles {\bfseries{zip}} format, so this format can be fully supported in any OS/\+PHP configuration\+:
+\begin{DoxyEnumerate}
+\item zip / phar PHP extensions
+\item Utility + bridge Seven\+Zip / Alchemy\+Zippy
+\item Pure Nelexa\+Zip
+\end{DoxyEnumerate}
+
+{\bfseries{tar}} format (with compressed variants) supported by\+:
+\begin{DoxyEnumerate}
+\item phar PHP extension
+\item Utility + bridge Seven\+Zip / Alchemy\+Zippy
+\item Pure Tar\+By\+Pear
+\end{DoxyEnumerate}
+
+{\bfseries{So, there is always one driver that supports popular formats, and you should not remember how to work with this concrete driver (zip/phar/\+Seven\+Zip/\+Alchemy\+Zippy/\+Nelexa\+Zip), interface for them is uniform.}}\hypertarget{md_public_2glpi_2vendor_2wapmorgan_2unified-archive_2_r_e_a_d_m_e_autotoc_md7509}{}\doxysection{\texorpdfstring{Quick start}{Quick start}}\label{md_public_2glpi_2vendor_2wapmorgan_2unified-archive_2_r_e_a_d_m_e_autotoc_md7509}
+\hypertarget{md_public_2glpi_2vendor_2wapmorgan_2unified-archive_2_r_e_a_d_m_e_autotoc_md7510}{}\doxysubsection{\texorpdfstring{Installation and configuration}{Installation and configuration}}\label{md_public_2glpi_2vendor_2wapmorgan_2unified-archive_2_r_e_a_d_m_e_autotoc_md7510}
+\hypertarget{md_public_2glpi_2vendor_2wapmorgan_2unified-archive_2_r_e_a_d_m_e_autotoc_md7511}{}\doxysubsubsection{\texorpdfstring{Install library}{Install library}}\label{md_public_2glpi_2vendor_2wapmorgan_2unified-archive_2_r_e_a_d_m_e_autotoc_md7511}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{composer\ require\ wapmorgan/unified-\/archive}
+\DoxyCodeLine{\#Check\ supported\ formats\ with\ installed\ drivers}
+\DoxyCodeLine{./vendor/bin/cam\ system:formats}
+\DoxyCodeLine{\#Check\ supported\ functions\ for\ zip\ format}
+\DoxyCodeLine{./vendor/bin/cam\ system:format\ zip}
+
+\end{DoxyCode}
+\hypertarget{md_public_2glpi_2vendor_2wapmorgan_2unified-archive_2_r_e_a_d_m_e_autotoc_md7512}{}\doxysubsubsection{\texorpdfstring{Install new driver}{Install new driver}}\label{md_public_2glpi_2vendor_2wapmorgan_2unified-archive_2_r_e_a_d_m_e_autotoc_md7512}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\#Read\ installation\ instructions\ from}
+\DoxyCodeLine{./vendor/bin/cam\ system:drivers}
+\DoxyCodeLine{\#install\ missing\ drivers,\ for\ example\ pear/archive\_tar}
+\DoxyCodeLine{composer\ require\ pear/archive\_tar}
+\DoxyCodeLine{\#check\ out\ driver\ functions}
+\DoxyCodeLine{./vendor/bin/cam\ system:formats\ TarByPear}
+\DoxyCodeLine{}
+\DoxyCodeLine{\#if\ needed,\ install\ extensions,\ cli\ tools\ and\ php\ libraries}
+\DoxyCodeLine{\#to\ enable\ support\ of\ other\ formats}
+
+\end{DoxyCode}
+\hypertarget{md_public_2glpi_2vendor_2wapmorgan_2unified-archive_2_r_e_a_d_m_e_autotoc_md7513}{}\doxysubsection{\texorpdfstring{Usage}{Usage}}\label{md_public_2glpi_2vendor_2wapmorgan_2unified-archive_2_r_e_a_d_m_e_autotoc_md7513}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{use\ \(\backslash\)wapmorgan\(\backslash\)UnifiedArchive\(\backslash\)UnifiedArchive}};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\$output\_dir}}\ =\ \textcolor{stringliteral}{'/var/www/extracted'};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{preprocessor}{\#\ Extraction}}
+\DoxyCodeLine{\$archive\ =\ UnifiedArchive::open(\textcolor{stringliteral}{'archive.zip'});\ \textcolor{comment}{//\ archive.rar,\ archive.tar.bz2}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordflow}{if}\ (\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{disk\_free\_space}}(\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\$output\_dir}})\ <\ \$archive-\/>getOriginalSize())\ \{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{throw}\ \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{new\ \(\backslash\)RuntimeException}}(\textcolor{stringliteral}{'No\ needed\ space\ available.\ Need\ '}\ .\ (\$archive-\/>getOriginalSize()\ -\/\ \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{disk\_free\_space}}(\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\$output\_dir}}))\ .\ \textcolor{stringliteral}{'\ byte(s)\ more'});}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\$extracted}}\ =\ \$archive-\/>extract(\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\$output\_dir}});}
+\DoxyCodeLine{\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{echo}}\ \textcolor{stringliteral}{'Number\ of\ extracted\ files'}\ .\ \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\$extracted}}.PHP\_EOL;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{preprocessor}{\#\ Archiving}}
+\DoxyCodeLine{UnifiedArchive::create([}
+\DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{'README.md'}\ =>\ \textcolor{stringliteral}{'/default/path/to/README.md'},}
+\DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{''}\ =>\ \textcolor{stringliteral}{'/folder/with/content/'},}
+\DoxyCodeLine{],\ \textcolor{stringliteral}{'archive.zip'});}
+
+\end{DoxyCode}
+\hypertarget{md_public_2glpi_2vendor_2wapmorgan_2unified-archive_2_r_e_a_d_m_e_autotoc_md7514}{}\doxysection{\texorpdfstring{Built-\/in console archive manager}{Built-\/in console archive manager}}\label{md_public_2glpi_2vendor_2wapmorgan_2unified-archive_2_r_e_a_d_m_e_autotoc_md7514}
+Unified\+Archive is distributed with a unified console program to manipulate archives. It supports all formats and all operations on them that Unified\+Archive does, so it can be used to manipulate archives without other system software. To show help, launch it\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{./vendor/bin/cam\ list\ \#\ help}
+\DoxyCodeLine{./vendor/bin/cam\ archive:info\ archive.tar.gz\ \#\ archive\ information}
+\DoxyCodeLine{./vendor/bin/cam\ files:list\ -\/l\ archive.tar.gz\ \#\ files\ list\ (or\ files:table\ for\ table)}
+\DoxyCodeLine{./vendor/bin/cam\ archive:extract\ archive.tar.gz\ ./OUTPUT/\ \#\ extraction\ all\ archive}
+\DoxyCodeLine{./vendor/bin/cam\ archive:create\ -\/-\/compression=maximum\ archive2.tar.gz\ ./OUTPUT/partners\ \#\ archive\ creation\ from\ files}
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyItemize}
+\item \doxysectlink{md_public_2glpi_2vendor_2wapmorgan_2unified-archive_2docs_2_usage}{Usage}{0}
+\item \doxysectlink{md_public_2glpi_2vendor_2wapmorgan_2unified-archive_2docs_2_drivers}{Drivers \& formats}{0}
+\item \doxysectlink{md_public_2glpi_2vendor_2wapmorgan_2unified-archive_2docs_2_a_p_i}{Full API description}{0}
+\item \doxysectlink{md_public_2glpi_2vendor_2wapmorgan_2unified-archive_2_c_h_a_n_g_e_l_o_g}{Changelog}{0} 
+\end{DoxyItemize}

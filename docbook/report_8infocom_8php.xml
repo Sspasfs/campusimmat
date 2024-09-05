@@ -1,0 +1,101 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_report_8infocom_8php" xml:lang="fr">
+<title>Référence du fichier public/glpi/front/report.infocom.php</title>
+<indexterm><primary>public/glpi/front/report.infocom.php</primary></indexterm>
+<simplesect>
+    <title>Variables    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">global</link> <link linkend="_report_8infocom_8php_1a2e00a61703ee4673cdfb5eb376a9b295">$CFG_GLPI</link></para>
+</listitem>
+            <listitem><para><link linkend="_dropdown_location_8php_1a52332c22f84432520971794825a5a8e7">if</link>(<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">empty</link>( $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">_POST</link>[&quot;date1&quot;]) &amp;&amp;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">empty</link>( $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">_POST</link>[&quot;date2&quot;])) <link linkend="_dropdown_location_8php_1a52332c22f84432520971794825a5a8e7">if</link>(!<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">empty</link>($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">_POST</link>[&quot;date1&quot;]) &amp;&amp;!<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">empty</link>($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">_POST</link>[&quot;date2&quot;]) &amp;&amp;(strcmp($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">_POST</link>[&quot;date2&quot;], $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">_POST</link>[&quot;date1&quot;])&lt; 0)) <link linkend="_report_8infocom_8php_1a08b9278c1cbf5daa917642e4d1f4d8e8">$stat</link> = <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">new</link> <link linkend="_class_stat">Stat</link>()</para>
+</listitem>
+            <listitem><para><link linkend="_report_8infocom_8php_1a858caef5434b0f28a1049808aaf4d505">$chart_opts</link></para>
+</listitem>
+            <listitem><para><link linkend="_report_8infocom_8php_1ace87c03f84793407d930918f18a0276b">$valeurtot</link> = 0</para>
+</listitem>
+            <listitem><para><link linkend="_report_8infocom_8php_1a4879129322703793bf6edf29a36c41f5">$valeurnettetot</link> = 0</para>
+</listitem>
+            <listitem><para><link linkend="_report_8infocom_8php_1a7c5e63ea38f8f23a6a6831a07721af84">$valeurnettegraphtot</link> = []</para>
+</listitem>
+            <listitem><para><link linkend="_report_8infocom_8php_1a4c4cd27ae7e725f83981aed8ee43ef74">$valeurgraphtot</link> = []</para>
+</listitem>
+            <listitem><para><link linkend="_report_8infocom_8php_1a92d70a97331cc6fc0a79d9da50895be8">$types</link> = $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">CFG_GLPI</link>[&quot;infocom_types&quot;]</para>
+</listitem>
+            <listitem><para><link linkend="_report_8infocom_8php_1a83018d9153d17d91fbcf3bc10158d34f">$i</link> = 0</para>
+</listitem>
+            <listitem><para><link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">while</link>(count( $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">types</link>) &gt; 0) <link linkend="_report_8infocom_8php_1a593ee7079dc1ea3e6837a9a96f8b3467">if</link> (( $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">i</link> % 2)==0)</para>
+</listitem>
+            <listitem><para><link linkend="_report_8infocom_8php_1a260846614192bc376d43d209b6d76cb5">$tmpmsg</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Documentation des variables</title>
+<anchor xml:id="_report_8infocom_8php_1a2e00a61703ee4673cdfb5eb376a9b295"/><section>
+    <title>$CFG_GLPI</title>
+<indexterm><primary>$CFG_GLPI</primary><secondary>report.infocom.php</secondary></indexterm>
+<indexterm><primary>report.infocom.php</primary><secondary>$CFG_GLPI</secondary></indexterm>
+<para><computeroutput><link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">global</link> $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">CFG_GLPI</link></computeroutput></para></section>
+<anchor xml:id="_report_8infocom_8php_1a858caef5434b0f28a1049808aaf4d505"/><section>
+    <title>$chart_opts</title>
+<indexterm><primary>$chart_opts</primary><secondary>report.infocom.php</secondary></indexterm>
+<indexterm><primary>report.infocom.php</primary><secondary>$chart_opts</secondary></indexterm>
+<para><computeroutput>$<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">chart_opts</link></computeroutput></para><emphasis role="strong">Valeur initiale :</emphasis><programlisting linenumbering="unnumbered">=&#32;&#32;[
+&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&apos;width&apos;</emphasis>&#32;&#32;=&gt;&#32;<emphasis role="stringliteral">&apos;90%&apos;</emphasis>,
+&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&apos;legend&apos;</emphasis>&#32;=&gt;&#32;<emphasis role="keyword">false</emphasis>,
+&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&apos;title&apos;</emphasis>&#32;&#32;=&gt;&#32;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">__</link>(<emphasis role="stringliteral">&apos;Value&apos;</emphasis>),
+]
+</programlisting></section>
+<anchor xml:id="_report_8infocom_8php_1a83018d9153d17d91fbcf3bc10158d34f"/><section>
+    <title>$i</title>
+<indexterm><primary>$i</primary><secondary>report.infocom.php</secondary></indexterm>
+<indexterm><primary>report.infocom.php</primary><secondary>$i</secondary></indexterm>
+<para><computeroutput>$<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">i</link> = 0</computeroutput></para></section>
+<anchor xml:id="_report_8infocom_8php_1a08b9278c1cbf5daa917642e4d1f4d8e8"/><section>
+    <title>$stat</title>
+<indexterm><primary>$stat</primary><secondary>report.infocom.php</secondary></indexterm>
+<indexterm><primary>report.infocom.php</primary><secondary>$stat</secondary></indexterm>
+<para><computeroutput><link linkend="_dropdown_location_8php_1a52332c22f84432520971794825a5a8e7">if</link>(<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">empty</link>($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">_POST</link>[&quot;date1&quot;]) &amp;&amp;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">empty</link>($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">_POST</link>[&quot;date2&quot;])) <link linkend="_dropdown_location_8php_1a52332c22f84432520971794825a5a8e7">if</link> (!<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">empty</link>( $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">_POST</link>[&quot;date1&quot;]) &amp;&amp;!<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">empty</link>( $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">_POST</link>[&quot;date2&quot;]) &amp;&amp;(strcmp( $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">_POST</link>[&quot;date2&quot;], $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">_POST</link>[&quot;date1&quot;])&lt; 0)) $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">stat</link> = <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">new</link> <link linkend="_class_stat">Stat</link>()</computeroutput></para></section>
+<anchor xml:id="_report_8infocom_8php_1a260846614192bc376d43d209b6d76cb5"/><section>
+    <title>$tmpmsg</title>
+<indexterm><primary>$tmpmsg</primary><secondary>report.infocom.php</secondary></indexterm>
+<indexterm><primary>report.infocom.php</primary><secondary>$tmpmsg</secondary></indexterm>
+<para><computeroutput>$<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">tmpmsg</link></computeroutput></para><emphasis role="strong">Valeur initiale :</emphasis><programlisting linenumbering="unnumbered">=&#32;sprintf(
+&#32;&#32;&#32;&#32;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">__</link>(<emphasis role="stringliteral">&apos;Total:&#32;Value=%1$s&#32;-&#32;Account&#32;net&#32;value=%2$s&apos;</emphasis>),
+&#32;&#32;&#32;&#32;Html::formatNumber(<link linkend="_report_8infocom_8php_1ace87c03f84793407d930918f18a0276b">$valeurtot</link>),
+&#32;&#32;&#32;&#32;Html::formatNumber(<link linkend="_report_8infocom_8php_1a4879129322703793bf6edf29a36c41f5">$valeurnettetot</link>)
+)
+</programlisting></section>
+<anchor xml:id="_report_8infocom_8php_1a92d70a97331cc6fc0a79d9da50895be8"/><section>
+    <title>$types</title>
+<indexterm><primary>$types</primary><secondary>report.infocom.php</secondary></indexterm>
+<indexterm><primary>report.infocom.php</primary><secondary>$types</secondary></indexterm>
+<para><computeroutput>$<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">types</link> = $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">CFG_GLPI</link>[&quot;infocom_types&quot;]</computeroutput></para></section>
+<anchor xml:id="_report_8infocom_8php_1a4c4cd27ae7e725f83981aed8ee43ef74"/><section>
+    <title>$valeurgraphtot</title>
+<indexterm><primary>$valeurgraphtot</primary><secondary>report.infocom.php</secondary></indexterm>
+<indexterm><primary>report.infocom.php</primary><secondary>$valeurgraphtot</secondary></indexterm>
+<para><computeroutput>$<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">valeurgraphtot</link> = []</computeroutput></para></section>
+<anchor xml:id="_report_8infocom_8php_1a7c5e63ea38f8f23a6a6831a07721af84"/><section>
+    <title>$valeurnettegraphtot</title>
+<indexterm><primary>$valeurnettegraphtot</primary><secondary>report.infocom.php</secondary></indexterm>
+<indexterm><primary>report.infocom.php</primary><secondary>$valeurnettegraphtot</secondary></indexterm>
+<para><computeroutput>$<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">valeurnettegraphtot</link> = []</computeroutput></para></section>
+<anchor xml:id="_report_8infocom_8php_1a4879129322703793bf6edf29a36c41f5"/><section>
+    <title>$valeurnettetot</title>
+<indexterm><primary>$valeurnettetot</primary><secondary>report.infocom.php</secondary></indexterm>
+<indexterm><primary>report.infocom.php</primary><secondary>$valeurnettetot</secondary></indexterm>
+<para><computeroutput>$<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">valeurnettetot</link> = 0</computeroutput></para></section>
+<anchor xml:id="_report_8infocom_8php_1ace87c03f84793407d930918f18a0276b"/><section>
+    <title>$valeurtot</title>
+<indexterm><primary>$valeurtot</primary><secondary>report.infocom.php</secondary></indexterm>
+<indexterm><primary>report.infocom.php</primary><secondary>$valeurtot</secondary></indexterm>
+<para><computeroutput>$<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">valeurtot</link> = 0</computeroutput></para></section>
+<anchor xml:id="_report_8infocom_8php_1a593ee7079dc1ea3e6837a9a96f8b3467"/><section>
+    <title>if</title>
+<indexterm><primary>if</primary><secondary>report.infocom.php</secondary></indexterm>
+<indexterm><primary>report.infocom.php</primary><secondary>if</secondary></indexterm>
+<para><computeroutput><link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">while</link>(count($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">types</link>) &gt; 0) if(($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">i</link> % 2)==0) (( $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">i</link> % 2)  = <computeroutput>=&#160;0</computeroutput>
+)</computeroutput></para></section>
+</section>
+</section>

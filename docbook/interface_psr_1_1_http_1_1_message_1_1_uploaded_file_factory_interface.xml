@@ -1,0 +1,122 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_interface_psr_1_1_http_1_1_message_1_1_uploaded_file_factory_interface" xml:lang="fr">
+<title>Référence de l&apos;interface UploadedFileFactoryInterface</title>
+<indexterm><primary>UploadedFileFactoryInterface</primary></indexterm>
+Graphe d&apos;héritage de UploadedFileFactoryInterface:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="interface_psr_1_1_http_1_1_message_1_1_uploaded_file_factory_interface__inherit__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Graphe de collaboration de UploadedFileFactoryInterface:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="interface_psr_1_1_http_1_1_message_1_1_uploaded_file_factory_interface__coll__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Fonctions membres publiques    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_interface_psr_1_1_http_1_1_message_1_1_uploaded_file_factory_interface_1acbcc538b83b22c57ed28618fdef759fe">createUploadedFile</link> (<link linkend="_interface_psr_1_1_http_1_1_message_1_1_stream_interface">StreamInterface</link> $stream, int $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">size</link>=null, int $error=\UPLOAD_ERR_OK, string $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">clientFilename</link>=null, string $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">clientMediaType</link>=null)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Documentation des fonctions membres</title>
+<anchor xml:id="_interface_psr_1_1_http_1_1_message_1_1_uploaded_file_factory_interface_1acbcc538b83b22c57ed28618fdef759fe"/><section>
+    <title>createUploadedFile()</title>
+<indexterm><primary>createUploadedFile</primary><secondary>UploadedFileFactoryInterface</secondary></indexterm>
+<indexterm><primary>UploadedFileFactoryInterface</primary><secondary>createUploadedFile</secondary></indexterm>
+<para><computeroutput>createUploadedFile (<link linkend="_interface_psr_1_1_http_1_1_message_1_1_stream_interface">StreamInterface</link> $stream, int $size = <computeroutput>null</computeroutput>
+, int $error = <computeroutput>\UPLOAD_ERR_OK</computeroutput>
+, string $clientFilename = <computeroutput>null</computeroutput>
+, string $clientMediaType = <computeroutput>null</computeroutput>
+)</computeroutput></para>
+<para>Create a new uploaded file.</para>
+
+<para>If a size is not provided it will be determined by checking the size of the file.</para>
+
+<para><formalpara><title>Voir également</title>
+
+<para><link xlink:href="http://php.net/manual/features.file-upload.post-method.php">http://php.net/manual/features.file-upload.post-method.php</link> </para>
+
+<para><link xlink:href="http://php.net/manual/features.file-upload.errors.php">http://php.net/manual/features.file-upload.errors.php</link></para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>StreamInterface</entry><entry>$stream</entry><entry>
+<para>Underlying stream representing the uploaded file content. </para>
+</entry>
+                            </row>
+                            <row>
+<entry>int</entry><entry>$size</entry><entry>
+<para>in bytes </para>
+</entry>
+                            </row>
+                            <row>
+<entry>int</entry><entry>$error</entry><entry>
+<para>PHP file upload error </para>
+</entry>
+                            </row>
+                            <row>
+<entry>string</entry><entry>$clientFilename</entry><entry>
+<para>Filename as provided by the client, if any. </para>
+</entry>
+                            </row>
+                            <row>
+<entry>string</entry><entry>$clientMediaType</entry><entry>
+<para>Media type as provided by the client, if any.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>UploadedFileInterface</para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry></entry>
+<entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                InvalidArgumentException If the file resource is not readable. </para>
+<para>
+Implémenté dans <link linkend="_class_guzzle_http_1_1_psr7_1_1_http_factory_1acbcc538b83b22c57ed28618fdef759fe">HttpFactory</link>.</para>
+</section>
+<para>
+La documentation de cette interface a été générée à partir du fichier suivant :</para>
+public/glpi/vendor/psr/http-factory/src/<link linkend="__uploaded_file_factory_interface_8php">UploadedFileFactoryInterface.php</link></section>
+</section>

@@ -1,0 +1,127 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_sabre_1_1_d_a_v_1_1_string_util" xml:lang="fr">
+<title>Référence de la classe StringUtil</title>
+<indexterm><primary>StringUtil</primary></indexterm>
+Graphe de collaboration de StringUtil:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_sabre_1_1_d_a_v_1_1_string_util__coll__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Fonctions membres publiques statiques    </title>
+        <itemizedlist>
+            <listitem><para>static <link linkend="_class_sabre_1_1_d_a_v_1_1_string_util_1ae357d91218de0814d84c91aa5c660fa2">textMatch</link> ($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">haystack</link>, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">needle</link>, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">collation</link>, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">matchType</link>=&apos;contains&apos;)</para>
+</listitem>
+            <listitem><para>static <link linkend="_class_sabre_1_1_d_a_v_1_1_string_util_1a02a4366053ce16696c439999b9ff7eaf">ensureUTF8</link> ($input)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Description détaillée</title>
+
+<para>String utility.</para>
+
+<para>This class is mainly used to implement the &apos;text-match&apos; filter, used by both the CalDAV calendar-query REPORT, and CardDAV addressbook-query REPORT. Because they both need it, it was decided to put it in Sabre\DAV instead.</para>
+
+<para><formalpara><title>Copyright</title>
+
+<para>Copyright (C) fruux GmbH (<link xlink:href="https://fruux.com/">https://fruux.com/</link>) </para>
+</formalpara>
+<formalpara><title>Auteur</title>
+
+<para>Evert Pot (<link xlink:href="http://evertpot.com/">http://evertpot.com/</link>) @license <link xlink:href="http://sabre.io/license/">http://sabre.io/license/</link> Modified BSD License </para>
+</formalpara>
+</para>
+</section>
+<section>
+<title>Documentation des fonctions membres</title>
+<anchor xml:id="_class_sabre_1_1_d_a_v_1_1_string_util_1a02a4366053ce16696c439999b9ff7eaf"/><section>
+    <title>ensureUTF8()</title>
+<indexterm><primary>ensureUTF8</primary><secondary>StringUtil</secondary></indexterm>
+<indexterm><primary>StringUtil</primary><secondary>ensureUTF8</secondary></indexterm>
+<para><computeroutput>static ensureUTF8 ( $input)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>This method takes an input string, checks if it&apos;s not valid UTF-8 and attempts to convert it to UTF-8 if it&apos;s not.</para>
+
+<para>Note that currently this can only convert ISO-8859-1 to UTF-8 (latin-1), anything else will likely fail.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$input</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>string </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_class_sabre_1_1_d_a_v_1_1_string_util_1ae357d91218de0814d84c91aa5c660fa2"/><section>
+    <title>textMatch()</title>
+<indexterm><primary>textMatch</primary><secondary>StringUtil</secondary></indexterm>
+<indexterm><primary>StringUtil</primary><secondary>textMatch</secondary></indexterm>
+<para><computeroutput>static textMatch ( $haystack,  $needle,  $collation,  $matchType = <computeroutput>&apos;contains&apos;</computeroutput>
+)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>Checks if a needle occurs in a haystack ;).</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$haystack</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>string</entry><entry>$needle</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>string</entry><entry>$collation</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>string</entry><entry>$matchType</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>bool </para>
+</formalpara>
+</para>
+</section>
+<para>
+La documentation de cette classe a été générée à partir du fichier suivant :</para>
+public/glpi/vendor/sabre/dav/lib/DAV/<link linkend="_dav_2lib_2_d_a_v_2_string_util_8php">StringUtil.php</link></section>
+</section>

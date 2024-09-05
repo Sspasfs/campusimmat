@@ -1,0 +1,142 @@
+\doxysection{Référence de l\textquotesingle{}interface Handler\+Interface}
+\hypertarget{interface_monolog_1_1_handler_1_1_handler_interface}{}\label{interface_monolog_1_1_handler_1_1_handler_interface}\index{HandlerInterface@{HandlerInterface}}
+
+
+Graphe d\textquotesingle{}héritage de Handler\+Interface\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{interface_monolog_1_1_handler_1_1_handler_interface__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Graphe de collaboration de Handler\+Interface\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=189pt]{interface_monolog_1_1_handler_1_1_handler_interface__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{interface_monolog_1_1_handler_1_1_handler_interface_abbfbbcd3430dea8422ecd3c725737758}{is\+Handling}} (array \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{record}})
+\item 
+\mbox{\hyperlink{interface_monolog_1_1_handler_1_1_handler_interface_ad54b568c673b7b4fc724268a54313603}{handle}} (array \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{record}})
+\item 
+\mbox{\hyperlink{interface_monolog_1_1_handler_1_1_handler_interface_a944865926b0302ad2d802bea1eec3a57}{handle\+Batch}} (array \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{records}})
+\item 
+\mbox{\hyperlink{interface_monolog_1_1_handler_1_1_handler_interface_aa69c8bf1f1dcf4e72552efff1fe3e87e}{close}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Interface that all \doxylink{namespace_monolog}{Monolog} Handlers must implement
+
+\begin{DoxyAuthor}{Auteur}
+Jordi Boggiano \href{mailto:j.boggiano@seld.be}{\texttt{ j.\+boggiano@seld.\+be}}
+\end{DoxyAuthor}
+@phpstan-\/import-\/type Record from \textbackslash{}\+Monolog\textbackslash{}\+Logger @phpstan-\/import-\/type Level from \textbackslash{}\+Monolog\textbackslash{}\+Logger 
+
+\doxysubsection{Documentation des fonctions membres}
+\Hypertarget{interface_monolog_1_1_handler_1_1_handler_interface_aa69c8bf1f1dcf4e72552efff1fe3e87e}\label{interface_monolog_1_1_handler_1_1_handler_interface_aa69c8bf1f1dcf4e72552efff1fe3e87e} 
+\index{HandlerInterface@{HandlerInterface}!close@{close}}
+\index{close@{close}!HandlerInterface@{HandlerInterface}}
+\doxysubsubsection{\texorpdfstring{close()}{close()}}
+{\footnotesize\ttfamily close (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Closes the handler.
+
+Ends a log cycle and frees all resources used by the handler.
+
+Closing a Handler means flushing all buffers and freeing any open resources/handles.
+
+Implementations have to be idempotent (i.\+e. it should be possible to call close several times without breakage) and ideally handlers should be able to reopen themselves on handle() after they have been closed.
+
+This is useful at the end of a request and will be called automatically when the object is destroyed if you extend \doxylink{namespace_monolog}{Monolog}\textbackslash{}\+Handler\textbackslash{}\+Handler.
+
+If you are thinking of calling this method yourself, most likely you should be calling Resettable\+Interface\+::reset instead. Have a look. 
+
+Implémenté dans \mbox{\hyperlink{class_monolog_1_1_handler_1_1_browser_console_handler_aa69c8bf1f1dcf4e72552efff1fe3e87e}{Browser\+Console\+Handler}}, \mbox{\hyperlink{class_monolog_1_1_handler_1_1_buffer_handler_aa69c8bf1f1dcf4e72552efff1fe3e87e}{Buffer\+Handler}}, \mbox{\hyperlink{class_monolog_1_1_handler_1_1_fingers_crossed_handler_aa69c8bf1f1dcf4e72552efff1fe3e87e}{Fingers\+Crossed\+Handler}}, \mbox{\hyperlink{class_monolog_1_1_handler_1_1_group_handler_aa69c8bf1f1dcf4e72552efff1fe3e87e}{Group\+Handler}}, \mbox{\hyperlink{class_monolog_1_1_handler_1_1_handler_aa69c8bf1f1dcf4e72552efff1fe3e87e}{Handler}}, \mbox{\hyperlink{class_monolog_1_1_handler_1_1_handler_wrapper_aa69c8bf1f1dcf4e72552efff1fe3e87e}{Handler\+Wrapper}}, \mbox{\hyperlink{class_monolog_1_1_handler_1_1_process_handler_aa69c8bf1f1dcf4e72552efff1fe3e87e}{Process\+Handler}}, \mbox{\hyperlink{class_monolog_1_1_handler_1_1_rollbar_handler_aa69c8bf1f1dcf4e72552efff1fe3e87e}{Rollbar\+Handler}}, \mbox{\hyperlink{class_monolog_1_1_handler_1_1_rotating_file_handler_aa69c8bf1f1dcf4e72552efff1fe3e87e}{Rotating\+File\+Handler}}, \mbox{\hyperlink{class_monolog_1_1_handler_1_1_socket_handler_aa69c8bf1f1dcf4e72552efff1fe3e87e}{Socket\+Handler}}, \mbox{\hyperlink{class_monolog_1_1_handler_1_1_stream_handler_aa69c8bf1f1dcf4e72552efff1fe3e87e}{Stream\+Handler}}, \mbox{\hyperlink{class_monolog_1_1_handler_1_1_syslog_handler_aa69c8bf1f1dcf4e72552efff1fe3e87e}{Syslog\+Handler}}, et \mbox{\hyperlink{class_monolog_1_1_handler_1_1_syslog_udp_handler_aa69c8bf1f1dcf4e72552efff1fe3e87e}{Syslog\+Udp\+Handler}}.
+
+\Hypertarget{interface_monolog_1_1_handler_1_1_handler_interface_ad54b568c673b7b4fc724268a54313603}\label{interface_monolog_1_1_handler_1_1_handler_interface_ad54b568c673b7b4fc724268a54313603} 
+\index{HandlerInterface@{HandlerInterface}!handle@{handle}}
+\index{handle@{handle}!HandlerInterface@{HandlerInterface}}
+\doxysubsubsection{\texorpdfstring{handle()}{handle()}}
+{\footnotesize\ttfamily handle (\begin{DoxyParamCaption}\item[{array}]{\$record }\end{DoxyParamCaption})}
+
+Handles a record.
+
+All records may be passed to this method, and the handler should discard those that it does not want to handle.
+
+The return value of this function controls the bubbling process of the handler stack. Unless the bubbling is interrupted (by returning true), the Logger class will keep on calling further handlers in the stack with a given log record.
+
+
+\begin{DoxyParams}[1]{Paramètres}
+array & {\em \$record} & The record to handle \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+bool true means that this handler handled the record, and that bubbling is not permitted. false means the record was either not processed or that this handler allows bubbling.
+\end{DoxyReturn}
+@phpstan-\/param Record \$record 
+
+Implémenté dans \mbox{\hyperlink{class_monolog_1_1_handler_1_1_handler_wrapper_ad54b568c673b7b4fc724268a54313603}{Handler\+Wrapper}}, \mbox{\hyperlink{class_monolog_1_1_handler_1_1_noop_handler_ad54b568c673b7b4fc724268a54313603}{Noop\+Handler}}, \mbox{\hyperlink{class_monolog_1_1_handler_1_1_null_handler_ad54b568c673b7b4fc724268a54313603}{Null\+Handler}}, \mbox{\hyperlink{class_monolog_1_1_handler_1_1_overflow_handler_ad54b568c673b7b4fc724268a54313603}{Overflow\+Handler}}, \mbox{\hyperlink{class_monolog_1_1_handler_1_1_p_h_p_console_handler_ad54b568c673b7b4fc724268a54313603}{PHPConsole\+Handler}}, et \mbox{\hyperlink{class_monolog_1_1_handler_1_1_psr_handler_ad54b568c673b7b4fc724268a54313603}{Psr\+Handler}}.
+
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{interface_monolog_1_1_handler_1_1_handler_interface_ad54b568c673b7b4fc724268a54313603_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{interface_monolog_1_1_handler_1_1_handler_interface_a944865926b0302ad2d802bea1eec3a57}\label{interface_monolog_1_1_handler_1_1_handler_interface_a944865926b0302ad2d802bea1eec3a57} 
+\index{HandlerInterface@{HandlerInterface}!handleBatch@{handleBatch}}
+\index{handleBatch@{handleBatch}!HandlerInterface@{HandlerInterface}}
+\doxysubsubsection{\texorpdfstring{handleBatch()}{handleBatch()}}
+{\footnotesize\ttfamily handle\+Batch (\begin{DoxyParamCaption}\item[{array}]{\$records }\end{DoxyParamCaption})}
+
+Handles a set of records at once.
+
+
+\begin{DoxyParams}[1]{Paramètres}
+array & {\em \$records} & The records to handle (an array of record arrays)\\
+\hline
+\end{DoxyParams}
+@phpstan-\/param Record\mbox{[}\mbox{]} \$records 
+
+Implémenté dans \mbox{\hyperlink{class_monolog_1_1_handler_1_1_elastica_handler_a944865926b0302ad2d802bea1eec3a57}{Elastica\+Handler}}, \mbox{\hyperlink{class_monolog_1_1_handler_1_1_elasticsearch_handler_a944865926b0302ad2d802bea1eec3a57}{Elasticsearch\+Handler}}, \mbox{\hyperlink{class_monolog_1_1_handler_1_1_filter_handler_a944865926b0302ad2d802bea1eec3a57}{Filter\+Handler}}, \mbox{\hyperlink{class_monolog_1_1_handler_1_1_handler_a944865926b0302ad2d802bea1eec3a57}{Handler}}, \mbox{\hyperlink{class_monolog_1_1_handler_1_1_handler_wrapper_a944865926b0302ad2d802bea1eec3a57}{Handler\+Wrapper}}, et \mbox{\hyperlink{class_monolog_1_1_handler_1_1_loggly_handler_a944865926b0302ad2d802bea1eec3a57}{Loggly\+Handler}}.
+
+\Hypertarget{interface_monolog_1_1_handler_1_1_handler_interface_abbfbbcd3430dea8422ecd3c725737758}\label{interface_monolog_1_1_handler_1_1_handler_interface_abbfbbcd3430dea8422ecd3c725737758} 
+\index{HandlerInterface@{HandlerInterface}!isHandling@{isHandling}}
+\index{isHandling@{isHandling}!HandlerInterface@{HandlerInterface}}
+\doxysubsubsection{\texorpdfstring{isHandling()}{isHandling()}}
+{\footnotesize\ttfamily is\+Handling (\begin{DoxyParamCaption}\item[{array}]{\$record }\end{DoxyParamCaption})}
+
+Checks whether the given record will be handled by this handler.
+
+This is mostly done for performance reasons, to avoid calling processors for nothing.
+
+Handlers should still check the record levels within handle(), returning false in is\+Handling() is no guarantee that handle() will not be called, and is\+Handling() might not be called for a given record.
+
+
+\begin{DoxyParams}[1]{Paramètres}
+array & {\em \$record} & Partial log record containing only a level key\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+bool
+\end{DoxyReturn}
+@phpstan-\/param array\{level\+: Level\} \$record 
+
+Implémenté dans \mbox{\hyperlink{class_monolog_1_1_handler_1_1_abstract_handler_abbfbbcd3430dea8422ecd3c725737758}{Abstract\+Handler}}, \mbox{\hyperlink{class_monolog_1_1_handler_1_1_filter_handler_abbfbbcd3430dea8422ecd3c725737758}{Filter\+Handler}}, \mbox{\hyperlink{class_monolog_1_1_handler_1_1_fingers_crossed_handler_abbfbbcd3430dea8422ecd3c725737758}{Fingers\+Crossed\+Handler}}, \mbox{\hyperlink{class_monolog_1_1_handler_1_1_group_handler_abbfbbcd3430dea8422ecd3c725737758}{Group\+Handler}}, \mbox{\hyperlink{class_monolog_1_1_handler_1_1_handler_wrapper_abbfbbcd3430dea8422ecd3c725737758}{Handler\+Wrapper}}, \mbox{\hyperlink{class_monolog_1_1_handler_1_1_noop_handler_abbfbbcd3430dea8422ecd3c725737758}{Noop\+Handler}}, \mbox{\hyperlink{class_monolog_1_1_handler_1_1_null_handler_abbfbbcd3430dea8422ecd3c725737758}{Null\+Handler}}, et \mbox{\hyperlink{class_monolog_1_1_handler_1_1_sampling_handler_abbfbbcd3430dea8422ecd3c725737758}{Sampling\+Handler}}.
+
+
+
+La documentation de cette interface a été générée à partir du fichier suivant \+:\begin{DoxyCompactItemize}
+\item 
+public/glpi/vendor/monolog/monolog/src/\+Monolog/\+Handler/\mbox{\hyperlink{monolog_2monolog_2src_2_monolog_2_handler_2_handler_interface_8php}{Handler\+Interface.\+php}}\end{DoxyCompactItemize}

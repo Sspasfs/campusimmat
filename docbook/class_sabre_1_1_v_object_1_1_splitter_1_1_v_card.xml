@@ -1,0 +1,142 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_sabre_1_1_v_object_1_1_splitter_1_1_v_card" xml:lang="fr">
+<title>Référence de la classe VCard</title>
+<indexterm><primary>VCard</primary></indexterm>
+Graphe d&apos;héritage de VCard:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_sabre_1_1_v_object_1_1_splitter_1_1_v_card__inherit__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Graphe de collaboration de VCard:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_sabre_1_1_v_object_1_1_splitter_1_1_v_card__coll__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Fonctions membres publiques    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_sabre_1_1_v_object_1_1_splitter_1_1_v_card_1aca46561a2a1a9fa78f2bb32f2676c6be">__construct</link> ($input, $options=0)</para>
+</listitem>
+            <listitem><para><link linkend="_class_sabre_1_1_v_object_1_1_splitter_1_1_v_card_1a40b8da315cd66793e9fd685973ea8782">getNext</link> ()</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+Fonctions membres publiques hérités de <link linkend="_interface_sabre_1_1_v_object_1_1_splitter_1_1_splitter_interface">SplitterInterface</link>        <itemizedlist>
+            <listitem><para><link linkend="_interface_sabre_1_1_v_object_1_1_splitter_1_1_splitter_interface_1ade22206ffe41068eed8c5a35952f7543">__construct</link> ($input)</para>
+</listitem>
+        </itemizedlist>
+<simplesect>
+    <title>Attributs protégés    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_sabre_1_1_v_object_1_1_splitter_1_1_v_card_1a69b271260be394b90709736cccb22c76">$input</link></para>
+</listitem>
+            <listitem><para><link linkend="_class_sabre_1_1_v_object_1_1_splitter_1_1_v_card_1a147a766daa03d52576c7345fea31c945">$parser</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Description détaillée</title>
+
+<para>Splitter.</para>
+
+<para>This class is responsible for splitting up VCard objects.</para>
+
+<para>It is assumed that the input stream contains 1 or more VCARD objects. This class checks for BEGIN:VCARD and END:VCARD and parses each encountered component individually.</para>
+
+<para><formalpara><title>Copyright</title>
+
+<para>Copyright (C) fruux GmbH (<link xlink:href="https://fruux.com/">https://fruux.com/</link>) </para>
+</formalpara>
+<formalpara><title>Auteur</title>
+
+<para>Dominik Tobschall (<link xlink:href="http://tobschall.de/">http://tobschall.de/</link>) </para>
+
+<para>Armin Hackmann @license <link xlink:href="http://sabre.io/license/">http://sabre.io/license/</link> Modified BSD License </para>
+</formalpara>
+</para>
+</section>
+<section>
+<title>Documentation des constructeurs et destructeur</title>
+<anchor xml:id="_class_sabre_1_1_v_object_1_1_splitter_1_1_v_card_1aca46561a2a1a9fa78f2bb32f2676c6be"/><section>
+    <title>__construct()</title>
+<indexterm><primary>__construct</primary><secondary>VCard</secondary></indexterm>
+<indexterm><primary>VCard</primary><secondary>__construct</secondary></indexterm>
+<para><computeroutput>__construct ( $input,  $options = <computeroutput>0</computeroutput>
+)</computeroutput></para>
+<para>Constructor.</para>
+
+<para>The splitter should receive an readable file stream as its input.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>resource</entry><entry>$input</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>int</entry><entry>$options</entry><entry>
+<para>parser options, see the OPTIONS constants </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
+</section>
+<section>
+<title>Documentation des fonctions membres</title>
+<anchor xml:id="_class_sabre_1_1_v_object_1_1_splitter_1_1_v_card_1a40b8da315cd66793e9fd685973ea8782"/><section>
+    <title>getNext()</title>
+<indexterm><primary>getNext</primary><secondary>VCard</secondary></indexterm>
+<indexterm><primary>VCard</primary><secondary>getNext</secondary></indexterm>
+<para><computeroutput>getNext ( )</computeroutput></para>
+<para>Every time getNext() is called, a new object will be parsed, until we hit the end of the stream.</para>
+
+<para>When the end is reached, null will be returned.</para>
+
+<para><formalpara><title>Renvoie</title>
+
+<para>\Sabre\VObject\Component|null </para>
+</formalpara>
+</para>
+<para>
+Implémente <link linkend="_interface_sabre_1_1_v_object_1_1_splitter_1_1_splitter_interface_1a40b8da315cd66793e9fd685973ea8782">SplitterInterface</link>.</para>
+</section>
+</section>
+<section>
+<title>Documentation des champs</title>
+<anchor xml:id="_class_sabre_1_1_v_object_1_1_splitter_1_1_v_card_1a69b271260be394b90709736cccb22c76"/><section>
+    <title>$input</title>
+<indexterm><primary>$input</primary><secondary>VCard</secondary></indexterm>
+<indexterm><primary>VCard</primary><secondary>$input</secondary></indexterm>
+<para><computeroutput>$input<computeroutput>[protected]</computeroutput></computeroutput></para></section>
+<anchor xml:id="_class_sabre_1_1_v_object_1_1_splitter_1_1_v_card_1a147a766daa03d52576c7345fea31c945"/><section>
+    <title>$parser</title>
+<indexterm><primary>$parser</primary><secondary>VCard</secondary></indexterm>
+<indexterm><primary>VCard</primary><secondary>$parser</secondary></indexterm>
+<para><computeroutput>$<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">parser</link><computeroutput>[protected]</computeroutput></computeroutput></para></section>
+<para>
+La documentation de cette classe a été générée à partir du fichier suivant :</para>
+public/glpi/vendor/sabre/vobject/lib/Splitter/<link linkend="__splitter_2_v_card_8php">VCard.php</link></section>
+</section>

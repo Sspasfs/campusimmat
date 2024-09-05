@@ -1,0 +1,84 @@
+\doxysection{Référence de l\textquotesingle{}interface IQuota}
+\hypertarget{interface_sabre_1_1_d_a_v_1_1_i_quota}{}\label{interface_sabre_1_1_d_a_v_1_1_i_quota}\index{IQuota@{IQuota}}
+
+
+Graphe d\textquotesingle{}héritage de IQuota\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{interface_sabre_1_1_d_a_v_1_1_i_quota__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Graphe de collaboration de IQuota\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=200pt]{interface_sabre_1_1_d_a_v_1_1_i_quota__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_i_quota_a1c325096835530b1245d9241747b2792}{get\+Quota\+Info}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Fonctions membres publiques hérités de \mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_i_collection}{ICollection}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_i_collection_a4135c8ffb4787bd20d7409ad699d8e0d}{create\+File}} (\$name, \$data=null)
+\item 
+\mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_i_collection_ad2c87f2e1012d1860d1d343a9ee54fa1}{create\+Directory}} (\$name)
+\item 
+\mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_i_collection_a1cfdba129d25b04b73af8290f58ba7c1}{get\+Child}} (\$name)
+\item 
+\mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_i_collection_a8650a4f6150ed357d88fa043f1685ac5}{get\+Children}} ()
+\item 
+\mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_i_collection_a9c5c664f8f1e4a514235a31837de9988}{child\+Exists}} (\$name)
+\end{DoxyCompactItemize}
+\doxysubsection*{Fonctions membres publiques hérités de \mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_i_node}{INode}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_i_node_a13bdffdd926f26b825ea57066334ff01}{delete}} ()
+\item 
+\mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_i_node_a3d0963e68bb313b163a73f2803c64600}{get\+Name}} ()
+\item 
+\mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_i_node_a2fe666694997d047711d7653eca2f132}{set\+Name}} (\$name)
+\item 
+\mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_i_node_aa388e2fda4fe702e8953c1a731868f18}{get\+Last\+Modified}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+IQuota interface.
+
+Implement this interface to add the ability to return quota information. The Object\+Tree will check for quota information on any given node. If the information is not available it will attempt to fetch the information from the root node.
+
+\begin{DoxyCopyright}{Copyright}
+Copyright (C) fruux GmbH (\href{https://fruux.com/}{\texttt{ https\+://fruux.\+com/}}) 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Auteur}
+Evert Pot (\href{http://evertpot.com/}{\texttt{ http\+://evertpot.\+com/}}) @license \href{http://sabre.io/license/}{\texttt{ http\+://sabre.\+io/license/}} Modified BSD License 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Documentation des fonctions membres}
+\Hypertarget{interface_sabre_1_1_d_a_v_1_1_i_quota_a1c325096835530b1245d9241747b2792}\label{interface_sabre_1_1_d_a_v_1_1_i_quota_a1c325096835530b1245d9241747b2792} 
+\index{IQuota@{IQuota}!getQuotaInfo@{getQuotaInfo}}
+\index{getQuotaInfo@{getQuotaInfo}!IQuota@{IQuota}}
+\doxysubsubsection{\texorpdfstring{getQuotaInfo()}{getQuotaInfo()}}
+{\footnotesize\ttfamily get\+Quota\+Info (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Returns the quota information.
+
+This method MUST return an array with 2 values, the first being the total used space, the second the available space (in bytes) 
+
+Implémenté dans \mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_f_s_1_1_directory_a1c325096835530b1245d9241747b2792}{Directory}}, et \mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_f_s_ext_1_1_directory_a1c325096835530b1245d9241747b2792}{Directory}}.
+
+
+
+La documentation de cette interface a été générée à partir du fichier suivant \+:\begin{DoxyCompactItemize}
+\item 
+public/glpi/vendor/sabre/dav/lib/\+DAV/\mbox{\hyperlink{_i_quota_8php}{IQuota.\+php}}\end{DoxyCompactItemize}

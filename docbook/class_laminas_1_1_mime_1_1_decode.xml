@@ -1,0 +1,356 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_laminas_1_1_mime_1_1_decode" xml:lang="fr">
+<title>Référence de la classe Decode</title>
+<indexterm><primary>Decode</primary></indexterm>
+Graphe de collaboration de Decode:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_laminas_1_1_mime_1_1_decode__coll__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Fonctions membres publiques statiques    </title>
+        <itemizedlist>
+            <listitem><para>static <link linkend="_class_laminas_1_1_mime_1_1_decode_1abfbc91fea2dd39b9281c7cc2b0eb72d3">splitMime</link> ($body, $boundary)</para>
+</listitem>
+            <listitem><para>static <link linkend="_class_laminas_1_1_mime_1_1_decode_1a270fe9b0b30352f0f65deda23c0c63fe">splitMessageStruct</link> ($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">message</link>, $boundary, $EOL=<link linkend="_class_laminas_1_1_mime_1_1_mime_1a04b8f3b5de38ea0d80fe91d321fae1c2">Mime::LINEEND</link>)</para>
+</listitem>
+            <listitem><para>static <link linkend="_class_laminas_1_1_mime_1_1_decode_1a79a871773f24ae19e3bd294454bf5c3f">splitMessage</link> ($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">message</link>, &amp;$headers, &amp;$body, $EOL=<link linkend="_class_laminas_1_1_mime_1_1_mime_1a04b8f3b5de38ea0d80fe91d321fae1c2">Mime::LINEEND</link>, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">strict</link>=false)</para>
+</listitem>
+            <listitem><para>static <link linkend="_class_laminas_1_1_mime_1_1_decode_1af463c14cd3067dc3782bd5cbd22311a9">splitContentType</link> ($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">type</link>, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">wantedPart</link>=null)</para>
+</listitem>
+            <listitem><para>static <link linkend="_class_laminas_1_1_mime_1_1_decode_1ab6fe6ed7cb8f684a04d5a6f370673ddc">splitHeaderField</link> ($field, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">wantedPart</link>=null, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">firstName</link>=&apos;0&apos;)</para>
+</listitem>
+            <listitem><para>static <link linkend="_class_laminas_1_1_mime_1_1_decode_1afcf80ac046a725f225d748fbe97cf21a">decodeQuotedPrintable</link> ($string)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Documentation des fonctions membres</title>
+<anchor xml:id="_class_laminas_1_1_mime_1_1_decode_1afcf80ac046a725f225d748fbe97cf21a"/><section>
+    <title>decodeQuotedPrintable()</title>
+<indexterm><primary>decodeQuotedPrintable</primary><secondary>Decode</secondary></indexterm>
+<indexterm><primary>Decode</primary><secondary>decodeQuotedPrintable</secondary></indexterm>
+<para><computeroutput>static decodeQuotedPrintable ( $string)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>decode a quoted printable encoded string</para>
+
+<para>The charset of the returned string depends on your iconv settings.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$string</entry><entry>
+<para>encoded string </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>string decoded string </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_class_laminas_1_1_mime_1_1_decode_1af463c14cd3067dc3782bd5cbd22311a9"/><section>
+    <title>splitContentType()</title>
+<indexterm><primary>splitContentType</primary><secondary>Decode</secondary></indexterm>
+<indexterm><primary>Decode</primary><secondary>splitContentType</secondary></indexterm>
+<para><computeroutput>static splitContentType ( $type,  $wantedPart = <computeroutput>null</computeroutput>
+)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>split a content type in its different parts</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$type</entry><entry>
+<para>content-type </para>
+</entry>
+                            </row>
+                            <row>
+<entry>string</entry><entry>$wantedPart</entry><entry>
+<para>the wanted part, else an array with all parts is returned </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>string|array wanted part or all parts as array(&apos;type&apos; =&gt; content-type, partname =&gt; value) </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_class_laminas_1_1_mime_1_1_decode_1ab6fe6ed7cb8f684a04d5a6f370673ddc"/><section>
+    <title>splitHeaderField()</title>
+<indexterm><primary>splitHeaderField</primary><secondary>Decode</secondary></indexterm>
+<indexterm><primary>Decode</primary><secondary>splitHeaderField</secondary></indexterm>
+<para><computeroutput>static splitHeaderField ( $field,  $wantedPart = <computeroutput>null</computeroutput>
+,  $firstName = <computeroutput>&apos;0&apos;</computeroutput>
+)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>split a header field like content type in its different parts</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$field</entry><entry>
+<para>header field </para>
+</entry>
+                            </row>
+                            <row>
+<entry>string</entry><entry>$wantedPart</entry><entry>
+<para>the wanted part, else an array with all parts is returned </para>
+</entry>
+                            </row>
+                            <row>
+<entry>string</entry><entry>$firstName</entry><entry>
+<para>key name for the first part </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>string|array wanted part or all parts as array($firstName =&gt; firstPart, partname =&gt; value) </para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>Exception</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                RuntimeException </para>
+</section>
+<anchor xml:id="_class_laminas_1_1_mime_1_1_decode_1a79a871773f24ae19e3bd294454bf5c3f"/><section>
+    <title>splitMessage()</title>
+<indexterm><primary>splitMessage</primary><secondary>Decode</secondary></indexterm>
+<indexterm><primary>Decode</primary><secondary>splitMessage</secondary></indexterm>
+<para><computeroutput>static splitMessage ( $message, &amp; $headers, &amp; $body,  $EOL = <computeroutput><link linkend="_class_laminas_1_1_mime_1_1_mime_1a04b8f3b5de38ea0d80fe91d321fae1c2">Mime::LINEEND</link></computeroutput>
+,  $strict = <computeroutput>false</computeroutput>
+)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>split a message in header and body part, if no header or an invalid header is found $headers is empty</para>
+
+<para>The charset of the returned headers depend on your iconv settings.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string | Headers</entry><entry>$message</entry><entry>
+<para>raw message with header and optional content </para>
+</entry>
+                            </row>
+                            <row>
+<entry>Headers</entry><entry>$headers</entry><entry>
+<para>output param, headers container </para>
+</entry>
+                            </row>
+                            <row>
+<entry>string</entry><entry>$body</entry><entry>
+<para>output param, content of message </para>
+</entry>
+                            </row>
+                            <row>
+<entry>string</entry><entry>$EOL</entry><entry>
+<para>EOL string; defaults to <computeroutput><link linkend="_">Laminas\Mime\Mime::LINEEND</link></computeroutput> </para>
+</entry>
+                            </row>
+                            <row>
+<entry>bool</entry><entry>$strict</entry><entry>
+<para>enable strict mode for parsing message </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>null </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_class_laminas_1_1_mime_1_1_decode_1a270fe9b0b30352f0f65deda23c0c63fe"/><section>
+    <title>splitMessageStruct()</title>
+<indexterm><primary>splitMessageStruct</primary><secondary>Decode</secondary></indexterm>
+<indexterm><primary>Decode</primary><secondary>splitMessageStruct</secondary></indexterm>
+<para><computeroutput>static splitMessageStruct ( $message,  $boundary,  $EOL = <computeroutput><link linkend="_class_laminas_1_1_mime_1_1_mime_1a04b8f3b5de38ea0d80fe91d321fae1c2">Mime::LINEEND</link></computeroutput>
+)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>decodes a mime encoded String and returns a struct of parts with header and body</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$message</entry><entry>
+<para>raw message content </para>
+</entry>
+                            </row>
+                            <row>
+<entry>string</entry><entry>$boundary</entry><entry>
+<para>boundary as found in content-type </para>
+</entry>
+                            </row>
+                            <row>
+<entry>string</entry><entry>$EOL</entry><entry>
+<para>EOL string; defaults to <computeroutput><link linkend="_">Laminas\Mime\Mime::LINEEND</link></computeroutput> </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>array|null parts as array(&apos;header&apos; =&gt; array(name =&gt; value), &apos;body&apos; =&gt; content), null if no parts found </para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>Exception</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                RuntimeException </para>
+</section>
+<anchor xml:id="_class_laminas_1_1_mime_1_1_decode_1abfbc91fea2dd39b9281c7cc2b0eb72d3"/><section>
+    <title>splitMime()</title>
+<indexterm><primary>splitMime</primary><secondary>Decode</secondary></indexterm>
+<indexterm><primary>Decode</primary><secondary>splitMime</secondary></indexterm>
+<para><computeroutput>static splitMime ( $body,  $boundary)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>Explode MIME multipart string into separate parts</para>
+
+<para>Parts consist of the header and the body of each MIME part.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$body</entry><entry>
+<para>raw body of message </para>
+</entry>
+                            </row>
+                            <row>
+<entry>string</entry><entry>$boundary</entry><entry>
+<para>boundary as found in content-type </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>array parts with content of each part, empty if no parts found </para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>Exception</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                RuntimeException </para>
+</section>
+<para>
+La documentation de cette classe a été générée à partir du fichier suivant :</para>
+public/glpi/vendor/laminas/laminas-mime/src/<link linkend="__decode_8php">Decode.php</link></section>
+</section>

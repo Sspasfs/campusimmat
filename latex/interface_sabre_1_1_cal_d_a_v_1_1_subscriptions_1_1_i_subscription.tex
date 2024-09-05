@@ -1,0 +1,90 @@
+\doxysection{Référence de l\textquotesingle{}interface ISubscription}
+\hypertarget{interface_sabre_1_1_cal_d_a_v_1_1_subscriptions_1_1_i_subscription}{}\label{interface_sabre_1_1_cal_d_a_v_1_1_subscriptions_1_1_i_subscription}\index{ISubscription@{ISubscription}}
+
+
+Graphe d\textquotesingle{}héritage de ISubscription\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{interface_sabre_1_1_cal_d_a_v_1_1_subscriptions_1_1_i_subscription__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Graphe de collaboration de ISubscription\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=348pt]{interface_sabre_1_1_cal_d_a_v_1_1_subscriptions_1_1_i_subscription__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Membres hérités additionnels}
+\doxysubsection*{Fonctions membres publiques hérités de \mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_i_collection}{ICollection}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_i_collection_a4135c8ffb4787bd20d7409ad699d8e0d}{create\+File}} (\$name, \$data=null)
+\item 
+\mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_i_collection_ad2c87f2e1012d1860d1d343a9ee54fa1}{create\+Directory}} (\$name)
+\item 
+\mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_i_collection_a1cfdba129d25b04b73af8290f58ba7c1}{get\+Child}} (\$name)
+\item 
+\mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_i_collection_a8650a4f6150ed357d88fa043f1685ac5}{get\+Children}} ()
+\item 
+\mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_i_collection_a9c5c664f8f1e4a514235a31837de9988}{child\+Exists}} (\$name)
+\end{DoxyCompactItemize}
+\doxysubsection*{Fonctions membres publiques hérités de \mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_i_node}{INode}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_i_node_a13bdffdd926f26b825ea57066334ff01}{delete}} ()
+\item 
+\mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_i_node_a3d0963e68bb313b163a73f2803c64600}{get\+Name}} ()
+\item 
+\mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_i_node_a2fe666694997d047711d7653eca2f132}{set\+Name}} (\$name)
+\item 
+\mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_i_node_aa388e2fda4fe702e8953c1a731868f18}{get\+Last\+Modified}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Fonctions membres publiques hérités de \mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_i_properties}{IProperties}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_i_properties_aaa1ed377aaa9f4d644fda86f01afab25}{prop\+Patch}} (\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_prop_patch}{Prop\+Patch}} \$prop\+Patch)
+\item 
+\mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_i_properties_a0df78341cffeace459efcae44dde3d48}{get\+Properties}} (\$properties)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+ISubscription.
+
+Nodes implementing this interface represent calendar subscriptions.
+
+The subscription node doesn\textquotesingle{}t do much, other than returning and updating subscription-\/related properties.
+
+The following properties should be supported\+:
+
+
+\begin{DoxyEnumerate}
+\item \{DAV\+:\}displayname
+\item \{\href{http://apple.com/ns/ical/}{\texttt{ http\+://apple.\+com/ns/ical/}}\}refreshrate
+\item \{\href{http://calendarserver.org/ns/}{\texttt{ http\+://calendarserver.\+org/ns/}}\}subscribed-\/strip-\/todos (omit if todos should not be stripped).
+\item \{\href{http://calendarserver.org/ns/}{\texttt{ http\+://calendarserver.\+org/ns/}}\}subscribed-\/strip-\/alarms (omit if alarms should not be stripped).
+\item \{\href{http://calendarserver.org/ns/}{\texttt{ http\+://calendarserver.\+org/ns/}}\}subscribed-\/strip-\/attachments (omit if attachments should not be stripped).
+\item \{\href{http://calendarserver.org/ns/}{\texttt{ http\+://calendarserver.\+org/ns/}}\}source (Must be a Sabre\textbackslash{}\+DAV\textbackslash{}\+Property\textbackslash{}\+Href).
+\item \{\href{http://apple.com/ns/ical/}{\texttt{ http\+://apple.\+com/ns/ical/}}\}calendar-\/color
+\item \{\href{http://apple.com/ns/ical/}{\texttt{ http\+://apple.\+com/ns/ical/}}\}calendar-\/order
+\end{DoxyEnumerate}
+
+It is recommended to support every property.
+
+\begin{DoxyCopyright}{Copyright}
+Copyright (C) fruux GmbH (\href{https://fruux.com/}{\texttt{ https\+://fruux.\+com/}}) 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Auteur}
+Evert Pot (\href{http://evertpot.com/}{\texttt{ http\+://evertpot.\+com/}}) @license \href{http://sabre.io/license/}{\texttt{ http\+://sabre.\+io/license/}} Modified BSD License 
+\end{DoxyAuthor}
+
+
+La documentation de cette interface a été générée à partir du fichier suivant \+:\begin{DoxyCompactItemize}
+\item 
+public/glpi/vendor/sabre/dav/lib/\+Cal\+DAV/\+Subscriptions/\mbox{\hyperlink{_i_subscription_8php}{ISubscription.\+php}}\end{DoxyCompactItemize}

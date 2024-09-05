@@ -1,0 +1,172 @@
+\chapter{PHPColors \texorpdfstring{$<$}{<}a href="{}https\+://travis-\/ci.\+org/mexitek/php\+Colors"{} \texorpdfstring{$>$}{>}\texorpdfstring{$<$}{<}img src="{}https\+://travis-\/ci.\+org/mexitek/php\+Colors.\+svg?branch=master"{} alt="{}\+Build Status"{}/\texorpdfstring{$>$}{>}\texorpdfstring{$<$}{<}/a\texorpdfstring{$>$}{>}}
+\hypertarget{md_public_2glpi_2vendor_2mexitek_2phpcolors_2_r_e_a_d_m_e}{}\label{md_public_2glpi_2vendor_2mexitek_2phpcolors_2_r_e_a_d_m_e}\index{PHPColors $<$a href="{}https://travis-\/ci.org/mexitek/phpColors"{} $>$$<$img src="{}https://travis-\/ci.org/mexitek/phpColors.svg?branch=master"{} alt="{}Build Status"{}/$>$$<$/a$>$@{PHPColors $<$a href=""https://travis-\/ci.org/mexitek/phpColors"" $>$$<$img src=""https://travis-\/ci.org/mexitek/phpColors.svg?branch=master"" alt=""Build Status""/$>$$<$/a$>$}}
+\label{md_public_2glpi_2vendor_2mexitek_2phpcolors_2_r_e_a_d_m_e_autotoc_md6758}%
+\Hypertarget{md_public_2glpi_2vendor_2mexitek_2phpcolors_2_r_e_a_d_m_e_autotoc_md6758}%
+ \begin{quote}
+A series of methods that let you manipulate colors. Just incase you ever need different shades of one color on the fly. \end{quote}
+\hypertarget{md_public_2glpi_2vendor_2mexitek_2phpcolors_2_r_e_a_d_m_e_autotoc_md6759}{}\doxysection{\texorpdfstring{Requirements}{Requirements}}\label{md_public_2glpi_2vendor_2mexitek_2phpcolors_2_r_e_a_d_m_e_autotoc_md6759}
+PHPColors requires PHP version 7.\+2.\+0 or greater.\hypertarget{md_public_2glpi_2vendor_2mexitek_2phpcolors_2_r_e_a_d_m_e_autotoc_md6760}{}\doxysection{\texorpdfstring{Installation}{Installation}}\label{md_public_2glpi_2vendor_2mexitek_2phpcolors_2_r_e_a_d_m_e_autotoc_md6760}
+\hypertarget{md_public_2glpi_2vendor_2mexitek_2phpcolors_2_r_e_a_d_m_e_autotoc_md6761}{}\doxysubsection{\texorpdfstring{Composer}{Composer}}\label{md_public_2glpi_2vendor_2mexitek_2phpcolors_2_r_e_a_d_m_e_autotoc_md6761}
+Simply add {\ttfamily mexitek/phpcolors} to {\ttfamily composer.\+json} using {\ttfamily dev-\/master}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{composer\ require\ mexitek/phpcolors:dev-\/master}
+
+\end{DoxyCode}
+\hypertarget{md_public_2glpi_2vendor_2mexitek_2phpcolors_2_r_e_a_d_m_e_autotoc_md6762}{}\doxysection{\texorpdfstring{How it works}{How it works}}\label{md_public_2glpi_2vendor_2mexitek_2phpcolors_2_r_e_a_d_m_e_autotoc_md6762}
+Instantiate an object of the color class with a hex color string {\ttfamily \$foo = new Color("{}336699"{})}. That\textquotesingle{}s it! Now, call the methods you need for different color variants.\hypertarget{md_public_2glpi_2vendor_2mexitek_2phpcolors_2_r_e_a_d_m_e_autotoc_md6763}{}\doxysection{\texorpdfstring{Available Methods}{Available Methods}}\label{md_public_2glpi_2vendor_2mexitek_2phpcolors_2_r_e_a_d_m_e_autotoc_md6763}
+
+\begin{DoxyItemize}
+\item {\bfseries{darken( \mbox{[}\$amount\mbox{]} )}} \+: Allows you to obtain a darker shade of your color. Optionally you can decide to darken using a desired percentage.
+\item {\bfseries{lighten( \mbox{[}\$amount\mbox{]} )}} \+: Allows you to obtain a lighter shade of your color. Optionally you can decide to lighten using a desired percentage.
+\item {\bfseries{mix(\$hex, \mbox{[}\$amount\mbox{]} )}} \+: Allows you to mix another color to your color. Optionally you can decide to set the percent of second color or original color amount is ranged -\/100...0...100.
+\item {\bfseries{is\+Light( \mbox{[}\$hex\mbox{]} )}} \+: Determins whether your color (or the provide param) is considered a "{}light"{} color. Returns {\ttfamily TRUE} if color is light.
+\item {\bfseries{is\+Dark( \mbox{[}\$hex\mbox{]} )}} \+: Determins whether your color (or the provide param) is considered a "{}dark"{} color. Returns {\ttfamily TRUE} if color is dark.
+\item {\bfseries{make\+Gradient( \mbox{[}\$amount\mbox{]} )}} \+: Returns an array with 2 indices {\ttfamily light} and {\ttfamily dark}, the initial color will either be selected for {\ttfamily light} or {\ttfamily dark} depending on its brightness, then the other color will be generated. The optional param allows for a static lighten or darkened amount.
+\item {\bfseries{complementary()}} \+: Returns the color "{}opposite"{} or complementary to your color.
+\item {\bfseries{get\+Hex()}} \+: Returns the original hex color.
+\item {\bfseries{get\+Hsl()}} \+: Returns HSL array for your color.
+\item {\bfseries{get\+Rgb()}} \+: Returns RGB array for your color.
+\end{DoxyItemize}
+
+\begin{quote}
+Auto lightens/darkens by 10\% for sexily-\/subtle gradients \end{quote}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{}
+\DoxyCodeLine{\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{use}}\ \mbox{\hyperlink{class_mexitek_1_1_p_h_p_colors_1_1_color}{Mexitek\(\backslash\)PHPColors\(\backslash\)Color}};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ Initialize\ my\ color}}
+\DoxyCodeLine{\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\$myBlue}}\ =\ \textcolor{keyword}{new}\ Color(\textcolor{stringliteral}{"{}\#336699"{}});}
+\DoxyCodeLine{}
+\DoxyCodeLine{\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{echo}}\ \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\$myBlue}}-\/>darken();}
+\DoxyCodeLine{\textcolor{comment}{//\ 1a334d}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{echo}}\ \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\$myBlue}}-\/>lighten();}
+\DoxyCodeLine{\textcolor{comment}{//\ 8cb3d9}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{echo}}\ \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\$myBlue}}-\/>isLight();}
+\DoxyCodeLine{\textcolor{comment}{//\ false}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{echo}}\ \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\$myBlue}}-\/>isDark();}
+\DoxyCodeLine{\textcolor{comment}{//\ true}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{echo}}\ \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\$myBlue}}-\/>complementary();}
+\DoxyCodeLine{\textcolor{comment}{//\ 996633}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{echo}}\ \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\$myBlue}}-\/>getHex();}
+\DoxyCodeLine{\textcolor{comment}{//\ 336699}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{print\_r}}(\ \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\$myBlue}}-\/>getHsl()\ );}
+\DoxyCodeLine{\textcolor{comment}{//\ array(\ "{}H"{}=>\ 210,\ "{}S"{}=>\ 0.5,\ "{}L"{}=>0.4\ );}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{print\_r}}(\ \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\$myBlue}}-\/>getRgb()\ );}
+\DoxyCodeLine{\textcolor{comment}{//\ array(\ "{}R"{}=>\ 51,\ "{}G"{}=>\ 102,\ "{}B"{}=>153\ );}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{print\_r}}(\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\$myBlue}}-\/>makeGradient());}
+\DoxyCodeLine{\textcolor{comment}{//\ array(\ "{}light"{}=>"{}8cb3d9"{}\ ,"{}dark"{}=>"{}336699"{}\ )}}
+
+\end{DoxyCode}
+\hypertarget{md_public_2glpi_2vendor_2mexitek_2phpcolors_2_r_e_a_d_m_e_autotoc_md6764}{}\doxysection{\texorpdfstring{Static Methods}{Static Methods}}\label{md_public_2glpi_2vendor_2mexitek_2phpcolors_2_r_e_a_d_m_e_autotoc_md6764}
+
+\begin{DoxyItemize}
+\item {\bfseries{hsl\+To\+Hex( \$hsl )}} \+: Convert a HSL array to a HEX string.
+\item {\bfseries{hex\+To\+Hsl( \$hex )}} \+: Convert a HEX string into an HSL array.
+\item {\bfseries{hex\+To\+Rgb( \$hex )}} \+: Convert a HEX string into an RGB array.
+\item {\bfseries{rgb\+To\+Hex( \$rgb )}} \+: Convert an RGB array into a HEX string.
+\end{DoxyItemize}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{}
+\DoxyCodeLine{\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{use}}\ \mbox{\hyperlink{class_mexitek_1_1_p_h_p_colors_1_1_color}{Mexitek\(\backslash\)PHPColors\(\backslash\)Color}};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \textcolor{comment}{//\ Convert\ my\ HEX}}
+\DoxyCodeLine{\ \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\$myBlue}}\ =\ Color::hexToHsl(\textcolor{stringliteral}{"{}\#336699"{}});}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \textcolor{comment}{//\ Get\ crazy\ with\ the\ HUE}}
+\DoxyCodeLine{\ \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\$myBlue}}[\textcolor{stringliteral}{"{}H"{}}]\ =\ 295;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \textcolor{comment}{//\ Gimme\ my\ new\ color!!}}
+\DoxyCodeLine{\ \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{echo}}\ Color::hslToHex(\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\$myBlue}});}
+\DoxyCodeLine{\ \textcolor{comment}{//\ 913399}}
+
+\end{DoxyCode}
+\hypertarget{md_public_2glpi_2vendor_2mexitek_2phpcolors_2_r_e_a_d_m_e_autotoc_md6765}{}\doxysection{\texorpdfstring{CSS Helpers}{CSS Helpers}}\label{md_public_2glpi_2vendor_2mexitek_2phpcolors_2_r_e_a_d_m_e_autotoc_md6765}
+
+\begin{DoxyItemize}
+\item {\bfseries{get\+Css\+Gradient( \mbox{[}\$amount\mbox{]} \mbox{[}, \$vintage\+Browsers\mbox{]} )}} \+: Generates the CSS3 gradients for safari, chrome, opera, firefox and IE10. Optional percentage amount for lighter/darker shade. Optional boolean for older gradient CSS support.
+\end{DoxyItemize}
+
+\begin{quote}
+Would like to add support to custom gradient stops \end{quote}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{use}}\ \mbox{\hyperlink{class_mexitek_1_1_p_h_p_colors_1_1_color}{Mexitek\(\backslash\)PHPColors\(\backslash\)Color}};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ Initialize\ my\ color}}
+\DoxyCodeLine{\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\$myBlue}}\ =\ \textcolor{keyword}{new}\ Color(\textcolor{stringliteral}{"{}\#336699"{}});}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ Get\ CSS}}
+\DoxyCodeLine{\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{echo}}\ \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\$myBlue}}-\/>getCssGradient();}
+\DoxyCodeLine{\textcolor{comment}{/*\ -\/\ Actual\ output\ doesn't\ have\ comments\ and\ is\ single\ line}}
+\DoxyCodeLine{\textcolor{comment}{}}
+\DoxyCodeLine{\textcolor{comment}{\ \ //\ fallback\ background}}
+\DoxyCodeLine{\textcolor{comment}{\ \ background:\ \#336699;}}
+\DoxyCodeLine{\textcolor{comment}{}}
+\DoxyCodeLine{\textcolor{comment}{\ \ //\ IE\ Browsers}}
+\DoxyCodeLine{\textcolor{comment}{\ \ filter:\ progid:DXImageTransform.Microsoft.gradient(startColorstr='\#8cb3d9',\ endColorstr='\#336699');}}
+\DoxyCodeLine{\textcolor{comment}{}}
+\DoxyCodeLine{\textcolor{comment}{\ \ //\ Safari\ 5.1+,\ Mobile\ Safari,\ Chrome\ 10+}}
+\DoxyCodeLine{\textcolor{comment}{\ \ background-\/image:\ -\/webkit-\/linear-\/gradient(top,\ \#8cb3d9,\ \#336699);}}
+\DoxyCodeLine{\textcolor{comment}{}}
+\DoxyCodeLine{\textcolor{comment}{\ \ //\ Standards}}
+\DoxyCodeLine{\textcolor{comment}{\ \ background-\/image:\ linear-\/gradient(to\ bottom,\ \#8cb3d9,\ \#336699);}}
+\DoxyCodeLine{\textcolor{comment}{}}
+\DoxyCodeLine{\textcolor{comment}{*/}}
+
+\end{DoxyCode}
+
+
+However, if you want to support the ancient browsers (which has negligible market share and almost died out), you can set the second parameter to {\ttfamily TRUE}. This will output\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{use}}\ \mbox{\hyperlink{class_mexitek_1_1_p_h_p_colors_1_1_color}{Mexitek\(\backslash\)PHPColors\(\backslash\)Color}};}
+\DoxyCodeLine{\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\$myBlue}}\ =\ \textcolor{keyword}{new}\ Color(\textcolor{stringliteral}{"{}\#336699"{}});}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ Get\ CSS}}
+\DoxyCodeLine{\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{echo}}\ \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\$myBlue}}-\/>getCssGradient(10,\ \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{TRUE}});}
+\DoxyCodeLine{\textcolor{comment}{/*\ -\/\ Actual\ output\ doesn't\ have\ comments\ and\ is\ single\ line}}
+\DoxyCodeLine{\textcolor{comment}{}}
+\DoxyCodeLine{\textcolor{comment}{\ \ background:\ \#336699;\ //\ fallback\ background}}
+\DoxyCodeLine{\textcolor{comment}{\ \ filter:\ progid:DXImageTransform.Microsoft.gradient(startColorstr='\#8cb3d9',\ endColorstr='\#336699');\ //\ IE\ Browsers}}
+\DoxyCodeLine{\textcolor{comment}{\ \ background-\/image:\ -\/webkit-\/gradient(linear,\ 0\%\ 0\%,\ 0\%\ 100\%,\ from(\#8cb3d9),\ to(\#336699));\ //\ Safari\ 4+,\ Chrome\ 1-\/9}}
+\DoxyCodeLine{\textcolor{comment}{\ \ background-\/image:\ -\/webkit-\/linear-\/gradient(top,\ \#8cb3d9,\ \#336699);\ //\ Safari\ 5.1+,\ Mobile\ Safari,\ Chrome\ 10+}}
+\DoxyCodeLine{\textcolor{comment}{\ \ background-\/image:\ -\/moz-\/linear-\/gradient(top,\ \#8cb3d9,\ \#336699);\ //\ Firefox\ 3.6+}}
+\DoxyCodeLine{\textcolor{comment}{\ \ background-\/image:\ -\/o-\/linear-\/gradient(top,\ \#8cb3d9,\ \#336699);\ //\ Opera\ 11.10+}}
+\DoxyCodeLine{\textcolor{comment}{\ \ background-\/image:\ linear-\/gradient(to\ bottom,\ \#8cb3d9,\ \#336699);\ //\ Standards}}
+\DoxyCodeLine{\textcolor{comment}{}}
+\DoxyCodeLine{\textcolor{comment}{*/}}
+
+\end{DoxyCode}
+\hypertarget{md_public_2glpi_2vendor_2mexitek_2phpcolors_2_r_e_a_d_m_e_autotoc_md6766}{}\doxysection{\texorpdfstring{Github Contributors}{Github Contributors}}\label{md_public_2glpi_2vendor_2mexitek_2phpcolors_2_r_e_a_d_m_e_autotoc_md6766}
+
+\begin{DoxyItemize}
+\item mexitek
+\item danielpataki
+\item alexmglover
+\item intuxicated
+\item pborreli
+\item curtisgibby
+\item matthewpatterson
+\item there4
+\item alex-\/humphreys
+\item zaher
+\item primozcigler
+\item thedavidmeister
+\item tylercd100
+\item Braunson
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2mexitek_2phpcolors_2_r_e_a_d_m_e_autotoc_md6767}{}\doxysection{\texorpdfstring{License}{License}}\label{md_public_2glpi_2vendor_2mexitek_2phpcolors_2_r_e_a_d_m_e_autotoc_md6767}
+See LICENSE file or \href{http://arlo.mit-license.org}{\texttt{ arlo.\+mit-\/license.\+org}} 

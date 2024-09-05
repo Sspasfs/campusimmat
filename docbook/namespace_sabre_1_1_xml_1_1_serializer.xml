@@ -1,0 +1,187 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_namespace_sabre_1_1_xml_1_1_serializer" xml:lang="fr">
+<title>Référence de l&apos;espace de nommage Sabre\Xml\Serializer</title>
+<indexterm><primary>Sabre\Xml\Serializer</primary></indexterm>
+<simplesect>
+    <title>Fonctions    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_namespace_sabre_1_1_xml_1_1_serializer_1ab6555ceed1c98f2e338588cbeebf2bab">enum</link> (<link linkend="_class_sabre_1_1_xml_1_1_writer">Writer</link> $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">writer</link>, array $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">values</link>)</para>
+</listitem>
+            <listitem><para><link linkend="_namespace_sabre_1_1_xml_1_1_serializer_1a6a01adb6ece094196be668f4705d604d">valueObject</link> (<link linkend="_class_sabre_1_1_xml_1_1_writer">Writer</link> $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">writer</link>, $valueObject, string $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">namespace</link>)</para>
+</listitem>
+            <listitem><para><link linkend="_namespace_sabre_1_1_xml_1_1_serializer_1ac4444bf82fec45623df32bcda1f7250a">repeatingElements</link> (<link linkend="_class_sabre_1_1_xml_1_1_writer">Writer</link> $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">writer</link>, array $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">items</link>, string $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">childElementName</link>)</para>
+</listitem>
+            <listitem><para><link linkend="_namespace_sabre_1_1_xml_1_1_serializer_1ad9ce4adbff42c586d3056ed904811730">standardSerializer</link> (<link linkend="_class_sabre_1_1_xml_1_1_writer">Writer</link> $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">writer</link>, $value)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Documentation des fonctions</title>
+<anchor xml:id="_namespace_sabre_1_1_xml_1_1_serializer_1ab6555ceed1c98f2e338588cbeebf2bab"/><section>
+    <title>enum()</title>
+<indexterm><primary>enum</primary><secondary>Sabre\Xml\Serializer</secondary></indexterm>
+<indexterm><primary>Sabre\Xml\Serializer</primary><secondary>enum</secondary></indexterm>
+<para><computeroutput>enum (<link linkend="_class_sabre_1_1_xml_1_1_writer">Writer</link> $writer, array $values)</computeroutput></para>
+<para>This file provides a number of &apos;serializer&apos; helper functions.</para>
+
+<para>These helper functions can be used to easily xml-encode common PHP data structures, or can be placed in the $classMap. The &apos;enum&apos; serializer writes simple list of elements.</para>
+
+<para>For example, calling:</para>
+
+<para>enum($writer, [ &quot;{http://sabredav.org/ns}elem1&quot;, &quot;{http://sabredav.org/ns}elem2&quot;, &quot;{http://sabredav.org/ns}elem3&quot;, &quot;{http://sabredav.org/ns}elem4&quot;, &quot;{http://sabredav.org/ns}elem5&quot;, ]);</para>
+
+<para>Will generate something like this (if the correct namespace is declared):</para>
+
+<para>&lt;s:elem1 /&gt; &lt;s:elem2 /&gt; &lt;s:elem3 /&gt; &lt;s:elem4&gt;content&lt;/s:elem4&gt; &lt;s:elem5 attr=&quot;val&quot; /&gt;</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string[]</entry><entry>$values</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="namespace_sabre_1_1_xml_1_1_serializer_ab6555ceed1c98f2e338588cbeebf2bab_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_namespace_sabre_1_1_xml_1_1_serializer_1ac4444bf82fec45623df32bcda1f7250a"/><section>
+    <title>repeatingElements()</title>
+<indexterm><primary>repeatingElements</primary><secondary>Sabre\Xml\Serializer</secondary></indexterm>
+<indexterm><primary>Sabre\Xml\Serializer</primary><secondary>repeatingElements</secondary></indexterm>
+<para><computeroutput>repeatingElements (<link linkend="_class_sabre_1_1_xml_1_1_writer">Writer</link> $writer, array $items, string $childElementName)</computeroutput></para>
+<para>This serializer helps you serialize xml structures that look like this:.</para>
+
+<para>&lt;collection&gt; ... ... ... &lt;/collection&gt;</para>
+
+<para>In that previous example, this serializer just serializes the item element, and this could be called like this:</para>
+
+<para>repeatingElements($writer, $items, &apos;{}item&apos;); </para>
+</section>
+<anchor xml:id="_namespace_sabre_1_1_xml_1_1_serializer_1ad9ce4adbff42c586d3056ed904811730"/><section>
+    <title>standardSerializer()</title>
+<indexterm><primary>standardSerializer</primary><secondary>Sabre\Xml\Serializer</secondary></indexterm>
+<indexterm><primary>Sabre\Xml\Serializer</primary><secondary>standardSerializer</secondary></indexterm>
+<para><computeroutput>standardSerializer (<link linkend="_class_sabre_1_1_xml_1_1_writer">Writer</link> $writer,  $value)</computeroutput></para>
+<para>This function is the &apos;default&apos; serializer that is able to serialize most things, and delegates to other serializers if needed.</para>
+
+<para>The standardSerializer supports a wide-array of values.</para>
+
+<para>$value may be a string or integer, it will just write out the string as text. $value may be an instance of XmlSerializable or Element, in which case it calls it&apos;s xmlSerialize() method. $value may be a PHP callback/function/closure, in case we call the callback and give it the Writer as an argument. $value may be a an object, and if it&apos;s in the classMap we automatically call the correct serializer for it. $value may be null, in which case we do nothing.</para>
+
+<para>If $value is an array, the array must look like this:</para>
+
+<para>[ [ &apos;name&apos; =&gt; &apos;{namespaceUri}element-name&apos;, &apos;value&apos; =&gt; &apos;...&apos;, &apos;attributes&apos; =&gt; [ &apos;attName&apos; =&gt; &apos;attValue&apos; ] ] [, &apos;name&apos; =&gt; &apos;{namespaceUri}element-name2&apos;, &apos;value&apos; =&gt; &apos;...&apos;, ] ]</para>
+
+<para>This would result in xml like:</para>
+
+<para>&lt;element-name xmlns=&quot;namespaceUri&quot; attName=&quot;attValue&quot;&gt; ... &lt;/element-name&gt; &lt;element-name2&gt; ... &lt;/element-name2&gt;</para>
+
+<para>The value property may be any value standardSerializer supports, so you can nest data-structures this way. Both value and attributes are optional.</para>
+
+<para>Alternatively, you can also specify the array using this syntax:</para>
+
+<para>[ [ &apos;{namespaceUri}element-name&apos; =&gt; &apos;...&apos;, &apos;{namespaceUri}element-name2&apos; =&gt; &apos;...&apos;, ] ]</para>
+
+<para>This is excellent for simple key-&gt;value structures, and here you can also specify anything for the value.</para>
+
+<para>You can even mix the two array syntaxes.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string | int | float | bool | array | object</entry><entry>$value</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="namespace_sabre_1_1_xml_1_1_serializer_ad9ce4adbff42c586d3056ed904811730_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="namespace_sabre_1_1_xml_1_1_serializer_ad9ce4adbff42c586d3056ed904811730_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_namespace_sabre_1_1_xml_1_1_serializer_1a6a01adb6ece094196be668f4705d604d"/><section>
+    <title>valueObject()</title>
+<indexterm><primary>valueObject</primary><secondary>Sabre\Xml\Serializer</secondary></indexterm>
+<indexterm><primary>Sabre\Xml\Serializer</primary><secondary>valueObject</secondary></indexterm>
+<para><computeroutput>valueObject (<link linkend="_class_sabre_1_1_xml_1_1_writer">Writer</link> $writer,  $valueObject, string $namespace)</computeroutput></para>
+<para>The valueObject serializer turns a simple PHP object into a classname.</para>
+
+<para>Every public property will be encoded as an xml element with the same name, in the <link linkend="_class_x_m_l">XML</link> namespace as specified.</para>
+
+<para>Values that are set to null or an empty array are not serialized. To serialize empty properties, you must specify them as an empty string.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>object</entry><entry>$valueObject</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
+</section>
+</section>

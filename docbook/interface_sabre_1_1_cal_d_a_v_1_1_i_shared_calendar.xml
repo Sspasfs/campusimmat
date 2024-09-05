@@ -1,0 +1,104 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_interface_sabre_1_1_cal_d_a_v_1_1_i_shared_calendar" xml:lang="fr">
+<title>Référence de l&apos;interface ISharedCalendar</title>
+<indexterm><primary>ISharedCalendar</primary></indexterm>
+Graphe d&apos;héritage de ISharedCalendar:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="interface_sabre_1_1_cal_d_a_v_1_1_i_shared_calendar__inherit__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Graphe de collaboration de ISharedCalendar:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="interface_sabre_1_1_cal_d_a_v_1_1_i_shared_calendar__coll__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Fonctions membres publiques    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_interface_sabre_1_1_cal_d_a_v_1_1_i_shared_calendar_1a8d382fb00682264a8c9be8cb9ae2a4b0">setPublishStatus</link> ($value)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+Fonctions membres publiques hérités de <link linkend="_interface_sabre_1_1_d_a_v_1_1_sharing_1_1_i_shared_node">ISharedNode</link>        <itemizedlist>
+            <listitem><para><link linkend="_interface_sabre_1_1_d_a_v_1_1_sharing_1_1_i_shared_node_1ad49960292f71be61f38dafe4028dee28">getShareAccess</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_interface_sabre_1_1_d_a_v_1_1_sharing_1_1_i_shared_node_1a2c77edd1e983a6f4bb4e5741df75082a">getShareResourceUri</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_interface_sabre_1_1_d_a_v_1_1_sharing_1_1_i_shared_node_1a3134b723b6228a87ee65cc9850f1e878">updateInvites</link> (array $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">sharees</link>)</para>
+</listitem>
+            <listitem><para><link linkend="_interface_sabre_1_1_d_a_v_1_1_sharing_1_1_i_shared_node_1aeb52708e67141a77cf1abe4d6b9482d6">getInvites</link> ()</para>
+</listitem>
+        </itemizedlist>
+Fonctions membres publiques hérités de <link linkend="_interface_sabre_1_1_d_a_v_1_1_i_node">INode</link>        <itemizedlist>
+            <listitem><para><link linkend="_interface_sabre_1_1_d_a_v_1_1_i_node_1a13bdffdd926f26b825ea57066334ff01">delete</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_interface_sabre_1_1_d_a_v_1_1_i_node_1a3d0963e68bb313b163a73f2803c64600">getName</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_interface_sabre_1_1_d_a_v_1_1_i_node_1a2fe666694997d047711d7653eca2f132">setName</link> ($name)</para>
+</listitem>
+            <listitem><para><link linkend="_interface_sabre_1_1_d_a_v_1_1_i_node_1aa388e2fda4fe702e8953c1a731868f18">getLastModified</link> ()</para>
+</listitem>
+        </itemizedlist>
+<section>
+<title>Description détaillée</title>
+
+<para>This interface represents a <link linkend="_class_calendar">Calendar</link> that is shared by a different user.</para>
+
+<para><formalpara><title>Copyright</title>
+
+<para>Copyright (C) fruux GmbH (<link xlink:href="https://fruux.com/">https://fruux.com/</link>) </para>
+</formalpara>
+<formalpara><title>Auteur</title>
+
+<para>Evert Pot (<link xlink:href="http://evertpot.com/">http://evertpot.com/</link>) @license <link xlink:href="http://sabre.io/license/">http://sabre.io/license/</link> Modified BSD License </para>
+</formalpara>
+</para>
+</section>
+<section>
+<title>Documentation des fonctions membres</title>
+<anchor xml:id="_interface_sabre_1_1_cal_d_a_v_1_1_i_shared_calendar_1a8d382fb00682264a8c9be8cb9ae2a4b0"/><section>
+    <title>setPublishStatus()</title>
+<indexterm><primary>setPublishStatus</primary><secondary>ISharedCalendar</secondary></indexterm>
+<indexterm><primary>ISharedCalendar</primary><secondary>setPublishStatus</secondary></indexterm>
+<para><computeroutput>setPublishStatus ( $value)</computeroutput></para>
+<para>Marks this calendar as published.</para>
+
+<para>Publishing a calendar should automatically create a read-only, public, subscribable calendar.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>bool</entry><entry>$value</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Implémenté dans <link linkend="_class_sabre_1_1_cal_d_a_v_1_1_shared_calendar_1a8d382fb00682264a8c9be8cb9ae2a4b0">SharedCalendar</link>.</para>
+</section>
+<para>
+La documentation de cette interface a été générée à partir du fichier suivant :</para>
+public/glpi/vendor/sabre/dav/lib/CalDAV/<link linkend="__i_shared_calendar_8php">ISharedCalendar.php</link></section>
+</section>

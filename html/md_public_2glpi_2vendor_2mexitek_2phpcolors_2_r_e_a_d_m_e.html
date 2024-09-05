@@ -1,0 +1,238 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.10.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>CampusImmat: PHPColors &lt;a href=&quot;https://travis-ci.org/mexitek/phpColors&quot; &gt;&lt;img src=&quot;https://travis-ci.org/mexitek/phpColors.svg?branch=master&quot; alt=&quot;Build Status&quot;/&gt;&lt;/a&gt;</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">CampusImmat
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.10.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+</div><!-- top -->
+<div><div class="header">
+  <div class="headertitle"><div class="title">PHPColors &lt;a href="https://travis-ci.org/mexitek/phpColors" &gt;&lt;img src="https://travis-ci.org/mexitek/phpColors.svg?branch=master" alt="Build Status"/&gt;&lt;/a&gt;</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><p><a class="anchor" id="autotoc_md6758"></a> </p><blockquote class="doxtable">
+<p>&zwj;A series of methods that let you manipulate colors. Just incase you ever need different shades of one color on the fly. </p>
+</blockquote>
+<h1><a class="anchor" id="autotoc_md6759"></a>
+Requirements</h1>
+<p>PHPColors requires PHP version 7.2.0 or greater.</p>
+<h1><a class="anchor" id="autotoc_md6760"></a>
+Installation</h1>
+<h2><a class="anchor" id="autotoc_md6761"></a>
+Composer</h2>
+<p>Simply add <code>mexitek/phpcolors</code> to <code>composer.json</code> using <code>dev-master</code>.</p>
+<div class="fragment"><div class="line">composer require mexitek/phpcolors:dev-master</div>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md6762"></a>
+How it works</h1>
+<p>Instantiate an object of the color class with a hex color string <code>$foo = new Color("336699")</code>. That's it! Now, call the methods you need for different color variants.</p>
+<h1><a class="anchor" id="autotoc_md6763"></a>
+Available Methods</h1>
+<ul>
+<li><b>darken( [$amount] )</b> : Allows you to obtain a darker shade of your color. Optionally you can decide to darken using a desired percentage.</li>
+<li><b>lighten( [$amount] )</b> : Allows you to obtain a lighter shade of your color. Optionally you can decide to lighten using a desired percentage.</li>
+<li><b>mix($hex, [$amount] )</b> : Allows you to mix another color to your color. Optionally you can decide to set the percent of second color or original color amount is ranged -100...0...100.</li>
+<li><b>isLight( [$hex] )</b> : Determins whether your color (or the provide param) is considered a "light" color. Returns <code>TRUE</code> if color is light.</li>
+<li><b>isDark( [$hex] )</b> : Determins whether your color (or the provide param) is considered a "dark" color. Returns <code>TRUE</code> if color is dark.</li>
+<li><b>makeGradient( [$amount] )</b> : Returns an array with 2 indices <code>light</code> and <code>dark</code>, the initial color will either be selected for <code>light</code> or <code>dark</code> depending on its brightness, then the other color will be generated. The optional param allows for a static lighten or darkened amount.</li>
+<li><b>complementary()</b> : Returns the color "opposite" or complementary to your color.</li>
+<li><b>getHex()</b> : Returns the original hex color.</li>
+<li><b>getHsl()</b> : Returns HSL array for your color.</li>
+<li><b>getRgb()</b> : Returns RGB array for your color.</li>
+</ul>
+<blockquote class="doxtable">
+<p>&zwj;Auto lightens/darkens by 10% for sexily-subtle gradients </p>
+</blockquote>
+<div class="fragment"><div class="line"> </div>
+<div class="line"><a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">use</a> <a class="code hl_class" href="class_mexitek_1_1_p_h_p_colors_1_1_color.html">Mexitek\PHPColors\Color</a>;</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Initialize my color</span></div>
+<div class="line"><a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">$myBlue</a> = <span class="keyword">new</span> Color(<span class="stringliteral">&quot;#336699&quot;</span>);</div>
+<div class="line"> </div>
+<div class="line"><a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">echo</a> <a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">$myBlue</a>-&gt;darken();</div>
+<div class="line"><span class="comment">// 1a334d</span></div>
+<div class="line"> </div>
+<div class="line"><a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">echo</a> <a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">$myBlue</a>-&gt;lighten();</div>
+<div class="line"><span class="comment">// 8cb3d9</span></div>
+<div class="line"> </div>
+<div class="line"><a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">echo</a> <a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">$myBlue</a>-&gt;isLight();</div>
+<div class="line"><span class="comment">// false</span></div>
+<div class="line"> </div>
+<div class="line"><a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">echo</a> <a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">$myBlue</a>-&gt;isDark();</div>
+<div class="line"><span class="comment">// true</span></div>
+<div class="line"> </div>
+<div class="line"><a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">echo</a> <a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">$myBlue</a>-&gt;complementary();</div>
+<div class="line"><span class="comment">// 996633</span></div>
+<div class="line"> </div>
+<div class="line"><a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">echo</a> <a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">$myBlue</a>-&gt;getHex();</div>
+<div class="line"><span class="comment">// 336699</span></div>
+<div class="line"> </div>
+<div class="line"><a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">print_r</a>( <a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">$myBlue</a>-&gt;getHsl() );</div>
+<div class="line"><span class="comment">// array( &quot;H&quot;=&gt; 210, &quot;S&quot;=&gt; 0.5, &quot;L&quot;=&gt;0.4 );</span></div>
+<div class="line"> </div>
+<div class="line"><a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">print_r</a>( <a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">$myBlue</a>-&gt;getRgb() );</div>
+<div class="line"><span class="comment">// array( &quot;R&quot;=&gt; 51, &quot;G&quot;=&gt; 102, &quot;B&quot;=&gt;153 );</span></div>
+<div class="line"> </div>
+<div class="line"><a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">print_r</a>(<a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">$myBlue</a>-&gt;makeGradient());</div>
+<div class="line"><span class="comment">// array( &quot;light&quot;=&gt;&quot;8cb3d9&quot; ,&quot;dark&quot;=&gt;&quot;336699&quot; )</span></div>
+<div class="ttc" id="aclass_mexitek_1_1_p_h_p_colors_1_1_color_html"><div class="ttname"><a href="class_mexitek_1_1_p_h_p_colors_1_1_color.html">Mexitek\PHPColors\Color</a></div><div class="ttdef"><b>Definition</b> Color.php:17</div></div>
+<div class="ttc" id="areport_8contract_8php_html_a77b973d137fb33212e018b042df6e3e7"><div class="ttname"><a href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">$y</a></div><div class="ttdeci">$y</div><div class="ttdef"><b>Definition</b> report.contract.php:71</div></div>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md6764"></a>
+Static Methods</h1>
+<ul>
+<li><b>hslToHex( $hsl )</b> : Convert a HSL array to a HEX string.</li>
+<li><b>hexToHsl( $hex )</b> : Convert a HEX string into an HSL array.</li>
+<li><b>hexToRgb( $hex )</b> : Convert a HEX string into an RGB array.</li>
+<li><b>rgbToHex( $rgb )</b> : Convert an RGB array into a HEX string.</li>
+</ul>
+<div class="fragment"><div class="line"> </div>
+<div class="line"><a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">use</a> <a class="code hl_class" href="class_mexitek_1_1_p_h_p_colors_1_1_color.html">Mexitek\PHPColors\Color</a>;</div>
+<div class="line"> </div>
+<div class="line"> <span class="comment">// Convert my HEX</span></div>
+<div class="line"> <a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">$myBlue</a> = Color::hexToHsl(<span class="stringliteral">&quot;#336699&quot;</span>);</div>
+<div class="line"> </div>
+<div class="line"> <span class="comment">// Get crazy with the HUE</span></div>
+<div class="line"> <a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">$myBlue</a>[<span class="stringliteral">&quot;H&quot;</span>] = 295;</div>
+<div class="line"> </div>
+<div class="line"> <span class="comment">// Gimme my new color!!</span></div>
+<div class="line"> <a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">echo</a> Color::hslToHex(<a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">$myBlue</a>);</div>
+<div class="line"> <span class="comment">// 913399</span></div>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md6765"></a>
+CSS Helpers</h1>
+<ul>
+<li><b>getCssGradient( [$amount] [, $vintageBrowsers] )</b> : Generates the CSS3 gradients for safari, chrome, opera, firefox and IE10. Optional percentage amount for lighter/darker shade. Optional boolean for older gradient CSS support.</li>
+</ul>
+<blockquote class="doxtable">
+<p>&zwj;Would like to add support to custom gradient stops </p>
+</blockquote>
+<div class="fragment"><div class="line"><a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">use</a> <a class="code hl_class" href="class_mexitek_1_1_p_h_p_colors_1_1_color.html">Mexitek\PHPColors\Color</a>;</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Initialize my color</span></div>
+<div class="line"><a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">$myBlue</a> = <span class="keyword">new</span> Color(<span class="stringliteral">&quot;#336699&quot;</span>);</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Get CSS</span></div>
+<div class="line"><a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">echo</a> <a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">$myBlue</a>-&gt;getCssGradient();</div>
+<div class="line"><span class="comment">/* - Actual output doesn&#39;t have comments and is single line</span></div>
+<div class="line"><span class="comment"></span> </div>
+<div class="line"><span class="comment">  // fallback background</span></div>
+<div class="line"><span class="comment">  background: #336699;</span></div>
+<div class="line"><span class="comment"></span> </div>
+<div class="line"><span class="comment">  // IE Browsers</span></div>
+<div class="line"><span class="comment">  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=&#39;#8cb3d9&#39;, endColorstr=&#39;#336699&#39;);</span></div>
+<div class="line"><span class="comment"></span> </div>
+<div class="line"><span class="comment">  // Safari 5.1+, Mobile Safari, Chrome 10+</span></div>
+<div class="line"><span class="comment">  background-image: -webkit-linear-gradient(top, #8cb3d9, #336699);</span></div>
+<div class="line"><span class="comment"></span> </div>
+<div class="line"><span class="comment">  // Standards</span></div>
+<div class="line"><span class="comment">  background-image: linear-gradient(to bottom, #8cb3d9, #336699);</span></div>
+<div class="line"><span class="comment"></span> </div>
+<div class="line"><span class="comment">*/</span></div>
+</div><!-- fragment --><p>However, if you want to support the ancient browsers (which has negligible market share and almost died out), you can set the second parameter to <code>TRUE</code>. This will output:</p>
+<div class="fragment"><div class="line"><a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">use</a> <a class="code hl_class" href="class_mexitek_1_1_p_h_p_colors_1_1_color.html">Mexitek\PHPColors\Color</a>;</div>
+<div class="line"><a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">$myBlue</a> = <span class="keyword">new</span> Color(<span class="stringliteral">&quot;#336699&quot;</span>);</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Get CSS</span></div>
+<div class="line"><a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">echo</a> <a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">$myBlue</a>-&gt;getCssGradient(10, <a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">TRUE</a>);</div>
+<div class="line"><span class="comment">/* - Actual output doesn&#39;t have comments and is single line</span></div>
+<div class="line"><span class="comment"></span> </div>
+<div class="line"><span class="comment">  background: #336699; // fallback background</span></div>
+<div class="line"><span class="comment">  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=&#39;#8cb3d9&#39;, endColorstr=&#39;#336699&#39;); // IE Browsers</span></div>
+<div class="line"><span class="comment">  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#8cb3d9), to(#336699)); // Safari 4+, Chrome 1-9</span></div>
+<div class="line"><span class="comment">  background-image: -webkit-linear-gradient(top, #8cb3d9, #336699); // Safari 5.1+, Mobile Safari, Chrome 10+</span></div>
+<div class="line"><span class="comment">  background-image: -moz-linear-gradient(top, #8cb3d9, #336699); // Firefox 3.6+</span></div>
+<div class="line"><span class="comment">  background-image: -o-linear-gradient(top, #8cb3d9, #336699); // Opera 11.10+</span></div>
+<div class="line"><span class="comment">  background-image: linear-gradient(to bottom, #8cb3d9, #336699); // Standards</span></div>
+<div class="line"><span class="comment"></span> </div>
+<div class="line"><span class="comment">*/</span></div>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md6766"></a>
+Github Contributors</h1>
+<ul>
+<li>mexitek</li>
+<li>danielpataki</li>
+<li>alexmglover</li>
+<li>intuxicated</li>
+<li>pborreli</li>
+<li>curtisgibby</li>
+<li>matthewpatterson</li>
+<li>there4</li>
+<li>alex-humphreys</li>
+<li>zaher</li>
+<li>primozcigler</li>
+<li>thedavidmeister</li>
+<li>tylercd100</li>
+<li>Braunson</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md6767"></a>
+License</h1>
+<p>See LICENSE file or <a href="http://arlo.mit-license.org">arlo.mit-license.org</a> </p>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0
+</small></address>
+</body>
+</html>

@@ -1,0 +1,369 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_md_public_2glpi_2vendor_2wapmorgan_2unified-archive_2docs_2_drivers" xml:lang="fr">
+<title>Drivers</title>
+<indexterm><primary>Drivers</primary></indexterm>
+
+<para><itemizedlist>
+<listitem>
+<para><link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">Proposals for installation drivers</link></para>
+</listitem></itemizedlist>
+</para>
+
+<para><link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">Drivers</link><itemizedlist>
+<listitem>
+<para><link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">PHP Extensions</link></para>
+</listitem><listitem>
+<para><link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">Utilities + bridge</link></para>
+</listitem><listitem>
+<para><link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">Pure PHP</link></para>
+</listitem></itemizedlist>
+</para>
+
+<para><link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">Full support matrix</link></para>
+
+<para><informaltable frame="all">
+    <tgroup cols="4" align="left" colsep="1" rowsep="1">
+      <colspec colname='c1'/>
+      <colspec colname='c2'/>
+      <colspec colname='c3'/>
+      <colspec colname='c4'/>
+<thead>
+      <row  class='markdownTableHead'>
+<entry>
+<para>Type   </para>
+</entry><entry>
+<para>Pros   </para>
+</entry><entry>
+<para>Cons   </para>
+</entry><entry>
+<para>Useful for    </para>
+</entry></row>
+</thead><tbody>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para>PHP Exteniosn   </para>
+</entry><entry>
+<para>Fast, supports a lot of functions   </para>
+</entry><entry>
+<para>Sometimes can not support specific functions (e.g. password-protection in zip on old php versions)   </para>
+</entry><entry>
+<para>Use it when possible (when extensions installed)    </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para>Utilities + bridge   </para>
+</entry><entry>
+<para>Uses system utilities, so should be fast (and even faster PHP Extensions)   </para>
+</entry><entry>
+<para>Do not support streaming   </para>
+</entry><entry>
+<para>Packing a lot of files / Unpacking the whole archives without streaming    </para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para>Pure PHP   </para>
+</entry><entry>
+<para>Works without PHP Extensions or system utilities, can be installed via composer only   </para>
+</entry><entry>
+<para>Uses a lot of memory, lack of speed   </para>
+</entry><entry>
+<para>Fallback method   </para>
+</entry></row>
+    </tbody>
+    </tgroup>
+</informaltable>
+</para>
+<section xml:id="_md_public_2glpi_2vendor_2wapmorgan_2unified-archive_2docs_2_drivers_1autotoc_md7496">
+<title><title>Proposals for installation drivers</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para><emphasis role="bold">In common case:</emphasis><itemizedlist>
+<listitem>
+<para>install <computeroutput>TarByPear</computeroutput>, <computeroutput>NelexaZip</computeroutput></para>
+</listitem><listitem>
+<para>If installed <computeroutput>7za</computeroutput> utility - configure <computeroutput>SevenZip</computeroutput> driver</para>
+</listitem><listitem>
+<para>Else if installed <computeroutput>tar</computeroutput> or <computeroutput>unzip</computeroutput> utilities - configure <computeroutput>AlchemyZippy</computeroutput> driver</para>
+</listitem></itemizedlist>
+</para>
+</listitem><listitem>
+<para><emphasis role="bold">In docker/on VDS:</emphasis><itemizedlist>
+<listitem>
+<para>install all php extensions (<computeroutput>zip, rar, phar, zlib, bz2</computeroutput>)</para>
+</listitem><listitem>
+<para>install utility (<computeroutput>7za</computeroutput> - <computeroutput>p7zip-full</computeroutput> on ubuntu) and <computeroutput>SevenZip</computeroutput> driver</para>
+</listitem></itemizedlist>
+</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2wapmorgan_2unified-archive_2docs_2_drivers_1autotoc_md7497">
+<title><title>Drivers</title></title>
+<section xml:id="_md_public_2glpi_2vendor_2wapmorgan_2unified-archive_2docs_2_drivers_1autotoc_md7498">
+<title><title>PHP extensions</title></title>
+
+<para><informaltable frame="all">
+    <tgroup cols="4" align="left" colsep="1" rowsep="1">
+      <colspec colname='c1'/>
+      <colspec colname='c2'/>
+      <colspec colname='c3'/>
+      <colspec colname='c4'/>
+<thead>
+      <row  class='markdownTableHead'>
+<entry>
+<para>Driver   </para>
+</entry><entry>
+<para>Formats   </para>
+</entry><entry>
+<para>php extension   </para>
+</entry><entry>
+<para>notes    </para>
+</entry></row>
+</thead><tbody>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para>Zip   </para>
+</entry><entry>
+<para>zip, jar   </para>
+</entry><entry>
+<para><computeroutput>zip</computeroutput>   </para>
+</entry><entry>
+<para>supports password-protection since 7.2.0    </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para>Rar   </para>
+</entry><entry>
+<para>rar   </para>
+</entry><entry>
+<para><computeroutput>rar</computeroutput>   </para>
+</entry><entry>
+<para>read-only mode    </para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para>TarByPhar   </para>
+</entry><entry>
+<para>zip, tar, tar.gz, tar.bz2   </para>
+</entry><entry>
+<para><computeroutput>phar</computeroutput>   </para>
+</entry><entry>
+<para>Has a bug <link xlink:href="https://bugs.php.net/bug.php?id=71966&amp;thanks=10">#71966</link> in <computeroutput>ext-phar</computeroutput> (<link xlink:href="https://github.com/wapmorgan/UnifiedArchive/issues/12">related issue</link>) - an archive will <computeroutput>./</computeroutput> in paths cannot be opened.   </para>
+</entry></row>
+    </tbody>
+    </tgroup>
+</informaltable>
+</para>
+<section xml:id="_md_public_2glpi_2vendor_2wapmorgan_2unified-archive_2docs_2_drivers_1autotoc_md7499">
+<title><title>PHP extensions for compression only</title></title>
+
+<para>These drivers support only compressed (not archived) data. They support opening, extracting&amp;streaming and creation.</para>
+
+<para><informaltable frame="all">
+    <tgroup cols="3" align="left" colsep="1" rowsep="1">
+      <colspec colname='c1'/>
+      <colspec colname='c2'/>
+      <colspec colname='c3'/>
+<thead>
+      <row  class='markdownTableHead'>
+<entry>
+<para>Driver   </para>
+</entry><entry>
+<para>Formats   </para>
+</entry><entry>
+<para>PHP extension    </para>
+</entry></row>
+</thead><tbody>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para>Bzip   </para>
+</entry><entry>
+<para>.bz2   </para>
+</entry><entry>
+<para><computeroutput>bzip2</computeroutput>    </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para>Gzip   </para>
+</entry><entry>
+<para>.gz   </para>
+</entry><entry>
+<para><computeroutput>zlib</computeroutput>    </para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para>Lzma   </para>
+</entry><entry>
+<para>.xz   </para>
+</entry><entry>
+<para><computeroutput>xz</computeroutput> - <link xlink:href="https://github.com/payden/php-xz">5.x</link> / <link xlink:href="https://github.com/codemasher/php-ext-xz">7.x</link>   </para>
+</entry></row>
+    </tbody>
+    </tgroup>
+</informaltable>
+</para>
+</section>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2wapmorgan_2unified-archive_2docs_2_drivers_1autotoc_md7500">
+<title><title>Utilities + bridge</title></title>
+
+<para><informaltable frame="all">
+    <tgroup cols="3" align="left" colsep="1" rowsep="1">
+      <colspec colname='c1'/>
+      <colspec colname='c2'/>
+      <colspec colname='c3'/>
+<thead>
+      <row  class='markdownTableHead'>
+<entry>
+<para>Driver   </para>
+</entry><entry>
+<para>Formats   </para>
+</entry><entry>
+<para>utility + bridge    </para>
+</entry></row>
+</thead><tbody>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para>SevenZip   </para>
+</entry><entry>
+<para>7z, xz, bzip2, gzip, tar, zip, wim, ar, arj, cab, chm, cpio, cramfs, dmg, ext, fat, gpt, hfs, ihex, iso, lzh, lzma, mbr, msi, nsis, ntfs, qcow2, rar, rpm, squashfs, udf, uefi, vdi, vhd, vmdk, wim, xar, z   </para>
+</entry><entry>
+<para>p7zip (<link xlink:href="http://p7zip.sourceforge.net/"><computeroutput>7za</computeroutput></link>) + <link xlink:href="https://packagist.org/packages/gemorroj/archive7z"><computeroutput>gemorroj/archive7z</computeroutput></link>    </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para>AlchemyZippy   </para>
+</entry><entry>
+<para>zip, tar, tar.gz, tar.bz2   </para>
+</entry><entry>
+<para><computeroutput>zip</computeroutput>/<computeroutput>tar</computeroutput> + <link xlink:href="https://packagist.org/packages/alchemy/zippy"><computeroutput>alchemy/zippy</computeroutput></link>   </para>
+</entry></row>
+    </tbody>
+    </tgroup>
+</informaltable>
+</para>
+
+<para><emphasis role="bold">If you install SevenZip and AlchemyZippy at the same time</emphasis>:<orderedlist>
+<listitem>
+<para>You should specify symfony/console version before installation to any <emphasis role="bold">3.x.x version</emphasis>: <computeroutput>composer require symfony/process:~3.4</computeroutput>, because they require different <computeroutput>symfony/process</computeroutput> versions.</para>
+</listitem><listitem>
+<para>Install archive7z version 4.0.0: <computeroutput>composer require gemorroj/archive7z:~4.0</computeroutput></para>
+</listitem></orderedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2wapmorgan_2unified-archive_2docs_2_drivers_1autotoc_md7501">
+<title><title>Pure php implementation</title></title>
+
+<para>Works with binary data in php-land (= eats a lot of memory for big archives).</para>
+
+<para><informaltable frame="all">
+    <tgroup cols="4" align="left" colsep="1" rowsep="1">
+      <colspec colname='c1'/>
+      <colspec colname='c2'/>
+      <colspec colname='c3'/>
+      <colspec colname='c4'/>
+<thead>
+      <row  class='markdownTableHead'>
+<entry>
+<para>Driver   </para>
+</entry><entry>
+<para>Formats   </para>
+</entry><entry>
+<para>library   </para>
+</entry><entry>
+<para>notes    </para>
+</entry></row>
+</thead><tbody>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para>NelexaZip   </para>
+</entry><entry>
+<para>zip   </para>
+</entry><entry>
+<para><link xlink:href="https://packagist.org/packages/nelexa/zip"><computeroutput>nelexa/zip</computeroutput></link> and optionally php-extensions (<computeroutput>bz2</computeroutput>, <computeroutput>fileinfo</computeroutput>, <computeroutput>iconv</computeroutput>, <computeroutput>openssl</computeroutput>)   </para>
+</entry><entry>
+<para></para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para>TarByPear   </para>
+</entry><entry>
+<para>tar, tar.gz, tar.bz2, tar.xz, tar.Z   </para>
+</entry><entry>
+<para><link xlink:href="https://packagist.org/packages/pear/archive_tar"><computeroutput>pear/archive_tar</computeroutput></link> and optionally php-extensions (<computeroutput>zlib</computeroutput>, <computeroutput>bzip2</computeroutput>, <computeroutput>xz</computeroutput> - <link xlink:href="https://github.com/payden/php-xz">5.x</link> / <link xlink:href="https://github.com/codemasher/php-ext-xz">7.x</link>   </para>
+</entry><entry>
+<para>dont support updating archive (deleteFiles)    </para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para>Cab   </para>
+</entry><entry>
+<para>cab   </para>
+</entry><entry>
+<para><link xlink:href="https://packagist.org/packages/wapmorgan/cab-archive"><computeroutput>wapmorgan/cab-archive</computeroutput></link>   </para>
+</entry><entry>
+<para>Getting files content and extraction is supported only on PHP 7.0.22+, 7.1.8+, 7.2.0. Support only opening &amp; extraction    </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para>Iso   </para>
+</entry><entry>
+<para>iso   </para>
+</entry><entry>
+<para><link xlink:href="https://packagist.org/packages/phpclasses/php-iso-file"><computeroutput>phpclasses/php-iso-file</computeroutput></link>   </para>
+</entry><entry>
+<para>Support only opening &amp; extraction   </para>
+</entry></row>
+    </tbody>
+    </tgroup>
+</informaltable>
+</para>
+</section>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2wapmorgan_2unified-archive_2docs_2_drivers_1autotoc_md7502">
+<title><title>Full support matrix</title></title>
+
+<para>Result of <computeroutput>./vendor/bin/cam system:formats</computeroutput> when all drivers installed and configured (except of AlchemyZippy): <literallayout><computeroutput>+-----------------+------------+------+------+------+-------+--------+--------+--------+-----------+-----+-----+-----+------+-----+-----+-----+-----+-----+-----+-----+------+-------+
+|&#32;driver&#32;/&#32;format&#32;|&#32;zip&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;|&#32;rar&#32;&#32;|&#32;gz&#32;&#32;&#32;|&#32;bz2&#32;&#32;|&#32;xz&#32;&#32;&#32;&#32;|&#32;tar&#32;&#32;&#32;&#32;|&#32;tgz&#32;&#32;&#32;&#32;|&#32;tbz2&#32;&#32;&#32;|&#32;7z&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;|&#32;cab&#32;|&#32;iso&#32;|&#32;arj&#32;|&#32;uefi&#32;|&#32;gpt&#32;|&#32;mbr&#32;|&#32;msi&#32;|&#32;dmg&#32;|&#32;rpm&#32;|&#32;deb&#32;|&#32;udf&#32;|&#32;txz&#32;&#32;|&#32;tar.z&#32;|
++-----------------+------------+------+------+------+-------+--------+--------+--------+-----------+-----+-----+-----+------+-----+-----+-----+-----+-----+-----+-----+------+-------+
+|&#32;Zip&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;|&#32;oOtxsadTcC&#32;|&#32;&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;&#32;&#32;|
+|&#32;Rar&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;|&#32;oOxs&#32;|&#32;&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;&#32;&#32;|
+|&#32;Gzip&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;&#32;|&#32;oxsc&#32;|&#32;&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;&#32;&#32;|
+|&#32;Bzip&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;&#32;|&#32;oxsc&#32;|&#32;&#32;&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;&#32;&#32;|
+|&#32;Lzma&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;&#32;|&#32;oxsc&#32;&#32;|&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;&#32;&#32;|
+|&#32;TarByPhar&#32;&#32;&#32;&#32;&#32;&#32;&#32;|&#32;oxsadc&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;&#32;&#32;|&#32;oxsadc&#32;|&#32;oxsadc&#32;|&#32;oxsadc&#32;|&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;&#32;&#32;|
+|&#32;SevenZip&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;|&#32;oOxadcC&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;&#32;|&#32;oxadc&#32;|&#32;oxadc&#32;&#32;|&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;|&#32;oOtxadTcC&#32;|&#32;ox&#32;&#32;|&#32;ox&#32;&#32;|&#32;ox&#32;&#32;|&#32;ox&#32;&#32;&#32;|&#32;ox&#32;&#32;|&#32;ox&#32;&#32;|&#32;ox&#32;&#32;|&#32;ox&#32;&#32;|&#32;ox&#32;&#32;|&#32;ox&#32;&#32;|&#32;ox&#32;&#32;|&#32;&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;&#32;&#32;|
+|&#32;AlchemyZippy&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;&#32;&#32;|
+|&#32;NelexaZip&#32;&#32;&#32;&#32;&#32;&#32;&#32;|&#32;oOxad&#32;&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;&#32;&#32;|
+|&#32;TarByPear&#32;&#32;&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;&#32;&#32;|&#32;oxac&#32;&#32;&#32;|&#32;oxac&#32;&#32;&#32;|&#32;oxac&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;|&#32;oxac&#32;|&#32;&#32;&#32;&#32;&#32;&#32;&#32;|
+|&#32;Iso&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;|&#32;ox&#32;&#32;|&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;&#32;&#32;|
+|&#32;Cab&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;|&#32;ox&#32;&#32;|&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;&#32;|&#32;&#32;&#32;&#32;&#32;&#32;&#32;|
++-----------------+------------+------+------+------+-------+--------+--------+--------+-----------+-----+-----+-----+------+-----+-----+-----+-----+-----+-----+-----+------+-------+
+</computeroutput></literallayout></para>
+
+<para><itemizedlist>
+<listitem>
+<para>o - open</para>
+</listitem><listitem>
+<para>O - open (+password)</para>
+</listitem><listitem>
+<para>t - get comment</para>
+</listitem><listitem>
+<para>x - extract</para>
+</listitem><listitem>
+<para>s - stream</para>
+</listitem><listitem>
+<para>a - append</para>
+</listitem><listitem>
+<para>d - delete</para>
+</listitem><listitem>
+<para>T - set comment</para>
+</listitem><listitem>
+<para>c - create</para>
+</listitem><listitem>
+<para>C - create (+password) </para>
+</listitem></itemizedlist>
+</para>
+</section>
+</section>

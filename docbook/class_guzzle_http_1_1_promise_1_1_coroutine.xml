@@ -1,0 +1,435 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_guzzle_http_1_1_promise_1_1_coroutine" xml:lang="fr">
+<title>Référence de la classe Coroutine</title>
+<indexterm><primary>Coroutine</primary></indexterm>
+Graphe d&apos;héritage de Coroutine:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_guzzle_http_1_1_promise_1_1_coroutine__inherit__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Graphe de collaboration de Coroutine:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_guzzle_http_1_1_promise_1_1_coroutine__coll__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Fonctions membres publiques    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_guzzle_http_1_1_promise_1_1_coroutine_1aec1d23ce46bec2cca8b475ef55d743c2">__construct</link> (<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">callable</link> $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">generatorFn</link>)</para>
+</listitem>
+            <listitem><para><link linkend="_class_guzzle_http_1_1_promise_1_1_coroutine_1a4feb652e6c84c7767347fb21cf496c73">then</link> (<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">callable</link> $onFulfilled=null, <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">callable</link> $onRejected=null)</para>
+</listitem>
+            <listitem><para><link linkend="_class_guzzle_http_1_1_promise_1_1_coroutine_1a688fdb804610bab573256b55a8b55e7f">otherwise</link> (<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">callable</link> $onRejected)</para>
+</listitem>
+            <listitem><para><link linkend="_class_guzzle_http_1_1_promise_1_1_coroutine_1a1fd1ae96b81c32591a84e790981eb93a">wait</link> ($<link linkend="_namespace_guzzle_http_1_1_promise_1a872182194a884a4ed11f905680270140">unwrap</link>=true)</para>
+</listitem>
+            <listitem><para><link linkend="_class_guzzle_http_1_1_promise_1_1_coroutine_1afbf787ced76807989fb3093e1772c5a1">getState</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_class_guzzle_http_1_1_promise_1_1_coroutine_1ad87255b62f0e4e81f9462328a026b510">resolve</link> ($value)</para>
+</listitem>
+            <listitem><para><link linkend="_class_guzzle_http_1_1_promise_1_1_coroutine_1a95d7628ce8610636b9ee98642835cb1f">reject</link> ($reason)</para>
+</listitem>
+            <listitem><para><link linkend="_class_guzzle_http_1_1_promise_1_1_coroutine_1a649b2b3005c687ae78c9d1d65e973493">cancel</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_class_guzzle_http_1_1_promise_1_1_coroutine_1abe9176639006254277ddd0eec668fed2">_handleSuccess</link> ($value)</para>
+</listitem>
+            <listitem><para><link linkend="_class_guzzle_http_1_1_promise_1_1_coroutine_1a8a85d576ceff1490cf3bfa280f7f990d">_handleFailure</link> ($reason)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Fonctions membres publiques statiques    </title>
+        <itemizedlist>
+            <listitem><para>static <link linkend="_class_guzzle_http_1_1_promise_1_1_coroutine_1a2501164b3859e7fcc56720cb727fbaa3">of</link> (<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">callable</link> $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">generatorFn</link>)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Membres hérités additionnels    </title>
+Champs de données hérités de <link linkend="_interface_guzzle_http_1_1_promise_1_1_promise_interface">PromiseInterface</link>        <itemizedlist>
+            <listitem><para>const <link linkend="_interface_guzzle_http_1_1_promise_1_1_promise_interface_1abaf4facc752f618f7d88aa7e2886c812">PENDING</link> = &apos;pending&apos;</para>
+</listitem>
+            <listitem><para>const <link linkend="_interface_guzzle_http_1_1_promise_1_1_promise_interface_1a73fff0d9d3144518678b1df2ff181934">FULFILLED</link> = &apos;fulfilled&apos;</para>
+</listitem>
+            <listitem><para>const <link linkend="_interface_guzzle_http_1_1_promise_1_1_promise_interface_1a25be17e5b990d3b083f7ec154287da3d">REJECTED</link> = &apos;rejected&apos;</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Description détaillée</title>
+
+<para>Creates a promise that is resolved using a generator that yields values or promises (somewhat similar to C#&apos;s async keyword).</para>
+
+<para>When called, the Coroutine::of method will start an instance of the generator and returns a promise that is fulfilled with its final yielded value.</para>
+
+<para>Control is returned back to the generator when the yielded promise settles. This can lead to less verbose code when doing lots of sequential async calls with minimal processing in between. <literallayout><computeroutput>use GuzzleHttp\Promise;
+
+function createPromise($value) {
+    return new Promise\FulfilledPromise($value);
+}
+
+$promise = Promise\Coroutine::of(function () {
+    $value = (yield createPromise(&apos;a&apos;));
+    try {
+        $value = (yield createPromise($value . &apos;b&apos;));
+    } catch (\Exception $e) {
+        // The promise was rejected.
+    }
+    yield $value . &apos;c&apos;;
+});
+
+// Outputs &quot;abc&quot;
+$promise-&gt;then(function ($v) { echo $v; });
+</computeroutput></literallayout> 
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>callable</entry><entry>$generatorFn</entry><entry>
+<para>Generator function to wrap into a promise.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>Promise</para>
+</formalpara>
+<link linkend="_">inspiration </link></para>
+</section>
+<section>
+<title>Documentation des constructeurs et destructeur</title>
+<anchor xml:id="_class_guzzle_http_1_1_promise_1_1_coroutine_1aec1d23ce46bec2cca8b475ef55d743c2"/><section>
+    <title>__construct()</title>
+<indexterm><primary>__construct</primary><secondary>Coroutine</secondary></indexterm>
+<indexterm><primary>Coroutine</primary><secondary>__construct</secondary></indexterm>
+<para><computeroutput>__construct (<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">callable</link> $generatorFn)</computeroutput></para></section>
+</section>
+<section>
+<title>Documentation des fonctions membres</title>
+<anchor xml:id="_class_guzzle_http_1_1_promise_1_1_coroutine_1a8a85d576ceff1490cf3bfa280f7f990d"/><section>
+    <title>_handleFailure()</title>
+<indexterm><primary>_handleFailure</primary><secondary>Coroutine</secondary></indexterm>
+<indexterm><primary>Coroutine</primary><secondary>_handleFailure</secondary></indexterm>
+<para><computeroutput>_handleFailure ( $reason)</computeroutput></para>Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_guzzle_http_1_1_promise_1_1_coroutine_a8a85d576ceff1490cf3bfa280f7f990d_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_guzzle_http_1_1_promise_1_1_coroutine_1abe9176639006254277ddd0eec668fed2"/><section>
+    <title>_handleSuccess()</title>
+<indexterm><primary>_handleSuccess</primary><secondary>Coroutine</secondary></indexterm>
+<indexterm><primary>Coroutine</primary><secondary>_handleSuccess</secondary></indexterm>
+<para><computeroutput>_handleSuccess ( $value)</computeroutput></para></section>
+<anchor xml:id="_class_guzzle_http_1_1_promise_1_1_coroutine_1a649b2b3005c687ae78c9d1d65e973493"/><section>
+    <title>cancel()</title>
+<indexterm><primary>cancel</primary><secondary>Coroutine</secondary></indexterm>
+<indexterm><primary>Coroutine</primary><secondary>cancel</secondary></indexterm>
+<para><computeroutput>cancel ( )</computeroutput></para>
+<para>Cancels the promise if possible.</para>
+
+<para><link linkend="_">https://github.com/promises-aplus/cancellation-spec/issues/7</link></para>
+<para>
+Implémente <link linkend="_interface_guzzle_http_1_1_promise_1_1_promise_interface_1a649b2b3005c687ae78c9d1d65e973493">PromiseInterface</link>.</para>
+</section>
+<anchor xml:id="_class_guzzle_http_1_1_promise_1_1_coroutine_1afbf787ced76807989fb3093e1772c5a1"/><section>
+    <title>getState()</title>
+<indexterm><primary>getState</primary><secondary>Coroutine</secondary></indexterm>
+<indexterm><primary>Coroutine</primary><secondary>getState</secondary></indexterm>
+<para><computeroutput>getState ( )</computeroutput></para>
+<para>Get the state of the promise (&quot;pending&quot;, &quot;rejected&quot;, or &quot;fulfilled&quot;).</para>
+
+<para>The three states can be checked against the constants defined on PromiseInterface: PENDING, FULFILLED, and REJECTED.</para>
+
+<para><formalpara><title>Renvoie</title>
+
+<para>string </para>
+</formalpara>
+</para>
+<para>
+Implémente <link linkend="_interface_guzzle_http_1_1_promise_1_1_promise_interface_1afbf787ced76807989fb3093e1772c5a1">PromiseInterface</link>.</para>
+</section>
+<anchor xml:id="_class_guzzle_http_1_1_promise_1_1_coroutine_1a2501164b3859e7fcc56720cb727fbaa3"/><section>
+    <title>of()</title>
+<indexterm><primary>of</primary><secondary>Coroutine</secondary></indexterm>
+<indexterm><primary>Coroutine</primary><secondary>of</secondary></indexterm>
+<para><computeroutput>static of (<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">callable</link> $generatorFn)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>Create a new coroutine.</para>
+
+<para><formalpara><title>Renvoie</title>
+
+<para>self </para>
+</formalpara>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_guzzle_http_1_1_promise_1_1_coroutine_a2501164b3859e7fcc56720cb727fbaa3_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_guzzle_http_1_1_promise_1_1_coroutine_1a688fdb804610bab573256b55a8b55e7f"/><section>
+    <title>otherwise()</title>
+<indexterm><primary>otherwise</primary><secondary>Coroutine</secondary></indexterm>
+<indexterm><primary>Coroutine</primary><secondary>otherwise</secondary></indexterm>
+<para><computeroutput>otherwise (<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">callable</link> $onRejected)</computeroutput></para>
+<para>Appends a rejection handler callback to the promise, and returns a new promise resolving to the return value of the callback if it is called, or to its original fulfillment value if the promise is instead fulfilled.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>callable</entry><entry>$onRejected</entry><entry>
+<para>Invoked when the promise is rejected.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>PromiseInterface </para>
+</formalpara>
+</para>
+<para>
+Implémente <link linkend="_interface_guzzle_http_1_1_promise_1_1_promise_interface_1a688fdb804610bab573256b55a8b55e7f">PromiseInterface</link>.</para>
+</section>
+<anchor xml:id="_class_guzzle_http_1_1_promise_1_1_coroutine_1a95d7628ce8610636b9ee98642835cb1f"/><section>
+    <title>reject()</title>
+<indexterm><primary>reject</primary><secondary>Coroutine</secondary></indexterm>
+<indexterm><primary>Coroutine</primary><secondary>reject</secondary></indexterm>
+<para><computeroutput>reject ( $reason)</computeroutput></para>
+<para>Reject the promise with the given reason.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>mixed</entry><entry>$reason</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry></entry>
+<entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                RuntimeException if the promise is already resolved. </para>
+<para>
+Implémente <link linkend="_interface_guzzle_http_1_1_promise_1_1_promise_interface_1a95d7628ce8610636b9ee98642835cb1f">PromiseInterface</link>.</para>
+</section>
+<anchor xml:id="_class_guzzle_http_1_1_promise_1_1_coroutine_1ad87255b62f0e4e81f9462328a026b510"/><section>
+    <title>resolve()</title>
+<indexterm><primary>resolve</primary><secondary>Coroutine</secondary></indexterm>
+<indexterm><primary>Coroutine</primary><secondary>resolve</secondary></indexterm>
+<para><computeroutput>resolve ( $value)</computeroutput></para>
+<para>Resolve the promise with the given value.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>mixed</entry><entry>$value</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry></entry>
+<entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                RuntimeException if the promise is already resolved. </para>
+<para>
+Implémente <link linkend="_interface_guzzle_http_1_1_promise_1_1_promise_interface_1ad87255b62f0e4e81f9462328a026b510">PromiseInterface</link>.</para>
+</section>
+<anchor xml:id="_class_guzzle_http_1_1_promise_1_1_coroutine_1a4feb652e6c84c7767347fb21cf496c73"/><section>
+    <title>then()</title>
+<indexterm><primary>then</primary><secondary>Coroutine</secondary></indexterm>
+<indexterm><primary>Coroutine</primary><secondary>then</secondary></indexterm>
+<para><computeroutput>then (<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">callable</link> $onFulfilled = <computeroutput>null</computeroutput>
+, <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">callable</link> $onRejected = <computeroutput>null</computeroutput>
+)</computeroutput></para>
+<para>Appends fulfillment and rejection handlers to the promise, and returns a new promise resolving to the return value of the called handler.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>callable</entry><entry>$onFulfilled</entry><entry>
+<para>Invoked when the promise fulfills. </para>
+</entry>
+                            </row>
+                            <row>
+<entry>callable</entry><entry>$onRejected</entry><entry>
+<para>Invoked when the promise is rejected.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>PromiseInterface </para>
+</formalpara>
+</para>
+<para>
+Implémente <link linkend="_interface_guzzle_http_1_1_promise_1_1_promise_interface_1a4feb652e6c84c7767347fb21cf496c73">PromiseInterface</link>.</para>
+</section>
+<anchor xml:id="_class_guzzle_http_1_1_promise_1_1_coroutine_1a1fd1ae96b81c32591a84e790981eb93a"/><section>
+    <title>wait()</title>
+<indexterm><primary>wait</primary><secondary>Coroutine</secondary></indexterm>
+<indexterm><primary>Coroutine</primary><secondary>wait</secondary></indexterm>
+<para><computeroutput>wait ( $unwrap = <computeroutput>true</computeroutput>
+)</computeroutput></para>
+<para>Waits until the promise completes if possible.</para>
+
+<para>Pass $unwrap as true to unwrap the result of the promise, either returning the resolved value or throwing the rejected exception.</para>
+
+<para>If the promise cannot be waited on, then the promise will be rejected.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>bool</entry><entry>$unwrap</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>mixed</para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry></entry>
+<entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                LogicException if the promise has no wait function or if the promise does not settle after waiting. </para>
+<para>
+Implémente <link linkend="_interface_guzzle_http_1_1_promise_1_1_promise_interface_1a1fd1ae96b81c32591a84e790981eb93a">PromiseInterface</link>.</para>
+</section>
+<para>
+La documentation de cette classe a été générée à partir du fichier suivant :</para>
+public/glpi/vendor/guzzlehttp/promises/src/<link linkend="_guzzlehttp_2promises_2src_2coroutine_8php">Coroutine.php</link></section>
+</section>

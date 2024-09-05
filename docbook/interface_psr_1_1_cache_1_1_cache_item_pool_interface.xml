@@ -1,0 +1,443 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_interface_psr_1_1_cache_1_1_cache_item_pool_interface" xml:lang="fr">
+<title>Référence de l&apos;interface CacheItemPoolInterface</title>
+<indexterm><primary>CacheItemPoolInterface</primary></indexterm>
+Graphe d&apos;héritage de CacheItemPoolInterface:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="interface_psr_1_1_cache_1_1_cache_item_pool_interface__inherit__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Graphe de collaboration de CacheItemPoolInterface:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="interface_psr_1_1_cache_1_1_cache_item_pool_interface__coll__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Fonctions membres publiques    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_interface_psr_1_1_cache_1_1_cache_item_pool_interface_1ac2c9d62db1d0ef7b0886d886c5103332">getItem</link> ($key)</para>
+</listitem>
+            <listitem><para><link linkend="_interface_psr_1_1_cache_1_1_cache_item_pool_interface_1a0ea8e9976573140cac77c46c8f5dd038">getItems</link> (array $keys=array())</para>
+</listitem>
+            <listitem><para><link linkend="_interface_psr_1_1_cache_1_1_cache_item_pool_interface_1af52c0b56089f49bf62ff41b59b2b0b19">hasItem</link> ($key)</para>
+</listitem>
+            <listitem><para><link linkend="_interface_psr_1_1_cache_1_1_cache_item_pool_interface_1aa821bec12eaa7e0f649397c9675ff505">clear</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_interface_psr_1_1_cache_1_1_cache_item_pool_interface_1a57019c6883a4447e87e4e12b8105834f">deleteItem</link> ($key)</para>
+</listitem>
+            <listitem><para><link linkend="_interface_psr_1_1_cache_1_1_cache_item_pool_interface_1af2ea95b29ace70903b16c4760efbf3d0">deleteItems</link> (array $keys)</para>
+</listitem>
+            <listitem><para><link linkend="_interface_psr_1_1_cache_1_1_cache_item_pool_interface_1a64a3e767e6943bc7f9270f05ff552dd6">save</link> (<link linkend="_interface_psr_1_1_cache_1_1_cache_item_interface">CacheItemInterface</link> $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">item</link>)</para>
+</listitem>
+            <listitem><para><link linkend="_interface_psr_1_1_cache_1_1_cache_item_pool_interface_1aea2bb54c43685f962ab93f7124fee2ce">saveDeferred</link> (<link linkend="_interface_psr_1_1_cache_1_1_cache_item_interface">CacheItemInterface</link> $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">item</link>)</para>
+</listitem>
+            <listitem><para><link linkend="_interface_psr_1_1_cache_1_1_cache_item_pool_interface_1af5674c27d4a92f6228565010eacbb9cb">commit</link> ()</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Description détaillée</title>
+
+<para>CacheItemPoolInterface generates CacheItemInterface objects.</para>
+
+<para>The primary purpose of Cache\CacheItemPoolInterface is to accept a key from the Calling Library and return the associated Cache\CacheItemInterface object. It is also the primary point of interaction with the entire cache collection. All configuration and initialization of the Pool is left up to an Implementing Library. </para>
+</section>
+<section>
+<title>Documentation des fonctions membres</title>
+<anchor xml:id="_interface_psr_1_1_cache_1_1_cache_item_pool_interface_1aa821bec12eaa7e0f649397c9675ff505"/><section>
+    <title>clear()</title>
+<indexterm><primary>clear</primary><secondary>CacheItemPoolInterface</secondary></indexterm>
+<indexterm><primary>CacheItemPoolInterface</primary><secondary>clear</secondary></indexterm>
+<para><computeroutput>clear ( )</computeroutput></para>
+<para>Deletes all items in the pool.</para>
+
+<para><formalpara><title>Renvoie</title>
+
+<para>bool True if the pool was successfully cleared. False if there was an error. </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_interface_psr_1_1_cache_1_1_cache_item_pool_interface_1af5674c27d4a92f6228565010eacbb9cb"/><section>
+    <title>commit()</title>
+<indexterm><primary>commit</primary><secondary>CacheItemPoolInterface</secondary></indexterm>
+<indexterm><primary>CacheItemPoolInterface</primary><secondary>commit</secondary></indexterm>
+<para><computeroutput>commit ( )</computeroutput></para>
+<para>Persists any deferred cache items.</para>
+
+<para><formalpara><title>Renvoie</title>
+
+<para>bool True if all not-yet-saved items were successfully saved or there were none. False otherwise. </para>
+</formalpara>
+</para>
+<para>
+Implémenté dans <link linkend="_class_symfony_1_1_component_1_1_cache_1_1_adapter_1_1_abstract_adapter_1af5674c27d4a92f6228565010eacbb9cb">AbstractAdapter</link>, <link linkend="_class_symfony_1_1_component_1_1_cache_1_1_adapter_1_1_abstract_tag_aware_adapter_1af5674c27d4a92f6228565010eacbb9cb">AbstractTagAwareAdapter</link>, <link linkend="_class_symfony_1_1_component_1_1_cache_1_1_adapter_1_1_array_adapter_1af5674c27d4a92f6228565010eacbb9cb">ArrayAdapter</link>, <link linkend="_class_symfony_1_1_component_1_1_cache_1_1_adapter_1_1_chain_adapter_1af5674c27d4a92f6228565010eacbb9cb">ChainAdapter</link>, <link linkend="_class_symfony_1_1_component_1_1_cache_1_1_adapter_1_1_null_adapter_1af5674c27d4a92f6228565010eacbb9cb">NullAdapter</link>, <link linkend="_class_symfony_1_1_component_1_1_cache_1_1_adapter_1_1_pdo_adapter_1af5674c27d4a92f6228565010eacbb9cb">PdoAdapter</link>, <link linkend="_class_symfony_1_1_component_1_1_cache_1_1_adapter_1_1_php_array_adapter_1af5674c27d4a92f6228565010eacbb9cb">PhpArrayAdapter</link>, <link linkend="_class_symfony_1_1_component_1_1_cache_1_1_adapter_1_1_proxy_adapter_1af5674c27d4a92f6228565010eacbb9cb">ProxyAdapter</link>, <link linkend="_class_symfony_1_1_component_1_1_cache_1_1_adapter_1_1_tag_aware_adapter_1af5674c27d4a92f6228565010eacbb9cb">TagAwareAdapter</link>, et <link linkend="_class_symfony_1_1_component_1_1_cache_1_1_adapter_1_1_traceable_adapter_1af5674c27d4a92f6228565010eacbb9cb">TraceableAdapter</link>.</para>
+</section>
+<anchor xml:id="_interface_psr_1_1_cache_1_1_cache_item_pool_interface_1a57019c6883a4447e87e4e12b8105834f"/><section>
+    <title>deleteItem()</title>
+<indexterm><primary>deleteItem</primary><secondary>CacheItemPoolInterface</secondary></indexterm>
+<indexterm><primary>CacheItemPoolInterface</primary><secondary>deleteItem</secondary></indexterm>
+<para><computeroutput>deleteItem ( $key)</computeroutput></para>
+<para>Removes the item from the pool.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$key</entry><entry>
+<para>The key to delete.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>InvalidArgumentException</entry><entry>
+<para>If the $key string is not a legal value a \Psr\Cache\InvalidArgumentException MUST be thrown.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>bool True if the item was successfully removed. False if there was an error. </para>
+</formalpara>
+</para>
+<para>
+Implémenté dans <link linkend="_class_symfony_1_1_component_1_1_cache_1_1_adapter_1_1_array_adapter_1a57019c6883a4447e87e4e12b8105834f">ArrayAdapter</link>, <link linkend="_class_symfony_1_1_component_1_1_cache_1_1_adapter_1_1_chain_adapter_1a57019c6883a4447e87e4e12b8105834f">ChainAdapter</link>, <link linkend="_class_symfony_1_1_component_1_1_cache_1_1_adapter_1_1_null_adapter_1a57019c6883a4447e87e4e12b8105834f">NullAdapter</link>, <link linkend="_class_symfony_1_1_component_1_1_cache_1_1_adapter_1_1_pdo_adapter_1a57019c6883a4447e87e4e12b8105834f">PdoAdapter</link>, <link linkend="_class_symfony_1_1_component_1_1_cache_1_1_adapter_1_1_php_array_adapter_1a57019c6883a4447e87e4e12b8105834f">PhpArrayAdapter</link>, <link linkend="_class_symfony_1_1_component_1_1_cache_1_1_adapter_1_1_proxy_adapter_1a57019c6883a4447e87e4e12b8105834f">ProxyAdapter</link>, <link linkend="_class_symfony_1_1_component_1_1_cache_1_1_adapter_1_1_tag_aware_adapter_1a57019c6883a4447e87e4e12b8105834f">TagAwareAdapter</link>, et <link linkend="_class_symfony_1_1_component_1_1_cache_1_1_adapter_1_1_traceable_adapter_1a57019c6883a4447e87e4e12b8105834f">TraceableAdapter</link>.</para>
+</section>
+<anchor xml:id="_interface_psr_1_1_cache_1_1_cache_item_pool_interface_1af2ea95b29ace70903b16c4760efbf3d0"/><section>
+    <title>deleteItems()</title>
+<indexterm><primary>deleteItems</primary><secondary>CacheItemPoolInterface</secondary></indexterm>
+<indexterm><primary>CacheItemPoolInterface</primary><secondary>deleteItems</secondary></indexterm>
+<para><computeroutput>deleteItems (array $keys)</computeroutput></para>
+<para>Removes multiple items from the pool.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string[]</entry><entry>$keys</entry><entry>
+<para>An array of keys that should be removed from the pool.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>InvalidArgumentException</entry><entry>
+<para>If any of the keys in $keys are not a legal value a \Psr\Cache\InvalidArgumentException MUST be thrown.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>bool True if the items were successfully removed. False if there was an error. </para>
+</formalpara>
+</para>
+<para>
+Implémenté dans <link linkend="_class_symfony_1_1_component_1_1_cache_1_1_adapter_1_1_abstract_tag_aware_adapter_1af2ea95b29ace70903b16c4760efbf3d0">AbstractTagAwareAdapter</link>, <link linkend="_class_symfony_1_1_component_1_1_cache_1_1_adapter_1_1_array_adapter_1af2ea95b29ace70903b16c4760efbf3d0">ArrayAdapter</link>, <link linkend="_class_symfony_1_1_component_1_1_cache_1_1_adapter_1_1_chain_adapter_1af2ea95b29ace70903b16c4760efbf3d0">ChainAdapter</link>, <link linkend="_class_symfony_1_1_component_1_1_cache_1_1_adapter_1_1_null_adapter_1af2ea95b29ace70903b16c4760efbf3d0">NullAdapter</link>, <link linkend="_class_symfony_1_1_component_1_1_cache_1_1_adapter_1_1_pdo_adapter_1af2ea95b29ace70903b16c4760efbf3d0">PdoAdapter</link>, <link linkend="_class_symfony_1_1_component_1_1_cache_1_1_adapter_1_1_php_array_adapter_1af2ea95b29ace70903b16c4760efbf3d0">PhpArrayAdapter</link>, <link linkend="_class_symfony_1_1_component_1_1_cache_1_1_adapter_1_1_proxy_adapter_1af2ea95b29ace70903b16c4760efbf3d0">ProxyAdapter</link>, <link linkend="_class_symfony_1_1_component_1_1_cache_1_1_adapter_1_1_tag_aware_adapter_1af2ea95b29ace70903b16c4760efbf3d0">TagAwareAdapter</link>, et <link linkend="_class_symfony_1_1_component_1_1_cache_1_1_adapter_1_1_traceable_adapter_1af2ea95b29ace70903b16c4760efbf3d0">TraceableAdapter</link>.</para>
+</section>
+<anchor xml:id="_interface_psr_1_1_cache_1_1_cache_item_pool_interface_1ac2c9d62db1d0ef7b0886d886c5103332"/><section>
+    <title>getItem()</title>
+<indexterm><primary>getItem</primary><secondary>CacheItemPoolInterface</secondary></indexterm>
+<indexterm><primary>CacheItemPoolInterface</primary><secondary>getItem</secondary></indexterm>
+<para><computeroutput>getItem ( $key)</computeroutput></para>
+<para>Returns a Cache Item representing the specified key.</para>
+
+<para>This method must always return a CacheItemInterface object, even in case of a cache miss. It MUST NOT return null.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$key</entry><entry>
+<para>The key for which to return the corresponding Cache Item.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>InvalidArgumentException</entry><entry>
+<para>If the $key string is not a legal value a \Psr\Cache\InvalidArgumentException MUST be thrown.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>CacheItemInterface The corresponding Cache Item. </para>
+</formalpara>
+</para>
+<para>
+Implémenté dans <link linkend="_interface_symfony_1_1_component_1_1_cache_1_1_adapter_1_1_adapter_interface_1ac2c9d62db1d0ef7b0886d886c5103332">AdapterInterface</link>, <link linkend="_class_symfony_1_1_component_1_1_cache_1_1_adapter_1_1_array_adapter_1ac2c9d62db1d0ef7b0886d886c5103332">ArrayAdapter</link>, <link linkend="_class_symfony_1_1_component_1_1_cache_1_1_adapter_1_1_chain_adapter_1ac2c9d62db1d0ef7b0886d886c5103332">ChainAdapter</link>, <link linkend="_class_symfony_1_1_component_1_1_cache_1_1_adapter_1_1_null_adapter_1ac2c9d62db1d0ef7b0886d886c5103332">NullAdapter</link>, <link linkend="_class_symfony_1_1_component_1_1_cache_1_1_adapter_1_1_pdo_adapter_1ac2c9d62db1d0ef7b0886d886c5103332">PdoAdapter</link>, <link linkend="_class_symfony_1_1_component_1_1_cache_1_1_adapter_1_1_php_array_adapter_1ac2c9d62db1d0ef7b0886d886c5103332">PhpArrayAdapter</link>, <link linkend="_class_symfony_1_1_component_1_1_cache_1_1_adapter_1_1_proxy_adapter_1ac2c9d62db1d0ef7b0886d886c5103332">ProxyAdapter</link>, <link linkend="_class_symfony_1_1_component_1_1_cache_1_1_adapter_1_1_tag_aware_adapter_1ac2c9d62db1d0ef7b0886d886c5103332">TagAwareAdapter</link>, et <link linkend="_class_symfony_1_1_component_1_1_cache_1_1_adapter_1_1_traceable_adapter_1ac2c9d62db1d0ef7b0886d886c5103332">TraceableAdapter</link>.</para>
+</section>
+<anchor xml:id="_interface_psr_1_1_cache_1_1_cache_item_pool_interface_1a0ea8e9976573140cac77c46c8f5dd038"/><section>
+    <title>getItems()</title>
+<indexterm><primary>getItems</primary><secondary>CacheItemPoolInterface</secondary></indexterm>
+<indexterm><primary>CacheItemPoolInterface</primary><secondary>getItems</secondary></indexterm>
+<para><computeroutput>getItems (array $keys = <computeroutput>array()</computeroutput>
+)</computeroutput></para>
+<para>Returns a traversable set of cache items.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string[]</entry><entry>$keys</entry><entry>
+<para>An indexed array of keys of items to retrieve.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>InvalidArgumentException</entry><entry>
+<para>If any of the keys in $keys are not a legal value a \Psr\Cache\InvalidArgumentException MUST be thrown.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>array|\Traversable A traversable collection of Cache Items keyed by the cache keys of each item. A Cache item will be returned for each key, even if that key is not found. However, if no keys are specified then an empty traversable MUST be returned instead. </para>
+</formalpara>
+</para>
+<para>
+Implémenté dans <link linkend="_interface_symfony_1_1_component_1_1_cache_1_1_adapter_1_1_adapter_interface_1a3db5bc3828085ecc62d0c6eff743dcff">AdapterInterface</link>, <link linkend="_class_symfony_1_1_component_1_1_cache_1_1_adapter_1_1_array_adapter_1a3db5bc3828085ecc62d0c6eff743dcff">ArrayAdapter</link>, <link linkend="_class_symfony_1_1_component_1_1_cache_1_1_adapter_1_1_chain_adapter_1a3db5bc3828085ecc62d0c6eff743dcff">ChainAdapter</link>, <link linkend="_class_symfony_1_1_component_1_1_cache_1_1_adapter_1_1_null_adapter_1a3db5bc3828085ecc62d0c6eff743dcff">NullAdapter</link>, <link linkend="_class_symfony_1_1_component_1_1_cache_1_1_adapter_1_1_pdo_adapter_1a3db5bc3828085ecc62d0c6eff743dcff">PdoAdapter</link>, <link linkend="_class_symfony_1_1_component_1_1_cache_1_1_adapter_1_1_php_array_adapter_1a3db5bc3828085ecc62d0c6eff743dcff">PhpArrayAdapter</link>, <link linkend="_class_symfony_1_1_component_1_1_cache_1_1_adapter_1_1_proxy_adapter_1a3db5bc3828085ecc62d0c6eff743dcff">ProxyAdapter</link>, <link linkend="_class_symfony_1_1_component_1_1_cache_1_1_adapter_1_1_tag_aware_adapter_1a3db5bc3828085ecc62d0c6eff743dcff">TagAwareAdapter</link>, et <link linkend="_class_symfony_1_1_component_1_1_cache_1_1_adapter_1_1_traceable_adapter_1a3db5bc3828085ecc62d0c6eff743dcff">TraceableAdapter</link>.</para>
+</section>
+<anchor xml:id="_interface_psr_1_1_cache_1_1_cache_item_pool_interface_1af52c0b56089f49bf62ff41b59b2b0b19"/><section>
+    <title>hasItem()</title>
+<indexterm><primary>hasItem</primary><secondary>CacheItemPoolInterface</secondary></indexterm>
+<indexterm><primary>CacheItemPoolInterface</primary><secondary>hasItem</secondary></indexterm>
+<para><computeroutput>hasItem ( $key)</computeroutput></para>
+<para>Confirms if the cache contains specified cache item.</para>
+
+<para>Note: This method MAY avoid retrieving the cached value for performance reasons. This could result in a race condition with CacheItemInterface::get(). To avoid such situation use CacheItemInterface::isHit() instead.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$key</entry><entry>
+<para>The key for which to check existence.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>InvalidArgumentException</entry><entry>
+<para>If the $key string is not a legal value a \Psr\Cache\InvalidArgumentException MUST be thrown.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>bool True if item exists in the cache, false otherwise. </para>
+</formalpara>
+</para>
+<para>
+Implémenté dans <link linkend="_class_symfony_1_1_component_1_1_cache_1_1_adapter_1_1_array_adapter_1af52c0b56089f49bf62ff41b59b2b0b19">ArrayAdapter</link>, <link linkend="_class_symfony_1_1_component_1_1_cache_1_1_adapter_1_1_chain_adapter_1af52c0b56089f49bf62ff41b59b2b0b19">ChainAdapter</link>, <link linkend="_class_symfony_1_1_component_1_1_cache_1_1_adapter_1_1_null_adapter_1af52c0b56089f49bf62ff41b59b2b0b19">NullAdapter</link>, <link linkend="_class_symfony_1_1_component_1_1_cache_1_1_adapter_1_1_pdo_adapter_1af52c0b56089f49bf62ff41b59b2b0b19">PdoAdapter</link>, <link linkend="_class_symfony_1_1_component_1_1_cache_1_1_adapter_1_1_php_array_adapter_1af52c0b56089f49bf62ff41b59b2b0b19">PhpArrayAdapter</link>, <link linkend="_class_symfony_1_1_component_1_1_cache_1_1_adapter_1_1_proxy_adapter_1af52c0b56089f49bf62ff41b59b2b0b19">ProxyAdapter</link>, <link linkend="_class_symfony_1_1_component_1_1_cache_1_1_adapter_1_1_tag_aware_adapter_1af52c0b56089f49bf62ff41b59b2b0b19">TagAwareAdapter</link>, et <link linkend="_class_symfony_1_1_component_1_1_cache_1_1_adapter_1_1_traceable_adapter_1af52c0b56089f49bf62ff41b59b2b0b19">TraceableAdapter</link>.</para>
+</section>
+<anchor xml:id="_interface_psr_1_1_cache_1_1_cache_item_pool_interface_1a64a3e767e6943bc7f9270f05ff552dd6"/><section>
+    <title>save()</title>
+<indexterm><primary>save</primary><secondary>CacheItemPoolInterface</secondary></indexterm>
+<indexterm><primary>CacheItemPoolInterface</primary><secondary>save</secondary></indexterm>
+<para><computeroutput>save (<link linkend="_interface_psr_1_1_cache_1_1_cache_item_interface">CacheItemInterface</link> $item)</computeroutput></para>
+<para>Persists a cache item immediately.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>CacheItemInterface</entry><entry>$item</entry><entry>
+<para>The cache item to save.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>bool True if the item was successfully persisted. False if there was an error. </para>
+</formalpara>
+</para>
+<para>
+Implémenté dans <link linkend="_class_symfony_1_1_component_1_1_cache_1_1_adapter_1_1_array_adapter_1a64a3e767e6943bc7f9270f05ff552dd6">ArrayAdapter</link>, <link linkend="_class_symfony_1_1_component_1_1_cache_1_1_adapter_1_1_chain_adapter_1a64a3e767e6943bc7f9270f05ff552dd6">ChainAdapter</link>, <link linkend="_class_symfony_1_1_component_1_1_cache_1_1_adapter_1_1_null_adapter_1a64a3e767e6943bc7f9270f05ff552dd6">NullAdapter</link>, <link linkend="_class_symfony_1_1_component_1_1_cache_1_1_adapter_1_1_pdo_adapter_1a64a3e767e6943bc7f9270f05ff552dd6">PdoAdapter</link>, <link linkend="_class_symfony_1_1_component_1_1_cache_1_1_adapter_1_1_php_array_adapter_1a64a3e767e6943bc7f9270f05ff552dd6">PhpArrayAdapter</link>, <link linkend="_class_symfony_1_1_component_1_1_cache_1_1_adapter_1_1_proxy_adapter_1a64a3e767e6943bc7f9270f05ff552dd6">ProxyAdapter</link>, <link linkend="_class_symfony_1_1_component_1_1_cache_1_1_adapter_1_1_tag_aware_adapter_1a64a3e767e6943bc7f9270f05ff552dd6">TagAwareAdapter</link>, et <link linkend="_class_symfony_1_1_component_1_1_cache_1_1_adapter_1_1_traceable_adapter_1a64a3e767e6943bc7f9270f05ff552dd6">TraceableAdapter</link>.</para>
+</section>
+<anchor xml:id="_interface_psr_1_1_cache_1_1_cache_item_pool_interface_1aea2bb54c43685f962ab93f7124fee2ce"/><section>
+    <title>saveDeferred()</title>
+<indexterm><primary>saveDeferred</primary><secondary>CacheItemPoolInterface</secondary></indexterm>
+<indexterm><primary>CacheItemPoolInterface</primary><secondary>saveDeferred</secondary></indexterm>
+<para><computeroutput>saveDeferred (<link linkend="_interface_psr_1_1_cache_1_1_cache_item_interface">CacheItemInterface</link> $item)</computeroutput></para>
+<para>Sets a cache item to be persisted later.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>CacheItemInterface</entry><entry>$item</entry><entry>
+<para>The cache item to save.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>bool False if the item could not be queued or if a commit was attempted and failed. True otherwise. </para>
+</formalpara>
+</para>
+<para>
+Implémenté dans <link linkend="_class_symfony_1_1_component_1_1_cache_1_1_adapter_1_1_array_adapter_1aea2bb54c43685f962ab93f7124fee2ce">ArrayAdapter</link>, <link linkend="_class_symfony_1_1_component_1_1_cache_1_1_adapter_1_1_chain_adapter_1aea2bb54c43685f962ab93f7124fee2ce">ChainAdapter</link>, <link linkend="_class_symfony_1_1_component_1_1_cache_1_1_adapter_1_1_null_adapter_1aea2bb54c43685f962ab93f7124fee2ce">NullAdapter</link>, <link linkend="_class_symfony_1_1_component_1_1_cache_1_1_adapter_1_1_pdo_adapter_1aea2bb54c43685f962ab93f7124fee2ce">PdoAdapter</link>, <link linkend="_class_symfony_1_1_component_1_1_cache_1_1_adapter_1_1_php_array_adapter_1aea2bb54c43685f962ab93f7124fee2ce">PhpArrayAdapter</link>, <link linkend="_class_symfony_1_1_component_1_1_cache_1_1_adapter_1_1_proxy_adapter_1aea2bb54c43685f962ab93f7124fee2ce">ProxyAdapter</link>, <link linkend="_class_symfony_1_1_component_1_1_cache_1_1_adapter_1_1_tag_aware_adapter_1aea2bb54c43685f962ab93f7124fee2ce">TagAwareAdapter</link>, et <link linkend="_class_symfony_1_1_component_1_1_cache_1_1_adapter_1_1_traceable_adapter_1aea2bb54c43685f962ab93f7124fee2ce">TraceableAdapter</link>.</para>
+</section>
+<para>
+La documentation de cette interface a été générée à partir du fichier suivant :</para>
+public/glpi/vendor/psr/cache/src/<link linkend="__cache_item_pool_interface_8php">CacheItemPoolInterface.php</link></section>
+</section>

@@ -1,0 +1,616 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_glpi_1_1_system_1_1_diagnostic_1_1_database_schema_integrity_checker" xml:lang="fr">
+<title>Référence de la classe DatabaseSchemaIntegrityChecker</title>
+<indexterm><primary>DatabaseSchemaIntegrityChecker</primary></indexterm>
+Graphe de collaboration de DatabaseSchemaIntegrityChecker:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_glpi_1_1_system_1_1_diagnostic_1_1_database_schema_integrity_checker__coll__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Fonctions membres publiques    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_glpi_1_1_system_1_1_diagnostic_1_1_database_schema_integrity_checker_1aa43e77cf877df43957c033ecebf1b5bf">__construct</link> (<link linkend="_class_d_bmysql">DBmysql</link> $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">db</link>, bool $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">strict</link>=true, bool $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">ignore_innodb_migration</link>=false, bool $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">ignore_timestamps_migration</link>=false, bool $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">ignore_utf8mb4_migration</link>=false, bool $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">ignore_dynamic_row_format_migration</link>=false, bool $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">ignore_unsigned_keys_migration</link>=false)</para>
+</listitem>
+            <listitem><para><link linkend="_class_glpi_1_1_system_1_1_diagnostic_1_1_database_schema_integrity_checker_1a860e840a234afe151ed9371eab4e0d81">hasDifferences</link> (string $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">table_name</link>, string $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">proper_create_table_sql</link>)</para>
+</listitem>
+            <listitem><para><link linkend="_class_glpi_1_1_system_1_1_diagnostic_1_1_database_schema_integrity_checker_1aae389d36e40f551fad003fad4f0e8525">getDiff</link> (string $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">table_name</link>, string $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">proper_create_table_sql</link>)</para>
+</listitem>
+            <listitem><para><link linkend="_class_glpi_1_1_system_1_1_diagnostic_1_1_database_schema_integrity_checker_1aba9c3d52b2e0eaeed50ef51e59b59db7">extractSchemaFromFile</link> (string $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">schema_path</link>)</para>
+</listitem>
+            <listitem><para><link linkend="_class_glpi_1_1_system_1_1_diagnostic_1_1_database_schema_integrity_checker_1a50c0f0c99ab8ad35d734f5eb235ab4dc">checkCompleteSchema</link> (string $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">schema_path</link>, bool $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">include_unknown_tables</link>=false, string $context=&apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">core</link>&apos;)</para>
+</listitem>
+            <listitem><para><link linkend="_class_glpi_1_1_system_1_1_diagnostic_1_1_database_schema_integrity_checker_1a93940790b08aacd5a895a8507681141f">checkCompleteSchemaForVersion</link> (?string $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">schema_version</link>=null, bool $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">include_unknown_tables</link>=false, string $context=&apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">core</link>&apos;)</para>
+</listitem>
+            <listitem><para><link linkend="_class_glpi_1_1_system_1_1_diagnostic_1_1_database_schema_integrity_checker_1ad4e14e6ee393dffb23b769d4289215d5">canCheckIntegrity</link> (?string $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">schema_version</link>=null, string $context=&apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">core</link>&apos;)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Champs de données    </title>
+        <itemizedlist>
+            <listitem><para>const <link linkend="_class_glpi_1_1_system_1_1_diagnostic_1_1_database_schema_integrity_checker_1ab767d09b460f5a926705a88260313d8c">RESULT_TYPE_ALTERED_TABLE</link> = &apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">altered_table</link>&apos;</para>
+</listitem>
+            <listitem><para>const <link linkend="_class_glpi_1_1_system_1_1_diagnostic_1_1_database_schema_integrity_checker_1ab3e0a8fe2c5f4efee0a02e7e2b5dd6ed">RESULT_TYPE_MISSING_TABLE</link> = &apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">missing_table</link>&apos;</para>
+</listitem>
+            <listitem><para>const <link linkend="_class_glpi_1_1_system_1_1_diagnostic_1_1_database_schema_integrity_checker_1adf05e6022dcb1d4736ad8641d2a1735c">RESULT_TYPE_UNKNOWN_TABLE</link> = &apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">unknown_table</link>&apos;</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Fonctions membres protégées    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_glpi_1_1_system_1_1_diagnostic_1_1_database_schema_integrity_checker_1aab5b81e9c189abb9b74e98c8cf060096">getEffectiveCreateTableSql</link> (string $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">table_name</link>)</para>
+</listitem>
+            <listitem><para><link linkend="_class_glpi_1_1_system_1_1_diagnostic_1_1_database_schema_integrity_checker_1a422847aac349318c345970deeb622cc6">getNormalizedSql</link> (string $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">create_table_sql</link>)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Attributs protégés    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_glpi_1_1_system_1_1_diagnostic_1_1_database_schema_integrity_checker_1a1fa3127fc82f96b1436d871ef02be319">$db</link></para>
+</listitem>
+            <listitem><para><link linkend="_class_glpi_1_1_system_1_1_diagnostic_1_1_database_schema_integrity_checker_1a7289a9a925c0ae403a7c138057185130">$ignore_dynamic_row_format_migration</link></para>
+</listitem>
+            <listitem><para><link linkend="_class_glpi_1_1_system_1_1_diagnostic_1_1_database_schema_integrity_checker_1a19722c5a6ad59cd50109ad20aed2f415">$ignore_innodb_migration</link></para>
+</listitem>
+            <listitem><para><link linkend="_class_glpi_1_1_system_1_1_diagnostic_1_1_database_schema_integrity_checker_1a19cd0131380433ef8c9888abf25c8d22">$ignore_timestamps_migration</link></para>
+</listitem>
+            <listitem><para><link linkend="_class_glpi_1_1_system_1_1_diagnostic_1_1_database_schema_integrity_checker_1ab913f18e94ded83fbe9e613e14e66db7">$ignore_unsigned_keys_migration</link></para>
+</listitem>
+            <listitem><para><link linkend="_class_glpi_1_1_system_1_1_diagnostic_1_1_database_schema_integrity_checker_1a9873cf5bc6858aaa1b89b248841493b0">$ignore_utf8mb4_migration</link></para>
+</listitem>
+            <listitem><para><link linkend="_class_glpi_1_1_system_1_1_diagnostic_1_1_database_schema_integrity_checker_1a856bf794dded1ba70be4dfae635a1b06">$strict</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Description détaillée</title>
+
+<para><formalpara><title>Depuis</title>
+
+<para>10.0.0 </para>
+</formalpara>
+</para>
+</section>
+<section>
+<title>Documentation des constructeurs et destructeur</title>
+<anchor xml:id="_class_glpi_1_1_system_1_1_diagnostic_1_1_database_schema_integrity_checker_1aa43e77cf877df43957c033ecebf1b5bf"/><section>
+    <title>__construct()</title>
+<indexterm><primary>__construct</primary><secondary>DatabaseSchemaIntegrityChecker</secondary></indexterm>
+<indexterm><primary>DatabaseSchemaIntegrityChecker</primary><secondary>__construct</secondary></indexterm>
+<para><computeroutput>__construct (<link linkend="_class_d_bmysql">DBmysql</link> $db, bool $strict = <computeroutput>true</computeroutput>
+, bool $ignore_innodb_migration = <computeroutput>false</computeroutput>
+, bool $ignore_timestamps_migration = <computeroutput>false</computeroutput>
+, bool $ignore_utf8mb4_migration = <computeroutput>false</computeroutput>
+, bool $ignore_dynamic_row_format_migration = <computeroutput>false</computeroutput>
+, bool $ignore_unsigned_keys_migration = <computeroutput>false</computeroutput>
+)</computeroutput></para>
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry><link linkend="_class_d_bmysql">DBmysql</link></entry><entry>$db</entry><entry>
+<para><link linkend="_class_d_b">DB</link> instance. </para>
+</entry>
+                            </row>
+                            <row>
+<entry>bool</entry><entry>$strict</entry><entry>
+<para>Ignore differences that has no effect on application (columns and keys order for instance). </para>
+</entry>
+                            </row>
+                            <row>
+<entry>bool</entry><entry>$ignore_innodb_migration</entry><entry>
+<para>Do not check tokens related to migration from &quot;MyISAM&quot; to &quot;InnoDB&quot;. </para>
+</entry>
+                            </row>
+                            <row>
+<entry>bool</entry><entry>$ignore_timestamps_migration</entry><entry>
+<para>Do not check tokens related to migration from &quot;datetime&quot; to &quot;timestamp&quot;. </para>
+</entry>
+                            </row>
+                            <row>
+<entry>bool</entry><entry>$ignore_utf8mb4_migration</entry><entry>
+<para>Do not check tokens related to migration from &quot;utf8&quot; to &quot;utf8mb4&quot;. </para>
+</entry>
+                            </row>
+                            <row>
+<entry>bool</entry><entry>$ignore_dynamic_row_format_migration</entry><entry>
+<para>Do not check tokens related to &quot;DYNAMIC&quot; row format migration. </para>
+</entry>
+                            </row>
+                            <row>
+<entry>bool</entry><entry>$ignore_unsigned_keys_migration</entry><entry>
+<para>Do not check tokens related to migration from signed to unsigned integers in primary/foreign keys. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
+</section>
+<section>
+<title>Documentation des fonctions membres</title>
+<anchor xml:id="_class_glpi_1_1_system_1_1_diagnostic_1_1_database_schema_integrity_checker_1ad4e14e6ee393dffb23b769d4289215d5"/><section>
+    <title>canCheckIntegrity()</title>
+<indexterm><primary>canCheckIntegrity</primary><secondary>DatabaseSchemaIntegrityChecker</secondary></indexterm>
+<indexterm><primary>DatabaseSchemaIntegrityChecker</primary><secondary>canCheckIntegrity</secondary></indexterm>
+<para><computeroutput>canCheckIntegrity (?string $schema_version = <computeroutput>null</computeroutput>
+, string $context = <computeroutput>&apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">core</link>&apos;</computeroutput>
+)<computeroutput>[final]</computeroutput></computeroutput></para>
+<para>Check if schema integrity can be checked for given version/context.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string | null</entry><entry>$schema_version</entry><entry>
+<para>Installed schema version </para>
+</entry>
+                            </row>
+                            <row>
+<entry>string</entry><entry>$context</entry><entry>
+<para>Context used for unknown tables identification (could be &apos;core&apos; or &apos;plugin:plugin_key&apos;)</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>bool </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_class_glpi_1_1_system_1_1_diagnostic_1_1_database_schema_integrity_checker_1a50c0f0c99ab8ad35d734f5eb235ab4dc"/><section>
+    <title>checkCompleteSchema()</title>
+<indexterm><primary>checkCompleteSchema</primary><secondary>DatabaseSchemaIntegrityChecker</secondary></indexterm>
+<indexterm><primary>DatabaseSchemaIntegrityChecker</primary><secondary>checkCompleteSchema</secondary></indexterm>
+<para><computeroutput>checkCompleteSchema (string $schema_path, bool $include_unknown_tables = <computeroutput>false</computeroutput>
+, string $context = <computeroutput>&apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">core</link>&apos;</computeroutput>
+)</computeroutput></para>
+<para>Check if there is differences between effective schema and schema contained in given file.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$schema_path</entry><entry>
+<para>The absolute path to the schema file </para>
+</entry>
+                            </row>
+                            <row>
+<entry>bool</entry><entry>$include_unknown_tables</entry><entry>
+<para>Indicates whether unknown existing tables should be include in results </para>
+</entry>
+                            </row>
+                            <row>
+<entry>string</entry><entry>$context</entry><entry>
+<para>Context used for unknown tables identification (could be &apos;core&apos; or &apos;plugin:plugin_key&apos;)</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>array List of tables that differs from the expected schema. Keys are table names, and each entry has following properties:<itemizedlist>
+<listitem>
+<para><computeroutput>type</computeroutput>: difference type, see self::RESULT_TYPE_* constants;</para>
+</listitem><listitem>
+<para><computeroutput>diff</computeroutput>: diff string. </para>
+</listitem></itemizedlist>
+</para>
+</formalpara>
+</para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_glpi_1_1_system_1_1_diagnostic_1_1_database_schema_integrity_checker_a50c0f0c99ab8ad35d734f5eb235ab4dc_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_glpi_1_1_system_1_1_diagnostic_1_1_database_schema_integrity_checker_1a93940790b08aacd5a895a8507681141f"/><section>
+    <title>checkCompleteSchemaForVersion()</title>
+<indexterm><primary>checkCompleteSchemaForVersion</primary><secondary>DatabaseSchemaIntegrityChecker</secondary></indexterm>
+<indexterm><primary>DatabaseSchemaIntegrityChecker</primary><secondary>checkCompleteSchemaForVersion</secondary></indexterm>
+<para><computeroutput>checkCompleteSchemaForVersion (?string $schema_version = <computeroutput>null</computeroutput>
+, bool $include_unknown_tables = <computeroutput>false</computeroutput>
+, string $context = <computeroutput>&apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">core</link>&apos;</computeroutput>
+)<computeroutput>[final]</computeroutput></computeroutput></para>
+<para>Check if there is differences between effective schema and expected schema for given version/context.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string | null</entry><entry>$schema_version</entry><entry>
+<para>Installed schema version </para>
+</entry>
+                            </row>
+                            <row>
+<entry>bool</entry><entry>$include_unknown_tables</entry><entry>
+<para>Indicates whether unknown existing tables should be include in results </para>
+</entry>
+                            </row>
+                            <row>
+<entry>string</entry><entry>$context</entry><entry>
+<para>Context used for unknown tables identification (could be &apos;core&apos; or &apos;plugin:plugin_key&apos;)</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>array List of tables that differs from the expected schema. Keys are table names, and each entry has following properties:<itemizedlist>
+<listitem>
+<para><computeroutput>type</computeroutput>: difference type, see self::RESULT_TYPE_* constants;</para>
+</listitem><listitem>
+<para><computeroutput>diff</computeroutput>: diff string.</para>
+</listitem></itemizedlist>
+</para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry></entry>
+<entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                RuntimeException Thrown if schema file is not available. </para>
+</section>
+<anchor xml:id="_class_glpi_1_1_system_1_1_diagnostic_1_1_database_schema_integrity_checker_1aba9c3d52b2e0eaeed50ef51e59b59db7"/><section>
+    <title>extractSchemaFromFile()</title>
+<indexterm><primary>extractSchemaFromFile</primary><secondary>DatabaseSchemaIntegrityChecker</secondary></indexterm>
+<indexterm><primary>DatabaseSchemaIntegrityChecker</primary><secondary>extractSchemaFromFile</secondary></indexterm>
+<para><computeroutput>extractSchemaFromFile (string $schema_path)</computeroutput></para>
+<para>Extract the contents of the schema file.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$schema_path</entry><entry>
+<para>The absolute path to the schema file</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>array The parsed contents of the schema file. Keys contains table names and values contains CREATE TABLE SQL queries.</para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry></entry>
+<entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                RuntimeException Thrown if the specified schema file cannot be read. </para>
+</section>
+<anchor xml:id="_class_glpi_1_1_system_1_1_diagnostic_1_1_database_schema_integrity_checker_1aae389d36e40f551fad003fad4f0e8525"/><section>
+    <title>getDiff()</title>
+<indexterm><primary>getDiff</primary><secondary>DatabaseSchemaIntegrityChecker</secondary></indexterm>
+<indexterm><primary>DatabaseSchemaIntegrityChecker</primary><secondary>getDiff</secondary></indexterm>
+<para><computeroutput>getDiff (string $table_name, string $proper_create_table_sql)</computeroutput></para>
+<para>Get diff between effective table structure and proper structure contained in &quot;CREATE TABLE&quot; sql query.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$table_name</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>string</entry><entry>$proper_create_table_sql</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>string </para>
+</formalpara>
+</para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_glpi_1_1_system_1_1_diagnostic_1_1_database_schema_integrity_checker_aae389d36e40f551fad003fad4f0e8525_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_glpi_1_1_system_1_1_diagnostic_1_1_database_schema_integrity_checker_aae389d36e40f551fad003fad4f0e8525_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_glpi_1_1_system_1_1_diagnostic_1_1_database_schema_integrity_checker_1aab5b81e9c189abb9b74e98c8cf060096"/><section>
+    <title>getEffectiveCreateTableSql()</title>
+<indexterm><primary>getEffectiveCreateTableSql</primary><secondary>DatabaseSchemaIntegrityChecker</secondary></indexterm>
+<indexterm><primary>DatabaseSchemaIntegrityChecker</primary><secondary>getEffectiveCreateTableSql</secondary></indexterm>
+<para><computeroutput>getEffectiveCreateTableSql (string $table_name)<computeroutput>[protected]</computeroutput></computeroutput></para>
+<para>Returns &quot;CREATE TABLE&quot; SQL returned by <link linkend="_class_d_b">DB</link> itself.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$table_name</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>string </para>
+</formalpara>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_glpi_1_1_system_1_1_diagnostic_1_1_database_schema_integrity_checker_aab5b81e9c189abb9b74e98c8cf060096_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_glpi_1_1_system_1_1_diagnostic_1_1_database_schema_integrity_checker_1a422847aac349318c345970deeb622cc6"/><section>
+    <title>getNormalizedSql()</title>
+<indexterm><primary>getNormalizedSql</primary><secondary>DatabaseSchemaIntegrityChecker</secondary></indexterm>
+<indexterm><primary>DatabaseSchemaIntegrityChecker</primary><secondary>getNormalizedSql</secondary></indexterm>
+<para><computeroutput>getNormalizedSql (string $create_table_sql)<computeroutput>[protected]</computeroutput></computeroutput></para>
+<para>Returns normalized SQL. Normalization replace/remove tokens that can reveal differences we do not want to see.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$create_table_sql</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>string </para>
+</formalpara>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_glpi_1_1_system_1_1_diagnostic_1_1_database_schema_integrity_checker_a422847aac349318c345970deeb622cc6_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_glpi_1_1_system_1_1_diagnostic_1_1_database_schema_integrity_checker_1a860e840a234afe151ed9371eab4e0d81"/><section>
+    <title>hasDifferences()</title>
+<indexterm><primary>hasDifferences</primary><secondary>DatabaseSchemaIntegrityChecker</secondary></indexterm>
+<indexterm><primary>DatabaseSchemaIntegrityChecker</primary><secondary>hasDifferences</secondary></indexterm>
+<para><computeroutput>hasDifferences (string $table_name, string $proper_create_table_sql)</computeroutput></para>
+<para>Check is there is differences between effective table structure and proper structure contained in &quot;CREATE TABLE&quot; sql query.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$table_name</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>string</entry><entry>$proper_create_table_sql</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>bool </para>
+</formalpara>
+</para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_glpi_1_1_system_1_1_diagnostic_1_1_database_schema_integrity_checker_a860e840a234afe151ed9371eab4e0d81_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+</section>
+<section>
+<title>Documentation des champs</title>
+<anchor xml:id="_class_glpi_1_1_system_1_1_diagnostic_1_1_database_schema_integrity_checker_1a1fa3127fc82f96b1436d871ef02be319"/><section>
+    <title>$db</title>
+<indexterm><primary>$db</primary><secondary>DatabaseSchemaIntegrityChecker</secondary></indexterm>
+<indexterm><primary>DatabaseSchemaIntegrityChecker</primary><secondary>$db</secondary></indexterm>
+<para><computeroutput>$<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">db</link><computeroutput>[protected]</computeroutput></computeroutput></para></section>
+<anchor xml:id="_class_glpi_1_1_system_1_1_diagnostic_1_1_database_schema_integrity_checker_1a7289a9a925c0ae403a7c138057185130"/><section>
+    <title>$ignore_dynamic_row_format_migration</title>
+<indexterm><primary>$ignore_dynamic_row_format_migration</primary><secondary>DatabaseSchemaIntegrityChecker</secondary></indexterm>
+<indexterm><primary>DatabaseSchemaIntegrityChecker</primary><secondary>$ignore_dynamic_row_format_migration</secondary></indexterm>
+<para><computeroutput>$<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">ignore_dynamic_row_format_migration</link><computeroutput>[protected]</computeroutput></computeroutput></para></section>
+<anchor xml:id="_class_glpi_1_1_system_1_1_diagnostic_1_1_database_schema_integrity_checker_1a19722c5a6ad59cd50109ad20aed2f415"/><section>
+    <title>$ignore_innodb_migration</title>
+<indexterm><primary>$ignore_innodb_migration</primary><secondary>DatabaseSchemaIntegrityChecker</secondary></indexterm>
+<indexterm><primary>DatabaseSchemaIntegrityChecker</primary><secondary>$ignore_innodb_migration</secondary></indexterm>
+<para><computeroutput>$<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">ignore_innodb_migration</link><computeroutput>[protected]</computeroutput></computeroutput></para></section>
+<anchor xml:id="_class_glpi_1_1_system_1_1_diagnostic_1_1_database_schema_integrity_checker_1a19cd0131380433ef8c9888abf25c8d22"/><section>
+    <title>$ignore_timestamps_migration</title>
+<indexterm><primary>$ignore_timestamps_migration</primary><secondary>DatabaseSchemaIntegrityChecker</secondary></indexterm>
+<indexterm><primary>DatabaseSchemaIntegrityChecker</primary><secondary>$ignore_timestamps_migration</secondary></indexterm>
+<para><computeroutput>$<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">ignore_timestamps_migration</link><computeroutput>[protected]</computeroutput></computeroutput></para></section>
+<anchor xml:id="_class_glpi_1_1_system_1_1_diagnostic_1_1_database_schema_integrity_checker_1ab913f18e94ded83fbe9e613e14e66db7"/><section>
+    <title>$ignore_unsigned_keys_migration</title>
+<indexterm><primary>$ignore_unsigned_keys_migration</primary><secondary>DatabaseSchemaIntegrityChecker</secondary></indexterm>
+<indexterm><primary>DatabaseSchemaIntegrityChecker</primary><secondary>$ignore_unsigned_keys_migration</secondary></indexterm>
+<para><computeroutput>$<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">ignore_unsigned_keys_migration</link><computeroutput>[protected]</computeroutput></computeroutput></para></section>
+<anchor xml:id="_class_glpi_1_1_system_1_1_diagnostic_1_1_database_schema_integrity_checker_1a9873cf5bc6858aaa1b89b248841493b0"/><section>
+    <title>$ignore_utf8mb4_migration</title>
+<indexterm><primary>$ignore_utf8mb4_migration</primary><secondary>DatabaseSchemaIntegrityChecker</secondary></indexterm>
+<indexterm><primary>DatabaseSchemaIntegrityChecker</primary><secondary>$ignore_utf8mb4_migration</secondary></indexterm>
+<para><computeroutput>$<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">ignore_utf8mb4_migration</link><computeroutput>[protected]</computeroutput></computeroutput></para></section>
+<anchor xml:id="_class_glpi_1_1_system_1_1_diagnostic_1_1_database_schema_integrity_checker_1a856bf794dded1ba70be4dfae635a1b06"/><section>
+    <title>$strict</title>
+<indexterm><primary>$strict</primary><secondary>DatabaseSchemaIntegrityChecker</secondary></indexterm>
+<indexterm><primary>DatabaseSchemaIntegrityChecker</primary><secondary>$strict</secondary></indexterm>
+<para><computeroutput>$<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">strict</link><computeroutput>[protected]</computeroutput></computeroutput></para></section>
+<anchor xml:id="_class_glpi_1_1_system_1_1_diagnostic_1_1_database_schema_integrity_checker_1ab767d09b460f5a926705a88260313d8c"/><section>
+    <title>RESULT_TYPE_ALTERED_TABLE</title>
+<indexterm><primary>RESULT_TYPE_ALTERED_TABLE</primary><secondary>DatabaseSchemaIntegrityChecker</secondary></indexterm>
+<indexterm><primary>DatabaseSchemaIntegrityChecker</primary><secondary>RESULT_TYPE_ALTERED_TABLE</secondary></indexterm>
+<para><computeroutput>const RESULT_TYPE_ALTERED_TABLE = &apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">altered_table</link>&apos;</computeroutput></para></section>
+<anchor xml:id="_class_glpi_1_1_system_1_1_diagnostic_1_1_database_schema_integrity_checker_1ab3e0a8fe2c5f4efee0a02e7e2b5dd6ed"/><section>
+    <title>RESULT_TYPE_MISSING_TABLE</title>
+<indexterm><primary>RESULT_TYPE_MISSING_TABLE</primary><secondary>DatabaseSchemaIntegrityChecker</secondary></indexterm>
+<indexterm><primary>DatabaseSchemaIntegrityChecker</primary><secondary>RESULT_TYPE_MISSING_TABLE</secondary></indexterm>
+<para><computeroutput>const RESULT_TYPE_MISSING_TABLE = &apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">missing_table</link>&apos;</computeroutput></para></section>
+<anchor xml:id="_class_glpi_1_1_system_1_1_diagnostic_1_1_database_schema_integrity_checker_1adf05e6022dcb1d4736ad8641d2a1735c"/><section>
+    <title>RESULT_TYPE_UNKNOWN_TABLE</title>
+<indexterm><primary>RESULT_TYPE_UNKNOWN_TABLE</primary><secondary>DatabaseSchemaIntegrityChecker</secondary></indexterm>
+<indexterm><primary>DatabaseSchemaIntegrityChecker</primary><secondary>RESULT_TYPE_UNKNOWN_TABLE</secondary></indexterm>
+<para><computeroutput>const RESULT_TYPE_UNKNOWN_TABLE = &apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">unknown_table</link>&apos;</computeroutput></para></section>
+<para>
+La documentation de cette classe a été générée à partir du fichier suivant :</para>
+public/glpi/src/System/Diagnostic/<link linkend="__database_schema_integrity_checker_8php">DatabaseSchemaIntegrityChecker.php</link></section>
+</section>

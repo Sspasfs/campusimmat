@@ -1,0 +1,110 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_interface_symfony_1_1_contracts_1_1_cache_1_1_tag_aware_cache_interface" xml:lang="fr">
+<title>Référence de l&apos;interface TagAwareCacheInterface</title>
+<indexterm><primary>TagAwareCacheInterface</primary></indexterm>
+Graphe d&apos;héritage de TagAwareCacheInterface:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="interface_symfony_1_1_contracts_1_1_cache_1_1_tag_aware_cache_interface__inherit__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Graphe de collaboration de TagAwareCacheInterface:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="interface_symfony_1_1_contracts_1_1_cache_1_1_tag_aware_cache_interface__coll__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Fonctions membres publiques    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_interface_symfony_1_1_contracts_1_1_cache_1_1_tag_aware_cache_interface_1a15076f1456ec4b1aa1152c957f8a3134">invalidateTags</link> (array $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">tags</link>)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+Fonctions membres publiques hérités de <link linkend="_interface_symfony_1_1_contracts_1_1_cache_1_1_cache_interface">CacheInterface</link>        <itemizedlist>
+            <listitem><para><link linkend="_interface_symfony_1_1_contracts_1_1_cache_1_1_cache_interface_1abf2340ccf994c063bd1e7e3a94445108">get</link> (string $key, <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">callable</link> $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">callback</link>, float $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">beta</link>=null, array &amp;$<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">metadata</link>=null)</para>
+</listitem>
+            <listitem><para><link linkend="_interface_symfony_1_1_contracts_1_1_cache_1_1_cache_interface_1ac03d0331371567f0a97a6782746abd55">delete</link> (string $key)</para>
+</listitem>
+        </itemizedlist>
+<section>
+<title>Description détaillée</title>
+
+<para>Allows invalidating cached items using tags.</para>
+
+<para><formalpara><title>Auteur</title>
+
+<para>Nicolas Grekas <link xlink:href="mailto:p@tchwork.com">p@tchwork.com</link> </para>
+</formalpara>
+</para>
+</section>
+<section>
+<title>Documentation des fonctions membres</title>
+<anchor xml:id="_interface_symfony_1_1_contracts_1_1_cache_1_1_tag_aware_cache_interface_1a15076f1456ec4b1aa1152c957f8a3134"/><section>
+    <title>invalidateTags()</title>
+<indexterm><primary>invalidateTags</primary><secondary>TagAwareCacheInterface</secondary></indexterm>
+<indexterm><primary>TagAwareCacheInterface</primary><secondary>invalidateTags</secondary></indexterm>
+<para><computeroutput>invalidateTags (array $tags)</computeroutput></para>
+<para>Invalidates cached items using tags.</para>
+
+<para>When implemented on a PSR-6 pool, invalidation should not apply to deferred items. Instead, they should be committed as usual. This allows replacing old tagged values by new ones without race conditions.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string[]</entry><entry>$tags</entry><entry>
+<para>An array of tags to invalidate</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>bool True on success</para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>InvalidArgumentException</entry><entry>
+<para>When $tags is not valid </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Implémenté dans <link linkend="_class_symfony_1_1_component_1_1_cache_1_1_adapter_1_1_abstract_tag_aware_adapter_1a15076f1456ec4b1aa1152c957f8a3134">AbstractTagAwareAdapter</link>, <link linkend="_class_symfony_1_1_component_1_1_cache_1_1_adapter_1_1_tag_aware_adapter_1a15076f1456ec4b1aa1152c957f8a3134">TagAwareAdapter</link>, et <link linkend="_class_symfony_1_1_component_1_1_cache_1_1_adapter_1_1_traceable_tag_aware_adapter_1a15076f1456ec4b1aa1152c957f8a3134">TraceableTagAwareAdapter</link>.</para>
+</section>
+<para>
+La documentation de cette interface a été générée à partir du fichier suivant :</para>
+public/glpi/vendor/symfony/cache-contracts/<link linkend="__tag_aware_cache_interface_8php">TagAwareCacheInterface.php</link></section>
+</section>

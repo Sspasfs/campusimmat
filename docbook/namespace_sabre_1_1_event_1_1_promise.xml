@@ -1,0 +1,136 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_namespace_sabre_1_1_event_1_1_promise" xml:lang="fr">
+<title>Référence de l&apos;espace de nommage Sabre\Event\Promise</title>
+<indexterm><primary>Sabre\Event\Promise</primary></indexterm>
+<simplesect>
+    <title>Fonctions    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_namespace_sabre_1_1_event_1_1_promise_1a1a337f08ad199faf88c585d6d7ad13d8">all</link> (array $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">promises</link>)</para>
+</listitem>
+            <listitem><para><link linkend="_namespace_sabre_1_1_event_1_1_promise_1a3af4f3fa94b7fb5af332845333a04c2d">race</link> (array $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">promises</link>)</para>
+</listitem>
+            <listitem><para><link linkend="_namespace_sabre_1_1_event_1_1_promise_1ad87255b62f0e4e81f9462328a026b510">resolve</link> ($value)</para>
+</listitem>
+            <listitem><para><link linkend="_namespace_sabre_1_1_event_1_1_promise_1affabab07ec5afa282006ca70b768b957">reject</link> (Throwable $reason)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Documentation des fonctions</title>
+<anchor xml:id="_namespace_sabre_1_1_event_1_1_promise_1a1a337f08ad199faf88c585d6d7ad13d8"/><section>
+    <title>all()</title>
+<indexterm><primary>all</primary><secondary>Sabre\Event\Promise</secondary></indexterm>
+<indexterm><primary>Sabre\Event\Promise</primary><secondary>all</secondary></indexterm>
+<para><computeroutput>all (array $promises)</computeroutput></para>
+<para>This file contains a set of functions that are useful for dealing with the Promise object.</para>
+
+<para><formalpara><title>Copyright</title>
+
+<para>Copyright (C) fruux GmbH (<link xlink:href="https://fruux.com/">https://fruux.com/</link>) </para>
+</formalpara>
+<formalpara><title>Auteur</title>
+
+<para>Evert Pot (<link xlink:href="http://evertpot.com/">http://evertpot.com/</link>) @license <link xlink:href="http://sabre.io/license/">http://sabre.io/license/</link> Modified BSD License This function takes an array of Promises, and returns a Promise that resolves when all the given arguments have resolved.</para>
+</formalpara>
+The returned Promise will resolve with a value that&apos;s an array of all the values the given promises have been resolved with.</para>
+
+<para>This array will be in the exact same order as the array of input promises.</para>
+
+<para>If any of the given Promises fails, the returned promise will immediately fail with the first Promise that fails, and its reason.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>Promise[]</entry><entry>$promises</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
+<anchor xml:id="_namespace_sabre_1_1_event_1_1_promise_1a3af4f3fa94b7fb5af332845333a04c2d"/><section>
+    <title>race()</title>
+<indexterm><primary>race</primary><secondary>Sabre\Event\Promise</secondary></indexterm>
+<indexterm><primary>Sabre\Event\Promise</primary><secondary>race</secondary></indexterm>
+<para><computeroutput>race (array $promises)</computeroutput></para>
+<para>The race function returns a promise that resolves or rejects as soon as one of the promises in the argument resolves or rejects.</para>
+
+<para>The returned promise will resolve or reject with the value or reason of that first promise.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>Promise[]</entry><entry>$promises</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
+<anchor xml:id="_namespace_sabre_1_1_event_1_1_promise_1affabab07ec5afa282006ca70b768b957"/><section>
+    <title>reject()</title>
+<indexterm><primary>reject</primary><secondary>Sabre\Event\Promise</secondary></indexterm>
+<indexterm><primary>Sabre\Event\Promise</primary><secondary>reject</secondary></indexterm>
+<para><computeroutput>reject (Throwable $reason)</computeroutput></para>
+<para>Returns a Promise that will reject with the given reason. </para>
+</section>
+<anchor xml:id="_namespace_sabre_1_1_event_1_1_promise_1ad87255b62f0e4e81f9462328a026b510"/><section>
+    <title>resolve()</title>
+<indexterm><primary>resolve</primary><secondary>Sabre\Event\Promise</secondary></indexterm>
+<indexterm><primary>Sabre\Event\Promise</primary><secondary>resolve</secondary></indexterm>
+<para><computeroutput>resolve ( $value)</computeroutput></para>
+<para>Returns a Promise that resolves with the given value.</para>
+
+<para>If the value is a promise, the returned promise will attach itself to that promise and eventually get the same state as the followed promise.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>mixed</entry><entry>$value</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
+</section>
+</section>

@@ -1,0 +1,293 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_sabre_1_1_d_a_v_1_1_browser_1_1_html_output_helper" xml:lang="fr">
+<title>Référence de la classe HtmlOutputHelper</title>
+<indexterm><primary>HtmlOutputHelper</primary></indexterm>
+Graphe de collaboration de HtmlOutputHelper:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_sabre_1_1_d_a_v_1_1_browser_1_1_html_output_helper__coll__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Fonctions membres publiques    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_sabre_1_1_d_a_v_1_1_browser_1_1_html_output_helper_1ab95f5715943eed3306f58ab810e86395">__construct</link> ($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">baseUri</link>, array $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">namespaceMap</link>)</para>
+</listitem>
+            <listitem><para><link linkend="_class_sabre_1_1_d_a_v_1_1_browser_1_1_html_output_helper_1a847322720b512fbc312ce1e8c5ae5e3f">fullUrl</link> ($path)</para>
+</listitem>
+            <listitem><para><link linkend="_class_sabre_1_1_d_a_v_1_1_browser_1_1_html_output_helper_1a078bec6a2ff75f92138c105d7b36cea3">h</link> ($input)</para>
+</listitem>
+            <listitem><para><link linkend="_class_sabre_1_1_d_a_v_1_1_browser_1_1_html_output_helper_1ad59afc150be7fcfe241afe69a9f64ee6">link</link> ($url, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">label</link>=null)</para>
+</listitem>
+            <listitem><para><link linkend="_class_sabre_1_1_d_a_v_1_1_browser_1_1_html_output_helper_1a1a95d241bd715c1355153ee3457c70e5">xmlName</link> ($element)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Attributs protégés    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_sabre_1_1_d_a_v_1_1_browser_1_1_html_output_helper_1a5ff6ff0b33ae1faa9e6c39bce4bc6c16">$baseUri</link></para>
+</listitem>
+            <listitem><para><link linkend="_class_sabre_1_1_d_a_v_1_1_browser_1_1_html_output_helper_1a7926bbf282e5188d4af8dcff882788ac">$namespaceMap</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Description détaillée</title>
+
+<para>This class provides a few utility functions for easily generating HTML for the browser plugin.</para>
+
+<para><formalpara><title>Copyright</title>
+
+<para>Copyright (C) fruux GmbH (<link xlink:href="https://fruux.com/">https://fruux.com/</link>) </para>
+</formalpara>
+<formalpara><title>Auteur</title>
+
+<para>Evert Pot (<link xlink:href="http://evertpot.com/">http://evertpot.com/</link>) @license <link xlink:href="http://sabre.io/license/">http://sabre.io/license/</link> Modified BSD License </para>
+</formalpara>
+</para>
+</section>
+<section>
+<title>Documentation des constructeurs et destructeur</title>
+<anchor xml:id="_class_sabre_1_1_d_a_v_1_1_browser_1_1_html_output_helper_1ab95f5715943eed3306f58ab810e86395"/><section>
+    <title>__construct()</title>
+<indexterm><primary>__construct</primary><secondary>HtmlOutputHelper</secondary></indexterm>
+<indexterm><primary>HtmlOutputHelper</primary><secondary>__construct</secondary></indexterm>
+<para><computeroutput>__construct ( $baseUri, array $namespaceMap)</computeroutput></para>
+<para>Creates the object.</para>
+
+<para>baseUri must point to the root of the application. This will be used to easily generate links.</para>
+
+<para>The namespaceMap contains an array with the list of xml namespaces and their prefixes. WebDAV uses a lot of <link linkend="_class_x_m_l">XML</link> with complex namespaces, so that can be used to make output a lot shorter.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$baseUri</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
+</section>
+<section>
+<title>Documentation des fonctions membres</title>
+<anchor xml:id="_class_sabre_1_1_d_a_v_1_1_browser_1_1_html_output_helper_1a847322720b512fbc312ce1e8c5ae5e3f"/><section>
+    <title>fullUrl()</title>
+<indexterm><primary>fullUrl</primary><secondary>HtmlOutputHelper</secondary></indexterm>
+<indexterm><primary>HtmlOutputHelper</primary><secondary>fullUrl</secondary></indexterm>
+<para><computeroutput>fullUrl ( $path)</computeroutput></para>
+<para>Generates a &apos;full&apos; url based on a relative one.</para>
+
+<para>For relative urls, the base of the application is taken as the reference url, not the &apos;current url of the current request&apos;.</para>
+
+<para>Absolute urls are left alone.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$path</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>string </para>
+</formalpara>
+</para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_sabre_1_1_d_a_v_1_1_browser_1_1_html_output_helper_a847322720b512fbc312ce1e8c5ae5e3f_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_sabre_1_1_d_a_v_1_1_browser_1_1_html_output_helper_a847322720b512fbc312ce1e8c5ae5e3f_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_sabre_1_1_d_a_v_1_1_browser_1_1_html_output_helper_1a078bec6a2ff75f92138c105d7b36cea3"/><section>
+    <title>h()</title>
+<indexterm><primary>h</primary><secondary>HtmlOutputHelper</secondary></indexterm>
+<indexterm><primary>HtmlOutputHelper</primary><secondary>h</secondary></indexterm>
+<para><computeroutput>h ( $input)</computeroutput></para>
+<para>Escape string for HTML output.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>scalar</entry><entry>$input</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>string </para>
+</formalpara>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_sabre_1_1_d_a_v_1_1_browser_1_1_html_output_helper_a078bec6a2ff75f92138c105d7b36cea3_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_sabre_1_1_d_a_v_1_1_browser_1_1_html_output_helper_1ad59afc150be7fcfe241afe69a9f64ee6"/><section>
+    <title>link()</title>
+<indexterm><primary>link</primary><secondary>HtmlOutputHelper</secondary></indexterm>
+<indexterm><primary>HtmlOutputHelper</primary><secondary>link</secondary></indexterm>
+<para><computeroutput>link ( $url,  $label = <computeroutput>null</computeroutput>
+)</computeroutput></para>
+<para>Generates a full -tag.</para>
+
+<para>Url is automatically expanded. If label is not specified, we re-use the url.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$url</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>string</entry><entry>$label</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>string </para>
+</formalpara>
+</para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_sabre_1_1_d_a_v_1_1_browser_1_1_html_output_helper_ad59afc150be7fcfe241afe69a9f64ee6_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_sabre_1_1_d_a_v_1_1_browser_1_1_html_output_helper_1a1a95d241bd715c1355153ee3457c70e5"/><section>
+    <title>xmlName()</title>
+<indexterm><primary>xmlName</primary><secondary>HtmlOutputHelper</secondary></indexterm>
+<indexterm><primary>HtmlOutputHelper</primary><secondary>xmlName</secondary></indexterm>
+<para><computeroutput>xmlName ( $element)</computeroutput></para>
+<para>This method takes an xml element in clark-notation, and turns it into a shortened version with a prefix, if it was a known namespace.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$element</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>string </para>
+</formalpara>
+</para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_sabre_1_1_d_a_v_1_1_browser_1_1_html_output_helper_a1a95d241bd715c1355153ee3457c70e5_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+</section>
+<section>
+<title>Documentation des champs</title>
+<anchor xml:id="_class_sabre_1_1_d_a_v_1_1_browser_1_1_html_output_helper_1a5ff6ff0b33ae1faa9e6c39bce4bc6c16"/><section>
+    <title>$baseUri</title>
+<indexterm><primary>$baseUri</primary><secondary>HtmlOutputHelper</secondary></indexterm>
+<indexterm><primary>HtmlOutputHelper</primary><secondary>$baseUri</secondary></indexterm>
+<para><computeroutput>$<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">baseUri</link><computeroutput>[protected]</computeroutput></computeroutput></para></section>
+<anchor xml:id="_class_sabre_1_1_d_a_v_1_1_browser_1_1_html_output_helper_1a7926bbf282e5188d4af8dcff882788ac"/><section>
+    <title>$namespaceMap</title>
+<indexterm><primary>$namespaceMap</primary><secondary>HtmlOutputHelper</secondary></indexterm>
+<indexterm><primary>HtmlOutputHelper</primary><secondary>$namespaceMap</secondary></indexterm>
+<para><computeroutput>$<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">namespaceMap</link><computeroutput>[protected]</computeroutput></computeroutput></para></section>
+<para>
+La documentation de cette classe a été générée à partir du fichier suivant :</para>
+public/glpi/vendor/sabre/dav/lib/DAV/Browser/<link linkend="__html_output_helper_8php">HtmlOutputHelper.php</link></section>
+</section>

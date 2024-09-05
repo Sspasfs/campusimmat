@@ -1,0 +1,171 @@
+\doxysection{Référence de l\textquotesingle{}interface Simple\+Pie\+\_\+\+Cache\+\_\+\+Base}
+\hypertarget{interface_simple_pie___cache___base}{}\label{interface_simple_pie___cache___base}\index{SimplePie\_Cache\_Base@{SimplePie\_Cache\_Base}}
+
+
+Graphe d\textquotesingle{}héritage de Simple\+Pie\+\_\+\+Cache\+\_\+\+Base\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{interface_simple_pie___cache___base__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Graphe de collaboration de Simple\+Pie\+\_\+\+Cache\+\_\+\+Base\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=207pt]{interface_simple_pie___cache___base__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{interface_simple_pie___cache___base_a8eee057b6195cf2ab8774a1745b8be4e}{\+\_\+\+\_\+construct}} (\$location, \$name, \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{type}})
+\item 
+\mbox{\hyperlink{interface_simple_pie___cache___base_ac5859a5507d2065c0e6d46b76c8221d1}{save}} (\$data)
+\item 
+\mbox{\hyperlink{interface_simple_pie___cache___base_a4dcaa8f72c8423d4de25a9e87fa6f3e4}{load}} ()
+\item 
+\mbox{\hyperlink{interface_simple_pie___cache___base_a87df9874162af616bbcd66e3f28fcd73}{mtime}} ()
+\item 
+\mbox{\hyperlink{interface_simple_pie___cache___base_a505316d8bc0ea0cef673657c463ebfee}{touch}} ()
+\item 
+\mbox{\hyperlink{interface_simple_pie___cache___base_a1d8b1d5cdd8e5d8fdb068f543b84af27}{unlink}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Champs de données}
+\begin{DoxyCompactItemize}
+\item 
+const \mbox{\hyperlink{interface_simple_pie___cache___base_a006668d6abff43eb2f0e9c2efa66171b}{TYPE\+\_\+\+FEED}} = \textquotesingle{}\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{spc}}\textquotesingle{}
+\item 
+const \mbox{\hyperlink{interface_simple_pie___cache___base_a7afedbd9f1d61ae4c6306449d5fc66b2}{TYPE\+\_\+\+IMAGE}} = \textquotesingle{}\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{spi}}\textquotesingle{}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Documentation des constructeurs et destructeur}
+\Hypertarget{interface_simple_pie___cache___base_a8eee057b6195cf2ab8774a1745b8be4e}\label{interface_simple_pie___cache___base_a8eee057b6195cf2ab8774a1745b8be4e} 
+\index{SimplePie\_Cache\_Base@{SimplePie\_Cache\_Base}!\_\_construct@{\_\_construct}}
+\index{\_\_construct@{\_\_construct}!SimplePie\_Cache\_Base@{SimplePie\_Cache\_Base}}
+\doxysubsubsection{\texorpdfstring{\_\_construct()}{\_\_construct()}}
+{\footnotesize\ttfamily \+\_\+\+\_\+construct (\begin{DoxyParamCaption}\item[{}]{\$location,  }\item[{}]{\$name,  }\item[{}]{\$type }\end{DoxyParamCaption})}
+
+Create a new cache object
+
+
+\begin{DoxyParams}[1]{Paramètres}
+string & {\em \$location} & \doxylink{class_location}{Location} string (from Simple\+Pie\+::\$cache\+\_\+location) \\
+\hline
+string & {\em \$name} & Unique ID for the cache \\
+\hline
+string & {\em \$type} & Either TYPE\+\_\+\+FEED for \doxylink{class_simple_pie}{Simple\+Pie} data, or TYPE\+\_\+\+IMAGE for image data \\
+\hline
+\end{DoxyParams}
+
+
+Implémenté dans \mbox{\hyperlink{class_simple_pie___cache___redis_a19f68fa21a0954cdf404dadc921c431d}{Simple\+Pie\+\_\+\+Cache\+\_\+\+Redis}}, \mbox{\hyperlink{class_simple_pie___cache___file_a8eee057b6195cf2ab8774a1745b8be4e}{Simple\+Pie\+\_\+\+Cache\+\_\+\+File}}, \mbox{\hyperlink{class_simple_pie___cache___memcache_a8eee057b6195cf2ab8774a1745b8be4e}{Simple\+Pie\+\_\+\+Cache\+\_\+\+Memcache}}, \mbox{\hyperlink{class_simple_pie___cache___memcached_a8eee057b6195cf2ab8774a1745b8be4e}{Simple\+Pie\+\_\+\+Cache\+\_\+\+Memcached}}, et \mbox{\hyperlink{class_simple_pie___cache___my_s_q_l_a8eee057b6195cf2ab8774a1745b8be4e}{Simple\+Pie\+\_\+\+Cache\+\_\+\+My\+SQL}}.
+
+
+
+\doxysubsection{Documentation des fonctions membres}
+\Hypertarget{interface_simple_pie___cache___base_a4dcaa8f72c8423d4de25a9e87fa6f3e4}\label{interface_simple_pie___cache___base_a4dcaa8f72c8423d4de25a9e87fa6f3e4} 
+\index{SimplePie\_Cache\_Base@{SimplePie\_Cache\_Base}!load@{load}}
+\index{load@{load}!SimplePie\_Cache\_Base@{SimplePie\_Cache\_Base}}
+\doxysubsubsection{\texorpdfstring{load()}{load()}}
+{\footnotesize\ttfamily load (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Retrieve the data saved to the cache
+
+\begin{DoxyReturn}{Renvoie}
+array Data for Simple\+Pie\+::\$data 
+\end{DoxyReturn}
+
+
+Implémenté dans \mbox{\hyperlink{class_simple_pie___cache___file_a4dcaa8f72c8423d4de25a9e87fa6f3e4}{Simple\+Pie\+\_\+\+Cache\+\_\+\+File}}, \mbox{\hyperlink{class_simple_pie___cache___memcache_a4dcaa8f72c8423d4de25a9e87fa6f3e4}{Simple\+Pie\+\_\+\+Cache\+\_\+\+Memcache}}, \mbox{\hyperlink{class_simple_pie___cache___memcached_a4dcaa8f72c8423d4de25a9e87fa6f3e4}{Simple\+Pie\+\_\+\+Cache\+\_\+\+Memcached}}, \mbox{\hyperlink{class_simple_pie___cache___my_s_q_l_a4dcaa8f72c8423d4de25a9e87fa6f3e4}{Simple\+Pie\+\_\+\+Cache\+\_\+\+My\+SQL}}, et \mbox{\hyperlink{class_simple_pie___cache___redis_a4dcaa8f72c8423d4de25a9e87fa6f3e4}{Simple\+Pie\+\_\+\+Cache\+\_\+\+Redis}}.
+
+\Hypertarget{interface_simple_pie___cache___base_a87df9874162af616bbcd66e3f28fcd73}\label{interface_simple_pie___cache___base_a87df9874162af616bbcd66e3f28fcd73} 
+\index{SimplePie\_Cache\_Base@{SimplePie\_Cache\_Base}!mtime@{mtime}}
+\index{mtime@{mtime}!SimplePie\_Cache\_Base@{SimplePie\_Cache\_Base}}
+\doxysubsubsection{\texorpdfstring{mtime()}{mtime()}}
+{\footnotesize\ttfamily mtime (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Retrieve the last modified time for the cache
+
+\begin{DoxyReturn}{Renvoie}
+int Timestamp 
+\end{DoxyReturn}
+
+
+Implémenté dans \mbox{\hyperlink{class_simple_pie___cache___file_a87df9874162af616bbcd66e3f28fcd73}{Simple\+Pie\+\_\+\+Cache\+\_\+\+File}}, \mbox{\hyperlink{class_simple_pie___cache___memcache_a87df9874162af616bbcd66e3f28fcd73}{Simple\+Pie\+\_\+\+Cache\+\_\+\+Memcache}}, \mbox{\hyperlink{class_simple_pie___cache___memcached_a87df9874162af616bbcd66e3f28fcd73}{Simple\+Pie\+\_\+\+Cache\+\_\+\+Memcached}}, \mbox{\hyperlink{class_simple_pie___cache___my_s_q_l_a87df9874162af616bbcd66e3f28fcd73}{Simple\+Pie\+\_\+\+Cache\+\_\+\+My\+SQL}}, et \mbox{\hyperlink{class_simple_pie___cache___redis_a87df9874162af616bbcd66e3f28fcd73}{Simple\+Pie\+\_\+\+Cache\+\_\+\+Redis}}.
+
+\Hypertarget{interface_simple_pie___cache___base_ac5859a5507d2065c0e6d46b76c8221d1}\label{interface_simple_pie___cache___base_ac5859a5507d2065c0e6d46b76c8221d1} 
+\index{SimplePie\_Cache\_Base@{SimplePie\_Cache\_Base}!save@{save}}
+\index{save@{save}!SimplePie\_Cache\_Base@{SimplePie\_Cache\_Base}}
+\doxysubsubsection{\texorpdfstring{save()}{save()}}
+{\footnotesize\ttfamily save (\begin{DoxyParamCaption}\item[{}]{\$data }\end{DoxyParamCaption})}
+
+Save data to the cache
+
+
+\begin{DoxyParams}[1]{Paramètres}
+array | \doxylink{class_simple_pie}{Simple\+Pie} & {\em \$data} & Data to store in the cache. If passed a \doxylink{class_simple_pie}{Simple\+Pie} object, only cache the \$data property \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+bool Successfulness 
+\end{DoxyReturn}
+
+
+Implémenté dans \mbox{\hyperlink{class_simple_pie___cache___file_ac5859a5507d2065c0e6d46b76c8221d1}{Simple\+Pie\+\_\+\+Cache\+\_\+\+File}}, \mbox{\hyperlink{class_simple_pie___cache___memcache_ac5859a5507d2065c0e6d46b76c8221d1}{Simple\+Pie\+\_\+\+Cache\+\_\+\+Memcache}}, \mbox{\hyperlink{class_simple_pie___cache___memcached_ac5859a5507d2065c0e6d46b76c8221d1}{Simple\+Pie\+\_\+\+Cache\+\_\+\+Memcached}}, \mbox{\hyperlink{class_simple_pie___cache___my_s_q_l_ac5859a5507d2065c0e6d46b76c8221d1}{Simple\+Pie\+\_\+\+Cache\+\_\+\+My\+SQL}}, et \mbox{\hyperlink{class_simple_pie___cache___redis_ac5859a5507d2065c0e6d46b76c8221d1}{Simple\+Pie\+\_\+\+Cache\+\_\+\+Redis}}.
+
+\Hypertarget{interface_simple_pie___cache___base_a505316d8bc0ea0cef673657c463ebfee}\label{interface_simple_pie___cache___base_a505316d8bc0ea0cef673657c463ebfee} 
+\index{SimplePie\_Cache\_Base@{SimplePie\_Cache\_Base}!touch@{touch}}
+\index{touch@{touch}!SimplePie\_Cache\_Base@{SimplePie\_Cache\_Base}}
+\doxysubsubsection{\texorpdfstring{touch()}{touch()}}
+{\footnotesize\ttfamily touch (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Set the last modified time to the current time
+
+\begin{DoxyReturn}{Renvoie}
+bool Success status 
+\end{DoxyReturn}
+
+
+Implémenté dans \mbox{\hyperlink{class_simple_pie___cache___file_a505316d8bc0ea0cef673657c463ebfee}{Simple\+Pie\+\_\+\+Cache\+\_\+\+File}}, \mbox{\hyperlink{class_simple_pie___cache___memcache_a505316d8bc0ea0cef673657c463ebfee}{Simple\+Pie\+\_\+\+Cache\+\_\+\+Memcache}}, \mbox{\hyperlink{class_simple_pie___cache___memcached_a505316d8bc0ea0cef673657c463ebfee}{Simple\+Pie\+\_\+\+Cache\+\_\+\+Memcached}}, \mbox{\hyperlink{class_simple_pie___cache___my_s_q_l_a505316d8bc0ea0cef673657c463ebfee}{Simple\+Pie\+\_\+\+Cache\+\_\+\+My\+SQL}}, et \mbox{\hyperlink{class_simple_pie___cache___redis_a505316d8bc0ea0cef673657c463ebfee}{Simple\+Pie\+\_\+\+Cache\+\_\+\+Redis}}.
+
+\Hypertarget{interface_simple_pie___cache___base_a1d8b1d5cdd8e5d8fdb068f543b84af27}\label{interface_simple_pie___cache___base_a1d8b1d5cdd8e5d8fdb068f543b84af27} 
+\index{SimplePie\_Cache\_Base@{SimplePie\_Cache\_Base}!unlink@{unlink}}
+\index{unlink@{unlink}!SimplePie\_Cache\_Base@{SimplePie\_Cache\_Base}}
+\doxysubsubsection{\texorpdfstring{unlink()}{unlink()}}
+{\footnotesize\ttfamily unlink (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Remove the cache
+
+\begin{DoxyReturn}{Renvoie}
+bool Success status 
+\end{DoxyReturn}
+
+
+Implémenté dans \mbox{\hyperlink{class_simple_pie___cache___file_a1d8b1d5cdd8e5d8fdb068f543b84af27}{Simple\+Pie\+\_\+\+Cache\+\_\+\+File}}, \mbox{\hyperlink{class_simple_pie___cache___memcache_a1d8b1d5cdd8e5d8fdb068f543b84af27}{Simple\+Pie\+\_\+\+Cache\+\_\+\+Memcache}}, \mbox{\hyperlink{class_simple_pie___cache___memcached_a1d8b1d5cdd8e5d8fdb068f543b84af27}{Simple\+Pie\+\_\+\+Cache\+\_\+\+Memcached}}, \mbox{\hyperlink{class_simple_pie___cache___my_s_q_l_a1d8b1d5cdd8e5d8fdb068f543b84af27}{Simple\+Pie\+\_\+\+Cache\+\_\+\+My\+SQL}}, et \mbox{\hyperlink{class_simple_pie___cache___redis_a1d8b1d5cdd8e5d8fdb068f543b84af27}{Simple\+Pie\+\_\+\+Cache\+\_\+\+Redis}}.
+
+
+
+\doxysubsection{Documentation des champs}
+\Hypertarget{interface_simple_pie___cache___base_a006668d6abff43eb2f0e9c2efa66171b}\label{interface_simple_pie___cache___base_a006668d6abff43eb2f0e9c2efa66171b} 
+\index{SimplePie\_Cache\_Base@{SimplePie\_Cache\_Base}!TYPE\_FEED@{TYPE\_FEED}}
+\index{TYPE\_FEED@{TYPE\_FEED}!SimplePie\_Cache\_Base@{SimplePie\_Cache\_Base}}
+\doxysubsubsection{\texorpdfstring{TYPE\_FEED}{TYPE\_FEED}}
+{\footnotesize\ttfamily const TYPE\+\_\+\+FEED = \textquotesingle{}\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{spc}}\textquotesingle{}}
+
+\Hypertarget{interface_simple_pie___cache___base_a7afedbd9f1d61ae4c6306449d5fc66b2}\label{interface_simple_pie___cache___base_a7afedbd9f1d61ae4c6306449d5fc66b2} 
+\index{SimplePie\_Cache\_Base@{SimplePie\_Cache\_Base}!TYPE\_IMAGE@{TYPE\_IMAGE}}
+\index{TYPE\_IMAGE@{TYPE\_IMAGE}!SimplePie\_Cache\_Base@{SimplePie\_Cache\_Base}}
+\doxysubsubsection{\texorpdfstring{TYPE\_IMAGE}{TYPE\_IMAGE}}
+{\footnotesize\ttfamily const TYPE\+\_\+\+IMAGE = \textquotesingle{}\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{spi}}\textquotesingle{}}
+
+
+
+La documentation de cette interface a été générée à partir du fichier suivant \+:\begin{DoxyCompactItemize}
+\item 
+public/glpi/vendor/simplepie/simplepie/library/\+Simple\+Pie/\+Cache/\mbox{\hyperlink{simplepie_2simplepie_2library_2_simple_pie_2_cache_2_base_8php}{Base.\+php}}\end{DoxyCompactItemize}

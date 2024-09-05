@@ -1,0 +1,77 @@
+\doxysection{Référence de l\textquotesingle{}interface Time\+Converter\+Interface}
+\hypertarget{interface_ramsey_1_1_uuid_1_1_converter_1_1_time_converter_interface}{}\label{interface_ramsey_1_1_uuid_1_1_converter_1_1_time_converter_interface}\index{TimeConverterInterface@{TimeConverterInterface}}
+
+
+Graphe d\textquotesingle{}héritage de Time\+Converter\+Interface\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{interface_ramsey_1_1_uuid_1_1_converter_1_1_time_converter_interface__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Graphe de collaboration de Time\+Converter\+Interface\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=245pt]{interface_ramsey_1_1_uuid_1_1_converter_1_1_time_converter_interface__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{interface_ramsey_1_1_uuid_1_1_converter_1_1_time_converter_interface_a59ee0de6a5c144cecb1459b14056a404}{calculate\+Time}} (string \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{seconds}}, string \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{microseconds}})
+\item 
+\mbox{\hyperlink{interface_ramsey_1_1_uuid_1_1_converter_1_1_time_converter_interface_a4928d84f7aeaaf61c2736c5253a6e922}{convert\+Time}} (\mbox{\hyperlink{class_ramsey_1_1_uuid_1_1_type_1_1_hexadecimal}{Hexadecimal}} \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{uuid\+Timestamp}})
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+A time converter converts timestamps into representations that may be used in UUIDs
+
+@psalm-\/immutable 
+
+\doxysubsection{Documentation des fonctions membres}
+\Hypertarget{interface_ramsey_1_1_uuid_1_1_converter_1_1_time_converter_interface_a59ee0de6a5c144cecb1459b14056a404}\label{interface_ramsey_1_1_uuid_1_1_converter_1_1_time_converter_interface_a59ee0de6a5c144cecb1459b14056a404} 
+\index{TimeConverterInterface@{TimeConverterInterface}!calculateTime@{calculateTime}}
+\index{calculateTime@{calculateTime}!TimeConverterInterface@{TimeConverterInterface}}
+\doxysubsubsection{\texorpdfstring{calculateTime()}{calculateTime()}}
+{\footnotesize\ttfamily calculate\+Time (\begin{DoxyParamCaption}\item[{string}]{\$seconds,  }\item[{string}]{\$microseconds }\end{DoxyParamCaption})}
+
+Uses the provided seconds and micro-\/seconds to calculate the count of 100-\/nanosecond intervals since UTC 00\+:00\+:00.\+00, 15 October 1582, for RFC 4122 variant UUIDs
+
+\doxylink{}{RFC 4122, § 4.\+2.\+2\+: Generation Details  string \$seconds A string representation of the number of seconds since the Unix epoch for the time to calculate  string \$microseconds A string representation of the micro-\/seconds associated with the time to calculate  Hexadecimal The full UUID timestamp as a Hexadecimal value -\/pure }
+
+Implémenté dans \mbox{\hyperlink{class_ramsey_1_1_uuid_1_1_converter_1_1_time_1_1_big_number_time_converter_a59ee0de6a5c144cecb1459b14056a404}{Big\+Number\+Time\+Converter}}, et \mbox{\hyperlink{class_ramsey_1_1_uuid_1_1_converter_1_1_time_1_1_php_time_converter_a59ee0de6a5c144cecb1459b14056a404}{Php\+Time\+Converter}}.
+
+\Hypertarget{interface_ramsey_1_1_uuid_1_1_converter_1_1_time_converter_interface_a4928d84f7aeaaf61c2736c5253a6e922}\label{interface_ramsey_1_1_uuid_1_1_converter_1_1_time_converter_interface_a4928d84f7aeaaf61c2736c5253a6e922} 
+\index{TimeConverterInterface@{TimeConverterInterface}!convertTime@{convertTime}}
+\index{convertTime@{convertTime}!TimeConverterInterface@{TimeConverterInterface}}
+\doxysubsubsection{\texorpdfstring{convertTime()}{convertTime()}}
+{\footnotesize\ttfamily convert\+Time (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_ramsey_1_1_uuid_1_1_type_1_1_hexadecimal}{Hexadecimal}}}]{\$uuid\+Timestamp }\end{DoxyParamCaption})}
+
+Converts a timestamp extracted from a UUID to a Unix timestamp
+
+
+\begin{DoxyParams}[1]{Paramètres}
+Hexadecimal & {\em \$uuid\+Timestamp} & A hexadecimal representation of a UUID timestamp; a UUID timestamp is a count of 100-\/nanosecond intervals since UTC 00\+:00\+:00.\+00, 15 October 1582.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+Time An instance of \{
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{Voir également}
+Time\}
+\end{DoxySeeAlso}
+@psalm-\/pure 
+
+Implémenté dans \mbox{\hyperlink{class_ramsey_1_1_uuid_1_1_converter_1_1_time_1_1_big_number_time_converter_a4928d84f7aeaaf61c2736c5253a6e922}{Big\+Number\+Time\+Converter}}, \mbox{\hyperlink{class_ramsey_1_1_uuid_1_1_converter_1_1_time_1_1_generic_time_converter_a4928d84f7aeaaf61c2736c5253a6e922}{Generic\+Time\+Converter}}, et \mbox{\hyperlink{class_ramsey_1_1_uuid_1_1_converter_1_1_time_1_1_php_time_converter_a4928d84f7aeaaf61c2736c5253a6e922}{Php\+Time\+Converter}}.
+
+
+
+La documentation de cette interface a été générée à partir du fichier suivant \+:\begin{DoxyCompactItemize}
+\item 
+public/glpi/vendor/ramsey/uuid/src/\+Converter/\mbox{\hyperlink{_time_converter_interface_8php}{Time\+Converter\+Interface.\+php}}\end{DoxyCompactItemize}

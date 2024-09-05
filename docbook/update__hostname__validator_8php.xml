@@ -1,0 +1,261 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_update__hostname__validator_8php" xml:lang="fr">
+<title>Référence du fichier public/glpi/vendor/laminas/laminas-validator/bin/update_hostname_validator.php</title>
+<indexterm><primary>public/glpi/vendor/laminas/laminas-validator/bin/update_hostname_validator.php</primary></indexterm>
+<simplesect>
+    <title>Fonctions    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_update__hostname__validator_8php_1a37fd9141118ee6d704a107f6b3ba9ca4">getOfficialTLDs</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_update__hostname__validator_8php_1a58387310926c6a1f253edd3b3dd9a17b">getVersionFromString</link> ($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">prefix</link>, $string)</para>
+</listitem>
+            <listitem><para><link linkend="_update__hostname__validator_8php_1abc9f48cdbfd39343fb43af1fd1f09903">getNewValidTlds</link> ($string)</para>
+</listitem>
+            <listitem><para><link linkend="_update__hostname__validator_8php_1ae2939dd5740e5b73235c287b446539f2">getPunycodeDecoder</link> ()</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Variables    </title>
+        <itemizedlist>
+            <listitem><para>const <link linkend="_update__hostname__validator_8php_1a4ebe2ca7c01dfcdec1ebd10b528ab9a8">IANA_URL</link> &apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">https:</link>//<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">data.iana.org</link>/<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">TLD</link>/<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">tlds</link>-alpha-<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">by</link>-<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">domain.txt</link>&apos;</para>
+</listitem>
+            <listitem><para>const <link linkend="_update__hostname__validator_8php_1a56cd7666ad02e32bb3b4829ee61a68ea">LAMINAS_HOSTNAME_VALIDATOR_FILE</link> __DIR__.&apos;/../<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">src</link>/Hostname.php&apos;</para>
+</listitem>
+            <listitem><para><link linkend="_dropdown_location_8php_1a52332c22f84432520971794825a5a8e7">if</link>(! file_exists(<link linkend="_update__hostname__validator_8php_1a56cd7666ad02e32bb3b4829ee61a68ea">LAMINAS_HOSTNAME_VALIDATOR_FILE</link>)||! is_readable(<link linkend="_update__hostname__validator_8php_1a56cd7666ad02e32bb3b4829ee61a68ea">LAMINAS_HOSTNAME_VALIDATOR_FILE</link>)) <link linkend="_dropdown_location_8php_1a52332c22f84432520971794825a5a8e7">if</link>(! is_writable(<link linkend="_update__hostname__validator_8php_1a56cd7666ad02e32bb3b4829ee61a68ea">LAMINAS_HOSTNAME_VALIDATOR_FILE</link>)) <link linkend="_update__hostname__validator_8php_1a9063faa369184f0a7420e82bc450df95">$newFileContent</link> = []</para>
+</listitem>
+            <listitem><para><link linkend="_update__hostname__validator_8php_1ac01975b0b04f0e339a137cc7d208e3fe">$insertDone</link> = false</para>
+</listitem>
+            <listitem><para><link linkend="_update__hostname__validator_8php_1a59b435275d25e764e1b915dce43546ff">$insertFinish</link> = false</para>
+</listitem>
+            <listitem><para><link linkend="_update__hostname__validator_8php_1aef7bcbcd42a594bddc2b5a4a3d69f787">$checkOnly</link> = <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">isset</link>($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">argv</link>[1]) ? $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">argv</link>[1] === &apos;--check-<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">only</link>&apos; : false</para>
+</listitem>
+            <listitem><para><link linkend="_update__hostname__validator_8php_1af4b6fb1bbc77ccc05f10da3b16935b99">$response</link> = <link linkend="_update__hostname__validator_8php_1a37fd9141118ee6d704a107f6b3ba9ca4">getOfficialTLDs</link>()</para>
+</listitem>
+            <listitem><para><link linkend="_update__hostname__validator_8php_1a1ca28b272565557066f7dcdee18d04b5">$ianaVersion</link> = <link linkend="_update__hostname__validator_8php_1a58387310926c6a1f253edd3b3dd9a17b">getVersionFromString</link>(&apos;Version&apos;, strtok($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">response</link>-&gt;getBody(), &quot;\n&quot;))</para>
+</listitem>
+            <listitem><para><link linkend="_update__hostname__validator_8php_1aa9774ae19062aaeec8518743fc05edc8">$validatorVersion</link> = <link linkend="_update__hostname__validator_8php_1a58387310926c6a1f253edd3b3dd9a17b">getVersionFromString</link>(&apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">IanaVersion</link>&apos;, file_get_contents(<link linkend="_update__hostname__validator_8php_1a56cd7666ad02e32bb3b4829ee61a68ea">LAMINAS_HOSTNAME_VALIDATOR_FILE</link>))</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Documentation des fonctions</title>
+<anchor xml:id="_update__hostname__validator_8php_1abc9f48cdbfd39343fb43af1fd1f09903"/><section>
+    <title>getNewValidTlds()</title>
+<indexterm><primary>getNewValidTlds</primary><secondary>update_hostname_validator.php</secondary></indexterm>
+<indexterm><primary>update_hostname_validator.php</primary><secondary>getNewValidTlds</secondary></indexterm>
+<para><computeroutput>getNewValidTlds ( $string)</computeroutput></para>
+<para>Extract new Valid TLDs from a string containing one per line.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$string</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>array </para>
+</formalpara>
+</para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="update__hostname__validator_8php_abc9f48cdbfd39343fb43af1fd1f09903_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_update__hostname__validator_8php_1a37fd9141118ee6d704a107f6b3ba9ca4"/><section>
+    <title>getOfficialTLDs()</title>
+<indexterm><primary>getOfficialTLDs</primary><secondary>update_hostname_validator.php</secondary></indexterm>
+<indexterm><primary>update_hostname_validator.php</primary><secondary>getOfficialTLDs</secondary></indexterm>
+<para><computeroutput>getOfficialTLDs ( )</computeroutput></para>
+<para>Get Official TLDs</para>
+
+<para><formalpara><title>Renvoie</title>
+
+<para>\Laminas\Http\Response </para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>Exception</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
+<anchor xml:id="_update__hostname__validator_8php_1ae2939dd5740e5b73235c287b446539f2"/><section>
+    <title>getPunycodeDecoder()</title>
+<indexterm><primary>getPunycodeDecoder</primary><secondary>update_hostname_validator.php</secondary></indexterm>
+<indexterm><primary>update_hostname_validator.php</primary><secondary>getPunycodeDecoder</secondary></indexterm>
+<para><computeroutput>getPunycodeDecoder ( )</computeroutput></para>
+<para>Retrieve and return a punycode decoder.</para>
+
+<para>TLDs are puny encoded.</para>
+
+<para>We need a decodePunycode function to translate TLDs to UTF-8:</para>
+
+<para><itemizedlist>
+<listitem>
+<para>use idn_to_utf8 if available</para>
+</listitem><listitem>
+<para>otherwise, use <link linkend="_class_laminas_1_1_validator_1_1_hostname_1a54d0973455f3117be2ef775c520c3284">Hostname::decodePunycode()</link></para>
+</listitem></itemizedlist>
+</para>
+
+<para><formalpara><title>Renvoie</title>
+
+<para>callable </para>
+</formalpara>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="update__hostname__validator_8php_ae2939dd5740e5b73235c287b446539f2_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_update__hostname__validator_8php_1a58387310926c6a1f253edd3b3dd9a17b"/><section>
+    <title>getVersionFromString()</title>
+<indexterm><primary>getVersionFromString</primary><secondary>update_hostname_validator.php</secondary></indexterm>
+<indexterm><primary>update_hostname_validator.php</primary><secondary>getVersionFromString</secondary></indexterm>
+<para><computeroutput>getVersionFromString ( $prefix,  $string)</computeroutput></para>
+<para>Extract the first match of a string like &quot;Version 2015072300&quot; from the given string</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$prefix</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>string</entry><entry>$string</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>string </para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>Exception</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
+</section>
+<section>
+<title>Documentation des variables</title>
+<anchor xml:id="_update__hostname__validator_8php_1aef7bcbcd42a594bddc2b5a4a3d69f787"/><section>
+    <title>$checkOnly</title>
+<indexterm><primary>$checkOnly</primary><secondary>update_hostname_validator.php</secondary></indexterm>
+<indexterm><primary>update_hostname_validator.php</primary><secondary>$checkOnly</secondary></indexterm>
+<para><computeroutput>$<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">checkOnly</link> = <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">isset</link>($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">argv</link>[1]) ? $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">argv</link>[1] === &apos;--check-<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">only</link>&apos; : false</computeroutput></para></section>
+<anchor xml:id="_update__hostname__validator_8php_1a1ca28b272565557066f7dcdee18d04b5"/><section>
+    <title>$ianaVersion</title>
+<indexterm><primary>$ianaVersion</primary><secondary>update_hostname_validator.php</secondary></indexterm>
+<indexterm><primary>update_hostname_validator.php</primary><secondary>$ianaVersion</secondary></indexterm>
+<para><computeroutput>$<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">ianaVersion</link> = <link linkend="_update__hostname__validator_8php_1a58387310926c6a1f253edd3b3dd9a17b">getVersionFromString</link>(&apos;Version&apos;, strtok($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">response</link>-&gt;getBody(), &quot;\n&quot;))</computeroutput></para></section>
+<anchor xml:id="_update__hostname__validator_8php_1ac01975b0b04f0e339a137cc7d208e3fe"/><section>
+    <title>$insertDone</title>
+<indexterm><primary>$insertDone</primary><secondary>update_hostname_validator.php</secondary></indexterm>
+<indexterm><primary>update_hostname_validator.php</primary><secondary>$insertDone</secondary></indexterm>
+<para><computeroutput>$<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">insertDone</link> = false</computeroutput></para></section>
+<anchor xml:id="_update__hostname__validator_8php_1a59b435275d25e764e1b915dce43546ff"/><section>
+    <title>$insertFinish</title>
+<indexterm><primary>$insertFinish</primary><secondary>update_hostname_validator.php</secondary></indexterm>
+<indexterm><primary>update_hostname_validator.php</primary><secondary>$insertFinish</secondary></indexterm>
+<para><computeroutput>$<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">insertFinish</link> = false</computeroutput></para></section>
+<anchor xml:id="_update__hostname__validator_8php_1a9063faa369184f0a7420e82bc450df95"/><section>
+    <title>$newFileContent</title>
+<indexterm><primary>$newFileContent</primary><secondary>update_hostname_validator.php</secondary></indexterm>
+<indexterm><primary>update_hostname_validator.php</primary><secondary>$newFileContent</secondary></indexterm>
+<para><computeroutput><link linkend="_dropdown_location_8php_1a52332c22f84432520971794825a5a8e7">if</link>(! file_exists(<link linkend="_update__hostname__validator_8php_1a56cd7666ad02e32bb3b4829ee61a68ea">LAMINAS_HOSTNAME_VALIDATOR_FILE</link>)||! is_readable(<link linkend="_update__hostname__validator_8php_1a56cd7666ad02e32bb3b4829ee61a68ea">LAMINAS_HOSTNAME_VALIDATOR_FILE</link>)) <link linkend="_dropdown_location_8php_1a52332c22f84432520971794825a5a8e7">if</link> (! is_writable(<link linkend="_update__hostname__validator_8php_1a56cd7666ad02e32bb3b4829ee61a68ea">LAMINAS_HOSTNAME_VALIDATOR_FILE</link>)) $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">newFileContent</link> = []</computeroutput></para></section>
+<anchor xml:id="_update__hostname__validator_8php_1af4b6fb1bbc77ccc05f10da3b16935b99"/><section>
+    <title>$response</title>
+<indexterm><primary>$response</primary><secondary>update_hostname_validator.php</secondary></indexterm>
+<indexterm><primary>update_hostname_validator.php</primary><secondary>$response</secondary></indexterm>
+<para><computeroutput>$<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">response</link> = <link linkend="_update__hostname__validator_8php_1a37fd9141118ee6d704a107f6b3ba9ca4">getOfficialTLDs</link>()</computeroutput></para></section>
+<anchor xml:id="_update__hostname__validator_8php_1aa9774ae19062aaeec8518743fc05edc8"/><section>
+    <title>$validatorVersion</title>
+<indexterm><primary>$validatorVersion</primary><secondary>update_hostname_validator.php</secondary></indexterm>
+<indexterm><primary>update_hostname_validator.php</primary><secondary>$validatorVersion</secondary></indexterm>
+<para><computeroutput>$<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">validatorVersion</link> = <link linkend="_update__hostname__validator_8php_1a58387310926c6a1f253edd3b3dd9a17b">getVersionFromString</link>(&apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">IanaVersion</link>&apos;, file_get_contents(<link linkend="_update__hostname__validator_8php_1a56cd7666ad02e32bb3b4829ee61a68ea">LAMINAS_HOSTNAME_VALIDATOR_FILE</link>))</computeroutput></para></section>
+<anchor xml:id="_update__hostname__validator_8php_1a4ebe2ca7c01dfcdec1ebd10b528ab9a8"/><section>
+    <title>IANA_URL</title>
+<indexterm><primary>IANA_URL</primary><secondary>update_hostname_validator.php</secondary></indexterm>
+<indexterm><primary>update_hostname_validator.php</primary><secondary>IANA_URL</secondary></indexterm>
+<para><computeroutput>const IANA_URL &apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">https:</link>//<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">data.iana.org</link>/<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">TLD</link>/<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">tlds</link>-alpha-<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">by</link>-<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">domain.txt</link>&apos;</computeroutput></para></section>
+<anchor xml:id="_update__hostname__validator_8php_1a56cd7666ad02e32bb3b4829ee61a68ea"/><section>
+    <title>LAMINAS_HOSTNAME_VALIDATOR_FILE</title>
+<indexterm><primary>LAMINAS_HOSTNAME_VALIDATOR_FILE</primary><secondary>update_hostname_validator.php</secondary></indexterm>
+<indexterm><primary>update_hostname_validator.php</primary><secondary>LAMINAS_HOSTNAME_VALIDATOR_FILE</secondary></indexterm>
+<para><computeroutput>const LAMINAS_HOSTNAME_VALIDATOR_FILE __DIR__.&apos;/../<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">src</link>/Hostname.php&apos;</computeroutput></para></section>
+</section>
+</section>

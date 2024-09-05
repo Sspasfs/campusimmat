@@ -1,0 +1,1864 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.10.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>CampusImmat: GLPI REST API:  Documentation</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">CampusImmat
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.10.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+</div><!-- top -->
+<div><div class="header">
+  <div class="headertitle"><div class="title">GLPI REST API: Documentation</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><p><a class="anchor" id="autotoc_md357"></a> </p>
+<h1><a class="anchor" id="autotoc_md358"></a>
+Summary</h1>
+<ul>
+<li><a class="el" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">Glossary</a></li>
+<li><a class="el" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">Important</a></li>
+<li><a class="el" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">Init session</a></li>
+<li><a class="el" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">Kill session</a></li>
+<li><a class="el" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">Lost password</a></li>
+<li><a class="el" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">Get my profiles</a></li>
+<li><a class="el" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">Get active profile</a></li>
+<li><a class="el" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">Change active profile</a></li>
+<li><a class="el" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">Get my entities</a></li>
+<li><a class="el" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">Get active entities</a></li>
+<li><a class="el" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">Change active entities</a></li>
+<li><a class="el" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">Get full session</a></li>
+<li><a class="el" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">Get GLPI config</a></li>
+<li><a class="el" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">Get an item</a></li>
+<li><a class="el" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">Get all items</a></li>
+<li><a class="el" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">Get sub items</a></li>
+<li><a class="el" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">Get multiple items</a></li>
+<li><a class="el" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">List searchOptions</a></li>
+<li><a class="el" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">Search items</a></li>
+<li><a class="el" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">Add item(s)</a></li>
+<li><a class="el" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">Update item(s)</a></li>
+<li><a class="el" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">Delete item(s)</a></li>
+<li><a class="el" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">Get available massive actions for an itemtype</a></li>
+<li><a class="el" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">Get available massive actions for an item</a></li>
+<li><a class="el" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">Get massive action parameters</a></li>
+<li><a class="el" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">Apply massive action</a></li>
+<li><a class="el" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">Special cases</a></li>
+<li><a class="el" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">Errors</a></li>
+<li><a class="el" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">Servers configuration</a></li>
+</ul>
+<h1><a class="anchor" id="autotoc_md359"></a>
+Glossary</h1>
+<p>Endpoint : Resource available though the API. The endpoint is the URL where your API can be accessed by a client application</p>
+<p>Method : HTTP verbs to indicate the desired action to be performed on the identified resource. See: <a href="https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol#Request_methods">https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol#Request_methods</a></p>
+<p>itemtype : A <a class="el" href="class_g_l_p_i.html">GLPI</a> type, could be an asset, an ITIL or a configuration object, etc. This type must be a class who inherits CommonDTBM <a class="el" href="class_g_l_p_i.html">GLPI</a> class.</p>
+<p>searchOption : A column identifier (integer) of an itemtype (ex: 1 -&gt; id, 2 -&gt; name, ...). See <a class="el" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">List searchOptions</a> endpoint.</p>
+<p>JSON Payload : content of HTTP Request in JSON format (HTTP body)</p>
+<p>Query string : URL parameters</p>
+<p><a class="el" href="class_user.html">User</a> token : Used in login process instead of login/password couple. It represent the user with a string. You can find user token in the settings tabs of users.</p>
+<p><a class="el" href="class_session.html">Session</a> token : A string describing a valid session in glpi. Except initSession endpoint who provide this token, all others require this string to be used.</p>
+<p>App(lication) token : An optional way to filter the access to the API. On API call, it will try to find an API client matching your IP and the app token (if provided). You can define an API client with an app token in general configuration for each of your external applications to identify them (each API client have its own history).</p>
+<h1><a class="anchor" id="autotoc_md360"></a>
+Important</h1>
+<ul>
+<li>You should always provide a Content-Type header in your HTTP calls. Currently, the API supports:<ul>
+<li>application/json</li>
+<li>multipart/form-data (for files upload, see <a class="el" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">Add item(s)</a> endpoint.</li>
+</ul>
+</li>
+<li>GET requests must have an empty body. You must pass all parameters in URL. Failing to do so will trigger an HTTP 400 response.</li>
+<li><p class="startli">By default, sessions used in this API are read-only. Only some methods have write access to session:</p><ul>
+<li><a class="el" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">initSession</a></li>
+<li><a class="el" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">killSession</a></li>
+<li><a class="el" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">changeActiveEntities</a></li>
+<li><a class="el" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">changeActiveProfile</a></li>
+</ul>
+<p class="startli">You could pass an additional parameter "session_write=true" to bypass this default. This read-only mode allow to use this API with parallel calls. In write mode, sessions are locked and your client must wait the end of a call before the next one can execute.</p>
+</li>
+<li>You can filter API access by enable the following parameters in <a class="el" href="class_g_l_p_i.html">GLPI</a> General Configuration (API tab):<ul>
+<li>IPv4 range</li>
+<li>IPv6 address</li>
+<li><em>App-Token</em> parameter: if not empty, you should pass this parameter in all of your API calls</li>
+</ul>
+</li>
+<li><a class="el" href="class_session.html">Session</a> and App tokens could be provided in query string instead of header parameters.</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md361"></a>
+Init session</h1>
+<ul>
+<li><b>URL</b>: apirest.php/initSession/</li>
+<li><b>Description</b>: Request a session token to uses other API endpoints.</li>
+<li><b>Method</b>: GET</li>
+<li><b>Parameters</b>: (Headers)<ul>
+<li><em>App-Token</em>: authorization string provided by the <a class="el" href="class_g_l_p_i.html">GLPI</a> API configuration. Optional.</li>
+<li>a couple <em>login</em> &amp; <em>password</em>: 2 parameters to login with user authentication. You should pass this 2 parameters in <a href="https://en.wikipedia.org/wiki/Basic_access_authentication">http basic auth</a>. It consists in a Base64 string with login and password separated by ":" A valid Authorization header is:<ul>
+<li>"Authorization: Basic base64({login}:{password})"</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<blockquote class="doxtable">
+<p>&zwj;<b>OR</b> </p>
+</blockquote>
+<ul>
+<li>an <em>user_token</em> defined in <a class="el" href="class_user.html">User</a> <a class="el" href="class_preference.html">Preference</a> (See 'Remote access key') You should pass this parameter in 'Authorization' HTTP header. A valid Authorization header is:<ul>
+<li>"Authorization: user_token q56hqkniwot8wntb3z1qarka5atf365taaa2uyjrn"</li>
+</ul>
+</li>
+</ul>
+<p><b>Parameters</b>: (query string)</p><ul>
+<li><em>get_full_session</em> (default: false): Get the full session, useful if you want to login and access session data in one request.</li>
+</ul>
+<p><b>Returns</b>:</p><ul>
+<li>200 (OK) with the <em>session_token</em> string.</li>
+<li>400 (Bad Request) with a message indicating an error in input parameter.</li>
+<li>401 (UNAUTHORIZED)</li>
+</ul>
+<p>Examples usage (CURL):</p>
+<div class="fragment"><div class="line">$ curl -X GET \</div>
+<div class="line">-H &#39;Content-Type: application/json&#39; \</div>
+<div class="line">-H &quot;Authorization: Basic Z2xwaTpnbHBp&quot; \</div>
+<div class="line">-H &quot;App-Token: f7g3csp8mgatg5ebc5elnazakw20i9fyev1qopya7&quot; \</div>
+<div class="line">&#39;http://path/to/glpi/apirest.php/initSession&#39;</div>
+<div class="line"> </div>
+<div class="line">&lt; 200 OK</div>
+<div class="line">&lt; {</div>
+<div class="line">   &quot;session_token&quot;: &quot;83af7e620c83a50a18d3eac2f6ed05a3ca0bea62&quot;</div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line">$ curl -X GET \</div>
+<div class="line">-H &#39;Content-Type: application/json&#39; \</div>
+<div class="line">-H &quot;Authorization: user_token q56hqkniwot8wntb3z1qarka5atf365taaa2uyjrn&quot; \</div>
+<div class="line">-H &quot;App-Token: f7g3csp8mgatg5ebc5elnazakw20i9fyev1qopya7&quot; \</div>
+<div class="line">&#39;http://path/to/glpi/apirest.php/initSession?get_full_session=true&#39;</div>
+<div class="line"> </div>
+<div class="line">&lt; 200 OK</div>
+<div class="line">&lt; {</div>
+<div class="line">   &quot;session_token&quot;: &quot;83af7e620c83a50a18d3eac2f6ed05a3ca0bea62&quot;,</div>
+<div class="line">   &quot;session&quot;: {</div>
+<div class="line">      &#39;glpi_plugins&#39;: ...,</div>
+<div class="line">      &#39;glpicookietest&#39;: ...,</div>
+<div class="line">      &#39;glpicsrftokens&#39;: ...,</div>
+<div class="line">      ...</div>
+<div class="line">   }</div>
+<div class="line">}</div>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md362"></a>
+Kill session</h1>
+<ul>
+<li><b>URL</b>: apirest.php/killSession/</li>
+<li><b>Description</b>: Destroy a session identified by a session token.</li>
+<li><b>Method</b>: GET</li>
+<li><b>Parameters</b>: (Headers)<ul>
+<li><em>Session-Token</em>: session var provided by <a class="el" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">initSession</a> endpoint. Mandatory.</li>
+<li><em>App-Token</em>: authorization string provided by the <a class="el" href="class_g_l_p_i.html">GLPI</a> API configuration. Optional.</li>
+</ul>
+</li>
+<li><b>Returns</b>:<ul>
+<li>200 (OK).</li>
+<li>400 (Bad Request) with a message indicating an error in input parameter.</li>
+</ul>
+</li>
+</ul>
+<p>Example usage (CURL):</p>
+<div class="fragment"><div class="line">$ curl -X GET \</div>
+<div class="line">-H &#39;Content-Type: application/json&#39; \</div>
+<div class="line">-H &quot;Session-Token: 83af7e620c83a50a18d3eac2f6ed05a3ca0bea62&quot; \</div>
+<div class="line">-H &quot;App-Token: f7g3csp8mgatg5ebc5elnazakw20i9fyev1qopya7&quot; \</div>
+<div class="line">&#39;http://path/to/glpi/apirest.php/killSession&#39;</div>
+<div class="line"> </div>
+<div class="line">&lt; 200 OK</div>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md363"></a>
+Lost password</h1>
+<p>This endpoint allows to request password recovery and password reset. This endpoint works under the following conditions:</p><ul>
+<li><a class="el" href="class_g_l_p_i.html">GLPI</a> has notifications enabled</li>
+<li>the email address of the user belongs to a user account.</li>
+</ul>
+<p>Reset password request:</p>
+<ul>
+<li><b>URL</b>: apirest.php/lostPassword/</li>
+<li><b>Description</b>: Sends a notification to the user to reset his password</li>
+<li><b>Method</b>: PUT or PATCH</li>
+<li><b>Parameters</b>: (JSON Payload)<ul>
+<li><em>email</em>: email address of the user to recover. Mandatory.</li>
+</ul>
+</li>
+<li><b>Returns</b>:<ul>
+<li>200 (OK).</li>
+<li>400 (Bad Request) with a message indicating an error in input parameter.</li>
+</ul>
+</li>
+</ul>
+<div class="fragment"><div class="line">$ curl -X PUT \</div>
+<div class="line">-H &#39;Content-Type: application/json&#39; \</div>
+<div class="line">-d &#39;{&quot;email&quot;: &quot;user@domain.com&quot;}&#39; \</div>
+<div class="line">&#39;http://path/to/glpi/apirest.php/lostPassword&#39;</div>
+<div class="line"> </div>
+<div class="line">&lt; 200 OK</div>
+</div><!-- fragment --><p>Password reset :</p>
+<ul>
+<li><b>URL</b>: apirest.php/lostPassword/</li>
+<li><b>Description</b>: Sends a notification to the user to reset his password</li>
+<li><b>Method</b>: PUT or PATCH</li>
+<li><b>Parameters</b>: (JSON Payload)<ul>
+<li><em>email</em>: email address of the user to recover. Mandatory.</li>
+<li><em>password_forget_token</em>: reset token</li>
+<li><em>password</em>: the new password for the user</li>
+</ul>
+</li>
+<li><b>Returns</b>:<ul>
+<li>200 (OK).</li>
+<li>400 (Bad Request) with a message indicating an error in input parameter.</li>
+</ul>
+</li>
+</ul>
+<div class="fragment"><div class="line">$ curl -X PUT \</div>
+<div class="line">-H &#39;Content-Type: application/json&#39; \</div>
+<div class="line">-d &#39;{&quot;email&quot;: &quot;user@domain.com&quot;, \</div>
+<div class="line">     &quot;password_forget_token&quot;: &quot;b0a4cfe81448299ebed57442f4f21929c80ebee5&quot; \</div>
+<div class="line">     &quot;password&quot;: &quot;NewPassword&quot; \</div>
+<div class="line">    }&#39; \</div>
+<div class="line">&#39;http://path/to/glpi/apirest.php/lostPassword&#39;</div>
+<div class="line"> </div>
+<div class="line">&lt; 200 OK</div>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md364"></a>
+Get my profiles</h1>
+<ul>
+<li><b>URL</b>: <a href="getMyProfiles/?debug">apirest.php/getMyProfiles/</a></li>
+<li><b>Description</b>: Return all the profiles associated to logged user.</li>
+<li><b>Method</b>: GET</li>
+<li><b>Parameters</b>: (Headers)<ul>
+<li><em>Session-Token</em>: session var provided by <a class="el" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">initSession</a> endpoint. Mandatory.</li>
+<li><em>App-Token</em>: authorization string provided by the <a class="el" href="class_g_l_p_i.html">GLPI</a> API configuration. Optional.</li>
+</ul>
+</li>
+<li><b>Returns</b>:<ul>
+<li>200 (OK) with an array of all profiles.</li>
+<li>400 (Bad Request) with a message indicating an error in input parameter.</li>
+</ul>
+</li>
+</ul>
+<p>Example usage (CURL):</p>
+<div class="fragment"><div class="line">$ curl -X GET \</div>
+<div class="line">-H &#39;Content-Type: application/json&#39; \</div>
+<div class="line">-H &quot;Session-Token: 83af7e620c83a50a18d3eac2f6ed05a3ca0bea62&quot; \</div>
+<div class="line">-H &quot;App-Token: f7g3csp8mgatg5ebc5elnazakw20i9fyev1qopya7&quot; \</div>
+<div class="line">&#39;http://path/to/glpi/apirest.php/getMyProfiles&#39;</div>
+<div class="line"> </div>
+<div class="line">&lt; 200 OK</div>
+<div class="line">&lt; {</div>
+<div class="line">   &#39;myprofiles&#39;: [</div>
+<div class="line">      {</div>
+<div class="line">         &#39;id&#39;: 1</div>
+<div class="line">         &#39;name&#39;: &quot;Super-admin&quot;,</div>
+<div class="line">         &#39;entities&#39;: [</div>
+<div class="line">            ...</div>
+<div class="line">         ],</div>
+<div class="line">         ...</div>
+<div class="line">      },</div>
+<div class="line">      ....</div>
+<div class="line">   ]</div>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md365"></a>
+Get active profile</h1>
+<ul>
+<li><b>URL</b>: <a href="getActiveProfile/?debug">apirest.php/getActiveProfile/</a></li>
+<li><b>Description</b>: Return the current active profile.</li>
+<li><b>Method</b>: GET</li>
+<li><b>Parameters</b>: (Headers)<ul>
+<li><em>Session-Token</em>: session var provided by <a class="el" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">initSession</a> endpoint. Mandatory.</li>
+<li><em>App-Token</em>: authorization string provided by the <a class="el" href="class_g_l_p_i.html">GLPI</a> API configuration. Optional.</li>
+</ul>
+</li>
+<li><b>Returns</b>:<ul>
+<li>200 (OK) with an array representing current profile.</li>
+<li>400 (Bad Request) with a message indicating an error in input parameter.</li>
+</ul>
+</li>
+</ul>
+<p>Example usage (CURL):</p>
+<div class="fragment"><div class="line">$ curl -X GET \</div>
+<div class="line">-H &#39;Content-Type: application/json&#39; \</div>
+<div class="line">-H &quot;Session-Token: 83af7e620c83a50a18d3eac2f6ed05a3ca0bea62&quot; \</div>
+<div class="line">-H &quot;App-Token: f7g3csp8mgatg5ebc5elnazakw20i9fyev1qopya7&quot; \</div>
+<div class="line">&#39;http://path/to/glpi/apirest.php/getActiveProfile&#39;</div>
+<div class="line"> </div>
+<div class="line">&lt; 200 OK</div>
+<div class="line">&lt; {</div>
+<div class="line">      &#39;name&#39;: &quot;Super-admin&quot;,</div>
+<div class="line">      &#39;entities&#39;: [</div>
+<div class="line">         ...</div>
+<div class="line">      ]</div>
+<div class="line">   }</div>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md366"></a>
+Change active profile</h1>
+<ul>
+<li><b>URL</b>: <a href="changeActiveProfile/?profiles_id=4&amp;debug">apirest.php/changeActiveProfile/</a></li>
+<li><b>Description</b>: <a class="el" href="class_change.html">Change</a> active profile to the profiles_id one. See <a class="el" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">getMyProfiles</a> endpoint for possible profiles.</li>
+<li><b>Method</b>: POST</li>
+<li><b>Parameters</b>: (Headers)<ul>
+<li><em>Session-Token</em>: session var provided by <a class="el" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">initSession</a> endpoint. Mandatory.</li>
+<li><em>App-Token</em>: authorization string provided by the <a class="el" href="class_g_l_p_i.html">GLPI</a> API configuration. Optional.</li>
+</ul>
+</li>
+<li><b>Parameters</b>: (JSON Payload)<ul>
+<li><em>profiles_id</em>: (default 'all') ID of the new active profile. Mandatory.</li>
+</ul>
+</li>
+<li><b>Returns</b>:<ul>
+<li>200 (OK).</li>
+<li>400 (Bad Request) with a message indicating an error in input parameter.</li>
+<li>404 (Not found) with a message indicating an error ig the profile does not exists or usable.</li>
+</ul>
+</li>
+</ul>
+<p>Example usage (CURL):</p>
+<div class="fragment"><div class="line">$ curl -X POST \</div>
+<div class="line">-H &#39;Content-Type: application/json&#39; \</div>
+<div class="line">-H &quot;Session-Token: 83af7e620c83a50a18d3eac2f6ed05a3ca0bea62&quot; \</div>
+<div class="line">-H &quot;App-Token: f7g3csp8mgatg5ebc5elnazakw20i9fyev1qopya7&quot; \</div>
+<div class="line">-d &#39;{&quot;profiles_id&quot;: 4}&#39; \</div>
+<div class="line">&#39;http://path/to/glpi/apirest.php/changeActiveProfile&#39;</div>
+<div class="line"> </div>
+<div class="line">&lt; 200 OK</div>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md367"></a>
+Get my entities</h1>
+<ul>
+<li><b>URL</b>: <a href="getMyEntities/?debug">apirest.php/getMyEntities/</a></li>
+<li><b>Description</b>: Return all the possible entities of the current logged user (and for current active profile).</li>
+<li><b>Method</b>: GET</li>
+<li><b>Parameters</b>: (Headers)<ul>
+<li><em>Session-Token</em>: session var provided by <a class="el" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">initSession</a> endpoint. Mandatory.</li>
+<li><em>App-Token</em>: authorization string provided by the <a class="el" href="class_g_l_p_i.html">GLPI</a> API configuration. Optional.</li>
+</ul>
+</li>
+<li><b>Parameters</b>: (query string)<ul>
+<li><em>is_recursive</em> (default: false): Also display sub entities of the active entity. Optionnal</li>
+</ul>
+</li>
+<li><b>Returns</b>:<ul>
+<li>200 (OK) with an array of all entities (with id and name).</li>
+<li>400 (Bad Request) with a message indicating an error in input parameter.</li>
+</ul>
+</li>
+</ul>
+<p>Example usage (CURL):</p>
+<div class="fragment"><div class="line">$ curl -X GET \</div>
+<div class="line">-H &#39;Content-Type: application/json&#39; \</div>
+<div class="line">-H &quot;Session-Token: 83af7e620c83a50a18d3eac2f6ed05a3ca0bea62&quot; \</div>
+<div class="line">-H &quot;App-Token: f7g3csp8mgatg5ebc5elnazakw20i9fyev1qopya7&quot; \</div>
+<div class="line">&#39;http://path/to/glpi/apirest.php/getMyEntities&#39;</div>
+<div class="line"> </div>
+<div class="line">&lt; 200 OK</div>
+<div class="line">&lt; {</div>
+<div class="line">   &#39;myentities&#39;: [</div>
+<div class="line">     {</div>
+<div class="line">       &#39;id&#39;:   71</div>
+<div class="line">       &#39;name&#39;: &quot;my_entity&quot;</div>
+<div class="line">     },</div>
+<div class="line">   ....</div>
+<div class="line">   ]</div>
+<div class="line">  }</div>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md368"></a>
+Get active entities</h1>
+<ul>
+<li><b>URL</b>: <a href="getActiveEntities/?debug">apirest.php/getActiveEntities/</a></li>
+<li><b>Description</b>: Return active entities of current logged user.</li>
+<li><b>Method</b>: GET</li>
+<li><b>Parameters</b>: (Headers)<ul>
+<li><em>Session-Token</em>: session var provided by <a class="el" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">initSession</a> endpoint. Mandatory.</li>
+<li><em>App-Token</em>: authorization string provided by the <a class="el" href="class_g_l_p_i.html">GLPI</a> API configuration. Optional.</li>
+</ul>
+</li>
+<li><b>Returns</b>:<ul>
+<li>200 (OK) with an array with 3 keys:<ul>
+<li><em>active_entity</em>: current set entity.</li>
+<li><em>active_entity_recursive</em>: boolean, if we see sons of this entity.</li>
+<li><em>active_entities</em>: array all active entities (active_entity and its sons).</li>
+</ul>
+</li>
+<li>400 (Bad Request) with a message indicating an error in input parameter.</li>
+</ul>
+</li>
+</ul>
+<p>Example usage (CURL):</p>
+<div class="fragment"><div class="line">$ curl -X GET \</div>
+<div class="line">-H &#39;Content-Type: application/json&#39; \</div>
+<div class="line">-H &quot;Session-Token: 83af7e620c83a50a18d3eac2f6ed05a3ca0bea62&quot; \</div>
+<div class="line">-H &quot;App-Token: f7g3csp8mgatg5ebc5elnazakw20i9fyev1qopya7&quot; \</div>
+<div class="line">&#39;http://path/to/glpi/apirest.php/getActiveEntities&#39;</div>
+<div class="line"> </div>
+<div class="line">&lt; 200 OK</div>
+<div class="line">&lt; {</div>
+<div class="line">   &#39;active_entity&#39;: {</div>
+<div class="line">      &#39;id&#39;: 1,</div>
+<div class="line">      &#39;active_entity_recursive&#39;: true,</div>
+<div class="line">      &#39;active_entities&#39;: [</div>
+<div class="line">        {&quot;id&quot;:1},</div>
+<div class="line">        {&quot;id&quot;:71},...</div>
+<div class="line">      ]</div>
+<div class="line">   }</div>
+<div class="line">}</div>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md369"></a>
+Change active entities</h1>
+<ul>
+<li><b>URL</b>: <a href="changeActiveEntities/?entities_id=1&amp;is_recursive=0&amp;debug">apirest.php/changeActiveEntities/</a></li>
+<li><b>Description</b>: <a class="el" href="class_change.html">Change</a> active entity to the entities_id one. See <a class="el" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">getMyEntities</a> endpoint for possible entities.</li>
+<li><b>Method</b>: POST</li>
+<li><b>Parameters</b>: (Headers)<ul>
+<li><em>Session-Token</em>: session var provided by <a class="el" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">initSession</a> endpoint. Mandatory.</li>
+<li><em>App-Token</em>: authorization string provided by the <a class="el" href="class_g_l_p_i.html">GLPI</a> API configuration. Optional.</li>
+</ul>
+</li>
+<li><b>Parameters</b>: (JSON Payload)<ul>
+<li><em>entities_id</em>: (default 'all') ID of the new active entity ("all" =&gt; load all possible entities). Optional.</li>
+<li><em>is_recursive</em>: (default false) Also display sub entities of the active entity. Optional.</li>
+</ul>
+</li>
+<li><b>Returns</b>:<ul>
+<li>200 (OK).</li>
+<li>400 (Bad Request) with a message indicating an error in input parameter.</li>
+</ul>
+</li>
+</ul>
+<p>Example usage (CURL):</p>
+<div class="fragment"><div class="line">$ curl -X POST \</div>
+<div class="line">-H &#39;Content-Type: application/json&#39; \</div>
+<div class="line">-H &quot;Session-Token: 83af7e620c83a50a18d3eac2f6ed05a3ca0bea62&quot; \</div>
+<div class="line">-H &quot;App-Token: f7g3csp8mgatg5ebc5elnazakw20i9fyev1qopya7&quot; \</div>
+<div class="line">-d &#39;{&quot;entities_id&quot;: 1, &quot;is_recursive&quot;: true}&#39; \</div>
+<div class="line">&#39;http://path/to/glpi/apirest.php/changeActiveEntities&#39;</div>
+<div class="line"> </div>
+<div class="line">&lt; 200 OK</div>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md370"></a>
+Get full session</h1>
+<ul>
+<li><b>URL</b>: <a href="getFullSession/?debug">apirest.php/getFullSession/</a></li>
+<li><b>Description</b>: Return the current php $_SESSION.</li>
+<li><b>Method</b>: GET</li>
+<li><b>Parameters</b>: (Headers)<ul>
+<li><em>Session-Token</em>: session var provided by <a class="el" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">initSession</a> endpoint. Mandatory.</li>
+<li><em>App-Token</em>: authorization string provided by the <a class="el" href="class_g_l_p_i.html">GLPI</a> API configuration. Optional.</li>
+</ul>
+</li>
+<li><b>Returns</b>:<ul>
+<li>200 (OK) with an array representing the php session.</li>
+<li>400 (Bad Request) with a message indicating an error in input parameter.</li>
+</ul>
+</li>
+</ul>
+<p>Example usage (CURL):</p>
+<div class="fragment"><div class="line">$ curl -X GET \</div>
+<div class="line">-H &#39;Content-Type: application/json&#39; \</div>
+<div class="line">-H &quot;Session-Token: 83af7e620c83a50a18d3eac2f6ed05a3ca0bea62&quot; \</div>
+<div class="line">-H &quot;App-Token: f7g3csp8mgatg5ebc5elnazakw20i9fyev1qopya7&quot; \</div>
+<div class="line">&#39;http://path/to/glpi/apirest.php/getFullSession&#39;</div>
+<div class="line"> </div>
+<div class="line">&lt; 200 OK</div>
+<div class="line">&lt; {</div>
+<div class="line">      &#39;session&#39;: {</div>
+<div class="line">         &#39;glpi_plugins&#39;: ...,</div>
+<div class="line">         &#39;glpicookietest&#39;: ...,</div>
+<div class="line">         &#39;glpicsrftokens&#39;: ...,</div>
+<div class="line">         ...</div>
+<div class="line">      }</div>
+<div class="line">   }</div>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md371"></a>
+Get GLPI config</h1>
+<ul>
+<li><b>URL</b>: <a href="getGlpiConfig/?debug">apirest.php/getGlpiConfig/</a></li>
+<li><b>Description</b>: Return the current $CFG_GLPI.</li>
+<li><b>Method</b>: GET</li>
+<li><b>Parameters</b>: (Headers)<ul>
+<li><em>Session-Token</em>: session var provided by <a class="el" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">initSession</a> endpoint. Mandatory.</li>
+<li><em>App-Token</em>: authorization string provided by the <a class="el" href="class_g_l_p_i.html">GLPI</a> API configuration. Optional.</li>
+</ul>
+</li>
+<li><b>Returns</b>:<ul>
+<li>200 (OK) with an array representing the php global variable $CFG_GLPI.</li>
+<li>400 (Bad Request) with a message indicating an error in input parameter.</li>
+</ul>
+</li>
+</ul>
+<p>Example usage (CURL):</p>
+<div class="fragment"><div class="line">$ curl -X GET \</div>
+<div class="line">-H &#39;Content-Type: application/json&#39; \</div>
+<div class="line">-H &quot;Session-Token: 83af7e620c83a50a18d3eac2f6ed05a3ca0bea62&quot; \</div>
+<div class="line">-H &quot;App-Token: f7g3csp8mgatg5ebc5elnazakw20i9fyev1qopya7&quot; \</div>
+<div class="line">&#39;http://path/to/glpi/apirest.php/getGlpiConfig&#39;</div>
+<div class="line"> </div>
+<div class="line">&lt; 200 OK</div>
+<div class="line">&lt; {</div>
+<div class="line">      &#39;cfg_glpi&#39;: {</div>
+<div class="line">         &#39;languages&#39;: ...,</div>
+<div class="line">         &#39;glpitables&#39;: ...,</div>
+<div class="line">         &#39;unicity_types&#39;:...,</div>
+<div class="line">         ...</div>
+<div class="line">      }</div>
+<div class="line">   }</div>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md372"></a>
+Get an item</h1>
+<ul>
+<li><b>URL</b>: <a href="User/2?debug">apirest.php/:itemtype/:id</a></li>
+<li><b>Description</b>: Return the instance fields of itemtype identified by id.</li>
+<li><b>Method</b>: GET</li>
+<li><b>Parameters</b>: (Headers)<ul>
+<li><em>Session-Token</em>: session var provided by <a class="el" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">initSession</a> endpoint. Mandatory.</li>
+<li><em>App-Token</em>: authorization string provided by the <a class="el" href="class_g_l_p_i.html">GLPI</a> API configuration. Optional.</li>
+</ul>
+</li>
+<li><b>Parameters</b>: (query string)<ul>
+<li><em>id</em>: unique identifier of the itemtype. Mandatory.</li>
+<li><em>expand_dropdowns</em> (default: false): show dropdown name instead of id. Optional.</li>
+<li><em>get_hateoas</em> (default: true): Show relations of the item in a links attribute. Optional.</li>
+<li><em>get_sha1</em> (default: false): Get a sha1 signature instead of the full answer. Optional.</li>
+<li><em>with_devices</em>: Only for [<a class="el" href="class_computer.html">Computer</a>, <a class="el" href="class_network_equipment.html">NetworkEquipment</a>, <a class="el" href="class_peripheral.html">Peripheral</a>, <a class="el" href="class_phone.html">Phone</a>, <a class="el" href="class_printer.html">Printer</a>], retrieve the associated components. Optional.</li>
+<li><em>with_disks</em>: Only for <a class="el" href="class_computer.html">Computer</a>, retrieve the associated file-systems. Optional.</li>
+<li><em>with_softwares</em>: Only for <a class="el" href="class_computer.html">Computer</a>, retrieve the associated software's installations. Optional.</li>
+<li><em>with_connections</em>: Only for <a class="el" href="class_computer.html">Computer</a>, retrieve the associated direct connections (like peripherals and printers) .Optional.</li>
+<li><em>with_networkports</em>: Retrieve all network connections and advanced information. Optionnal.</li>
+<li><em>with_infocoms</em>: Retrieve financial and administrative information. Optional.</li>
+<li><em>with_contracts</em>: Retrieve associated contracts. Optional.</li>
+<li><em>with_documents</em>: Retrieve associated external documents. Optional.</li>
+<li><em>with_tickets</em>: Retrieve associated ITIL tickets. Optional.</li>
+<li><em>with_problems</em>: Retrieve associated ITIL problems. Optional.</li>
+<li><em>with_changes</em>: Retrieve associated ITIL changes. Optional.</li>
+<li><em>with_notes</em>: Retrieve Notes. Optional.</li>
+<li><em>with_logs</em>: Retrieve historical. Optional.</li>
+<li><em>add_keys_names</em>: Retrieve friendly names. Array containing <a class="el" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">fkey(s)</a> and/or "id". Optional.</li>
+</ul>
+</li>
+<li><b>Returns</b>:<ul>
+<li>200 (OK) with item data (Last-Modified header should contain the date of last modification of the item).</li>
+<li>401 (UNAUTHORIZED).</li>
+<li>404 (NOT FOUND).</li>
+</ul>
+</li>
+</ul>
+<p>Example usage (CURL):</p>
+<div class="fragment"><div class="line">$ curl -X GET \</div>
+<div class="line">-H &#39;Content-Type: application/json&#39; \</div>
+<div class="line">-H &quot;Session-Token: 83af7e620c83a50a18d3eac2f6ed05a3ca0bea62&quot; \</div>
+<div class="line">-H &quot;App-Token: f7g3csp8mgatg5ebc5elnazakw20i9fyev1qopya7&quot; \</div>
+<div class="line">&#39;http://path/to/glpi/apirest.php/Computer/71?expand_dropdowns=true&#39;</div>
+<div class="line"> </div>
+<div class="line">&lt; 200 OK</div>
+<div class="line">&lt; {</div>
+<div class="line">    &quot;id&quot;: 71,</div>
+<div class="line">    &quot;entities_id&quot;: &quot;Root Entity&quot;,</div>
+<div class="line">    &quot;name&quot;: &quot;adelaunay-ThinkPad-Edge-E320&quot;,</div>
+<div class="line">    &quot;serial&quot;: &quot;12345&quot;,</div>
+<div class="line">    &quot;otherserial&quot;: &quot;test2&quot;,</div>
+<div class="line">    &quot;contact&quot;: &quot;adelaunay&quot;,</div>
+<div class="line">    &quot;contact_num&quot;: null,</div>
+<div class="line">    &quot;users_id_tech&quot;: &quot; &quot;,</div>
+<div class="line">    &quot;groups_id_tech&quot;: &quot; &quot;,</div>
+<div class="line">    &quot;comment&quot;: &quot;test222222qsdqsd&quot;,</div>
+<div class="line">    &quot;date_mod&quot;: &quot;2015-09-25 09:33:41&quot;,</div>
+<div class="line">    &quot;autoupdatesystems_id&quot;: &quot; &quot;,</div>
+<div class="line">    &quot;locations_id&quot;: &quot;00:0e:08:3b:7d:04&quot;,</div>
+<div class="line">    &quot;networks_id&quot;: &quot; &quot;,</div>
+<div class="line">    &quot;computermodels_id&quot;: &quot;1298A8G&quot;,</div>
+<div class="line">    &quot;computertypes_id&quot;: &quot;Notebook&quot;,</div>
+<div class="line">    &quot;is_template&quot;: 0,</div>
+<div class="line">    &quot;template_name&quot;: null,</div>
+<div class="line">    &quot;manufacturers_id&quot;: &quot;LENOVO&quot;,</div>
+<div class="line">    &quot;is_deleted&quot;: 0,</div>
+<div class="line">    &quot;is_dynamic&quot;: 1,</div>
+<div class="line">    &quot;users_id&quot;: &quot;adelaunay&quot;,</div>
+<div class="line">    &quot;groups_id&quot;: &quot; &quot;,</div>
+<div class="line">    &quot;states_id&quot;: &quot;Production&quot;,</div>
+<div class="line">    &quot;ticket_tco&quot;: &quot;0.0000&quot;,</div>
+<div class="line">    &quot;uuid&quot;: &quot;&quot;,</div>
+<div class="line">    &quot;date_creation&quot;: null,</div>
+<div class="line">    &quot;links&quot;: [{</div>
+<div class="line">       &quot;rel&quot;: &quot;Entity&quot;,</div>
+<div class="line">       &quot;href&quot;: &quot;http://path/to/glpi/api/Entity/0&quot;</div>
+<div class="line">    }, {</div>
+<div class="line">       &quot;rel&quot;: &quot;Location&quot;,</div>
+<div class="line">       &quot;href&quot;: &quot;http://path/to/glpi/api/Location/3&quot;</div>
+<div class="line">    }, {</div>
+<div class="line">       &quot;rel&quot;: &quot;Domain&quot;,</div>
+<div class="line">       &quot;href&quot;: &quot;http://path/to/glpi/api/Domain/18&quot;</div>
+<div class="line">    }, {</div>
+<div class="line">       &quot;rel&quot;: &quot;ComputerModel&quot;,</div>
+<div class="line">       &quot;href&quot;: &quot;http://path/to/glpi/api/ComputerModel/11&quot;</div>
+<div class="line">    }, {</div>
+<div class="line">       &quot;rel&quot;: &quot;ComputerType&quot;,</div>
+<div class="line">       &quot;href&quot;: &quot;http://path/to/glpi/api/ComputerType/3&quot;</div>
+<div class="line">    }, {</div>
+<div class="line">       &quot;rel&quot;: &quot;Manufacturer&quot;,</div>
+<div class="line">       &quot;href&quot;: &quot;http://path/to/glpi/api/Manufacturer/260&quot;</div>
+<div class="line">    }, {</div>
+<div class="line">       &quot;rel&quot;: &quot;User&quot;,</div>
+<div class="line">       &quot;href&quot;: &quot;http://path/to/glpi/api/User/27&quot;</div>
+<div class="line">    }, {</div>
+<div class="line">       &quot;rel&quot;: &quot;State&quot;,</div>
+<div class="line">       &quot;href&quot;: &quot;http://path/to/glpi/api/State/1&quot;</div>
+<div class="line">    }]</div>
+<div class="line">}</div>
+</div><!-- fragment --><p>Note: To download a document see <a class="el" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">Download a document file</a>.</p>
+<h1><a class="anchor" id="autotoc_md373"></a>
+Get all items</h1>
+<ul>
+<li><b>URL</b>: <a href="Computer/?debug">apirest.php/:itemtype/</a></li>
+<li><b>Description</b>: Return a collection of rows of the itemtype.</li>
+<li><b>Method</b>: GET</li>
+<li><b>Parameters</b>: (Headers)<ul>
+<li><em>Session-Token</em>: session var provided by <a class="el" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">initSession</a> endpoint. Mandatory.</li>
+<li><em>App-Token</em>: authorization string provided by the <a class="el" href="class_g_l_p_i.html">GLPI</a> API configuration. Optional.</li>
+</ul>
+</li>
+<li><b>Parameters</b>: (query string)<ul>
+<li><em>expand_dropdowns</em> (default: false): show dropdown name instead of id. Optional.</li>
+<li><em>get_hateoas</em> (default: true): Show relation of item in a links attribute. Optional.</li>
+<li><em>only_id</em> (default: false): keep only id keys in returned data. Optional.</li>
+<li><em>range</em> (default: 0-49): a string with a couple of number for start and end of pagination separated by a '-'. Ex: 150-199. Optional.</li>
+<li><em>sort</em> (default 1): name of the field to sort by. Optional.</li>
+<li><em>order</em> (default ASC): ASC - Ascending sort / DESC Descending sort. Optional.</li>
+<li><em>searchText</em> (default NULL): array of filters to pass on the query (with key = field and value the text to search)</li>
+<li><em>is_deleted</em> (default: false): Return deleted element. Optional.</li>
+<li><em>add_keys_names</em>: Retrieve friendly names. Array containing <a class="el" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">fkey(s)</a> and/or "id". Optional.</li>
+<li><em>with_networkports</em>: Retrieve all network connections and advanced information. Optionnal.</li>
+</ul>
+</li>
+<li><b>Returns</b>:<ul>
+<li>200 (OK) with items data.</li>
+<li>206 (PARTIAL CONTENT) with items data defined by range.</li>
+<li><p class="startli">401 (UNAUTHORIZED).</p>
+<p class="startli">and theses headers:</p><ul>
+<li><em>Content-Range</em> offset – limit / count</li>
+<li><em>Accept-Range</em> itemtype max</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>Example usage (CURL):</p>
+<div class="fragment"><div class="line">$ curl -X GET \</div>
+<div class="line">-H &#39;Content-Type: application/json&#39; \</div>
+<div class="line">-H &quot;Session-Token: 83af7e620c83a50a18d3eac2f6ed05a3ca0bea62&quot; \</div>
+<div class="line">-H &quot;App-Token: f7g3csp8mgatg5ebc5elnazakw20i9fyev1qopya7&quot; \</div>
+<div class="line">&#39;http://path/to/glpi/apirest.php/Computer/?expand_dropdowns=true&#39;</div>
+<div class="line"> </div>
+<div class="line">&lt; 206 OK</div>
+<div class="line">&lt; Content-Range: 0-49/200</div>
+<div class="line">&lt; Accept-Range: 990</div>
+<div class="line">&lt; [</div>
+<div class="line">   {</div>
+<div class="line">      &quot;id&quot;: 34,</div>
+<div class="line">      &quot;entities_id&quot;: &quot;Root Entity&quot;,</div>
+<div class="line">      &quot;name&quot;: &quot;glpi&quot;,</div>
+<div class="line">      &quot;serial&quot;: &quot;VMware-42 01 f4 65 27 59 a9 fb-11 bc cd b8 64 68 1f 4b&quot;,</div>
+<div class="line">      &quot;otherserial&quot;: null,</div>
+<div class="line">      &quot;contact&quot;: &quot;teclib&quot;,</div>
+<div class="line">      &quot;contact_num&quot;: null,</div>
+<div class="line">      &quot;users_id_tech&quot;: &quot;&amp;nbsp;&quot;,</div>
+<div class="line">      &quot;groups_id_tech&quot;: &quot;&amp;nbsp;&quot;,</div>
+<div class="line">      &quot;comment&quot;: &quot;x86_64/00-09-15 08:03:28&quot;,</div>
+<div class="line">      &quot;date_mod&quot;: &quot;2011-12-16 17:52:55&quot;,</div>
+<div class="line">      &quot;autoupdatesystems_id&quot;: &quot;FusionInventory&quot;,</div>
+<div class="line">      &quot;locations_id&quot;: &quot;&amp;nbsp;&quot;,</div>
+<div class="line">      &quot;networks_id&quot;: &quot;&amp;nbsp;&quot;,</div>
+<div class="line">      &quot;computermodels_id&quot;: &quot;VMware Virtual Platform&quot;,</div>
+<div class="line">      &quot;computertypes_id&quot;: &quot;Other&quot;,</div>
+<div class="line">      &quot;is_template&quot;: 0,</div>
+<div class="line">      &quot;template_name&quot;: null,</div>
+<div class="line">      &quot;manufacturers_id&quot;: &quot;VMware, Inc.&quot;,</div>
+<div class="line">      &quot;is_deleted&quot;: 0,</div>
+<div class="line">      &quot;is_dynamic&quot;: 1,</div>
+<div class="line">      &quot;users_id&quot;: &quot;&amp;nbsp;&quot;,</div>
+<div class="line">      &quot;groups_id&quot;: &quot;&amp;nbsp;&quot;,</div>
+<div class="line">      &quot;states_id&quot;: &quot;Production&quot;,</div>
+<div class="line">      &quot;ticket_tco&quot;: &quot;0.0000&quot;,</div>
+<div class="line">      &quot;uuid&quot;: &quot;4201F465-2759-A9FB-11BC-CDB864681F4B&quot;,</div>
+<div class="line">      &quot;links&quot;: [{</div>
+<div class="line">         &quot;rel&quot;: &quot;Entity&quot;,</div>
+<div class="line">         &quot;href&quot;: &quot;http://path/to/glpi/api/Entity/0&quot;</div>
+<div class="line">      }, {</div>
+<div class="line">         &quot;rel&quot;: &quot;AutoUpdateSystem&quot;,</div>
+<div class="line">         &quot;href&quot;: &quot;http://path/to/glpi/api/AutoUpdateSystem/1&quot;</div>
+<div class="line">      }, {</div>
+<div class="line">         &quot;rel&quot;: &quot;Domain&quot;,</div>
+<div class="line">         &quot;href&quot;: &quot;http://path/to/glpi/api/Domain/12&quot;</div>
+<div class="line">      }, {</div>
+<div class="line">         &quot;rel&quot;: &quot;ComputerModel&quot;,</div>
+<div class="line">         &quot;href&quot;: &quot;http://path/to/glpi/api/ComputerModel/1&quot;</div>
+<div class="line">      }, {</div>
+<div class="line">         &quot;rel&quot;: &quot;ComputerType&quot;,</div>
+<div class="line">         &quot;href&quot;: &quot;http://path/to/glpi/api/ComputerType/2&quot;</div>
+<div class="line">      }, {</div>
+<div class="line">         &quot;rel&quot;: &quot;Manufacturer&quot;,</div>
+<div class="line">         &quot;href&quot;: &quot;http://path/to/glpi/api/Manufacturer/1&quot;</div>
+<div class="line">      }, {</div>
+<div class="line">         &quot;rel&quot;: &quot;State&quot;,</div>
+<div class="line">         &quot;href&quot;: &quot;http://path/to/glpi/api/State/1&quot;</div>
+<div class="line">      }]</div>
+<div class="line">   },</div>
+<div class="line">   {</div>
+<div class="line">      &quot;id&quot;: 35,</div>
+<div class="line">      &quot;entities_id&quot;: &quot;Root Entity&quot;,</div>
+<div class="line">      &quot;name&quot;: &quot;mavm1&quot;,</div>
+<div class="line">      &quot;serial&quot;: &quot;VMware-42 20 d3 04 ac 49 ed c8-ea 15 50 49 e1 40 0f 6c&quot;,</div>
+<div class="line">      &quot;otherserial&quot;: null,</div>
+<div class="line">      &quot;contact&quot;: &quot;teclib&quot;,</div>
+<div class="line">      &quot;contact_num&quot;: null,</div>
+<div class="line">      &quot;users_id_tech&quot;: &quot;&amp;nbsp;&quot;,</div>
+<div class="line">      &quot;groups_id_tech&quot;: &quot;&amp;nbsp;&quot;,</div>
+<div class="line">      &quot;comment&quot;: &quot;x86_64/01-01-04 19:50:40&quot;,</div>
+<div class="line">      &quot;date_mod&quot;: &quot;2012-05-24 06:43:35&quot;,</div>
+<div class="line">      ...</div>
+<div class="line">   }</div>
+<div class="line">]</div>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md374"></a>
+Get sub items</h1>
+<ul>
+<li><b>URL</b>: <a href="User/2/Log?debug">apirest.php/:itemtype/:id/:sub_itemtype</a></li>
+<li><b>Description</b>: Return a collection of rows of the sub_itemtype for the identified item.</li>
+<li><b>Method</b>: GET</li>
+<li><b>Parameters</b>: (Headers)<ul>
+<li><em>Session-Token</em>: session var provided by <a class="el" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">initSession</a> endpoint. Mandatory.</li>
+<li><em>App-Token</em>: authorization string provided by the <a class="el" href="class_g_l_p_i.html">GLPI</a> API configuration. Optional.</li>
+</ul>
+</li>
+<li><b>Parameters</b>: (query string)<ul>
+<li>id: unique identifier of the parent itemtype. Mandatory.</li>
+<li><em>expand_dropdowns</em> (default: false): show dropdown name instead of id. Optional.</li>
+<li><em>get_hateoas</em> (default: true): Show item's relations in a links attribute. Optional.</li>
+<li><em>only_id</em> (default: false): keep only id keys in returned data. Optional.</li>
+<li><em>range</em> (default: 0-49): a string with a couple of number for start and end of pagination separated by a '-' char. Ex: 150-199. Optional.</li>
+<li><em>sort</em> (default 1): id of the "searchoption" to sort by. Optional.</li>
+<li><em>order</em> (default ASC): ASC - Ascending sort / DESC Descending sort. Optional.</li>
+<li><em>add_keys_names</em>: Retrieve friendly names. Array containing <a class="el" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">fkey(s)</a> and/or "id". Optional.</li>
+</ul>
+</li>
+<li><b>Returns</b>:<ul>
+<li>200 (OK) with the items data.</li>
+<li><p class="startli">401 (UNAUTHORIZED).</p>
+<p class="startli">and theses headers:</p><ul>
+<li><em>Content-Range</em> offset – limit / count</li>
+<li><em>Accept-Range</em> itemtype max</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>Example usage (CURL):</p>
+<div class="fragment"><div class="line">$ curl -X GET \</div>
+<div class="line">-H &#39;Content-Type: application/json&#39; \</div>
+<div class="line">-H &quot;Session-Token: 83af7e620c83a50a18d3eac2f6ed05a3ca0bea62&quot; \</div>
+<div class="line">-H &quot;App-Token: f7g3csp8mgatg5ebc5elnazakw20i9fyev1qopya7&quot; \</div>
+<div class="line">&#39;http://path/to/glpi/apirest.php/User/2/Log&#39;</div>
+<div class="line"> </div>
+<div class="line">&lt; 200 OK</div>
+<div class="line">&lt; Content-Range: 0-49/200</div>
+<div class="line">&lt; Accept-Range: 990</div>
+<div class="line">&lt; [</div>
+<div class="line">   {</div>
+<div class="line">      &quot;id&quot;: 22117,</div>
+<div class="line">      &quot;itemtype&quot;: &quot;User&quot;,</div>
+<div class="line">      &quot;items_id&quot;: 2,</div>
+<div class="line">      &quot;itemtype_link&quot;: &quot;Profile&quot;,</div>
+<div class="line">      &quot;linked_action&quot;: 17,</div>
+<div class="line">      &quot;user_name&quot;: &quot;glpi (27)&quot;,</div>
+<div class="line">      &quot;date_mod&quot;: &quot;2015-10-13 10:00:59&quot;,</div>
+<div class="line">      &quot;id_search_option&quot;: 0,</div>
+<div class="line">      &quot;old_value&quot;: &quot;&quot;,</div>
+<div class="line">      &quot;new_value&quot;: &quot;super-admin (4)&quot;</div>
+<div class="line">   }, {</div>
+<div class="line">      &quot;id&quot;: 22118,</div>
+<div class="line">      &quot;itemtype&quot;: &quot;User&quot;,</div>
+<div class="line">      &quot;items_id&quot;: 2,</div>
+<div class="line">      &quot;itemtype_link&quot;: &quot;&quot;,</div>
+<div class="line">      &quot;linked_action&quot;: 0,</div>
+<div class="line">      &quot;user_name&quot;: &quot;glpi (2)&quot;,</div>
+<div class="line">      &quot;date_mod&quot;: &quot;2015-10-13 10:01:22&quot;,</div>
+<div class="line">      &quot;id_search_option&quot;: 80,</div>
+<div class="line">      &quot;old_value&quot;: &quot;Root entity (0)&quot;,</div>
+<div class="line">      &quot;new_value&quot;: &quot;Root entity &gt; my entity (1)&quot;</div>
+<div class="line">   }, {</div>
+<div class="line">      ...</div>
+<div class="line">   }</div>
+<div class="line">]</div>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md375"></a>
+Get multiple items</h1>
+<ul>
+<li><b>URL</b>: apirest.php/getMultipleItems</li>
+<li><b>Description</b>: Virtually call <a class="el" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">Get an item</a> for each line in input. So, you can have a ticket, a user in the same query.</li>
+<li><b>Method</b>: GET</li>
+<li><b>Parameters</b>: (Headers)<ul>
+<li><em>Session-Token</em>: session var provided by <a class="el" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">initSession</a> endpoint. Mandatory.</li>
+<li><em>App-Token</em>: authorization string provided by the <a class="el" href="class_g_l_p_i.html">GLPI</a> API configuration. Optional.</li>
+</ul>
+</li>
+<li><b>Parameters</b>: (query string)<ul>
+<li><em>items</em>: items to retrieve. Mandatory. Each line of this array should contains two keys:<ul>
+<li>itemtype</li>
+<li>items_id</li>
+</ul>
+</li>
+<li><em>expand_dropdowns</em> (default: false): show dropdown name instead of id. Optional.</li>
+<li><em>get_hateoas</em> (default: true): Show relations of the item in a links attribute. Optional.</li>
+<li><em>get_sha1</em> (default: false): Get a sha1 signature instead of the full answer. Optional.</li>
+<li><em>with_devices</em>: Only for [<a class="el" href="class_computer.html">Computer</a>, <a class="el" href="class_network_equipment.html">NetworkEquipment</a>, <a class="el" href="class_peripheral.html">Peripheral</a>, <a class="el" href="class_phone.html">Phone</a>, <a class="el" href="class_printer.html">Printer</a>], retrieve the associated components. Optional.</li>
+<li><em>with_disks</em>: Only for <a class="el" href="class_computer.html">Computer</a>, retrieve the associated file-systems. Optional.</li>
+<li><em>with_softwares</em>: Only for <a class="el" href="class_computer.html">Computer</a>, retrieve the associated software's installations. Optional.</li>
+<li><em>with_connections</em>: Only for <a class="el" href="class_computer.html">Computer</a>, retrieve the associated direct connections (like peripherals and printers) .Optional.</li>
+<li><em>with_networkports</em>: Retrieve all network connections and advanced information. Optionnal.</li>
+<li><em>with_infocoms</em>: Retrieve financial and administrative information. Optional.</li>
+<li><em>with_contracts</em>: Retrieve associated contracts. Optional.</li>
+<li><em>with_documents</em>: Retrieve associated external documents. Optional.</li>
+<li><em>with_tickets</em>: Retrieve associated ITIL tickets. Optional.</li>
+<li><em>with_problems</em>: Retrieve associated ITIL problems. Optional.</li>
+<li><em>with_changes</em>: Retrieve associated ITIL changes. Optional.</li>
+<li><em>with_notes</em>: Retrieve Notes. Optional.</li>
+<li><em>with_logs</em>: Retrieve historical. Optional.</li>
+<li><em>add_keys_names</em>: Retrieve friendly names. Array containing <a class="el" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">fkey(s)</a> and/or "id". Optional.</li>
+</ul>
+</li>
+<li><b>Returns</b>:<ul>
+<li>200 (OK) with item data (Last-Modified header should contain the date of last modification of the item).</li>
+<li>401 (UNAUTHORIZED).</li>
+<li>404 (NOT FOUND).</li>
+</ul>
+</li>
+</ul>
+<p>Example usage (CURL):</p>
+<div class="fragment"><div class="line">$ curl -X GET \</div>
+<div class="line">-H &#39;Content-Type: application/json&#39; \</div>
+<div class="line">-H &quot;Session-Token: 83af7e620c83a50a18d3eac2f6ed05a3ca0bea62&quot; \</div>
+<div class="line">-H &quot;App-Token: f7g3csp8mgatg5ebc5elnazakw20i9fyev1qopya7&quot; \</div>
+<div class="line">-d &#39;{&quot;items&quot;: [{&quot;itemtype&quot;: &quot;User&quot;, &quot;items_id&quot;: 2}, {&quot;itemtype&quot;: &quot;Entity&quot;, &quot;items_id&quot;: 0}]}&#39; \</div>
+<div class="line">&#39;http://path/to/glpi/apirest.php/getMultipleItems?items\[0\]\[itemtype\]\=User&amp;items\[0\]\[items_id\]\=2&amp;items\[1\]\[itemtype\]\=Entity&amp;items\[1\]\[items_id\]\=0&#39;</div>
+<div class="line"> </div>
+<div class="line">&lt; 200 OK</div>
+<div class="line">&lt; Content-Range: 0-49/200</div>
+<div class="line">&lt; Accept-Range: 990</div>
+<div class="line">&lt; [{</div>
+<div class="line">   &quot;id&quot;: 2,</div>
+<div class="line">   &quot;name&quot;: &quot;glpi&quot;,</div>
+<div class="line">   ...</div>
+<div class="line">}, {</div>
+<div class="line">   &quot;id&quot;: 0,</div>
+<div class="line">   &quot;name&quot;: &quot;Root Entity&quot;,</div>
+<div class="line">   ...</div>
+<div class="line">}]</div>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md376"></a>
+List searchOptions</h1>
+<ul>
+<li><b>URL</b>: <a href="listSearchOptions/Computer?debug">apirest.php/listSearchOptions/:itemtype</a></li>
+<li><b>Description</b>: List the searchoptions of provided itemtype. To use with <a class="el" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">Search items</a>.</li>
+<li><b>Method</b>: GET</li>
+<li><b>Parameters</b>: (Headers)<ul>
+<li><em>Session-Token</em>: session var provided by <a class="el" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">initSession</a> endpoint. Mandatory.</li>
+<li><em>App-Token</em>: authorization string provided by the <a class="el" href="class_g_l_p_i.html">GLPI</a> API configuration. Optional.</li>
+</ul>
+</li>
+<li><b>Parameters</b>: (query string)<ul>
+<li><em>raw</em>: return searchoption uncleaned (as provided by core)</li>
+</ul>
+</li>
+<li><b>Returns</b>:<ul>
+<li>200 (OK) with all searchoptions of specified itemtype (format: searchoption_id: {option_content}).</li>
+<li>401 (UNAUTHORIZED).</li>
+</ul>
+</li>
+</ul>
+<p>Example usage (CURL):</p>
+<div class="fragment"><div class="line">$ curl -X GET \</div>
+<div class="line">-H &#39;Content-Type: application/json&#39; \</div>
+<div class="line">-H &quot;Session-Token: 83af7e620c83a50a18d3eac2f6ed05a3ca0bea62&quot; \</div>
+<div class="line">-H &quot;App-Token: f7g3csp8mgatg5ebc5elnazakw20i9fyev1qopya7&quot; \</div>
+<div class="line">&#39;http://path/to/glpi/apirest.php/listSearchOptions/Computer&#39;</div>
+<div class="line">&lt; 200 OK</div>
+<div class="line">&lt; {</div>
+<div class="line">    &quot;common&quot;: &quot;Characteristics&quot;,</div>
+<div class="line"> </div>
+<div class="line">    1: {</div>
+<div class="line">      &#39;name&#39;: &#39;Name&#39;</div>
+<div class="line">      &#39;table&#39;: &#39;glpi_computers&#39;</div>
+<div class="line">      &#39;field&#39;: &#39;name&#39;</div>
+<div class="line">      &#39;linkfield&#39;: &#39;name&#39;</div>
+<div class="line">      &#39;datatype&#39;: &#39;itemlink&#39;</div>
+<div class="line">      &#39;uid&#39;: &#39;Computer.name&#39;</div>
+<div class="line">   },</div>
+<div class="line">   2: {</div>
+<div class="line">      &#39;name&#39;: &#39;ID&#39;</div>
+<div class="line">      &#39;table&#39;: &#39;glpi_computers&#39;</div>
+<div class="line">      &#39;field&#39;: &#39;id&#39;</div>
+<div class="line">      &#39;linkfield&#39;: &#39;id&#39;</div>
+<div class="line">      &#39;datatype&#39;: &#39;number&#39;</div>
+<div class="line">      &#39;uid&#39;: &#39;Computer.id&#39;</div>
+<div class="line">   },</div>
+<div class="line">   3: {</div>
+<div class="line">      &#39;name&#39;: &#39;Location&#39;</div>
+<div class="line">      &#39;table&#39;: &#39;glpi_locations&#39;</div>
+<div class="line">      &#39;field&#39;: &#39;completename&#39;</div>
+<div class="line">      &#39;linkfield&#39;: &#39;locations_id&#39;</div>
+<div class="line">      &#39;datatype&#39;: &#39;dropdown&#39;</div>
+<div class="line">      &#39;uid&#39;: &#39;Computer.Location.completename&#39;</div>
+<div class="line">   },</div>
+<div class="line">   ...</div>
+<div class="line">}</div>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md377"></a>
+Search items</h1>
+<ul>
+<li><b>URL</b>: <a href="search/Computer/?debug">apirest.php/search/:itemtype/</a></li>
+<li><b>Description</b>: Expose the <a class="el" href="class_g_l_p_i.html">GLPI</a> searchEngine and combine criteria to retrieve a list of elements of specified itemtype. <blockquote class="doxtable">
+<p>&zwj;Note: you can use '<a class="el" href="class_all_assets.html">AllAssets</a>' itemtype to retrieve a combination of all asset's types. </p>
+</blockquote>
+* <b>Method</b>: GET</li>
+<li><b>Parameters</b>: (Headers)<ul>
+<li><em>Session-Token</em>: session var provided by <a class="el" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">initSession</a> endpoint. Mandatory.</li>
+<li><em>App-Token</em>: authorization string provided by the <a class="el" href="class_g_l_p_i.html">GLPI</a> API configuration. Optional.</li>
+</ul>
+</li>
+<li><b>Parameters</b>: (query string)<ul>
+<li><p class="startli"><em>criteria</em>: array of criterion objects to filter search. Optional. You can optionally precise <code>meta=true</code> to pass a searchoption of another itemtype (meta-criteria). Each criterion object must provide at least:</p><ul>
+<li><em>link</em>: (optional for 1st element) logical operator in [AND, OR, AND NOT, AND NOT].</li>
+</ul>
+<p class="startli">And you can pass a direct searchoption usage :</p><ul>
+<li><em>field</em>: id of the searchoption.</li>
+<li><em>meta</em>: boolean, is this criterion a meta one ?</li>
+<li><em>itemtype</em>: for meta=true criterion, precise the itemtype to use.</li>
+<li><em>searchtype</em>: type of search in [contains¹, equals², notequals², lessthan, morethan, under, notunder].</li>
+<li><em>value</em>: the value to search.</li>
+</ul>
+<p class="startli">Or a list of sub-nodes with the key:</p><ul>
+<li><em>criteria</em>: nested criteria inside this criteria.</li>
+</ul>
+<p class="startli">Ex:</p>
+<div class="fragment"><div class="line">...</div>
+<div class="line">&quot;criteria&quot;:</div>
+<div class="line">   [</div>
+<div class="line">      {</div>
+<div class="line">         &quot;field&quot;:      1,</div>
+<div class="line">         &quot;searchtype&quot;: &#39;contains&#39;,</div>
+<div class="line">         &quot;value&quot;:      &#39;&#39;</div>
+<div class="line">      }, {</div>
+<div class="line">         &quot;link&quot;:       &#39;AND&#39;,</div>
+<div class="line">         &quot;field&quot;:      31,</div>
+<div class="line">         &quot;searchtype&quot;: &#39;equals&#39;,</div>
+<div class="line">         &quot;value&quot;:      1</div>
+<div class="line">      }, {</div>
+<div class="line">         &quot;link&quot;:       &#39;AND&#39;,</div>
+<div class="line">         &quot;meta&quot;:       true,</div>
+<div class="line">         &quot;itemtype&quot;:   &#39;User&#39;,</div>
+<div class="line">         &quot;field&quot;:      1,</div>
+<div class="line">         &quot;searchtype&quot;: &#39;equals&#39;,</div>
+<div class="line">         &quot;value&quot;:      1</div>
+<div class="line">      }, {</div>
+<div class="line">         &quot;link&quot;:       &#39;AND&#39;,</div>
+<div class="line">         &quot;criteria&quot; : [</div>
+<div class="line">            {</div>
+<div class="line">               &quot;field&quot;:      34,</div>
+<div class="line">               &quot;searchtype&quot;: &#39;equals&#39;,</div>
+<div class="line">               &quot;value&quot;:      1</div>
+<div class="line">            }, {</div>
+<div class="line">               &quot;link&quot;:       &#39;OR&#39;,</div>
+<div class="line">               &quot;field&quot;:      35,</div>
+<div class="line">               &quot;searchtype&quot;: &#39;equals&#39;,</div>
+<div class="line">               &quot;value&quot;:      1</div>
+<div class="line">            }</div>
+<div class="line">         ]</div>
+<div class="line">      }</div>
+<div class="line">   ]</div>
+<div class="line">...</div>
+</div><!-- fragment --></li>
+<li><p class="startli"><em>metacriteria</em> (optional): array of meta-criterion objects to filter search. Optional. A meta search is a link with another itemtype (ex: <a class="el" href="class_computer.html">Computer</a> with software). <b>Deprecated: Now criteria support meta flag, you should use it instead direct metacriteria option.</b></p>
+<p class="startli">Each meta-criterion object must provide:</p><ul>
+<li><em>link</em>: logical operator in [AND, OR, AND NOT, AND NOT]. Mandatory.</li>
+<li><em>itemtype</em>: second itemtype to link.</li>
+<li><em>field</em>: id of the searchoption.</li>
+<li><em>searchtype</em>: type of search in [contains¹, equals², notequals², lessthan, morethan, under, notunder].</li>
+<li><em>value</em>: the value to search.</li>
+</ul>
+<p class="startli">Ex:</p>
+<p class="startli"><code>json ... "metacriteria": [ { "link": 'AND', "itemtype": '<a class="el" href="class_monitor.html">Monitor</a>', "field": 2, "searchtype": 'contains', "value": '' }, { "link": 'AND', "itemtype": '<a class="el" href="class_monitor.html">Monitor</a>', "field": 3, "searchtype": 'contains', "value": '' } ] ... </code></p>
+</li>
+<li><em>sort</em> (default 1): id of the searchoption to sort by. Optional.</li>
+<li><em>order</em> (default ASC): ASC - Ascending sort / DESC Descending sort. Optional.</li>
+<li><em>range</em> (default 0-49): a string with a couple of number for start and end of pagination separated by a '-'. Ex: 150-199. Optional.</li>
+<li><em>forcedisplay</em>: array of columns to display (default empty = use display preferences and searched criteria). Some columns will be always presents (1: id, 2: name, 80: <a class="el" href="class_entity.html">Entity</a>). Optional.</li>
+<li><em>rawdata</em> (default false): a boolean for displaying raws data of the <a class="el" href="class_search.html">Search</a> engine of <a class="el" href="class_g_l_p_i.html">GLPI</a> (like SQL request, full searchoptions, etc)</li>
+<li><em>withindexes</em> (default false): a boolean to retrieve rows indexed by items id. By default this option is set to false, because order of JSON objects (which are identified by index) cannot be garrantued (from <a href="http://json.org/">http://json.org/</a> : An object is an unordered set of name/value pairs). So, we provide arrays to guarantying sorted rows.</li>
+<li><em>uid_cols</em> (default false): a boolean to identify cols by the 'uniqid' of the searchoptions instead of a numeric value (see <a class="el" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">List searchOptions</a> and 'uid' field)</li>
+<li><em>giveItems</em> (default false): a boolean to retrieve the data with the html parsed from core, new data are provided in data_html key.</li>
+<li>¹ - <em>contains</em> will use a wildcard search per default. You can restrict at the beginning using the *^* character, and/or at the end using the <em>$</em> character.</li>
+<li>² - <em>equals</em> and <em>notequals</em> are designed to be used with dropdowns. Do not expect those operators to search for a strictly equal value (see ¹ above).</li>
+</ul>
+</li>
+<li><b>Returns</b>:<ul>
+<li><p class="startli">200 (OK) with all rows data with this format:</p>
+<div class="fragment"><div class="line">{</div>
+<div class="line">    &quot;totalcount&quot;: &quot;:numberofresults_without_pagination&quot;,</div>
+<div class="line">    &quot;range&quot;: &quot;:start-:end&quot;,</div>
+<div class="line">    &quot;data&quot;: [</div>
+<div class="line">        {</div>
+<div class="line">            &quot;:searchoptions_id&quot;: &quot;value&quot;,</div>
+<div class="line">            ...</div>
+<div class="line">        },</div>
+<div class="line">        {</div>
+<div class="line">         ...</div>
+<div class="line">        }</div>
+<div class="line">    ],</div>
+<div class="line">    &quot;rawdata&quot;: {</div>
+<div class="line">      ...</div>
+<div class="line">    }</div>
+<div class="line">}</div>
+</div><!-- fragment --></li>
+<li>206 (PARTIAL CONTENT) with rows data (pagination doesn't permit to display all rows).</li>
+<li><p class="startli">401 (UNAUTHORIZED).</p>
+<p class="startli">and theses headers:</p><ul>
+<li><em>Content-Range</em> offset – limit / count</li>
+<li><em>Accept-Range</em> itemtype max</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>Example usage (CURL):</p>
+<div class="fragment"><div class="line">curl -g -X GET \</div>
+<div class="line">-H &#39;Content-Type: application/json&#39; \</div>
+<div class="line">-H &quot;Session-Token: 83af7e620c83a50a18d3eac2f6ed05a3ca0bea62&quot; \</div>
+<div class="line">-H &quot;App-Token: f7g3csp8mgatg5ebc5elnazakw20i9fyev1qopya7&quot; \</div>
+<div class="line">&#39;http://path/to/glpi/apirest.php/search/Monitor?\</div>
+<div class="line">criteria\[0\]\[link\]\=AND\</div>
+<div class="line">\&amp;criteria\[0\]\[itemtype\]\=Monitor\</div>
+<div class="line">\&amp;criteria\[0\]\[field\]\=23\</div>
+<div class="line">\&amp;criteria\[0\]\[searchtype\]\=contains\</div>
+<div class="line">\&amp;criteria\[0\]\[value\]\=GSM\</div>
+<div class="line">\&amp;criteria\[1\]\[link\]\=AND\</div>
+<div class="line">\&amp;criteria\[1\]\[itemtype\]\=Monitor\</div>
+<div class="line">\&amp;criteria\[1\]\[field\]\=1\</div>
+<div class="line">\&amp;criteria\[1\]\[searchtype\]\=contains\</div>
+<div class="line">\&amp;criteria\[1\]\[value\]\=W2\</div>
+<div class="line">\&amp;range\=0-2\&amp;&amp;forcedisplay\[0\]\=1&#39;</div>
+<div class="line"> </div>
+<div class="line">&lt; 200 OK</div>
+<div class="line">&lt; Content-Range: 0-2/2</div>
+<div class="line">&lt; Accept-Range: 990</div>
+<div class="line">&lt; {&quot;totalcount&quot;:2,&quot;count&quot;:2,&quot;data&quot;:{&quot;11&quot;:{&quot;1&quot;:&quot;W2242&quot;,&quot;80&quot;:&quot;Root Entity&quot;,&quot;23&quot;:&quot;GSM&quot;},&quot;7&quot;:{&quot;1&quot;:&quot;W2252&quot;,&quot;80&quot;:&quot;Root Entity&quot;,&quot;23&quot;:&quot;GSM&quot;}}}%</div>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md378"></a>
+Add item(s)</h1>
+<ul>
+<li><b>URL</b>: apirest.php/:itemtype/</li>
+<li><b>Description</b>: Add an object (or multiple objects) into <a class="el" href="class_g_l_p_i.html">GLPI</a>.</li>
+<li><b>Method</b>: POST</li>
+<li><b>Parameters</b>: (Headers)<ul>
+<li><em>Session-Token</em>: session var provided by <a class="el" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">initSession</a> endpoint. Mandatory.</li>
+<li><em>App-Token</em>: authorization string provided by the <a class="el" href="class_g_l_p_i.html">GLPI</a> API configuration. Optional.</li>
+</ul>
+</li>
+<li><b>Parameters</b>: (JSON Payload)<ul>
+<li><p class="startli"><em>input</em>: an object with fields of itemtype to be inserted. You can add several items in one action by passing an array of objects. Mandatory.</p>
+<p class="startli"><b>Important:</b> In case of 'multipart/data' content_type (aka file upload), you should insert your parameters into a 'uploadManifest' parameter. Theses serialized data should be a JSON string.</p>
+</li>
+</ul>
+</li>
+<li><b>Returns</b>:<ul>
+<li>201 (OK) with id of added items.</li>
+<li>207 (Multi-Status) with id of added items and errors.</li>
+<li>400 (Bad Request) with a message indicating an error in input parameter.</li>
+<li>401 (UNAUTHORIZED).</li>
+<li>And additional header can be provided on creation success:<ul>
+<li><a class="el" href="class_location.html" title="Location class.">Location</a> when adding a single item.</li>
+<li><a class="el" href="class_link.html">Link</a> on bulk addition.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>Examples usage (CURL):</p>
+<div class="fragment"><div class="line">$ curl -X POST \</div>
+<div class="line">-H &#39;Content-Type: application/json&#39; \</div>
+<div class="line">-H &quot;Session-Token: 83af7e620c83a50a18d3eac2f6ed05a3ca0bea62&quot; \</div>
+<div class="line">-H &quot;App-Token: f7g3csp8mgatg5ebc5elnazakw20i9fyev1qopya7&quot; \</div>
+<div class="line">-d &#39;{&quot;input&quot;: {&quot;name&quot;: &quot;My single computer&quot;, &quot;serial&quot;: &quot;12345&quot;}}&#39; \</div>
+<div class="line">&#39;http://path/to/glpi/apirest.php/Computer/&#39;</div>
+<div class="line"> </div>
+<div class="line">&lt; 201 OK</div>
+<div class="line">&lt; Location: http://path/to/glpi/api/Computer/15</div>
+<div class="line">&lt; {&quot;id&quot;: 15}</div>
+<div class="line"> </div>
+<div class="line"> </div>
+<div class="line">$ curl -X POST \</div>
+<div class="line">-H &#39;Content-Type: application/json&#39; \</div>
+<div class="line">-H &quot;Session-Token: 83af7e620c83a50a18d3eac2f6ed05a3ca0bea62&quot; \</div>
+<div class="line">-H &quot;App-Token: f7g3csp8mgatg5ebc5elnazakw20i9fyev1qopya7&quot; \</div>
+<div class="line">-d &#39;{&quot;input&quot;: [{&quot;name&quot;: &quot;My first computer&quot;, &quot;serial&quot;: &quot;12345&quot;}, {&quot;name&quot;: &quot;My 2nd computer&quot;, &quot;serial&quot;: &quot;67890&quot;}, {&quot;name&quot;: &quot;My 3rd computer&quot;, &quot;serial&quot;: &quot;qsd12sd&quot;}]}&#39; \</div>
+<div class="line">&#39;http://path/to/glpi/apirest.php/Computer/&#39;</div>
+<div class="line"> </div>
+<div class="line">&lt; 207 OK</div>
+<div class="line">&lt; Link: http://path/to/glpi/api/Computer/8,http://path/to/glpi/api/Computer/9</div>
+<div class="line">&lt; [ {&quot;id&quot;:8, &quot;message&quot;: &quot;&quot;}, {&quot;id&quot;:false, &quot;message&quot;: &quot;You don&#39;t have permission to perform this action.&quot;}, {&quot;id&quot;:9, &quot;message&quot;: &quot;&quot;} ]</div>
+</div><!-- fragment --><p>Note: To upload a document see <a class="el" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">Upload a document file</a>.</p>
+<h1><a class="anchor" id="autotoc_md379"></a>
+Update item(s)</h1>
+<ul>
+<li><b>URL</b>: apirest.php/:itemtype/:id</li>
+<li><b>Description</b>: <a class="el" href="class_update.html">Update</a> an object (or multiple objects) existing in <a class="el" href="class_g_l_p_i.html">GLPI</a>.</li>
+<li><b>Method</b>: PUT or PATCH</li>
+<li><b>Parameters</b>: (Headers)<ul>
+<li><em>Session-Token</em>: session var provided by <a class="el" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">initSession</a> endpoint. Mandatory.</li>
+<li><em>App-Token</em>: authorization string provided by the <a class="el" href="class_g_l_p_i.html">GLPI</a> API configuration. Optional.</li>
+</ul>
+</li>
+<li><b>Parameters</b>: (JSON Payload)<ul>
+<li><em>id</em>: the unique identifier of the itemtype passed in URL. You <b>could skip</b> this parameter by passing it in the input payload.</li>
+<li><em>input</em>: Array of objects with fields of itemtype to be updated. Mandatory. You <b>could provide</b> in each object a key named 'id' to identify the <a class="el" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">item(s)</a> to update.</li>
+</ul>
+</li>
+<li><b>Returns</b>:<ul>
+<li>200 (OK) with update status for each item.</li>
+<li>207 (Multi-Status) with id of added items and errors.</li>
+<li>400 (Bad Request) with a message indicating an error in input parameter.</li>
+<li>401 (UNAUTHORIZED).</li>
+</ul>
+</li>
+</ul>
+<p>Example usage (CURL):</p>
+<div class="fragment"><div class="line">$ curl -X PUT \</div>
+<div class="line">-H &#39;Content-Type: application/json&#39; \</div>
+<div class="line">-H &quot;Session-Token: 83af7e620c83a50a18d3eac2f6ed05a3ca0bea62&quot; \</div>
+<div class="line">-H &quot;App-Token: f7g3csp8mgatg5ebc5elnazakw20i9fyev1qopya7&quot; \</div>
+<div class="line">-d &#39;{&quot;input&quot;: {&quot;otherserial&quot;: &quot;xcvbn&quot;}}&#39; \</div>
+<div class="line">&#39;http://path/to/glpi/apirest.php/Computer/10&#39;</div>
+<div class="line"> </div>
+<div class="line">&lt; 200 OK</div>
+<div class="line">[{&quot;10&quot;:true, &quot;message&quot;: &quot;&quot;}]</div>
+<div class="line"> </div>
+<div class="line"> </div>
+<div class="line">$ curl -X PUT \</div>
+<div class="line">-H &#39;Content-Type: application/json&#39; \</div>
+<div class="line">-H &quot;Session-Token: 83af7e620c83a50a18d3eac2f6ed05a3ca0bea62&quot; \</div>
+<div class="line">-H &quot;App-Token: f7g3csp8mgatg5ebc5elnazakw20i9fyev1qopya7&quot; \</div>
+<div class="line">-d &#39;{&quot;input&quot;: {&quot;id&quot;: 11,  &quot;otherserial&quot;: &quot;abcde&quot;}}&#39; \</div>
+<div class="line">&#39;http://path/to/glpi/apirest.php/Computer/&#39;</div>
+<div class="line"> </div>
+<div class="line">&lt; 200 OK</div>
+<div class="line">[{&quot;11&quot;:true, &quot;message&quot;: &quot;&quot;}]</div>
+<div class="line"> </div>
+<div class="line"> </div>
+<div class="line">$ curl -X PUT \</div>
+<div class="line">-H &#39;Content-Type: application/json&#39; \</div>
+<div class="line">-H &quot;Session-Token: 83af7e620c83a50a18d3eac2f6ed05a3ca0bea62&quot; \</div>
+<div class="line">-H &quot;App-Token: f7g3csp8mgatg5ebc5elnazakw20i9fyev1qopya7&quot; \</div>
+<div class="line">-d &#39;{&quot;input&quot;: [{&quot;id&quot;: 16,  &quot;otherserial&quot;: &quot;abcde&quot;}, {&quot;id&quot;: 17,  &quot;otherserial&quot;: &quot;fghij&quot;}]}&#39; \</div>
+<div class="line">&#39;http://path/to/glpi/apirest.php/Computer/&#39;</div>
+<div class="line"> </div>
+<div class="line">&lt; 207 OK</div>
+<div class="line">[{&quot;8&quot;:true, &quot;message&quot;: &quot;&quot;},{&quot;2&quot;:false, &quot;message&quot;: &quot;Item not found&quot;}]</div>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md380"></a>
+Delete item(s)</h1>
+<ul>
+<li><b>URL</b>: apirest.php/:itemtype/:id</li>
+<li><b>Description</b>: Delete an object existing in <a class="el" href="class_g_l_p_i.html">GLPI</a>.</li>
+<li><b>Method</b>: DELETE</li>
+<li><b>Parameters</b>: (Headers)<ul>
+<li><em>Session-Token</em>: session var provided by <a class="el" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">initSession</a> endpoint. Mandatory.</li>
+<li><em>App-Token</em>: authorization string provided by the <a class="el" href="class_g_l_p_i.html">GLPI</a> API configuration. Optional.</li>
+</ul>
+</li>
+<li><b>Parameters</b>: (query string)<ul>
+<li><em>id</em>: unique identifier of the itemtype passed in the URL. You <b>could skip</b> this parameter by passing it in the input payload. OR</li>
+<li><p class="startli"><em>input</em> Array of id who need to be deleted. This parameter is passed by payload.</p>
+<p class="startli">id parameter has precedence over input payload.</p>
+</li>
+<li><em>force_purge</em> (default false): boolean, if the itemtype have a trashbin, you can force purge (delete finally). Optional.</li>
+<li><em>history</em> (default true): boolean, set to false to disable saving of deletion in global history. Optional.</li>
+</ul>
+</li>
+<li><b>Returns</b>:<ul>
+<li>200 (OK) <em>in case of multiple deletion</em>.</li>
+<li>204 (No Content) <em>in case of single deletion</em>.</li>
+<li>207 (Multi-Status) with id of deleted items and errors.</li>
+<li>400 (Bad Request) with a message indicating an error in input parameter.</li>
+<li>401 (UNAUTHORIZED).</li>
+</ul>
+</li>
+</ul>
+<p>Example usage (CURL):</p>
+<div class="fragment"><div class="line">$ curl -X DELETE \</div>
+<div class="line">-H &#39;Content-Type: application/json&#39; \</div>
+<div class="line">-H &quot;Session-Token: 83af7e620c83a50a18d3eac2f6ed05a3ca0bea62&quot; \</div>
+<div class="line">-H &quot;App-Token: f7g3csp8mgatg5ebc5elnazakw20i9fyev1qopya7&quot; \</div>
+<div class="line">&#39;http://path/to/glpi/apirest.php/Computer/16?force_purge=true&#39;</div>
+<div class="line"> </div>
+<div class="line">&lt; 200 OK</div>
+<div class="line">[{&quot;16&quot;:true, &quot;message&quot;: &quot;&quot;}]</div>
+<div class="line"> </div>
+<div class="line">$ curl -X DELETE \</div>
+<div class="line">-H &#39;Content-Type: application/json&#39; \</div>
+<div class="line">-H &quot;Session-Token: 83af7e620c83a50a18d3eac2f6ed05a3ca0bea62&quot; \</div>
+<div class="line">-H &quot;App-Token: f7g3csp8mgatg5ebc5elnazakw20i9fyev1qopya7&quot; \</div>
+<div class="line">-d &#39;{&quot;input&quot;: {&quot;id&quot;: 11}, &quot;force_purge&quot;: true}&#39; \</div>
+<div class="line">&#39;http://path/to/glpi/apirest.php/Computer/&#39;</div>
+<div class="line"> </div>
+<div class="line">&lt; 200 OK</div>
+<div class="line">[{&quot;11&quot;:true, &quot;message&quot;: &quot;&quot;}]</div>
+<div class="line"> </div>
+<div class="line"> </div>
+<div class="line">$ curl -X DELETE \</div>
+<div class="line">-H &#39;Content-Type: application/json&#39; \</div>
+<div class="line">-H &quot;Session-Token: 83af7e620c83a50a18d3eac2f6ed05a3ca0bea62&quot; \</div>
+<div class="line">-H &quot;App-Token: f7g3csp8mgatg5ebc5elnazakw20i9fyev1qopya7&quot; \</div>
+<div class="line">-d &#39;{&quot;input&quot;: [{&quot;id&quot;: 16}, {&quot;id&quot;: 17}]}&#39; \</div>
+<div class="line">&#39;http://path/to/glpi/apirest.php/Computer/&#39;</div>
+<div class="line"> </div>
+<div class="line">&lt; 207 OK</div>
+<div class="line">[{&quot;16&quot;:true, &quot;message&quot;: &quot;&quot;},{&quot;17&quot;:false, &quot;message&quot;: &quot;Item not found&quot;}]</div>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md381"></a>
+Get available massive actions for an itemtype</h1>
+<ul>
+<li><b>URL</b>: apirest.php/getMassiveActions/:itemtype/</li>
+<li><b>Description</b>: Show the availables massive actions for a given itemtype.</li>
+<li><b>Method</b>: GET</li>
+<li><b>Parameters</b>: (Headers)<ul>
+<li><em>Session-Token</em>: session var provided by <a class="el" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">initSession</a> endpoint. Mandatory.</li>
+<li><em>App-Token</em>: authorization string provided by the <a class="el" href="class_g_l_p_i.html">GLPI</a> API configuration. Optional.</li>
+</ul>
+</li>
+<li><b>Parameters</b>: (query string)<ul>
+<li><em>is_deleted</em> (default false): Show specific actions for items in the trashbin.</li>
+</ul>
+</li>
+<li><b>Returns</b>:<ul>
+<li>200 (OK).</li>
+<li>400 (Bad Request) with a message indicating an error in input parameter.</li>
+<li>401 (UNAUTHORIZED).</li>
+</ul>
+</li>
+</ul>
+<p>Example usage (CURL):</p>
+<div class="fragment"><div class="line">$ curl -X GET \</div>
+<div class="line">-H &#39;Content-Type: application/json&#39; \</div>
+<div class="line">-H &quot;Session-Token: 83af7e620c83a50a18d3eac2f6ed05a3ca0bea62&quot; \</div>
+<div class="line">-H &quot;App-Token: f7g3csp8mgatg5ebc5elnazakw20i9fyev1qopya7&quot; \</div>
+<div class="line">&#39;http://path/to/glpi/apirest.php/getMassiveActions/Computer&#39;</div>
+<div class="line"> </div>
+<div class="line">&lt; 200 OK</div>
+<div class="line">[</div>
+<div class="line">  {</div>
+<div class="line">    &quot;key&quot;: &quot;MassiveAction:update&quot;,</div>
+<div class="line">    &quot;label&quot;: &quot;Update&quot;</div>
+<div class="line">  },</div>
+<div class="line">  {</div>
+<div class="line">    &quot;key&quot;: &quot;MassiveAction:clone&quot;,</div>
+<div class="line">    &quot;label&quot;: &quot;Clone&quot;</div>
+<div class="line">  },</div>
+<div class="line">  {</div>
+<div class="line">    &quot;key&quot;: &quot;Infocom:activate&quot;,</div>
+<div class="line">    &quot;label&quot;: &quot;Enable the financial and administrative information&quot;</div>
+<div class="line">  },</div>
+<div class="line">  {</div>
+<div class="line">    &quot;key&quot;: &quot;MassiveAction:delete&quot;,</div>
+<div class="line">    &quot;label&quot;: &quot;Put in trashbin&quot;</div>
+<div class="line">  },</div>
+<div class="line">  {</div>
+<div class="line">    &quot;key&quot;: &quot;MassiveAction:add_transfer_list&quot;,</div>
+<div class="line">    &quot;label&quot;: &quot;Add to transfer list&quot;</div>
+<div class="line">  },</div>
+<div class="line">  {</div>
+<div class="line">    &quot;key&quot;: &quot;Appliance:add_item&quot;,</div>
+<div class="line">    &quot;label&quot;: &quot;Associate to an appliance&quot;</div>
+<div class="line">  },</div>
+<div class="line">  {</div>
+<div class="line">    &quot;key&quot;: &quot;Item_OperatingSystem:update&quot;,</div>
+<div class="line">    &quot;label&quot;: &quot;Operating systems&quot;</div>
+<div class="line">  },</div>
+<div class="line">  {</div>
+<div class="line">    &quot;key&quot;: &quot;Computer_Item:add&quot;,</div>
+<div class="line">    &quot;label&quot;: &quot;Connect&quot;</div>
+<div class="line">  },</div>
+<div class="line">  {</div>
+<div class="line">    &quot;key&quot;: &quot;Item_SoftwareVersion:add&quot;,</div>
+<div class="line">    &quot;label&quot;: &quot;Install&quot;</div>
+<div class="line">  },</div>
+<div class="line">  {</div>
+<div class="line">    &quot;key&quot;: &quot;KnowbaseItem_Item:add&quot;,</div>
+<div class="line">    &quot;label&quot;: &quot;Link knowledgebase article&quot;</div>
+<div class="line">  },</div>
+<div class="line">  {</div>
+<div class="line">    &quot;key&quot;: &quot;Document_Item:add&quot;,</div>
+<div class="line">    &quot;label&quot;: &quot;Add a document&quot;</div>
+<div class="line">  },</div>
+<div class="line">  {</div>
+<div class="line">    &quot;key&quot;: &quot;Document_Item:remove&quot;,</div>
+<div class="line">    &quot;label&quot;: &quot;Remove a document&quot;</div>
+<div class="line">  },</div>
+<div class="line">  {</div>
+<div class="line">    &quot;key&quot;: &quot;Contract_Item:add&quot;,</div>
+<div class="line">    &quot;label&quot;: &quot;Add a contract&quot;</div>
+<div class="line">  },</div>
+<div class="line">  {</div>
+<div class="line">    &quot;key&quot;: &quot;Contract_Item:remove&quot;,</div>
+<div class="line">    &quot;label&quot;: &quot;Remove a contract&quot;</div>
+<div class="line">  },</div>
+<div class="line">  {</div>
+<div class="line">    &quot;key&quot;: &quot;MassiveAction:amend_comment&quot;,</div>
+<div class="line">    &quot;label&quot;: &quot;Amend comment&quot;</div>
+<div class="line">  },</div>
+<div class="line">  {</div>
+<div class="line">    &quot;key&quot;: &quot;MassiveAction:add_note&quot;,</div>
+<div class="line">    &quot;label&quot;: &quot;Add note&quot;</div>
+<div class="line">  },</div>
+<div class="line">  {</div>
+<div class="line">    &quot;key&quot;: &quot;Lock:unlock&quot;,</div>
+<div class="line">    &quot;label&quot;: &quot;Unlock components&quot;</div>
+<div class="line">  }</div>
+<div class="line">]</div>
+<div class="line"> </div>
+<div class="line">$ curl -X GET \</div>
+<div class="line">-H &#39;Content-Type: application/json&#39; \</div>
+<div class="line">-H &quot;Session-Token: 83af7e620c83a50a18d3eac2f6ed05a3ca0bea62&quot; \</div>
+<div class="line">-H &quot;App-Token: f7g3csp8mgatg5ebc5elnazakw20i9fyev1qopya7&quot; \</div>
+<div class="line">&#39;http://path/to/glpi/apirest.php/getMassiveActions/Computer?is_deleted=1&#39;</div>
+<div class="line"> </div>
+<div class="line">&lt; 200 OK</div>
+<div class="line">[</div>
+<div class="line">  {</div>
+<div class="line">    &quot;key&quot;: &quot;MassiveAction:purge_item_but_devices&quot;,</div>
+<div class="line">    &quot;label&quot;: &quot;Delete permanently but keep devices&quot;</div>
+<div class="line">  },</div>
+<div class="line">  {</div>
+<div class="line">    &quot;key&quot;: &quot;MassiveAction:purge&quot;,</div>
+<div class="line">    &quot;label&quot;: &quot;Delete permanently and remove devices&quot;</div>
+<div class="line">  },</div>
+<div class="line">  {</div>
+<div class="line">    &quot;key&quot;: &quot;MassiveAction:restore&quot;,</div>
+<div class="line">    &quot;label&quot;: &quot;Restore&quot;</div>
+<div class="line">  },</div>
+<div class="line">  {</div>
+<div class="line">    &quot;key&quot;: &quot;Lock:unlock&quot;,</div>
+<div class="line">    &quot;label&quot;: &quot;Unlock components&quot;</div>
+<div class="line">  }</div>
+<div class="line">]</div>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md382"></a>
+Get available massive actions for an item</h1>
+<ul>
+<li><b>URL</b>: apirest.php/getMassiveActions/:itemtype/:id</li>
+<li><b>Description</b>: Show the availables massive actions for a given item.</li>
+<li><b>Method</b>: GET</li>
+<li><b>Parameters</b>: (Headers)<ul>
+<li><em>Session-Token</em>: session var provided by <a class="el" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">initSession</a> endpoint. Mandatory.</li>
+<li><em>App-Token</em>: authorization string provided by the <a class="el" href="class_g_l_p_i.html">GLPI</a> API configuration. Optional.</li>
+</ul>
+</li>
+<li><b>Parameters</b>: (query string)</li>
+<li><b>Returns</b>:<ul>
+<li>200 (OK).</li>
+<li>400 (Bad Request) with a message indicating an error in input parameter.</li>
+<li>401 (UNAUTHORIZED).</li>
+</ul>
+</li>
+</ul>
+<p>Example usage (CURL):</p>
+<div class="fragment"><div class="line">$ curl -X GET \</div>
+<div class="line">-H &#39;Content-Type: application/json&#39; \</div>
+<div class="line">-H &quot;Session-Token: 83af7e620c83a50a18d3eac2f6ed05a3ca0bea62&quot; \</div>
+<div class="line">-H &quot;App-Token: f7g3csp8mgatg5ebc5elnazakw20i9fyev1qopya7&quot; \</div>
+<div class="line">&#39;http://path/to/glpi/apirest.php/getMassiveActions/Computer/3&#39;</div>
+<div class="line"> </div>
+<div class="line">&lt; 200 OK</div>
+<div class="line">[</div>
+<div class="line">  {</div>
+<div class="line">    &quot;key&quot;: &quot;MassiveAction:update&quot;,</div>
+<div class="line">    &quot;label&quot;: &quot;Update&quot;</div>
+<div class="line">  },</div>
+<div class="line">  {</div>
+<div class="line">    &quot;key&quot;: &quot;MassiveAction:clone&quot;,</div>
+<div class="line">    &quot;label&quot;: &quot;Clone&quot;</div>
+<div class="line">  },</div>
+<div class="line">  {</div>
+<div class="line">    &quot;key&quot;: &quot;Infocom:activate&quot;,</div>
+<div class="line">    &quot;label&quot;: &quot;Enable the financial and administrative information&quot;</div>
+<div class="line">  },</div>
+<div class="line">  {</div>
+<div class="line">    &quot;key&quot;: &quot;MassiveAction:delete&quot;,</div>
+<div class="line">    &quot;label&quot;: &quot;Put in trashbin&quot;</div>
+<div class="line">  },</div>
+<div class="line">  {</div>
+<div class="line">    &quot;key&quot;: &quot;MassiveAction:add_transfer_list&quot;,</div>
+<div class="line">    &quot;label&quot;: &quot;Add to transfer list&quot;</div>
+<div class="line">  },</div>
+<div class="line">  {</div>
+<div class="line">    &quot;key&quot;: &quot;Appliance:add_item&quot;,</div>
+<div class="line">    &quot;label&quot;: &quot;Associate to an appliance&quot;</div>
+<div class="line">  },</div>
+<div class="line">  {</div>
+<div class="line">    &quot;key&quot;: &quot;Item_OperatingSystem:update&quot;,</div>
+<div class="line">    &quot;label&quot;: &quot;Operating systems&quot;</div>
+<div class="line">  },</div>
+<div class="line">  {</div>
+<div class="line">    &quot;key&quot;: &quot;Computer_Item:add&quot;,</div>
+<div class="line">    &quot;label&quot;: &quot;Connect&quot;</div>
+<div class="line">  },</div>
+<div class="line">  {</div>
+<div class="line">    &quot;key&quot;: &quot;Item_SoftwareVersion:add&quot;,</div>
+<div class="line">    &quot;label&quot;: &quot;Install&quot;</div>
+<div class="line">  },</div>
+<div class="line">  {</div>
+<div class="line">    &quot;key&quot;: &quot;KnowbaseItem_Item:add&quot;,</div>
+<div class="line">    &quot;label&quot;: &quot;Link knowledgebase article&quot;</div>
+<div class="line">  },</div>
+<div class="line">  {</div>
+<div class="line">    &quot;key&quot;: &quot;Document_Item:add&quot;,</div>
+<div class="line">    &quot;label&quot;: &quot;Add a document&quot;</div>
+<div class="line">  },</div>
+<div class="line">  {</div>
+<div class="line">    &quot;key&quot;: &quot;Document_Item:remove&quot;,</div>
+<div class="line">    &quot;label&quot;: &quot;Remove a document&quot;</div>
+<div class="line">  },</div>
+<div class="line">  {</div>
+<div class="line">    &quot;key&quot;: &quot;Contract_Item:add&quot;,</div>
+<div class="line">    &quot;label&quot;: &quot;Add a contract&quot;</div>
+<div class="line">  },</div>
+<div class="line">  {</div>
+<div class="line">    &quot;key&quot;: &quot;Contract_Item:remove&quot;,</div>
+<div class="line">    &quot;label&quot;: &quot;Remove a contract&quot;</div>
+<div class="line">  },</div>
+<div class="line">  {</div>
+<div class="line">    &quot;key&quot;: &quot;MassiveAction:amend_comment&quot;,</div>
+<div class="line">    &quot;label&quot;: &quot;Amend comment&quot;</div>
+<div class="line">  },</div>
+<div class="line">  {</div>
+<div class="line">    &quot;key&quot;: &quot;MassiveAction:add_note&quot;,</div>
+<div class="line">    &quot;label&quot;: &quot;Add note&quot;</div>
+<div class="line">  },</div>
+<div class="line">  {</div>
+<div class="line">    &quot;key&quot;: &quot;Lock:unlock&quot;,</div>
+<div class="line">    &quot;label&quot;: &quot;Unlock components&quot;</div>
+<div class="line">  }</div>
+<div class="line">]</div>
+<div class="line"> </div>
+<div class="line"> </div>
+<div class="line">$ curl -X GET \</div>
+<div class="line">-H &#39;Content-Type: application/json&#39; \</div>
+<div class="line">-H &quot;Session-Token: 83af7e620c83a50a18d3eac2f6ed05a3ca0bea62&quot; \</div>
+<div class="line">-H &quot;App-Token: f7g3csp8mgatg5ebc5elnazakw20i9fyev1qopya7&quot; \</div>
+<div class="line">&#39;http://path/to/glpi/apirest.php/getMassiveActions/Computer/4&#39;</div>
+<div class="line"> </div>
+<div class="line">&lt; 200 OK</div>
+<div class="line">[</div>
+<div class="line">  {</div>
+<div class="line">    &quot;key&quot;: &quot;MassiveAction:purge_item_but_devices&quot;,</div>
+<div class="line">    &quot;label&quot;: &quot;Delete permanently but keep devices&quot;</div>
+<div class="line">  },</div>
+<div class="line">  {</div>
+<div class="line">    &quot;key&quot;: &quot;MassiveAction:purge&quot;,</div>
+<div class="line">    &quot;label&quot;: &quot;Delete permanently and remove devices&quot;</div>
+<div class="line">  },</div>
+<div class="line">  {</div>
+<div class="line">    &quot;key&quot;: &quot;MassiveAction:restore&quot;,</div>
+<div class="line">    &quot;label&quot;: &quot;Restore&quot;</div>
+<div class="line">  },</div>
+<div class="line">  {</div>
+<div class="line">    &quot;key&quot;: &quot;Lock:unlock&quot;,</div>
+<div class="line">    &quot;label&quot;: &quot;Unlock components&quot;</div>
+<div class="line">  }</div>
+<div class="line">]</div>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md383"></a>
+Get massive action parameters</h1>
+<ul>
+<li><b>URL</b>: apirest.php/getMassiveActionParameters/:itemtype/</li>
+<li><b>Description</b>: Show the availables parameters for a given massive action.<ul>
+<li>Warning: experimental endpoint, some required parameters may be missing from the returned content.</li>
+</ul>
+</li>
+<li><b>Method</b>: GET</li>
+<li><b>Parameters</b>: (Headers)<ul>
+<li><em>Session-Token</em>: session var provided by <a class="el" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">initSession</a> endpoint. Mandatory.</li>
+<li><em>App-Token</em>: authorization string provided by the <a class="el" href="class_g_l_p_i.html">GLPI</a> API configuration. Optional.</li>
+</ul>
+</li>
+<li><b>Parameters</b>: (query string)</li>
+<li><b>Returns</b>:<ul>
+<li>200 (OK).</li>
+<li>400 (Bad Request) with a message indicating an error in input parameter.</li>
+<li>401 (UNAUTHORIZED).</li>
+</ul>
+</li>
+</ul>
+<p>Example usage (CURL):</p>
+<div class="fragment"><div class="line">$ curl -X GET \</div>
+<div class="line">-H &#39;Content-Type: application/json&#39; \</div>
+<div class="line">-H &quot;Session-Token: 83af7e620c83a50a18d3eac2f6ed05a3ca0bea62&quot; \</div>
+<div class="line">-H &quot;App-Token: f7g3csp8mgatg5ebc5elnazakw20i9fyev1qopya7&quot; \</div>
+<div class="line">&#39;http://path/to/glpi/apirest.php/getMassiveActionParameters/Computer/MassiveAction:add_note&#39;</div>
+<div class="line"> </div>
+<div class="line">&lt; 200 OK</div>
+<div class="line">[</div>
+<div class="line">  {</div>
+<div class="line">    &quot;name&quot;: &quot;add_note&quot;,</div>
+<div class="line">    &quot;type&quot;: &quot;text&quot;</div>
+<div class="line">  }</div>
+<div class="line">]</div>
+<div class="line"> </div>
+<div class="line">$ curl -X GET \</div>
+<div class="line">-H &#39;Content-Type: application/json&#39; \</div>
+<div class="line">-H &quot;Session-Token: 83af7e620c83a50a18d3eac2f6ed05a3ca0bea62&quot; \</div>
+<div class="line">-H &quot;App-Token: f7g3csp8mgatg5ebc5elnazakw20i9fyev1qopya7&quot; \</div>
+<div class="line">&#39;http://path/to/glpi/apirest.php/getMassiveActionParameters/Computer/Contract_Item:add&#39;</div>
+<div class="line"> </div>
+<div class="line">&lt; 200 OK</div>
+<div class="line">[</div>
+<div class="line">  {</div>
+<div class="line">    &quot;name&quot;: &quot;peer_contracts_id&quot;,</div>
+<div class="line">    &quot;type&quot;: &quot;dropdown&quot;</div>
+<div class="line">  }</div>
+<div class="line">]</div>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md384"></a>
+Apply massive action</h1>
+<ul>
+<li><b>URL</b>: apirest.php/applyMassiveAction/:itemtype/</li>
+<li><b>Description</b>: Run the given massive action</li>
+<li><b>Method</b>: POST</li>
+<li><b>Parameters</b>: (Headers)<ul>
+<li><em>Session-Token</em>: session var provided by <a class="el" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">initSession</a> endpoint. Mandatory.</li>
+<li><em>App-Token</em>: authorization string provided by the <a class="el" href="class_g_l_p_i.html">GLPI</a> API configuration. Optional.</li>
+</ul>
+</li>
+<li><b>Parameters</b>: (json payload)<ul>
+<li><em>ids</em> items to execute the action on. Mandatory.</li>
+<li><em>specific action parameters</em> some actions require specific parameters to run. You can check them through the 'getMassiveActionParameters' endpoint.</li>
+</ul>
+</li>
+<li><b>Returns</b>:<ul>
+<li>200 (OK) All items were processed.</li>
+<li>207 (Multi-Status) Not all items were successfully processed.</li>
+<li>400 (Bad Request) with a message indicating an error in input parameter.</li>
+<li>401 (UNAUTHORIZED).</li>
+<li>422 (Unprocessable <a class="el" href="class_entity.html">Entity</a>) All items failed to be processed.</li>
+</ul>
+</li>
+</ul>
+<p>Example usage (CURL):</p>
+<div class="fragment"><div class="line">$ curl -X POST \</div>
+<div class="line">-H &#39;Content-Type: application/json&#39; \</div>
+<div class="line">-H &quot;Session-Token: 83af7e620c83a50a18d3eac2f6ed05a3ca0bea62&quot; \</div>
+<div class="line">-H &quot;App-Token: f7g3csp8mgatg5ebc5elnazakw20i9fyev1qopya7&quot; \</div>
+<div class="line">-d &#39;{&quot;ids&quot;: [2, 3], &quot;input&quot;: {&quot;amendment&quot;: &quot;newtext&quot;}}&#39;</div>
+<div class="line">&#39;http://path/to/glpi/apirest.php/applyMassiveAction/Computer/MassiveAction:amend_comment&#39;</div>
+<div class="line"> </div>
+<div class="line">&lt; 200 OK</div>
+<div class="line">{</div>
+<div class="line">  &quot;ok&quot;: 2,</div>
+<div class="line">  &quot;ko&quot;: 0,</div>
+<div class="line">  &quot;noright&quot;: 0,</div>
+<div class="line">  &quot;messages&quot;: []</div>
+<div class="line">}</div>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md385"></a>
+Special cases</h1>
+<h2><a class="anchor" id="autotoc_md386"></a>
+Upload a document file</h2>
+<p>See <a class="el" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">Add item(s)</a> and apply specific instructions below.</p>
+<p>Uploading a file requires use of 'multipart/data' content_type. The input data must be send in a 'uploadManifest' parameter and use the JSON format.</p>
+<p>Examples usage (CURL):</p>
+<div class="fragment"><div class="line">$ curl -X POST \</div>
+<div class="line">-H &#39;Content-Type: multipart/form-data&#39; \</div>
+<div class="line">-H &quot;Session-Token: 83af7e620c83a50a18d3eac2f6ed05a3ca0bea62&quot; \</div>
+<div class="line">-H &quot;App-Token: f7g3csp8mgatg5ebc5elnazakw20i9fyev1qopya7&quot; \</div>
+<div class="line">-F &#39;uploadManifest={&quot;input&quot;: {&quot;name&quot;: &quot;Uploaded document&quot;, &quot;_filename&quot; : [&quot;file.txt&quot;]}};type=application/json&#39; \</div>
+<div class="line">-F &#39;filename[0]=@file.txt&#39; \</div>
+<div class="line">&#39;http://path/to/glpi/apirest.php/Document/&#39;</div>
+<div class="line"> </div>
+<div class="line">&lt; 201 OK</div>
+<div class="line">&lt; Location: http://path/to/glpi/api/Document/1</div>
+<div class="line">&lt; {&quot;id&quot;: 1, &quot;message&quot;: &quot;Document move succeeded.&quot;, &quot;upload_result&quot;: {...}}</div>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md387"></a>
+Download a document file</h2>
+<ul>
+<li><b>URL</b>: apirest.php/Document/:id</li>
+<li><b>Description</b>: Download a document.</li>
+<li><b>Method</b>: GET</li>
+<li><b>Parameters</b>: (Headers)<ul>
+<li><em>Session-Token</em>: session var provided by <a class="el" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">initSession</a> endpoint. Mandatory.</li>
+<li><em>App-Token</em>: authorization string provided by the <a class="el" href="class_g_l_p_i.html">GLPI</a> API configuration. Optional.</li>
+<li><em>Accept</em>: must be <b>application/octet-stream</b>. This header OR the parameter <em>alt</em> is mandatory</li>
+</ul>
+</li>
+<li><b>Parameters</b>: (query string)<ul>
+<li><em>id</em>: unique identifier of the itemtype passed in the URL. You <b>could skip</b> this parameter by passing it in the input payload.</li>
+<li><p class="startli"><em>alt</em>: must be 'media'. This parameter or the header <b>Accept</b> is mandatory.</p>
+<p class="startli">id parameter has precedence over input payload.</p>
+</li>
+</ul>
+</li>
+<li><b>Returns</b>:<ul>
+<li>200 (OK) <em>in case of multiple deletion</em>.</li>
+<li>400 (Bad Request) with a message indicating an error in input parameter.</li>
+<li>401 (UNAUTHORIZED).</li>
+</ul>
+</li>
+</ul>
+<p>Example usage (CURL):</p>
+<div class="fragment"><div class="line">$ curl -X GET \</div>
+<div class="line">-H &#39;Content-Type: application/json&#39; \</div>
+<div class="line">-H &quot;Session-Token: 83af7e620c83a50a18d3eac2f6ed05a3ca0bea62&quot; \</div>
+<div class="line">-H &quot;App-Token: f7g3csp8mgatg5ebc5elnazakw20i9fyev1qopya7&quot; \</div>
+<div class="line">-H &quot;Accept: application/octet-stream&quot; \</div>
+<div class="line">-d &#39;{&quot;input&quot;: {&quot;id&quot;: 11}}&#39; \</div>
+<div class="line">&#39;http://path/to/glpi/apirest.php/Document/&#39;</div>
+<div class="line"> </div>
+<div class="line">&lt; 200 OK</div>
+</div><!-- fragment --><p>The body of the answer contains the raw file attached to the document.</p>
+<div class="fragment"><div class="line">$ curl -X GET \</div>
+<div class="line">-H &#39;Content-Type: application/json&#39; \</div>
+<div class="line">-H &quot;Session-Token: 83af7e620c83a50a18d3eac2f6ed05a3ca0bea62&quot; \</div>
+<div class="line">-H &quot;App-Token: f7g3csp8mgatg5ebc5elnazakw20i9fyev1qopya7&quot; \</div>
+<div class="line">-d &#39;{&quot;input&quot;: {&quot;id&quot;: 11}}&#39; \</div>
+<div class="line">&#39;http://path/to/glpi/apirest.php/Document/&amp;alt=media&#39;</div>
+<div class="line"> </div>
+<div class="line">&lt; 200 OK</div>
+</div><!-- fragment --><p>The body of the answer contains the raw file attached to the document.</p>
+<h2><a class="anchor" id="autotoc_md388"></a>
+Get a user's profile picture</h2>
+<ul>
+<li><b>URL</b>: apirest.php/User/:id/Picture</li>
+<li><b>Description</b>: Get a user's profile picture.</li>
+<li><b>Method</b>: GET</li>
+<li><b>Parameters</b>: (Headers)<ul>
+<li><em>Session-Token</em>: session var provided by <a class="el" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">initSession</a> endpoint. Mandatory.</li>
+<li><em>App-Token</em>: authorization string provided by the <a class="el" href="class_g_l_p_i.html">GLPI</a> API configuration. Optional.</li>
+</ul>
+</li>
+<li><b>Returns</b>:<ul>
+<li>200 (OK) with the raw image in the request body.</li>
+<li>204 (No content) if the request is correct but the specified user doesn't have a profile picture.</li>
+<li>400 (Bad Request) with a message indicating an error in input parameter.</li>
+</ul>
+</li>
+</ul>
+<p>Example usage (CURL):</p>
+<div class="fragment"><div class="line">$ curl -X GET \</div>
+<div class="line">-H &#39;Content-Type: application/json&#39; \</div>
+<div class="line">-H &quot;Session-Token: 83af7e620c83a50a18d3eac2f6ed05a3ca0bea62&quot; \</div>
+<div class="line">-H &quot;App-Token: f7g3csp8mgatg5ebc5elnazakw20i9fyev1qopya7&quot; \</div>
+<div class="line">&#39;http://path/to/glpi/apirest.php/User/2/Picture/&#39;</div>
+<div class="line"> </div>
+<div class="line">&lt; 200 OK</div>
+</div><!-- fragment --><p>The body of the answer contains the raw image.</p>
+<h2><a class="anchor" id="autotoc_md389"></a>
+Sanitized content</h2>
+<p>By default, the API will return sanitized content. <br  />
+ This mean that all HTML special characters will be encoded. <br  />
+ You can disable this feature by adding the following header to your request: <br  />
+</p>
+<div class="fragment"><div class="line">X-GLPI-Sanitized-Content: false</div>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md390"></a>
+Errors</h1>
+<h2><a class="anchor" id="autotoc_md391"></a>
+ERROR_ITEM_NOT_FOUND</h2>
+<p>The desired resource (itemtype-id) was not found in the <a class="el" href="class_g_l_p_i.html">GLPI</a> database.</p>
+<h2><a class="anchor" id="autotoc_md392"></a>
+ERROR_BAD_ARRAY</h2>
+<p>The HTTP body must be an an array of objects.</p>
+<h2><a class="anchor" id="autotoc_md393"></a>
+ERROR_METHOD_NOT_ALLOWED</h2>
+<p>You specified an inexistent or not not allowed resource.</p>
+<h2><a class="anchor" id="autotoc_md394"></a>
+ERROR_RIGHT_MISSING</h2>
+<p>The current logged user miss rights in his profile to do the provided action. Alter this profile or choose a new one for the user in <a class="el" href="class_g_l_p_i.html">GLPI</a> main interface.</p>
+<h2><a class="anchor" id="autotoc_md395"></a>
+ERROR_SESSION_TOKEN_INVALID</h2>
+<p>The Session-Token provided in header is invalid. You should redo an <a class="el" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">Init session</a> request.</p>
+<h2><a class="anchor" id="autotoc_md396"></a>
+ERROR_SESSION_TOKEN_MISSING</h2>
+<p>You miss to provide Session-Token in header of your HTTP request.</p>
+<h2><a class="anchor" id="autotoc_md397"></a>
+ERROR_APP_TOKEN_PARAMETERS_MISSING</h2>
+<p>The current API requires an App-Token header for using its methods.</p>
+<h2><a class="anchor" id="autotoc_md398"></a>
+ERROR_WRONG_APP_TOKEN_PARAMETER</h2>
+<p>It seems the provided application token doesn't exists in <a class="el" href="class_g_l_p_i.html">GLPI</a> API configuration.</p>
+<h2><a class="anchor" id="autotoc_md399"></a>
+ERROR_NOT_DELETED</h2>
+<p>You must mark the item for deletion before actually deleting it</p>
+<h2><a class="anchor" id="autotoc_md400"></a>
+ERROR_NOT_ALLOWED_IP</h2>
+<p>We can't find an active client defined in configuration for your IP. Go to the <a class="el" href="class_g_l_p_i.html">GLPI</a> Configuration &gt; Setup menu and API tab to check IP access.</p>
+<h2><a class="anchor" id="autotoc_md401"></a>
+ERROR_LOGIN_PARAMETERS_MISSING</h2>
+<p>One of theses <a class="el" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">parameter(s)</a> is missing:</p>
+<ul>
+<li>login and password</li>
+<li>or user_token</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md402"></a>
+ERROR_LOGIN_WITH_CREDENTIALS_DISABLED</h2>
+<p>The <a class="el" href="class_g_l_p_i.html">GLPI</a> setup forbid the login with credentials, you must login with your user_token instead. See your personal preferences page or setup API access in <a class="el" href="class_g_l_p_i.html">GLPI</a> main interface.</p>
+<h2><a class="anchor" id="autotoc_md403"></a>
+ERROR_GLPI_LOGIN_USER_TOKEN</h2>
+<p>The provided user_token seems invalid. Check your personal preferences page in <a class="el" href="class_g_l_p_i.html">GLPI</a> main interface.</p>
+<h2><a class="anchor" id="autotoc_md404"></a>
+ERROR_GLPI_LOGIN</h2>
+<p>We cannot login you into <a class="el" href="class_g_l_p_i.html">GLPI</a>. This error is not relative to API but <a class="el" href="class_g_l_p_i.html">GLPI</a> core. Check the user administration and the <a class="el" href="class_g_l_p_i.html">GLPI</a> logs files (in files/_logs directory).</p>
+<h2><a class="anchor" id="autotoc_md405"></a>
+ERROR_ITEMTYPE_NOT_FOUND_NOR_COMMONDBTM</h2>
+<p>You asked a inexistent resource (endpoint). It's not a predefined (initSession, getFullSession, etc) nor a <a class="el" href="class_g_l_p_i.html">GLPI</a> <a class="el" href="class_common_d_b_t_m.html">CommonDBTM</a> resources.</p>
+<h2><a class="anchor" id="autotoc_md406"></a>
+ERROR_SQL</h2>
+<p>We suspect an SQL error. This error is not relative to API but to <a class="el" href="class_g_l_p_i.html">GLPI</a> core. Check the <a class="el" href="class_g_l_p_i.html">GLPI</a> logs files (in files/_logs directory).</p>
+<h2><a class="anchor" id="autotoc_md407"></a>
+ERROR_RANGE_EXCEED_TOTAL</h2>
+<p>The range parameter you provided is superior to the total count of available data.</p>
+<h2><a class="anchor" id="autotoc_md408"></a>
+ERROR_GLPI_ADD</h2>
+<p>We cannot add the object to <a class="el" href="class_g_l_p_i.html">GLPI</a>. This error is not relative to API but to <a class="el" href="class_g_l_p_i.html">GLPI</a> core. Check the <a class="el" href="class_g_l_p_i.html">GLPI</a> logs files (in files/_logs directory).</p>
+<h2><a class="anchor" id="autotoc_md409"></a>
+ERROR_GLPI_PARTIAL_ADD</h2>
+<p>Some of the object you wanted to add triggers an error. Maybe a missing field or rights. You'll find with this error a collection of results.</p>
+<h2><a class="anchor" id="autotoc_md410"></a>
+ERROR_GLPI_UPDATE</h2>
+<p>We cannot update the object to <a class="el" href="class_g_l_p_i.html">GLPI</a>. This error is not relative to API but to <a class="el" href="class_g_l_p_i.html">GLPI</a> core. Check the <a class="el" href="class_g_l_p_i.html">GLPI</a> logs files (in files/_logs directory).</p>
+<h2><a class="anchor" id="autotoc_md411"></a>
+ERROR_GLPI_PARTIAL_UPDATE</h2>
+<p>Some of the object you wanted to update triggers an error. Maybe a missing field or rights. You'll find with this error a collection of results.</p>
+<h2><a class="anchor" id="autotoc_md412"></a>
+ERROR_GLPI_DELETE</h2>
+<p>We cannot delete the object to <a class="el" href="class_g_l_p_i.html">GLPI</a>. This error is not relative to API but to <a class="el" href="class_g_l_p_i.html">GLPI</a> core. Check the <a class="el" href="class_g_l_p_i.html">GLPI</a> logs files (in files/_logs directory).</p>
+<h2><a class="anchor" id="autotoc_md413"></a>
+ERROR_GLPI_PARTIAL_DELETE</h2>
+<p>Some of the objects you want to delete triggers an error, maybe a missing field or rights. You'll find with this error, a collection of results.</p>
+<h2><a class="anchor" id="autotoc_md414"></a>
+ERROR_MASSIVEACTION_KEY</h2>
+<p>Missing or invalid massive action key. Run 'getMassiveActions' endpoint to see available keys.</p>
+<h2><a class="anchor" id="autotoc_md415"></a>
+ERROR_MASSIVEACTION_NO_IDS</h2>
+<p>No ids supplied when trying to run a massive action.</p>
+<h1><a class="anchor" id="autotoc_md416"></a>
+Servers configuration</h1>
+<p>By default, you can use <a href="http://path/to/glpi/apirest.php">http://path/to/glpi/apirest.php</a> without any additional configuration.</p>
+<p>You'll find below some examples to configure your web server to redirect your <a href="http://.../glpi/api/">http://.../glpi/api/</a> URL to the apirest.php file.</p>
+<h2><a class="anchor" id="autotoc_md417"></a>
+Apache Httpd</h2>
+<p>We provide in root .htaccess of <a class="el" href="class_g_l_p_i.html">GLPI</a> an example to enable API URL rewriting.</p>
+<p>You need to uncomment (removing #) theses lines:</p>
+<div class="fragment"><div class="line">#&lt;IfModule mod_rewrite.c&gt;</div>
+<div class="line">#   RewriteEngine On</div>
+<div class="line">#   RewriteCond %{REQUEST_FILENAME} !-f</div>
+<div class="line">#   RewriteCond %{REQUEST_FILENAME} !-d</div>
+<div class="line">#   RewriteRule api/(.*)$ apirest.php/$1</div>
+<div class="line">#&lt;/IfModule&gt;</div>
+</div><!-- fragment --><p>By enabling URL rewriting, you could use API with this URL : <a href="http://path/to/glpi/api/">http://path/to/glpi/api/</a>. You need also to enable rewrite module in apache httpd and permit <a class="el" href="class_g_l_p_i.html">GLPI</a>'s .htaccess to override server configuration (see AllowOverride directive).</p>
+<p><b>Note for apache+fpm users:</b></p>
+<p>You may have difficulties to pass Authorization header in this configuration. You have two options :</p>
+<ul>
+<li>pass the <code>user_token</code> or credentials (login/password) in the http query (as GET parameters).</li>
+<li>add env to your virtualhost: <code>SetEnvIf Authorization "(.*)" HTTP_AUTHORIZATION=$1</code>.</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md418"></a>
+Nginx</h2>
+<p>This example of configuration was achieved on ubuntu with php7 fpm.</p>
+<div class="fragment"><div class="line">server {</div>
+<div class="line">   listen 80 default_server;</div>
+<div class="line">   listen [::]:80 default_server;</div>
+<div class="line"> </div>
+<div class="line">   # change here to match your GLPI directory</div>
+<div class="line">   root /var/www/html/glpi/;</div>
+<div class="line"> </div>
+<div class="line">   index index.html index.htm index.nginx-debian.html index.php;</div>
+<div class="line"> </div>
+<div class="line">   server_name localhost;</div>
+<div class="line"> </div>
+<div class="line">   location / {</div>
+<div class="line">      try_files $uri $uri/ =404;</div>
+<div class="line">      autoindex on;</div>
+<div class="line">   }</div>
+<div class="line"> </div>
+<div class="line">   location /api {</div>
+<div class="line">      rewrite ^/api/(.*)$ /apirest.php/$1 last;</div>
+<div class="line">   }</div>
+<div class="line"> </div>
+<div class="line">   location ~ [^/]\.php(/|$) {</div>
+<div class="line">      fastcgi_pass unix:/run/php/php7.0-fpm.sock;</div>
+<div class="line"> </div>
+<div class="line">      # regex to split $uri to $fastcgi_script_name and $fastcgi_path</div>
+<div class="line">      fastcgi_split_path_info ^(.+\.php)(/.+)$;</div>
+<div class="line"> </div>
+<div class="line">      # Check that the PHP script exists before passing it</div>
+<div class="line">      try_files $fastcgi_script_name =404;</div>
+<div class="line"> </div>
+<div class="line">      # Bypass the fact that try_files resets $fastcgi_path_info</div>
+<div class="line">      # # see: http://trac.nginx.org/nginx/ticket/321</div>
+<div class="line">      set $path_info $fastcgi_path_info;</div>
+<div class="line">      fastcgi_param  PATH_INFO $path_info;</div>
+<div class="line"> </div>
+<div class="line">      fastcgi_param  PATH_TRANSLATED    $document_root$fastcgi_script_name;</div>
+<div class="line">      fastcgi_param  SCRIPT_FILENAME    $document_root$fastcgi_script_name;</div>
+<div class="line"> </div>
+<div class="line">      include fastcgi_params;</div>
+<div class="line"> </div>
+<div class="line">      # allow directory index</div>
+<div class="line">      fastcgi_index index.php;</div>
+<div class="line">   }</div>
+<div class="line">}</div>
+</div><!-- fragment --> </div></div><!-- contents -->
+</div><!-- PageDoc -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0
+</small></address>
+</body>
+</html>

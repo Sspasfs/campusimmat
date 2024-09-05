@@ -1,0 +1,36 @@
+\doxysection{Référence du fichier public/glpi/front/preference.php}
+\hypertarget{front_2preference_8php}{}\label{front_2preference_8php}\index{public/glpi/front/preference.php@{public/glpi/front/preference.php}}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{front_2preference_8php_a598ca4e71b15a1313ec95f0df1027ca5}{\$user}} = \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{new}} \mbox{\hyperlink{class_user}{User}}()
+\item 
+\mbox{\hyperlink{dropdown_location_8php_a52332c22f84432520971794825a5a8e7}{if}}(\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{isset}}(\$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\+\_\+\+POST}}\mbox{[}"{}update"{}\mbox{]}) \&\&(\$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\+\_\+\+POST}}\mbox{[}"{}id"{}\mbox{]}==Session\+::get\+Login\+User\+ID())) \mbox{\hyperlink{front_2preference_8php_a7c0aacd77a6930d10a1c1ea3f819560e}{else}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Documentation des variables}
+\Hypertarget{front_2preference_8php_a598ca4e71b15a1313ec95f0df1027ca5}\label{front_2preference_8php_a598ca4e71b15a1313ec95f0df1027ca5} 
+\index{preference.php@{preference.php}!\$user@{\$user}}
+\index{\$user@{\$user}!preference.php@{preference.php}}
+\doxysubsubsection{\texorpdfstring{\$user}{\$user}}
+{\footnotesize\ttfamily \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{user}} = \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{new}} \mbox{\hyperlink{class_user}{User}}()}
+
+\Hypertarget{front_2preference_8php_a7c0aacd77a6930d10a1c1ea3f819560e}\label{front_2preference_8php_a7c0aacd77a6930d10a1c1ea3f819560e} 
+\index{preference.php@{preference.php}!else@{else}}
+\index{else@{else}!preference.php@{preference.php}}
+\doxysubsubsection{\texorpdfstring{else}{else}}
+{\footnotesize\ttfamily \mbox{\hyperlink{dropdown_location_8php_a52332c22f84432520971794825a5a8e7}{if}} (Session\+::get\+Current\+Interface()=="{}central"{}) else}
+
+{\bfseries Valeur initiale \+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{if}\ (Session::getCurrentInterface()\ ==\ \textcolor{stringliteral}{"{}central"{}})\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ Html::header(\mbox{\hyperlink{class_preference_ad85cd59496993b8ba622266fe36807ef}{Preference::getTypeName}}(1),\ \mbox{\hyperlink{includes_8php_ae4cb516593d277dd3ad071d6955da24e}{\$\_SERVER}}[\textcolor{stringliteral}{'PHP\_SELF'}],\ \textcolor{stringliteral}{'preference'});}
+\DoxyCodeLine{\ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ Html::helpHeader(\mbox{\hyperlink{class_preference_ad85cd59496993b8ba622266fe36807ef}{Preference::getTypeName}}(1));}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\$pref}}\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{class_preference}{Preference}}()}
+
+\end{DoxyCode}

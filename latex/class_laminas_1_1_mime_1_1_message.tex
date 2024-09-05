@@ -1,0 +1,303 @@
+\doxysection{Référence de la classe Message}
+\hypertarget{class_laminas_1_1_mime_1_1_message}{}\label{class_laminas_1_1_mime_1_1_message}\index{Message@{Message}}
+
+
+Graphe de collaboration de Message\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=212pt]{class_laminas_1_1_mime_1_1_message__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_laminas_1_1_mime_1_1_message_ab449d43ad919a6167a711c76301efcd2}{get\+Parts}} ()
+\item 
+\mbox{\hyperlink{class_laminas_1_1_mime_1_1_message_ac15593c8c10fe31e5d447118c0515ab8}{set\+Parts}} (\$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{parts}})
+\item 
+\mbox{\hyperlink{class_laminas_1_1_mime_1_1_message_a3fb1ab397db36200a0e65d127f113e9f}{add\+Part}} (\mbox{\hyperlink{class_laminas_1_1_mime_1_1_part}{Part}} \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{part}})
+\item 
+\mbox{\hyperlink{class_laminas_1_1_mime_1_1_message_aad065925a76a396e116eea1e271ee2f2}{is\+Multi\+Part}} ()
+\item 
+\mbox{\hyperlink{class_laminas_1_1_mime_1_1_message_a972b5d4c568cbcffb6808abaa61f3811}{set\+Mime}} (\mbox{\hyperlink{class_laminas_1_1_mime_1_1_mime}{Mime}} \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{mime}})
+\item 
+\mbox{\hyperlink{class_laminas_1_1_mime_1_1_message_a6a50ed843959cc086f297772d2adff3c}{get\+Mime}} ()
+\item 
+\mbox{\hyperlink{class_laminas_1_1_mime_1_1_message_a5bf4e01d9bfa901c7df03abd7d3c7ed0}{generate\+Message}} (\$EOL=\mbox{\hyperlink{class_laminas_1_1_mime_1_1_mime_a04b8f3b5de38ea0d80fe91d321fae1c2}{Mime\+::\+LINEEND}})
+\item 
+\mbox{\hyperlink{class_laminas_1_1_mime_1_1_message_aef7d140e35bfbbcb7d80cd8ac84efe5c}{get\+Part\+Headers\+Array}} (\$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{partnum}})
+\item 
+\mbox{\hyperlink{class_laminas_1_1_mime_1_1_message_acc15458d26d3ca17463fb21ea3c4c6d4}{get\+Part\+Headers}} (\$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{partnum}}, \$EOL=\mbox{\hyperlink{class_laminas_1_1_mime_1_1_mime_a04b8f3b5de38ea0d80fe91d321fae1c2}{Mime\+::\+LINEEND}})
+\item 
+\mbox{\hyperlink{class_laminas_1_1_mime_1_1_message_a24074ab2e751d40b22bb2504332983b4}{get\+Part\+Content}} (\$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{partnum}}, \$EOL=\mbox{\hyperlink{class_laminas_1_1_mime_1_1_mime_a04b8f3b5de38ea0d80fe91d321fae1c2}{Mime\+::\+LINEEND}})
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Fonctions membres protégées statiques}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_laminas_1_1_mime_1_1_message_a3721f991fd9462a95485452ba9356e66}{\+\_\+disassemble\+Mime}} (\$body, \$boundary)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Attributs protégés}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_laminas_1_1_mime_1_1_message_aa8dfa90e1feaffe49fc70696cc75c2f3}{\$parts}} = \mbox{[}$\,$\mbox{]}
+\item 
+\mbox{\hyperlink{class_laminas_1_1_mime_1_1_message_a958cf7aca45cea5359ba0fa80ee2f2c1}{\$mime}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Documentation des fonctions membres}
+\Hypertarget{class_laminas_1_1_mime_1_1_message_a3721f991fd9462a95485452ba9356e66}\label{class_laminas_1_1_mime_1_1_message_a3721f991fd9462a95485452ba9356e66} 
+\index{Message@{Message}!\_disassembleMime@{\_disassembleMime}}
+\index{\_disassembleMime@{\_disassembleMime}!Message@{Message}}
+\doxysubsubsection{\texorpdfstring{\_disassembleMime()}{\_disassembleMime()}}
+{\footnotesize\ttfamily static \+\_\+disassemble\+Mime (\begin{DoxyParamCaption}\item[{}]{\$body,  }\item[{}]{\$boundary }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Explode MIME multipart string into separate parts
+
+Parts consist of the header and the body of each MIME part.
+
+
+\begin{DoxyParams}[1]{Paramètres}
+string & {\em \$body} & \\
+\hline
+string & {\em \$boundary} & \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Exception} & \\
+\hline
+\end{DoxyExceptions}
+Runtime\+Exception \begin{DoxyReturn}{Renvoie}
+array 
+\end{DoxyReturn}
+\Hypertarget{class_laminas_1_1_mime_1_1_message_a3fb1ab397db36200a0e65d127f113e9f}\label{class_laminas_1_1_mime_1_1_message_a3fb1ab397db36200a0e65d127f113e9f} 
+\index{Message@{Message}!addPart@{addPart}}
+\index{addPart@{addPart}!Message@{Message}}
+\doxysubsubsection{\texorpdfstring{addPart()}{addPart()}}
+{\footnotesize\ttfamily add\+Part (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_laminas_1_1_mime_1_1_part}{Part}}}]{\$part }\end{DoxyParamCaption})}
+
+Append a new Laminas\textbackslash{}\+Mime\textbackslash{}\+Part to the current message
+
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Exception} & \\
+\hline
+\end{DoxyExceptions}
+Invalid\+Argument\+Exception \begin{DoxyReturn}{Renvoie}
+self 
+\end{DoxyReturn}
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=219pt]{class_laminas_1_1_mime_1_1_message_a3fb1ab397db36200a0e65d127f113e9f_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_laminas_1_1_mime_1_1_message_a5bf4e01d9bfa901c7df03abd7d3c7ed0}\label{class_laminas_1_1_mime_1_1_message_a5bf4e01d9bfa901c7df03abd7d3c7ed0} 
+\index{Message@{Message}!generateMessage@{generateMessage}}
+\index{generateMessage@{generateMessage}!Message@{Message}}
+\doxysubsubsection{\texorpdfstring{generateMessage()}{generateMessage()}}
+{\footnotesize\ttfamily generate\+Message (\begin{DoxyParamCaption}\item[{}]{\$\+EOL = {\ttfamily \mbox{\hyperlink{class_laminas_1_1_mime_1_1_mime_a04b8f3b5de38ea0d80fe91d321fae1c2}{Mime\+::\+LINEEND}}} }\end{DoxyParamCaption})}
+
+Generate MIME-\/compliant message from the current configuration
+
+This can be a multipart message if more than one MIME part was added. If only one part is present, the content of this part is returned. If no part had been added, an empty string is returned.
+
+Parts are separated by the mime boundary as defined in Laminas\textbackslash{}\+Mime\textbackslash{}\+Mime. If {\ttfamily \doxylink{}{set\+Mime()}} has been called before this method, the Laminas\textbackslash{}\+Mime\textbackslash{}\+Mime object set by this call will be used. Otherwise, a new Laminas\textbackslash{}\+Mime\textbackslash{}\+Mime object is generated and used.
+
+
+\begin{DoxyParams}[1]{Paramètres}
+string & {\em \$\+EOL} & EOL string; defaults to {\ttfamily \doxylink{}{Laminas\textbackslash{}\+Mime\textbackslash{}\+Mime\+::\+LINEEND}} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+string 
+\end{DoxyReturn}
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=294pt]{class_laminas_1_1_mime_1_1_message_a5bf4e01d9bfa901c7df03abd7d3c7ed0_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_laminas_1_1_mime_1_1_message_a6a50ed843959cc086f297772d2adff3c}\label{class_laminas_1_1_mime_1_1_message_a6a50ed843959cc086f297772d2adff3c} 
+\index{Message@{Message}!getMime@{getMime}}
+\index{getMime@{getMime}!Message@{Message}}
+\doxysubsubsection{\texorpdfstring{getMime()}{getMime()}}
+{\footnotesize\ttfamily get\+Mime (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Returns the Laminas\textbackslash{}\+Mime\textbackslash{}\+Mime object in use by the message
+
+If the object was not present, it is created and returned. Can be used to determine the boundary used in this message.
+
+\begin{DoxyReturn}{Renvoie}
+Mime 
+\end{DoxyReturn}
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=263pt]{class_laminas_1_1_mime_1_1_message_a6a50ed843959cc086f297772d2adff3c_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_laminas_1_1_mime_1_1_message_a24074ab2e751d40b22bb2504332983b4}\label{class_laminas_1_1_mime_1_1_message_a24074ab2e751d40b22bb2504332983b4} 
+\index{Message@{Message}!getPartContent@{getPartContent}}
+\index{getPartContent@{getPartContent}!Message@{Message}}
+\doxysubsubsection{\texorpdfstring{getPartContent()}{getPartContent()}}
+{\footnotesize\ttfamily get\+Part\+Content (\begin{DoxyParamCaption}\item[{}]{\$partnum,  }\item[{}]{\$\+EOL = {\ttfamily \mbox{\hyperlink{class_laminas_1_1_mime_1_1_mime_a04b8f3b5de38ea0d80fe91d321fae1c2}{Mime\+::\+LINEEND}}} }\end{DoxyParamCaption})}
+
+Get the (encoded) content of a given part as a string
+
+
+\begin{DoxyParams}[1]{Paramètres}
+int & {\em \$partnum} & \\
+\hline
+string & {\em \$\+EOL} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+string 
+\end{DoxyReturn}
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=291pt]{class_laminas_1_1_mime_1_1_message_a24074ab2e751d40b22bb2504332983b4_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_laminas_1_1_mime_1_1_message_acc15458d26d3ca17463fb21ea3c4c6d4}\label{class_laminas_1_1_mime_1_1_message_acc15458d26d3ca17463fb21ea3c4c6d4} 
+\index{Message@{Message}!getPartHeaders@{getPartHeaders}}
+\index{getPartHeaders@{getPartHeaders}!Message@{Message}}
+\doxysubsubsection{\texorpdfstring{getPartHeaders()}{getPartHeaders()}}
+{\footnotesize\ttfamily get\+Part\+Headers (\begin{DoxyParamCaption}\item[{}]{\$partnum,  }\item[{}]{\$\+EOL = {\ttfamily \mbox{\hyperlink{class_laminas_1_1_mime_1_1_mime_a04b8f3b5de38ea0d80fe91d321fae1c2}{Mime\+::\+LINEEND}}} }\end{DoxyParamCaption})}
+
+Get the headers of a given part as a string
+
+
+\begin{DoxyParams}[1]{Paramètres}
+int & {\em \$partnum} & \\
+\hline
+string & {\em \$\+EOL} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+string 
+\end{DoxyReturn}
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=294pt]{class_laminas_1_1_mime_1_1_message_acc15458d26d3ca17463fb21ea3c4c6d4_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_laminas_1_1_mime_1_1_message_aef7d140e35bfbbcb7d80cd8ac84efe5c}\label{class_laminas_1_1_mime_1_1_message_aef7d140e35bfbbcb7d80cd8ac84efe5c} 
+\index{Message@{Message}!getPartHeadersArray@{getPartHeadersArray}}
+\index{getPartHeadersArray@{getPartHeadersArray}!Message@{Message}}
+\doxysubsubsection{\texorpdfstring{getPartHeadersArray()}{getPartHeadersArray()}}
+{\footnotesize\ttfamily get\+Part\+Headers\+Array (\begin{DoxyParamCaption}\item[{}]{\$partnum }\end{DoxyParamCaption})}
+
+Get the headers of a given part as an array
+
+
+\begin{DoxyParams}[1]{Paramètres}
+int & {\em \$partnum} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+array 
+\end{DoxyReturn}
+\Hypertarget{class_laminas_1_1_mime_1_1_message_ab449d43ad919a6167a711c76301efcd2}\label{class_laminas_1_1_mime_1_1_message_ab449d43ad919a6167a711c76301efcd2} 
+\index{Message@{Message}!getParts@{getParts}}
+\index{getParts@{getParts}!Message@{Message}}
+\doxysubsubsection{\texorpdfstring{getParts()}{getParts()}}
+{\footnotesize\ttfamily get\+Parts (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Returns the list of all Laminas\textbackslash{}\+Mime\textbackslash{}\+Part in the message
+
+\begin{DoxyReturn}{Renvoie}
+Part\mbox{[}\mbox{]} 
+\end{DoxyReturn}
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=219pt]{class_laminas_1_1_mime_1_1_message_ab449d43ad919a6167a711c76301efcd2_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_laminas_1_1_mime_1_1_message_aad065925a76a396e116eea1e271ee2f2}\label{class_laminas_1_1_mime_1_1_message_aad065925a76a396e116eea1e271ee2f2} 
+\index{Message@{Message}!isMultiPart@{isMultiPart}}
+\index{isMultiPart@{isMultiPart}!Message@{Message}}
+\doxysubsubsection{\texorpdfstring{isMultiPart()}{isMultiPart()}}
+{\footnotesize\ttfamily is\+Multi\+Part (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Check if message needs to be sent as multipart MIME message or if it has only one part.
+
+\begin{DoxyReturn}{Renvoie}
+bool 
+\end{DoxyReturn}
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=272pt]{class_laminas_1_1_mime_1_1_message_aad065925a76a396e116eea1e271ee2f2_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_laminas_1_1_mime_1_1_message_a972b5d4c568cbcffb6808abaa61f3811}\label{class_laminas_1_1_mime_1_1_message_a972b5d4c568cbcffb6808abaa61f3811} 
+\index{Message@{Message}!setMime@{setMime}}
+\index{setMime@{setMime}!Message@{Message}}
+\doxysubsubsection{\texorpdfstring{setMime()}{setMime()}}
+{\footnotesize\ttfamily set\+Mime (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_laminas_1_1_mime_1_1_mime}{Mime}}}]{\$mime }\end{DoxyParamCaption})}
+
+Set Laminas\textbackslash{}\+Mime\textbackslash{}\+Mime object for the message
+
+This can be used to set the boundary specifically or to use a subclass of Laminas\textbackslash{}\+Mime for generating the boundary.
+
+\begin{DoxyReturn}{Renvoie}
+self 
+\end{DoxyReturn}
+\Hypertarget{class_laminas_1_1_mime_1_1_message_ac15593c8c10fe31e5d447118c0515ab8}\label{class_laminas_1_1_mime_1_1_message_ac15593c8c10fe31e5d447118c0515ab8} 
+\index{Message@{Message}!setParts@{setParts}}
+\index{setParts@{setParts}!Message@{Message}}
+\doxysubsubsection{\texorpdfstring{setParts()}{setParts()}}
+{\footnotesize\ttfamily set\+Parts (\begin{DoxyParamCaption}\item[{}]{\$parts }\end{DoxyParamCaption})}
+
+Sets the given array of Laminas\textbackslash{}\+Mime\textbackslash{}\+Part as the array for the message
+
+
+\begin{DoxyParams}[1]{Paramètres}
+array & {\em \$parts} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+self 
+\end{DoxyReturn}
+
+
+\doxysubsection{Documentation des champs}
+\Hypertarget{class_laminas_1_1_mime_1_1_message_a958cf7aca45cea5359ba0fa80ee2f2c1}\label{class_laminas_1_1_mime_1_1_message_a958cf7aca45cea5359ba0fa80ee2f2c1} 
+\index{Message@{Message}!\$mime@{\$mime}}
+\index{\$mime@{\$mime}!Message@{Message}}
+\doxysubsubsection{\texorpdfstring{\$mime}{\$mime}}
+{\footnotesize\ttfamily \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{mime}}\hspace{0.3cm}{\ttfamily [protected]}}
+
+\Hypertarget{class_laminas_1_1_mime_1_1_message_aa8dfa90e1feaffe49fc70696cc75c2f3}\label{class_laminas_1_1_mime_1_1_message_aa8dfa90e1feaffe49fc70696cc75c2f3} 
+\index{Message@{Message}!\$parts@{\$parts}}
+\index{\$parts@{\$parts}!Message@{Message}}
+\doxysubsubsection{\texorpdfstring{\$parts}{\$parts}}
+{\footnotesize\ttfamily \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{parts}} = \mbox{[}$\,$\mbox{]}\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+La documentation de cette classe a été générée à partir du fichier suivant \+:\begin{DoxyCompactItemize}
+\item 
+public/glpi/vendor/laminas/laminas-\/mime/src/\mbox{\hyperlink{laminas_2laminas-mime_2src_2_message_8php}{Message.\+php}}\end{DoxyCompactItemize}

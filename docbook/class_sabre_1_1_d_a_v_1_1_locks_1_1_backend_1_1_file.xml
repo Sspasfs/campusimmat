@@ -1,0 +1,280 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_sabre_1_1_d_a_v_1_1_locks_1_1_backend_1_1_file" xml:lang="fr">
+<title>Référence de la classe File</title>
+<indexterm><primary>File</primary></indexterm>
+Graphe d&apos;héritage de File:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_sabre_1_1_d_a_v_1_1_locks_1_1_backend_1_1_file__inherit__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Graphe de collaboration de File:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_sabre_1_1_d_a_v_1_1_locks_1_1_backend_1_1_file__coll__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Fonctions membres publiques    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_sabre_1_1_d_a_v_1_1_locks_1_1_backend_1_1_file_1aebb3d3de2a8dc53a1798c228ef8c2323">__construct</link> ($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">locksFile</link>)</para>
+</listitem>
+            <listitem><para><link linkend="_class_sabre_1_1_d_a_v_1_1_locks_1_1_backend_1_1_file_1a31f3021e5b754764e8a8fc9a30879760">getLocks</link> ($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">uri</link>, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">returnChildLocks</link>)</para>
+</listitem>
+            <listitem><para><link linkend="_class_sabre_1_1_d_a_v_1_1_locks_1_1_backend_1_1_file_1aa895a289b49a66aafd67a514d8e0a9ad">lock</link> ($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">uri</link>, <link linkend="_class_sabre_1_1_d_a_v_1_1_locks_1_1_lock_info">LockInfo</link> $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">lockInfo</link>)</para>
+</listitem>
+            <listitem><para><link linkend="_class_sabre_1_1_d_a_v_1_1_locks_1_1_backend_1_1_file_1add50ff5fce2f8cc6f1debda6a6aa2a6f">unlock</link> ($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">uri</link>, <link linkend="_class_sabre_1_1_d_a_v_1_1_locks_1_1_lock_info">LockInfo</link> $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">lockInfo</link>)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+Fonctions membres publiques hérités de <link linkend="_interface_sabre_1_1_d_a_v_1_1_locks_1_1_backend_1_1_backend_interface">BackendInterface</link>        <itemizedlist>
+            <listitem><para><link linkend="_interface_sabre_1_1_d_a_v_1_1_locks_1_1_backend_1_1_backend_interface_1ac95bb7419230a597f99f6858c62a6c40">lock</link> ($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">uri</link>, <link linkend="_class_sabre_1_1_d_a_v_1_1_locks_1_1_lock_info">Locks\LockInfo</link> $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">lockInfo</link>)</para>
+</listitem>
+            <listitem><para><link linkend="_interface_sabre_1_1_d_a_v_1_1_locks_1_1_backend_1_1_backend_interface_1a86e763d661929d11405b3e45aa908534">unlock</link> ($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">uri</link>, <link linkend="_class_sabre_1_1_d_a_v_1_1_locks_1_1_lock_info">Locks\LockInfo</link> $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">lockInfo</link>)</para>
+</listitem>
+        </itemizedlist>
+<simplesect>
+    <title>Fonctions membres protégées    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_sabre_1_1_d_a_v_1_1_locks_1_1_backend_1_1_file_1a81a67162a6288d78fc4c55283325f0b4">getData</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_class_sabre_1_1_d_a_v_1_1_locks_1_1_backend_1_1_file_1ad2d40420e87f194d90d883910f80b937">putData</link> (array $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">newData</link>)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Description détaillée</title>
+
+<para>This Locks backend stores all locking information in a single file.</para>
+
+<para>Note that this is not nearly as robust as a database. If you are considering using this backend, keep in mind that the PDO backend can work with SqLite, which is designed to be a good file-based database.</para>
+
+<para>It literally solves the problem this class solves as well, but much better.</para>
+
+<para><formalpara><title>Copyright</title>
+
+<para>Copyright (C) fruux GmbH (<link xlink:href="https://fruux.com/">https://fruux.com/</link>) </para>
+</formalpara>
+<formalpara><title>Auteur</title>
+
+<para>Evert Pot (<link xlink:href="http://evertpot.com/">http://evertpot.com/</link>) @license <link xlink:href="http://sabre.io/license/">http://sabre.io/license/</link> Modified BSD License </para>
+</formalpara>
+</para>
+</section>
+<section>
+<title>Documentation des constructeurs et destructeur</title>
+<anchor xml:id="_class_sabre_1_1_d_a_v_1_1_locks_1_1_backend_1_1_file_1aebb3d3de2a8dc53a1798c228ef8c2323"/><section>
+    <title>__construct()</title>
+<indexterm><primary>__construct</primary><secondary>File</secondary></indexterm>
+<indexterm><primary>File</primary><secondary>__construct</secondary></indexterm>
+<para><computeroutput>__construct ( $locksFile)</computeroutput></para>
+<para>Constructor.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$locksFile</entry><entry>
+<para>path to file </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
+</section>
+<section>
+<title>Documentation des fonctions membres</title>
+<anchor xml:id="_class_sabre_1_1_d_a_v_1_1_locks_1_1_backend_1_1_file_1a81a67162a6288d78fc4c55283325f0b4"/><section>
+    <title>getData()</title>
+<indexterm><primary>getData</primary><secondary>File</secondary></indexterm>
+<indexterm><primary>File</primary><secondary>getData</secondary></indexterm>
+<para><computeroutput>getData ( )<computeroutput>[protected]</computeroutput></computeroutput></para>
+<para>Loads the lockdata from the filesystem.</para>
+
+<para><formalpara><title>Renvoie</title>
+
+<para>array </para>
+</formalpara>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_sabre_1_1_d_a_v_1_1_locks_1_1_backend_1_1_file_a81a67162a6288d78fc4c55283325f0b4_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_sabre_1_1_d_a_v_1_1_locks_1_1_backend_1_1_file_1a31f3021e5b754764e8a8fc9a30879760"/><section>
+    <title>getLocks()</title>
+<indexterm><primary>getLocks</primary><secondary>File</secondary></indexterm>
+<indexterm><primary>File</primary><secondary>getLocks</secondary></indexterm>
+<para><computeroutput>getLocks ( $uri,  $returnChildLocks)</computeroutput></para>
+<para>Returns a list of Sabre\DAV\Locks\LockInfo objects.</para>
+
+<para>This method should return all the locks for a particular uri, including locks that might be set on a parent uri.</para>
+
+<para>If returnChildLocks is set to true, this method should also look for any locks in the subtree of the uri for locks.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$uri</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>bool</entry><entry>$returnChildLocks</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>array </para>
+</formalpara>
+</para>
+<para>
+Implémente <link linkend="_interface_sabre_1_1_d_a_v_1_1_locks_1_1_backend_1_1_backend_interface_1a31f3021e5b754764e8a8fc9a30879760">BackendInterface</link>.</para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_sabre_1_1_d_a_v_1_1_locks_1_1_backend_1_1_file_a31f3021e5b754764e8a8fc9a30879760_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_sabre_1_1_d_a_v_1_1_locks_1_1_backend_1_1_file_1aa895a289b49a66aafd67a514d8e0a9ad"/><section>
+    <title>lock()</title>
+<indexterm><primary>lock</primary><secondary>File</secondary></indexterm>
+<indexterm><primary>File</primary><secondary>lock</secondary></indexterm>
+<para><computeroutput>lock ( $uri, <link linkend="_class_sabre_1_1_d_a_v_1_1_locks_1_1_lock_info">LockInfo</link> $lockInfo)</computeroutput></para>
+<para>Locks a uri.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$uri</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>bool </para>
+</formalpara>
+</para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_sabre_1_1_d_a_v_1_1_locks_1_1_backend_1_1_file_aa895a289b49a66aafd67a514d8e0a9ad_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_sabre_1_1_d_a_v_1_1_locks_1_1_backend_1_1_file_1ad2d40420e87f194d90d883910f80b937"/><section>
+    <title>putData()</title>
+<indexterm><primary>putData</primary><secondary>File</secondary></indexterm>
+<indexterm><primary>File</primary><secondary>putData</secondary></indexterm>
+<para><computeroutput>putData (array $newData)<computeroutput>[protected]</computeroutput></computeroutput></para>
+<para>Saves the lockdata. </para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_sabre_1_1_d_a_v_1_1_locks_1_1_backend_1_1_file_ad2d40420e87f194d90d883910f80b937_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_sabre_1_1_d_a_v_1_1_locks_1_1_backend_1_1_file_1add50ff5fce2f8cc6f1debda6a6aa2a6f"/><section>
+    <title>unlock()</title>
+<indexterm><primary>unlock</primary><secondary>File</secondary></indexterm>
+<indexterm><primary>File</primary><secondary>unlock</secondary></indexterm>
+<para><computeroutput>unlock ( $uri, <link linkend="_class_sabre_1_1_d_a_v_1_1_locks_1_1_lock_info">LockInfo</link> $lockInfo)</computeroutput></para>
+<para>Removes a lock from a uri.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$uri</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>bool </para>
+</formalpara>
+</para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_sabre_1_1_d_a_v_1_1_locks_1_1_backend_1_1_file_add50ff5fce2f8cc6f1debda6a6aa2a6f_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<para>
+La documentation de cette classe a été générée à partir du fichier suivant :</para>
+public/glpi/vendor/sabre/dav/lib/DAV/Locks/Backend/<link linkend="_sabre_2dav_2lib_2_d_a_v_2_locks_2_backend_2_file_8php">File.php</link></section>
+</section>

@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_front_2preference_8php" xml:lang="fr">
+<title>Référence du fichier public/glpi/front/preference.php</title>
+<indexterm><primary>public/glpi/front/preference.php</primary></indexterm>
+<simplesect>
+    <title>Variables    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_front_2preference_8php_1a598ca4e71b15a1313ec95f0df1027ca5">$user</link> = <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">new</link> <link linkend="_class_user">User</link>()</para>
+</listitem>
+            <listitem><para><link linkend="_dropdown_location_8php_1a52332c22f84432520971794825a5a8e7">if</link>(<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">isset</link>($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">_POST</link>[&quot;update&quot;]) &amp;&amp;($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">_POST</link>[&quot;id&quot;]==Session::getLoginUserID())) <link linkend="_front_2preference_8php_1a7c0aacd77a6930d10a1c1ea3f819560e">else</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Documentation des variables</title>
+<anchor xml:id="_front_2preference_8php_1a598ca4e71b15a1313ec95f0df1027ca5"/><section>
+    <title>$user</title>
+<indexterm><primary>$user</primary><secondary>preference.php</secondary></indexterm>
+<indexterm><primary>preference.php</primary><secondary>$user</secondary></indexterm>
+<para><computeroutput>$<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">user</link> = <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">new</link> <link linkend="_class_user">User</link>()</computeroutput></para></section>
+<anchor xml:id="_front_2preference_8php_1a7c0aacd77a6930d10a1c1ea3f819560e"/><section>
+    <title>else</title>
+<indexterm><primary>else</primary><secondary>preference.php</secondary></indexterm>
+<indexterm><primary>preference.php</primary><secondary>else</secondary></indexterm>
+<para><computeroutput><link linkend="_dropdown_location_8php_1a52332c22f84432520971794825a5a8e7">if</link> (Session::getCurrentInterface()==&quot;central&quot;) else</computeroutput></para><emphasis role="strong">Valeur initiale :</emphasis><programlisting linenumbering="unnumbered">{
+&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(Session::getCurrentInterface()&#32;==&#32;<emphasis role="stringliteral">&quot;central&quot;</emphasis>)&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;Html::header(<link linkend="_class_preference_1ad85cd59496993b8ba622266fe36807ef">Preference::getTypeName</link>(1),&#32;<link linkend="_includes_8php_1ae4cb516593d277dd3ad071d6955da24e">$_SERVER</link>[<emphasis role="stringliteral">&apos;PHP_SELF&apos;</emphasis>],&#32;<emphasis role="stringliteral">&apos;preference&apos;</emphasis>);
+&#32;&#32;&#32;&#32;}&#32;<emphasis role="keywordflow">else</emphasis>&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;Html::helpHeader(<link linkend="_class_preference_1ad85cd59496993b8ba622266fe36807ef">Preference::getTypeName</link>(1));
+&#32;&#32;&#32;&#32;}
+
+&#32;&#32;&#32;&#32;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">$pref</link>&#32;=&#32;<emphasis role="keyword">new</emphasis>&#32;<link linkend="_class_preference">Preference</link>()
+</programlisting></section>
+</section>
+</section>

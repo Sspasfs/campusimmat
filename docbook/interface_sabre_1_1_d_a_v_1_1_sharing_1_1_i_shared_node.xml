@@ -1,0 +1,169 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_interface_sabre_1_1_d_a_v_1_1_sharing_1_1_i_shared_node" xml:lang="fr">
+<title>Référence de l&apos;interface ISharedNode</title>
+<indexterm><primary>ISharedNode</primary></indexterm>
+Graphe d&apos;héritage de ISharedNode:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="interface_sabre_1_1_d_a_v_1_1_sharing_1_1_i_shared_node__inherit__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Graphe de collaboration de ISharedNode:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="interface_sabre_1_1_d_a_v_1_1_sharing_1_1_i_shared_node__coll__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Fonctions membres publiques    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_interface_sabre_1_1_d_a_v_1_1_sharing_1_1_i_shared_node_1ad49960292f71be61f38dafe4028dee28">getShareAccess</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_interface_sabre_1_1_d_a_v_1_1_sharing_1_1_i_shared_node_1a2c77edd1e983a6f4bb4e5741df75082a">getShareResourceUri</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_interface_sabre_1_1_d_a_v_1_1_sharing_1_1_i_shared_node_1a3134b723b6228a87ee65cc9850f1e878">updateInvites</link> (array $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">sharees</link>)</para>
+</listitem>
+            <listitem><para><link linkend="_interface_sabre_1_1_d_a_v_1_1_sharing_1_1_i_shared_node_1aeb52708e67141a77cf1abe4d6b9482d6">getInvites</link> ()</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+Fonctions membres publiques hérités de <link linkend="_interface_sabre_1_1_d_a_v_1_1_i_node">INode</link>        <itemizedlist>
+            <listitem><para><link linkend="_interface_sabre_1_1_d_a_v_1_1_i_node_1a13bdffdd926f26b825ea57066334ff01">delete</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_interface_sabre_1_1_d_a_v_1_1_i_node_1a3d0963e68bb313b163a73f2803c64600">getName</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_interface_sabre_1_1_d_a_v_1_1_i_node_1a2fe666694997d047711d7653eca2f132">setName</link> ($name)</para>
+</listitem>
+            <listitem><para><link linkend="_interface_sabre_1_1_d_a_v_1_1_i_node_1aa388e2fda4fe702e8953c1a731868f18">getLastModified</link> ()</para>
+</listitem>
+        </itemizedlist>
+<section>
+<title>Description détaillée</title>
+
+<para>This interface represents a resource that has sharing capabilities, either because it&apos;s possible for an owner to share the resource, or because this is an instance of a shared resource.</para>
+
+<para><formalpara><title>Copyright</title>
+
+<para>Copyright (C) fruux GmbH. (<link xlink:href="https://fruux.com/">https://fruux.com/</link>) </para>
+</formalpara>
+<formalpara><title>Auteur</title>
+
+<para>Evert Pot (<link xlink:href="http://evertpot.com/">http://evertpot.com/</link>) @license <link xlink:href="http://sabre.io/license/">http://sabre.io/license/</link> Modified BSD License </para>
+</formalpara>
+</para>
+</section>
+<section>
+<title>Documentation des fonctions membres</title>
+<anchor xml:id="_interface_sabre_1_1_d_a_v_1_1_sharing_1_1_i_shared_node_1aeb52708e67141a77cf1abe4d6b9482d6"/><section>
+    <title>getInvites()</title>
+<indexterm><primary>getInvites</primary><secondary>ISharedNode</secondary></indexterm>
+<indexterm><primary>ISharedNode</primary><secondary>getInvites</secondary></indexterm>
+<para><computeroutput>getInvites ( )</computeroutput></para>
+<para>Returns the list of people whom this resource is shared with.</para>
+
+<para>Every item in the returned array must be a Sharee object with at least the following properties set:</para>
+
+<para><itemizedlist>
+<listitem>
+<para>$href</para>
+</listitem><listitem>
+<para>$shareAccess</para>
+</listitem><listitem>
+<para>$inviteStatus</para>
+</listitem></itemizedlist>
+</para>
+
+<para>and optionally:</para>
+
+<para><itemizedlist>
+<listitem>
+<para>$properties</para>
+</listitem></itemizedlist>
+</para>
+
+<para><formalpara><title>Renvoie</title>
+
+<para>\Sabre\DAV\Xml\Element\Sharee[] </para>
+</formalpara>
+</para>
+<para>
+Implémenté dans <link linkend="_class_sabre_1_1_cal_d_a_v_1_1_shared_calendar_1aeb52708e67141a77cf1abe4d6b9482d6">SharedCalendar</link>.</para>
+</section>
+<anchor xml:id="_interface_sabre_1_1_d_a_v_1_1_sharing_1_1_i_shared_node_1ad49960292f71be61f38dafe4028dee28"/><section>
+    <title>getShareAccess()</title>
+<indexterm><primary>getShareAccess</primary><secondary>ISharedNode</secondary></indexterm>
+<indexterm><primary>ISharedNode</primary><secondary>getShareAccess</secondary></indexterm>
+<para><computeroutput>getShareAccess ( )</computeroutput></para>
+<para>Returns the &apos;access level&apos; for the instance of this shared resource.</para>
+
+<para>The value should be one of the Sabre\DAV\Sharing\Plugin<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">ACCESS_</link> constants.</para>
+
+<para><formalpara><title>Renvoie</title>
+
+<para>int </para>
+</formalpara>
+</para>
+<para>
+Implémenté dans <link linkend="_class_sabre_1_1_cal_d_a_v_1_1_shared_calendar_1ad49960292f71be61f38dafe4028dee28">SharedCalendar</link>.</para>
+</section>
+<anchor xml:id="_interface_sabre_1_1_d_a_v_1_1_sharing_1_1_i_shared_node_1a2c77edd1e983a6f4bb4e5741df75082a"/><section>
+    <title>getShareResourceUri()</title>
+<indexterm><primary>getShareResourceUri</primary><secondary>ISharedNode</secondary></indexterm>
+<indexterm><primary>ISharedNode</primary><secondary>getShareResourceUri</secondary></indexterm>
+<para><computeroutput>getShareResourceUri ( )</computeroutput></para>
+<para>This function must return a URI that uniquely identifies the shared resource. This URI should be identical across instances, and is also used in several other <link linkend="_class_x_m_l">XML</link> bodies to connect invites to resources.</para>
+
+<para>This may simply be a relative reference to the original shared instance, but it could also be a urn. As long as it&apos;s a valid URI and unique.</para>
+
+<para><formalpara><title>Renvoie</title>
+
+<para>string </para>
+</formalpara>
+</para>
+<para>
+Implémenté dans <link linkend="_class_sabre_1_1_cal_d_a_v_1_1_shared_calendar_1a2c77edd1e983a6f4bb4e5741df75082a">SharedCalendar</link>.</para>
+</section>
+<anchor xml:id="_interface_sabre_1_1_d_a_v_1_1_sharing_1_1_i_shared_node_1a3134b723b6228a87ee65cc9850f1e878"/><section>
+    <title>updateInvites()</title>
+<indexterm><primary>updateInvites</primary><secondary>ISharedNode</secondary></indexterm>
+<indexterm><primary>ISharedNode</primary><secondary>updateInvites</secondary></indexterm>
+<para><computeroutput>updateInvites (array $sharees)</computeroutput></para>
+<para>Updates the list of sharees.</para>
+
+<para>Every item must be a Sharee object.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>\Sabre\DAV\Xml\Element\Sharee[]</entry><entry>$sharees</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Implémenté dans <link linkend="_class_sabre_1_1_cal_d_a_v_1_1_shared_calendar_1a3134b723b6228a87ee65cc9850f1e878">SharedCalendar</link>.</para>
+</section>
+<para>
+La documentation de cette interface a été générée à partir du fichier suivant :</para>
+public/glpi/vendor/sabre/dav/lib/DAV/Sharing/<link linkend="__i_shared_node_8php">ISharedNode.php</link></section>
+</section>

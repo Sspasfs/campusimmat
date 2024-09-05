@@ -1,0 +1,107 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_monolog_1_1_handler_1_1_fingers_crossed_1_1_channel_level_activation_strategy" xml:lang="fr">
+<title>Référence de la classe ChannelLevelActivationStrategy</title>
+<indexterm><primary>ChannelLevelActivationStrategy</primary></indexterm>
+Graphe d&apos;héritage de ChannelLevelActivationStrategy:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_monolog_1_1_handler_1_1_fingers_crossed_1_1_channel_level_activation_strategy__inherit__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Graphe de collaboration de ChannelLevelActivationStrategy:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_monolog_1_1_handler_1_1_fingers_crossed_1_1_channel_level_activation_strategy__coll__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Fonctions membres publiques    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_monolog_1_1_handler_1_1_fingers_crossed_1_1_channel_level_activation_strategy_1aa08f4a7d15954591b38d6c6f8fbbeae4">__construct</link> ($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">defaultActionLevel</link>, array $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">channelToActionLevel</link>=[])</para>
+</listitem>
+            <listitem><para><link linkend="_class_monolog_1_1_handler_1_1_fingers_crossed_1_1_channel_level_activation_strategy_1a0e278ca4f1f1f74ef438d80fba7a0c7d">isHandlerActivated</link> (array $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">record</link>)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Description détaillée</title>
+
+<para>Channel and Error level based monolog activation strategy. Allows to trigger activation based on level per channel. e.g. trigger activation on level &apos;ERROR&apos; by default, except for records of the &apos;sql&apos; channel; those should trigger activation on level &apos;WARN&apos;.</para>
+
+<para>Example:</para>
+
+<para><computeroutput> $activationStrategy = new ChannelLevelActivationStrategy( Logger::CRITICAL, array( &apos;request&apos; =&gt; Logger::ALERT, &apos;sensitive&apos; =&gt; Logger::ERROR, ) ); $handler = new FingersCrossedHandler(new StreamHandler(&apos;php://stderr&apos;), $activationStrategy); </computeroutput></para>
+
+<para><formalpara><title>Auteur</title>
+
+<para>Mike Meessen <link xlink:href="mailto:netmikey@gmail.com">netmikey@gmail.com</link></para>
+</formalpara>
+@phpstan-import-type Record from \Monolog\Logger @phpstan-import-type Level from \Monolog\Logger @phpstan-import-type LevelName from \Monolog\Logger </para>
+</section>
+<section>
+<title>Documentation des constructeurs et destructeur</title>
+<anchor xml:id="_class_monolog_1_1_handler_1_1_fingers_crossed_1_1_channel_level_activation_strategy_1aa08f4a7d15954591b38d6c6f8fbbeae4"/><section>
+    <title>__construct()</title>
+<indexterm><primary>__construct</primary><secondary>ChannelLevelActivationStrategy</secondary></indexterm>
+<indexterm><primary>ChannelLevelActivationStrategy</primary><secondary>__construct</secondary></indexterm>
+<para><computeroutput>__construct ( $defaultActionLevel, array $channelToActionLevel = <computeroutput>[]</computeroutput>
+)</computeroutput></para>
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>int | string</entry><entry>$defaultActionLevel</entry><entry>
+<para>The default action level to be used if the record&apos;s category doesn&apos;t match any </para>
+</entry>
+                            </row>
+                            <row>
+<entry></entry><entry>array&lt;string, int&gt;</entry><entry>
+<para>$channelToActionLevel An array that maps channel names to action levels.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                @phpstan-param array&lt;string, Level&gt; $channelToActionLevel @phpstan-param Level|LevelName|LogLevel::* $defaultActionLevel </para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_monolog_1_1_handler_1_1_fingers_crossed_1_1_channel_level_activation_strategy_aa08f4a7d15954591b38d6c6f8fbbeae4_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+</section>
+<section>
+<title>Documentation des fonctions membres</title>
+<anchor xml:id="_class_monolog_1_1_handler_1_1_fingers_crossed_1_1_channel_level_activation_strategy_1a0e278ca4f1f1f74ef438d80fba7a0c7d"/><section>
+    <title>isHandlerActivated()</title>
+<indexterm><primary>isHandlerActivated</primary><secondary>ChannelLevelActivationStrategy</secondary></indexterm>
+<indexterm><primary>ChannelLevelActivationStrategy</primary><secondary>isHandlerActivated</secondary></indexterm>
+<para><computeroutput>isHandlerActivated (array $record)</computeroutput></para>
+<para>@phpstan-param Record $record </para>
+<para>
+Implémente <link linkend="_interface_monolog_1_1_handler_1_1_fingers_crossed_1_1_activation_strategy_interface_1a0e278ca4f1f1f74ef438d80fba7a0c7d">ActivationStrategyInterface</link>.</para>
+</section>
+<para>
+La documentation de cette classe a été générée à partir du fichier suivant :</para>
+public/glpi/vendor/monolog/monolog/src/Monolog/Handler/FingersCrossed/<link linkend="__channel_level_activation_strategy_8php">ChannelLevelActivationStrategy.php</link></section>
+</section>

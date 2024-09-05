@@ -1,0 +1,390 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_sabre_1_1_cal_d_a_v_1_1_i_c_s_export_plugin" xml:lang="fr">
+<title>Référence de la classe ICSExportPlugin</title>
+<indexterm><primary>ICSExportPlugin</primary></indexterm>
+Graphe d&apos;héritage de ICSExportPlugin:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_sabre_1_1_cal_d_a_v_1_1_i_c_s_export_plugin__inherit__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Graphe de collaboration de ICSExportPlugin:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_sabre_1_1_cal_d_a_v_1_1_i_c_s_export_plugin__coll__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Fonctions membres publiques    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_sabre_1_1_cal_d_a_v_1_1_i_c_s_export_plugin_1a2f763b753d8c30e255c076537f0f498d">initialize</link> (<link linkend="_class_sabre_1_1_d_a_v_1_1_server">DAV\Server</link> $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">server</link>)</para>
+</listitem>
+            <listitem><para><link linkend="_class_sabre_1_1_cal_d_a_v_1_1_i_c_s_export_plugin_1a1fd2076510d4423e2c38e3bbb91b6219">httpGet</link> (<link linkend="_interface_sabre_1_1_h_t_t_p_1_1_request_interface">RequestInterface</link> $request, <link linkend="_interface_sabre_1_1_h_t_t_p_1_1_response_interface">ResponseInterface</link> $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">response</link>)</para>
+</listitem>
+            <listitem><para><link linkend="_class_sabre_1_1_cal_d_a_v_1_1_i_c_s_export_plugin_1a04e8640537a2eec5a40fbb91d753c7ba">mergeObjects</link> (array $properties, array $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">inputObjects</link>)</para>
+</listitem>
+            <listitem><para><link linkend="_class_sabre_1_1_cal_d_a_v_1_1_i_c_s_export_plugin_1a667b4742b17228855e7ebec67113e629">getPluginName</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_class_sabre_1_1_cal_d_a_v_1_1_i_c_s_export_plugin_1a53dac37743dbcb1170a0cd454a2e13a9">getPluginInfo</link> ()</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+Fonctions membres publiques hérités de <link linkend="_class_sabre_1_1_d_a_v_1_1_server_plugin">ServerPlugin</link>        <itemizedlist>
+            <listitem><para><link linkend="_class_sabre_1_1_d_a_v_1_1_server_plugin_1a9ba20c29dc9549a401506d368f5d3089">initialize</link> (<link linkend="_class_sabre_1_1_d_a_v_1_1_server">Server</link> $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">server</link>)</para>
+</listitem>
+            <listitem><para><link linkend="_class_sabre_1_1_d_a_v_1_1_server_plugin_1a96fc19c600322e93e3e3a3463410e7ca">getFeatures</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_class_sabre_1_1_d_a_v_1_1_server_plugin_1ab59b6b102a57fa2484a3c22e53bb694a">getHTTPMethods</link> ($path)</para>
+</listitem>
+            <listitem><para><link linkend="_class_sabre_1_1_d_a_v_1_1_server_plugin_1a07ebbe608e0b7b0a8079181bc13bf52c">getSupportedReportSet</link> ($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">uri</link>)</para>
+</listitem>
+        </itemizedlist>
+<simplesect>
+    <title>Fonctions membres protégées    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_sabre_1_1_cal_d_a_v_1_1_i_c_s_export_plugin_1a8f017a1c6a4b8d23ac3d8b9b566d851b">generateResponse</link> ($path, $start, $end, $expand, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">componentType</link>, $format, $properties, <link linkend="_interface_sabre_1_1_h_t_t_p_1_1_response_interface">ResponseInterface</link> $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">response</link>)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Attributs protégés    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_sabre_1_1_cal_d_a_v_1_1_i_c_s_export_plugin_1ad135cc8a47e55f0829949cf62214170f">$server</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Description détaillée</title>
+
+<para>ICS Exporter.</para>
+
+<para>This plugin adds the ability to export entire calendars as .ics files. This is useful for clients that don&apos;t support CalDAV yet. They often do support ics files.</para>
+
+<para>To use this, point a http client to a caldav calendar, and add ?expand to the url.</para>
+
+<para>Further options that can be added to the url: start=123456789 - Only return events after the given unix timestamp end=123245679 - Only return events from before the given unix timestamp expand=1 - Strip timezone information and expand recurring events. If you&apos;d like to expand, you <emphasis>must</emphasis> also specify start and end.</para>
+
+<para>By default this plugin returns data in the text/calendar format (iCalendar 2.0). If you&apos;d like to receive jCal data instead, you can use an Accept header:</para>
+
+<para>Accept: application/calendar+json</para>
+
+<para>Alternatively, you can also specify this in the url using accept=application/calendar+json, or accept=jcal for short. If the url parameter and Accept header is specified, the url parameter wins.</para>
+
+<para>Note that specifying a start or end data implies that only events will be returned. VTODO and VJOURNAL will be stripped.</para>
+
+<para><formalpara><title>Copyright</title>
+
+<para>Copyright (C) fruux GmbH (<link xlink:href="https://fruux.com/">https://fruux.com/</link>) </para>
+</formalpara>
+<formalpara><title>Auteur</title>
+
+<para>Evert Pot (<link xlink:href="http://evertpot.com/">http://evertpot.com/</link>) @license <link xlink:href="http://sabre.io/license/">http://sabre.io/license/</link> Modified BSD License </para>
+</formalpara>
+</para>
+</section>
+<section>
+<title>Documentation des fonctions membres</title>
+<anchor xml:id="_class_sabre_1_1_cal_d_a_v_1_1_i_c_s_export_plugin_1a8f017a1c6a4b8d23ac3d8b9b566d851b"/><section>
+    <title>generateResponse()</title>
+<indexterm><primary>generateResponse</primary><secondary>ICSExportPlugin</secondary></indexterm>
+<indexterm><primary>ICSExportPlugin</primary><secondary>generateResponse</secondary></indexterm>
+<para><computeroutput>generateResponse ( $path,  $start,  $end,  $expand,  $componentType,  $format,  $properties, <link linkend="_interface_sabre_1_1_h_t_t_p_1_1_response_interface">ResponseInterface</link> $response)<computeroutput>[protected]</computeroutput></computeroutput></para>
+<para>This method is responsible for generating the actual, full response.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$path</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>DateTime | null</entry><entry>$start</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>DateTime | null</entry><entry>$end</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>bool</entry><entry>$expand</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>string</entry><entry>$componentType</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>string</entry><entry>$format</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>array</entry><entry>$properties</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>DAV</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                Exception\NotFound 
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry><link linkend="_class_v_object">VObject</link></entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                InvalidDataException </para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_sabre_1_1_cal_d_a_v_1_1_i_c_s_export_plugin_a8f017a1c6a4b8d23ac3d8b9b566d851b_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_sabre_1_1_cal_d_a_v_1_1_i_c_s_export_plugin_a8f017a1c6a4b8d23ac3d8b9b566d851b_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_sabre_1_1_cal_d_a_v_1_1_i_c_s_export_plugin_1a53dac37743dbcb1170a0cd454a2e13a9"/><section>
+    <title>getPluginInfo()</title>
+<indexterm><primary>getPluginInfo</primary><secondary>ICSExportPlugin</secondary></indexterm>
+<indexterm><primary>ICSExportPlugin</primary><secondary>getPluginInfo</secondary></indexterm>
+<para><computeroutput>getPluginInfo ( )</computeroutput></para>
+<para>Returns a bunch of meta-data about the plugin.</para>
+
+<para>Providing this information is optional, and is mainly displayed by the Browser plugin.</para>
+
+<para>The description key in the returned array may contain html and will not be sanitized.</para>
+
+<para><formalpara><title>Renvoie</title>
+
+<para>array </para>
+</formalpara>
+</para>
+<para>
+Réimplémentée à partir de <link linkend="_class_sabre_1_1_d_a_v_1_1_server_plugin_1a53dac37743dbcb1170a0cd454a2e13a9">ServerPlugin</link>.</para>
+</section>
+<anchor xml:id="_class_sabre_1_1_cal_d_a_v_1_1_i_c_s_export_plugin_1a667b4742b17228855e7ebec67113e629"/><section>
+    <title>getPluginName()</title>
+<indexterm><primary>getPluginName</primary><secondary>ICSExportPlugin</secondary></indexterm>
+<indexterm><primary>ICSExportPlugin</primary><secondary>getPluginName</secondary></indexterm>
+<para><computeroutput>getPluginName ( )</computeroutput></para>
+<para>Returns a plugin name.</para>
+
+<para>Using this name other plugins will be able to access other plugins using \Sabre\DAV\Server::getPlugin</para>
+
+<para><formalpara><title>Renvoie</title>
+
+<para>string </para>
+</formalpara>
+</para>
+<para>
+Réimplémentée à partir de <link linkend="_class_sabre_1_1_d_a_v_1_1_server_plugin_1a667b4742b17228855e7ebec67113e629">ServerPlugin</link>.</para>
+</section>
+<anchor xml:id="_class_sabre_1_1_cal_d_a_v_1_1_i_c_s_export_plugin_1a1fd2076510d4423e2c38e3bbb91b6219"/><section>
+    <title>httpGet()</title>
+<indexterm><primary>httpGet</primary><secondary>ICSExportPlugin</secondary></indexterm>
+<indexterm><primary>ICSExportPlugin</primary><secondary>httpGet</secondary></indexterm>
+<para><computeroutput>httpGet (<link linkend="_interface_sabre_1_1_h_t_t_p_1_1_request_interface">RequestInterface</link> $request, <link linkend="_interface_sabre_1_1_h_t_t_p_1_1_response_interface">ResponseInterface</link> $response)</computeroutput></para>
+<para>Intercepts GET requests on calendar urls ending with ?export.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>BadRequest</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>DAV</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                Exception\NotFound 
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry><link linkend="_class_v_object">VObject</link></entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                InvalidDataException</para>
+
+<para><formalpara><title>Renvoie</title>
+
+<para>bool </para>
+</formalpara>
+</para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_sabre_1_1_cal_d_a_v_1_1_i_c_s_export_plugin_a1fd2076510d4423e2c38e3bbb91b6219_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_sabre_1_1_cal_d_a_v_1_1_i_c_s_export_plugin_1a2f763b753d8c30e255c076537f0f498d"/><section>
+    <title>initialize()</title>
+<indexterm><primary>initialize</primary><secondary>ICSExportPlugin</secondary></indexterm>
+<indexterm><primary>ICSExportPlugin</primary><secondary>initialize</secondary></indexterm>
+<para><computeroutput>initialize (<link linkend="_class_sabre_1_1_d_a_v_1_1_server">DAV\Server</link> $server)</computeroutput></para>
+<para>Initializes the plugin and registers event handlers.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>\Sabre\DAV\Server</entry><entry>$server</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
+<anchor xml:id="_class_sabre_1_1_cal_d_a_v_1_1_i_c_s_export_plugin_1a04e8640537a2eec5a40fbb91d753c7ba"/><section>
+    <title>mergeObjects()</title>
+<indexterm><primary>mergeObjects</primary><secondary>ICSExportPlugin</secondary></indexterm>
+<indexterm><primary>ICSExportPlugin</primary><secondary>mergeObjects</secondary></indexterm>
+<para><computeroutput>mergeObjects (array $properties, array $inputObjects)</computeroutput></para>
+<para>Merges all calendar objects, and builds one big iCalendar blob.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>array</entry><entry>$properties</entry><entry>
+<para>Some CalDAV properties</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para><link linkend="_class_v_object">VObject</link>\Component\VCalendar </para>
+</formalpara>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_sabre_1_1_cal_d_a_v_1_1_i_c_s_export_plugin_a04e8640537a2eec5a40fbb91d753c7ba_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+</section>
+<section>
+<title>Documentation des champs</title>
+<anchor xml:id="_class_sabre_1_1_cal_d_a_v_1_1_i_c_s_export_plugin_1ad135cc8a47e55f0829949cf62214170f"/><section>
+    <title>$server</title>
+<indexterm><primary>$server</primary><secondary>ICSExportPlugin</secondary></indexterm>
+<indexterm><primary>ICSExportPlugin</primary><secondary>$server</secondary></indexterm>
+<para><computeroutput>$<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">server</link><computeroutput>[protected]</computeroutput></computeroutput></para></section>
+<para>
+La documentation de cette classe a été générée à partir du fichier suivant :</para>
+public/glpi/vendor/sabre/dav/lib/CalDAV/<link linkend="__i_c_s_export_plugin_8php">ICSExportPlugin.php</link></section>
+</section>

@@ -1,0 +1,173 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_league_1_1_o_auth2_1_1_client_1_1_grant_1_1_abstract_grant" xml:lang="fr">
+<title>Référence de la classe AbstractGrant</title>
+<indexterm><primary>AbstractGrant</primary></indexterm>
+Graphe d&apos;héritage de AbstractGrant:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_league_1_1_o_auth2_1_1_client_1_1_grant_1_1_abstract_grant__inherit__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Graphe de collaboration de AbstractGrant:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_league_1_1_o_auth2_1_1_client_1_1_grant_1_1_abstract_grant__coll__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Fonctions membres publiques    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_league_1_1_o_auth2_1_1_client_1_1_grant_1_1_abstract_grant_1a7516ca30af0db3cdbf9a7739b48ce91d">__toString</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_class_league_1_1_o_auth2_1_1_client_1_1_grant_1_1_abstract_grant_1a6fa318b4f36f36fc4f76a359edbed3b9">prepareRequestParameters</link> (array $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">defaults</link>, array $options)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Fonctions membres protégées    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_league_1_1_o_auth2_1_1_client_1_1_grant_1_1_abstract_grant_1a3d0963e68bb313b163a73f2803c64600">getName</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_class_league_1_1_o_auth2_1_1_client_1_1_grant_1_1_abstract_grant_1a96196f071ef188add2e5904e34564e1a">getRequiredRequestParameters</link> ()</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Description détaillée</title>
+
+<para>Represents a type of authorization grant.</para>
+
+<para>An authorization grant is a credential representing the resource owner&apos;s authorization (to access its protected resources) used by the client to obtain an access token. OAuth 2.0 defines four grant types &#8211; authorization code, implicit, resource owner password credentials, and client credentials &#8211; as well as an extensibility mechanism for defining additional types.</para>
+
+<para><link linkend="_">Authorization Grant (RFC 6749, §1.3) </link></para>
+</section>
+<section>
+<title>Documentation des fonctions membres</title>
+<anchor xml:id="_class_league_1_1_o_auth2_1_1_client_1_1_grant_1_1_abstract_grant_1a7516ca30af0db3cdbf9a7739b48ce91d"/><section>
+    <title>__toString()</title>
+<indexterm><primary>__toString</primary><secondary>AbstractGrant</secondary></indexterm>
+<indexterm><primary>AbstractGrant</primary><secondary>__toString</secondary></indexterm>
+<para><computeroutput>__toString ( )</computeroutput></para>
+<para>Returns this grant&apos;s name as its string representation. This allows for string interpolation when building URL query parameters.</para>
+
+<para><formalpara><title>Renvoie</title>
+
+<para>string </para>
+</formalpara>
+</para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_league_1_1_o_auth2_1_1_client_1_1_grant_1_1_abstract_grant_a7516ca30af0db3cdbf9a7739b48ce91d_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_league_1_1_o_auth2_1_1_client_1_1_grant_1_1_abstract_grant_1a3d0963e68bb313b163a73f2803c64600"/><section>
+    <title>getName()</title>
+<indexterm><primary>getName</primary><secondary>AbstractGrant</secondary></indexterm>
+<indexterm><primary>AbstractGrant</primary><secondary>getName</secondary></indexterm>
+<para><computeroutput>getName ( )<computeroutput>[abstract]</computeroutput>, <computeroutput>[protected]</computeroutput></computeroutput></para>
+<para>Returns the name of this grant, eg. &apos;grant_name&apos;, which is used as the grant type when encoding URL query parameters.</para>
+
+<para><formalpara><title>Renvoie</title>
+
+<para>string </para>
+</formalpara>
+</para>
+<para>
+Réimplémentée dans <link linkend="_class_league_1_1_o_auth2_1_1_client_1_1_grant_1_1_authorization_code_1a3d0963e68bb313b163a73f2803c64600">AuthorizationCode</link>, <link linkend="_class_league_1_1_o_auth2_1_1_client_1_1_grant_1_1_client_credentials_1a3d0963e68bb313b163a73f2803c64600">ClientCredentials</link>, <link linkend="_class_league_1_1_o_auth2_1_1_client_1_1_grant_1_1_password_1a3d0963e68bb313b163a73f2803c64600">Password</link>, <link linkend="_class_league_1_1_o_auth2_1_1_client_1_1_grant_1_1_refresh_token_1a3d0963e68bb313b163a73f2803c64600">RefreshToken</link>, et <link linkend="_class_the_networg_1_1_o_auth2_1_1_client_1_1_grant_1_1_jwt_bearer_1a3d0963e68bb313b163a73f2803c64600">JwtBearer</link>.</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_league_1_1_o_auth2_1_1_client_1_1_grant_1_1_abstract_grant_a3d0963e68bb313b163a73f2803c64600_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_league_1_1_o_auth2_1_1_client_1_1_grant_1_1_abstract_grant_1a96196f071ef188add2e5904e34564e1a"/><section>
+    <title>getRequiredRequestParameters()</title>
+<indexterm><primary>getRequiredRequestParameters</primary><secondary>AbstractGrant</secondary></indexterm>
+<indexterm><primary>AbstractGrant</primary><secondary>getRequiredRequestParameters</secondary></indexterm>
+<para><computeroutput>getRequiredRequestParameters ( )<computeroutput>[abstract]</computeroutput>, <computeroutput>[protected]</computeroutput></computeroutput></para>
+<para>Returns a list of all required request parameters.</para>
+
+<para><formalpara><title>Renvoie</title>
+
+<para>array </para>
+</formalpara>
+</para>
+<para>
+Réimplémentée dans <link linkend="_class_league_1_1_o_auth2_1_1_client_1_1_grant_1_1_authorization_code_1a96196f071ef188add2e5904e34564e1a">AuthorizationCode</link>, <link linkend="_class_league_1_1_o_auth2_1_1_client_1_1_grant_1_1_client_credentials_1a96196f071ef188add2e5904e34564e1a">ClientCredentials</link>, <link linkend="_class_league_1_1_o_auth2_1_1_client_1_1_grant_1_1_password_1a96196f071ef188add2e5904e34564e1a">Password</link>, <link linkend="_class_league_1_1_o_auth2_1_1_client_1_1_grant_1_1_refresh_token_1a96196f071ef188add2e5904e34564e1a">RefreshToken</link>, et <link linkend="_class_the_networg_1_1_o_auth2_1_1_client_1_1_grant_1_1_jwt_bearer_1a96196f071ef188add2e5904e34564e1a">JwtBearer</link>.</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_league_1_1_o_auth2_1_1_client_1_1_grant_1_1_abstract_grant_a96196f071ef188add2e5904e34564e1a_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_league_1_1_o_auth2_1_1_client_1_1_grant_1_1_abstract_grant_1a6fa318b4f36f36fc4f76a359edbed3b9"/><section>
+    <title>prepareRequestParameters()</title>
+<indexterm><primary>prepareRequestParameters</primary><secondary>AbstractGrant</secondary></indexterm>
+<indexterm><primary>AbstractGrant</primary><secondary>prepareRequestParameters</secondary></indexterm>
+<para><computeroutput>prepareRequestParameters (array $defaults, array $options)</computeroutput></para>
+<para>Prepares an access token request&apos;s parameters by checking that all required parameters are set, then merging with any given defaults.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>array</entry><entry>$defaults</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>array</entry><entry>$options</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>array </para>
+</formalpara>
+</para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_league_1_1_o_auth2_1_1_client_1_1_grant_1_1_abstract_grant_a6fa318b4f36f36fc4f76a359edbed3b9_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<para>
+La documentation de cette classe a été générée à partir du fichier suivant :</para>
+public/glpi/vendor/league/oauth2-client/src/Grant/<link linkend="__abstract_grant_8php">AbstractGrant.php</link></section>
+</section>

@@ -1,0 +1,217 @@
+\chapter{Google Provider for OAuth 2.0 Client}
+\hypertarget{md_public_2glpi_2vendor_2league_2oauth2-google_2_r_e_a_d_m_e}{}\label{md_public_2glpi_2vendor_2league_2oauth2-google_2_r_e_a_d_m_e}\index{Google Provider for OAuth 2.0 Client@{Google Provider for OAuth 2.0 Client}}
+\label{md_public_2glpi_2vendor_2league_2oauth2-google_2_r_e_a_d_m_e_autotoc_md6745}%
+\Hypertarget{md_public_2glpi_2vendor_2league_2oauth2-google_2_r_e_a_d_m_e_autotoc_md6745}%
+ \href{https://gitter.im/thephpleague/oauth2-google}{\texttt{ }} \href{https://travis-ci.org/thephpleague/oauth2-google}{\texttt{ }} \href{https://coveralls.io/r/thephpleague/oauth2-google}{\texttt{ }} \href{https://scrutinizer-ci.com/g/thephpleague/oauth2-google/}{\texttt{ }} \href{https://github.com/thephpleague/oauth2-google/blob/master/LICENSE}{\texttt{ }} \href{https://packagist.org/packages/league/oauth2-google}{\texttt{ }}
+
+This package provides Google OAuth 2.\+0 support for the PHP League\textquotesingle{}s \href{https://github.com/thephpleague/oauth2-client}{\texttt{ OAuth 2.\+0 Client}}.
+
+This package is compliant with \href{https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-1-basic-coding-standard.md}{\texttt{ PSR-\/1}}, \href{https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-2-coding-style-guide.md}{\texttt{ PSR-\/2}} and \href{https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-4-autoloader.md}{\texttt{ PSR-\/4}}. If you notice compliance oversights, please send a patch via pull request.\hypertarget{md_public_2glpi_2vendor_2league_2oauth2-google_2_r_e_a_d_m_e_autotoc_md6746}{}\doxysection{\texorpdfstring{Requirements}{Requirements}}\label{md_public_2glpi_2vendor_2league_2oauth2-google_2_r_e_a_d_m_e_autotoc_md6746}
+The following versions of PHP are supported.
+
+
+\begin{DoxyItemize}
+\item PHP 7.\+2
+\item PHP 7.\+3
+\item PHP 7.\+4
+\item PHP 8.\+0
+\end{DoxyItemize}
+
+This package uses \href{https://developers.google.com/identity/protocols/OpenIDConnect}{\texttt{ Open\+ID Connect}} to authenticate users with Google accounts.
+
+To use this package, it will be necessary to have a Google client ID and client secret. These are referred to as {\ttfamily \{google-\/client-\/id\}} and {\ttfamily \{google-\/client-\/secret\}} in the documentation.
+
+Please follow the \href{https://developers.google.com/identity/protocols/OpenIDConnect\#registeringyourapp}{\texttt{ Google instructions}} to create the required credentials.\hypertarget{md_public_2glpi_2vendor_2league_2oauth2-google_2_r_e_a_d_m_e_autotoc_md6747}{}\doxysection{\texorpdfstring{Installation}{Installation}}\label{md_public_2glpi_2vendor_2league_2oauth2-google_2_r_e_a_d_m_e_autotoc_md6747}
+To install, use composer\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{composer\ require\ league/oauth2-\/google}
+
+\end{DoxyCode}
+\hypertarget{md_public_2glpi_2vendor_2league_2oauth2-google_2_r_e_a_d_m_e_autotoc_md6748}{}\doxysection{\texorpdfstring{Usage}{Usage}}\label{md_public_2glpi_2vendor_2league_2oauth2-google_2_r_e_a_d_m_e_autotoc_md6748}
+\hypertarget{md_public_2glpi_2vendor_2league_2oauth2-google_2_r_e_a_d_m_e_autotoc_md6749}{}\doxysubsection{\texorpdfstring{Authorization Code Flow}{Authorization Code Flow}}\label{md_public_2glpi_2vendor_2league_2oauth2-google_2_r_e_a_d_m_e_autotoc_md6749}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{require}}\ \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\_\_DIR\_\_}}\ .\ \textcolor{stringliteral}{'/vendor/autoload.php'};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{use}}\ \mbox{\hyperlink{class_league_1_1_o_auth2_1_1_client_1_1_provider_1_1_google}{League\(\backslash\)OAuth2\(\backslash\)Client\(\backslash\)Provider\(\backslash\)Google}};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{session\_start}}();\ \textcolor{comment}{//\ Remove\ if\ session.auto\_start=1\ in\ php.ini}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\$provider\ =\ \textcolor{keyword}{new}\ Google([}
+\DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{'clientId'}\ \ \ \ \ =>\ \textcolor{stringliteral}{'\{google-\/client-\/id\}'},}
+\DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{'clientSecret'}\ =>\ \textcolor{stringliteral}{'\{google-\/client-\/secret\}'},}
+\DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{'redirectUri'}\ \ =>\ \textcolor{stringliteral}{'https://example.com/callback-\/url'},}
+\DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{'hostedDomain'}\ =>\ \textcolor{stringliteral}{'example.com'},\ \textcolor{comment}{//\ optional;\ used\ to\ restrict\ access\ to\ users\ on\ your\ G\ Suite/Google\ Apps\ for\ Business\ accounts}}
+\DoxyCodeLine{]);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{empty}}(\mbox{\hyperlink{common_8tabs_8php_a7b2772071c2b50e11742306f5abe68e3}{\$\_GET}}[\textcolor{stringliteral}{'error'}]))\ \{}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ Got\ an\ error,\ probably\ user\ denied\ access}}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{exit}}(\textcolor{stringliteral}{'Got\ error:\ '}\ .\ \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{htmlspecialchars}}(\mbox{\hyperlink{common_8tabs_8php_a7b2772071c2b50e11742306f5abe68e3}{\$\_GET}}[\textcolor{stringliteral}{'error'}],\ \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{ENT\_QUOTES}},\ \textcolor{stringliteral}{'UTF-\/8'}));}
+\DoxyCodeLine{}
+\DoxyCodeLine{\}\ \mbox{\hyperlink{paragonie_2sodium__compat_2autoload_8php_a996627e786133d369a87f2710aab5bcf}{elseif}}\ (\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{empty}}(\mbox{\hyperlink{common_8tabs_8php_a7b2772071c2b50e11742306f5abe68e3}{\$\_GET}}[\textcolor{stringliteral}{'code'}]))\ \{}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ If\ we\ don't\ have\ an\ authorization\ code\ then\ get\ one}}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\$authUrl}}\ =\ \$provider-\/>getAuthorizationUrl();}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{ajax_2knowbase_8php_a8d51972dab0856e7ed5db52b906de613}{\$\_SESSION}}[\textcolor{stringliteral}{'oauth2state'}]\ =\ \$provider-\/>getState();}
+\DoxyCodeLine{\ \ \ \ header(\textcolor{stringliteral}{'Location:\ '}\ .\ \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\$authUrl}});}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{exit}};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\}\ \mbox{\hyperlink{paragonie_2sodium__compat_2autoload_8php_a996627e786133d369a87f2710aab5bcf}{elseif}}\ (\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{empty}}(\mbox{\hyperlink{common_8tabs_8php_a7b2772071c2b50e11742306f5abe68e3}{\$\_GET}}[\textcolor{stringliteral}{'state'}])\ ||\ (\mbox{\hyperlink{common_8tabs_8php_a7b2772071c2b50e11742306f5abe68e3}{\$\_GET}}[\textcolor{stringliteral}{'state'}]\ !==\ \mbox{\hyperlink{ajax_2knowbase_8php_a8d51972dab0856e7ed5db52b906de613}{\$\_SESSION}}[\textcolor{stringliteral}{'oauth2state'}]))\ \{}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ State\ is\ invalid,\ possible\ CSRF\ attack\ in\ progress}}
+\DoxyCodeLine{\ \ \ \ unset(\mbox{\hyperlink{ajax_2knowbase_8php_a8d51972dab0856e7ed5db52b906de613}{\$\_SESSION}}[\textcolor{stringliteral}{'oauth2state'}]);}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{exit}}(\textcolor{stringliteral}{'Invalid\ state'});}
+\DoxyCodeLine{}
+\DoxyCodeLine{\}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ Try\ to\ get\ an\ access\ token\ (using\ the\ authorization\ code\ grant)}}
+\DoxyCodeLine{\ \ \ \ \$token\ =\ \$provider-\/>getAccessToken(\textcolor{stringliteral}{'authorization\_code'},\ [}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{'code'}\ =>\ \mbox{\hyperlink{common_8tabs_8php_a7b2772071c2b50e11742306f5abe68e3}{\$\_GET}}[\textcolor{stringliteral}{'code'}]}
+\DoxyCodeLine{\ \ \ \ ]);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ Optional:\ Now\ you\ have\ a\ token\ you\ can\ look\ up\ a\ users\ profile\ data}}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{try}\ \{}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{comment}{//\ We\ got\ an\ access\ token,\ let's\ now\ get\ the\ owner\ details}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\$ownerDetails}}\ =\ \$provider-\/>getResourceOwner(\$token);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{comment}{//\ Use\ these\ details\ to\ create\ a\ new\ profile}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{printf}}(\textcolor{stringliteral}{'Hello\ \%s!'},\ \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\$ownerDetails}}-\/>getFirstName());}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \}\ \textcolor{keywordflow}{catch}\ (Exception\ \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\$e}})\ \{}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{comment}{//\ Failed\ to\ get\ user\ details}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{exit}}(\textcolor{stringliteral}{'Something\ went\ wrong:\ '}\ .\ \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\$e}}-\/>getMessage());}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ Use\ this\ to\ interact\ with\ an\ API\ on\ the\ users\ behalf}}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{echo}}\ \$token-\/>getToken();}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ Use\ this\ to\ get\ a\ new\ access\ token\ if\ the\ old\ one\ expires}}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{echo}}\ \$token-\/>getRefreshToken();}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ Unix\ timestamp\ at\ which\ the\ access\ token\ expires}}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{echo}}\ \$token-\/>getExpires();}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\hypertarget{md_public_2glpi_2vendor_2league_2oauth2-google_2_r_e_a_d_m_e_autotoc_md6750}{}\doxysubsubsection{\texorpdfstring{Available Options}{Available Options}}\label{md_public_2glpi_2vendor_2league_2oauth2-google_2_r_e_a_d_m_e_autotoc_md6750}
+The {\ttfamily Google} provider has the following \href{https://developers.google.com/identity/protocols/OpenIDConnect\#authenticationuriparameters}{\texttt{ options}}\+:
+
+
+\begin{DoxyItemize}
+\item {\ttfamily access\+Type} to use online or offline access
+\item {\ttfamily hosted\+Domain} to authenticate G Suite users
+\item {\ttfamily prompt} to modify the prompt that the user will see
+\item {\ttfamily scopes} to request access to additional user information
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2oauth2-google_2_r_e_a_d_m_e_autotoc_md6751}{}\doxysubsubsection{\texorpdfstring{Accessing Token JWT}{Accessing Token JWT}}\label{md_public_2glpi_2vendor_2league_2oauth2-google_2_r_e_a_d_m_e_autotoc_md6751}
+Google provides a \href{https://jwt.io/}{\texttt{ JSON Web Token}} (JWT) with all access tokens. This token \href{https://developers.google.com/identity/protocols/OpenIDConnect\#obtainuserinfo}{\texttt{ contains basic information}} about the authenticated user. The JWT can be accessed from the {\ttfamily id\+\_\+token} value of the access token\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{}
+\DoxyCodeLine{\mbox{\hyperlink{report_8contract_8php_affc45c6ace2eeb3f300b054dbf9592b6}{\$values}}\ =\ \$token-\/>getValues();}
+\DoxyCodeLine{}
+\DoxyCodeLine{\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\$jwt}}\ =\ \mbox{\hyperlink{report_8contract_8php_affc45c6ace2eeb3f300b054dbf9592b6}{\$values}}[\textcolor{stringliteral}{'id\_token'}];}
+
+\end{DoxyCode}
+
+
+Parsing the JWT will require a \href{https://packagist.org/search/?q=jwt}{\texttt{ JWT parser}}. Refer to parser documentation for instructions.\hypertarget{md_public_2glpi_2vendor_2league_2oauth2-google_2_r_e_a_d_m_e_autotoc_md6752}{}\doxysubsection{\texorpdfstring{Refreshing a Token}{Refreshing a Token}}\label{md_public_2glpi_2vendor_2league_2oauth2-google_2_r_e_a_d_m_e_autotoc_md6752}
+Refresh tokens are only provided to applications which request offline access. You can specify offline access by setting the {\ttfamily access\+Type} option in your provider\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{use}}\ \mbox{\hyperlink{class_league_1_1_o_auth2_1_1_client_1_1_provider_1_1_google}{League\(\backslash\)OAuth2\(\backslash\)Client\(\backslash\)Provider\(\backslash\)Google}};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\$provider\ =\ \textcolor{keyword}{new}\ Google([}
+\DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{'clientId'}\ \ \ \ \ =>\ \textcolor{stringliteral}{'\{google-\/client-\/id\}'},}
+\DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{'clientSecret'}\ =>\ \textcolor{stringliteral}{'\{google-\/client-\/secret\}'},}
+\DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{'redirectUri'}\ \ =>\ \textcolor{stringliteral}{'https://example.com/callback-\/url'},}
+\DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{'accessType'}\ \ \ =>\ \textcolor{stringliteral}{'offline'},}
+\DoxyCodeLine{]);}
+
+\end{DoxyCode}
+
+
+It is important to note that the refresh token is only returned on the first request after this it will be {\ttfamily null}. You should securely store the refresh token when it is returned\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\$token\ =\ \$provider-\/>getAccessToken(\textcolor{stringliteral}{'authorization\_code'},\ [}
+\DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{'code'}\ =>\ \$code}
+\DoxyCodeLine{]);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ persist\ the\ token\ in\ a\ database}}
+\DoxyCodeLine{\$refreshToken\ =\ \$token-\/>getRefreshToken();}
+
+\end{DoxyCode}
+
+
+If you ever need to get a new refresh token you can request one by forcing the consent prompt\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\$authUrl}}\ =\ \$provider-\/>getAuthorizationUrl([\textcolor{stringliteral}{'prompt'}\ =>\ \textcolor{stringliteral}{'consent'}]);}
+
+\end{DoxyCode}
+
+
+Now you have everything you need to refresh an access token using a refresh token\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{use}}\ \mbox{\hyperlink{class_league_1_1_o_auth2_1_1_client_1_1_provider_1_1_google}{League\(\backslash\)OAuth2\(\backslash\)Client\(\backslash\)Provider\(\backslash\)Google}};}
+\DoxyCodeLine{\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{use}}\ \mbox{\hyperlink{class_league_1_1_o_auth2_1_1_client_1_1_grant_1_1_refresh_token}{League\(\backslash\)OAuth2\(\backslash\)Client\(\backslash\)Grant\(\backslash\)RefreshToken}};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\$provider\ =\ \textcolor{keyword}{new}\ Google([}
+\DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{'clientId'}\ \ \ \ \ =>\ \textcolor{stringliteral}{'\{google-\/client-\/id\}'},}
+\DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{'clientSecret'}\ =>\ \textcolor{stringliteral}{'\{google-\/client-\/secret\}'},}
+\DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{'redirectUri'}\ \ =>\ \textcolor{stringliteral}{'https://example.com/callback-\/url'},}
+\DoxyCodeLine{]);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\$grant}}\ =\ \textcolor{keyword}{new}\ RefreshToken();}
+\DoxyCodeLine{\$token\ =\ \$provider-\/>getAccessToken(\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\$grant}},\ [\textcolor{stringliteral}{'refresh\_token'}\ =>\ \$refreshToken]);}
+
+\end{DoxyCode}
+\hypertarget{md_public_2glpi_2vendor_2league_2oauth2-google_2_r_e_a_d_m_e_autotoc_md6753}{}\doxysection{\texorpdfstring{Scopes}{Scopes}}\label{md_public_2glpi_2vendor_2league_2oauth2-google_2_r_e_a_d_m_e_autotoc_md6753}
+Additional \href{https://developers.google.com/identity/protocols/googlescopes}{\texttt{ scopes}} can be set by using the {\ttfamily scope} parameter when generating the authorization URL\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\$authorizationUrl}}\ =\ \$provider-\/>getAuthorizationUrl([}
+\DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{'scope'}\ =>\ [}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{'scope-\/url-\/here'}}
+\DoxyCodeLine{\ \ \ \ ],}
+\DoxyCodeLine{]);}
+
+\end{DoxyCode}
+\hypertarget{md_public_2glpi_2vendor_2league_2oauth2-google_2_r_e_a_d_m_e_autotoc_md6754}{}\doxysection{\texorpdfstring{Testing}{Testing}}\label{md_public_2glpi_2vendor_2league_2oauth2-google_2_r_e_a_d_m_e_autotoc_md6754}
+\doxylink{namespace_tests}{Tests} can be run with\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{composer\ test}
+
+\end{DoxyCode}
+
+
+Style checks can be run with\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{composer\ check}
+
+\end{DoxyCode}
+\hypertarget{md_public_2glpi_2vendor_2league_2oauth2-google_2_r_e_a_d_m_e_autotoc_md6755}{}\doxysection{\texorpdfstring{Contributing}{Contributing}}\label{md_public_2glpi_2vendor_2league_2oauth2-google_2_r_e_a_d_m_e_autotoc_md6755}
+Please see \href{https://github.com/thephpleague/oauth2-google/blob/master/CONTRIBUTING.md}{\texttt{ CONTRIBUTING}} for details.\hypertarget{md_public_2glpi_2vendor_2league_2oauth2-google_2_r_e_a_d_m_e_autotoc_md6756}{}\doxysection{\texorpdfstring{Credits}{Credits}}\label{md_public_2glpi_2vendor_2league_2oauth2-google_2_r_e_a_d_m_e_autotoc_md6756}
+
+\begin{DoxyItemize}
+\item \href{https://github.com/shadowhand}{\texttt{ Woody Gilk}}
+\item \href{https://github.com/thephpleague/oauth2-google/contributors}{\texttt{ All Contributors}}
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2league_2oauth2-google_2_r_e_a_d_m_e_autotoc_md6757}{}\doxysection{\texorpdfstring{License}{License}}\label{md_public_2glpi_2vendor_2league_2oauth2-google_2_r_e_a_d_m_e_autotoc_md6757}
+The MIT License (MIT). Please see \href{https://github.com/thephpleague/oauth2-google/blob/master/LICENSE}{\texttt{ License File}} for more information. 

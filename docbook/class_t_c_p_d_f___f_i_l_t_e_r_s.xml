@@ -1,0 +1,663 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_t_c_p_d_f___f_i_l_t_e_r_s" xml:lang="fr">
+<title>Référence de la classe TCPDF_FILTERS</title>
+<indexterm><primary>TCPDF_FILTERS</primary></indexterm>
+Graphe de collaboration de TCPDF_FILTERS:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_t_c_p_d_f___f_i_l_t_e_r_s__coll__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Fonctions membres publiques statiques    </title>
+        <itemizedlist>
+            <listitem><para>static <link linkend="_class_t_c_p_d_f___f_i_l_t_e_r_s_1a3ddb7c305e2f1e11a2f867db7e42671e">getAvailableFilters</link> ()</para>
+</listitem>
+            <listitem><para>static <link linkend="_class_t_c_p_d_f___f_i_l_t_e_r_s_1a7e7b32fcc7fcb78f3ad6ed7d1bfad1bc">decodeFilter</link> ($filter, $data)</para>
+</listitem>
+            <listitem><para>static <link linkend="_class_t_c_p_d_f___f_i_l_t_e_r_s_1a915b7e15970ef51a8433563a0cb3c187">decodeFilterStandard</link> ($data)</para>
+</listitem>
+            <listitem><para>static <link linkend="_class_t_c_p_d_f___f_i_l_t_e_r_s_1a21a7e761faa72e1e2b9c97ad6f02af19">decodeFilterASCIIHexDecode</link> ($data)</para>
+</listitem>
+            <listitem><para>static <link linkend="_class_t_c_p_d_f___f_i_l_t_e_r_s_1abd5687e1c93431e5d54dce1acfcede87">decodeFilterASCII85Decode</link> ($data)</para>
+</listitem>
+            <listitem><para>static <link linkend="_class_t_c_p_d_f___f_i_l_t_e_r_s_1a01cbcf53e3c75df57d4393733de15982">decodeFilterLZWDecode</link> ($data)</para>
+</listitem>
+            <listitem><para>static <link linkend="_class_t_c_p_d_f___f_i_l_t_e_r_s_1a035fdb6b6187c0c96de3e6913e5aedbf">decodeFilterFlateDecode</link> ($data)</para>
+</listitem>
+            <listitem><para>static <link linkend="_class_t_c_p_d_f___f_i_l_t_e_r_s_1af8af96beb059b1c2b9a7c6a9ae2fa7c8">decodeFilterRunLengthDecode</link> ($data)</para>
+</listitem>
+            <listitem><para>static <link linkend="_class_t_c_p_d_f___f_i_l_t_e_r_s_1aed391f37c42f980dc72345ef295526ab">decodeFilterCCITTFaxDecode</link> ($data)</para>
+</listitem>
+            <listitem><para>static <link linkend="_class_t_c_p_d_f___f_i_l_t_e_r_s_1a4e7046190a02fb9612c341d795bab053">decodeFilterJBIG2Decode</link> ($data)</para>
+</listitem>
+            <listitem><para>static <link linkend="_class_t_c_p_d_f___f_i_l_t_e_r_s_1a046b2c3ce43a0378a5f00cc6dfbbfe3a">decodeFilterDCTDecode</link> ($data)</para>
+</listitem>
+            <listitem><para>static <link linkend="_class_t_c_p_d_f___f_i_l_t_e_r_s_1a25fb041645c9112105fb4f6806a04606">decodeFilterJPXDecode</link> ($data)</para>
+</listitem>
+            <listitem><para>static <link linkend="_class_t_c_p_d_f___f_i_l_t_e_r_s_1a51df42092ba860246177e91865a64ae2">decodeFilterCrypt</link> ($data)</para>
+</listitem>
+            <listitem><para>static <link linkend="_class_t_c_p_d_f___f_i_l_t_e_r_s_1a762c47cb004c316aafd87de9df7e6ef9">Error</link> ($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">msg</link>)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Description détaillée</title>
+
+<para>This is a PHP class for decoding common PDF filters (PDF 32000-2008 - 7.4 Filters).<?linebreak?> </para>
+</section>
+<section>
+<title>Documentation des fonctions membres</title>
+<anchor xml:id="_class_t_c_p_d_f___f_i_l_t_e_r_s_1a7e7b32fcc7fcb78f3ad6ed7d1bfad1bc"/><section>
+    <title>decodeFilter()</title>
+<indexterm><primary>decodeFilter</primary><secondary>TCPDF_FILTERS</secondary></indexterm>
+<indexterm><primary>TCPDF_FILTERS</primary><secondary>decodeFilter</secondary></indexterm>
+<para><computeroutput>static decodeFilter ( $filter,  $data)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>Decode data using the specified filter type. 
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$filter</entry><entry>
+<para>Filter name. </para>
+</entry>
+                            </row>
+                            <row>
+<entry>string</entry><entry>$data</entry><entry>
+<para>Data to decode. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>string Decoded data string. </para>
+</formalpara>
+<formalpara><title>Depuis</title>
+
+<para>1.0.000 (2011-05-23) static </para>
+</formalpara>
+</para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_t_c_p_d_f___f_i_l_t_e_r_s_a7e7b32fcc7fcb78f3ad6ed7d1bfad1bc_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_t_c_p_d_f___f_i_l_t_e_r_s_a7e7b32fcc7fcb78f3ad6ed7d1bfad1bc_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_t_c_p_d_f___f_i_l_t_e_r_s_1abd5687e1c93431e5d54dce1acfcede87"/><section>
+    <title>decodeFilterASCII85Decode()</title>
+<indexterm><primary>decodeFilterASCII85Decode</primary><secondary>TCPDF_FILTERS</secondary></indexterm>
+<indexterm><primary>TCPDF_FILTERS</primary><secondary>decodeFilterASCII85Decode</secondary></indexterm>
+<para><computeroutput>static decodeFilterASCII85Decode ( $data)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>ASCII85Decode Decodes data encoded in an ASCII base-85 representation, reproducing the original binary data. 
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$data</entry><entry>
+<para>Data to decode. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>string Decoded data string. </para>
+</formalpara>
+<formalpara><title>Depuis</title>
+
+<para>1.0.000 (2011-05-23) static </para>
+</formalpara>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_t_c_p_d_f___f_i_l_t_e_r_s_abd5687e1c93431e5d54dce1acfcede87_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_t_c_p_d_f___f_i_l_t_e_r_s_1a21a7e761faa72e1e2b9c97ad6f02af19"/><section>
+    <title>decodeFilterASCIIHexDecode()</title>
+<indexterm><primary>decodeFilterASCIIHexDecode</primary><secondary>TCPDF_FILTERS</secondary></indexterm>
+<indexterm><primary>TCPDF_FILTERS</primary><secondary>decodeFilterASCIIHexDecode</secondary></indexterm>
+<para><computeroutput>static decodeFilterASCIIHexDecode ( $data)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>ASCIIHexDecode Decodes data encoded in an ASCII hexadecimal representation, reproducing the original binary data. 
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$data</entry><entry>
+<para>Data to decode. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>string Decoded data string. </para>
+</formalpara>
+<formalpara><title>Depuis</title>
+
+<para>1.0.000 (2011-05-23) static </para>
+</formalpara>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_t_c_p_d_f___f_i_l_t_e_r_s_a21a7e761faa72e1e2b9c97ad6f02af19_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_t_c_p_d_f___f_i_l_t_e_r_s_1aed391f37c42f980dc72345ef295526ab"/><section>
+    <title>decodeFilterCCITTFaxDecode()</title>
+<indexterm><primary>decodeFilterCCITTFaxDecode</primary><secondary>TCPDF_FILTERS</secondary></indexterm>
+<indexterm><primary>TCPDF_FILTERS</primary><secondary>decodeFilterCCITTFaxDecode</secondary></indexterm>
+<para><computeroutput>static decodeFilterCCITTFaxDecode ( $data)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>CCITTFaxDecode (NOT IMPLEMETED - RETURN AN EXCEPTION) Decompresses data encoded using the CCITT facsimile standard, reproducing the original data (typically monochrome image data at 1 bit per pixel). 
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$data</entry><entry>
+<para>Data to decode. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>string Decoded data string. </para>
+</formalpara>
+<formalpara><title>Depuis</title>
+
+<para>1.0.000 (2011-05-23) static </para>
+</formalpara>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_t_c_p_d_f___f_i_l_t_e_r_s_aed391f37c42f980dc72345ef295526ab_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_t_c_p_d_f___f_i_l_t_e_r_s_1a51df42092ba860246177e91865a64ae2"/><section>
+    <title>decodeFilterCrypt()</title>
+<indexterm><primary>decodeFilterCrypt</primary><secondary>TCPDF_FILTERS</secondary></indexterm>
+<indexterm><primary>TCPDF_FILTERS</primary><secondary>decodeFilterCrypt</secondary></indexterm>
+<para><computeroutput>static decodeFilterCrypt ( $data)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>Crypt (NOT IMPLEMETED - RETURN AN EXCEPTION) Decrypts data encrypted by a security handler, reproducing the data as it was before encryption. 
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$data</entry><entry>
+<para>Data to decode. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>string Decoded data string. </para>
+</formalpara>
+<formalpara><title>Depuis</title>
+
+<para>1.0.000 (2011-05-23) static </para>
+</formalpara>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_t_c_p_d_f___f_i_l_t_e_r_s_a51df42092ba860246177e91865a64ae2_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_t_c_p_d_f___f_i_l_t_e_r_s_1a046b2c3ce43a0378a5f00cc6dfbbfe3a"/><section>
+    <title>decodeFilterDCTDecode()</title>
+<indexterm><primary>decodeFilterDCTDecode</primary><secondary>TCPDF_FILTERS</secondary></indexterm>
+<indexterm><primary>TCPDF_FILTERS</primary><secondary>decodeFilterDCTDecode</secondary></indexterm>
+<para><computeroutput>static decodeFilterDCTDecode ( $data)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>DCTDecode (NOT IMPLEMETED - RETURN AN EXCEPTION) Decompresses data encoded using a DCT (discrete cosine transform) technique based on the JPEG standard, reproducing image sample data that approximates the original data. 
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$data</entry><entry>
+<para>Data to decode. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>string Decoded data string. </para>
+</formalpara>
+<formalpara><title>Depuis</title>
+
+<para>1.0.000 (2011-05-23) static </para>
+</formalpara>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_t_c_p_d_f___f_i_l_t_e_r_s_a046b2c3ce43a0378a5f00cc6dfbbfe3a_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_t_c_p_d_f___f_i_l_t_e_r_s_1a035fdb6b6187c0c96de3e6913e5aedbf"/><section>
+    <title>decodeFilterFlateDecode()</title>
+<indexterm><primary>decodeFilterFlateDecode</primary><secondary>TCPDF_FILTERS</secondary></indexterm>
+<indexterm><primary>TCPDF_FILTERS</primary><secondary>decodeFilterFlateDecode</secondary></indexterm>
+<para><computeroutput>static decodeFilterFlateDecode ( $data)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>FlateDecode Decompresses data encoded using the zlib/deflate compression method, reproducing the original text or binary data. 
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$data</entry><entry>
+<para>Data to decode. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>string Decoded data string. </para>
+</formalpara>
+<formalpara><title>Depuis</title>
+
+<para>1.0.000 (2011-05-23) static </para>
+</formalpara>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_t_c_p_d_f___f_i_l_t_e_r_s_a035fdb6b6187c0c96de3e6913e5aedbf_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_t_c_p_d_f___f_i_l_t_e_r_s_1a4e7046190a02fb9612c341d795bab053"/><section>
+    <title>decodeFilterJBIG2Decode()</title>
+<indexterm><primary>decodeFilterJBIG2Decode</primary><secondary>TCPDF_FILTERS</secondary></indexterm>
+<indexterm><primary>TCPDF_FILTERS</primary><secondary>decodeFilterJBIG2Decode</secondary></indexterm>
+<para><computeroutput>static decodeFilterJBIG2Decode ( $data)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>JBIG2Decode (NOT IMPLEMETED - RETURN AN EXCEPTION) Decompresses data encoded using the JBIG2 standard, reproducing the original monochrome (1 bit per pixel) image data (or an approximation of that data). 
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$data</entry><entry>
+<para>Data to decode. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>string Decoded data string. </para>
+</formalpara>
+<formalpara><title>Depuis</title>
+
+<para>1.0.000 (2011-05-23) static </para>
+</formalpara>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_t_c_p_d_f___f_i_l_t_e_r_s_a4e7046190a02fb9612c341d795bab053_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_t_c_p_d_f___f_i_l_t_e_r_s_1a25fb041645c9112105fb4f6806a04606"/><section>
+    <title>decodeFilterJPXDecode()</title>
+<indexterm><primary>decodeFilterJPXDecode</primary><secondary>TCPDF_FILTERS</secondary></indexterm>
+<indexterm><primary>TCPDF_FILTERS</primary><secondary>decodeFilterJPXDecode</secondary></indexterm>
+<para><computeroutput>static decodeFilterJPXDecode ( $data)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>JPXDecode (NOT IMPLEMETED - RETURN AN EXCEPTION) Decompresses data encoded using the wavelet-based JPEG2000 standard, reproducing the original image data. 
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$data</entry><entry>
+<para>Data to decode. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>string Decoded data string. </para>
+</formalpara>
+<formalpara><title>Depuis</title>
+
+<para>1.0.000 (2011-05-23) static </para>
+</formalpara>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_t_c_p_d_f___f_i_l_t_e_r_s_a25fb041645c9112105fb4f6806a04606_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_t_c_p_d_f___f_i_l_t_e_r_s_1a01cbcf53e3c75df57d4393733de15982"/><section>
+    <title>decodeFilterLZWDecode()</title>
+<indexterm><primary>decodeFilterLZWDecode</primary><secondary>TCPDF_FILTERS</secondary></indexterm>
+<indexterm><primary>TCPDF_FILTERS</primary><secondary>decodeFilterLZWDecode</secondary></indexterm>
+<para><computeroutput>static decodeFilterLZWDecode ( $data)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>LZWDecode Decompresses data encoded using the LZW (Lempel-Ziv-Welch) adaptive compression method, reproducing the original text or binary data. 
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$data</entry><entry>
+<para>Data to decode. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>string Decoded data string. </para>
+</formalpara>
+<formalpara><title>Depuis</title>
+
+<para>1.0.000 (2011-05-23) static </para>
+</formalpara>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_t_c_p_d_f___f_i_l_t_e_r_s_a01cbcf53e3c75df57d4393733de15982_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_t_c_p_d_f___f_i_l_t_e_r_s_1af8af96beb059b1c2b9a7c6a9ae2fa7c8"/><section>
+    <title>decodeFilterRunLengthDecode()</title>
+<indexterm><primary>decodeFilterRunLengthDecode</primary><secondary>TCPDF_FILTERS</secondary></indexterm>
+<indexterm><primary>TCPDF_FILTERS</primary><secondary>decodeFilterRunLengthDecode</secondary></indexterm>
+<para><computeroutput>static decodeFilterRunLengthDecode ( $data)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>RunLengthDecode Decompresses data encoded using a byte-oriented run-length encoding algorithm. 
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$data</entry><entry>
+<para>Data to decode. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Depuis</title>
+
+<para>1.0.000 (2011-05-23) static </para>
+</formalpara>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_t_c_p_d_f___f_i_l_t_e_r_s_af8af96beb059b1c2b9a7c6a9ae2fa7c8_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_t_c_p_d_f___f_i_l_t_e_r_s_1a915b7e15970ef51a8433563a0cb3c187"/><section>
+    <title>decodeFilterStandard()</title>
+<indexterm><primary>decodeFilterStandard</primary><secondary>TCPDF_FILTERS</secondary></indexterm>
+<indexterm><primary>TCPDF_FILTERS</primary><secondary>decodeFilterStandard</secondary></indexterm>
+<para><computeroutput>static decodeFilterStandard ( $data)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>Standard Default decoding filter (leaves data unchanged). 
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$data</entry><entry>
+<para>Data to decode. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>string Decoded data string. </para>
+</formalpara>
+<formalpara><title>Depuis</title>
+
+<para>1.0.000 (2011-05-23) static </para>
+</formalpara>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_t_c_p_d_f___f_i_l_t_e_r_s_a915b7e15970ef51a8433563a0cb3c187_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_t_c_p_d_f___f_i_l_t_e_r_s_1a762c47cb004c316aafd87de9df7e6ef9"/><section>
+    <title>Error()</title>
+<indexterm><primary>Error</primary><secondary>TCPDF_FILTERS</secondary></indexterm>
+<indexterm><primary>TCPDF_FILTERS</primary><secondary>Error</secondary></indexterm>
+<para><computeroutput>static Error ( $msg)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>Throw an exception. 
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$msg</entry><entry>
+<para>The error message </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Depuis</title>
+
+<para>1.0.000 (2011-05-23) static </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_class_t_c_p_d_f___f_i_l_t_e_r_s_1a3ddb7c305e2f1e11a2f867db7e42671e"/><section>
+    <title>getAvailableFilters()</title>
+<indexterm><primary>getAvailableFilters</primary><secondary>TCPDF_FILTERS</secondary></indexterm>
+<indexterm><primary>TCPDF_FILTERS</primary><secondary>getAvailableFilters</secondary></indexterm>
+<para><computeroutput>static getAvailableFilters ( )<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>Get a list of available decoding filters. <formalpara><title>Renvoie</title>
+
+<para>array Array of available filter decoders. </para>
+</formalpara>
+<formalpara><title>Depuis</title>
+
+<para>1.0.000 (2011-05-23) static </para>
+</formalpara>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_t_c_p_d_f___f_i_l_t_e_r_s_a3ddb7c305e2f1e11a2f867db7e42671e_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<para>
+La documentation de cette classe a été générée à partir du fichier suivant :</para>
+public/glpi/vendor/tecnickcom/tcpdf/include/<link linkend="_tcpdf__filters_8php">tcpdf_filters.php</link></section>
+</section>

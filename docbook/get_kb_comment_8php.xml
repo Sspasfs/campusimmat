@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_get_kb_comment_8php" xml:lang="fr">
+<title>Référence du fichier public/glpi/ajax/getKbComment.php</title>
+<indexterm><primary>public/glpi/ajax/getKbComment.php</primary></indexterm>
+<simplesect>
+    <title>Variables    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_dropdown_location_8php_1a52332c22f84432520971794825a5a8e7">if</link>(!<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">isset</link>($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">_POST</link>[&apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">kbitem_id</link>&apos;])) <link linkend="_get_kb_comment_8php_1a2845c5a5bedc93812f5ac7287dddc1d7">$item</link> = <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">new</link> \<link linkend="_class_knowbase_item">KnowbaseItem</link>()</para>
+</listitem>
+            <listitem><para><link linkend="_dropdown_location_8php_1a52332c22f84432520971794825a5a8e7">if</link>(! $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">item</link>-&gt;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">getFromDB</link>($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">_POST</link>[&apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">kbitem_id</link>&apos;])||! $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">item</link>-&gt;can($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">_POST</link>[&apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">kbitem_id</link>&apos;], <link linkend="_define_8php_1add302975378da047de904daa059a332b">READ</link>)) <link linkend="_get_kb_comment_8php_1a2241d799149e363839758afae6fc4dd0">$kbitem_id</link> = $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">_POST</link>[&apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">kbitem_id</link>&apos;]</para>
+</listitem>
+            <listitem><para><link linkend="_get_kb_comment_8php_1a7714b111b644017933931ec69a154102">$lang</link> = $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">_POST</link>[&apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">language</link>&apos;] ?? null</para>
+</listitem>
+            <listitem><para><link linkend="_get_kb_comment_8php_1a5b4e1531e369399faa047daed66816e7">$edit</link> = $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">_POST</link>[&apos;edit&apos;] ?? false</para>
+</listitem>
+            <listitem><para><link linkend="_get_kb_comment_8php_1a86a4ed007fea6e46a9ef9f7a68c91a61">$answer</link> = $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">_POST</link>[&apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">answer</link>&apos;] ?? false</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Documentation des variables</title>
+<anchor xml:id="_get_kb_comment_8php_1a86a4ed007fea6e46a9ef9f7a68c91a61"/><section>
+    <title>$answer</title>
+<indexterm><primary>$answer</primary><secondary>getKbComment.php</secondary></indexterm>
+<indexterm><primary>getKbComment.php</primary><secondary>$answer</secondary></indexterm>
+<para><computeroutput>$<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">answer</link> = $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">_POST</link>[&apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">answer</link>&apos;] ?? false</computeroutput></para></section>
+<anchor xml:id="_get_kb_comment_8php_1a5b4e1531e369399faa047daed66816e7"/><section>
+    <title>$edit</title>
+<indexterm><primary>$edit</primary><secondary>getKbComment.php</secondary></indexterm>
+<indexterm><primary>getKbComment.php</primary><secondary>$edit</secondary></indexterm>
+<para><computeroutput>$edit = $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">_POST</link>[&apos;edit&apos;] ?? false</computeroutput></para></section>
+<anchor xml:id="_get_kb_comment_8php_1a2845c5a5bedc93812f5ac7287dddc1d7"/><section>
+    <title>$item</title>
+<indexterm><primary>$item</primary><secondary>getKbComment.php</secondary></indexterm>
+<indexterm><primary>getKbComment.php</primary><secondary>$item</secondary></indexterm>
+<para><computeroutput><link linkend="_dropdown_location_8php_1a52332c22f84432520971794825a5a8e7">if</link> (!<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">isset</link>( $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">_POST</link>[ &apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">kbitem_id</link>&apos;])) $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">item</link> = <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">new</link> \<link linkend="_class_knowbase_item">KnowbaseItem</link>()</computeroutput></para></section>
+<anchor xml:id="_get_kb_comment_8php_1a2241d799149e363839758afae6fc4dd0"/><section>
+    <title>$kbitem_id</title>
+<indexterm><primary>$kbitem_id</primary><secondary>getKbComment.php</secondary></indexterm>
+<indexterm><primary>getKbComment.php</primary><secondary>$kbitem_id</secondary></indexterm>
+<para><computeroutput><link linkend="_dropdown_location_8php_1a52332c22f84432520971794825a5a8e7">if</link> (! $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">item</link>-&gt;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">getFromDB</link>( $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">_POST</link>[ &apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">kbitem_id</link>&apos;])||! $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">item</link>-&gt;can( $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">_POST</link>[ &apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">kbitem_id</link>&apos;], <link linkend="_define_8php_1add302975378da047de904daa059a332b">READ</link>)) $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">kbitem_id</link> = $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">_POST</link>[&apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">kbitem_id</link>&apos;]</computeroutput></para></section>
+<anchor xml:id="_get_kb_comment_8php_1a7714b111b644017933931ec69a154102"/><section>
+    <title>$lang</title>
+<indexterm><primary>$lang</primary><secondary>getKbComment.php</secondary></indexterm>
+<indexterm><primary>getKbComment.php</primary><secondary>$lang</secondary></indexterm>
+<para><computeroutput>$lang = $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">_POST</link>[&apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">language</link>&apos;] ?? null</computeroutput></para></section>
+</section>
+</section>

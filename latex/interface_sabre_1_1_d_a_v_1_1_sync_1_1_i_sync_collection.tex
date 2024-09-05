@@ -1,0 +1,145 @@
+\doxysection{Référence de l\textquotesingle{}interface ISync\+Collection}
+\hypertarget{interface_sabre_1_1_d_a_v_1_1_sync_1_1_i_sync_collection}{}\label{interface_sabre_1_1_d_a_v_1_1_sync_1_1_i_sync_collection}\index{ISyncCollection@{ISyncCollection}}
+
+
+Graphe d\textquotesingle{}héritage de ISync\+Collection\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{interface_sabre_1_1_d_a_v_1_1_sync_1_1_i_sync_collection__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Graphe de collaboration de ISync\+Collection\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=209pt]{interface_sabre_1_1_d_a_v_1_1_sync_1_1_i_sync_collection__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_sync_1_1_i_sync_collection_a88cf40715fea416e00bc445278bc704b}{get\+Sync\+Token}} ()
+\item 
+\mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_sync_1_1_i_sync_collection_ae443d6cda9d7e33376af53e57a7c2294}{get\+Changes}} (\$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{sync\+Token}}, \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{sync\+Level}}, \$limit=null)
+\end{DoxyCompactItemize}
+\doxysubsection*{Fonctions membres publiques hérités de \mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_i_collection}{ICollection}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_i_collection_a4135c8ffb4787bd20d7409ad699d8e0d}{create\+File}} (\$name, \$data=null)
+\item 
+\mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_i_collection_ad2c87f2e1012d1860d1d343a9ee54fa1}{create\+Directory}} (\$name)
+\item 
+\mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_i_collection_a1cfdba129d25b04b73af8290f58ba7c1}{get\+Child}} (\$name)
+\item 
+\mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_i_collection_a8650a4f6150ed357d88fa043f1685ac5}{get\+Children}} ()
+\item 
+\mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_i_collection_a9c5c664f8f1e4a514235a31837de9988}{child\+Exists}} (\$name)
+\end{DoxyCompactItemize}
+\doxysubsection*{Fonctions membres publiques hérités de \mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_i_node}{INode}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_i_node_a13bdffdd926f26b825ea57066334ff01}{delete}} ()
+\item 
+\mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_i_node_a3d0963e68bb313b163a73f2803c64600}{get\+Name}} ()
+\item 
+\mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_i_node_a2fe666694997d047711d7653eca2f132}{set\+Name}} (\$name)
+\item 
+\mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_i_node_aa388e2fda4fe702e8953c1a731868f18}{get\+Last\+Modified}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+If a class extends ISync\+Collection, it supports Web\+DAV-\/sync.
+
+You are responsible for maintaining a changelist for this collection. This means that if any child nodes in this collection was created, modified or deleted in any way, you should maintain an updated changelist.
+
+\begin{DoxyCopyright}{Copyright}
+Copyright (C) fruux GmbH (\href{https://fruux.com/}{\texttt{ https\+://fruux.\+com/}}) 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Auteur}
+Evert Pot (\href{http://evertpot.com/}{\texttt{ http\+://evertpot.\+com/}}) @license \href{http://sabre.io/license/}{\texttt{ http\+://sabre.\+io/license/}} Modified BSD License 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Documentation des fonctions membres}
+\Hypertarget{interface_sabre_1_1_d_a_v_1_1_sync_1_1_i_sync_collection_ae443d6cda9d7e33376af53e57a7c2294}\label{interface_sabre_1_1_d_a_v_1_1_sync_1_1_i_sync_collection_ae443d6cda9d7e33376af53e57a7c2294} 
+\index{ISyncCollection@{ISyncCollection}!getChanges@{getChanges}}
+\index{getChanges@{getChanges}!ISyncCollection@{ISyncCollection}}
+\doxysubsubsection{\texorpdfstring{getChanges()}{getChanges()}}
+{\footnotesize\ttfamily get\+Changes (\begin{DoxyParamCaption}\item[{}]{\$sync\+Token,  }\item[{}]{\$sync\+Level,  }\item[{}]{\$limit = {\ttfamily null} }\end{DoxyParamCaption})}
+
+The get\+Changes method returns all the changes that have happened, since the specified sync\+Token and the current collection.
+
+This function should return an array, such as the following\+:
+
+\mbox{[} \textquotesingle{}sync\+Token\textquotesingle{} =\texorpdfstring{$>$}{>} \textquotesingle{}The current synctoken\textquotesingle{}, \textquotesingle{}added\textquotesingle{} =\texorpdfstring{$>$}{>} \mbox{[} \textquotesingle{}new.\+txt\textquotesingle{}, \mbox{]}, \textquotesingle{}modified\textquotesingle{} =\texorpdfstring{$>$}{>} \mbox{[} \textquotesingle{}modified.\+txt\textquotesingle{}, \mbox{]}, \textquotesingle{}deleted\textquotesingle{} =\texorpdfstring{$>$}{>} array( \textquotesingle{}foo.\+php.\+bak\textquotesingle{}, \textquotesingle{}old.\+txt\textquotesingle{} ) \mbox{]};
+
+The sync\+Token property should reflect the {\itshape current} sync\+Token of the collection, as reported get\+Sync\+Token(). This is needed here too, to ensure the operation is atomic.
+
+If the sync\+Token is specified as null, this is an initial sync, and all members should be reported.
+
+The modified property is an array of nodenames that have changed since the last token.
+
+The deleted property is an array with nodenames, that have been deleted from collection.
+
+The second argument is basically the \textquotesingle{}depth\textquotesingle{} of the report. If it\textquotesingle{}s 1, you only have to report changes that happened only directly in immediate descendants. If it\textquotesingle{}s 2, it should also include changes from the nodes below the child collections. (grandchildren)
+
+The third (optional) argument allows a client to specify how many results should be returned at most. If the limit is not specified, it should be treated as infinite.
+
+If the limit (infinite or not) is higher than you\textquotesingle{}re willing to return, you should throw a Sabre\textbackslash{}\+DAV\textbackslash{}\+Exception\textbackslash{}\+Too\+Much\+Matches() exception.
+
+If the sync\+Token is expired (due to data cleanup) or unknown, you must return null.
+
+The limit is \textquotesingle{}suggestive\textquotesingle{}. You are free to ignore it.
+
+
+\begin{DoxyParams}[1]{Paramètres}
+string & {\em \$sync\+Token} & \\
+\hline
+int & {\em \$sync\+Level} & \\
+\hline
+int & {\em \$limit} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+array 
+\end{DoxyReturn}
+
+
+Implémenté dans \mbox{\hyperlink{class_sabre_1_1_cal_d_a_v_1_1_calendar_ae443d6cda9d7e33376af53e57a7c2294}{Calendar}}, et \mbox{\hyperlink{class_sabre_1_1_card_d_a_v_1_1_address_book_ae443d6cda9d7e33376af53e57a7c2294}{Address\+Book}}.
+
+\Hypertarget{interface_sabre_1_1_d_a_v_1_1_sync_1_1_i_sync_collection_a88cf40715fea416e00bc445278bc704b}\label{interface_sabre_1_1_d_a_v_1_1_sync_1_1_i_sync_collection_a88cf40715fea416e00bc445278bc704b} 
+\index{ISyncCollection@{ISyncCollection}!getSyncToken@{getSyncToken}}
+\index{getSyncToken@{getSyncToken}!ISyncCollection@{ISyncCollection}}
+\doxysubsubsection{\texorpdfstring{getSyncToken()}{getSyncToken()}}
+{\footnotesize\ttfamily get\+Sync\+Token (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+This method returns the current sync-\/token for this collection. This can be any string.
+
+If null is returned from this function, the plugin assumes there\textquotesingle{}s no sync information available.
+
+\begin{DoxyReturn}{Renvoie}
+string\texorpdfstring{$\vert$}{|}null 
+\end{DoxyReturn}
+
+
+Implémenté dans \mbox{\hyperlink{class_sabre_1_1_cal_d_a_v_1_1_calendar_a88cf40715fea416e00bc445278bc704b}{Calendar}}, et \mbox{\hyperlink{class_sabre_1_1_card_d_a_v_1_1_address_book_a88cf40715fea416e00bc445278bc704b}{Address\+Book}}.
+
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=315pt]{interface_sabre_1_1_d_a_v_1_1_sync_1_1_i_sync_collection_a88cf40715fea416e00bc445278bc704b_icgraph}
+\end{center}
+\end{figure}
+
+
+La documentation de cette interface a été générée à partir du fichier suivant \+:\begin{DoxyCompactItemize}
+\item 
+public/glpi/vendor/sabre/dav/lib/\+DAV/\+Sync/\mbox{\hyperlink{_i_sync_collection_8php}{ISync\+Collection.\+php}}\end{DoxyCompactItemize}

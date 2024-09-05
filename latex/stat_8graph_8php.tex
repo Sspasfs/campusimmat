@@ -1,0 +1,148 @@
+\doxysection{Référence du fichier public/glpi/front/stat.graph.\+php}
+\hypertarget{stat_8graph_8php}{}\label{stat_8graph_8php}\index{public/glpi/front/stat.graph.php@{public/glpi/front/stat.graph.php}}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{global}} \mbox{\hyperlink{stat_8graph_8php_a2e00a61703ee4673cdfb5eb376a9b295}{\$\+CFG\+\_\+\+GLPI}}
+\item 
+\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{global}} \mbox{\hyperlink{stat_8graph_8php_a56f6c6070edb21a35cfa9e1df79ba61c}{\$\+DB}}
+\item 
+\mbox{\hyperlink{dropdown_location_8php_a52332c22f84432520971794825a5a8e7}{if}}(! \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{item}}=\mbox{\hyperlink{db_8function_8php_a5bb7668a0ab5705035e0608178fabcba}{get\+Item\+For\+Itemtype}}( \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\+\_\+\+GET}}\mbox{[} \textquotesingle{}\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{itemtype}}\textquotesingle{}\mbox{]})) \mbox{\hyperlink{get_user_picture_8php_a0df27c645324b72eaf7093e10f310670}{foreach}}(\mbox{[}\textquotesingle{}\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{date1}}\textquotesingle{}, \textquotesingle{}\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{date2}}\textquotesingle{}\mbox{]} \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{as}} \$key) \mbox{\hyperlink{dropdown_location_8php_a52332c22f84432520971794825a5a8e7}{if}}(\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{empty}}( \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\+\_\+\+POST}}\mbox{[}"{}date1"{}\mbox{]}) \&\&\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{empty}}( \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\+\_\+\+POST}}\mbox{[}"{}date2"{}\mbox{]})) \mbox{\hyperlink{dropdown_location_8php_a52332c22f84432520971794825a5a8e7}{if}}(!\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{empty}}(\$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\+\_\+\+POST}}\mbox{[}"{}date1"{}\mbox{]}) \&\&!\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{empty}}(\$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\+\_\+\+POST}}\mbox{[}"{}date2"{}\mbox{]}) \&\&(strcmp(\$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\+\_\+\+POST}}\mbox{[}"{}date2"{}\mbox{]}, \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\+\_\+\+POST}}\mbox{[}"{}date1"{}\mbox{]})$<$ 0)) \mbox{\hyperlink{stat_8graph_8php_a10f314c6f15a3171ec2b8ab5cc0e7629}{\$cleantarget}} = preg\+\_\+replace("{}/\mbox{[}\&\mbox{]}date\mbox{[}12\mbox{]}=\mbox{[}0-\/9-\/\mbox{]}\texorpdfstring{$\ast$}{*}/"{}, "{}"{}, \$\+\_\+\+SERVER\mbox{[}\textquotesingle{}\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{QUERY\+\_\+\+STRING}}\textquotesingle{}\mbox{]})
+\item 
+\mbox{\hyperlink{stat_8graph_8php_ac24f6189c7888ec50c77f7e65a837a62}{\$next}} = 0
+\item 
+\mbox{\hyperlink{stat_8graph_8php_a6a84acde87e05eb2ec8ca7d45fe7d0c1}{\$prev}} = 0
+\item 
+\mbox{\hyperlink{stat_8graph_8php_ada57e7bb7c152edad18fe2f166188691}{\$title}} = "{}"{}
+\item 
+\mbox{\hyperlink{stat_8graph_8php_a4e2313a4b35b72a06ac45fd38960f677}{\$parent}} = 0
+\item 
+\mbox{\hyperlink{stat_8graph_8php_af48b9ff0686bea115507e6ac535a15bc}{\$showuserlink}} = 0
+\item 
+\mbox{\hyperlink{dropdown_location_8php_a52332c22f84432520971794825a5a8e7}{if}}(\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{Session\+::have\+Right}}(\textquotesingle{}\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{user}}\textquotesingle{}, \mbox{\hyperlink{define_8php_add302975378da047de904daa059a332b}{READ}})) \mbox{\hyperlink{stat_8graph_8php_a480a6845f6b35b7d99437d09515a4091}{\$val1}} = null
+\item 
+\mbox{\hyperlink{stat_8graph_8php_a262b6026c9c436ca9ef37a7a715822e3}{\$val2}} = null
+\item 
+\mbox{\hyperlink{stat_8graph_8php_affc45c6ace2eeb3f300b054dbf9592b6}{\$values}} = \mbox{[}$\,$\mbox{]}
+\item 
+\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{switch}}(\$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\+\_\+\+GET}}\mbox{[}"{}type"{}\mbox{]}) \mbox{\hyperlink{stat_8graph_8php_a91de50daf75a0bc452bea030e57373c3}{\$foundkey}} = -\/1
+\item 
+\mbox{\hyperlink{get_user_picture_8php_a0df27c645324b72eaf7093e10f310670}{foreach}}( \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{values}} \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{as}} \$key=$>$ \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{val}}) \mbox{\hyperlink{dropdown_location_8php_a52332c22f84432520971794825a5a8e7}{if}}(\$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{foundkey}} $>$=0) \mbox{\hyperlink{stat_8graph_8php_a03eb047d02ef4f96cbc5136199e862cf}{\$stat}} = \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{new}} \mbox{\hyperlink{class_stat}{Stat}}()
+\item 
+\mbox{\hyperlink{stat_8graph_8php_a70747c1b34135f8dbff5da67c378aa3d}{if}} ( \$prev $>$ 0)
+\item 
+\mbox{\hyperlink{stat_8graph_8php_a97f00a3eb3f2c3198313323c8df7dcb2}{\$target}} = preg\+\_\+replace("{}/\&/"{}, "{}\&amp;"{}, \$\+\_\+\+SERVER\mbox{[}"{}REQUEST\+\_\+\+URI"{}\mbox{]})
+\item 
+\mbox{\hyperlink{stat_8graph_8php_a75934b947a4bd2eb91badea89ec53bed}{\$stat\+\_\+params}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Documentation des variables}
+\Hypertarget{stat_8graph_8php_a2e00a61703ee4673cdfb5eb376a9b295}\label{stat_8graph_8php_a2e00a61703ee4673cdfb5eb376a9b295} 
+\index{stat.graph.php@{stat.graph.php}!\$CFG\_GLPI@{\$CFG\_GLPI}}
+\index{\$CFG\_GLPI@{\$CFG\_GLPI}!stat.graph.php@{stat.graph.php}}
+\doxysubsubsection{\texorpdfstring{\$CFG\_GLPI}{\$CFG\_GLPI}}
+{\footnotesize\ttfamily \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{global}} \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{CFG\+\_\+\+GLPI}}}
+
+\Hypertarget{stat_8graph_8php_a10f314c6f15a3171ec2b8ab5cc0e7629}\label{stat_8graph_8php_a10f314c6f15a3171ec2b8ab5cc0e7629} 
+\index{stat.graph.php@{stat.graph.php}!\$cleantarget@{\$cleantarget}}
+\index{\$cleantarget@{\$cleantarget}!stat.graph.php@{stat.graph.php}}
+\doxysubsubsection{\texorpdfstring{\$cleantarget}{\$cleantarget}}
+{\footnotesize\ttfamily \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{cleantarget}} = preg\+\_\+replace("{}/\mbox{[}\&\mbox{]}date\mbox{[}12\mbox{]}=\mbox{[}0-\/9-\/\mbox{]}\texorpdfstring{$\ast$}{*}/"{}, "{}"{}, \$\+\_\+\+SERVER\mbox{[}\textquotesingle{}\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{QUERY\+\_\+\+STRING}}\textquotesingle{}\mbox{]})}
+
+\Hypertarget{stat_8graph_8php_a56f6c6070edb21a35cfa9e1df79ba61c}\label{stat_8graph_8php_a56f6c6070edb21a35cfa9e1df79ba61c} 
+\index{stat.graph.php@{stat.graph.php}!\$DB@{\$DB}}
+\index{\$DB@{\$DB}!stat.graph.php@{stat.graph.php}}
+\doxysubsubsection{\texorpdfstring{\$DB}{\$DB}}
+{\footnotesize\ttfamily \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{global}} \$\mbox{\hyperlink{class_d_b}{DB}}}
+
+\Hypertarget{stat_8graph_8php_a91de50daf75a0bc452bea030e57373c3}\label{stat_8graph_8php_a91de50daf75a0bc452bea030e57373c3} 
+\index{stat.graph.php@{stat.graph.php}!\$foundkey@{\$foundkey}}
+\index{\$foundkey@{\$foundkey}!stat.graph.php@{stat.graph.php}}
+\doxysubsubsection{\texorpdfstring{\$foundkey}{\$foundkey}}
+{\footnotesize\ttfamily \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{switch}} ( \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\+\_\+\+GET}}\mbox{[}"{}type"{}\mbox{]}) \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{foundkey}} = -\/1}
+
+\Hypertarget{stat_8graph_8php_ac24f6189c7888ec50c77f7e65a837a62}\label{stat_8graph_8php_ac24f6189c7888ec50c77f7e65a837a62} 
+\index{stat.graph.php@{stat.graph.php}!\$next@{\$next}}
+\index{\$next@{\$next}!stat.graph.php@{stat.graph.php}}
+\doxysubsubsection{\texorpdfstring{\$next}{\$next}}
+{\footnotesize\ttfamily \$next = 0}
+
+\Hypertarget{stat_8graph_8php_a4e2313a4b35b72a06ac45fd38960f677}\label{stat_8graph_8php_a4e2313a4b35b72a06ac45fd38960f677} 
+\index{stat.graph.php@{stat.graph.php}!\$parent@{\$parent}}
+\index{\$parent@{\$parent}!stat.graph.php@{stat.graph.php}}
+\doxysubsubsection{\texorpdfstring{\$parent}{\$parent}}
+{\footnotesize\ttfamily \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{parent}} = 0}
+
+\Hypertarget{stat_8graph_8php_a6a84acde87e05eb2ec8ca7d45fe7d0c1}\label{stat_8graph_8php_a6a84acde87e05eb2ec8ca7d45fe7d0c1} 
+\index{stat.graph.php@{stat.graph.php}!\$prev@{\$prev}}
+\index{\$prev@{\$prev}!stat.graph.php@{stat.graph.php}}
+\doxysubsubsection{\texorpdfstring{\$prev}{\$prev}}
+{\footnotesize\ttfamily \$prev = 0}
+
+\Hypertarget{stat_8graph_8php_af48b9ff0686bea115507e6ac535a15bc}\label{stat_8graph_8php_af48b9ff0686bea115507e6ac535a15bc} 
+\index{stat.graph.php@{stat.graph.php}!\$showuserlink@{\$showuserlink}}
+\index{\$showuserlink@{\$showuserlink}!stat.graph.php@{stat.graph.php}}
+\doxysubsubsection{\texorpdfstring{\$showuserlink}{\$showuserlink}}
+{\footnotesize\ttfamily \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{showuserlink}} = 0}
+
+\Hypertarget{stat_8graph_8php_a03eb047d02ef4f96cbc5136199e862cf}\label{stat_8graph_8php_a03eb047d02ef4f96cbc5136199e862cf} 
+\index{stat.graph.php@{stat.graph.php}!\$stat@{\$stat}}
+\index{\$stat@{\$stat}!stat.graph.php@{stat.graph.php}}
+\doxysubsubsection{\texorpdfstring{\$stat}{\$stat}}
+{\footnotesize\ttfamily \mbox{\hyperlink{get_user_picture_8php_a0df27c645324b72eaf7093e10f310670}{foreach}}(\$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{values}} \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{as}} \$key=$>$ \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{val}}) \mbox{\hyperlink{dropdown_location_8php_a52332c22f84432520971794825a5a8e7}{if}} ( \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{foundkey}} $>$=0) \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{stat}} = \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{new}} \mbox{\hyperlink{class_stat}{Stat}}()}
+
+\Hypertarget{stat_8graph_8php_a75934b947a4bd2eb91badea89ec53bed}\label{stat_8graph_8php_a75934b947a4bd2eb91badea89ec53bed} 
+\index{stat.graph.php@{stat.graph.php}!\$stat\_params@{\$stat\_params}}
+\index{\$stat\_params@{\$stat\_params}!stat.graph.php@{stat.graph.php}}
+\doxysubsubsection{\texorpdfstring{\$stat\_params}{\$stat\_params}}
+{\footnotesize\ttfamily \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{stat\+\_\+params}}}
+
+{\bfseries Valeur initiale \+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ [}
+\DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{'itemtype'}\ =>\ \mbox{\hyperlink{common_8tabs_8php_a7b2772071c2b50e11742306f5abe68e3}{\$\_GET}}[\textcolor{stringliteral}{'itemtype'}],}
+\DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{'date1'}\ \ \ \ =>\ \mbox{\hyperlink{dropdown_delegation_users_8php_aafd65e1fd3be66763660e541468d9f5d}{\$\_POST}}[\textcolor{stringliteral}{'date1'}],}
+\DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{'date2'}\ \ \ \ =>\ \mbox{\hyperlink{dropdown_delegation_users_8php_aafd65e1fd3be66763660e541468d9f5d}{\$\_POST}}[\textcolor{stringliteral}{'date2'}],}
+\DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{'type'}\ \ \ \ \ =>\ \mbox{\hyperlink{common_8tabs_8php_a7b2772071c2b50e11742306f5abe68e3}{\$\_GET}}[\textcolor{stringliteral}{'type'}],}
+\DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{'val1'}\ \ \ \ \ =>\ \mbox{\hyperlink{stat_8graph_8php_a480a6845f6b35b7d99437d09515a4091}{\$val1}},}
+\DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{'val2'}\ \ \ \ \ =>\ \mbox{\hyperlink{stat_8graph_8php_a262b6026c9c436ca9ef37a7a715822e3}{\$val2}},}
+\DoxyCodeLine{]}
+
+\end{DoxyCode}
+\Hypertarget{stat_8graph_8php_a97f00a3eb3f2c3198313323c8df7dcb2}\label{stat_8graph_8php_a97f00a3eb3f2c3198313323c8df7dcb2} 
+\index{stat.graph.php@{stat.graph.php}!\$target@{\$target}}
+\index{\$target@{\$target}!stat.graph.php@{stat.graph.php}}
+\doxysubsubsection{\texorpdfstring{\$target}{\$target}}
+{\footnotesize\ttfamily \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{target}} = preg\+\_\+replace("{}/\&/"{}, "{}\&amp;"{}, \$\+\_\+\+SERVER\mbox{[}"{}REQUEST\+\_\+\+URI"{}\mbox{]})}
+
+\Hypertarget{stat_8graph_8php_ada57e7bb7c152edad18fe2f166188691}\label{stat_8graph_8php_ada57e7bb7c152edad18fe2f166188691} 
+\index{stat.graph.php@{stat.graph.php}!\$title@{\$title}}
+\index{\$title@{\$title}!stat.graph.php@{stat.graph.php}}
+\doxysubsubsection{\texorpdfstring{\$title}{\$title}}
+{\footnotesize\ttfamily \$title = "{}"{}}
+
+\Hypertarget{stat_8graph_8php_a480a6845f6b35b7d99437d09515a4091}\label{stat_8graph_8php_a480a6845f6b35b7d99437d09515a4091} 
+\index{stat.graph.php@{stat.graph.php}!\$val1@{\$val1}}
+\index{\$val1@{\$val1}!stat.graph.php@{stat.graph.php}}
+\doxysubsubsection{\texorpdfstring{\$val1}{\$val1}}
+{\footnotesize\ttfamily \mbox{\hyperlink{dropdown_location_8php_a52332c22f84432520971794825a5a8e7}{if}} (\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{Session\+::have\+Right}}( \textquotesingle{}\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{user}}\textquotesingle{}, \mbox{\hyperlink{define_8php_add302975378da047de904daa059a332b}{READ}})) \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{val1}} = null}
+
+\Hypertarget{stat_8graph_8php_a262b6026c9c436ca9ef37a7a715822e3}\label{stat_8graph_8php_a262b6026c9c436ca9ef37a7a715822e3} 
+\index{stat.graph.php@{stat.graph.php}!\$val2@{\$val2}}
+\index{\$val2@{\$val2}!stat.graph.php@{stat.graph.php}}
+\doxysubsubsection{\texorpdfstring{\$val2}{\$val2}}
+{\footnotesize\ttfamily \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{val2}} = null}
+
+\Hypertarget{stat_8graph_8php_affc45c6ace2eeb3f300b054dbf9592b6}\label{stat_8graph_8php_affc45c6ace2eeb3f300b054dbf9592b6} 
+\index{stat.graph.php@{stat.graph.php}!\$values@{\$values}}
+\index{\$values@{\$values}!stat.graph.php@{stat.graph.php}}
+\doxysubsubsection{\texorpdfstring{\$values}{\$values}}
+{\footnotesize\ttfamily \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{values}} = \mbox{[}$\,$\mbox{]}}
+
+\Hypertarget{stat_8graph_8php_a70747c1b34135f8dbff5da67c378aa3d}\label{stat_8graph_8php_a70747c1b34135f8dbff5da67c378aa3d} 
+\index{stat.graph.php@{stat.graph.php}!if@{if}}
+\index{if@{if}!stat.graph.php@{stat.graph.php}}
+\doxysubsubsection{\texorpdfstring{if}{if}}
+{\footnotesize\ttfamily if(\$next $>$ 0) (\begin{DoxyParamCaption}\item[{}]{\$prev,  }\item[{0}]{ }\end{DoxyParamCaption})}
+

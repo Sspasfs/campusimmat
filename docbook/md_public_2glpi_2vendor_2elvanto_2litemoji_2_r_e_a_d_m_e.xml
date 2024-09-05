@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_md_public_2glpi_2vendor_2elvanto_2litemoji_2_r_e_a_d_m_e" xml:lang="fr">
+<title>LitEmoji 🔥</title>
+<indexterm><primary>LitEmoji 🔥</primary></indexterm>
+
+<para><anchor xml:id="_md_public_2glpi_2vendor_2elvanto_2litemoji_2_r_e_a_d_m_e_1autotoc_md5765"/> A PHP library simplifying the conversion of unicode, HTML and shortcode emoji.</para>
+
+<para></para>
+<section xml:id="_md_public_2glpi_2vendor_2elvanto_2litemoji_2_r_e_a_d_m_e_1autotoc_md5766">
+<title><title>Installation</title></title>
+
+<para><literallayout><computeroutput>$&#32;composer&#32;require&#32;elvanto/litemoji
+</computeroutput></literallayout></para>
+
+<para>Alternatively you can clone or download the library files.</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2elvanto_2litemoji_2_r_e_a_d_m_e_1autotoc_md5767">
+<title><title>Usage</title></title>
+
+<para><literallayout><computeroutput>use&#32;LitEmoji\LitEmoji;
+
+echo&#32;LitEmoji::encodeShortcode(&apos;Baby&#32;you&#32;light&#32;my&#32;🔥!&#32;😃&apos;);
+//&#32;&apos;Baby&#32;you&#32;light&#32;my&#32;:fire:!&#32;:smiley:&apos;
+
+echo&#32;LitEmoji::encodeHtml(&apos;Baby&#32;you&#32;light&#32;my&#32;:fire:!&#32;:smiley:&apos;);
+//&#32;&apos;Baby&#32;you&#32;light&#32;my&#32;&amp;#x1F525;!&#32;&amp;#x1F603;&apos;
+
+echo&#32;LitEmoji::encodeUnicode(&apos;Baby&#32;you&#32;light&#32;my&#32;:fire:!&#32;:smiley:&apos;);
+//&#32;&apos;Baby&#32;you&#32;light&#32;my&#32;🔥!&#32;😃&apos;
+
+echo&#32;LitEmoji::removeEmoji(&apos;Baby&#32;you&#32;light&#32;my&#32;🔥!&#32;😃!!!&apos;);
+//&#32;&apos;Baby&#32;you&#32;light&#32;my&#32;!&#32;!!!&apos;
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2elvanto_2litemoji_2_r_e_a_d_m_e_1autotoc_md5768">
+<title><title>Configuration</title></title>
+
+<para><literallayout><computeroutput>use&#32;LitEmoji\LitEmoji;
+
+//&#32;Exclude&#32;specific&#32;shortcodes&#32;when&#32;converting&#32;from&#32;unicode&#32;and&#32;HTML&#32;entities
+LitEmoji::config(&apos;excludeShortcodes&apos;,&#32;[&apos;mobile&apos;,&#32;&apos;android&apos;]);
+
+echo&#32;LitEmoji::encodeShortcode(&apos;📱&apos;);
+//&#32;&apos;:iphone:&apos;
+</computeroutput></literallayout></para>
+<section xml:id="_md_public_2glpi_2vendor_2elvanto_2litemoji_2_r_e_a_d_m_e_1autotoc_md5769">
+<title><title>Contributing</title></title>
+
+<para>Pull requests are welcome. New code must be fully unit tested (the existing test suite can be run with PHPUnit).</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2elvanto_2litemoji_2_r_e_a_d_m_e_1autotoc_md5770">
+<title><title>License</title></title>
+
+<para>[MIT License](LICENSE) </para>
+</section>
+</section>
+</section>

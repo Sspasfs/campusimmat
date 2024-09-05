@@ -1,0 +1,387 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_md_public_2glpi_2vendor_2webmozart_2assert_2_c_h_a_n_g_e_l_o_g" xml:lang="fr">
+<title>Changelog</title>
+<indexterm><primary>Changelog</primary></indexterm>
+<section xml:id="_md_public_2glpi_2vendor_2webmozart_2assert_2_c_h_a_n_g_e_l_o_g_1autotoc_md7515">
+<title><title>UNRELEASED</title></title>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2webmozart_2assert_2_c_h_a_n_g_e_l_o_g_1autotoc_md7516">
+<title><title>1.10.0</title></title>
+<section xml:id="_md_public_2glpi_2vendor_2webmozart_2assert_2_c_h_a_n_g_e_l_o_g_1autotoc_md7517">
+<title><title>Added</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>On invalid assertion, we throw a <computeroutput>Webmozart\Assert\InvalidArgumentException</computeroutput></para>
+</listitem><listitem>
+<para>Added <computeroutput>Assert::positiveInteger()</computeroutput></para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2webmozart_2assert_2_c_h_a_n_g_e_l_o_g_1autotoc_md7518">
+<title><title>Changed</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Using a trait with real implementations of <computeroutput>all*()</computeroutput> and <computeroutput>nullOr*()</computeroutput> methods to improve psalm compatibility.</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2webmozart_2assert_2_c_h_a_n_g_e_l_o_g_1autotoc_md7519">
+<title><title>Removed</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Support for PHP &lt;7.2</para>
+</listitem></itemizedlist>
+</para>
+</section>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2webmozart_2assert_2_c_h_a_n_g_e_l_o_g_1autotoc_md7520">
+<title><title>1.9.1</title></title>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2webmozart_2assert_2_c_h_a_n_g_e_l_o_g_1autotoc_md7521">
+<title><title>Fixed</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>provisional support for PHP 8.0</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2webmozart_2assert_2_c_h_a_n_g_e_l_o_g_1autotoc_md7522">
+<title><title>1.9.0</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>added better Psalm support for <computeroutput>all*</computeroutput> &amp; <computeroutput>nullOr*</computeroutput> methods</para>
+</listitem><listitem>
+<para>These methods are now understood by Psalm through a mixin. You may need a newer version of Psalm in order to use this</para>
+</listitem><listitem>
+<para>added <computeroutput>@psalm-pure</computeroutput> annotation to <computeroutput>Assert::notFalse()</computeroutput></para>
+</listitem><listitem>
+<para>added more <computeroutput>@psalm-assert</computeroutput> annotations where appropriate</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2webmozart_2assert_2_c_h_a_n_g_e_l_o_g_1autotoc_md7523">
+<title><title>Changed</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>the <computeroutput>all*</computeroutput> &amp; <computeroutput>nullOr*</computeroutput> methods are now declared on an interface, instead of <computeroutput>@method</computeroutput> annotations. This interface is linked to the <computeroutput>Assert</computeroutput> class with a <computeroutput>@mixin</computeroutput> annotation. Most IDE&apos;s have supported this for a long time, and you should not lose any autocompletion capabilities. PHPStan has supported this since version <computeroutput>0.12.20</computeroutput>. This package is marked incompatible (with a composer conflict) with phpstan version prior to that. If you do not use PHPStan than this does not matter.</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2webmozart_2assert_2_c_h_a_n_g_e_l_o_g_1autotoc_md7524">
+<title><title>1.8.0</title></title>
+<section xml:id="_md_public_2glpi_2vendor_2webmozart_2assert_2_c_h_a_n_g_e_l_o_g_1autotoc_md7525">
+<title><title>Added</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>added <computeroutput>Assert::notStartsWith()</computeroutput></para>
+</listitem><listitem>
+<para>added <computeroutput>Assert::notEndsWith()</computeroutput></para>
+</listitem><listitem>
+<para>added <computeroutput>Assert::inArray()</computeroutput></para>
+</listitem><listitem>
+<para>added <computeroutput>@psalm-pure</computeroutput> annotations to pure assertions</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2webmozart_2assert_2_c_h_a_n_g_e_l_o_g_1autotoc_md7526">
+<title><title>Fixed</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Exception messages of comparisons between <computeroutput>DateTime(Immutable)</computeroutput> objects now display their date &amp; time.</para>
+</listitem><listitem>
+<para>Custom Exception messages for <computeroutput>Assert::count()</computeroutput> now use the values to render the exception message.</para>
+</listitem></itemizedlist>
+</para>
+</section>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2webmozart_2assert_2_c_h_a_n_g_e_l_o_g_1autotoc_md7527">
+<title><title>1.7.0 (2020-02-14)</title></title>
+<section xml:id="_md_public_2glpi_2vendor_2webmozart_2assert_2_c_h_a_n_g_e_l_o_g_1autotoc_md7528">
+<title><title>Added</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>added <computeroutput>Assert::notFalse()</computeroutput></para>
+</listitem><listitem>
+<para>added <computeroutput>Assert::isAOf()</computeroutput></para>
+</listitem><listitem>
+<para>added <computeroutput>Assert::isAnyOf()</computeroutput></para>
+</listitem><listitem>
+<para>added <computeroutput>Assert::isNotA()</computeroutput></para>
+</listitem></itemizedlist>
+</para>
+</section>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2webmozart_2assert_2_c_h_a_n_g_e_l_o_g_1autotoc_md7529">
+<title><title>1.6.0 (2019-11-24)</title></title>
+<section xml:id="_md_public_2glpi_2vendor_2webmozart_2assert_2_c_h_a_n_g_e_l_o_g_1autotoc_md7530">
+<title><title>Added</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>added <computeroutput>Assert::validArrayKey()</computeroutput></para>
+</listitem><listitem>
+<para>added <computeroutput>Assert::isNonEmptyList()</computeroutput></para>
+</listitem><listitem>
+<para>added <computeroutput>Assert::isNonEmptyMap()</computeroutput></para>
+</listitem><listitem>
+<para>added <computeroutput>@throws InvalidArgumentException</computeroutput> annotations to all methods that throw.</para>
+</listitem><listitem>
+<para>added <computeroutput>@psalm-assert</computeroutput> for the list type to the <computeroutput>isList</computeroutput> assertion.</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2webmozart_2assert_2_c_h_a_n_g_e_l_o_g_1autotoc_md7531">
+<title><title>Fixed</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para><computeroutput>ResourceBundle</computeroutput> &amp; <computeroutput>SimpleXMLElement</computeroutput> now pass the <computeroutput>isCountable</computeroutput> assertions. They are countable, without implementing the <computeroutput>Countable</computeroutput> interface.</para>
+</listitem><listitem>
+<para>The doc block of <computeroutput>range</computeroutput> now has the proper variables.</para>
+</listitem><listitem>
+<para>An empty array will now pass <computeroutput>isList</computeroutput> and <computeroutput>isMap</computeroutput>. As it is a valid form of both. If a non-empty variant is needed, use <computeroutput>isNonEmptyList</computeroutput> or <computeroutput>isNonEmptyMap</computeroutput>.</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2webmozart_2assert_2_c_h_a_n_g_e_l_o_g_1autotoc_md7532">
+<title><title>Changed</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Removed some <computeroutput>@psalm-assert</computeroutput> annotations, that were &apos;side effect&apos; assertions See:<itemizedlist>
+<listitem>
+<para><link xlink:href="https://github.com/webmozart/assert/pull/144">#144</link></para>
+</listitem><listitem>
+<para><link xlink:href="https://github.com/webmozart/assert/issues/145">#145</link></para>
+</listitem><listitem>
+<para><link xlink:href="https://github.com/webmozart/assert/pull/146">#146</link></para>
+</listitem><listitem>
+<para><link xlink:href="https://github.com/webmozart/assert/pull/150">#150</link></para>
+</listitem></itemizedlist>
+</para>
+</listitem><listitem>
+<para>If you use Psalm, the minimum version needed is <computeroutput>3.6.0</computeroutput>. Which is enforced through a composer conflict. If you don&apos;t use Psalm, then this has no impact.</para>
+</listitem></itemizedlist>
+</para>
+</section>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2webmozart_2assert_2_c_h_a_n_g_e_l_o_g_1autotoc_md7533">
+<title><title>1.5.0 (2019-08-24)</title></title>
+<section xml:id="_md_public_2glpi_2vendor_2webmozart_2assert_2_c_h_a_n_g_e_l_o_g_1autotoc_md7534">
+<title><title>Added</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>added <computeroutput>Assert::uniqueValues()</computeroutput></para>
+</listitem><listitem>
+<para>added <computeroutput>Assert::unicodeLetters()</computeroutput></para>
+</listitem><listitem>
+<para>added: <computeroutput>Assert::email()</computeroutput></para>
+</listitem><listitem>
+<para>added support for <link xlink:href="https://github.com/vimeo/psalm">Psalm</link>, by adding <computeroutput>@psalm-assert</computeroutput> annotations where appropriate.</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2webmozart_2assert_2_c_h_a_n_g_e_l_o_g_1autotoc_md7535">
+<title><title>Fixed</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para><computeroutput>Assert::endsWith()</computeroutput> would not give the correct result when dealing with a multibyte suffix.</para>
+</listitem><listitem>
+<para><computeroutput>Assert::length(), minLength, maxLength, lengthBetween</computeroutput> would not give the correct result when dealing with multibyte characters.</para>
+</listitem></itemizedlist>
+</para>
+
+<para><emphasis role="bold">NOTE</emphasis>: These 2 changes may break your assertions if you relied on the fact that multibyte characters didn&apos;t behave correctly.</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2webmozart_2assert_2_c_h_a_n_g_e_l_o_g_1autotoc_md7536">
+<title><title>Changed</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>The names of some variables have been updated to better reflect what they are.</para>
+</listitem><listitem>
+<para>All function calls are now in their FQN form, slightly increasing performance.</para>
+</listitem><listitem>
+<para><link linkend="_namespace_tests">Tests</link> are now properly ran against HHVM-3.30 and PHP nightly.</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2webmozart_2assert_2_c_h_a_n_g_e_l_o_g_1autotoc_md7537">
+<title><title>Deprecation</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>deprecated <computeroutput>Assert::isTraversable()</computeroutput> in favor of <computeroutput>Assert::isIterable()</computeroutput><itemizedlist>
+<listitem>
+<para>This was already done in 1.3.0, but it was only done through a silenced <computeroutput>trigger_error</computeroutput>. It is now annotated as well.</para>
+</listitem></itemizedlist>
+</para>
+</listitem></itemizedlist>
+</para>
+</section>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2webmozart_2assert_2_c_h_a_n_g_e_l_o_g_1autotoc_md7538">
+<title><title>1.4.0 (2018-12-25)</title></title>
+<section xml:id="_md_public_2glpi_2vendor_2webmozart_2assert_2_c_h_a_n_g_e_l_o_g_1autotoc_md7539">
+<title><title>Added</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>added <computeroutput>Assert::ip()</computeroutput></para>
+</listitem><listitem>
+<para>added <computeroutput>Assert::ipv4()</computeroutput></para>
+</listitem><listitem>
+<para>added <computeroutput>Assert::ipv6()</computeroutput></para>
+</listitem><listitem>
+<para>added <computeroutput>Assert::notRegex()</computeroutput></para>
+</listitem><listitem>
+<para>added <computeroutput>Assert::interfaceExists()</computeroutput></para>
+</listitem><listitem>
+<para>added <computeroutput>Assert::isList()</computeroutput></para>
+</listitem><listitem>
+<para>added <computeroutput>Assert::isMap()</computeroutput></para>
+</listitem><listitem>
+<para>added polyfill for ctype</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2webmozart_2assert_2_c_h_a_n_g_e_l_o_g_1autotoc_md7540">
+<title><title>Fixed</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Special case when comparing objects implementing <computeroutput>__toString()</computeroutput></para>
+</listitem></itemizedlist>
+</para>
+</section>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2webmozart_2assert_2_c_h_a_n_g_e_l_o_g_1autotoc_md7541">
+<title><title>1.3.0 (2018-01-29)</title></title>
+<section xml:id="_md_public_2glpi_2vendor_2webmozart_2assert_2_c_h_a_n_g_e_l_o_g_1autotoc_md7542">
+<title><title>Added</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>added <computeroutput>Assert::minCount()</computeroutput></para>
+</listitem><listitem>
+<para>added <computeroutput>Assert::maxCount()</computeroutput></para>
+</listitem><listitem>
+<para>added <computeroutput>Assert::countBetween()</computeroutput></para>
+</listitem><listitem>
+<para>added <computeroutput>Assert::isCountable()</computeroutput></para>
+</listitem><listitem>
+<para>added <computeroutput>Assert::notWhitespaceOnly()</computeroutput></para>
+</listitem><listitem>
+<para>added <computeroutput>Assert::natural()</computeroutput></para>
+</listitem><listitem>
+<para>added <computeroutput>Assert::notContains()</computeroutput></para>
+</listitem><listitem>
+<para>added <computeroutput>Assert::isArrayAccessible()</computeroutput></para>
+</listitem><listitem>
+<para>added <computeroutput>Assert::isInstanceOfAny()</computeroutput></para>
+</listitem><listitem>
+<para>added <computeroutput>Assert::isIterable()</computeroutput></para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2webmozart_2assert_2_c_h_a_n_g_e_l_o_g_1autotoc_md7543">
+<title><title>Fixed</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para><computeroutput>stringNotEmpty</computeroutput> will no longer report &quot;0&quot; is an empty string</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2webmozart_2assert_2_c_h_a_n_g_e_l_o_g_1autotoc_md7544">
+<title><title>Deprecation</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>deprecated <computeroutput>Assert::isTraversable()</computeroutput> in favor of <computeroutput>Assert::isIterable()</computeroutput></para>
+</listitem></itemizedlist>
+</para>
+</section>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2webmozart_2assert_2_c_h_a_n_g_e_l_o_g_1autotoc_md7545">
+<title><title>1.2.0 (2016-11-23)</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>added <computeroutput>Assert::throws()</computeroutput></para>
+</listitem><listitem>
+<para>added <computeroutput>Assert::count()</computeroutput></para>
+</listitem><listitem>
+<para>added extension point <computeroutput>Assert::reportInvalidArgument()</computeroutput> for custom subclasses</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2webmozart_2assert_2_c_h_a_n_g_e_l_o_g_1autotoc_md7546">
+<title><title>1.1.0 (2016-08-09)</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>added <computeroutput>Assert::object()</computeroutput></para>
+</listitem><listitem>
+<para>added <computeroutput>Assert::propertyExists()</computeroutput></para>
+</listitem><listitem>
+<para>added <computeroutput>Assert::propertyNotExists()</computeroutput></para>
+</listitem><listitem>
+<para>added <computeroutput>Assert::methodExists()</computeroutput></para>
+</listitem><listitem>
+<para>added <computeroutput>Assert::methodNotExists()</computeroutput></para>
+</listitem><listitem>
+<para>added <computeroutput>Assert::uuid()</computeroutput></para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2webmozart_2assert_2_c_h_a_n_g_e_l_o_g_1autotoc_md7547">
+<title><title>1.0.2 (2015-08-24)</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>integrated Style CI</para>
+</listitem><listitem>
+<para>add tests for minimum package dependencies on Travis CI</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2webmozart_2assert_2_c_h_a_n_g_e_l_o_g_1autotoc_md7548">
+<title><title>1.0.1 (2015-05-12)</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>added support for PHP 5.3.3</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2webmozart_2assert_2_c_h_a_n_g_e_l_o_g_1autotoc_md7549">
+<title><title>1.0.0 (2015-05-12)</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>first stable release</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2webmozart_2assert_2_c_h_a_n_g_e_l_o_g_1autotoc_md7550">
+<title><title>1.0.0-beta (2015-03-19)</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>first beta release </para>
+</listitem></itemizedlist>
+</para>
+</section>
+</section>

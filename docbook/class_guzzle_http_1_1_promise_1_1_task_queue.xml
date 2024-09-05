@@ -1,0 +1,115 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_guzzle_http_1_1_promise_1_1_task_queue" xml:lang="fr">
+<title>Référence de la classe TaskQueue</title>
+<indexterm><primary>TaskQueue</primary></indexterm>
+Graphe d&apos;héritage de TaskQueue:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_guzzle_http_1_1_promise_1_1_task_queue__inherit__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Graphe de collaboration de TaskQueue:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_guzzle_http_1_1_promise_1_1_task_queue__coll__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Fonctions membres publiques    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_guzzle_http_1_1_promise_1_1_task_queue_1a5c4046e02132cce76816b8cc54b7a75f">__construct</link> ($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">withShutdown</link>=true)</para>
+</listitem>
+            <listitem><para><link linkend="_class_guzzle_http_1_1_promise_1_1_task_queue_1aedcc52b3673b8df9425e52f13accb2a1">isEmpty</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_class_guzzle_http_1_1_promise_1_1_task_queue_1a90f7e91dfc2303d0f368a1922c7f3544">add</link> (<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">callable</link> $<link linkend="_namespace_guzzle_http_1_1_promise_1ad46008bb92f80f8605bcc4a9808b8c62">task</link>)</para>
+</listitem>
+            <listitem><para><link linkend="_class_guzzle_http_1_1_promise_1_1_task_queue_1a4f38ee70ae3488812f0c8d970ff3978c">disableShutdown</link> ()</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+Fonctions membres publiques hérités de <link linkend="_interface_guzzle_http_1_1_promise_1_1_task_queue_interface">TaskQueueInterface</link>        <itemizedlist>
+            <listitem><para><link linkend="_interface_guzzle_http_1_1_promise_1_1_task_queue_interface_1afb0fafe7e02a3ae1993c01c19fad2bae">run</link> ()</para>
+</listitem>
+        </itemizedlist>
+<section>
+<title>Description détaillée</title>
+
+<para>A task queue that executes tasks in a FIFO order.</para>
+
+<para>This task queue class is used to settle promises asynchronously and maintains a constant stack size. You can use the task queue asynchronously by calling the <computeroutput>run()</computeroutput> function of the global task queue in an event loop. <literallayout><computeroutput>GuzzleHttp\Promise\Utils::queue()-&gt;run();
+</computeroutput></literallayout> </para>
+</section>
+<section>
+<title>Documentation des constructeurs et destructeur</title>
+<anchor xml:id="_class_guzzle_http_1_1_promise_1_1_task_queue_1a5c4046e02132cce76816b8cc54b7a75f"/><section>
+    <title>__construct()</title>
+<indexterm><primary>__construct</primary><secondary>TaskQueue</secondary></indexterm>
+<indexterm><primary>TaskQueue</primary><secondary>__construct</secondary></indexterm>
+<para><computeroutput>__construct ( $withShutdown = <computeroutput>true</computeroutput>
+)</computeroutput></para>Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_guzzle_http_1_1_promise_1_1_task_queue_a5c4046e02132cce76816b8cc54b7a75f_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+</section>
+<section>
+<title>Documentation des fonctions membres</title>
+<anchor xml:id="_class_guzzle_http_1_1_promise_1_1_task_queue_1a90f7e91dfc2303d0f368a1922c7f3544"/><section>
+    <title>add()</title>
+<indexterm><primary>add</primary><secondary>TaskQueue</secondary></indexterm>
+<indexterm><primary>TaskQueue</primary><secondary>add</secondary></indexterm>
+<para><computeroutput>add (<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">callable</link> $task)</computeroutput></para>
+<para>Adds a task to the queue that will be executed the next time run is called. </para>
+<para>
+Implémente <link linkend="_interface_guzzle_http_1_1_promise_1_1_task_queue_interface_1a90f7e91dfc2303d0f368a1922c7f3544">TaskQueueInterface</link>.</para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_guzzle_http_1_1_promise_1_1_task_queue_a90f7e91dfc2303d0f368a1922c7f3544_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_guzzle_http_1_1_promise_1_1_task_queue_1a4f38ee70ae3488812f0c8d970ff3978c"/><section>
+    <title>disableShutdown()</title>
+<indexterm><primary>disableShutdown</primary><secondary>TaskQueue</secondary></indexterm>
+<indexterm><primary>TaskQueue</primary><secondary>disableShutdown</secondary></indexterm>
+<para><computeroutput>disableShutdown ( )</computeroutput></para>
+<para>The task queue will be run and exhausted by default when the process exits IFF the exit is not the result of a PHP E_ERROR error.</para>
+
+<para>You can disable running the automatic shutdown of the queue by calling this function. If you disable the task queue shutdown process, then you MUST either run the task queue (as a result of running your event loop or manually using the run() method) or wait on each outstanding promise.</para>
+
+<para>Note: This shutdown will occur before any destructors are triggered. </para>
+</section>
+<anchor xml:id="_class_guzzle_http_1_1_promise_1_1_task_queue_1aedcc52b3673b8df9425e52f13accb2a1"/><section>
+    <title>isEmpty()</title>
+<indexterm><primary>isEmpty</primary><secondary>TaskQueue</secondary></indexterm>
+<indexterm><primary>TaskQueue</primary><secondary>isEmpty</secondary></indexterm>
+<para><computeroutput>isEmpty ( )</computeroutput></para>
+<para>Returns true if the queue is empty.</para>
+
+<para><formalpara><title>Renvoie</title>
+
+<para>bool </para>
+</formalpara>
+</para>
+<para>
+Implémente <link linkend="_interface_guzzle_http_1_1_promise_1_1_task_queue_interface_1aedcc52b3673b8df9425e52f13accb2a1">TaskQueueInterface</link>.</para>
+</section>
+<para>
+La documentation de cette classe a été générée à partir du fichier suivant :</para>
+public/glpi/vendor/guzzlehttp/promises/src/<link linkend="__task_queue_8php">TaskQueue.php</link></section>
+</section>

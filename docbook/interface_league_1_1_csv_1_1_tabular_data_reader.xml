@@ -1,0 +1,331 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_interface_league_1_1_csv_1_1_tabular_data_reader" xml:lang="fr">
+<title>Référence de l&apos;interface TabularDataReader</title>
+<indexterm><primary>TabularDataReader</primary></indexterm>
+Graphe d&apos;héritage de TabularDataReader:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="interface_league_1_1_csv_1_1_tabular_data_reader__inherit__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Graphe de collaboration de TabularDataReader:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="interface_league_1_1_csv_1_1_tabular_data_reader__coll__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Fonctions membres publiques    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_interface_league_1_1_csv_1_1_tabular_data_reader_1ac751e87b3d4c4bf2feb03bee8b092755">count</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_interface_league_1_1_csv_1_1_tabular_data_reader_1a7a9f937c2958e6f4dd7b030f86fb70b7">getIterator</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_interface_league_1_1_csv_1_1_tabular_data_reader_1a614834f1605e407376028e8c82298c82">getHeader</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_interface_league_1_1_csv_1_1_tabular_data_reader_1a67c23ae63c7e988bfe82445d71287e03">getRecords</link> (array $header=[])</para>
+</listitem>
+            <listitem><para><link linkend="_interface_league_1_1_csv_1_1_tabular_data_reader_1a6229707f88a53279db6bffe0cb9be82c">fetchOne</link> (int $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">nth_record</link>=0)</para>
+</listitem>
+            <listitem><para><link linkend="_interface_league_1_1_csv_1_1_tabular_data_reader_1a84c59a2a7697c620ae89461e822f3792">fetchColumn</link> ($index=0)</para>
+</listitem>
+            <listitem><para><link linkend="_interface_league_1_1_csv_1_1_tabular_data_reader_1a7ced5e6818f2f2f763fdc93d63894388">fetchPairs</link> ($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">offset_index</link>=0, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">value_index</link>=1)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Description détaillée</title>
+
+<para>Represents a Tabular data.</para>
+
+<para>@method Iterator fetchColumnByName(string $name) returns a column from its name @method Iterator fetchColumnByOffset(int $offset) returns a column from its offset </para>
+</section>
+<section>
+<title>Documentation des fonctions membres</title>
+<anchor xml:id="_interface_league_1_1_csv_1_1_tabular_data_reader_1ac751e87b3d4c4bf2feb03bee8b092755"/><section>
+    <title>count()</title>
+<indexterm><primary>count</primary><secondary>TabularDataReader</secondary></indexterm>
+<indexterm><primary>TabularDataReader</primary><secondary>count</secondary></indexterm>
+<para><computeroutput>count ( )</computeroutput></para>
+<para>Returns the number of records contained in the tabular data structure excluding the header record. </para>
+<para>
+Implémenté dans <link linkend="_class_league_1_1_csv_1_1_reader_1ac751e87b3d4c4bf2feb03bee8b092755">Reader</link>, et <link linkend="_class_league_1_1_csv_1_1_result_set_1ac751e87b3d4c4bf2feb03bee8b092755">ResultSet</link>.</para>
+</section>
+<anchor xml:id="_interface_league_1_1_csv_1_1_tabular_data_reader_1a84c59a2a7697c620ae89461e822f3792"/><section>
+    <title>fetchColumn()</title>
+<indexterm><primary>fetchColumn</primary><secondary>TabularDataReader</secondary></indexterm>
+<indexterm><primary>TabularDataReader</primary><secondary>fetchColumn</secondary></indexterm>
+<para><computeroutput>fetchColumn ( $index = <computeroutput>0</computeroutput>
+)</computeroutput></para>
+<para>DEPRECATION WARNING! This class will be removed in the next major point release.</para>
+
+<para><para><link linkend="_deprecated_1_deprecated000095">Obsolète</link> 
+<para>since version 9.8.0</para>
+</para></para>
+
+<para><formalpara><title>Voir également</title>
+
+<para>::fetchColumnByName </para>
+
+<para>::fetchColumnByOffset</para>
+</formalpara>
+Returns a single column from the next record of the tabular data.</para>
+
+<para>By default if no value is supplied the first column is fetch</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string | int</entry><entry>$index</entry><entry>
+<para>CSV column index</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>UnableToProcessCsv</entry><entry>
+<para>if the column index is invalid or not found </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Implémenté dans <link linkend="_class_league_1_1_csv_1_1_reader_1a84c59a2a7697c620ae89461e822f3792">Reader</link>, et <link linkend="_class_league_1_1_csv_1_1_result_set_1a84c59a2a7697c620ae89461e822f3792">ResultSet</link>.</para>
+</section>
+<anchor xml:id="_interface_league_1_1_csv_1_1_tabular_data_reader_1a6229707f88a53279db6bffe0cb9be82c"/><section>
+    <title>fetchOne()</title>
+<indexterm><primary>fetchOne</primary><secondary>TabularDataReader</secondary></indexterm>
+<indexterm><primary>TabularDataReader</primary><secondary>fetchOne</secondary></indexterm>
+<para><computeroutput>fetchOne (int $nth_record = <computeroutput>0</computeroutput>
+)</computeroutput></para>
+<para>Returns the nth record from the tabular data.</para>
+
+<para>By default if no index is provided the first record of the tabular data is returned</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>int</entry><entry>$nth_record</entry><entry>
+<para>the tabular data record offset</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>UnableToProcessCsv</entry><entry>
+<para>if argument is lesser than 0 </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Implémenté dans <link linkend="_class_league_1_1_csv_1_1_reader_1a6229707f88a53279db6bffe0cb9be82c">Reader</link>, et <link linkend="_class_league_1_1_csv_1_1_result_set_1a6229707f88a53279db6bffe0cb9be82c">ResultSet</link>.</para>
+</section>
+<anchor xml:id="_interface_league_1_1_csv_1_1_tabular_data_reader_1a7ced5e6818f2f2f763fdc93d63894388"/><section>
+    <title>fetchPairs()</title>
+<indexterm><primary>fetchPairs</primary><secondary>TabularDataReader</secondary></indexterm>
+<indexterm><primary>TabularDataReader</primary><secondary>fetchPairs</secondary></indexterm>
+<para><computeroutput>fetchPairs ( $offset_index = <computeroutput>0</computeroutput>
+,  $value_index = <computeroutput>1</computeroutput>
+)</computeroutput></para>
+<para>Returns the next key-value pairs from the tabular data (first column is the key, second column is the value).</para>
+
+<para>By default if no column index is provided:<itemizedlist>
+<listitem>
+<para>the first column is used to provide the keys</para>
+</listitem><listitem>
+<para>the second column is used to provide the value</para>
+</listitem></itemizedlist>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string | int</entry><entry>$offset_index</entry><entry>
+<para>The column index to serve as offset </para>
+</entry>
+                            </row>
+                            <row>
+<entry>string | int</entry><entry>$value_index</entry><entry>
+<para>The column index to serve as value</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>UnableToProcessCsv</entry><entry>
+<para>if the column index is invalid or not found </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Implémenté dans <link linkend="_class_league_1_1_csv_1_1_reader_1a7ced5e6818f2f2f763fdc93d63894388">Reader</link>.</para>
+</section>
+<anchor xml:id="_interface_league_1_1_csv_1_1_tabular_data_reader_1a614834f1605e407376028e8c82298c82"/><section>
+    <title>getHeader()</title>
+<indexterm><primary>getHeader</primary><secondary>TabularDataReader</secondary></indexterm>
+<indexterm><primary>TabularDataReader</primary><secondary>getHeader</secondary></indexterm>
+<para><computeroutput>getHeader ( )</computeroutput></para>
+<para>Returns the header associated with the tabular data.</para>
+
+<para>The header must contains unique string or is an empty array if no header was specified.</para>
+
+<para><formalpara><title>Renvoie</title>
+
+<para>array&lt;string&gt; </para>
+</formalpara>
+</para>
+<para>
+Implémenté dans <link linkend="_class_league_1_1_csv_1_1_reader_1a614834f1605e407376028e8c82298c82">Reader</link>, et <link linkend="_class_league_1_1_csv_1_1_result_set_1a614834f1605e407376028e8c82298c82">ResultSet</link>.</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="interface_league_1_1_csv_1_1_tabular_data_reader_a614834f1605e407376028e8c82298c82_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_interface_league_1_1_csv_1_1_tabular_data_reader_1a7a9f937c2958e6f4dd7b030f86fb70b7"/><section>
+    <title>getIterator()</title>
+<indexterm><primary>getIterator</primary><secondary>TabularDataReader</secondary></indexterm>
+<indexterm><primary>TabularDataReader</primary><secondary>getIterator</secondary></indexterm>
+<para><computeroutput>getIterator ( )</computeroutput></para>
+<para>Returns the tabular data records as an iterator object.</para>
+
+<para>Each record is represented as a simple array containing strings or null values.</para>
+
+<para>If the CSV document has a header record then each record is combined to the header record and the header record is removed from the iterator.</para>
+
+<para>If the CSV document is inconsistent. Missing record fields are filled with null values while extra record fields are strip from the returned object. </para>
+<para>
+Implémenté dans <link linkend="_class_league_1_1_csv_1_1_reader_1a7a9f937c2958e6f4dd7b030f86fb70b7">Reader</link>, et <link linkend="_class_league_1_1_csv_1_1_result_set_1a7a9f937c2958e6f4dd7b030f86fb70b7">ResultSet</link>.</para>
+</section>
+<anchor xml:id="_interface_league_1_1_csv_1_1_tabular_data_reader_1a67c23ae63c7e988bfe82445d71287e03"/><section>
+    <title>getRecords()</title>
+<indexterm><primary>getRecords</primary><secondary>TabularDataReader</secondary></indexterm>
+<indexterm><primary>TabularDataReader</primary><secondary>getRecords</secondary></indexterm>
+<para><computeroutput>getRecords (array $header = <computeroutput>[]</computeroutput>
+)</computeroutput></para>
+<para>Returns the tabular data records as an iterator object.</para>
+
+<para>Each record is represented as a simple array containing strings or null values.</para>
+
+<para>If the tabular data has a header record then each record is combined to the header record and the header record is removed from the iterator.</para>
+
+<para>If the tabular data is inconsistent. Missing record fields are filled with null values while extra record fields are strip from the returned object.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>array&lt;string&gt;</entry><entry>
+<para>$header an optional header to use instead of the CSV document header </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Implémenté dans <link linkend="_class_league_1_1_csv_1_1_reader_1a67c23ae63c7e988bfe82445d71287e03">Reader</link>, et <link linkend="_class_league_1_1_csv_1_1_result_set_1a67c23ae63c7e988bfe82445d71287e03">ResultSet</link>.</para>
+</section>
+<para>
+La documentation de cette interface a été générée à partir du fichier suivant :</para>
+public/glpi/vendor/league/csv/src/<link linkend="__tabular_data_reader_8php">TabularDataReader.php</link></section>
+</section>

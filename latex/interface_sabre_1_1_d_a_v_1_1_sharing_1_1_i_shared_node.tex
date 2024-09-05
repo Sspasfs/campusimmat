@@ -1,0 +1,147 @@
+\doxysection{Référence de l\textquotesingle{}interface IShared\+Node}
+\hypertarget{interface_sabre_1_1_d_a_v_1_1_sharing_1_1_i_shared_node}{}\label{interface_sabre_1_1_d_a_v_1_1_sharing_1_1_i_shared_node}\index{ISharedNode@{ISharedNode}}
+
+
+Graphe d\textquotesingle{}héritage de IShared\+Node\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{interface_sabre_1_1_d_a_v_1_1_sharing_1_1_i_shared_node__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Graphe de collaboration de IShared\+Node\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=197pt]{interface_sabre_1_1_d_a_v_1_1_sharing_1_1_i_shared_node__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_sharing_1_1_i_shared_node_ad49960292f71be61f38dafe4028dee28}{get\+Share\+Access}} ()
+\item 
+\mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_sharing_1_1_i_shared_node_a2c77edd1e983a6f4bb4e5741df75082a}{get\+Share\+Resource\+Uri}} ()
+\item 
+\mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_sharing_1_1_i_shared_node_a3134b723b6228a87ee65cc9850f1e878}{update\+Invites}} (array \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{sharees}})
+\item 
+\mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_sharing_1_1_i_shared_node_aeb52708e67141a77cf1abe4d6b9482d6}{get\+Invites}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Fonctions membres publiques hérités de \mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_i_node}{INode}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_i_node_a13bdffdd926f26b825ea57066334ff01}{delete}} ()
+\item 
+\mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_i_node_a3d0963e68bb313b163a73f2803c64600}{get\+Name}} ()
+\item 
+\mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_i_node_a2fe666694997d047711d7653eca2f132}{set\+Name}} (\$name)
+\item 
+\mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_i_node_aa388e2fda4fe702e8953c1a731868f18}{get\+Last\+Modified}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+This interface represents a resource that has sharing capabilities, either because it\textquotesingle{}s possible for an owner to share the resource, or because this is an instance of a shared resource.
+
+\begin{DoxyCopyright}{Copyright}
+Copyright (C) fruux GmbH. (\href{https://fruux.com/}{\texttt{ https\+://fruux.\+com/}}) 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Auteur}
+Evert Pot (\href{http://evertpot.com/}{\texttt{ http\+://evertpot.\+com/}}) @license \href{http://sabre.io/license/}{\texttt{ http\+://sabre.\+io/license/}} Modified BSD License 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Documentation des fonctions membres}
+\Hypertarget{interface_sabre_1_1_d_a_v_1_1_sharing_1_1_i_shared_node_aeb52708e67141a77cf1abe4d6b9482d6}\label{interface_sabre_1_1_d_a_v_1_1_sharing_1_1_i_shared_node_aeb52708e67141a77cf1abe4d6b9482d6} 
+\index{ISharedNode@{ISharedNode}!getInvites@{getInvites}}
+\index{getInvites@{getInvites}!ISharedNode@{ISharedNode}}
+\doxysubsubsection{\texorpdfstring{getInvites()}{getInvites()}}
+{\footnotesize\ttfamily get\+Invites (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Returns the list of people whom this resource is shared with.
+
+Every item in the returned array must be a Sharee object with at least the following properties set\+:
+
+
+\begin{DoxyItemize}
+\item \$href
+\item \$share\+Access
+\item \$invite\+Status
+\end{DoxyItemize}
+
+and optionally\+:
+
+
+\begin{DoxyItemize}
+\item \$properties
+\end{DoxyItemize}
+
+\begin{DoxyReturn}{Renvoie}
+\textbackslash{}\+Sabre\textbackslash{}\+DAV\textbackslash{}\+Xml\textbackslash{}\+Element\textbackslash{}\+Sharee\mbox{[}\mbox{]} 
+\end{DoxyReturn}
+
+
+Implémenté dans \mbox{\hyperlink{class_sabre_1_1_cal_d_a_v_1_1_shared_calendar_aeb52708e67141a77cf1abe4d6b9482d6}{Shared\+Calendar}}.
+
+\Hypertarget{interface_sabre_1_1_d_a_v_1_1_sharing_1_1_i_shared_node_ad49960292f71be61f38dafe4028dee28}\label{interface_sabre_1_1_d_a_v_1_1_sharing_1_1_i_shared_node_ad49960292f71be61f38dafe4028dee28} 
+\index{ISharedNode@{ISharedNode}!getShareAccess@{getShareAccess}}
+\index{getShareAccess@{getShareAccess}!ISharedNode@{ISharedNode}}
+\doxysubsubsection{\texorpdfstring{getShareAccess()}{getShareAccess()}}
+{\footnotesize\ttfamily get\+Share\+Access (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Returns the \textquotesingle{}access level\textquotesingle{} for the instance of this shared resource.
+
+The value should be one of the Sabre\textbackslash{}\+DAV\textbackslash{}\+Sharing\textbackslash{}\+Plugin\doxylink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{ACCESS\+\_\+} constants.
+
+\begin{DoxyReturn}{Renvoie}
+int 
+\end{DoxyReturn}
+
+
+Implémenté dans \mbox{\hyperlink{class_sabre_1_1_cal_d_a_v_1_1_shared_calendar_ad49960292f71be61f38dafe4028dee28}{Shared\+Calendar}}.
+
+\Hypertarget{interface_sabre_1_1_d_a_v_1_1_sharing_1_1_i_shared_node_a2c77edd1e983a6f4bb4e5741df75082a}\label{interface_sabre_1_1_d_a_v_1_1_sharing_1_1_i_shared_node_a2c77edd1e983a6f4bb4e5741df75082a} 
+\index{ISharedNode@{ISharedNode}!getShareResourceUri@{getShareResourceUri}}
+\index{getShareResourceUri@{getShareResourceUri}!ISharedNode@{ISharedNode}}
+\doxysubsubsection{\texorpdfstring{getShareResourceUri()}{getShareResourceUri()}}
+{\footnotesize\ttfamily get\+Share\+Resource\+Uri (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+This function must return a URI that uniquely identifies the shared resource. This URI should be identical across instances, and is also used in several other \doxylink{class_x_m_l}{XML} bodies to connect invites to resources.
+
+This may simply be a relative reference to the original shared instance, but it could also be a urn. As long as it\textquotesingle{}s a valid URI and unique.
+
+\begin{DoxyReturn}{Renvoie}
+string 
+\end{DoxyReturn}
+
+
+Implémenté dans \mbox{\hyperlink{class_sabre_1_1_cal_d_a_v_1_1_shared_calendar_a2c77edd1e983a6f4bb4e5741df75082a}{Shared\+Calendar}}.
+
+\Hypertarget{interface_sabre_1_1_d_a_v_1_1_sharing_1_1_i_shared_node_a3134b723b6228a87ee65cc9850f1e878}\label{interface_sabre_1_1_d_a_v_1_1_sharing_1_1_i_shared_node_a3134b723b6228a87ee65cc9850f1e878} 
+\index{ISharedNode@{ISharedNode}!updateInvites@{updateInvites}}
+\index{updateInvites@{updateInvites}!ISharedNode@{ISharedNode}}
+\doxysubsubsection{\texorpdfstring{updateInvites()}{updateInvites()}}
+{\footnotesize\ttfamily update\+Invites (\begin{DoxyParamCaption}\item[{array}]{\$sharees }\end{DoxyParamCaption})}
+
+Updates the list of sharees.
+
+Every item must be a Sharee object.
+
+
+\begin{DoxyParams}[1]{Paramètres}
+\textbackslash{}\+Sabre\textbackslash{}\+DAV\textbackslash{}\+Xml\textbackslash{}\+Element\textbackslash{}\+Sharee\mbox{[}$\,$\mbox{]} & {\em \$sharees} & \\
+\hline
+\end{DoxyParams}
+
+
+Implémenté dans \mbox{\hyperlink{class_sabre_1_1_cal_d_a_v_1_1_shared_calendar_a3134b723b6228a87ee65cc9850f1e878}{Shared\+Calendar}}.
+
+
+
+La documentation de cette interface a été générée à partir du fichier suivant \+:\begin{DoxyCompactItemize}
+\item 
+public/glpi/vendor/sabre/dav/lib/\+DAV/\+Sharing/\mbox{\hyperlink{_i_shared_node_8php}{IShared\+Node.\+php}}\end{DoxyCompactItemize}

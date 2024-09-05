@@ -1,0 +1,181 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_md_public_2glpi_2vendor_2wapmorgan_2unified-archive_2_r_e_a_d_m_e" xml:lang="fr">
+<title>README</title>
+<indexterm><primary>README</primary></indexterm>
+
+<para><emphasis>UnifiedArchive</emphasis> - an archive manager with unified interface for different formats that works on wide variety of system configuration. It supports all basic operations on widespread formats and some format-specific features for most popular ones (zip, rar, 7z, tar).</para>
+
+<para>Main purpose of this library is to create unified interface for popular archive formats, that works in various system configurations via different drivers, when there is no ability to update system configuration, when code delivered to another system configurations, or when you just want to install libraries and work. It&apos;s handy when there&apos;s need to support archive types regardless of the system configuration.</para>
+
+<para><link xlink:href="https://packagist.org/packages/wapmorgan/unified-archive"></link> <link xlink:href="https://packagist.org/packages/wapmorgan/unified-archive"></link> <link xlink:href="https://packagist.org/packages/wapmorgan/unified-archive"></link> <link xlink:href="https://packagist.org/packages/wapmorgan/unified-archive"></link> <link xlink:href="https://packagist.org/packages/wapmorgan/unified-archive"></link></para>
+
+<para><link linkend="_namespace_tests">Tests</link> &amp; Quality: <link xlink:href="https://scrutinizer-ci.com/g/wapmorgan/UnifiedArchive/?branch=master"></link> <link xlink:href="https://scrutinizer-ci.com/g/wapmorgan/UnifiedArchive/?branch=master"></link></para>
+
+<para><orderedlist>
+<listitem>
+<para><link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">Functions &amp; Features</link></para>
+</listitem><listitem>
+<para><link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">How it works</link></para>
+</listitem><listitem>
+<para><link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">Quick start</link></para>
+</listitem><listitem>
+<para><link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">Built-in console archive manager</link></para>
+</listitem><listitem>
+<para><link linkend="_md_public_2glpi_2vendor_2wapmorgan_2unified-archive_2docs_2_usage">Usage</link></para>
+</listitem><listitem>
+<para><link linkend="_md_public_2glpi_2vendor_2wapmorgan_2unified-archive_2docs_2_drivers">Drivers &amp; formats</link></para>
+</listitem><listitem>
+<para><link linkend="_md_public_2glpi_2vendor_2wapmorgan_2unified-archive_2docs_2_a_p_i">Full API description</link></para>
+</listitem><listitem>
+<para><link linkend="_md_public_2glpi_2vendor_2wapmorgan_2unified-archive_2_c_h_a_n_g_e_l_o_g">Changelog</link></para>
+</listitem></orderedlist>
+</para>
+<section xml:id="_md_public_2glpi_2vendor_2wapmorgan_2unified-archive_2_r_e_a_d_m_e_1autotoc_md7507">
+<title><title>Functions &amp; Features</title></title>
+
+<para>UnifiedArchive is aimed to provide all operations on popular archive formats (zip, tar, rar, 7z) by all means and at better performance (depends on your OS/PHP configuration). Also, it allows to work with less popular archive types (with lack of functions).</para>
+
+<para>Main functions:<itemizedlist>
+<listitem>
+<para>Open an archive with automatic format detection (more 20 formats).</para>
+</listitem><listitem>
+<para>List archive content, calculate original size of archive</para>
+</listitem><listitem>
+<para>Get details (original size, date of modification) of every archived file. Extract or stream archived file content</para>
+</listitem><listitem>
+<para>Extract all archive content. Append an archive with new files or directories. Remove files from archive</para>
+</listitem><listitem>
+<para>Create new archives with files/directories on disk and stream from memory</para>
+</listitem><listitem>
+<para>Fully implemented <link xlink:href="docs/API.md#UnifiedArchive--getPclZipInterface">PclZip-like interface for archives</link> for all formats. Easy transition from old PclZip.</para>
+</listitem><listitem>
+<para>Bundled with cli utility</para>
+</listitem></itemizedlist>
+</para>
+
+<para>Specific functions:<itemizedlist>
+<listitem>
+<para>Read (zip, rar) &amp; set (zip) archive comment</para>
+</listitem><listitem>
+<para><link xlink:href="docs/API.md#UnifiedArchive--open">Open archives encrypted with password (zip, rar, 7z)</link></para>
+</listitem><listitem>
+<para>Set passwords (7z, zip) for new archives</para>
+</listitem><listitem>
+<para><link xlink:href="docs/API.md#UnifiedArchive--archiveFiles">Adjust compression level (zip, gzip, 7zip)</link> for new archives</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2wapmorgan_2unified-archive_2_r_e_a_d_m_e_1autotoc_md7508">
+<title><title>How it works</title></title>
+
+<para>UnifiedArchive uses &quot;drivers&quot;, which can be one of types:<orderedlist>
+<listitem>
+<para>PHP Extensions</para>
+</listitem><listitem>
+<para>Utilities + bridge</para>
+</listitem><listitem>
+<para>Pure PHP</para>
+</listitem></orderedlist>
+</para>
+
+<para>By default, UA goes top-down to select first available driver for passed archive. So, PHP Extension driver will be used (if available), then Utilities + bridge driver (if available), and then Pure PHP driver.</para>
+
+<para>There is at least one driver in all three types, which handles <emphasis role="bold">zip</emphasis> format, so this format can be fully supported in any OS/PHP configuration:<orderedlist>
+<listitem>
+<para>zip / phar PHP extensions</para>
+</listitem><listitem>
+<para>Utility + bridge SevenZip / AlchemyZippy</para>
+</listitem><listitem>
+<para>Pure NelexaZip</para>
+</listitem></orderedlist>
+</para>
+
+<para><emphasis role="bold">tar</emphasis> format (with compressed variants) supported by:<orderedlist>
+<listitem>
+<para>phar PHP extension</para>
+</listitem><listitem>
+<para>Utility + bridge SevenZip / AlchemyZippy</para>
+</listitem><listitem>
+<para>Pure TarByPear</para>
+</listitem></orderedlist>
+</para>
+
+<para><emphasis role="bold">So, there is always one driver that supports popular formats, and you should not remember how to work with this concrete driver (zip/phar/SevenZip/AlchemyZippy/NelexaZip), interface for them is uniform.</emphasis></para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2wapmorgan_2unified-archive_2_r_e_a_d_m_e_1autotoc_md7509">
+<title><title>Quick start</title></title>
+<section xml:id="_md_public_2glpi_2vendor_2wapmorgan_2unified-archive_2_r_e_a_d_m_e_1autotoc_md7510">
+<title><title>Installation and configuration</title></title>
+<section xml:id="_md_public_2glpi_2vendor_2wapmorgan_2unified-archive_2_r_e_a_d_m_e_1autotoc_md7511">
+<title><title>Install library</title></title>
+
+<para><literallayout><computeroutput>composer&#32;require&#32;wapmorgan/unified-archive
+#Check&#32;supported&#32;formats&#32;with&#32;installed&#32;drivers
+./vendor/bin/cam&#32;system:formats
+#Check&#32;supported&#32;functions&#32;for&#32;zip&#32;format
+./vendor/bin/cam&#32;system:format&#32;zip
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2wapmorgan_2unified-archive_2_r_e_a_d_m_e_1autotoc_md7512">
+<title><title>Install new driver</title></title>
+
+<para><literallayout><computeroutput>#Read&#32;installation&#32;instructions&#32;from
+./vendor/bin/cam&#32;system:drivers
+#install&#32;missing&#32;drivers,&#32;for&#32;example&#32;pear/archive_tar
+composer&#32;require&#32;pear/archive_tar
+#check&#32;out&#32;driver&#32;functions
+./vendor/bin/cam&#32;system:formats&#32;TarByPear
+
+#if&#32;needed,&#32;install&#32;extensions,&#32;cli&#32;tools&#32;and&#32;php&#32;libraries
+#to&#32;enable&#32;support&#32;of&#32;other&#32;formats
+</computeroutput></literallayout></para>
+</section>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2wapmorgan_2unified-archive_2_r_e_a_d_m_e_1autotoc_md7513">
+<title><title>Usage</title></title>
+
+<para><literallayout><computeroutput>use&#32;\wapmorgan\UnifiedArchive\UnifiedArchive;
+
+$output_dir&#32;=&#32;&apos;/var/www/extracted&apos;;
+
+#&#32;Extraction
+$archive&#32;=&#32;UnifiedArchive::open(&apos;archive.zip&apos;);&#32;//&#32;archive.rar,&#32;archive.tar.bz2
+
+if&#32;(disk_free_space($output_dir)&#32;&lt;&#32;$archive-&gt;getOriginalSize())&#32;{
+&#32;&#32;&#32;&#32;throw&#32;new&#32;\RuntimeException(&apos;No&#32;needed&#32;space&#32;available.&#32;Need&#32;&apos;&#32;.&#32;($archive-&gt;getOriginalSize()&#32;-&#32;disk_free_space($output_dir))&#32;.&#32;&apos;&#32;byte(s)&#32;more&apos;);
+}
+
+$extracted&#32;=&#32;$archive-&gt;extract($output_dir);
+echo&#32;&apos;Number&#32;of&#32;extracted&#32;files&apos;&#32;.&#32;$extracted.PHP_EOL;
+
+#&#32;Archiving
+UnifiedArchive::create([
+&#32;&#32;&#32;&#32;&apos;README.md&apos;&#32;=&gt;&#32;&apos;/default/path/to/README.md&apos;,
+&#32;&#32;&#32;&#32;&apos;&apos;&#32;=&gt;&#32;&apos;/folder/with/content/&apos;,
+],&#32;&apos;archive.zip&apos;);
+</computeroutput></literallayout></para>
+</section>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2wapmorgan_2unified-archive_2_r_e_a_d_m_e_1autotoc_md7514">
+<title><title>Built-in console archive manager</title></title>
+
+<para>UnifiedArchive is distributed with a unified console program to manipulate archives. It supports all formats and all operations on them that UnifiedArchive does, so it can be used to manipulate archives without other system software. To show help, launch it: <literallayout><computeroutput>./vendor/bin/cam&#32;list&#32;#&#32;help
+./vendor/bin/cam&#32;archive:info&#32;archive.tar.gz&#32;#&#32;archive&#32;information
+./vendor/bin/cam&#32;files:list&#32;-l&#32;archive.tar.gz&#32;#&#32;files&#32;list&#32;(or&#32;files:table&#32;for&#32;table)
+./vendor/bin/cam&#32;archive:extract&#32;archive.tar.gz&#32;./OUTPUT/&#32;#&#32;extraction&#32;all&#32;archive
+./vendor/bin/cam&#32;archive:create&#32;--compression=maximum&#32;archive2.tar.gz&#32;./OUTPUT/partners&#32;#&#32;archive&#32;creation&#32;from&#32;files
+</computeroutput></literallayout></para>
+
+<para><itemizedlist>
+<listitem>
+<para><link linkend="_md_public_2glpi_2vendor_2wapmorgan_2unified-archive_2docs_2_usage">Usage</link></para>
+</listitem><listitem>
+<para><link linkend="_md_public_2glpi_2vendor_2wapmorgan_2unified-archive_2docs_2_drivers">Drivers &amp; formats</link></para>
+</listitem><listitem>
+<para><link linkend="_md_public_2glpi_2vendor_2wapmorgan_2unified-archive_2docs_2_a_p_i">Full API description</link></para>
+</listitem><listitem>
+<para><link linkend="_md_public_2glpi_2vendor_2wapmorgan_2unified-archive_2_c_h_a_n_g_e_l_o_g">Changelog</link> </para>
+</listitem></itemizedlist>
+</para>
+</section>
+</section>

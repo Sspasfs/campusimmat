@@ -1,0 +1,106 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_interface_twig_1_1_node_visitor_1_1_node_visitor_interface" xml:lang="fr">
+<title>Référence de l&apos;interface NodeVisitorInterface</title>
+<indexterm><primary>NodeVisitorInterface</primary></indexterm>
+Graphe d&apos;héritage de NodeVisitorInterface:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="interface_twig_1_1_node_visitor_1_1_node_visitor_interface__inherit__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Graphe de collaboration de NodeVisitorInterface:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="interface_twig_1_1_node_visitor_1_1_node_visitor_interface__coll__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Fonctions membres publiques    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_interface_twig_1_1_node_visitor_1_1_node_visitor_interface_1ace41ffc86b3ec3a45ff1766a95d69e79">enterNode</link> (<link linkend="_class_twig_1_1_node_1_1_node">Node</link> $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">node</link>, <link linkend="_class_twig_1_1_environment">Environment</link> $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">env</link>)</para>
+</listitem>
+            <listitem><para><link linkend="_interface_twig_1_1_node_visitor_1_1_node_visitor_interface_1a4cc01934748f1d74931c884f27a8b921">leaveNode</link> (<link linkend="_class_twig_1_1_node_1_1_node">Node</link> $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">node</link>, <link linkend="_class_twig_1_1_environment">Environment</link> $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">env</link>)</para>
+</listitem>
+            <listitem><para><link linkend="_interface_twig_1_1_node_visitor_1_1_node_visitor_interface_1a1e7a3c168dcd0901a0d2669c67575b55">getPriority</link> ()</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Description détaillée</title>
+
+<para>Interface for node visitor classes.</para>
+
+<para><formalpara><title>Auteur</title>
+
+<para>Fabien Potencier <link xlink:href="mailto:fabien@symfony.com">fabien@symfony.com</link> </para>
+</formalpara>
+</para>
+</section>
+<section>
+<title>Documentation des fonctions membres</title>
+<anchor xml:id="_interface_twig_1_1_node_visitor_1_1_node_visitor_interface_1ace41ffc86b3ec3a45ff1766a95d69e79"/><section>
+    <title>enterNode()</title>
+<indexterm><primary>enterNode</primary><secondary>NodeVisitorInterface</secondary></indexterm>
+<indexterm><primary>NodeVisitorInterface</primary><secondary>enterNode</secondary></indexterm>
+<para><computeroutput>enterNode (<link linkend="_class_twig_1_1_node_1_1_node">Node</link> $node, <link linkend="_class_twig_1_1_environment">Environment</link> $env)</computeroutput></para>
+<para>Called before child nodes are visited.</para>
+
+<para><formalpara><title>Renvoie</title>
+
+<para>Node The modified node </para>
+</formalpara>
+</para>
+<para>
+Implémenté dans <link linkend="_class_twig_1_1_node_visitor_1_1_abstract_node_visitor_1ace41ffc86b3ec3a45ff1766a95d69e79">AbstractNodeVisitor</link>, <link linkend="_class_twig_1_1_node_visitor_1_1_escaper_node_visitor_1ace41ffc86b3ec3a45ff1766a95d69e79">EscaperNodeVisitor</link>, <link linkend="_class_twig_1_1_node_visitor_1_1_macro_auto_import_node_visitor_1ace41ffc86b3ec3a45ff1766a95d69e79">MacroAutoImportNodeVisitor</link>, <link linkend="_class_twig_1_1_node_visitor_1_1_optimizer_node_visitor_1ace41ffc86b3ec3a45ff1766a95d69e79">OptimizerNodeVisitor</link>, <link linkend="_class_twig_1_1_node_visitor_1_1_safe_analysis_node_visitor_1ace41ffc86b3ec3a45ff1766a95d69e79">SafeAnalysisNodeVisitor</link>, <link linkend="_class_twig_1_1_node_visitor_1_1_sandbox_node_visitor_1ace41ffc86b3ec3a45ff1766a95d69e79">SandboxNodeVisitor</link>, et <link linkend="_class_twig_1_1_profiler_1_1_node_visitor_1_1_profiler_node_visitor_1ace41ffc86b3ec3a45ff1766a95d69e79">ProfilerNodeVisitor</link>.</para>
+</section>
+<anchor xml:id="_interface_twig_1_1_node_visitor_1_1_node_visitor_interface_1a1e7a3c168dcd0901a0d2669c67575b55"/><section>
+    <title>getPriority()</title>
+<indexterm><primary>getPriority</primary><secondary>NodeVisitorInterface</secondary></indexterm>
+<indexterm><primary>NodeVisitorInterface</primary><secondary>getPriority</secondary></indexterm>
+<para><computeroutput>getPriority ( )</computeroutput></para>
+<para>Returns the priority for this visitor.</para>
+
+<para>Priority should be between -10 and 10 (0 is the default).</para>
+
+<para><formalpara><title>Renvoie</title>
+
+<para>int The priority level </para>
+</formalpara>
+</para>
+<para>
+Implémenté dans <link linkend="_class_twig_1_1_node_visitor_1_1_escaper_node_visitor_1a1e7a3c168dcd0901a0d2669c67575b55">EscaperNodeVisitor</link>, <link linkend="_class_twig_1_1_node_visitor_1_1_macro_auto_import_node_visitor_1a1e7a3c168dcd0901a0d2669c67575b55">MacroAutoImportNodeVisitor</link>, <link linkend="_class_twig_1_1_node_visitor_1_1_optimizer_node_visitor_1a1e7a3c168dcd0901a0d2669c67575b55">OptimizerNodeVisitor</link>, <link linkend="_class_twig_1_1_node_visitor_1_1_safe_analysis_node_visitor_1a1e7a3c168dcd0901a0d2669c67575b55">SafeAnalysisNodeVisitor</link>, <link linkend="_class_twig_1_1_node_visitor_1_1_sandbox_node_visitor_1a1e7a3c168dcd0901a0d2669c67575b55">SandboxNodeVisitor</link>, et <link linkend="_class_twig_1_1_profiler_1_1_node_visitor_1_1_profiler_node_visitor_1a1e7a3c168dcd0901a0d2669c67575b55">ProfilerNodeVisitor</link>.</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="interface_twig_1_1_node_visitor_1_1_node_visitor_interface_a1e7a3c168dcd0901a0d2669c67575b55_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_interface_twig_1_1_node_visitor_1_1_node_visitor_interface_1a4cc01934748f1d74931c884f27a8b921"/><section>
+    <title>leaveNode()</title>
+<indexterm><primary>leaveNode</primary><secondary>NodeVisitorInterface</secondary></indexterm>
+<indexterm><primary>NodeVisitorInterface</primary><secondary>leaveNode</secondary></indexterm>
+<para><computeroutput>leaveNode (<link linkend="_class_twig_1_1_node_1_1_node">Node</link> $node, <link linkend="_class_twig_1_1_environment">Environment</link> $env)</computeroutput></para>
+<para>Called after child nodes are visited.</para>
+
+<para><formalpara><title>Renvoie</title>
+
+<para>Node|null The modified node or null if the node must be removed </para>
+</formalpara>
+</para>
+<para>
+Implémenté dans <link linkend="_class_twig_1_1_node_visitor_1_1_abstract_node_visitor_1a4cc01934748f1d74931c884f27a8b921">AbstractNodeVisitor</link>, <link linkend="_class_twig_1_1_node_visitor_1_1_escaper_node_visitor_1a4cc01934748f1d74931c884f27a8b921">EscaperNodeVisitor</link>, <link linkend="_class_twig_1_1_node_visitor_1_1_macro_auto_import_node_visitor_1a4cc01934748f1d74931c884f27a8b921">MacroAutoImportNodeVisitor</link>, <link linkend="_class_twig_1_1_node_visitor_1_1_optimizer_node_visitor_1a4cc01934748f1d74931c884f27a8b921">OptimizerNodeVisitor</link>, <link linkend="_class_twig_1_1_node_visitor_1_1_safe_analysis_node_visitor_1a4cc01934748f1d74931c884f27a8b921">SafeAnalysisNodeVisitor</link>, <link linkend="_class_twig_1_1_node_visitor_1_1_sandbox_node_visitor_1a4cc01934748f1d74931c884f27a8b921">SandboxNodeVisitor</link>, et <link linkend="_class_twig_1_1_profiler_1_1_node_visitor_1_1_profiler_node_visitor_1a4cc01934748f1d74931c884f27a8b921">ProfilerNodeVisitor</link>.</para>
+</section>
+<para>
+La documentation de cette interface a été générée à partir du fichier suivant :</para>
+public/glpi/vendor/twig/twig/src/NodeVisitor/<link linkend="__node_visitor_interface_8php">NodeVisitorInterface.php</link></section>
+</section>

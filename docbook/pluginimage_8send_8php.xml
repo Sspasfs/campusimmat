@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_pluginimage_8send_8php" xml:lang="fr">
+<title>Référence du fichier public/glpi/front/pluginimage.send.php</title>
+<indexterm><primary>public/glpi/front/pluginimage.send.php</primary></indexterm>
+<simplesect>
+    <title>Variables    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">global</link> <link linkend="_pluginimage_8send_8php_1a2e00a61703ee4673cdfb5eb376a9b295">$CFG_GLPI</link></para>
+</listitem>
+            <listitem><para><link linkend="_dropdown_location_8php_1a52332c22f84432520971794825a5a8e7">if</link>(!<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">isset</link>($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">_GET</link>[&quot;name&quot;])||!<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">isset</link>($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">_GET</link>[&quot;plugin&quot;])||!Plugin::isPluginActive($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">_GET</link>[&quot;plugin&quot;])) <link linkend="_pluginimage_8send_8php_1aa212819cfd6e2910363fc90997c90f91">$dir</link> = <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">GLPI_PLUGIN_DOC_DIR</link> . &quot;/&quot; . $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">_GET</link>[&quot;plugin&quot;] . &quot;/&quot;</para>
+</listitem>
+            <listitem><para><link linkend="_dropdown_location_8php_1a52332c22f84432520971794825a5a8e7">if</link>(<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">isset</link>($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">_GET</link>[&quot;folder&quot;])) <link linkend="_pluginimage_8send_8php_1ad3ce0f74a1b68ae7553b9e3441baded5">$filepath</link> = $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">dir</link> . $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">_GET</link>[&quot;name&quot;]</para>
+</listitem>
+            <listitem><para><link linkend="_dropdown_location_8php_1a52332c22f84432520971794825a5a8e7">if</link>(file_exists($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">filepath</link>)) <link linkend="_pluginimage_8send_8php_1a528c803380284007127b2e60e57c74e9">else</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Documentation des variables</title>
+<anchor xml:id="_pluginimage_8send_8php_1a2e00a61703ee4673cdfb5eb376a9b295"/><section>
+    <title>$CFG_GLPI</title>
+<indexterm><primary>$CFG_GLPI</primary><secondary>pluginimage.send.php</secondary></indexterm>
+<indexterm><primary>pluginimage.send.php</primary><secondary>$CFG_GLPI</secondary></indexterm>
+<para><computeroutput><link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">global</link> $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">CFG_GLPI</link></computeroutput></para></section>
+<anchor xml:id="_pluginimage_8send_8php_1aa212819cfd6e2910363fc90997c90f91"/><section>
+    <title>$dir</title>
+<indexterm><primary>$dir</primary><secondary>pluginimage.send.php</secondary></indexterm>
+<indexterm><primary>pluginimage.send.php</primary><secondary>$dir</secondary></indexterm>
+<para><computeroutput><link linkend="_dropdown_location_8php_1a52332c22f84432520971794825a5a8e7">if</link> (!<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">isset</link>( $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">_GET</link>[&quot;name&quot;])||!<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">isset</link>( $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">_GET</link>[&quot;plugin&quot;])||!Plugin::isPluginActive( $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">_GET</link>[&quot;plugin&quot;])) $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">dir</link> = <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">GLPI_PLUGIN_DOC_DIR</link> . &quot;/&quot; . $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">_GET</link>[&quot;plugin&quot;] . &quot;/&quot;</computeroutput></para></section>
+<anchor xml:id="_pluginimage_8send_8php_1ad3ce0f74a1b68ae7553b9e3441baded5"/><section>
+    <title>$filepath</title>
+<indexterm><primary>$filepath</primary><secondary>pluginimage.send.php</secondary></indexterm>
+<indexterm><primary>pluginimage.send.php</primary><secondary>$filepath</secondary></indexterm>
+<para><computeroutput><link linkend="_dropdown_location_8php_1a52332c22f84432520971794825a5a8e7">if</link> (<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">isset</link>( $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">_GET</link>[&quot;folder&quot;])) $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">filepath</link> = $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">dir</link> . $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">_GET</link>[&quot;name&quot;]</computeroutput></para></section>
+<anchor xml:id="_pluginimage_8send_8php_1a528c803380284007127b2e60e57c74e9"/><section>
+    <title>else</title>
+<indexterm><primary>else</primary><secondary>pluginimage.send.php</secondary></indexterm>
+<indexterm><primary>pluginimage.send.php</primary><secondary>else</secondary></indexterm>
+<para><computeroutput><link linkend="_dropdown_location_8php_1a52332c22f84432520971794825a5a8e7">if</link> (file_exists( $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">filepath</link>)) else</computeroutput></para><emphasis role="strong">Valeur initiale :</emphasis><programlisting linenumbering="unnumbered">{
+&#32;&#32;&#32;&#32;header(<emphasis role="stringliteral">&quot;Content-type:&#32;image/png&quot;</emphasis>)
+</programlisting></section>
+</section>
+</section>

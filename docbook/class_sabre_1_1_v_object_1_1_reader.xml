@@ -1,0 +1,214 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_sabre_1_1_v_object_1_1_reader" xml:lang="fr">
+<title>Référence de la classe Reader</title>
+<indexterm><primary>Reader</primary></indexterm>
+Graphe de collaboration de Reader:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_sabre_1_1_v_object_1_1_reader__coll__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Fonctions membres publiques statiques    </title>
+        <itemizedlist>
+            <listitem><para>static <link linkend="_class_sabre_1_1_v_object_1_1_reader_1a9f000f03f29caaed1fa635d67ad0cd1b">read</link> ($data, $options=0, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">charset</link>=&apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">UTF</link>-8&apos;)</para>
+</listitem>
+            <listitem><para>static <link linkend="_class_sabre_1_1_v_object_1_1_reader_1a4bbe698d226c6f15cb6c6c9fe2afd832">readJson</link> ($data, $options=0)</para>
+</listitem>
+            <listitem><para>static <link linkend="_class_sabre_1_1_v_object_1_1_reader_1a2de4e6889789ed429c7f34d47fdf9560">readXML</link> ($data, $options=0)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Champs de données    </title>
+        <itemizedlist>
+            <listitem><para>const <link linkend="_class_sabre_1_1_v_object_1_1_reader_1a0d11025a1d489ea365f66812cefdae6f">OPTION_FORGIVING</link> = 1</para>
+</listitem>
+            <listitem><para>const <link linkend="_class_sabre_1_1_v_object_1_1_reader_1a0ae099cb7c7529ae9cb1a5da4284fb69">OPTION_IGNORE_INVALID_LINES</link> = 2</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Description détaillée</title>
+
+<para>iCalendar/vCard/jCal/jCard/xCal/xCard reader object.</para>
+
+<para>This object provides a few (static) convenience methods to quickly access the parsers.</para>
+
+<para><formalpara><title>Copyright</title>
+
+<para>Copyright (C) fruux GmbH (<link xlink:href="https://fruux.com/">https://fruux.com/</link>) </para>
+</formalpara>
+<formalpara><title>Auteur</title>
+
+<para>Evert Pot (<link xlink:href="http://evertpot.com/">http://evertpot.com/</link>) @license <link xlink:href="http://sabre.io/license/">http://sabre.io/license/</link> Modified BSD License </para>
+</formalpara>
+</para>
+</section>
+<section>
+<title>Documentation des fonctions membres</title>
+<anchor xml:id="_class_sabre_1_1_v_object_1_1_reader_1a9f000f03f29caaed1fa635d67ad0cd1b"/><section>
+    <title>read()</title>
+<indexterm><primary>read</primary><secondary>Reader</secondary></indexterm>
+<indexterm><primary>Reader</primary><secondary>read</secondary></indexterm>
+<para><computeroutput>static read ( $data,  $options = <computeroutput>0</computeroutput>
+,  $charset = <computeroutput>&apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">UTF</link>-8&apos;</computeroutput>
+)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>Parses a vCard or iCalendar object, and returns the top component.</para>
+
+<para>The options argument is a bitfield. Pass any of the OPTIONS constant to alter the parsers&apos; behaviour.</para>
+
+<para>You can either supply a string, or a readable stream for input.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string | resource</entry><entry>$data</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>int</entry><entry>$options</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>string</entry><entry>$charset</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para><link linkend="_class_document">Document</link> </para>
+</formalpara>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_sabre_1_1_v_object_1_1_reader_a9f000f03f29caaed1fa635d67ad0cd1b_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_sabre_1_1_v_object_1_1_reader_1a4bbe698d226c6f15cb6c6c9fe2afd832"/><section>
+    <title>readJson()</title>
+<indexterm><primary>readJson</primary><secondary>Reader</secondary></indexterm>
+<indexterm><primary>Reader</primary><secondary>readJson</secondary></indexterm>
+<para><computeroutput>static readJson ( $data,  $options = <computeroutput>0</computeroutput>
+)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>Parses a jCard or jCal object, and returns the top component.</para>
+
+<para>The options argument is a bitfield. Pass any of the OPTIONS constant to alter the parsers&apos; behaviour.</para>
+
+<para>You can either a string, a readable stream, or an array for its input. Specifying the array is useful if json_decode was already called on the input.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string | resource | array</entry><entry>$data</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>int</entry><entry>$options</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para><link linkend="_class_document">Document</link> </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_class_sabre_1_1_v_object_1_1_reader_1a2de4e6889789ed429c7f34d47fdf9560"/><section>
+    <title>readXML()</title>
+<indexterm><primary>readXML</primary><secondary>Reader</secondary></indexterm>
+<indexterm><primary>Reader</primary><secondary>readXML</secondary></indexterm>
+<para><computeroutput>static readXML ( $data,  $options = <computeroutput>0</computeroutput>
+)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>Parses a xCard or xCal object, and returns the top component.</para>
+
+<para>The options argument is a bitfield. Pass any of the OPTIONS constant to alter the parsers&apos; behaviour.</para>
+
+<para>You can either supply a string, or a readable stream for input.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string | resource</entry><entry>$data</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>int</entry><entry>$options</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para><link linkend="_class_document">Document</link> </para>
+</formalpara>
+</para>
+</section>
+</section>
+<section>
+<title>Documentation des champs</title>
+<anchor xml:id="_class_sabre_1_1_v_object_1_1_reader_1a0d11025a1d489ea365f66812cefdae6f"/><section>
+    <title>OPTION_FORGIVING</title>
+<indexterm><primary>OPTION_FORGIVING</primary><secondary>Reader</secondary></indexterm>
+<indexterm><primary>Reader</primary><secondary>OPTION_FORGIVING</secondary></indexterm>
+<para><computeroutput>const OPTION_FORGIVING = 1</computeroutput></para>
+<para>If this option is passed to the reader, it will be less strict about the validity of the lines. </para>
+</section>
+<anchor xml:id="_class_sabre_1_1_v_object_1_1_reader_1a0ae099cb7c7529ae9cb1a5da4284fb69"/><section>
+    <title>OPTION_IGNORE_INVALID_LINES</title>
+<indexterm><primary>OPTION_IGNORE_INVALID_LINES</primary><secondary>Reader</secondary></indexterm>
+<indexterm><primary>Reader</primary><secondary>OPTION_IGNORE_INVALID_LINES</secondary></indexterm>
+<para><computeroutput>const OPTION_IGNORE_INVALID_LINES = 2</computeroutput></para>
+<para>If this option is turned on, any lines we cannot parse will be ignored by the reader. </para>
+</section>
+<para>
+La documentation de cette classe a été générée à partir du fichier suivant :</para>
+public/glpi/vendor/sabre/vobject/lib/<link linkend="_sabre_2vobject_2lib_2_reader_8php">Reader.php</link></section>
+</section>

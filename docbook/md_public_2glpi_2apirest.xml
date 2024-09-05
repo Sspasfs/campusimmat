@@ -1,0 +1,2512 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_md_public_2glpi_2apirest" xml:lang="fr">
+<title>GLPI REST API: Documentation</title>
+<indexterm><primary>GLPI REST API:  Documentation</primary></indexterm>
+
+<para><anchor xml:id="_md_public_2glpi_2apirest_1autotoc_md357"/> </para>
+<section xml:id="_md_public_2glpi_2apirest_1autotoc_md358">
+<title><title>Summary</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para><link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">Glossary</link></para>
+</listitem><listitem>
+<para><link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">Important</link></para>
+</listitem><listitem>
+<para><link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">Init session</link></para>
+</listitem><listitem>
+<para><link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">Kill session</link></para>
+</listitem><listitem>
+<para><link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">Lost password</link></para>
+</listitem><listitem>
+<para><link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">Get my profiles</link></para>
+</listitem><listitem>
+<para><link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">Get active profile</link></para>
+</listitem><listitem>
+<para><link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">Change active profile</link></para>
+</listitem><listitem>
+<para><link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">Get my entities</link></para>
+</listitem><listitem>
+<para><link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">Get active entities</link></para>
+</listitem><listitem>
+<para><link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">Change active entities</link></para>
+</listitem><listitem>
+<para><link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">Get full session</link></para>
+</listitem><listitem>
+<para><link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">Get GLPI config</link></para>
+</listitem><listitem>
+<para><link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">Get an item</link></para>
+</listitem><listitem>
+<para><link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">Get all items</link></para>
+</listitem><listitem>
+<para><link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">Get sub items</link></para>
+</listitem><listitem>
+<para><link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">Get multiple items</link></para>
+</listitem><listitem>
+<para><link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">List searchOptions</link></para>
+</listitem><listitem>
+<para><link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">Search items</link></para>
+</listitem><listitem>
+<para><link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">Add item(s)</link></para>
+</listitem><listitem>
+<para><link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">Update item(s)</link></para>
+</listitem><listitem>
+<para><link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">Delete item(s)</link></para>
+</listitem><listitem>
+<para><link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">Get available massive actions for an itemtype</link></para>
+</listitem><listitem>
+<para><link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">Get available massive actions for an item</link></para>
+</listitem><listitem>
+<para><link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">Get massive action parameters</link></para>
+</listitem><listitem>
+<para><link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">Apply massive action</link></para>
+</listitem><listitem>
+<para><link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">Special cases</link></para>
+</listitem><listitem>
+<para><link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">Errors</link></para>
+</listitem><listitem>
+<para><link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">Servers configuration</link></para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2apirest_1autotoc_md359">
+<title><title>Glossary</title></title>
+
+<para>Endpoint : Resource available though the API. The endpoint is the URL where your API can be accessed by a client application</para>
+
+<para>Method : HTTP verbs to indicate the desired action to be performed on the identified resource. See: <link xlink:href="https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol#Request_methods">https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol#Request_methods</link></para>
+
+<para>itemtype : A <link linkend="_class_g_l_p_i">GLPI</link> type, could be an asset, an ITIL or a configuration object, etc. This type must be a class who inherits CommonDTBM <link linkend="_class_g_l_p_i">GLPI</link> class.</para>
+
+<para>searchOption : A column identifier (integer) of an itemtype (ex: 1 -&gt; id, 2 -&gt; name, ...). See <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">List searchOptions</link> endpoint.</para>
+
+<para>JSON Payload : content of HTTP Request in JSON format (HTTP body)</para>
+
+<para>Query string : URL parameters</para>
+
+<para><link linkend="_class_user">User</link> token : Used in login process instead of login/password couple. It represent the user with a string. You can find user token in the settings tabs of users.</para>
+
+<para><link linkend="_class_session">Session</link> token : A string describing a valid session in glpi. Except initSession endpoint who provide this token, all others require this string to be used.</para>
+
+<para>App(lication) token : An optional way to filter the access to the API. On API call, it will try to find an API client matching your IP and the app token (if provided). You can define an API client with an app token in general configuration for each of your external applications to identify them (each API client have its own history).</para>
+</section>
+<section xml:id="_md_public_2glpi_2apirest_1autotoc_md360">
+<title><title>Important</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>You should always provide a Content-Type header in your HTTP calls. Currently, the API supports:<itemizedlist>
+<listitem>
+<para>application/json</para>
+</listitem><listitem>
+<para>multipart/form-data (for files upload, see <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">Add item(s)</link> endpoint.</para>
+</listitem></itemizedlist>
+</para>
+</listitem><listitem>
+<para>GET requests must have an empty body. You must pass all parameters in URL. Failing to do so will trigger an HTTP 400 response.</para>
+</listitem><listitem>
+<para>By default, sessions used in this API are read-only. Only some methods have write access to session:<itemizedlist>
+<listitem>
+<para><link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">initSession</link></para>
+</listitem><listitem>
+<para><link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">killSession</link></para>
+</listitem><listitem>
+<para><link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">changeActiveEntities</link></para>
+</listitem><listitem>
+<para><link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">changeActiveProfile</link></para>
+</listitem></itemizedlist>
+</para>
+
+<para>You could pass an additional parameter &quot;session_write=true&quot; to bypass this default. This read-only mode allow to use this API with parallel calls. In write mode, sessions are locked and your client must wait the end of a call before the next one can execute.</para>
+</listitem><listitem>
+<para>You can filter API access by enable the following parameters in <link linkend="_class_g_l_p_i">GLPI</link> General Configuration (API tab):<itemizedlist>
+<listitem>
+<para>IPv4 range</para>
+</listitem><listitem>
+<para>IPv6 address</para>
+</listitem><listitem>
+<para><emphasis>App-Token</emphasis> parameter: if not empty, you should pass this parameter in all of your API calls</para>
+</listitem></itemizedlist>
+</para>
+</listitem><listitem>
+<para><link linkend="_class_session">Session</link> and App tokens could be provided in query string instead of header parameters.</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2apirest_1autotoc_md361">
+<title><title>Init session</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para><emphasis role="bold">URL</emphasis>: apirest.php/initSession/</para>
+</listitem><listitem>
+<para><emphasis role="bold">Description</emphasis>: Request a session token to uses other API endpoints.</para>
+</listitem><listitem>
+<para><emphasis role="bold">Method</emphasis>: GET</para>
+</listitem><listitem>
+<para><emphasis role="bold">Parameters</emphasis>: (Headers)<itemizedlist>
+<listitem>
+<para><emphasis>App-Token</emphasis>: authorization string provided by the <link linkend="_class_g_l_p_i">GLPI</link> API configuration. Optional.</para>
+</listitem><listitem>
+<para>a couple <emphasis>login</emphasis> &amp; <emphasis>password</emphasis>: 2 parameters to login with user authentication. You should pass this 2 parameters in <link xlink:href="https://en.wikipedia.org/wiki/Basic_access_authentication">http basic auth</link>. It consists in a Base64 string with login and password separated by &quot;:&quot; A valid Authorization header is:<itemizedlist>
+<listitem>
+<para>&quot;Authorization: Basic base64({login}:{password})&quot;</para>
+</listitem></itemizedlist>
+</para>
+</listitem></itemizedlist>
+</para>
+</listitem></itemizedlist>
+</para>
+
+<para><blockquote>
+<para>&#8205;<emphasis role="bold">OR</emphasis> </para>
+</blockquote><itemizedlist>
+<listitem>
+<para>an <emphasis>user_token</emphasis> defined in <link linkend="_class_user">User</link> <link linkend="_class_preference">Preference</link> (See &apos;Remote access key&apos;) You should pass this parameter in &apos;Authorization&apos; HTTP header. A valid Authorization header is:<itemizedlist>
+<listitem>
+<para>&quot;Authorization: user_token q56hqkniwot8wntb3z1qarka5atf365taaa2uyjrn&quot;</para>
+</listitem></itemizedlist>
+</para>
+</listitem></itemizedlist>
+</para>
+
+<para><emphasis role="bold">Parameters</emphasis>: (query string)<itemizedlist>
+<listitem>
+<para><emphasis>get_full_session</emphasis> (default: false): Get the full session, useful if you want to login and access session data in one request.</para>
+</listitem></itemizedlist>
+</para>
+
+<para><emphasis role="bold">Returns</emphasis>:<itemizedlist>
+<listitem>
+<para>200 (OK) with the <emphasis>session_token</emphasis> string.</para>
+</listitem><listitem>
+<para>400 (Bad Request) with a message indicating an error in input parameter.</para>
+</listitem><listitem>
+<para>401 (UNAUTHORIZED)</para>
+</listitem></itemizedlist>
+</para>
+
+<para>Examples usage (CURL):</para>
+
+<para><literallayout><computeroutput>$&#32;curl&#32;-X&#32;GET&#32;\
+-H&#32;&apos;Content-Type:&#32;application/json&apos;&#32;\
+-H&#32;&quot;Authorization:&#32;Basic&#32;Z2xwaTpnbHBp&quot;&#32;\
+-H&#32;&quot;App-Token:&#32;f7g3csp8mgatg5ebc5elnazakw20i9fyev1qopya7&quot;&#32;\
+&apos;http://path/to/glpi/apirest.php/initSession&apos;
+
+&lt;&#32;200&#32;OK
+&lt;&#32;{
+&#32;&#32;&#32;&quot;session_token&quot;:&#32;&quot;83af7e620c83a50a18d3eac2f6ed05a3ca0bea62&quot;
+}
+
+$&#32;curl&#32;-X&#32;GET&#32;\
+-H&#32;&apos;Content-Type:&#32;application/json&apos;&#32;\
+-H&#32;&quot;Authorization:&#32;user_token&#32;q56hqkniwot8wntb3z1qarka5atf365taaa2uyjrn&quot;&#32;\
+-H&#32;&quot;App-Token:&#32;f7g3csp8mgatg5ebc5elnazakw20i9fyev1qopya7&quot;&#32;\
+&apos;http://path/to/glpi/apirest.php/initSession?get_full_session=true&apos;
+
+&lt;&#32;200&#32;OK
+&lt;&#32;{
+&#32;&#32;&#32;&quot;session_token&quot;:&#32;&quot;83af7e620c83a50a18d3eac2f6ed05a3ca0bea62&quot;,
+&#32;&#32;&#32;&quot;session&quot;:&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;&apos;glpi_plugins&apos;:&#32;...,
+&#32;&#32;&#32;&#32;&#32;&#32;&apos;glpicookietest&apos;:&#32;...,
+&#32;&#32;&#32;&#32;&#32;&#32;&apos;glpicsrftokens&apos;:&#32;...,
+&#32;&#32;&#32;&#32;&#32;&#32;...
+&#32;&#32;&#32;}
+}
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md_public_2glpi_2apirest_1autotoc_md362">
+<title><title>Kill session</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para><emphasis role="bold">URL</emphasis>: apirest.php/killSession/</para>
+</listitem><listitem>
+<para><emphasis role="bold">Description</emphasis>: Destroy a session identified by a session token.</para>
+</listitem><listitem>
+<para><emphasis role="bold">Method</emphasis>: GET</para>
+</listitem><listitem>
+<para><emphasis role="bold">Parameters</emphasis>: (Headers)<itemizedlist>
+<listitem>
+<para><emphasis>Session-Token</emphasis>: session var provided by <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">initSession</link> endpoint. Mandatory.</para>
+</listitem><listitem>
+<para><emphasis>App-Token</emphasis>: authorization string provided by the <link linkend="_class_g_l_p_i">GLPI</link> API configuration. Optional.</para>
+</listitem></itemizedlist>
+</para>
+</listitem><listitem>
+<para><emphasis role="bold">Returns</emphasis>:<itemizedlist>
+<listitem>
+<para>200 (OK).</para>
+</listitem><listitem>
+<para>400 (Bad Request) with a message indicating an error in input parameter.</para>
+</listitem></itemizedlist>
+</para>
+</listitem></itemizedlist>
+</para>
+
+<para>Example usage (CURL):</para>
+
+<para><literallayout><computeroutput>$&#32;curl&#32;-X&#32;GET&#32;\
+-H&#32;&apos;Content-Type:&#32;application/json&apos;&#32;\
+-H&#32;&quot;Session-Token:&#32;83af7e620c83a50a18d3eac2f6ed05a3ca0bea62&quot;&#32;\
+-H&#32;&quot;App-Token:&#32;f7g3csp8mgatg5ebc5elnazakw20i9fyev1qopya7&quot;&#32;\
+&apos;http://path/to/glpi/apirest.php/killSession&apos;
+
+&lt;&#32;200&#32;OK
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md_public_2glpi_2apirest_1autotoc_md363">
+<title><title>Lost password</title></title>
+
+<para>This endpoint allows to request password recovery and password reset. This endpoint works under the following conditions:<itemizedlist>
+<listitem>
+<para><link linkend="_class_g_l_p_i">GLPI</link> has notifications enabled</para>
+</listitem><listitem>
+<para>the email address of the user belongs to a user account.</para>
+</listitem></itemizedlist>
+</para>
+
+<para>Reset password request:</para>
+
+<para><itemizedlist>
+<listitem>
+<para><emphasis role="bold">URL</emphasis>: apirest.php/lostPassword/</para>
+</listitem><listitem>
+<para><emphasis role="bold">Description</emphasis>: Sends a notification to the user to reset his password</para>
+</listitem><listitem>
+<para><emphasis role="bold">Method</emphasis>: PUT or PATCH</para>
+</listitem><listitem>
+<para><emphasis role="bold">Parameters</emphasis>: (JSON Payload)<itemizedlist>
+<listitem>
+<para><emphasis>email</emphasis>: email address of the user to recover. Mandatory.</para>
+</listitem></itemizedlist>
+</para>
+</listitem><listitem>
+<para><emphasis role="bold">Returns</emphasis>:<itemizedlist>
+<listitem>
+<para>200 (OK).</para>
+</listitem><listitem>
+<para>400 (Bad Request) with a message indicating an error in input parameter.</para>
+</listitem></itemizedlist>
+</para>
+</listitem></itemizedlist>
+</para>
+
+<para><literallayout><computeroutput>$&#32;curl&#32;-X&#32;PUT&#32;\
+-H&#32;&apos;Content-Type:&#32;application/json&apos;&#32;\
+-d&#32;&apos;{&quot;email&quot;:&#32;&quot;user@domain.com&quot;}&apos;&#32;\
+&apos;http://path/to/glpi/apirest.php/lostPassword&apos;
+
+&lt;&#32;200&#32;OK
+</computeroutput></literallayout></para>
+
+<para>Password reset :</para>
+
+<para><itemizedlist>
+<listitem>
+<para><emphasis role="bold">URL</emphasis>: apirest.php/lostPassword/</para>
+</listitem><listitem>
+<para><emphasis role="bold">Description</emphasis>: Sends a notification to the user to reset his password</para>
+</listitem><listitem>
+<para><emphasis role="bold">Method</emphasis>: PUT or PATCH</para>
+</listitem><listitem>
+<para><emphasis role="bold">Parameters</emphasis>: (JSON Payload)<itemizedlist>
+<listitem>
+<para><emphasis>email</emphasis>: email address of the user to recover. Mandatory.</para>
+</listitem><listitem>
+<para><emphasis>password_forget_token</emphasis>: reset token</para>
+</listitem><listitem>
+<para><emphasis>password</emphasis>: the new password for the user</para>
+</listitem></itemizedlist>
+</para>
+</listitem><listitem>
+<para><emphasis role="bold">Returns</emphasis>:<itemizedlist>
+<listitem>
+<para>200 (OK).</para>
+</listitem><listitem>
+<para>400 (Bad Request) with a message indicating an error in input parameter.</para>
+</listitem></itemizedlist>
+</para>
+</listitem></itemizedlist>
+</para>
+
+<para><literallayout><computeroutput>$&#32;curl&#32;-X&#32;PUT&#32;\
+-H&#32;&apos;Content-Type:&#32;application/json&apos;&#32;\
+-d&#32;&apos;{&quot;email&quot;:&#32;&quot;user@domain.com&quot;,&#32;\
+&#32;&#32;&#32;&#32;&#32;&quot;password_forget_token&quot;:&#32;&quot;b0a4cfe81448299ebed57442f4f21929c80ebee5&quot;&#32;\
+&#32;&#32;&#32;&#32;&#32;&quot;password&quot;:&#32;&quot;NewPassword&quot;&#32;\
+&#32;&#32;&#32;&#32;}&apos;&#32;\
+&apos;http://path/to/glpi/apirest.php/lostPassword&apos;
+
+&lt;&#32;200&#32;OK
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md_public_2glpi_2apirest_1autotoc_md364">
+<title><title>Get my profiles</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para><emphasis role="bold">URL</emphasis>: <link xlink:href="getMyProfiles/?debug">apirest.php/getMyProfiles/</link></para>
+</listitem><listitem>
+<para><emphasis role="bold">Description</emphasis>: Return all the profiles associated to logged user.</para>
+</listitem><listitem>
+<para><emphasis role="bold">Method</emphasis>: GET</para>
+</listitem><listitem>
+<para><emphasis role="bold">Parameters</emphasis>: (Headers)<itemizedlist>
+<listitem>
+<para><emphasis>Session-Token</emphasis>: session var provided by <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">initSession</link> endpoint. Mandatory.</para>
+</listitem><listitem>
+<para><emphasis>App-Token</emphasis>: authorization string provided by the <link linkend="_class_g_l_p_i">GLPI</link> API configuration. Optional.</para>
+</listitem></itemizedlist>
+</para>
+</listitem><listitem>
+<para><emphasis role="bold">Returns</emphasis>:<itemizedlist>
+<listitem>
+<para>200 (OK) with an array of all profiles.</para>
+</listitem><listitem>
+<para>400 (Bad Request) with a message indicating an error in input parameter.</para>
+</listitem></itemizedlist>
+</para>
+</listitem></itemizedlist>
+</para>
+
+<para>Example usage (CURL):</para>
+
+<para><literallayout><computeroutput>$&#32;curl&#32;-X&#32;GET&#32;\
+-H&#32;&apos;Content-Type:&#32;application/json&apos;&#32;\
+-H&#32;&quot;Session-Token:&#32;83af7e620c83a50a18d3eac2f6ed05a3ca0bea62&quot;&#32;\
+-H&#32;&quot;App-Token:&#32;f7g3csp8mgatg5ebc5elnazakw20i9fyev1qopya7&quot;&#32;\
+&apos;http://path/to/glpi/apirest.php/getMyProfiles&apos;
+
+&lt;&#32;200&#32;OK
+&lt;&#32;{
+&#32;&#32;&#32;&apos;myprofiles&apos;:&#32;[
+&#32;&#32;&#32;&#32;&#32;&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&apos;id&apos;:&#32;1
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&apos;name&apos;:&#32;&quot;Super-admin&quot;,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&apos;entities&apos;:&#32;[
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;...
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;],
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;...
+&#32;&#32;&#32;&#32;&#32;&#32;},
+&#32;&#32;&#32;&#32;&#32;&#32;....
+&#32;&#32;&#32;]
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md_public_2glpi_2apirest_1autotoc_md365">
+<title><title>Get active profile</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para><emphasis role="bold">URL</emphasis>: <link xlink:href="getActiveProfile/?debug">apirest.php/getActiveProfile/</link></para>
+</listitem><listitem>
+<para><emphasis role="bold">Description</emphasis>: Return the current active profile.</para>
+</listitem><listitem>
+<para><emphasis role="bold">Method</emphasis>: GET</para>
+</listitem><listitem>
+<para><emphasis role="bold">Parameters</emphasis>: (Headers)<itemizedlist>
+<listitem>
+<para><emphasis>Session-Token</emphasis>: session var provided by <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">initSession</link> endpoint. Mandatory.</para>
+</listitem><listitem>
+<para><emphasis>App-Token</emphasis>: authorization string provided by the <link linkend="_class_g_l_p_i">GLPI</link> API configuration. Optional.</para>
+</listitem></itemizedlist>
+</para>
+</listitem><listitem>
+<para><emphasis role="bold">Returns</emphasis>:<itemizedlist>
+<listitem>
+<para>200 (OK) with an array representing current profile.</para>
+</listitem><listitem>
+<para>400 (Bad Request) with a message indicating an error in input parameter.</para>
+</listitem></itemizedlist>
+</para>
+</listitem></itemizedlist>
+</para>
+
+<para>Example usage (CURL):</para>
+
+<para><literallayout><computeroutput>$&#32;curl&#32;-X&#32;GET&#32;\
+-H&#32;&apos;Content-Type:&#32;application/json&apos;&#32;\
+-H&#32;&quot;Session-Token:&#32;83af7e620c83a50a18d3eac2f6ed05a3ca0bea62&quot;&#32;\
+-H&#32;&quot;App-Token:&#32;f7g3csp8mgatg5ebc5elnazakw20i9fyev1qopya7&quot;&#32;\
+&apos;http://path/to/glpi/apirest.php/getActiveProfile&apos;
+
+&lt;&#32;200&#32;OK
+&lt;&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;&apos;name&apos;:&#32;&quot;Super-admin&quot;,
+&#32;&#32;&#32;&#32;&#32;&#32;&apos;entities&apos;:&#32;[
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;...
+&#32;&#32;&#32;&#32;&#32;&#32;]
+&#32;&#32;&#32;}
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md_public_2glpi_2apirest_1autotoc_md366">
+<title><title>Change active profile</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para><emphasis role="bold">URL</emphasis>: <link xlink:href="changeActiveProfile/?profiles_id=4&amp;debug">apirest.php/changeActiveProfile/</link></para>
+</listitem><listitem>
+<para><emphasis role="bold">Description</emphasis>: <link linkend="_class_change">Change</link> active profile to the profiles_id one. See <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">getMyProfiles</link> endpoint for possible profiles.</para>
+</listitem><listitem>
+<para><emphasis role="bold">Method</emphasis>: POST</para>
+</listitem><listitem>
+<para><emphasis role="bold">Parameters</emphasis>: (Headers)<itemizedlist>
+<listitem>
+<para><emphasis>Session-Token</emphasis>: session var provided by <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">initSession</link> endpoint. Mandatory.</para>
+</listitem><listitem>
+<para><emphasis>App-Token</emphasis>: authorization string provided by the <link linkend="_class_g_l_p_i">GLPI</link> API configuration. Optional.</para>
+</listitem></itemizedlist>
+</para>
+</listitem><listitem>
+<para><emphasis role="bold">Parameters</emphasis>: (JSON Payload)<itemizedlist>
+<listitem>
+<para><emphasis>profiles_id</emphasis>: (default &apos;all&apos;) ID of the new active profile. Mandatory.</para>
+</listitem></itemizedlist>
+</para>
+</listitem><listitem>
+<para><emphasis role="bold">Returns</emphasis>:<itemizedlist>
+<listitem>
+<para>200 (OK).</para>
+</listitem><listitem>
+<para>400 (Bad Request) with a message indicating an error in input parameter.</para>
+</listitem><listitem>
+<para>404 (Not found) with a message indicating an error ig the profile does not exists or usable.</para>
+</listitem></itemizedlist>
+</para>
+</listitem></itemizedlist>
+</para>
+
+<para>Example usage (CURL):</para>
+
+<para><literallayout><computeroutput>$&#32;curl&#32;-X&#32;POST&#32;\
+-H&#32;&apos;Content-Type:&#32;application/json&apos;&#32;\
+-H&#32;&quot;Session-Token:&#32;83af7e620c83a50a18d3eac2f6ed05a3ca0bea62&quot;&#32;\
+-H&#32;&quot;App-Token:&#32;f7g3csp8mgatg5ebc5elnazakw20i9fyev1qopya7&quot;&#32;\
+-d&#32;&apos;{&quot;profiles_id&quot;:&#32;4}&apos;&#32;\
+&apos;http://path/to/glpi/apirest.php/changeActiveProfile&apos;
+
+&lt;&#32;200&#32;OK
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md_public_2glpi_2apirest_1autotoc_md367">
+<title><title>Get my entities</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para><emphasis role="bold">URL</emphasis>: <link xlink:href="getMyEntities/?debug">apirest.php/getMyEntities/</link></para>
+</listitem><listitem>
+<para><emphasis role="bold">Description</emphasis>: Return all the possible entities of the current logged user (and for current active profile).</para>
+</listitem><listitem>
+<para><emphasis role="bold">Method</emphasis>: GET</para>
+</listitem><listitem>
+<para><emphasis role="bold">Parameters</emphasis>: (Headers)<itemizedlist>
+<listitem>
+<para><emphasis>Session-Token</emphasis>: session var provided by <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">initSession</link> endpoint. Mandatory.</para>
+</listitem><listitem>
+<para><emphasis>App-Token</emphasis>: authorization string provided by the <link linkend="_class_g_l_p_i">GLPI</link> API configuration. Optional.</para>
+</listitem></itemizedlist>
+</para>
+</listitem><listitem>
+<para><emphasis role="bold">Parameters</emphasis>: (query string)<itemizedlist>
+<listitem>
+<para><emphasis>is_recursive</emphasis> (default: false): Also display sub entities of the active entity. Optionnal</para>
+</listitem></itemizedlist>
+</para>
+</listitem><listitem>
+<para><emphasis role="bold">Returns</emphasis>:<itemizedlist>
+<listitem>
+<para>200 (OK) with an array of all entities (with id and name).</para>
+</listitem><listitem>
+<para>400 (Bad Request) with a message indicating an error in input parameter.</para>
+</listitem></itemizedlist>
+</para>
+</listitem></itemizedlist>
+</para>
+
+<para>Example usage (CURL):</para>
+
+<para><literallayout><computeroutput>$&#32;curl&#32;-X&#32;GET&#32;\
+-H&#32;&apos;Content-Type:&#32;application/json&apos;&#32;\
+-H&#32;&quot;Session-Token:&#32;83af7e620c83a50a18d3eac2f6ed05a3ca0bea62&quot;&#32;\
+-H&#32;&quot;App-Token:&#32;f7g3csp8mgatg5ebc5elnazakw20i9fyev1qopya7&quot;&#32;\
+&apos;http://path/to/glpi/apirest.php/getMyEntities&apos;
+
+&lt;&#32;200&#32;OK
+&lt;&#32;{
+&#32;&#32;&#32;&apos;myentities&apos;:&#32;[
+&#32;&#32;&#32;&#32;&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&apos;id&apos;:&#32;&#32;&#32;71
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&apos;name&apos;:&#32;&quot;my_entity&quot;
+&#32;&#32;&#32;&#32;&#32;},
+&#32;&#32;&#32;....
+&#32;&#32;&#32;]
+&#32;&#32;}
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md_public_2glpi_2apirest_1autotoc_md368">
+<title><title>Get active entities</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para><emphasis role="bold">URL</emphasis>: <link xlink:href="getActiveEntities/?debug">apirest.php/getActiveEntities/</link></para>
+</listitem><listitem>
+<para><emphasis role="bold">Description</emphasis>: Return active entities of current logged user.</para>
+</listitem><listitem>
+<para><emphasis role="bold">Method</emphasis>: GET</para>
+</listitem><listitem>
+<para><emphasis role="bold">Parameters</emphasis>: (Headers)<itemizedlist>
+<listitem>
+<para><emphasis>Session-Token</emphasis>: session var provided by <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">initSession</link> endpoint. Mandatory.</para>
+</listitem><listitem>
+<para><emphasis>App-Token</emphasis>: authorization string provided by the <link linkend="_class_g_l_p_i">GLPI</link> API configuration. Optional.</para>
+</listitem></itemizedlist>
+</para>
+</listitem><listitem>
+<para><emphasis role="bold">Returns</emphasis>:<itemizedlist>
+<listitem>
+<para>200 (OK) with an array with 3 keys:<itemizedlist>
+<listitem>
+<para><emphasis>active_entity</emphasis>: current set entity.</para>
+</listitem><listitem>
+<para><emphasis>active_entity_recursive</emphasis>: boolean, if we see sons of this entity.</para>
+</listitem><listitem>
+<para><emphasis>active_entities</emphasis>: array all active entities (active_entity and its sons).</para>
+</listitem></itemizedlist>
+</para>
+</listitem><listitem>
+<para>400 (Bad Request) with a message indicating an error in input parameter.</para>
+</listitem></itemizedlist>
+</para>
+</listitem></itemizedlist>
+</para>
+
+<para>Example usage (CURL):</para>
+
+<para><literallayout><computeroutput>$&#32;curl&#32;-X&#32;GET&#32;\
+-H&#32;&apos;Content-Type:&#32;application/json&apos;&#32;\
+-H&#32;&quot;Session-Token:&#32;83af7e620c83a50a18d3eac2f6ed05a3ca0bea62&quot;&#32;\
+-H&#32;&quot;App-Token:&#32;f7g3csp8mgatg5ebc5elnazakw20i9fyev1qopya7&quot;&#32;\
+&apos;http://path/to/glpi/apirest.php/getActiveEntities&apos;
+
+&lt;&#32;200&#32;OK
+&lt;&#32;{
+&#32;&#32;&#32;&apos;active_entity&apos;:&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;&apos;id&apos;:&#32;1,
+&#32;&#32;&#32;&#32;&#32;&#32;&apos;active_entity_recursive&apos;:&#32;true,
+&#32;&#32;&#32;&#32;&#32;&#32;&apos;active_entities&apos;:&#32;[
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{&quot;id&quot;:1},
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{&quot;id&quot;:71},...
+&#32;&#32;&#32;&#32;&#32;&#32;]
+&#32;&#32;&#32;}
+}
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md_public_2glpi_2apirest_1autotoc_md369">
+<title><title>Change active entities</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para><emphasis role="bold">URL</emphasis>: <link xlink:href="changeActiveEntities/?entities_id=1&amp;is_recursive=0&amp;debug">apirest.php/changeActiveEntities/</link></para>
+</listitem><listitem>
+<para><emphasis role="bold">Description</emphasis>: <link linkend="_class_change">Change</link> active entity to the entities_id one. See <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">getMyEntities</link> endpoint for possible entities.</para>
+</listitem><listitem>
+<para><emphasis role="bold">Method</emphasis>: POST</para>
+</listitem><listitem>
+<para><emphasis role="bold">Parameters</emphasis>: (Headers)<itemizedlist>
+<listitem>
+<para><emphasis>Session-Token</emphasis>: session var provided by <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">initSession</link> endpoint. Mandatory.</para>
+</listitem><listitem>
+<para><emphasis>App-Token</emphasis>: authorization string provided by the <link linkend="_class_g_l_p_i">GLPI</link> API configuration. Optional.</para>
+</listitem></itemizedlist>
+</para>
+</listitem><listitem>
+<para><emphasis role="bold">Parameters</emphasis>: (JSON Payload)<itemizedlist>
+<listitem>
+<para><emphasis>entities_id</emphasis>: (default &apos;all&apos;) ID of the new active entity (&quot;all&quot; =&gt; load all possible entities). Optional.</para>
+</listitem><listitem>
+<para><emphasis>is_recursive</emphasis>: (default false) Also display sub entities of the active entity. Optional.</para>
+</listitem></itemizedlist>
+</para>
+</listitem><listitem>
+<para><emphasis role="bold">Returns</emphasis>:<itemizedlist>
+<listitem>
+<para>200 (OK).</para>
+</listitem><listitem>
+<para>400 (Bad Request) with a message indicating an error in input parameter.</para>
+</listitem></itemizedlist>
+</para>
+</listitem></itemizedlist>
+</para>
+
+<para>Example usage (CURL):</para>
+
+<para><literallayout><computeroutput>$&#32;curl&#32;-X&#32;POST&#32;\
+-H&#32;&apos;Content-Type:&#32;application/json&apos;&#32;\
+-H&#32;&quot;Session-Token:&#32;83af7e620c83a50a18d3eac2f6ed05a3ca0bea62&quot;&#32;\
+-H&#32;&quot;App-Token:&#32;f7g3csp8mgatg5ebc5elnazakw20i9fyev1qopya7&quot;&#32;\
+-d&#32;&apos;{&quot;entities_id&quot;:&#32;1,&#32;&quot;is_recursive&quot;:&#32;true}&apos;&#32;\
+&apos;http://path/to/glpi/apirest.php/changeActiveEntities&apos;
+
+&lt;&#32;200&#32;OK
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md_public_2glpi_2apirest_1autotoc_md370">
+<title><title>Get full session</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para><emphasis role="bold">URL</emphasis>: <link xlink:href="getFullSession/?debug">apirest.php/getFullSession/</link></para>
+</listitem><listitem>
+<para><emphasis role="bold">Description</emphasis>: Return the current php $_SESSION.</para>
+</listitem><listitem>
+<para><emphasis role="bold">Method</emphasis>: GET</para>
+</listitem><listitem>
+<para><emphasis role="bold">Parameters</emphasis>: (Headers)<itemizedlist>
+<listitem>
+<para><emphasis>Session-Token</emphasis>: session var provided by <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">initSession</link> endpoint. Mandatory.</para>
+</listitem><listitem>
+<para><emphasis>App-Token</emphasis>: authorization string provided by the <link linkend="_class_g_l_p_i">GLPI</link> API configuration. Optional.</para>
+</listitem></itemizedlist>
+</para>
+</listitem><listitem>
+<para><emphasis role="bold">Returns</emphasis>:<itemizedlist>
+<listitem>
+<para>200 (OK) with an array representing the php session.</para>
+</listitem><listitem>
+<para>400 (Bad Request) with a message indicating an error in input parameter.</para>
+</listitem></itemizedlist>
+</para>
+</listitem></itemizedlist>
+</para>
+
+<para>Example usage (CURL):</para>
+
+<para><literallayout><computeroutput>$&#32;curl&#32;-X&#32;GET&#32;\
+-H&#32;&apos;Content-Type:&#32;application/json&apos;&#32;\
+-H&#32;&quot;Session-Token:&#32;83af7e620c83a50a18d3eac2f6ed05a3ca0bea62&quot;&#32;\
+-H&#32;&quot;App-Token:&#32;f7g3csp8mgatg5ebc5elnazakw20i9fyev1qopya7&quot;&#32;\
+&apos;http://path/to/glpi/apirest.php/getFullSession&apos;
+
+&lt;&#32;200&#32;OK
+&lt;&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;&apos;session&apos;:&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&apos;glpi_plugins&apos;:&#32;...,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&apos;glpicookietest&apos;:&#32;...,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&apos;glpicsrftokens&apos;:&#32;...,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;...
+&#32;&#32;&#32;&#32;&#32;&#32;}
+&#32;&#32;&#32;}
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md_public_2glpi_2apirest_1autotoc_md371">
+<title><title>Get GLPI config</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para><emphasis role="bold">URL</emphasis>: <link xlink:href="getGlpiConfig/?debug">apirest.php/getGlpiConfig/</link></para>
+</listitem><listitem>
+<para><emphasis role="bold">Description</emphasis>: Return the current $CFG_GLPI.</para>
+</listitem><listitem>
+<para><emphasis role="bold">Method</emphasis>: GET</para>
+</listitem><listitem>
+<para><emphasis role="bold">Parameters</emphasis>: (Headers)<itemizedlist>
+<listitem>
+<para><emphasis>Session-Token</emphasis>: session var provided by <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">initSession</link> endpoint. Mandatory.</para>
+</listitem><listitem>
+<para><emphasis>App-Token</emphasis>: authorization string provided by the <link linkend="_class_g_l_p_i">GLPI</link> API configuration. Optional.</para>
+</listitem></itemizedlist>
+</para>
+</listitem><listitem>
+<para><emphasis role="bold">Returns</emphasis>:<itemizedlist>
+<listitem>
+<para>200 (OK) with an array representing the php global variable $CFG_GLPI.</para>
+</listitem><listitem>
+<para>400 (Bad Request) with a message indicating an error in input parameter.</para>
+</listitem></itemizedlist>
+</para>
+</listitem></itemizedlist>
+</para>
+
+<para>Example usage (CURL):</para>
+
+<para><literallayout><computeroutput>$&#32;curl&#32;-X&#32;GET&#32;\
+-H&#32;&apos;Content-Type:&#32;application/json&apos;&#32;\
+-H&#32;&quot;Session-Token:&#32;83af7e620c83a50a18d3eac2f6ed05a3ca0bea62&quot;&#32;\
+-H&#32;&quot;App-Token:&#32;f7g3csp8mgatg5ebc5elnazakw20i9fyev1qopya7&quot;&#32;\
+&apos;http://path/to/glpi/apirest.php/getGlpiConfig&apos;
+
+&lt;&#32;200&#32;OK
+&lt;&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;&apos;cfg_glpi&apos;:&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&apos;languages&apos;:&#32;...,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&apos;glpitables&apos;:&#32;...,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&apos;unicity_types&apos;:...,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;...
+&#32;&#32;&#32;&#32;&#32;&#32;}
+&#32;&#32;&#32;}
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md_public_2glpi_2apirest_1autotoc_md372">
+<title><title>Get an item</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para><emphasis role="bold">URL</emphasis>: <link xlink:href="User/2?debug">apirest.php/:itemtype/:id</link></para>
+</listitem><listitem>
+<para><emphasis role="bold">Description</emphasis>: Return the instance fields of itemtype identified by id.</para>
+</listitem><listitem>
+<para><emphasis role="bold">Method</emphasis>: GET</para>
+</listitem><listitem>
+<para><emphasis role="bold">Parameters</emphasis>: (Headers)<itemizedlist>
+<listitem>
+<para><emphasis>Session-Token</emphasis>: session var provided by <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">initSession</link> endpoint. Mandatory.</para>
+</listitem><listitem>
+<para><emphasis>App-Token</emphasis>: authorization string provided by the <link linkend="_class_g_l_p_i">GLPI</link> API configuration. Optional.</para>
+</listitem></itemizedlist>
+</para>
+</listitem><listitem>
+<para><emphasis role="bold">Parameters</emphasis>: (query string)<itemizedlist>
+<listitem>
+<para><emphasis>id</emphasis>: unique identifier of the itemtype. Mandatory.</para>
+</listitem><listitem>
+<para><emphasis>expand_dropdowns</emphasis> (default: false): show dropdown name instead of id. Optional.</para>
+</listitem><listitem>
+<para><emphasis>get_hateoas</emphasis> (default: true): Show relations of the item in a links attribute. Optional.</para>
+</listitem><listitem>
+<para><emphasis>get_sha1</emphasis> (default: false): Get a sha1 signature instead of the full answer. Optional.</para>
+</listitem><listitem>
+<para><emphasis>with_devices</emphasis>: Only for [<link linkend="_class_computer">Computer</link>, <link linkend="_class_network_equipment">NetworkEquipment</link>, <link linkend="_class_peripheral">Peripheral</link>, <link linkend="_class_phone">Phone</link>, <link linkend="_class_printer">Printer</link>], retrieve the associated components. Optional.</para>
+</listitem><listitem>
+<para><emphasis>with_disks</emphasis>: Only for <link linkend="_class_computer">Computer</link>, retrieve the associated file-systems. Optional.</para>
+</listitem><listitem>
+<para><emphasis>with_softwares</emphasis>: Only for <link linkend="_class_computer">Computer</link>, retrieve the associated software&apos;s installations. Optional.</para>
+</listitem><listitem>
+<para><emphasis>with_connections</emphasis>: Only for <link linkend="_class_computer">Computer</link>, retrieve the associated direct connections (like peripherals and printers) .Optional.</para>
+</listitem><listitem>
+<para><emphasis>with_networkports</emphasis>: Retrieve all network connections and advanced information. Optionnal.</para>
+</listitem><listitem>
+<para><emphasis>with_infocoms</emphasis>: Retrieve financial and administrative information. Optional.</para>
+</listitem><listitem>
+<para><emphasis>with_contracts</emphasis>: Retrieve associated contracts. Optional.</para>
+</listitem><listitem>
+<para><emphasis>with_documents</emphasis>: Retrieve associated external documents. Optional.</para>
+</listitem><listitem>
+<para><emphasis>with_tickets</emphasis>: Retrieve associated ITIL tickets. Optional.</para>
+</listitem><listitem>
+<para><emphasis>with_problems</emphasis>: Retrieve associated ITIL problems. Optional.</para>
+</listitem><listitem>
+<para><emphasis>with_changes</emphasis>: Retrieve associated ITIL changes. Optional.</para>
+</listitem><listitem>
+<para><emphasis>with_notes</emphasis>: Retrieve Notes. Optional.</para>
+</listitem><listitem>
+<para><emphasis>with_logs</emphasis>: Retrieve historical. Optional.</para>
+</listitem><listitem>
+<para><emphasis>add_keys_names</emphasis>: Retrieve friendly names. Array containing <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">fkey(s)</link> and/or &quot;id&quot;. Optional.</para>
+</listitem></itemizedlist>
+</para>
+</listitem><listitem>
+<para><emphasis role="bold">Returns</emphasis>:<itemizedlist>
+<listitem>
+<para>200 (OK) with item data (Last-Modified header should contain the date of last modification of the item).</para>
+</listitem><listitem>
+<para>401 (UNAUTHORIZED).</para>
+</listitem><listitem>
+<para>404 (NOT FOUND).</para>
+</listitem></itemizedlist>
+</para>
+</listitem></itemizedlist>
+</para>
+
+<para>Example usage (CURL):</para>
+
+<para><literallayout><computeroutput>$&#32;curl&#32;-X&#32;GET&#32;\
+-H&#32;&apos;Content-Type:&#32;application/json&apos;&#32;\
+-H&#32;&quot;Session-Token:&#32;83af7e620c83a50a18d3eac2f6ed05a3ca0bea62&quot;&#32;\
+-H&#32;&quot;App-Token:&#32;f7g3csp8mgatg5ebc5elnazakw20i9fyev1qopya7&quot;&#32;\
+&apos;http://path/to/glpi/apirest.php/Computer/71?expand_dropdowns=true&apos;
+
+&lt;&#32;200&#32;OK
+&lt;&#32;{
+&#32;&#32;&#32;&#32;&quot;id&quot;:&#32;71,
+&#32;&#32;&#32;&#32;&quot;entities_id&quot;:&#32;&quot;Root&#32;Entity&quot;,
+&#32;&#32;&#32;&#32;&quot;name&quot;:&#32;&quot;adelaunay-ThinkPad-Edge-E320&quot;,
+&#32;&#32;&#32;&#32;&quot;serial&quot;:&#32;&quot;12345&quot;,
+&#32;&#32;&#32;&#32;&quot;otherserial&quot;:&#32;&quot;test2&quot;,
+&#32;&#32;&#32;&#32;&quot;contact&quot;:&#32;&quot;adelaunay&quot;,
+&#32;&#32;&#32;&#32;&quot;contact_num&quot;:&#32;null,
+&#32;&#32;&#32;&#32;&quot;users_id_tech&quot;:&#32;&quot;&#32;&quot;,
+&#32;&#32;&#32;&#32;&quot;groups_id_tech&quot;:&#32;&quot;&#32;&quot;,
+&#32;&#32;&#32;&#32;&quot;comment&quot;:&#32;&quot;test222222qsdqsd&quot;,
+&#32;&#32;&#32;&#32;&quot;date_mod&quot;:&#32;&quot;2015-09-25&#32;09:33:41&quot;,
+&#32;&#32;&#32;&#32;&quot;autoupdatesystems_id&quot;:&#32;&quot;&#32;&quot;,
+&#32;&#32;&#32;&#32;&quot;locations_id&quot;:&#32;&quot;00:0e:08:3b:7d:04&quot;,
+&#32;&#32;&#32;&#32;&quot;networks_id&quot;:&#32;&quot;&#32;&quot;,
+&#32;&#32;&#32;&#32;&quot;computermodels_id&quot;:&#32;&quot;1298A8G&quot;,
+&#32;&#32;&#32;&#32;&quot;computertypes_id&quot;:&#32;&quot;Notebook&quot;,
+&#32;&#32;&#32;&#32;&quot;is_template&quot;:&#32;0,
+&#32;&#32;&#32;&#32;&quot;template_name&quot;:&#32;null,
+&#32;&#32;&#32;&#32;&quot;manufacturers_id&quot;:&#32;&quot;LENOVO&quot;,
+&#32;&#32;&#32;&#32;&quot;is_deleted&quot;:&#32;0,
+&#32;&#32;&#32;&#32;&quot;is_dynamic&quot;:&#32;1,
+&#32;&#32;&#32;&#32;&quot;users_id&quot;:&#32;&quot;adelaunay&quot;,
+&#32;&#32;&#32;&#32;&quot;groups_id&quot;:&#32;&quot;&#32;&quot;,
+&#32;&#32;&#32;&#32;&quot;states_id&quot;:&#32;&quot;Production&quot;,
+&#32;&#32;&#32;&#32;&quot;ticket_tco&quot;:&#32;&quot;0.0000&quot;,
+&#32;&#32;&#32;&#32;&quot;uuid&quot;:&#32;&quot;&quot;,
+&#32;&#32;&#32;&#32;&quot;date_creation&quot;:&#32;null,
+&#32;&#32;&#32;&#32;&quot;links&quot;:&#32;[{
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&quot;rel&quot;:&#32;&quot;Entity&quot;,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&quot;href&quot;:&#32;&quot;http://path/to/glpi/api/Entity/0&quot;
+&#32;&#32;&#32;&#32;},&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&quot;rel&quot;:&#32;&quot;Location&quot;,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&quot;href&quot;:&#32;&quot;http://path/to/glpi/api/Location/3&quot;
+&#32;&#32;&#32;&#32;},&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&quot;rel&quot;:&#32;&quot;Domain&quot;,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&quot;href&quot;:&#32;&quot;http://path/to/glpi/api/Domain/18&quot;
+&#32;&#32;&#32;&#32;},&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&quot;rel&quot;:&#32;&quot;ComputerModel&quot;,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&quot;href&quot;:&#32;&quot;http://path/to/glpi/api/ComputerModel/11&quot;
+&#32;&#32;&#32;&#32;},&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&quot;rel&quot;:&#32;&quot;ComputerType&quot;,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&quot;href&quot;:&#32;&quot;http://path/to/glpi/api/ComputerType/3&quot;
+&#32;&#32;&#32;&#32;},&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&quot;rel&quot;:&#32;&quot;Manufacturer&quot;,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&quot;href&quot;:&#32;&quot;http://path/to/glpi/api/Manufacturer/260&quot;
+&#32;&#32;&#32;&#32;},&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&quot;rel&quot;:&#32;&quot;User&quot;,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&quot;href&quot;:&#32;&quot;http://path/to/glpi/api/User/27&quot;
+&#32;&#32;&#32;&#32;},&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&quot;rel&quot;:&#32;&quot;State&quot;,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&quot;href&quot;:&#32;&quot;http://path/to/glpi/api/State/1&quot;
+&#32;&#32;&#32;&#32;}]
+}
+</computeroutput></literallayout></para>
+
+<para>Note: To download a document see <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">Download a document file</link>.</para>
+</section>
+<section xml:id="_md_public_2glpi_2apirest_1autotoc_md373">
+<title><title>Get all items</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para><emphasis role="bold">URL</emphasis>: <link xlink:href="Computer/?debug">apirest.php/:itemtype/</link></para>
+</listitem><listitem>
+<para><emphasis role="bold">Description</emphasis>: Return a collection of rows of the itemtype.</para>
+</listitem><listitem>
+<para><emphasis role="bold">Method</emphasis>: GET</para>
+</listitem><listitem>
+<para><emphasis role="bold">Parameters</emphasis>: (Headers)<itemizedlist>
+<listitem>
+<para><emphasis>Session-Token</emphasis>: session var provided by <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">initSession</link> endpoint. Mandatory.</para>
+</listitem><listitem>
+<para><emphasis>App-Token</emphasis>: authorization string provided by the <link linkend="_class_g_l_p_i">GLPI</link> API configuration. Optional.</para>
+</listitem></itemizedlist>
+</para>
+</listitem><listitem>
+<para><emphasis role="bold">Parameters</emphasis>: (query string)<itemizedlist>
+<listitem>
+<para><emphasis>expand_dropdowns</emphasis> (default: false): show dropdown name instead of id. Optional.</para>
+</listitem><listitem>
+<para><emphasis>get_hateoas</emphasis> (default: true): Show relation of item in a links attribute. Optional.</para>
+</listitem><listitem>
+<para><emphasis>only_id</emphasis> (default: false): keep only id keys in returned data. Optional.</para>
+</listitem><listitem>
+<para><emphasis>range</emphasis> (default: 0-49): a string with a couple of number for start and end of pagination separated by a &apos;-&apos;. Ex: 150-199. Optional.</para>
+</listitem><listitem>
+<para><emphasis>sort</emphasis> (default 1): name of the field to sort by. Optional.</para>
+</listitem><listitem>
+<para><emphasis>order</emphasis> (default ASC): ASC - Ascending sort / DESC Descending sort. Optional.</para>
+</listitem><listitem>
+<para><emphasis>searchText</emphasis> (default NULL): array of filters to pass on the query (with key = field and value the text to search)</para>
+</listitem><listitem>
+<para><emphasis>is_deleted</emphasis> (default: false): Return deleted element. Optional.</para>
+</listitem><listitem>
+<para><emphasis>add_keys_names</emphasis>: Retrieve friendly names. Array containing <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">fkey(s)</link> and/or &quot;id&quot;. Optional.</para>
+</listitem><listitem>
+<para><emphasis>with_networkports</emphasis>: Retrieve all network connections and advanced information. Optionnal.</para>
+</listitem></itemizedlist>
+</para>
+</listitem><listitem>
+<para><emphasis role="bold">Returns</emphasis>:<itemizedlist>
+<listitem>
+<para>200 (OK) with items data.</para>
+</listitem><listitem>
+<para>206 (PARTIAL CONTENT) with items data defined by range.</para>
+</listitem><listitem>
+<para>401 (UNAUTHORIZED).</para>
+
+<para>and theses headers:<itemizedlist>
+<listitem>
+<para><emphasis>Content-Range</emphasis> offset – limit / count</para>
+</listitem><listitem>
+<para><emphasis>Accept-Range</emphasis> itemtype max</para>
+</listitem></itemizedlist>
+</para>
+</listitem></itemizedlist>
+</para>
+</listitem></itemizedlist>
+</para>
+
+<para>Example usage (CURL):</para>
+
+<para><literallayout><computeroutput>$&#32;curl&#32;-X&#32;GET&#32;\
+-H&#32;&apos;Content-Type:&#32;application/json&apos;&#32;\
+-H&#32;&quot;Session-Token:&#32;83af7e620c83a50a18d3eac2f6ed05a3ca0bea62&quot;&#32;\
+-H&#32;&quot;App-Token:&#32;f7g3csp8mgatg5ebc5elnazakw20i9fyev1qopya7&quot;&#32;\
+&apos;http://path/to/glpi/apirest.php/Computer/?expand_dropdowns=true&apos;
+
+&lt;&#32;206&#32;OK
+&lt;&#32;Content-Range:&#32;0-49/200
+&lt;&#32;Accept-Range:&#32;990
+&lt;&#32;[
+&#32;&#32;&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;&quot;id&quot;:&#32;34,
+&#32;&#32;&#32;&#32;&#32;&#32;&quot;entities_id&quot;:&#32;&quot;Root&#32;Entity&quot;,
+&#32;&#32;&#32;&#32;&#32;&#32;&quot;name&quot;:&#32;&quot;glpi&quot;,
+&#32;&#32;&#32;&#32;&#32;&#32;&quot;serial&quot;:&#32;&quot;VMware-42&#32;01&#32;f4&#32;65&#32;27&#32;59&#32;a9&#32;fb-11&#32;bc&#32;cd&#32;b8&#32;64&#32;68&#32;1f&#32;4b&quot;,
+&#32;&#32;&#32;&#32;&#32;&#32;&quot;otherserial&quot;:&#32;null,
+&#32;&#32;&#32;&#32;&#32;&#32;&quot;contact&quot;:&#32;&quot;teclib&quot;,
+&#32;&#32;&#32;&#32;&#32;&#32;&quot;contact_num&quot;:&#32;null,
+&#32;&#32;&#32;&#32;&#32;&#32;&quot;users_id_tech&quot;:&#32;&quot;&amp;nbsp;&quot;,
+&#32;&#32;&#32;&#32;&#32;&#32;&quot;groups_id_tech&quot;:&#32;&quot;&amp;nbsp;&quot;,
+&#32;&#32;&#32;&#32;&#32;&#32;&quot;comment&quot;:&#32;&quot;x86_64/00-09-15&#32;08:03:28&quot;,
+&#32;&#32;&#32;&#32;&#32;&#32;&quot;date_mod&quot;:&#32;&quot;2011-12-16&#32;17:52:55&quot;,
+&#32;&#32;&#32;&#32;&#32;&#32;&quot;autoupdatesystems_id&quot;:&#32;&quot;FusionInventory&quot;,
+&#32;&#32;&#32;&#32;&#32;&#32;&quot;locations_id&quot;:&#32;&quot;&amp;nbsp;&quot;,
+&#32;&#32;&#32;&#32;&#32;&#32;&quot;networks_id&quot;:&#32;&quot;&amp;nbsp;&quot;,
+&#32;&#32;&#32;&#32;&#32;&#32;&quot;computermodels_id&quot;:&#32;&quot;VMware&#32;Virtual&#32;Platform&quot;,
+&#32;&#32;&#32;&#32;&#32;&#32;&quot;computertypes_id&quot;:&#32;&quot;Other&quot;,
+&#32;&#32;&#32;&#32;&#32;&#32;&quot;is_template&quot;:&#32;0,
+&#32;&#32;&#32;&#32;&#32;&#32;&quot;template_name&quot;:&#32;null,
+&#32;&#32;&#32;&#32;&#32;&#32;&quot;manufacturers_id&quot;:&#32;&quot;VMware,&#32;Inc.&quot;,
+&#32;&#32;&#32;&#32;&#32;&#32;&quot;is_deleted&quot;:&#32;0,
+&#32;&#32;&#32;&#32;&#32;&#32;&quot;is_dynamic&quot;:&#32;1,
+&#32;&#32;&#32;&#32;&#32;&#32;&quot;users_id&quot;:&#32;&quot;&amp;nbsp;&quot;,
+&#32;&#32;&#32;&#32;&#32;&#32;&quot;groups_id&quot;:&#32;&quot;&amp;nbsp;&quot;,
+&#32;&#32;&#32;&#32;&#32;&#32;&quot;states_id&quot;:&#32;&quot;Production&quot;,
+&#32;&#32;&#32;&#32;&#32;&#32;&quot;ticket_tco&quot;:&#32;&quot;0.0000&quot;,
+&#32;&#32;&#32;&#32;&#32;&#32;&quot;uuid&quot;:&#32;&quot;4201F465-2759-A9FB-11BC-CDB864681F4B&quot;,
+&#32;&#32;&#32;&#32;&#32;&#32;&quot;links&quot;:&#32;[{
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&quot;rel&quot;:&#32;&quot;Entity&quot;,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&quot;href&quot;:&#32;&quot;http://path/to/glpi/api/Entity/0&quot;
+&#32;&#32;&#32;&#32;&#32;&#32;},&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&quot;rel&quot;:&#32;&quot;AutoUpdateSystem&quot;,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&quot;href&quot;:&#32;&quot;http://path/to/glpi/api/AutoUpdateSystem/1&quot;
+&#32;&#32;&#32;&#32;&#32;&#32;},&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&quot;rel&quot;:&#32;&quot;Domain&quot;,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&quot;href&quot;:&#32;&quot;http://path/to/glpi/api/Domain/12&quot;
+&#32;&#32;&#32;&#32;&#32;&#32;},&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&quot;rel&quot;:&#32;&quot;ComputerModel&quot;,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&quot;href&quot;:&#32;&quot;http://path/to/glpi/api/ComputerModel/1&quot;
+&#32;&#32;&#32;&#32;&#32;&#32;},&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&quot;rel&quot;:&#32;&quot;ComputerType&quot;,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&quot;href&quot;:&#32;&quot;http://path/to/glpi/api/ComputerType/2&quot;
+&#32;&#32;&#32;&#32;&#32;&#32;},&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&quot;rel&quot;:&#32;&quot;Manufacturer&quot;,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&quot;href&quot;:&#32;&quot;http://path/to/glpi/api/Manufacturer/1&quot;
+&#32;&#32;&#32;&#32;&#32;&#32;},&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&quot;rel&quot;:&#32;&quot;State&quot;,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&quot;href&quot;:&#32;&quot;http://path/to/glpi/api/State/1&quot;
+&#32;&#32;&#32;&#32;&#32;&#32;}]
+&#32;&#32;&#32;},
+&#32;&#32;&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;&quot;id&quot;:&#32;35,
+&#32;&#32;&#32;&#32;&#32;&#32;&quot;entities_id&quot;:&#32;&quot;Root&#32;Entity&quot;,
+&#32;&#32;&#32;&#32;&#32;&#32;&quot;name&quot;:&#32;&quot;mavm1&quot;,
+&#32;&#32;&#32;&#32;&#32;&#32;&quot;serial&quot;:&#32;&quot;VMware-42&#32;20&#32;d3&#32;04&#32;ac&#32;49&#32;ed&#32;c8-ea&#32;15&#32;50&#32;49&#32;e1&#32;40&#32;0f&#32;6c&quot;,
+&#32;&#32;&#32;&#32;&#32;&#32;&quot;otherserial&quot;:&#32;null,
+&#32;&#32;&#32;&#32;&#32;&#32;&quot;contact&quot;:&#32;&quot;teclib&quot;,
+&#32;&#32;&#32;&#32;&#32;&#32;&quot;contact_num&quot;:&#32;null,
+&#32;&#32;&#32;&#32;&#32;&#32;&quot;users_id_tech&quot;:&#32;&quot;&amp;nbsp;&quot;,
+&#32;&#32;&#32;&#32;&#32;&#32;&quot;groups_id_tech&quot;:&#32;&quot;&amp;nbsp;&quot;,
+&#32;&#32;&#32;&#32;&#32;&#32;&quot;comment&quot;:&#32;&quot;x86_64/01-01-04&#32;19:50:40&quot;,
+&#32;&#32;&#32;&#32;&#32;&#32;&quot;date_mod&quot;:&#32;&quot;2012-05-24&#32;06:43:35&quot;,
+&#32;&#32;&#32;&#32;&#32;&#32;...
+&#32;&#32;&#32;}
+]
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md_public_2glpi_2apirest_1autotoc_md374">
+<title><title>Get sub items</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para><emphasis role="bold">URL</emphasis>: <link xlink:href="User/2/Log?debug">apirest.php/:itemtype/:id/:sub_itemtype</link></para>
+</listitem><listitem>
+<para><emphasis role="bold">Description</emphasis>: Return a collection of rows of the sub_itemtype for the identified item.</para>
+</listitem><listitem>
+<para><emphasis role="bold">Method</emphasis>: GET</para>
+</listitem><listitem>
+<para><emphasis role="bold">Parameters</emphasis>: (Headers)<itemizedlist>
+<listitem>
+<para><emphasis>Session-Token</emphasis>: session var provided by <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">initSession</link> endpoint. Mandatory.</para>
+</listitem><listitem>
+<para><emphasis>App-Token</emphasis>: authorization string provided by the <link linkend="_class_g_l_p_i">GLPI</link> API configuration. Optional.</para>
+</listitem></itemizedlist>
+</para>
+</listitem><listitem>
+<para><emphasis role="bold">Parameters</emphasis>: (query string)<itemizedlist>
+<listitem>
+<para>id: unique identifier of the parent itemtype. Mandatory.</para>
+</listitem><listitem>
+<para><emphasis>expand_dropdowns</emphasis> (default: false): show dropdown name instead of id. Optional.</para>
+</listitem><listitem>
+<para><emphasis>get_hateoas</emphasis> (default: true): Show item&apos;s relations in a links attribute. Optional.</para>
+</listitem><listitem>
+<para><emphasis>only_id</emphasis> (default: false): keep only id keys in returned data. Optional.</para>
+</listitem><listitem>
+<para><emphasis>range</emphasis> (default: 0-49): a string with a couple of number for start and end of pagination separated by a &apos;-&apos; char. Ex: 150-199. Optional.</para>
+</listitem><listitem>
+<para><emphasis>sort</emphasis> (default 1): id of the &quot;searchoption&quot; to sort by. Optional.</para>
+</listitem><listitem>
+<para><emphasis>order</emphasis> (default ASC): ASC - Ascending sort / DESC Descending sort. Optional.</para>
+</listitem><listitem>
+<para><emphasis>add_keys_names</emphasis>: Retrieve friendly names. Array containing <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">fkey(s)</link> and/or &quot;id&quot;. Optional.</para>
+</listitem></itemizedlist>
+</para>
+</listitem><listitem>
+<para><emphasis role="bold">Returns</emphasis>:<itemizedlist>
+<listitem>
+<para>200 (OK) with the items data.</para>
+</listitem><listitem>
+<para>401 (UNAUTHORIZED).</para>
+
+<para>and theses headers:<itemizedlist>
+<listitem>
+<para><emphasis>Content-Range</emphasis> offset – limit / count</para>
+</listitem><listitem>
+<para><emphasis>Accept-Range</emphasis> itemtype max</para>
+</listitem></itemizedlist>
+</para>
+</listitem></itemizedlist>
+</para>
+</listitem></itemizedlist>
+</para>
+
+<para>Example usage (CURL):</para>
+
+<para><literallayout><computeroutput>$&#32;curl&#32;-X&#32;GET&#32;\
+-H&#32;&apos;Content-Type:&#32;application/json&apos;&#32;\
+-H&#32;&quot;Session-Token:&#32;83af7e620c83a50a18d3eac2f6ed05a3ca0bea62&quot;&#32;\
+-H&#32;&quot;App-Token:&#32;f7g3csp8mgatg5ebc5elnazakw20i9fyev1qopya7&quot;&#32;\
+&apos;http://path/to/glpi/apirest.php/User/2/Log&apos;
+
+&lt;&#32;200&#32;OK
+&lt;&#32;Content-Range:&#32;0-49/200
+&lt;&#32;Accept-Range:&#32;990
+&lt;&#32;[
+&#32;&#32;&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;&quot;id&quot;:&#32;22117,
+&#32;&#32;&#32;&#32;&#32;&#32;&quot;itemtype&quot;:&#32;&quot;User&quot;,
+&#32;&#32;&#32;&#32;&#32;&#32;&quot;items_id&quot;:&#32;2,
+&#32;&#32;&#32;&#32;&#32;&#32;&quot;itemtype_link&quot;:&#32;&quot;Profile&quot;,
+&#32;&#32;&#32;&#32;&#32;&#32;&quot;linked_action&quot;:&#32;17,
+&#32;&#32;&#32;&#32;&#32;&#32;&quot;user_name&quot;:&#32;&quot;glpi&#32;(27)&quot;,
+&#32;&#32;&#32;&#32;&#32;&#32;&quot;date_mod&quot;:&#32;&quot;2015-10-13&#32;10:00:59&quot;,
+&#32;&#32;&#32;&#32;&#32;&#32;&quot;id_search_option&quot;:&#32;0,
+&#32;&#32;&#32;&#32;&#32;&#32;&quot;old_value&quot;:&#32;&quot;&quot;,
+&#32;&#32;&#32;&#32;&#32;&#32;&quot;new_value&quot;:&#32;&quot;super-admin&#32;(4)&quot;
+&#32;&#32;&#32;},&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;&quot;id&quot;:&#32;22118,
+&#32;&#32;&#32;&#32;&#32;&#32;&quot;itemtype&quot;:&#32;&quot;User&quot;,
+&#32;&#32;&#32;&#32;&#32;&#32;&quot;items_id&quot;:&#32;2,
+&#32;&#32;&#32;&#32;&#32;&#32;&quot;itemtype_link&quot;:&#32;&quot;&quot;,
+&#32;&#32;&#32;&#32;&#32;&#32;&quot;linked_action&quot;:&#32;0,
+&#32;&#32;&#32;&#32;&#32;&#32;&quot;user_name&quot;:&#32;&quot;glpi&#32;(2)&quot;,
+&#32;&#32;&#32;&#32;&#32;&#32;&quot;date_mod&quot;:&#32;&quot;2015-10-13&#32;10:01:22&quot;,
+&#32;&#32;&#32;&#32;&#32;&#32;&quot;id_search_option&quot;:&#32;80,
+&#32;&#32;&#32;&#32;&#32;&#32;&quot;old_value&quot;:&#32;&quot;Root&#32;entity&#32;(0)&quot;,
+&#32;&#32;&#32;&#32;&#32;&#32;&quot;new_value&quot;:&#32;&quot;Root&#32;entity&#32;&gt;&#32;my&#32;entity&#32;(1)&quot;
+&#32;&#32;&#32;},&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;...
+&#32;&#32;&#32;}
+]
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md_public_2glpi_2apirest_1autotoc_md375">
+<title><title>Get multiple items</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para><emphasis role="bold">URL</emphasis>: apirest.php/getMultipleItems</para>
+</listitem><listitem>
+<para><emphasis role="bold">Description</emphasis>: Virtually call <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">Get an item</link> for each line in input. So, you can have a ticket, a user in the same query.</para>
+</listitem><listitem>
+<para><emphasis role="bold">Method</emphasis>: GET</para>
+</listitem><listitem>
+<para><emphasis role="bold">Parameters</emphasis>: (Headers)<itemizedlist>
+<listitem>
+<para><emphasis>Session-Token</emphasis>: session var provided by <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">initSession</link> endpoint. Mandatory.</para>
+</listitem><listitem>
+<para><emphasis>App-Token</emphasis>: authorization string provided by the <link linkend="_class_g_l_p_i">GLPI</link> API configuration. Optional.</para>
+</listitem></itemizedlist>
+</para>
+</listitem><listitem>
+<para><emphasis role="bold">Parameters</emphasis>: (query string)<itemizedlist>
+<listitem>
+<para><emphasis>items</emphasis>: items to retrieve. Mandatory. Each line of this array should contains two keys:<itemizedlist>
+<listitem>
+<para>itemtype</para>
+</listitem><listitem>
+<para>items_id</para>
+</listitem></itemizedlist>
+</para>
+</listitem><listitem>
+<para><emphasis>expand_dropdowns</emphasis> (default: false): show dropdown name instead of id. Optional.</para>
+</listitem><listitem>
+<para><emphasis>get_hateoas</emphasis> (default: true): Show relations of the item in a links attribute. Optional.</para>
+</listitem><listitem>
+<para><emphasis>get_sha1</emphasis> (default: false): Get a sha1 signature instead of the full answer. Optional.</para>
+</listitem><listitem>
+<para><emphasis>with_devices</emphasis>: Only for [<link linkend="_class_computer">Computer</link>, <link linkend="_class_network_equipment">NetworkEquipment</link>, <link linkend="_class_peripheral">Peripheral</link>, <link linkend="_class_phone">Phone</link>, <link linkend="_class_printer">Printer</link>], retrieve the associated components. Optional.</para>
+</listitem><listitem>
+<para><emphasis>with_disks</emphasis>: Only for <link linkend="_class_computer">Computer</link>, retrieve the associated file-systems. Optional.</para>
+</listitem><listitem>
+<para><emphasis>with_softwares</emphasis>: Only for <link linkend="_class_computer">Computer</link>, retrieve the associated software&apos;s installations. Optional.</para>
+</listitem><listitem>
+<para><emphasis>with_connections</emphasis>: Only for <link linkend="_class_computer">Computer</link>, retrieve the associated direct connections (like peripherals and printers) .Optional.</para>
+</listitem><listitem>
+<para><emphasis>with_networkports</emphasis>: Retrieve all network connections and advanced information. Optionnal.</para>
+</listitem><listitem>
+<para><emphasis>with_infocoms</emphasis>: Retrieve financial and administrative information. Optional.</para>
+</listitem><listitem>
+<para><emphasis>with_contracts</emphasis>: Retrieve associated contracts. Optional.</para>
+</listitem><listitem>
+<para><emphasis>with_documents</emphasis>: Retrieve associated external documents. Optional.</para>
+</listitem><listitem>
+<para><emphasis>with_tickets</emphasis>: Retrieve associated ITIL tickets. Optional.</para>
+</listitem><listitem>
+<para><emphasis>with_problems</emphasis>: Retrieve associated ITIL problems. Optional.</para>
+</listitem><listitem>
+<para><emphasis>with_changes</emphasis>: Retrieve associated ITIL changes. Optional.</para>
+</listitem><listitem>
+<para><emphasis>with_notes</emphasis>: Retrieve Notes. Optional.</para>
+</listitem><listitem>
+<para><emphasis>with_logs</emphasis>: Retrieve historical. Optional.</para>
+</listitem><listitem>
+<para><emphasis>add_keys_names</emphasis>: Retrieve friendly names. Array containing <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">fkey(s)</link> and/or &quot;id&quot;. Optional.</para>
+</listitem></itemizedlist>
+</para>
+</listitem><listitem>
+<para><emphasis role="bold">Returns</emphasis>:<itemizedlist>
+<listitem>
+<para>200 (OK) with item data (Last-Modified header should contain the date of last modification of the item).</para>
+</listitem><listitem>
+<para>401 (UNAUTHORIZED).</para>
+</listitem><listitem>
+<para>404 (NOT FOUND).</para>
+</listitem></itemizedlist>
+</para>
+</listitem></itemizedlist>
+</para>
+
+<para>Example usage (CURL):</para>
+
+<para><literallayout><computeroutput>$&#32;curl&#32;-X&#32;GET&#32;\
+-H&#32;&apos;Content-Type:&#32;application/json&apos;&#32;\
+-H&#32;&quot;Session-Token:&#32;83af7e620c83a50a18d3eac2f6ed05a3ca0bea62&quot;&#32;\
+-H&#32;&quot;App-Token:&#32;f7g3csp8mgatg5ebc5elnazakw20i9fyev1qopya7&quot;&#32;\
+-d&#32;&apos;{&quot;items&quot;:&#32;[{&quot;itemtype&quot;:&#32;&quot;User&quot;,&#32;&quot;items_id&quot;:&#32;2},&#32;{&quot;itemtype&quot;:&#32;&quot;Entity&quot;,&#32;&quot;items_id&quot;:&#32;0}]}&apos;&#32;\
+&apos;http://path/to/glpi/apirest.php/getMultipleItems?items\[0\]\[itemtype\]\=User&amp;items\[0\]\[items_id\]\=2&amp;items\[1\]\[itemtype\]\=Entity&amp;items\[1\]\[items_id\]\=0&apos;
+
+&lt;&#32;200&#32;OK
+&lt;&#32;Content-Range:&#32;0-49/200
+&lt;&#32;Accept-Range:&#32;990
+&lt;&#32;[{
+&#32;&#32;&#32;&quot;id&quot;:&#32;2,
+&#32;&#32;&#32;&quot;name&quot;:&#32;&quot;glpi&quot;,
+&#32;&#32;&#32;...
+},&#32;{
+&#32;&#32;&#32;&quot;id&quot;:&#32;0,
+&#32;&#32;&#32;&quot;name&quot;:&#32;&quot;Root&#32;Entity&quot;,
+&#32;&#32;&#32;...
+}]
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md_public_2glpi_2apirest_1autotoc_md376">
+<title><title>List searchOptions</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para><emphasis role="bold">URL</emphasis>: <link xlink:href="listSearchOptions/Computer?debug">apirest.php/listSearchOptions/:itemtype</link></para>
+</listitem><listitem>
+<para><emphasis role="bold">Description</emphasis>: List the searchoptions of provided itemtype. To use with <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">Search items</link>.</para>
+</listitem><listitem>
+<para><emphasis role="bold">Method</emphasis>: GET</para>
+</listitem><listitem>
+<para><emphasis role="bold">Parameters</emphasis>: (Headers)<itemizedlist>
+<listitem>
+<para><emphasis>Session-Token</emphasis>: session var provided by <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">initSession</link> endpoint. Mandatory.</para>
+</listitem><listitem>
+<para><emphasis>App-Token</emphasis>: authorization string provided by the <link linkend="_class_g_l_p_i">GLPI</link> API configuration. Optional.</para>
+</listitem></itemizedlist>
+</para>
+</listitem><listitem>
+<para><emphasis role="bold">Parameters</emphasis>: (query string)<itemizedlist>
+<listitem>
+<para><emphasis>raw</emphasis>: return searchoption uncleaned (as provided by core)</para>
+</listitem></itemizedlist>
+</para>
+</listitem><listitem>
+<para><emphasis role="bold">Returns</emphasis>:<itemizedlist>
+<listitem>
+<para>200 (OK) with all searchoptions of specified itemtype (format: searchoption_id: {option_content}).</para>
+</listitem><listitem>
+<para>401 (UNAUTHORIZED).</para>
+</listitem></itemizedlist>
+</para>
+</listitem></itemizedlist>
+</para>
+
+<para>Example usage (CURL):</para>
+
+<para><literallayout><computeroutput>$&#32;curl&#32;-X&#32;GET&#32;\
+-H&#32;&apos;Content-Type:&#32;application/json&apos;&#32;\
+-H&#32;&quot;Session-Token:&#32;83af7e620c83a50a18d3eac2f6ed05a3ca0bea62&quot;&#32;\
+-H&#32;&quot;App-Token:&#32;f7g3csp8mgatg5ebc5elnazakw20i9fyev1qopya7&quot;&#32;\
+&apos;http://path/to/glpi/apirest.php/listSearchOptions/Computer&apos;
+&lt;&#32;200&#32;OK
+&lt;&#32;{
+&#32;&#32;&#32;&#32;&quot;common&quot;:&#32;&quot;Characteristics&quot;,
+
+&#32;&#32;&#32;&#32;1:&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;&apos;name&apos;:&#32;&apos;Name&apos;
+&#32;&#32;&#32;&#32;&#32;&#32;&apos;table&apos;:&#32;&apos;glpi_computers&apos;
+&#32;&#32;&#32;&#32;&#32;&#32;&apos;field&apos;:&#32;&apos;name&apos;
+&#32;&#32;&#32;&#32;&#32;&#32;&apos;linkfield&apos;:&#32;&apos;name&apos;
+&#32;&#32;&#32;&#32;&#32;&#32;&apos;datatype&apos;:&#32;&apos;itemlink&apos;
+&#32;&#32;&#32;&#32;&#32;&#32;&apos;uid&apos;:&#32;&apos;Computer.name&apos;
+&#32;&#32;&#32;},
+&#32;&#32;&#32;2:&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;&apos;name&apos;:&#32;&apos;ID&apos;
+&#32;&#32;&#32;&#32;&#32;&#32;&apos;table&apos;:&#32;&apos;glpi_computers&apos;
+&#32;&#32;&#32;&#32;&#32;&#32;&apos;field&apos;:&#32;&apos;id&apos;
+&#32;&#32;&#32;&#32;&#32;&#32;&apos;linkfield&apos;:&#32;&apos;id&apos;
+&#32;&#32;&#32;&#32;&#32;&#32;&apos;datatype&apos;:&#32;&apos;number&apos;
+&#32;&#32;&#32;&#32;&#32;&#32;&apos;uid&apos;:&#32;&apos;Computer.id&apos;
+&#32;&#32;&#32;},
+&#32;&#32;&#32;3:&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;&apos;name&apos;:&#32;&apos;Location&apos;
+&#32;&#32;&#32;&#32;&#32;&#32;&apos;table&apos;:&#32;&apos;glpi_locations&apos;
+&#32;&#32;&#32;&#32;&#32;&#32;&apos;field&apos;:&#32;&apos;completename&apos;
+&#32;&#32;&#32;&#32;&#32;&#32;&apos;linkfield&apos;:&#32;&apos;locations_id&apos;
+&#32;&#32;&#32;&#32;&#32;&#32;&apos;datatype&apos;:&#32;&apos;dropdown&apos;
+&#32;&#32;&#32;&#32;&#32;&#32;&apos;uid&apos;:&#32;&apos;Computer.Location.completename&apos;
+&#32;&#32;&#32;},
+&#32;&#32;&#32;...
+}
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md_public_2glpi_2apirest_1autotoc_md377">
+<title><title>Search items</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para><emphasis role="bold">URL</emphasis>: <link xlink:href="search/Computer/?debug">apirest.php/search/:itemtype/</link></para>
+</listitem><listitem>
+<para><emphasis role="bold">Description</emphasis>: Expose the <link linkend="_class_g_l_p_i">GLPI</link> searchEngine and combine criteria to retrieve a list of elements of specified itemtype. <blockquote>
+<para>&#8205;Note: you can use &apos;<link linkend="_class_all_assets">AllAssets</link>&apos; itemtype to retrieve a combination of all asset&apos;s types. </para>
+</blockquote>* <emphasis role="bold">Method</emphasis>: GET</para>
+</listitem><listitem>
+<para><emphasis role="bold">Parameters</emphasis>: (Headers)<itemizedlist>
+<listitem>
+<para><emphasis>Session-Token</emphasis>: session var provided by <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">initSession</link> endpoint. Mandatory.</para>
+</listitem><listitem>
+<para><emphasis>App-Token</emphasis>: authorization string provided by the <link linkend="_class_g_l_p_i">GLPI</link> API configuration. Optional.</para>
+</listitem></itemizedlist>
+</para>
+</listitem><listitem>
+<para><emphasis role="bold">Parameters</emphasis>: (query string)<itemizedlist>
+<listitem>
+<para><emphasis>criteria</emphasis>: array of criterion objects to filter search. Optional. You can optionally precise <computeroutput>meta=true</computeroutput> to pass a searchoption of another itemtype (meta-criteria). Each criterion object must provide at least:<itemizedlist>
+<listitem>
+<para><emphasis>link</emphasis>: (optional for 1st element) logical operator in [AND, OR, AND NOT, AND NOT].</para>
+</listitem></itemizedlist>
+</para>
+
+<para>And you can pass a direct searchoption usage :<itemizedlist>
+<listitem>
+<para><emphasis>field</emphasis>: id of the searchoption.</para>
+</listitem><listitem>
+<para><emphasis>meta</emphasis>: boolean, is this criterion a meta one ?</para>
+</listitem><listitem>
+<para><emphasis>itemtype</emphasis>: for meta=true criterion, precise the itemtype to use.</para>
+</listitem><listitem>
+<para><emphasis>searchtype</emphasis>: type of search in [contains¹, equals², notequals², lessthan, morethan, under, notunder].</para>
+</listitem><listitem>
+<para><emphasis>value</emphasis>: the value to search.</para>
+</listitem></itemizedlist>
+</para>
+
+<para>Or a list of sub-nodes with the key:<itemizedlist>
+<listitem>
+<para><emphasis>criteria</emphasis>: nested criteria inside this criteria.</para>
+</listitem></itemizedlist>
+</para>
+
+<para>Ex:</para>
+
+<para><literallayout><computeroutput>...
+&quot;criteria&quot;:
+&#32;&#32;&#32;[
+&#32;&#32;&#32;&#32;&#32;&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&quot;field&quot;:&#32;&#32;&#32;&#32;&#32;&#32;1,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&quot;searchtype&quot;:&#32;&apos;contains&apos;,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&quot;value&quot;:&#32;&#32;&#32;&#32;&#32;&#32;&apos;&apos;
+&#32;&#32;&#32;&#32;&#32;&#32;},&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&quot;link&quot;:&#32;&#32;&#32;&#32;&#32;&#32;&#32;&apos;AND&apos;,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&quot;field&quot;:&#32;&#32;&#32;&#32;&#32;&#32;31,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&quot;searchtype&quot;:&#32;&apos;equals&apos;,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&quot;value&quot;:&#32;&#32;&#32;&#32;&#32;&#32;1
+&#32;&#32;&#32;&#32;&#32;&#32;},&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&quot;link&quot;:&#32;&#32;&#32;&#32;&#32;&#32;&#32;&apos;AND&apos;,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&quot;meta&quot;:&#32;&#32;&#32;&#32;&#32;&#32;&#32;true,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&quot;itemtype&quot;:&#32;&#32;&#32;&apos;User&apos;,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&quot;field&quot;:&#32;&#32;&#32;&#32;&#32;&#32;1,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&quot;searchtype&quot;:&#32;&apos;equals&apos;,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&quot;value&quot;:&#32;&#32;&#32;&#32;&#32;&#32;1
+&#32;&#32;&#32;&#32;&#32;&#32;},&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&quot;link&quot;:&#32;&#32;&#32;&#32;&#32;&#32;&#32;&apos;AND&apos;,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&quot;criteria&quot;&#32;:&#32;[
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&quot;field&quot;:&#32;&#32;&#32;&#32;&#32;&#32;34,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&quot;searchtype&quot;:&#32;&apos;equals&apos;,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&quot;value&quot;:&#32;&#32;&#32;&#32;&#32;&#32;1
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;},&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&quot;link&quot;:&#32;&#32;&#32;&#32;&#32;&#32;&#32;&apos;OR&apos;,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&quot;field&quot;:&#32;&#32;&#32;&#32;&#32;&#32;35,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&quot;searchtype&quot;:&#32;&apos;equals&apos;,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&quot;value&quot;:&#32;&#32;&#32;&#32;&#32;&#32;1
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;]
+&#32;&#32;&#32;&#32;&#32;&#32;}
+&#32;&#32;&#32;]
+...
+</computeroutput></literallayout></para>
+</listitem><listitem>
+<para><emphasis>metacriteria</emphasis> (optional): array of meta-criterion objects to filter search. Optional. A meta search is a link with another itemtype (ex: <link linkend="_class_computer">Computer</link> with software). <emphasis role="bold">Deprecated: Now criteria support meta flag, you should use it instead direct metacriteria option.</emphasis></para>
+
+<para>Each meta-criterion object must provide:<itemizedlist>
+<listitem>
+<para><emphasis>link</emphasis>: logical operator in [AND, OR, AND NOT, AND NOT]. Mandatory.</para>
+</listitem><listitem>
+<para><emphasis>itemtype</emphasis>: second itemtype to link.</para>
+</listitem><listitem>
+<para><emphasis>field</emphasis>: id of the searchoption.</para>
+</listitem><listitem>
+<para><emphasis>searchtype</emphasis>: type of search in [contains¹, equals², notequals², lessthan, morethan, under, notunder].</para>
+</listitem><listitem>
+<para><emphasis>value</emphasis>: the value to search.</para>
+</listitem></itemizedlist>
+</para>
+
+<para>Ex:</para>
+
+<para><computeroutput>json ... &quot;metacriteria&quot;: [ { &quot;link&quot;: &apos;AND&apos;, &quot;itemtype&quot;: &apos;<link linkend="_class_monitor">Monitor</link>&apos;, &quot;field&quot;: 2, &quot;searchtype&quot;: &apos;contains&apos;, &quot;value&quot;: &apos;&apos; }, { &quot;link&quot;: &apos;AND&apos;, &quot;itemtype&quot;: &apos;<link linkend="_class_monitor">Monitor</link>&apos;, &quot;field&quot;: 3, &quot;searchtype&quot;: &apos;contains&apos;, &quot;value&quot;: &apos;&apos; } ] ... </computeroutput></para>
+</listitem><listitem>
+<para><emphasis>sort</emphasis> (default 1): id of the searchoption to sort by. Optional.</para>
+</listitem><listitem>
+<para><emphasis>order</emphasis> (default ASC): ASC - Ascending sort / DESC Descending sort. Optional.</para>
+</listitem><listitem>
+<para><emphasis>range</emphasis> (default 0-49): a string with a couple of number for start and end of pagination separated by a &apos;-&apos;. Ex: 150-199. Optional.</para>
+</listitem><listitem>
+<para><emphasis>forcedisplay</emphasis>: array of columns to display (default empty = use display preferences and searched criteria). Some columns will be always presents (1: id, 2: name, 80: <link linkend="_class_entity">Entity</link>). Optional.</para>
+</listitem><listitem>
+<para><emphasis>rawdata</emphasis> (default false): a boolean for displaying raws data of the <link linkend="_class_search">Search</link> engine of <link linkend="_class_g_l_p_i">GLPI</link> (like SQL request, full searchoptions, etc)</para>
+</listitem><listitem>
+<para><emphasis>withindexes</emphasis> (default false): a boolean to retrieve rows indexed by items id. By default this option is set to false, because order of JSON objects (which are identified by index) cannot be garrantued (from <link xlink:href="http://json.org/">http://json.org/</link> : An object is an unordered set of name/value pairs). So, we provide arrays to guarantying sorted rows.</para>
+</listitem><listitem>
+<para><emphasis>uid_cols</emphasis> (default false): a boolean to identify cols by the &apos;uniqid&apos; of the searchoptions instead of a numeric value (see <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">List searchOptions</link> and &apos;uid&apos; field)</para>
+</listitem><listitem>
+<para><emphasis>giveItems</emphasis> (default false): a boolean to retrieve the data with the html parsed from core, new data are provided in data_html key.</para>
+</listitem><listitem>
+<para>¹ - <emphasis>contains</emphasis> will use a wildcard search per default. You can restrict at the beginning using the *^* character, and/or at the end using the <emphasis>$</emphasis> character.</para>
+</listitem><listitem>
+<para>² - <emphasis>equals</emphasis> and <emphasis>notequals</emphasis> are designed to be used with dropdowns. Do not expect those operators to search for a strictly equal value (see ¹ above).</para>
+</listitem></itemizedlist>
+</para>
+</listitem><listitem>
+<para><emphasis role="bold">Returns</emphasis>:<itemizedlist>
+<listitem>
+<para>200 (OK) with all rows data with this format:</para>
+
+<para><literallayout><computeroutput>{
+&#32;&#32;&#32;&#32;&quot;totalcount&quot;:&#32;&quot;:numberofresults_without_pagination&quot;,
+&#32;&#32;&#32;&#32;&quot;range&quot;:&#32;&quot;:start-:end&quot;,
+&#32;&#32;&#32;&#32;&quot;data&quot;:&#32;[
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&quot;:searchoptions_id&quot;:&#32;&quot;value&quot;,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;...
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;},
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;...
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+&#32;&#32;&#32;&#32;],
+&#32;&#32;&#32;&#32;&quot;rawdata&quot;:&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;...
+&#32;&#32;&#32;&#32;}
+}
+</computeroutput></literallayout></para>
+</listitem><listitem>
+<para>206 (PARTIAL CONTENT) with rows data (pagination doesn&apos;t permit to display all rows).</para>
+</listitem><listitem>
+<para>401 (UNAUTHORIZED).</para>
+
+<para>and theses headers:<itemizedlist>
+<listitem>
+<para><emphasis>Content-Range</emphasis> offset – limit / count</para>
+</listitem><listitem>
+<para><emphasis>Accept-Range</emphasis> itemtype max</para>
+</listitem></itemizedlist>
+</para>
+</listitem></itemizedlist>
+</para>
+</listitem></itemizedlist>
+</para>
+
+<para>Example usage (CURL):</para>
+
+<para><literallayout><computeroutput>curl&#32;-g&#32;-X&#32;GET&#32;\
+-H&#32;&apos;Content-Type:&#32;application/json&apos;&#32;\
+-H&#32;&quot;Session-Token:&#32;83af7e620c83a50a18d3eac2f6ed05a3ca0bea62&quot;&#32;\
+-H&#32;&quot;App-Token:&#32;f7g3csp8mgatg5ebc5elnazakw20i9fyev1qopya7&quot;&#32;\
+&apos;http://path/to/glpi/apirest.php/search/Monitor?\
+criteria\[0\]\[link\]\=AND\
+\&amp;criteria\[0\]\[itemtype\]\=Monitor\
+\&amp;criteria\[0\]\[field\]\=23\
+\&amp;criteria\[0\]\[searchtype\]\=contains\
+\&amp;criteria\[0\]\[value\]\=GSM\
+\&amp;criteria\[1\]\[link\]\=AND\
+\&amp;criteria\[1\]\[itemtype\]\=Monitor\
+\&amp;criteria\[1\]\[field\]\=1\
+\&amp;criteria\[1\]\[searchtype\]\=contains\
+\&amp;criteria\[1\]\[value\]\=W2\
+\&amp;range\=0-2\&amp;&amp;forcedisplay\[0\]\=1&apos;
+
+&lt;&#32;200&#32;OK
+&lt;&#32;Content-Range:&#32;0-2/2
+&lt;&#32;Accept-Range:&#32;990
+&lt;&#32;{&quot;totalcount&quot;:2,&quot;count&quot;:2,&quot;data&quot;:{&quot;11&quot;:{&quot;1&quot;:&quot;W2242&quot;,&quot;80&quot;:&quot;Root&#32;Entity&quot;,&quot;23&quot;:&quot;GSM&quot;},&quot;7&quot;:{&quot;1&quot;:&quot;W2252&quot;,&quot;80&quot;:&quot;Root&#32;Entity&quot;,&quot;23&quot;:&quot;GSM&quot;}}}%
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md_public_2glpi_2apirest_1autotoc_md378">
+<title><title>Add item(s)</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para><emphasis role="bold">URL</emphasis>: apirest.php/:itemtype/</para>
+</listitem><listitem>
+<para><emphasis role="bold">Description</emphasis>: Add an object (or multiple objects) into <link linkend="_class_g_l_p_i">GLPI</link>.</para>
+</listitem><listitem>
+<para><emphasis role="bold">Method</emphasis>: POST</para>
+</listitem><listitem>
+<para><emphasis role="bold">Parameters</emphasis>: (Headers)<itemizedlist>
+<listitem>
+<para><emphasis>Session-Token</emphasis>: session var provided by <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">initSession</link> endpoint. Mandatory.</para>
+</listitem><listitem>
+<para><emphasis>App-Token</emphasis>: authorization string provided by the <link linkend="_class_g_l_p_i">GLPI</link> API configuration. Optional.</para>
+</listitem></itemizedlist>
+</para>
+</listitem><listitem>
+<para><emphasis role="bold">Parameters</emphasis>: (JSON Payload)<itemizedlist>
+<listitem>
+<para><emphasis>input</emphasis>: an object with fields of itemtype to be inserted. You can add several items in one action by passing an array of objects. Mandatory.</para>
+
+<para><emphasis role="bold">Important:</emphasis> In case of &apos;multipart/data&apos; content_type (aka file upload), you should insert your parameters into a &apos;uploadManifest&apos; parameter. Theses serialized data should be a JSON string.</para>
+</listitem></itemizedlist>
+</para>
+</listitem><listitem>
+<para><emphasis role="bold">Returns</emphasis>:<itemizedlist>
+<listitem>
+<para>201 (OK) with id of added items.</para>
+</listitem><listitem>
+<para>207 (Multi-Status) with id of added items and errors.</para>
+</listitem><listitem>
+<para>400 (Bad Request) with a message indicating an error in input parameter.</para>
+</listitem><listitem>
+<para>401 (UNAUTHORIZED).</para>
+</listitem><listitem>
+<para>And additional header can be provided on creation success:<itemizedlist>
+<listitem>
+<para><link linkend="_class_location">Location</link> when adding a single item.</para>
+</listitem><listitem>
+<para><link linkend="_class_link">Link</link> on bulk addition.</para>
+</listitem></itemizedlist>
+</para>
+</listitem></itemizedlist>
+</para>
+</listitem></itemizedlist>
+</para>
+
+<para>Examples usage (CURL):</para>
+
+<para><literallayout><computeroutput>$&#32;curl&#32;-X&#32;POST&#32;\
+-H&#32;&apos;Content-Type:&#32;application/json&apos;&#32;\
+-H&#32;&quot;Session-Token:&#32;83af7e620c83a50a18d3eac2f6ed05a3ca0bea62&quot;&#32;\
+-H&#32;&quot;App-Token:&#32;f7g3csp8mgatg5ebc5elnazakw20i9fyev1qopya7&quot;&#32;\
+-d&#32;&apos;{&quot;input&quot;:&#32;{&quot;name&quot;:&#32;&quot;My&#32;single&#32;computer&quot;,&#32;&quot;serial&quot;:&#32;&quot;12345&quot;}}&apos;&#32;\
+&apos;http://path/to/glpi/apirest.php/Computer/&apos;
+
+&lt;&#32;201&#32;OK
+&lt;&#32;Location:&#32;http://path/to/glpi/api/Computer/15
+&lt;&#32;{&quot;id&quot;:&#32;15}
+
+
+$&#32;curl&#32;-X&#32;POST&#32;\
+-H&#32;&apos;Content-Type:&#32;application/json&apos;&#32;\
+-H&#32;&quot;Session-Token:&#32;83af7e620c83a50a18d3eac2f6ed05a3ca0bea62&quot;&#32;\
+-H&#32;&quot;App-Token:&#32;f7g3csp8mgatg5ebc5elnazakw20i9fyev1qopya7&quot;&#32;\
+-d&#32;&apos;{&quot;input&quot;:&#32;[{&quot;name&quot;:&#32;&quot;My&#32;first&#32;computer&quot;,&#32;&quot;serial&quot;:&#32;&quot;12345&quot;},&#32;{&quot;name&quot;:&#32;&quot;My&#32;2nd&#32;computer&quot;,&#32;&quot;serial&quot;:&#32;&quot;67890&quot;},&#32;{&quot;name&quot;:&#32;&quot;My&#32;3rd&#32;computer&quot;,&#32;&quot;serial&quot;:&#32;&quot;qsd12sd&quot;}]}&apos;&#32;\
+&apos;http://path/to/glpi/apirest.php/Computer/&apos;
+
+&lt;&#32;207&#32;OK
+&lt;&#32;Link:&#32;http://path/to/glpi/api/Computer/8,http://path/to/glpi/api/Computer/9
+&lt;&#32;[&#32;{&quot;id&quot;:8,&#32;&quot;message&quot;:&#32;&quot;&quot;},&#32;{&quot;id&quot;:false,&#32;&quot;message&quot;:&#32;&quot;You&#32;don&apos;t&#32;have&#32;permission&#32;to&#32;perform&#32;this&#32;action.&quot;},&#32;{&quot;id&quot;:9,&#32;&quot;message&quot;:&#32;&quot;&quot;}&#32;]
+</computeroutput></literallayout></para>
+
+<para>Note: To upload a document see <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">Upload a document file</link>.</para>
+</section>
+<section xml:id="_md_public_2glpi_2apirest_1autotoc_md379">
+<title><title>Update item(s)</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para><emphasis role="bold">URL</emphasis>: apirest.php/:itemtype/:id</para>
+</listitem><listitem>
+<para><emphasis role="bold">Description</emphasis>: <link linkend="_class_update">Update</link> an object (or multiple objects) existing in <link linkend="_class_g_l_p_i">GLPI</link>.</para>
+</listitem><listitem>
+<para><emphasis role="bold">Method</emphasis>: PUT or PATCH</para>
+</listitem><listitem>
+<para><emphasis role="bold">Parameters</emphasis>: (Headers)<itemizedlist>
+<listitem>
+<para><emphasis>Session-Token</emphasis>: session var provided by <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">initSession</link> endpoint. Mandatory.</para>
+</listitem><listitem>
+<para><emphasis>App-Token</emphasis>: authorization string provided by the <link linkend="_class_g_l_p_i">GLPI</link> API configuration. Optional.</para>
+</listitem></itemizedlist>
+</para>
+</listitem><listitem>
+<para><emphasis role="bold">Parameters</emphasis>: (JSON Payload)<itemizedlist>
+<listitem>
+<para><emphasis>id</emphasis>: the unique identifier of the itemtype passed in URL. You <emphasis role="bold">could skip</emphasis> this parameter by passing it in the input payload.</para>
+</listitem><listitem>
+<para><emphasis>input</emphasis>: Array of objects with fields of itemtype to be updated. Mandatory. You <emphasis role="bold">could provide</emphasis> in each object a key named &apos;id&apos; to identify the <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">item(s)</link> to update.</para>
+</listitem></itemizedlist>
+</para>
+</listitem><listitem>
+<para><emphasis role="bold">Returns</emphasis>:<itemizedlist>
+<listitem>
+<para>200 (OK) with update status for each item.</para>
+</listitem><listitem>
+<para>207 (Multi-Status) with id of added items and errors.</para>
+</listitem><listitem>
+<para>400 (Bad Request) with a message indicating an error in input parameter.</para>
+</listitem><listitem>
+<para>401 (UNAUTHORIZED).</para>
+</listitem></itemizedlist>
+</para>
+</listitem></itemizedlist>
+</para>
+
+<para>Example usage (CURL):</para>
+
+<para><literallayout><computeroutput>$&#32;curl&#32;-X&#32;PUT&#32;\
+-H&#32;&apos;Content-Type:&#32;application/json&apos;&#32;\
+-H&#32;&quot;Session-Token:&#32;83af7e620c83a50a18d3eac2f6ed05a3ca0bea62&quot;&#32;\
+-H&#32;&quot;App-Token:&#32;f7g3csp8mgatg5ebc5elnazakw20i9fyev1qopya7&quot;&#32;\
+-d&#32;&apos;{&quot;input&quot;:&#32;{&quot;otherserial&quot;:&#32;&quot;xcvbn&quot;}}&apos;&#32;\
+&apos;http://path/to/glpi/apirest.php/Computer/10&apos;
+
+&lt;&#32;200&#32;OK
+[{&quot;10&quot;:true,&#32;&quot;message&quot;:&#32;&quot;&quot;}]
+
+
+$&#32;curl&#32;-X&#32;PUT&#32;\
+-H&#32;&apos;Content-Type:&#32;application/json&apos;&#32;\
+-H&#32;&quot;Session-Token:&#32;83af7e620c83a50a18d3eac2f6ed05a3ca0bea62&quot;&#32;\
+-H&#32;&quot;App-Token:&#32;f7g3csp8mgatg5ebc5elnazakw20i9fyev1qopya7&quot;&#32;\
+-d&#32;&apos;{&quot;input&quot;:&#32;{&quot;id&quot;:&#32;11,&#32;&#32;&quot;otherserial&quot;:&#32;&quot;abcde&quot;}}&apos;&#32;\
+&apos;http://path/to/glpi/apirest.php/Computer/&apos;
+
+&lt;&#32;200&#32;OK
+[{&quot;11&quot;:true,&#32;&quot;message&quot;:&#32;&quot;&quot;}]
+
+
+$&#32;curl&#32;-X&#32;PUT&#32;\
+-H&#32;&apos;Content-Type:&#32;application/json&apos;&#32;\
+-H&#32;&quot;Session-Token:&#32;83af7e620c83a50a18d3eac2f6ed05a3ca0bea62&quot;&#32;\
+-H&#32;&quot;App-Token:&#32;f7g3csp8mgatg5ebc5elnazakw20i9fyev1qopya7&quot;&#32;\
+-d&#32;&apos;{&quot;input&quot;:&#32;[{&quot;id&quot;:&#32;16,&#32;&#32;&quot;otherserial&quot;:&#32;&quot;abcde&quot;},&#32;{&quot;id&quot;:&#32;17,&#32;&#32;&quot;otherserial&quot;:&#32;&quot;fghij&quot;}]}&apos;&#32;\
+&apos;http://path/to/glpi/apirest.php/Computer/&apos;
+
+&lt;&#32;207&#32;OK
+[{&quot;8&quot;:true,&#32;&quot;message&quot;:&#32;&quot;&quot;},{&quot;2&quot;:false,&#32;&quot;message&quot;:&#32;&quot;Item&#32;not&#32;found&quot;}]
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md_public_2glpi_2apirest_1autotoc_md380">
+<title><title>Delete item(s)</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para><emphasis role="bold">URL</emphasis>: apirest.php/:itemtype/:id</para>
+</listitem><listitem>
+<para><emphasis role="bold">Description</emphasis>: Delete an object existing in <link linkend="_class_g_l_p_i">GLPI</link>.</para>
+</listitem><listitem>
+<para><emphasis role="bold">Method</emphasis>: DELETE</para>
+</listitem><listitem>
+<para><emphasis role="bold">Parameters</emphasis>: (Headers)<itemizedlist>
+<listitem>
+<para><emphasis>Session-Token</emphasis>: session var provided by <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">initSession</link> endpoint. Mandatory.</para>
+</listitem><listitem>
+<para><emphasis>App-Token</emphasis>: authorization string provided by the <link linkend="_class_g_l_p_i">GLPI</link> API configuration. Optional.</para>
+</listitem></itemizedlist>
+</para>
+</listitem><listitem>
+<para><emphasis role="bold">Parameters</emphasis>: (query string)<itemizedlist>
+<listitem>
+<para><emphasis>id</emphasis>: unique identifier of the itemtype passed in the URL. You <emphasis role="bold">could skip</emphasis> this parameter by passing it in the input payload. OR</para>
+</listitem><listitem>
+<para><emphasis>input</emphasis> Array of id who need to be deleted. This parameter is passed by payload.</para>
+
+<para>id parameter has precedence over input payload.</para>
+</listitem><listitem>
+<para><emphasis>force_purge</emphasis> (default false): boolean, if the itemtype have a trashbin, you can force purge (delete finally). Optional.</para>
+</listitem><listitem>
+<para><emphasis>history</emphasis> (default true): boolean, set to false to disable saving of deletion in global history. Optional.</para>
+</listitem></itemizedlist>
+</para>
+</listitem><listitem>
+<para><emphasis role="bold">Returns</emphasis>:<itemizedlist>
+<listitem>
+<para>200 (OK) <emphasis>in case of multiple deletion</emphasis>.</para>
+</listitem><listitem>
+<para>204 (No Content) <emphasis>in case of single deletion</emphasis>.</para>
+</listitem><listitem>
+<para>207 (Multi-Status) with id of deleted items and errors.</para>
+</listitem><listitem>
+<para>400 (Bad Request) with a message indicating an error in input parameter.</para>
+</listitem><listitem>
+<para>401 (UNAUTHORIZED).</para>
+</listitem></itemizedlist>
+</para>
+</listitem></itemizedlist>
+</para>
+
+<para>Example usage (CURL):</para>
+
+<para><literallayout><computeroutput>$&#32;curl&#32;-X&#32;DELETE&#32;\
+-H&#32;&apos;Content-Type:&#32;application/json&apos;&#32;\
+-H&#32;&quot;Session-Token:&#32;83af7e620c83a50a18d3eac2f6ed05a3ca0bea62&quot;&#32;\
+-H&#32;&quot;App-Token:&#32;f7g3csp8mgatg5ebc5elnazakw20i9fyev1qopya7&quot;&#32;\
+&apos;http://path/to/glpi/apirest.php/Computer/16?force_purge=true&apos;
+
+&lt;&#32;200&#32;OK
+[{&quot;16&quot;:true,&#32;&quot;message&quot;:&#32;&quot;&quot;}]
+
+$&#32;curl&#32;-X&#32;DELETE&#32;\
+-H&#32;&apos;Content-Type:&#32;application/json&apos;&#32;\
+-H&#32;&quot;Session-Token:&#32;83af7e620c83a50a18d3eac2f6ed05a3ca0bea62&quot;&#32;\
+-H&#32;&quot;App-Token:&#32;f7g3csp8mgatg5ebc5elnazakw20i9fyev1qopya7&quot;&#32;\
+-d&#32;&apos;{&quot;input&quot;:&#32;{&quot;id&quot;:&#32;11},&#32;&quot;force_purge&quot;:&#32;true}&apos;&#32;\
+&apos;http://path/to/glpi/apirest.php/Computer/&apos;
+
+&lt;&#32;200&#32;OK
+[{&quot;11&quot;:true,&#32;&quot;message&quot;:&#32;&quot;&quot;}]
+
+
+$&#32;curl&#32;-X&#32;DELETE&#32;\
+-H&#32;&apos;Content-Type:&#32;application/json&apos;&#32;\
+-H&#32;&quot;Session-Token:&#32;83af7e620c83a50a18d3eac2f6ed05a3ca0bea62&quot;&#32;\
+-H&#32;&quot;App-Token:&#32;f7g3csp8mgatg5ebc5elnazakw20i9fyev1qopya7&quot;&#32;\
+-d&#32;&apos;{&quot;input&quot;:&#32;[{&quot;id&quot;:&#32;16},&#32;{&quot;id&quot;:&#32;17}]}&apos;&#32;\
+&apos;http://path/to/glpi/apirest.php/Computer/&apos;
+
+&lt;&#32;207&#32;OK
+[{&quot;16&quot;:true,&#32;&quot;message&quot;:&#32;&quot;&quot;},{&quot;17&quot;:false,&#32;&quot;message&quot;:&#32;&quot;Item&#32;not&#32;found&quot;}]
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md_public_2glpi_2apirest_1autotoc_md381">
+<title><title>Get available massive actions for an itemtype</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para><emphasis role="bold">URL</emphasis>: apirest.php/getMassiveActions/:itemtype/</para>
+</listitem><listitem>
+<para><emphasis role="bold">Description</emphasis>: Show the availables massive actions for a given itemtype.</para>
+</listitem><listitem>
+<para><emphasis role="bold">Method</emphasis>: GET</para>
+</listitem><listitem>
+<para><emphasis role="bold">Parameters</emphasis>: (Headers)<itemizedlist>
+<listitem>
+<para><emphasis>Session-Token</emphasis>: session var provided by <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">initSession</link> endpoint. Mandatory.</para>
+</listitem><listitem>
+<para><emphasis>App-Token</emphasis>: authorization string provided by the <link linkend="_class_g_l_p_i">GLPI</link> API configuration. Optional.</para>
+</listitem></itemizedlist>
+</para>
+</listitem><listitem>
+<para><emphasis role="bold">Parameters</emphasis>: (query string)<itemizedlist>
+<listitem>
+<para><emphasis>is_deleted</emphasis> (default false): Show specific actions for items in the trashbin.</para>
+</listitem></itemizedlist>
+</para>
+</listitem><listitem>
+<para><emphasis role="bold">Returns</emphasis>:<itemizedlist>
+<listitem>
+<para>200 (OK).</para>
+</listitem><listitem>
+<para>400 (Bad Request) with a message indicating an error in input parameter.</para>
+</listitem><listitem>
+<para>401 (UNAUTHORIZED).</para>
+</listitem></itemizedlist>
+</para>
+</listitem></itemizedlist>
+</para>
+
+<para>Example usage (CURL):</para>
+
+<para><literallayout><computeroutput>$&#32;curl&#32;-X&#32;GET&#32;\
+-H&#32;&apos;Content-Type:&#32;application/json&apos;&#32;\
+-H&#32;&quot;Session-Token:&#32;83af7e620c83a50a18d3eac2f6ed05a3ca0bea62&quot;&#32;\
+-H&#32;&quot;App-Token:&#32;f7g3csp8mgatg5ebc5elnazakw20i9fyev1qopya7&quot;&#32;\
+&apos;http://path/to/glpi/apirest.php/getMassiveActions/Computer&apos;
+
+&lt;&#32;200&#32;OK
+[
+&#32;&#32;{
+&#32;&#32;&#32;&#32;&quot;key&quot;:&#32;&quot;MassiveAction:update&quot;,
+&#32;&#32;&#32;&#32;&quot;label&quot;:&#32;&quot;Update&quot;
+&#32;&#32;},
+&#32;&#32;{
+&#32;&#32;&#32;&#32;&quot;key&quot;:&#32;&quot;MassiveAction:clone&quot;,
+&#32;&#32;&#32;&#32;&quot;label&quot;:&#32;&quot;Clone&quot;
+&#32;&#32;},
+&#32;&#32;{
+&#32;&#32;&#32;&#32;&quot;key&quot;:&#32;&quot;Infocom:activate&quot;,
+&#32;&#32;&#32;&#32;&quot;label&quot;:&#32;&quot;Enable&#32;the&#32;financial&#32;and&#32;administrative&#32;information&quot;
+&#32;&#32;},
+&#32;&#32;{
+&#32;&#32;&#32;&#32;&quot;key&quot;:&#32;&quot;MassiveAction:delete&quot;,
+&#32;&#32;&#32;&#32;&quot;label&quot;:&#32;&quot;Put&#32;in&#32;trashbin&quot;
+&#32;&#32;},
+&#32;&#32;{
+&#32;&#32;&#32;&#32;&quot;key&quot;:&#32;&quot;MassiveAction:add_transfer_list&quot;,
+&#32;&#32;&#32;&#32;&quot;label&quot;:&#32;&quot;Add&#32;to&#32;transfer&#32;list&quot;
+&#32;&#32;},
+&#32;&#32;{
+&#32;&#32;&#32;&#32;&quot;key&quot;:&#32;&quot;Appliance:add_item&quot;,
+&#32;&#32;&#32;&#32;&quot;label&quot;:&#32;&quot;Associate&#32;to&#32;an&#32;appliance&quot;
+&#32;&#32;},
+&#32;&#32;{
+&#32;&#32;&#32;&#32;&quot;key&quot;:&#32;&quot;Item_OperatingSystem:update&quot;,
+&#32;&#32;&#32;&#32;&quot;label&quot;:&#32;&quot;Operating&#32;systems&quot;
+&#32;&#32;},
+&#32;&#32;{
+&#32;&#32;&#32;&#32;&quot;key&quot;:&#32;&quot;Computer_Item:add&quot;,
+&#32;&#32;&#32;&#32;&quot;label&quot;:&#32;&quot;Connect&quot;
+&#32;&#32;},
+&#32;&#32;{
+&#32;&#32;&#32;&#32;&quot;key&quot;:&#32;&quot;Item_SoftwareVersion:add&quot;,
+&#32;&#32;&#32;&#32;&quot;label&quot;:&#32;&quot;Install&quot;
+&#32;&#32;},
+&#32;&#32;{
+&#32;&#32;&#32;&#32;&quot;key&quot;:&#32;&quot;KnowbaseItem_Item:add&quot;,
+&#32;&#32;&#32;&#32;&quot;label&quot;:&#32;&quot;Link&#32;knowledgebase&#32;article&quot;
+&#32;&#32;},
+&#32;&#32;{
+&#32;&#32;&#32;&#32;&quot;key&quot;:&#32;&quot;Document_Item:add&quot;,
+&#32;&#32;&#32;&#32;&quot;label&quot;:&#32;&quot;Add&#32;a&#32;document&quot;
+&#32;&#32;},
+&#32;&#32;{
+&#32;&#32;&#32;&#32;&quot;key&quot;:&#32;&quot;Document_Item:remove&quot;,
+&#32;&#32;&#32;&#32;&quot;label&quot;:&#32;&quot;Remove&#32;a&#32;document&quot;
+&#32;&#32;},
+&#32;&#32;{
+&#32;&#32;&#32;&#32;&quot;key&quot;:&#32;&quot;Contract_Item:add&quot;,
+&#32;&#32;&#32;&#32;&quot;label&quot;:&#32;&quot;Add&#32;a&#32;contract&quot;
+&#32;&#32;},
+&#32;&#32;{
+&#32;&#32;&#32;&#32;&quot;key&quot;:&#32;&quot;Contract_Item:remove&quot;,
+&#32;&#32;&#32;&#32;&quot;label&quot;:&#32;&quot;Remove&#32;a&#32;contract&quot;
+&#32;&#32;},
+&#32;&#32;{
+&#32;&#32;&#32;&#32;&quot;key&quot;:&#32;&quot;MassiveAction:amend_comment&quot;,
+&#32;&#32;&#32;&#32;&quot;label&quot;:&#32;&quot;Amend&#32;comment&quot;
+&#32;&#32;},
+&#32;&#32;{
+&#32;&#32;&#32;&#32;&quot;key&quot;:&#32;&quot;MassiveAction:add_note&quot;,
+&#32;&#32;&#32;&#32;&quot;label&quot;:&#32;&quot;Add&#32;note&quot;
+&#32;&#32;},
+&#32;&#32;{
+&#32;&#32;&#32;&#32;&quot;key&quot;:&#32;&quot;Lock:unlock&quot;,
+&#32;&#32;&#32;&#32;&quot;label&quot;:&#32;&quot;Unlock&#32;components&quot;
+&#32;&#32;}
+]
+
+$&#32;curl&#32;-X&#32;GET&#32;\
+-H&#32;&apos;Content-Type:&#32;application/json&apos;&#32;\
+-H&#32;&quot;Session-Token:&#32;83af7e620c83a50a18d3eac2f6ed05a3ca0bea62&quot;&#32;\
+-H&#32;&quot;App-Token:&#32;f7g3csp8mgatg5ebc5elnazakw20i9fyev1qopya7&quot;&#32;\
+&apos;http://path/to/glpi/apirest.php/getMassiveActions/Computer?is_deleted=1&apos;
+
+&lt;&#32;200&#32;OK
+[
+&#32;&#32;{
+&#32;&#32;&#32;&#32;&quot;key&quot;:&#32;&quot;MassiveAction:purge_item_but_devices&quot;,
+&#32;&#32;&#32;&#32;&quot;label&quot;:&#32;&quot;Delete&#32;permanently&#32;but&#32;keep&#32;devices&quot;
+&#32;&#32;},
+&#32;&#32;{
+&#32;&#32;&#32;&#32;&quot;key&quot;:&#32;&quot;MassiveAction:purge&quot;,
+&#32;&#32;&#32;&#32;&quot;label&quot;:&#32;&quot;Delete&#32;permanently&#32;and&#32;remove&#32;devices&quot;
+&#32;&#32;},
+&#32;&#32;{
+&#32;&#32;&#32;&#32;&quot;key&quot;:&#32;&quot;MassiveAction:restore&quot;,
+&#32;&#32;&#32;&#32;&quot;label&quot;:&#32;&quot;Restore&quot;
+&#32;&#32;},
+&#32;&#32;{
+&#32;&#32;&#32;&#32;&quot;key&quot;:&#32;&quot;Lock:unlock&quot;,
+&#32;&#32;&#32;&#32;&quot;label&quot;:&#32;&quot;Unlock&#32;components&quot;
+&#32;&#32;}
+]
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md_public_2glpi_2apirest_1autotoc_md382">
+<title><title>Get available massive actions for an item</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para><emphasis role="bold">URL</emphasis>: apirest.php/getMassiveActions/:itemtype/:id</para>
+</listitem><listitem>
+<para><emphasis role="bold">Description</emphasis>: Show the availables massive actions for a given item.</para>
+</listitem><listitem>
+<para><emphasis role="bold">Method</emphasis>: GET</para>
+</listitem><listitem>
+<para><emphasis role="bold">Parameters</emphasis>: (Headers)<itemizedlist>
+<listitem>
+<para><emphasis>Session-Token</emphasis>: session var provided by <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">initSession</link> endpoint. Mandatory.</para>
+</listitem><listitem>
+<para><emphasis>App-Token</emphasis>: authorization string provided by the <link linkend="_class_g_l_p_i">GLPI</link> API configuration. Optional.</para>
+</listitem></itemizedlist>
+</para>
+</listitem><listitem>
+<para><emphasis role="bold">Parameters</emphasis>: (query string)</para>
+</listitem><listitem>
+<para><emphasis role="bold">Returns</emphasis>:<itemizedlist>
+<listitem>
+<para>200 (OK).</para>
+</listitem><listitem>
+<para>400 (Bad Request) with a message indicating an error in input parameter.</para>
+</listitem><listitem>
+<para>401 (UNAUTHORIZED).</para>
+</listitem></itemizedlist>
+</para>
+</listitem></itemizedlist>
+</para>
+
+<para>Example usage (CURL):</para>
+
+<para><literallayout><computeroutput>$&#32;curl&#32;-X&#32;GET&#32;\
+-H&#32;&apos;Content-Type:&#32;application/json&apos;&#32;\
+-H&#32;&quot;Session-Token:&#32;83af7e620c83a50a18d3eac2f6ed05a3ca0bea62&quot;&#32;\
+-H&#32;&quot;App-Token:&#32;f7g3csp8mgatg5ebc5elnazakw20i9fyev1qopya7&quot;&#32;\
+&apos;http://path/to/glpi/apirest.php/getMassiveActions/Computer/3&apos;
+
+&lt;&#32;200&#32;OK
+[
+&#32;&#32;{
+&#32;&#32;&#32;&#32;&quot;key&quot;:&#32;&quot;MassiveAction:update&quot;,
+&#32;&#32;&#32;&#32;&quot;label&quot;:&#32;&quot;Update&quot;
+&#32;&#32;},
+&#32;&#32;{
+&#32;&#32;&#32;&#32;&quot;key&quot;:&#32;&quot;MassiveAction:clone&quot;,
+&#32;&#32;&#32;&#32;&quot;label&quot;:&#32;&quot;Clone&quot;
+&#32;&#32;},
+&#32;&#32;{
+&#32;&#32;&#32;&#32;&quot;key&quot;:&#32;&quot;Infocom:activate&quot;,
+&#32;&#32;&#32;&#32;&quot;label&quot;:&#32;&quot;Enable&#32;the&#32;financial&#32;and&#32;administrative&#32;information&quot;
+&#32;&#32;},
+&#32;&#32;{
+&#32;&#32;&#32;&#32;&quot;key&quot;:&#32;&quot;MassiveAction:delete&quot;,
+&#32;&#32;&#32;&#32;&quot;label&quot;:&#32;&quot;Put&#32;in&#32;trashbin&quot;
+&#32;&#32;},
+&#32;&#32;{
+&#32;&#32;&#32;&#32;&quot;key&quot;:&#32;&quot;MassiveAction:add_transfer_list&quot;,
+&#32;&#32;&#32;&#32;&quot;label&quot;:&#32;&quot;Add&#32;to&#32;transfer&#32;list&quot;
+&#32;&#32;},
+&#32;&#32;{
+&#32;&#32;&#32;&#32;&quot;key&quot;:&#32;&quot;Appliance:add_item&quot;,
+&#32;&#32;&#32;&#32;&quot;label&quot;:&#32;&quot;Associate&#32;to&#32;an&#32;appliance&quot;
+&#32;&#32;},
+&#32;&#32;{
+&#32;&#32;&#32;&#32;&quot;key&quot;:&#32;&quot;Item_OperatingSystem:update&quot;,
+&#32;&#32;&#32;&#32;&quot;label&quot;:&#32;&quot;Operating&#32;systems&quot;
+&#32;&#32;},
+&#32;&#32;{
+&#32;&#32;&#32;&#32;&quot;key&quot;:&#32;&quot;Computer_Item:add&quot;,
+&#32;&#32;&#32;&#32;&quot;label&quot;:&#32;&quot;Connect&quot;
+&#32;&#32;},
+&#32;&#32;{
+&#32;&#32;&#32;&#32;&quot;key&quot;:&#32;&quot;Item_SoftwareVersion:add&quot;,
+&#32;&#32;&#32;&#32;&quot;label&quot;:&#32;&quot;Install&quot;
+&#32;&#32;},
+&#32;&#32;{
+&#32;&#32;&#32;&#32;&quot;key&quot;:&#32;&quot;KnowbaseItem_Item:add&quot;,
+&#32;&#32;&#32;&#32;&quot;label&quot;:&#32;&quot;Link&#32;knowledgebase&#32;article&quot;
+&#32;&#32;},
+&#32;&#32;{
+&#32;&#32;&#32;&#32;&quot;key&quot;:&#32;&quot;Document_Item:add&quot;,
+&#32;&#32;&#32;&#32;&quot;label&quot;:&#32;&quot;Add&#32;a&#32;document&quot;
+&#32;&#32;},
+&#32;&#32;{
+&#32;&#32;&#32;&#32;&quot;key&quot;:&#32;&quot;Document_Item:remove&quot;,
+&#32;&#32;&#32;&#32;&quot;label&quot;:&#32;&quot;Remove&#32;a&#32;document&quot;
+&#32;&#32;},
+&#32;&#32;{
+&#32;&#32;&#32;&#32;&quot;key&quot;:&#32;&quot;Contract_Item:add&quot;,
+&#32;&#32;&#32;&#32;&quot;label&quot;:&#32;&quot;Add&#32;a&#32;contract&quot;
+&#32;&#32;},
+&#32;&#32;{
+&#32;&#32;&#32;&#32;&quot;key&quot;:&#32;&quot;Contract_Item:remove&quot;,
+&#32;&#32;&#32;&#32;&quot;label&quot;:&#32;&quot;Remove&#32;a&#32;contract&quot;
+&#32;&#32;},
+&#32;&#32;{
+&#32;&#32;&#32;&#32;&quot;key&quot;:&#32;&quot;MassiveAction:amend_comment&quot;,
+&#32;&#32;&#32;&#32;&quot;label&quot;:&#32;&quot;Amend&#32;comment&quot;
+&#32;&#32;},
+&#32;&#32;{
+&#32;&#32;&#32;&#32;&quot;key&quot;:&#32;&quot;MassiveAction:add_note&quot;,
+&#32;&#32;&#32;&#32;&quot;label&quot;:&#32;&quot;Add&#32;note&quot;
+&#32;&#32;},
+&#32;&#32;{
+&#32;&#32;&#32;&#32;&quot;key&quot;:&#32;&quot;Lock:unlock&quot;,
+&#32;&#32;&#32;&#32;&quot;label&quot;:&#32;&quot;Unlock&#32;components&quot;
+&#32;&#32;}
+]
+
+
+$&#32;curl&#32;-X&#32;GET&#32;\
+-H&#32;&apos;Content-Type:&#32;application/json&apos;&#32;\
+-H&#32;&quot;Session-Token:&#32;83af7e620c83a50a18d3eac2f6ed05a3ca0bea62&quot;&#32;\
+-H&#32;&quot;App-Token:&#32;f7g3csp8mgatg5ebc5elnazakw20i9fyev1qopya7&quot;&#32;\
+&apos;http://path/to/glpi/apirest.php/getMassiveActions/Computer/4&apos;
+
+&lt;&#32;200&#32;OK
+[
+&#32;&#32;{
+&#32;&#32;&#32;&#32;&quot;key&quot;:&#32;&quot;MassiveAction:purge_item_but_devices&quot;,
+&#32;&#32;&#32;&#32;&quot;label&quot;:&#32;&quot;Delete&#32;permanently&#32;but&#32;keep&#32;devices&quot;
+&#32;&#32;},
+&#32;&#32;{
+&#32;&#32;&#32;&#32;&quot;key&quot;:&#32;&quot;MassiveAction:purge&quot;,
+&#32;&#32;&#32;&#32;&quot;label&quot;:&#32;&quot;Delete&#32;permanently&#32;and&#32;remove&#32;devices&quot;
+&#32;&#32;},
+&#32;&#32;{
+&#32;&#32;&#32;&#32;&quot;key&quot;:&#32;&quot;MassiveAction:restore&quot;,
+&#32;&#32;&#32;&#32;&quot;label&quot;:&#32;&quot;Restore&quot;
+&#32;&#32;},
+&#32;&#32;{
+&#32;&#32;&#32;&#32;&quot;key&quot;:&#32;&quot;Lock:unlock&quot;,
+&#32;&#32;&#32;&#32;&quot;label&quot;:&#32;&quot;Unlock&#32;components&quot;
+&#32;&#32;}
+]
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md_public_2glpi_2apirest_1autotoc_md383">
+<title><title>Get massive action parameters</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para><emphasis role="bold">URL</emphasis>: apirest.php/getMassiveActionParameters/:itemtype/</para>
+</listitem><listitem>
+<para><emphasis role="bold">Description</emphasis>: Show the availables parameters for a given massive action.<itemizedlist>
+<listitem>
+<para>Warning: experimental endpoint, some required parameters may be missing from the returned content.</para>
+</listitem></itemizedlist>
+</para>
+</listitem><listitem>
+<para><emphasis role="bold">Method</emphasis>: GET</para>
+</listitem><listitem>
+<para><emphasis role="bold">Parameters</emphasis>: (Headers)<itemizedlist>
+<listitem>
+<para><emphasis>Session-Token</emphasis>: session var provided by <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">initSession</link> endpoint. Mandatory.</para>
+</listitem><listitem>
+<para><emphasis>App-Token</emphasis>: authorization string provided by the <link linkend="_class_g_l_p_i">GLPI</link> API configuration. Optional.</para>
+</listitem></itemizedlist>
+</para>
+</listitem><listitem>
+<para><emphasis role="bold">Parameters</emphasis>: (query string)</para>
+</listitem><listitem>
+<para><emphasis role="bold">Returns</emphasis>:<itemizedlist>
+<listitem>
+<para>200 (OK).</para>
+</listitem><listitem>
+<para>400 (Bad Request) with a message indicating an error in input parameter.</para>
+</listitem><listitem>
+<para>401 (UNAUTHORIZED).</para>
+</listitem></itemizedlist>
+</para>
+</listitem></itemizedlist>
+</para>
+
+<para>Example usage (CURL):</para>
+
+<para><literallayout><computeroutput>$&#32;curl&#32;-X&#32;GET&#32;\
+-H&#32;&apos;Content-Type:&#32;application/json&apos;&#32;\
+-H&#32;&quot;Session-Token:&#32;83af7e620c83a50a18d3eac2f6ed05a3ca0bea62&quot;&#32;\
+-H&#32;&quot;App-Token:&#32;f7g3csp8mgatg5ebc5elnazakw20i9fyev1qopya7&quot;&#32;\
+&apos;http://path/to/glpi/apirest.php/getMassiveActionParameters/Computer/MassiveAction:add_note&apos;
+
+&lt;&#32;200&#32;OK
+[
+&#32;&#32;{
+&#32;&#32;&#32;&#32;&quot;name&quot;:&#32;&quot;add_note&quot;,
+&#32;&#32;&#32;&#32;&quot;type&quot;:&#32;&quot;text&quot;
+&#32;&#32;}
+]
+
+$&#32;curl&#32;-X&#32;GET&#32;\
+-H&#32;&apos;Content-Type:&#32;application/json&apos;&#32;\
+-H&#32;&quot;Session-Token:&#32;83af7e620c83a50a18d3eac2f6ed05a3ca0bea62&quot;&#32;\
+-H&#32;&quot;App-Token:&#32;f7g3csp8mgatg5ebc5elnazakw20i9fyev1qopya7&quot;&#32;\
+&apos;http://path/to/glpi/apirest.php/getMassiveActionParameters/Computer/Contract_Item:add&apos;
+
+&lt;&#32;200&#32;OK
+[
+&#32;&#32;{
+&#32;&#32;&#32;&#32;&quot;name&quot;:&#32;&quot;peer_contracts_id&quot;,
+&#32;&#32;&#32;&#32;&quot;type&quot;:&#32;&quot;dropdown&quot;
+&#32;&#32;}
+]
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md_public_2glpi_2apirest_1autotoc_md384">
+<title><title>Apply massive action</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para><emphasis role="bold">URL</emphasis>: apirest.php/applyMassiveAction/:itemtype/</para>
+</listitem><listitem>
+<para><emphasis role="bold">Description</emphasis>: Run the given massive action</para>
+</listitem><listitem>
+<para><emphasis role="bold">Method</emphasis>: POST</para>
+</listitem><listitem>
+<para><emphasis role="bold">Parameters</emphasis>: (Headers)<itemizedlist>
+<listitem>
+<para><emphasis>Session-Token</emphasis>: session var provided by <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">initSession</link> endpoint. Mandatory.</para>
+</listitem><listitem>
+<para><emphasis>App-Token</emphasis>: authorization string provided by the <link linkend="_class_g_l_p_i">GLPI</link> API configuration. Optional.</para>
+</listitem></itemizedlist>
+</para>
+</listitem><listitem>
+<para><emphasis role="bold">Parameters</emphasis>: (json payload)<itemizedlist>
+<listitem>
+<para><emphasis>ids</emphasis> items to execute the action on. Mandatory.</para>
+</listitem><listitem>
+<para><emphasis>specific action parameters</emphasis> some actions require specific parameters to run. You can check them through the &apos;getMassiveActionParameters&apos; endpoint.</para>
+</listitem></itemizedlist>
+</para>
+</listitem><listitem>
+<para><emphasis role="bold">Returns</emphasis>:<itemizedlist>
+<listitem>
+<para>200 (OK) All items were processed.</para>
+</listitem><listitem>
+<para>207 (Multi-Status) Not all items were successfully processed.</para>
+</listitem><listitem>
+<para>400 (Bad Request) with a message indicating an error in input parameter.</para>
+</listitem><listitem>
+<para>401 (UNAUTHORIZED).</para>
+</listitem><listitem>
+<para>422 (Unprocessable <link linkend="_class_entity">Entity</link>) All items failed to be processed.</para>
+</listitem></itemizedlist>
+</para>
+</listitem></itemizedlist>
+</para>
+
+<para>Example usage (CURL):</para>
+
+<para><literallayout><computeroutput>$&#32;curl&#32;-X&#32;POST&#32;\
+-H&#32;&apos;Content-Type:&#32;application/json&apos;&#32;\
+-H&#32;&quot;Session-Token:&#32;83af7e620c83a50a18d3eac2f6ed05a3ca0bea62&quot;&#32;\
+-H&#32;&quot;App-Token:&#32;f7g3csp8mgatg5ebc5elnazakw20i9fyev1qopya7&quot;&#32;\
+-d&#32;&apos;{&quot;ids&quot;:&#32;[2,&#32;3],&#32;&quot;input&quot;:&#32;{&quot;amendment&quot;:&#32;&quot;newtext&quot;}}&apos;
+&apos;http://path/to/glpi/apirest.php/applyMassiveAction/Computer/MassiveAction:amend_comment&apos;
+
+&lt;&#32;200&#32;OK
+{
+&#32;&#32;&quot;ok&quot;:&#32;2,
+&#32;&#32;&quot;ko&quot;:&#32;0,
+&#32;&#32;&quot;noright&quot;:&#32;0,
+&#32;&#32;&quot;messages&quot;:&#32;[]
+}
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md_public_2glpi_2apirest_1autotoc_md385">
+<title><title>Special cases</title></title>
+<section xml:id="_md_public_2glpi_2apirest_1autotoc_md386">
+<title><title>Upload a document file</title></title>
+
+<para>See <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">Add item(s)</link> and apply specific instructions below.</para>
+
+<para>Uploading a file requires use of &apos;multipart/data&apos; content_type. The input data must be send in a &apos;uploadManifest&apos; parameter and use the JSON format.</para>
+
+<para>Examples usage (CURL):</para>
+
+<para><literallayout><computeroutput>$&#32;curl&#32;-X&#32;POST&#32;\
+-H&#32;&apos;Content-Type:&#32;multipart/form-data&apos;&#32;\
+-H&#32;&quot;Session-Token:&#32;83af7e620c83a50a18d3eac2f6ed05a3ca0bea62&quot;&#32;\
+-H&#32;&quot;App-Token:&#32;f7g3csp8mgatg5ebc5elnazakw20i9fyev1qopya7&quot;&#32;\
+-F&#32;&apos;uploadManifest={&quot;input&quot;:&#32;{&quot;name&quot;:&#32;&quot;Uploaded&#32;document&quot;,&#32;&quot;_filename&quot;&#32;:&#32;[&quot;file.txt&quot;]}};type=application/json&apos;&#32;\
+-F&#32;&apos;filename[0]=@file.txt&apos;&#32;\
+&apos;http://path/to/glpi/apirest.php/Document/&apos;
+
+&lt;&#32;201&#32;OK
+&lt;&#32;Location:&#32;http://path/to/glpi/api/Document/1
+&lt;&#32;{&quot;id&quot;:&#32;1,&#32;&quot;message&quot;:&#32;&quot;Document&#32;move&#32;succeeded.&quot;,&#32;&quot;upload_result&quot;:&#32;{...}}
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md_public_2glpi_2apirest_1autotoc_md387">
+<title><title>Download a document file</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para><emphasis role="bold">URL</emphasis>: apirest.php/Document/:id</para>
+</listitem><listitem>
+<para><emphasis role="bold">Description</emphasis>: Download a document.</para>
+</listitem><listitem>
+<para><emphasis role="bold">Method</emphasis>: GET</para>
+</listitem><listitem>
+<para><emphasis role="bold">Parameters</emphasis>: (Headers)<itemizedlist>
+<listitem>
+<para><emphasis>Session-Token</emphasis>: session var provided by <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">initSession</link> endpoint. Mandatory.</para>
+</listitem><listitem>
+<para><emphasis>App-Token</emphasis>: authorization string provided by the <link linkend="_class_g_l_p_i">GLPI</link> API configuration. Optional.</para>
+</listitem><listitem>
+<para><emphasis>Accept</emphasis>: must be <emphasis role="bold">application/octet-stream</emphasis>. This header OR the parameter <emphasis>alt</emphasis> is mandatory</para>
+</listitem></itemizedlist>
+</para>
+</listitem><listitem>
+<para><emphasis role="bold">Parameters</emphasis>: (query string)<itemizedlist>
+<listitem>
+<para><emphasis>id</emphasis>: unique identifier of the itemtype passed in the URL. You <emphasis role="bold">could skip</emphasis> this parameter by passing it in the input payload.</para>
+</listitem><listitem>
+<para><emphasis>alt</emphasis>: must be &apos;media&apos;. This parameter or the header <emphasis role="bold">Accept</emphasis> is mandatory.</para>
+
+<para>id parameter has precedence over input payload.</para>
+</listitem></itemizedlist>
+</para>
+</listitem><listitem>
+<para><emphasis role="bold">Returns</emphasis>:<itemizedlist>
+<listitem>
+<para>200 (OK) <emphasis>in case of multiple deletion</emphasis>.</para>
+</listitem><listitem>
+<para>400 (Bad Request) with a message indicating an error in input parameter.</para>
+</listitem><listitem>
+<para>401 (UNAUTHORIZED).</para>
+</listitem></itemizedlist>
+</para>
+</listitem></itemizedlist>
+</para>
+
+<para>Example usage (CURL):</para>
+
+<para><literallayout><computeroutput>$&#32;curl&#32;-X&#32;GET&#32;\
+-H&#32;&apos;Content-Type:&#32;application/json&apos;&#32;\
+-H&#32;&quot;Session-Token:&#32;83af7e620c83a50a18d3eac2f6ed05a3ca0bea62&quot;&#32;\
+-H&#32;&quot;App-Token:&#32;f7g3csp8mgatg5ebc5elnazakw20i9fyev1qopya7&quot;&#32;\
+-H&#32;&quot;Accept:&#32;application/octet-stream&quot;&#32;\
+-d&#32;&apos;{&quot;input&quot;:&#32;{&quot;id&quot;:&#32;11}}&apos;&#32;\
+&apos;http://path/to/glpi/apirest.php/Document/&apos;
+
+&lt;&#32;200&#32;OK
+</computeroutput></literallayout></para>
+
+<para>The body of the answer contains the raw file attached to the document.</para>
+
+<para><literallayout><computeroutput>$&#32;curl&#32;-X&#32;GET&#32;\
+-H&#32;&apos;Content-Type:&#32;application/json&apos;&#32;\
+-H&#32;&quot;Session-Token:&#32;83af7e620c83a50a18d3eac2f6ed05a3ca0bea62&quot;&#32;\
+-H&#32;&quot;App-Token:&#32;f7g3csp8mgatg5ebc5elnazakw20i9fyev1qopya7&quot;&#32;\
+-d&#32;&apos;{&quot;input&quot;:&#32;{&quot;id&quot;:&#32;11}}&apos;&#32;\
+&apos;http://path/to/glpi/apirest.php/Document/&amp;alt=media&apos;
+
+&lt;&#32;200&#32;OK
+</computeroutput></literallayout></para>
+
+<para>The body of the answer contains the raw file attached to the document.</para>
+</section>
+<section xml:id="_md_public_2glpi_2apirest_1autotoc_md388">
+<title><title>Get a user&apos;s profile picture</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para><emphasis role="bold">URL</emphasis>: apirest.php/User/:id/Picture</para>
+</listitem><listitem>
+<para><emphasis role="bold">Description</emphasis>: Get a user&apos;s profile picture.</para>
+</listitem><listitem>
+<para><emphasis role="bold">Method</emphasis>: GET</para>
+</listitem><listitem>
+<para><emphasis role="bold">Parameters</emphasis>: (Headers)<itemizedlist>
+<listitem>
+<para><emphasis>Session-Token</emphasis>: session var provided by <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">initSession</link> endpoint. Mandatory.</para>
+</listitem><listitem>
+<para><emphasis>App-Token</emphasis>: authorization string provided by the <link linkend="_class_g_l_p_i">GLPI</link> API configuration. Optional.</para>
+</listitem></itemizedlist>
+</para>
+</listitem><listitem>
+<para><emphasis role="bold">Returns</emphasis>:<itemizedlist>
+<listitem>
+<para>200 (OK) with the raw image in the request body.</para>
+</listitem><listitem>
+<para>204 (No content) if the request is correct but the specified user doesn&apos;t have a profile picture.</para>
+</listitem><listitem>
+<para>400 (Bad Request) with a message indicating an error in input parameter.</para>
+</listitem></itemizedlist>
+</para>
+</listitem></itemizedlist>
+</para>
+
+<para>Example usage (CURL):</para>
+
+<para><literallayout><computeroutput>$&#32;curl&#32;-X&#32;GET&#32;\
+-H&#32;&apos;Content-Type:&#32;application/json&apos;&#32;\
+-H&#32;&quot;Session-Token:&#32;83af7e620c83a50a18d3eac2f6ed05a3ca0bea62&quot;&#32;\
+-H&#32;&quot;App-Token:&#32;f7g3csp8mgatg5ebc5elnazakw20i9fyev1qopya7&quot;&#32;\
+&apos;http://path/to/glpi/apirest.php/User/2/Picture/&apos;
+
+&lt;&#32;200&#32;OK
+</computeroutput></literallayout></para>
+
+<para>The body of the answer contains the raw image.</para>
+</section>
+<section xml:id="_md_public_2glpi_2apirest_1autotoc_md389">
+<title><title>Sanitized content</title></title>
+
+<para>By default, the API will return sanitized content. <?linebreak?> This mean that all HTML special characters will be encoded. <?linebreak?> You can disable this feature by adding the following header to your request: <?linebreak?></para>
+
+<para><literallayout><computeroutput>X-GLPI-Sanitized-Content:&#32;false
+</computeroutput></literallayout></para>
+</section>
+</section>
+<section xml:id="_md_public_2glpi_2apirest_1autotoc_md390">
+<title><title>Errors</title></title>
+<section xml:id="_md_public_2glpi_2apirest_1autotoc_md391">
+<title><title>ERROR_ITEM_NOT_FOUND</title></title>
+
+<para>The desired resource (itemtype-id) was not found in the <link linkend="_class_g_l_p_i">GLPI</link> database.</para>
+</section>
+<section xml:id="_md_public_2glpi_2apirest_1autotoc_md392">
+<title><title>ERROR_BAD_ARRAY</title></title>
+
+<para>The HTTP body must be an an array of objects.</para>
+</section>
+<section xml:id="_md_public_2glpi_2apirest_1autotoc_md393">
+<title><title>ERROR_METHOD_NOT_ALLOWED</title></title>
+
+<para>You specified an inexistent or not not allowed resource.</para>
+</section>
+<section xml:id="_md_public_2glpi_2apirest_1autotoc_md394">
+<title><title>ERROR_RIGHT_MISSING</title></title>
+
+<para>The current logged user miss rights in his profile to do the provided action. Alter this profile or choose a new one for the user in <link linkend="_class_g_l_p_i">GLPI</link> main interface.</para>
+</section>
+<section xml:id="_md_public_2glpi_2apirest_1autotoc_md395">
+<title><title>ERROR_SESSION_TOKEN_INVALID</title></title>
+
+<para>The Session-Token provided in header is invalid. You should redo an <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">Init session</link> request.</para>
+</section>
+<section xml:id="_md_public_2glpi_2apirest_1autotoc_md396">
+<title><title>ERROR_SESSION_TOKEN_MISSING</title></title>
+
+<para>You miss to provide Session-Token in header of your HTTP request.</para>
+</section>
+<section xml:id="_md_public_2glpi_2apirest_1autotoc_md397">
+<title><title>ERROR_APP_TOKEN_PARAMETERS_MISSING</title></title>
+
+<para>The current API requires an App-Token header for using its methods.</para>
+</section>
+<section xml:id="_md_public_2glpi_2apirest_1autotoc_md398">
+<title><title>ERROR_WRONG_APP_TOKEN_PARAMETER</title></title>
+
+<para>It seems the provided application token doesn&apos;t exists in <link linkend="_class_g_l_p_i">GLPI</link> API configuration.</para>
+</section>
+<section xml:id="_md_public_2glpi_2apirest_1autotoc_md399">
+<title><title>ERROR_NOT_DELETED</title></title>
+
+<para>You must mark the item for deletion before actually deleting it</para>
+</section>
+<section xml:id="_md_public_2glpi_2apirest_1autotoc_md400">
+<title><title>ERROR_NOT_ALLOWED_IP</title></title>
+
+<para>We can&apos;t find an active client defined in configuration for your IP. Go to the <link linkend="_class_g_l_p_i">GLPI</link> Configuration &gt; Setup menu and API tab to check IP access.</para>
+</section>
+<section xml:id="_md_public_2glpi_2apirest_1autotoc_md401">
+<title><title>ERROR_LOGIN_PARAMETERS_MISSING</title></title>
+
+<para>One of theses <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">parameter(s)</link> is missing:</para>
+
+<para><itemizedlist>
+<listitem>
+<para>login and password</para>
+</listitem><listitem>
+<para>or user_token</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2apirest_1autotoc_md402">
+<title><title>ERROR_LOGIN_WITH_CREDENTIALS_DISABLED</title></title>
+
+<para>The <link linkend="_class_g_l_p_i">GLPI</link> setup forbid the login with credentials, you must login with your user_token instead. See your personal preferences page or setup API access in <link linkend="_class_g_l_p_i">GLPI</link> main interface.</para>
+</section>
+<section xml:id="_md_public_2glpi_2apirest_1autotoc_md403">
+<title><title>ERROR_GLPI_LOGIN_USER_TOKEN</title></title>
+
+<para>The provided user_token seems invalid. Check your personal preferences page in <link linkend="_class_g_l_p_i">GLPI</link> main interface.</para>
+</section>
+<section xml:id="_md_public_2glpi_2apirest_1autotoc_md404">
+<title><title>ERROR_GLPI_LOGIN</title></title>
+
+<para>We cannot login you into <link linkend="_class_g_l_p_i">GLPI</link>. This error is not relative to API but <link linkend="_class_g_l_p_i">GLPI</link> core. Check the user administration and the <link linkend="_class_g_l_p_i">GLPI</link> logs files (in files/_logs directory).</para>
+</section>
+<section xml:id="_md_public_2glpi_2apirest_1autotoc_md405">
+<title><title>ERROR_ITEMTYPE_NOT_FOUND_NOR_COMMONDBTM</title></title>
+
+<para>You asked a inexistent resource (endpoint). It&apos;s not a predefined (initSession, getFullSession, etc) nor a <link linkend="_class_g_l_p_i">GLPI</link> <link linkend="_class_common_d_b_t_m">CommonDBTM</link> resources.</para>
+</section>
+<section xml:id="_md_public_2glpi_2apirest_1autotoc_md406">
+<title><title>ERROR_SQL</title></title>
+
+<para>We suspect an SQL error. This error is not relative to API but to <link linkend="_class_g_l_p_i">GLPI</link> core. Check the <link linkend="_class_g_l_p_i">GLPI</link> logs files (in files/_logs directory).</para>
+</section>
+<section xml:id="_md_public_2glpi_2apirest_1autotoc_md407">
+<title><title>ERROR_RANGE_EXCEED_TOTAL</title></title>
+
+<para>The range parameter you provided is superior to the total count of available data.</para>
+</section>
+<section xml:id="_md_public_2glpi_2apirest_1autotoc_md408">
+<title><title>ERROR_GLPI_ADD</title></title>
+
+<para>We cannot add the object to <link linkend="_class_g_l_p_i">GLPI</link>. This error is not relative to API but to <link linkend="_class_g_l_p_i">GLPI</link> core. Check the <link linkend="_class_g_l_p_i">GLPI</link> logs files (in files/_logs directory).</para>
+</section>
+<section xml:id="_md_public_2glpi_2apirest_1autotoc_md409">
+<title><title>ERROR_GLPI_PARTIAL_ADD</title></title>
+
+<para>Some of the object you wanted to add triggers an error. Maybe a missing field or rights. You&apos;ll find with this error a collection of results.</para>
+</section>
+<section xml:id="_md_public_2glpi_2apirest_1autotoc_md410">
+<title><title>ERROR_GLPI_UPDATE</title></title>
+
+<para>We cannot update the object to <link linkend="_class_g_l_p_i">GLPI</link>. This error is not relative to API but to <link linkend="_class_g_l_p_i">GLPI</link> core. Check the <link linkend="_class_g_l_p_i">GLPI</link> logs files (in files/_logs directory).</para>
+</section>
+<section xml:id="_md_public_2glpi_2apirest_1autotoc_md411">
+<title><title>ERROR_GLPI_PARTIAL_UPDATE</title></title>
+
+<para>Some of the object you wanted to update triggers an error. Maybe a missing field or rights. You&apos;ll find with this error a collection of results.</para>
+</section>
+<section xml:id="_md_public_2glpi_2apirest_1autotoc_md412">
+<title><title>ERROR_GLPI_DELETE</title></title>
+
+<para>We cannot delete the object to <link linkend="_class_g_l_p_i">GLPI</link>. This error is not relative to API but to <link linkend="_class_g_l_p_i">GLPI</link> core. Check the <link linkend="_class_g_l_p_i">GLPI</link> logs files (in files/_logs directory).</para>
+</section>
+<section xml:id="_md_public_2glpi_2apirest_1autotoc_md413">
+<title><title>ERROR_GLPI_PARTIAL_DELETE</title></title>
+
+<para>Some of the objects you want to delete triggers an error, maybe a missing field or rights. You&apos;ll find with this error, a collection of results.</para>
+</section>
+<section xml:id="_md_public_2glpi_2apirest_1autotoc_md414">
+<title><title>ERROR_MASSIVEACTION_KEY</title></title>
+
+<para>Missing or invalid massive action key. Run &apos;getMassiveActions&apos; endpoint to see available keys.</para>
+</section>
+<section xml:id="_md_public_2glpi_2apirest_1autotoc_md415">
+<title><title>ERROR_MASSIVEACTION_NO_IDS</title></title>
+
+<para>No ids supplied when trying to run a massive action.</para>
+</section>
+</section>
+<section xml:id="_md_public_2glpi_2apirest_1autotoc_md416">
+<title><title>Servers configuration</title></title>
+
+<para>By default, you can use <link xlink:href="http://path/to/glpi/apirest.php">http://path/to/glpi/apirest.php</link> without any additional configuration.</para>
+
+<para>You&apos;ll find below some examples to configure your web server to redirect your <link xlink:href="http://.../glpi/api/">http://.../glpi/api/</link> URL to the apirest.php file.</para>
+<section xml:id="_md_public_2glpi_2apirest_1autotoc_md417">
+<title><title>Apache Httpd</title></title>
+
+<para>We provide in root .htaccess of <link linkend="_class_g_l_p_i">GLPI</link> an example to enable API URL rewriting.</para>
+
+<para>You need to uncomment (removing #) theses lines:</para>
+
+<para><literallayout><computeroutput>#&lt;IfModule&#32;mod_rewrite.c&gt;
+#&#32;&#32;&#32;RewriteEngine&#32;On
+#&#32;&#32;&#32;RewriteCond&#32;%{REQUEST_FILENAME}&#32;!-f
+#&#32;&#32;&#32;RewriteCond&#32;%{REQUEST_FILENAME}&#32;!-d
+#&#32;&#32;&#32;RewriteRule&#32;api/(.*)$&#32;apirest.php/$1
+#&lt;/IfModule&gt;
+</computeroutput></literallayout></para>
+
+<para>By enabling URL rewriting, you could use API with this URL : <link xlink:href="http://path/to/glpi/api/">http://path/to/glpi/api/</link>. You need also to enable rewrite module in apache httpd and permit <link linkend="_class_g_l_p_i">GLPI</link>&apos;s .htaccess to override server configuration (see AllowOverride directive).</para>
+
+<para><emphasis role="bold">Note for apache+fpm users:</emphasis></para>
+
+<para>You may have difficulties to pass Authorization header in this configuration. You have two options :</para>
+
+<para><itemizedlist>
+<listitem>
+<para>pass the <computeroutput>user_token</computeroutput> or credentials (login/password) in the http query (as GET parameters).</para>
+</listitem><listitem>
+<para>add env to your virtualhost: <computeroutput>SetEnvIf Authorization &quot;(.*)&quot; HTTP_AUTHORIZATION=$1</computeroutput>.</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2apirest_1autotoc_md418">
+<title><title>Nginx</title></title>
+
+<para>This example of configuration was achieved on ubuntu with php7 fpm.</para>
+
+<para><literallayout><computeroutput>server&#32;{
+&#32;&#32;&#32;listen&#32;80&#32;default_server;
+&#32;&#32;&#32;listen&#32;[::]:80&#32;default_server;
+
+&#32;&#32;&#32;#&#32;change&#32;here&#32;to&#32;match&#32;your&#32;GLPI&#32;directory
+&#32;&#32;&#32;root&#32;/var/www/html/glpi/;
+
+&#32;&#32;&#32;index&#32;index.html&#32;index.htm&#32;index.nginx-debian.html&#32;index.php;
+
+&#32;&#32;&#32;server_name&#32;localhost;
+
+&#32;&#32;&#32;location&#32;/&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;try_files&#32;$uri&#32;$uri/&#32;=404;
+&#32;&#32;&#32;&#32;&#32;&#32;autoindex&#32;on;
+&#32;&#32;&#32;}
+
+&#32;&#32;&#32;location&#32;/api&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;rewrite&#32;^/api/(.*)$&#32;/apirest.php/$1&#32;last;
+&#32;&#32;&#32;}
+
+&#32;&#32;&#32;location&#32;~&#32;[^/]\.php(/|$)&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;fastcgi_pass&#32;unix:/run/php/php7.0-fpm.sock;
+
+&#32;&#32;&#32;&#32;&#32;&#32;#&#32;regex&#32;to&#32;split&#32;$uri&#32;to&#32;$fastcgi_script_name&#32;and&#32;$fastcgi_path
+&#32;&#32;&#32;&#32;&#32;&#32;fastcgi_split_path_info&#32;^(.+\.php)(/.+)$;
+
+&#32;&#32;&#32;&#32;&#32;&#32;#&#32;Check&#32;that&#32;the&#32;PHP&#32;script&#32;exists&#32;before&#32;passing&#32;it
+&#32;&#32;&#32;&#32;&#32;&#32;try_files&#32;$fastcgi_script_name&#32;=404;
+
+&#32;&#32;&#32;&#32;&#32;&#32;#&#32;Bypass&#32;the&#32;fact&#32;that&#32;try_files&#32;resets&#32;$fastcgi_path_info
+&#32;&#32;&#32;&#32;&#32;&#32;#&#32;#&#32;see:&#32;http://trac.nginx.org/nginx/ticket/321
+&#32;&#32;&#32;&#32;&#32;&#32;set&#32;$path_info&#32;$fastcgi_path_info;
+&#32;&#32;&#32;&#32;&#32;&#32;fastcgi_param&#32;&#32;PATH_INFO&#32;$path_info;
+
+&#32;&#32;&#32;&#32;&#32;&#32;fastcgi_param&#32;&#32;PATH_TRANSLATED&#32;&#32;&#32;&#32;$document_root$fastcgi_script_name;
+&#32;&#32;&#32;&#32;&#32;&#32;fastcgi_param&#32;&#32;SCRIPT_FILENAME&#32;&#32;&#32;&#32;$document_root$fastcgi_script_name;
+
+&#32;&#32;&#32;&#32;&#32;&#32;include&#32;fastcgi_params;
+
+&#32;&#32;&#32;&#32;&#32;&#32;#&#32;allow&#32;directory&#32;index
+&#32;&#32;&#32;&#32;&#32;&#32;fastcgi_index&#32;index.php;
+&#32;&#32;&#32;}
+}
+</computeroutput></literallayout> </para>
+</section>
+</section>
+</section>

@@ -1,0 +1,113 @@
+\doxysection{Référence de l\textquotesingle{}interface Abstract\+Factory\+Interface}
+\hypertarget{interface_laminas_1_1_service_manager_1_1_abstract_factory_interface}{}\label{interface_laminas_1_1_service_manager_1_1_abstract_factory_interface}\index{AbstractFactoryInterface@{AbstractFactoryInterface}}
+
+
+Graphe d\textquotesingle{}héritage de Abstract\+Factory\+Interface\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=228pt]{interface_laminas_1_1_service_manager_1_1_abstract_factory_interface__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Graphe de collaboration de Abstract\+Factory\+Interface\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=228pt]{interface_laminas_1_1_service_manager_1_1_abstract_factory_interface__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{interface_laminas_1_1_service_manager_1_1_abstract_factory_interface_a1d0fc532ae73ef1bf4533157c9552f9b}{can\+Create\+Service\+With\+Name}} (\mbox{\hyperlink{interface_laminas_1_1_service_manager_1_1_service_locator_interface}{Service\+Locator\+Interface}} \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{service\+Locator}}, \$name, \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{requested\+Name}})
+\item 
+\mbox{\hyperlink{interface_laminas_1_1_service_manager_1_1_abstract_factory_interface_a565e0fa5dd24a813eb82c594b204af72}{create\+Service\+With\+Name}} (\mbox{\hyperlink{interface_laminas_1_1_service_manager_1_1_service_locator_interface}{Service\+Locator\+Interface}} \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{service\+Locator}}, \$name, \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{requested\+Name}})
+\end{DoxyCompactItemize}
+\doxysubsection*{Fonctions membres publiques hérités de \mbox{\hyperlink{interface_laminas_1_1_service_manager_1_1_factory_1_1_abstract_factory_interface}{Abstract\+Factory\+Interface}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{interface_laminas_1_1_service_manager_1_1_factory_1_1_abstract_factory_interface_a31d2a9a970cd65e6d610b34dcec9fd54}{can\+Create}} (\mbox{\hyperlink{interface_interop_1_1_container_1_1_container_interface}{Container\+Interface}} \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{container}}, \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{requested\+Name}})
+\end{DoxyCompactItemize}
+\doxysubsection*{Fonctions membres publiques hérités de \mbox{\hyperlink{interface_laminas_1_1_service_manager_1_1_factory_1_1_factory_interface}{Factory\+Interface}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{interface_laminas_1_1_service_manager_1_1_factory_1_1_factory_interface_ab386f3c76f2a4819824f98962352df18}{\+\_\+\+\_\+invoke}} (\mbox{\hyperlink{interface_interop_1_1_container_1_1_container_interface}{Container\+Interface}} \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{container}}, \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{requested\+Name}}, ?array \$options=null)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Backwards-\/compatibility shim for Abstract\+Factory\+Interface.
+
+Implementations should update to implement only Laminas\textbackslash{}\+Service\+Manager\textbackslash{}\+Factory\textbackslash{}\+Abstract\+Factory\+Interface.
+
+If upgrading from v2, take the following steps\+:
+
+
+\begin{DoxyItemize}
+\item rename the method {\ttfamily can\+Create\+Service\+With\+Name()} to {\ttfamily can\+Create()}, and\+:
+\begin{DoxyItemize}
+\item rename the {\ttfamily \$service\+Locator} argument to {\ttfamily \$container}, and change the typehint to {\ttfamily Interop\textbackslash{}Container\textbackslash{}Container\+Interface}
+\item merge the {\ttfamily \$name} and {\ttfamily \$requested\+Name} arguments
+\end{DoxyItemize}
+\item rename the method {\ttfamily create\+Service\+With\+Name()} to {\ttfamily \+\_\+\+\_\+invoke()}, and\+:
+\begin{DoxyItemize}
+\item rename the {\ttfamily \$service\+Locator} argument to {\ttfamily \$container}, and change the typehint to {\ttfamily Interop\textbackslash{}Container\textbackslash{}Container\+Interface}
+\item merge the {\ttfamily \$name} and {\ttfamily \$requested\+Name} arguments
+\item add the optional {\ttfamily array \$options = null} argument.
+\end{DoxyItemize}
+\item create a {\ttfamily can\+Create\+Service\+With\+Name()} method as defined in this interface, and have it proxy to {\ttfamily can\+Create()}, passing {\ttfamily \$requested\+Name} as the second argument.
+\item create a {\ttfamily create\+Service\+With\+Name()} method as defined in this interface, and have it proxy to {\ttfamily \+\_\+\+\_\+invoke()}, passing {\ttfamily \$requested\+Name} as the second argument.
+\end{DoxyItemize}
+
+Once you have tested your code, you can then update your class to only implement Laminas\textbackslash{}\+Service\+Manager\textbackslash{}\+Factory\textbackslash{}\+Abstract\+Factory\+Interface, and remove the {\ttfamily can\+Create\+Service\+With\+Name()} and {\ttfamily create\+Service\+With\+Name()} methods.
+
+\begin{DoxyRefDesc}{Obsolète}
+\item[\mbox{\hyperlink{deprecated__deprecated000074}{Obsolète}}]Use Laminas\textbackslash{}\+Service\+Manager\textbackslash{}\+Factory\textbackslash{}\+Abstract\+Factory\+Interface instead. \end{DoxyRefDesc}
+
+
+\doxysubsection{Documentation des fonctions membres}
+\Hypertarget{interface_laminas_1_1_service_manager_1_1_abstract_factory_interface_a1d0fc532ae73ef1bf4533157c9552f9b}\label{interface_laminas_1_1_service_manager_1_1_abstract_factory_interface_a1d0fc532ae73ef1bf4533157c9552f9b} 
+\index{AbstractFactoryInterface@{AbstractFactoryInterface}!canCreateServiceWithName@{canCreateServiceWithName}}
+\index{canCreateServiceWithName@{canCreateServiceWithName}!AbstractFactoryInterface@{AbstractFactoryInterface}}
+\doxysubsubsection{\texorpdfstring{canCreateServiceWithName()}{canCreateServiceWithName()}}
+{\footnotesize\ttfamily can\+Create\+Service\+With\+Name (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{interface_laminas_1_1_service_manager_1_1_service_locator_interface}{Service\+Locator\+Interface}}}]{\$service\+Locator,  }\item[{}]{\$name,  }\item[{}]{\$requested\+Name }\end{DoxyParamCaption})}
+
+Determine if we can create a service with name
+
+
+\begin{DoxyParams}[1]{Paramètres}
+string & {\em \$name} & \\
+\hline
+string & {\em \$requested\+Name} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+bool 
+\end{DoxyReturn}
+\Hypertarget{interface_laminas_1_1_service_manager_1_1_abstract_factory_interface_a565e0fa5dd24a813eb82c594b204af72}\label{interface_laminas_1_1_service_manager_1_1_abstract_factory_interface_a565e0fa5dd24a813eb82c594b204af72} 
+\index{AbstractFactoryInterface@{AbstractFactoryInterface}!createServiceWithName@{createServiceWithName}}
+\index{createServiceWithName@{createServiceWithName}!AbstractFactoryInterface@{AbstractFactoryInterface}}
+\doxysubsubsection{\texorpdfstring{createServiceWithName()}{createServiceWithName()}}
+{\footnotesize\ttfamily create\+Service\+With\+Name (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{interface_laminas_1_1_service_manager_1_1_service_locator_interface}{Service\+Locator\+Interface}}}]{\$service\+Locator,  }\item[{}]{\$name,  }\item[{}]{\$requested\+Name }\end{DoxyParamCaption})}
+
+Create service with name
+
+
+\begin{DoxyParams}[1]{Paramètres}
+string & {\em \$name} & \\
+\hline
+string & {\em \$requested\+Name} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+mixed 
+\end{DoxyReturn}
+
+
+La documentation de cette interface a été générée à partir du fichier suivant \+:\begin{DoxyCompactItemize}
+\item 
+public/glpi/vendor/laminas/laminas-\/servicemanager/src/\mbox{\hyperlink{_abstract_factory_interface_8php}{Abstract\+Factory\+Interface.\+php}}\end{DoxyCompactItemize}

@@ -1,0 +1,47 @@
+\chapter{Lit\+Emoji 🔥}
+\hypertarget{md_public_2glpi_2vendor_2elvanto_2litemoji_2_r_e_a_d_m_e}{}\label{md_public_2glpi_2vendor_2elvanto_2litemoji_2_r_e_a_d_m_e}\index{LitEmoji 🔥@{LitEmoji 🔥}}
+\label{md_public_2glpi_2vendor_2elvanto_2litemoji_2_r_e_a_d_m_e_autotoc_md5765}%
+\Hypertarget{md_public_2glpi_2vendor_2elvanto_2litemoji_2_r_e_a_d_m_e_autotoc_md5765}%
+ A PHP library simplifying the conversion of unicode, HTML and shortcode emoji.
+
+\hypertarget{md_public_2glpi_2vendor_2elvanto_2litemoji_2_r_e_a_d_m_e_autotoc_md5766}{}\doxysection{\texorpdfstring{Installation}{Installation}}\label{md_public_2glpi_2vendor_2elvanto_2litemoji_2_r_e_a_d_m_e_autotoc_md5766}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\$\ composer\ require\ elvanto/litemoji}
+
+\end{DoxyCode}
+
+
+Alternatively you can clone or download the library files.\hypertarget{md_public_2glpi_2vendor_2elvanto_2litemoji_2_r_e_a_d_m_e_autotoc_md5767}{}\doxysection{\texorpdfstring{Usage}{Usage}}\label{md_public_2glpi_2vendor_2elvanto_2litemoji_2_r_e_a_d_m_e_autotoc_md5767}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{use}}\ \mbox{\hyperlink{class_lit_emoji_1_1_lit_emoji}{LitEmoji\(\backslash\)LitEmoji}};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{echo}}\ LitEmoji::encodeShortcode(\textcolor{stringliteral}{'Baby\ you\ light\ my\ 🔥!\ 😃'});}
+\DoxyCodeLine{\textcolor{comment}{//\ 'Baby\ you\ light\ my\ :fire:!\ :smiley:'}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{echo}}\ LitEmoji::encodeHtml(\textcolor{stringliteral}{'Baby\ you\ light\ my\ :fire:!\ :smiley:'});}
+\DoxyCodeLine{\textcolor{comment}{//\ 'Baby\ you\ light\ my\ \&\#x1F525;!\ \&\#x1F603;'}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{echo}}\ LitEmoji::encodeUnicode(\textcolor{stringliteral}{'Baby\ you\ light\ my\ :fire:!\ :smiley:'});}
+\DoxyCodeLine{\textcolor{comment}{//\ 'Baby\ you\ light\ my\ 🔥!\ 😃'}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{echo}}\ LitEmoji::removeEmoji(\textcolor{stringliteral}{'Baby\ you\ light\ my\ 🔥!\ 😃!!!'});}
+\DoxyCodeLine{\textcolor{comment}{//\ 'Baby\ you\ light\ my\ !\ !!!'}}
+
+\end{DoxyCode}
+\hypertarget{md_public_2glpi_2vendor_2elvanto_2litemoji_2_r_e_a_d_m_e_autotoc_md5768}{}\doxysection{\texorpdfstring{Configuration}{Configuration}}\label{md_public_2glpi_2vendor_2elvanto_2litemoji_2_r_e_a_d_m_e_autotoc_md5768}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{use}}\ \mbox{\hyperlink{class_lit_emoji_1_1_lit_emoji}{LitEmoji\(\backslash\)LitEmoji}};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ Exclude\ specific\ shortcodes\ when\ converting\ from\ unicode\ and\ HTML\ entities}}
+\DoxyCodeLine{LitEmoji::config(\textcolor{stringliteral}{'excludeShortcodes'},\ [\textcolor{stringliteral}{'mobile'},\ \textcolor{stringliteral}{'android'}]);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{echo}}\ LitEmoji::encodeShortcode(\textcolor{stringliteral}{'📱'});}
+\DoxyCodeLine{\textcolor{comment}{//\ ':iphone:'}}
+
+\end{DoxyCode}
+\hypertarget{md_public_2glpi_2vendor_2elvanto_2litemoji_2_r_e_a_d_m_e_autotoc_md5769}{}\doxysubsection{\texorpdfstring{Contributing}{Contributing}}\label{md_public_2glpi_2vendor_2elvanto_2litemoji_2_r_e_a_d_m_e_autotoc_md5769}
+Pull requests are welcome. New code must be fully unit tested (the existing test suite can be run with PHPUnit).\hypertarget{md_public_2glpi_2vendor_2elvanto_2litemoji_2_r_e_a_d_m_e_autotoc_md5770}{}\doxysubsection{\texorpdfstring{License}{License}}\label{md_public_2glpi_2vendor_2elvanto_2litemoji_2_r_e_a_d_m_e_autotoc_md5770}
+\mbox{[}MIT License\mbox{]}(LICENSE) 

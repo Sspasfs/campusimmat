@@ -1,0 +1,303 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_monolog_1_1_registry" xml:lang="fr">
+<title>Référence de la classe Registry</title>
+<indexterm><primary>Registry</primary></indexterm>
+Graphe de collaboration de Registry:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_monolog_1_1_registry__coll__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Fonctions membres publiques statiques    </title>
+        <itemizedlist>
+            <listitem><para>static <link linkend="_class_monolog_1_1_registry_1a070c916ecc58142db3db5e3a07d06146">addLogger</link> (<link linkend="_class_monolog_1_1_logger">Logger</link> $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">logger</link>, ?string $name=null, bool $overwrite=false)</para>
+</listitem>
+            <listitem><para>static <link linkend="_class_monolog_1_1_registry_1a1c2174fb7c3d9f299a6992a05ab23a40">hasLogger</link> ($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">logger</link>)</para>
+</listitem>
+            <listitem><para>static <link linkend="_class_monolog_1_1_registry_1a47d149835d7e7c187131192a6a2a39ae">removeLogger</link> ($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">logger</link>)</para>
+</listitem>
+            <listitem><para>static <link linkend="_class_monolog_1_1_registry_1a342b1676bf9651477ec79ed93f606244">clear</link> ()</para>
+</listitem>
+            <listitem><para>static <link linkend="_class_monolog_1_1_registry_1a0ebda2d4f8517d892a36a5c08e879415">getInstance</link> ($name)</para>
+</listitem>
+            <listitem><para>static <link linkend="_class_monolog_1_1_registry_1a61a19cb43fb2530a2f880c0d0672c471">__callStatic</link> ($name, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">arguments</link>)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Description détaillée</title>
+
+<para><link linkend="_namespace_monolog">Monolog</link> log registry</para>
+
+<para>Allows to get <computeroutput>Logger</computeroutput> instances in the global scope via static method calls on this class.</para>
+
+<para><computeroutput> $application = new <link linkend="_namespace_monolog">Monolog</link>\Logger(&apos;application&apos;); $api = new <link linkend="_namespace_monolog">Monolog</link>\Logger(&apos;api&apos;);</computeroutput></para>
+
+<para><computeroutput><link linkend="_namespace_monolog">Monolog</link>\Registry::addLogger($application); <link linkend="_namespace_monolog">Monolog</link>\Registry::addLogger($api);</computeroutput></para>
+
+<para><computeroutput>function <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">testLogger()</link> { <link linkend="_namespace_monolog">Monolog</link>\Registry<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">api()</link>-&gt;error(&apos;Sent to $api Logger instance&apos;); <link linkend="_namespace_monolog">Monolog</link>\Registry<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">application()</link>-&gt;error(&apos;Sent to $application Logger instance&apos;); } </computeroutput></para>
+
+<para><formalpara><title>Auteur</title>
+
+<para>Tomas Tatarko <link xlink:href="mailto:tomas@tatarko.sk">tomas@tatarko.sk</link> </para>
+</formalpara>
+</para>
+</section>
+<section>
+<title>Documentation des fonctions membres</title>
+<anchor xml:id="_class_monolog_1_1_registry_1a61a19cb43fb2530a2f880c0d0672c471"/><section>
+    <title>__callStatic()</title>
+<indexterm><primary>__callStatic</primary><secondary>Registry</secondary></indexterm>
+<indexterm><primary>Registry</primary><secondary>__callStatic</secondary></indexterm>
+<para><computeroutput>static __callStatic ( $name,  $arguments)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>Gets Logger instance from the registry via static method call</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$name</entry><entry>
+<para>Name of the requested Logger instance </para>
+</entry>
+                            </row>
+                            <row>
+<entry>mixed[]</entry><entry>$arguments</entry><entry>
+<para>Arguments passed to static method call </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry></entry>
+<entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                InvalidArgumentException If named Logger instance is not in the registry <formalpara><title>Renvoie</title>
+
+<para>Logger Requested instance of Logger </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_class_monolog_1_1_registry_1a070c916ecc58142db3db5e3a07d06146"/><section>
+    <title>addLogger()</title>
+<indexterm><primary>addLogger</primary><secondary>Registry</secondary></indexterm>
+<indexterm><primary>Registry</primary><secondary>addLogger</secondary></indexterm>
+<para><computeroutput>static addLogger (<link linkend="_class_monolog_1_1_logger">Logger</link> $logger, ?string $name = <computeroutput>null</computeroutput>
+, bool $overwrite = <computeroutput>false</computeroutput>
+)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>Adds new logging channel to the registry</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>Logger</entry><entry>$logger</entry><entry>
+<para>Instance of the logging channel </para>
+</entry>
+                            </row>
+                            <row>
+<entry>string | null</entry><entry>$name</entry><entry>
+<para>Name of the logging channel ($logger-&gt;getName() by default) </para>
+</entry>
+                            </row>
+                            <row>
+<entry>bool</entry><entry>$overwrite</entry><entry>
+<para>Overwrite instance in the registry if the given name already exists? </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry></entry>
+<entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                InvalidArgumentException If $overwrite set to false and named Logger instance already exists <formalpara><title>Renvoie</title>
+
+<para>void </para>
+</formalpara>
+</para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_monolog_1_1_registry_a070c916ecc58142db3db5e3a07d06146_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_monolog_1_1_registry_1a342b1676bf9651477ec79ed93f606244"/><section>
+    <title>clear()</title>
+<indexterm><primary>clear</primary><secondary>Registry</secondary></indexterm>
+<indexterm><primary>Registry</primary><secondary>clear</secondary></indexterm>
+<para><computeroutput>static clear ( )<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>Clears the registry </para>
+</section>
+<anchor xml:id="_class_monolog_1_1_registry_1a0ebda2d4f8517d892a36a5c08e879415"/><section>
+    <title>getInstance()</title>
+<indexterm><primary>getInstance</primary><secondary>Registry</secondary></indexterm>
+<indexterm><primary>Registry</primary><secondary>getInstance</secondary></indexterm>
+<para><computeroutput>static getInstance ( $name)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>Gets Logger instance from the registry</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$name</entry><entry>
+<para>Name of the requested Logger instance </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry></entry>
+<entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                InvalidArgumentException If named Logger instance is not in the registry </para>
+</section>
+<anchor xml:id="_class_monolog_1_1_registry_1a1c2174fb7c3d9f299a6992a05ab23a40"/><section>
+    <title>hasLogger()</title>
+<indexterm><primary>hasLogger</primary><secondary>Registry</secondary></indexterm>
+<indexterm><primary>Registry</primary><secondary>hasLogger</secondary></indexterm>
+<para><computeroutput>static hasLogger ( $logger)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>Checks if such logging channel exists by name or instance</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string | Logger</entry><entry>$logger</entry><entry>
+<para>Name or logger instance </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
+<anchor xml:id="_class_monolog_1_1_registry_1a47d149835d7e7c187131192a6a2a39ae"/><section>
+    <title>removeLogger()</title>
+<indexterm><primary>removeLogger</primary><secondary>Registry</secondary></indexterm>
+<indexterm><primary>Registry</primary><secondary>removeLogger</secondary></indexterm>
+<para><computeroutput>static removeLogger ( $logger)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>Removes instance from registry by name or instance</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string | Logger</entry><entry>$logger</entry><entry>
+<para>Name or logger instance </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
+<para>
+La documentation de cette classe a été générée à partir du fichier suivant :</para>
+public/glpi/vendor/monolog/monolog/src/Monolog/<link linkend="_monolog_2monolog_2src_2_monolog_2_registry_8php">Registry.php</link></section>
+</section>

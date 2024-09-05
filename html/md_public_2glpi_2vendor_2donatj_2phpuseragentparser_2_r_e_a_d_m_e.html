@@ -1,0 +1,325 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.10.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>CampusImmat: PHP User Agent Parser</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">CampusImmat
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.10.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+</div><!-- top -->
+<div><div class="header">
+  <div class="headertitle"><div class="title">PHP User Agent Parser</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><p><a class="anchor" id="autotoc_md5752"></a> <a href="https://gitter.im/PhpUserAgentParser/Lobby?utm_source=badge&amp;utm_medium=badge&amp;utm_campaign=pr-badge&amp;utm_content=badge"><img src="https://badges.gitter.im/PhpUserAgentParser/Lobby.svg" alt="Join the chat at https://gitter.im/PhpUserAgentParser/Lobby" style="pointer-events: none;" class="inline"/></a></p>
+<p><a href="https://packagist.org/packages/donatj/phpuseragentparser"><img src="https://poser.pugx.org/donatj/phpuseragentparser/version" alt="Latest Stable Version" class="inline"/></a> <a href="https://packagist.org/packages/donatj/phpuseragentparser"><img src="https://poser.pugx.org/donatj/phpuseragentparser/downloads" alt="Total Downloads" class="inline"/></a> <a href="https://packagist.org/packages/donatj/phpuseragentparser"><img src="https://poser.pugx.org/donatj/phpuseragentparser/license" alt="License" class="inline"/></a> <a href="https://github.com/donatj/phpUserAgent/actions?query=workflow%3ACI"><img src="https://github.com/donatj/phpUserAgent/workflows/CI/badge.svg?" alt="CI" style="pointer-events: none;" class="inline"/></a></p>
+<h1><a class="anchor" id="autotoc_md5753"></a>
+What It Is</h1>
+<p>A simple, streamlined PHP user-agent parser!</p>
+<p>Licensed under the MIT license: <a href="https://www.opensource.org/licenses/mit-license.php">https://www.opensource.org/licenses/mit-license.php</a></p>
+<h1><a class="anchor" id="autotoc_md5754"></a>
+Upgrading to <code>1.*</code></h1>
+<p>The new <code>1.*</code> release <b>does not break compatibility</b> with <code>0.*</code> and nothing need to change to upgrade. However, the global <code>parse_user_agent</code> is now deprecated; it has been replaced with the namespaced <code>\donatj\UserAgent\parse_user_agent</code> and functions exactly the same. You can easily replace any existing call to <code>parse_user_agent</code> with <code>\donatj\UserAgent\parse_user_agent</code></p>
+<p>In addition, 1.x adds a convenience object wrapper you may use should you prefer. More information on this is in the Usage section below.</p>
+<h1><a class="anchor" id="autotoc_md5755"></a>
+Why Use This</h1>
+<p>You have your choice in user-agent parsers. This one detects <b>all modern browsers</b> in a very light, quick, understandable fashion. It is less than 200 lines of code, and consists of just three regular expressions! It can also correctly identify exotic versions of IE others fail on.</p>
+<p>It offers 100% unit test coverage, is installable via <a class="el" href="namespace_composer.html">Composer</a>, and is very easy to use.</p>
+<h1><a class="anchor" id="autotoc_md5756"></a>
+What It Does Not Do</h1>
+<p>This is not meant as a browser "knowledge engine" but rather a simple parser. Anything not adequately provided directly by the user agent string itself will simply not be provided by this.</p>
+<h2><a class="anchor" id="autotoc_md5757"></a>
+OS Versions</h2>
+<p>User-agent strings <b>are not</b> a reliable source of OS Version!</p>
+<ul>
+<li>Many agents simply don't send the information.</li>
+<li>Others provide varying levels of accuracy.</li>
+<li>Parsing Windows versions alone almost nearly doubles the size of the code.</li>
+</ul>
+<p>I'm much more interested in keeping this thing <em>tiny</em> and accurate than adding niché features and would rather focus on things that can be <b>done well</b>.</p>
+<p>All that said, there is the start of a <a href="https://github.com/donatj/PhpUserAgent/tree/os_version_detection">branch to do it</a> I created for a client if you want to poke it, I update it from time to time, but frankly if you need to <em>reliably detect OS Version</em>, using user-agent isn't the way to do it. I'd go with JavaScript.</p>
+<h2><a class="anchor" id="autotoc_md5758"></a>
+Undetectable Browsers</h2>
+<ul>
+<li><b>Brave</b> - Brave is simply not differentiable from Chrome. This was a design decision on their part.</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md5759"></a>
+Undetectable Platforms</h2>
+<ul>
+<li><b>iPadOS 13+</b> - Starting with iPadOS 13 and further hardened in 14, iPadOS returns the <b>exact</b> same string as macOS. It is no longer distinguishable by UA string. (See: <a href="https://github.com/donatj/PhpUserAgent/issues/69">#69</a>)</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md5760"></a>
+Requirements</h1>
+<ul>
+<li><b>php</b>: &gt;=5.4.0</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md5761"></a>
+Installing</h1>
+<p>PHP <a class="el" href="class_user.html">User</a> <a class="el" href="class_agent.html">Agent</a> is available through Packagist via <a class="el" href="namespace_composer.html">Composer</a>.</p>
+<p>Install the latest version with:</p>
+<div class="fragment"><div class="line">composer require &#39;donatj/phpuseragentparser&#39;</div>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md5762"></a>
+Usage</h1>
+<p>The classic procedural use is as simple as:</p>
+<div class="fragment"><div class="line"><a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">$ua_info</a> = <a class="code hl_function" href="_user_agent_parser_8php.html#a44520ae234000f6b7498d74ca82723ec">parse_user_agent</a>();</div>
+<div class="line"><span class="comment">/*</span></div>
+<div class="line"><span class="comment">[</span></div>
+<div class="line"><span class="comment">    &#39;platform&#39; =&gt; &#39;[Detected Platform]&#39;,</span></div>
+<div class="line"><span class="comment">    &#39;browser&#39;  =&gt; &#39;[Detected Browser]&#39;,</span></div>
+<div class="line"><span class="comment">    &#39;version&#39;  =&gt; &#39;[Detected Browser Version]&#39;,</span></div>
+<div class="line"><span class="comment">]</span></div>
+<div class="line"><span class="comment">*/</span></div>
+<div class="ttc" id="a_user_agent_parser_8php_html_a44520ae234000f6b7498d74ca82723ec"><div class="ttname"><a href="_user_agent_parser_8php.html#a44520ae234000f6b7498d74ca82723ec">parse_user_agent</a></div><div class="ttdeci">parse_user_agent( $u_agent=null)</div><div class="ttdef"><b>Definition</b> UserAgentParser.php:26</div></div>
+<div class="ttc" id="areport_8contract_8php_html_a77b973d137fb33212e018b042df6e3e7"><div class="ttname"><a href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">$y</a></div><div class="ttdeci">$y</div><div class="ttdef"><b>Definition</b> report.contract.php:71</div></div>
+</div><!-- fragment --><p>The new object oriented wrapper form:</p>
+<div class="fragment"><div class="line">$parser = <span class="keyword">new</span> UserAgentParser();</div>
+<div class="line"> </div>
+<div class="line"><a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">$ua</a> = $parser-&gt;parse();</div>
+<div class="line"><span class="comment">// or</span></div>
+<div class="line"><a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">$ua</a> = $parser();</div>
+<div class="line"> </div>
+<div class="line"><a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">$ua</a>-&gt;platform();</div>
+<div class="line"><a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">$ua</a>-&gt;browser();</div>
+<div class="line"><a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">$ua</a>-&gt;browserVersion();</div>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md5763"></a>
+Currently Detected Platforms</h1>
+<p>Predefined helper constants from <code>donatj\UserAgent\Platforms</code> <br  />
+</p>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadNone">Constant   </th><th class="markdownTableHeadNone">Platform    </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><code>Platforms::MACINTOSH</code>   </td><td class="markdownTableBodyNone">Macintosh    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><code>Platforms::CHROME_OS</code>   </td><td class="markdownTableBodyNone">Chrome OS    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><code>Platforms::LINUX</code>   </td><td class="markdownTableBodyNone">Linux    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><code>Platforms::WINDOWS</code>   </td><td class="markdownTableBodyNone">Windows    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><code>Platforms::ANDROID</code>   </td><td class="markdownTableBodyNone">Android    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><code>Platforms::BLACKBERRY</code>   </td><td class="markdownTableBodyNone">BlackBerry    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><code>Platforms::FREEBSD</code>   </td><td class="markdownTableBodyNone">FreeBSD    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><code>Platforms::IPAD</code>   </td><td class="markdownTableBodyNone">iPad    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><code>Platforms::IPHONE</code>   </td><td class="markdownTableBodyNone">iPhone    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><code>Platforms::IPOD</code>   </td><td class="markdownTableBodyNone">iPod    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><code>Platforms::KINDLE</code>   </td><td class="markdownTableBodyNone">Kindle    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><code>Platforms::KINDLE_FIRE</code>   </td><td class="markdownTableBodyNone">Kindle Fire    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><code>Platforms::NETBSD</code>   </td><td class="markdownTableBodyNone">NetBSD    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><code>Platforms::NEW_NINTENDO_3DS</code>   </td><td class="markdownTableBodyNone">New Nintendo 3DS    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><code>Platforms::NINTENDO_3DS</code>   </td><td class="markdownTableBodyNone">Nintendo 3DS    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><code>Platforms::NINTENDO_DS</code>   </td><td class="markdownTableBodyNone">Nintendo DS    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><code>Platforms::NINTENDO_SWITCH</code>   </td><td class="markdownTableBodyNone">Nintendo Switch    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><code>Platforms::NINTENDO_WII</code>   </td><td class="markdownTableBodyNone">Nintendo Wii    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><code>Platforms::NINTENDO_WIIU</code>   </td><td class="markdownTableBodyNone">Nintendo WiiU    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><code>Platforms::OPENBSD</code>   </td><td class="markdownTableBodyNone">OpenBSD    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><code>Platforms::PLAYBOOK</code>   </td><td class="markdownTableBodyNone">PlayBook    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><code>Platforms::PLAYSTATION_3</code>   </td><td class="markdownTableBodyNone">PlayStation 3    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><code>Platforms::PLAYSTATION_4</code>   </td><td class="markdownTableBodyNone">PlayStation 4    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><code>Platforms::PLAYSTATION_5</code>   </td><td class="markdownTableBodyNone">PlayStation 5    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><code>Platforms::PLAYSTATION_VITA</code>   </td><td class="markdownTableBodyNone">PlayStation Vita    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><code>Platforms::SAILFISH</code>   </td><td class="markdownTableBodyNone">Sailfish    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><code>Platforms::SYMBIAN</code>   </td><td class="markdownTableBodyNone">Symbian    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><code>Platforms::TIZEN</code>   </td><td class="markdownTableBodyNone">Tizen    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><code>Platforms::WINDOWS_PHONE</code>   </td><td class="markdownTableBodyNone">Windows <a class="el" href="class_phone.html">Phone</a>    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><code>Platforms::XBOX</code>   </td><td class="markdownTableBodyNone">Xbox    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><code>Platforms::XBOX_ONE</code>   </td><td class="markdownTableBodyNone">Xbox One   </td></tr>
+</table>
+<h1><a class="anchor" id="autotoc_md5764"></a>
+Currently Detected Browsers</h1>
+<p>Predefined helper constants from <code>donatj\UserAgent\Browsers</code> <br  />
+</p>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadNone">Constant   </th><th class="markdownTableHeadNone">Browser    </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><code>Browsers::ADSBOT_GOOGLE</code>   </td><td class="markdownTableBodyNone">AdsBot-Google    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><code>Browsers::ANDROID_BROWSER</code>   </td><td class="markdownTableBodyNone">Android Browser    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><code>Browsers::APPLEBOT</code>   </td><td class="markdownTableBodyNone">Applebot    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><code>Browsers::BAIDUSPIDER</code>   </td><td class="markdownTableBodyNone">Baiduspider    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><code>Browsers::BINGBOT</code>   </td><td class="markdownTableBodyNone">bingbot    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><code>Browsers::BLACKBERRY_BROWSER</code>   </td><td class="markdownTableBodyNone">BlackBerry Browser    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><code>Browsers::BROWSER</code>   </td><td class="markdownTableBodyNone">Browser    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><code>Browsers::BUNJALLOO</code>   </td><td class="markdownTableBodyNone">Bunjalloo    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><code>Browsers::CAMINO</code>   </td><td class="markdownTableBodyNone">Camino    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><code>Browsers::CHROME</code>   </td><td class="markdownTableBodyNone">Chrome    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><code>Browsers::CURL</code>   </td><td class="markdownTableBodyNone">curl    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><code>Browsers::EDGE</code>   </td><td class="markdownTableBodyNone">Edge    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><code>Browsers::FACEBOOKEXTERNALHIT</code>   </td><td class="markdownTableBodyNone">facebookexternalhit    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><code>Browsers::FEEDVALIDATOR</code>   </td><td class="markdownTableBodyNone">FeedValidator    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><code>Browsers::FIREFOX</code>   </td><td class="markdownTableBodyNone">Firefox    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><code>Browsers::GOOGLEBOT</code>   </td><td class="markdownTableBodyNone">Googlebot    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><code>Browsers::GOOGLEBOT_IMAGE</code>   </td><td class="markdownTableBodyNone">Googlebot-Image    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><code>Browsers::GOOGLEBOT_VIDEO</code>   </td><td class="markdownTableBodyNone">Googlebot-Video    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><code>Browsers::HEADLESSCHROME</code>   </td><td class="markdownTableBodyNone">HeadlessChrome    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><code>Browsers::IEMOBILE</code>   </td><td class="markdownTableBodyNone">IEMobile    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><code>Browsers::IMESSAGEBOT</code>   </td><td class="markdownTableBodyNone">iMessageBot    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><code>Browsers::KINDLE</code>   </td><td class="markdownTableBodyNone">Kindle    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><code>Browsers::LYNX</code>   </td><td class="markdownTableBodyNone">Lynx    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><code>Browsers::MIDORI</code>   </td><td class="markdownTableBodyNone">Midori    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><code>Browsers::MIUIBROWSER</code>   </td><td class="markdownTableBodyNone">MiuiBrowser    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><code>Browsers::MSIE</code>   </td><td class="markdownTableBodyNone">MSIE    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><code>Browsers::MSNBOT_MEDIA</code>   </td><td class="markdownTableBodyNone">msnbot-media    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><code>Browsers::NETFRONT</code>   </td><td class="markdownTableBodyNone">NetFront    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><code>Browsers::NINTENDOBROWSER</code>   </td><td class="markdownTableBodyNone">NintendoBrowser    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><code>Browsers::OCULUSBROWSER</code>   </td><td class="markdownTableBodyNone">OculusBrowser    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><code>Browsers::OPERA</code>   </td><td class="markdownTableBodyNone">Opera    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><code>Browsers::PUFFIN</code>   </td><td class="markdownTableBodyNone">Puffin    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><code>Browsers::SAFARI</code>   </td><td class="markdownTableBodyNone">Safari    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><code>Browsers::SAILFISHBROWSER</code>   </td><td class="markdownTableBodyNone">SailfishBrowser    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><code>Browsers::SAMSUNGBROWSER</code>   </td><td class="markdownTableBodyNone">SamsungBrowser    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><code>Browsers::SILK</code>   </td><td class="markdownTableBodyNone">Silk    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><code>Browsers::TELEGRAMBOT</code>   </td><td class="markdownTableBodyNone">TelegramBot    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><code>Browsers::TIZENBROWSER</code>   </td><td class="markdownTableBodyNone">TizenBrowser    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><code>Browsers::TWITTERBOT</code>   </td><td class="markdownTableBodyNone">Twitterbot    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><code>Browsers::UC_BROWSER</code>   </td><td class="markdownTableBodyNone">UC Browser    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><code>Browsers::VALVE_STEAM_TENFOOT</code>   </td><td class="markdownTableBodyNone">Valve Steam Tenfoot    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><code>Browsers::VIVALDI</code>   </td><td class="markdownTableBodyNone">Vivaldi    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><code>Browsers::WGET</code>   </td><td class="markdownTableBodyNone">Wget    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><code>Browsers::WORDPRESS</code>   </td><td class="markdownTableBodyNone">WordPress    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><code>Browsers::YANDEX</code>   </td><td class="markdownTableBodyNone">Yandex    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><code>Browsers::YANDEXBOT</code>   </td><td class="markdownTableBodyNone">YandexBot   </td></tr>
+</table>
+<p>More information is available at <a href="https://donatstudios.com/PHP-Parser-HTTP_USER_AGENT">Donat Studios</a>. </p>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0
+</small></address>
+</body>
+</html>

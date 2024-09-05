@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_item__device_8php" xml:lang="fr">
+<title>Référence du fichier public/glpi/front/item_device.php</title>
+<indexterm><primary>public/glpi/front/item_device.php</primary></indexterm>
+<simplesect>
+    <title>Variables    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">global</link> <link linkend="_item__device_8php_1a2e00a61703ee4673cdfb5eb376a9b295">$CFG_GLPI</link></para>
+</listitem>
+            <listitem><para><link linkend="_dropdown_location_8php_1a52332c22f84432520971794825a5a8e7">if</link>(!<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">isset</link>($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">_GET</link>[&apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">itemtype</link>&apos;])||!class_exists($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">_GET</link>[&apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">itemtype</link>&apos;])) <link linkend="_item__device_8php_1a7dc4e83dedc21a0234a99f5a6433478b">$itemDevice</link> = <link linkend="_db_8function_8php_1a5bb7668a0ab5705035e0608178fabcba">getItemForItemtype</link>($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">_GET</link>[&apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">itemtype</link>&apos;])</para>
+</listitem>
+            <listitem><para><link linkend="_dropdown_location_8php_1a52332c22f84432520971794825a5a8e7">if</link>(! $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">itemDevice</link>-&gt;canView()) <link linkend="_dropdown_location_8php_1a52332c22f84432520971794825a5a8e7">if</link>(in_array($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">itemDevice</link>-&gt;getType(), $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">CFG_GLPI</link>[&apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">devices_in_menu</link>&apos;])) <link linkend="_item__device_8php_1a1c994d874744f32ac7956c1222da323a">else</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Documentation des variables</title>
+<anchor xml:id="_item__device_8php_1a2e00a61703ee4673cdfb5eb376a9b295"/><section>
+    <title>$CFG_GLPI</title>
+<indexterm><primary>$CFG_GLPI</primary><secondary>item_device.php</secondary></indexterm>
+<indexterm><primary>item_device.php</primary><secondary>$CFG_GLPI</secondary></indexterm>
+<para><computeroutput><link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">global</link> $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">CFG_GLPI</link></computeroutput></para></section>
+<anchor xml:id="_item__device_8php_1a7dc4e83dedc21a0234a99f5a6433478b"/><section>
+    <title>$itemDevice</title>
+<indexterm><primary>$itemDevice</primary><secondary>item_device.php</secondary></indexterm>
+<indexterm><primary>item_device.php</primary><secondary>$itemDevice</secondary></indexterm>
+<para><computeroutput><link linkend="_dropdown_location_8php_1a52332c22f84432520971794825a5a8e7">if</link> (!<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">isset</link>( $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">_GET</link>[ &apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">itemtype</link>&apos;])||!class_exists( $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">_GET</link>[ &apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">itemtype</link>&apos;])) $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">itemDevice</link> = <link linkend="_db_8function_8php_1a5bb7668a0ab5705035e0608178fabcba">getItemForItemtype</link>($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">_GET</link>[&apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">itemtype</link>&apos;])</computeroutput></para></section>
+<anchor xml:id="_item__device_8php_1a1c994d874744f32ac7956c1222da323a"/><section>
+    <title>else</title>
+<indexterm><primary>else</primary><secondary>item_device.php</secondary></indexterm>
+<indexterm><primary>item_device.php</primary><secondary>else</secondary></indexterm>
+<para><computeroutput><link linkend="_dropdown_location_8php_1a52332c22f84432520971794825a5a8e7">if</link>(! $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">itemDevice</link>-&gt;canView()) <link linkend="_dropdown_location_8php_1a52332c22f84432520971794825a5a8e7">if</link> (in_array( $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">itemDevice</link>-&gt;getType(), $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">CFG_GLPI</link>[ &apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">devices_in_menu</link>&apos;])) else</computeroutput></para><emphasis role="strong">Valeur initiale :</emphasis><programlisting linenumbering="unnumbered">{
+&#32;&#32;&#32;&#32;Html::header(<link linkend="_item__device_8php_1a7dc4e83dedc21a0234a99f5a6433478b">$itemDevice</link>-&gt;getTypeName(Session::getPluralNumber()),&#32;<emphasis role="stringliteral">&apos;&apos;</emphasis>,&#32;<emphasis role="stringliteral">&quot;config&quot;</emphasis>,&#32;<emphasis role="stringliteral">&quot;commondevice&quot;</emphasis>,&#32;<link linkend="_item__device_8php_1a7dc4e83dedc21a0234a99f5a6433478b">$itemDevice</link>-&gt;getType())
+</programlisting></section>
+</section>
+</section>

@@ -1,0 +1,175 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_interface_laminas_1_1_loader_1_1_spl_autoloader" xml:lang="fr">
+<title>Référence de l&apos;interface SplAutoloader</title>
+<indexterm><primary>SplAutoloader</primary></indexterm>
+Graphe d&apos;héritage de SplAutoloader:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="interface_laminas_1_1_loader_1_1_spl_autoloader__inherit__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Graphe de collaboration de SplAutoloader:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="interface_laminas_1_1_loader_1_1_spl_autoloader__coll__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Fonctions membres publiques    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_interface_laminas_1_1_loader_1_1_spl_autoloader_1ae8cda3b1eced24bb5ffaab1fcb107cf7">__construct</link> ($options=null)</para>
+</listitem>
+            <listitem><para><link linkend="_interface_laminas_1_1_loader_1_1_spl_autoloader_1a8213e4c39213f7d6250f72ff6f2699f2">setOptions</link> ($options)</para>
+</listitem>
+            <listitem><para><link linkend="_interface_laminas_1_1_loader_1_1_spl_autoloader_1aad6cfb5484c7eda55731134910c7a280">autoload</link> ($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">class</link>)</para>
+</listitem>
+            <listitem><para><link linkend="_interface_laminas_1_1_loader_1_1_spl_autoloader_1acc294a6cc8e69743746820e3d15e3f78">register</link> ()</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Description détaillée</title>
+
+<para>Defines an interface for classes that may register with the spl_autoload registry </para>
+</section>
+<section>
+<title>Documentation des constructeurs et destructeur</title>
+<anchor xml:id="_interface_laminas_1_1_loader_1_1_spl_autoloader_1ae8cda3b1eced24bb5ffaab1fcb107cf7"/><section>
+    <title>__construct()</title>
+<indexterm><primary>__construct</primary><secondary>SplAutoloader</secondary></indexterm>
+<indexterm><primary>SplAutoloader</primary><secondary>__construct</secondary></indexterm>
+<para><computeroutput>__construct ( $options = <computeroutput>null</computeroutput>
+)</computeroutput></para>
+<para>Constructor</para>
+
+<para>Allow configuration of the autoloader via the constructor.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>null | array | Traversable</entry><entry>$options</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Implémenté dans <link linkend="_class_laminas_1_1_loader_1_1_class_map_autoloader_1ae8cda3b1eced24bb5ffaab1fcb107cf7">ClassMapAutoloader</link>, <link linkend="_class_laminas_1_1_loader_1_1_module_autoloader_1ae8cda3b1eced24bb5ffaab1fcb107cf7">ModuleAutoloader</link>, et <link linkend="_class_laminas_1_1_loader_1_1_standard_autoloader_1ae8cda3b1eced24bb5ffaab1fcb107cf7">StandardAutoloader</link>.</para>
+</section>
+</section>
+<section>
+<title>Documentation des fonctions membres</title>
+<anchor xml:id="_interface_laminas_1_1_loader_1_1_spl_autoloader_1aad6cfb5484c7eda55731134910c7a280"/><section>
+    <title>autoload()</title>
+<indexterm><primary>autoload</primary><secondary>SplAutoloader</secondary></indexterm>
+<indexterm><primary>SplAutoloader</primary><secondary>autoload</secondary></indexterm>
+<para><computeroutput>autoload ( $class)</computeroutput></para>
+<para>Autoload a class</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$class</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>mixed False [if unable to load $class] get_class($class) [if $class is successfully loaded] </para>
+</formalpara>
+</para>
+<para>
+Implémenté dans <link linkend="_class_laminas_1_1_loader_1_1_class_map_autoloader_1aad6cfb5484c7eda55731134910c7a280">ClassMapAutoloader</link>, <link linkend="_class_laminas_1_1_loader_1_1_module_autoloader_1aad6cfb5484c7eda55731134910c7a280">ModuleAutoloader</link>, et <link linkend="_class_laminas_1_1_loader_1_1_standard_autoloader_1aad6cfb5484c7eda55731134910c7a280">StandardAutoloader</link>.</para>
+</section>
+<anchor xml:id="_interface_laminas_1_1_loader_1_1_spl_autoloader_1acc294a6cc8e69743746820e3d15e3f78"/><section>
+    <title>register()</title>
+<indexterm><primary>register</primary><secondary>SplAutoloader</secondary></indexterm>
+<indexterm><primary>SplAutoloader</primary><secondary>register</secondary></indexterm>
+<para><computeroutput>register ( )</computeroutput></para>
+<para>Register the autoloader with spl_autoload registry</para>
+
+<para>Typically, the body of this will simply be: <computeroutput> spl_autoload_register(array($this, &apos;autoload&apos;)); </computeroutput></para>
+
+<para><formalpara><title>Renvoie</title>
+
+<para>void </para>
+</formalpara>
+</para>
+<para>
+Implémenté dans <link linkend="_class_laminas_1_1_loader_1_1_class_map_autoloader_1acc294a6cc8e69743746820e3d15e3f78">ClassMapAutoloader</link>, <link linkend="_class_laminas_1_1_loader_1_1_module_autoloader_1acc294a6cc8e69743746820e3d15e3f78">ModuleAutoloader</link>, et <link linkend="_class_laminas_1_1_loader_1_1_standard_autoloader_1acc294a6cc8e69743746820e3d15e3f78">StandardAutoloader</link>.</para>
+</section>
+<anchor xml:id="_interface_laminas_1_1_loader_1_1_spl_autoloader_1a8213e4c39213f7d6250f72ff6f2699f2"/><section>
+    <title>setOptions()</title>
+<indexterm><primary>setOptions</primary><secondary>SplAutoloader</secondary></indexterm>
+<indexterm><primary>SplAutoloader</primary><secondary>setOptions</secondary></indexterm>
+<para><computeroutput>setOptions ( $options)</computeroutput></para>
+<para>Configure the autoloader</para>
+
+<para>In most cases, $options should be either an associative array or Traversable object.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>array | Traversable</entry><entry>$options</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>SplAutoloader </para>
+</formalpara>
+</para>
+<para>
+Implémenté dans <link linkend="_class_laminas_1_1_loader_1_1_class_map_autoloader_1a8213e4c39213f7d6250f72ff6f2699f2">ClassMapAutoloader</link>, <link linkend="_class_laminas_1_1_loader_1_1_module_autoloader_1a8213e4c39213f7d6250f72ff6f2699f2">ModuleAutoloader</link>, et <link linkend="_class_laminas_1_1_loader_1_1_standard_autoloader_1a8213e4c39213f7d6250f72ff6f2699f2">StandardAutoloader</link>.</para>
+</section>
+<para>
+La documentation de cette interface a été générée à partir du fichier suivant :</para>
+public/glpi/vendor/laminas/laminas-loader/src/<link linkend="__spl_autoloader_8php">SplAutoloader.php</link></section>
+</section>

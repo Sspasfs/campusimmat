@@ -1,0 +1,197 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.10.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>CampusImmat: Usage</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">CampusImmat
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.10.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+</div><!-- top -->
+<div><div class="header">
+  <div class="headertitle"><div class="title">Usage</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><p><a class="anchor" id="autotoc_md7503"></a></p><ul>
+<li><a class="el" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">Reading and extraction</a></li>
+<li><a class="el" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">Archive modification</a></li>
+<li><a class="el" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">Archiving</a></li>
+</ul>
+<h1><a class="anchor" id="autotoc_md7504"></a>
+Reading and extraction</h1>
+<ol type="1">
+<li><p class="startli">Open the file with automatic detection of a format by name or content. In case of successful, an <code>UnifiedArchive</code> object will be returned. In case of failure - <em>null</em> will be returned.</p>
+<div class="fragment"><div class="line"><a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">require</a> <span class="stringliteral">&#39;vendor/autoload.php&#39;</span>;</div>
+<div class="line"><a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">use \wapmorgan\UnifiedArchive\UnifiedArchive</a>;</div>
+<div class="line"> </div>
+<div class="line">$archive = UnifiedArchive::open(<span class="stringliteral">&#39;filename.rar&#39;</span>);</div>
+<div class="line"><span class="comment">// or</span></div>
+<div class="line">$archive = UnifiedArchive::open(<span class="stringliteral">&#39;filename.zip&#39;</span>, <span class="keyword">null</span>, <span class="stringliteral">&#39;password&#39;</span>);</div>
+<div class="line"><span class="comment">// or</span></div>
+<div class="line">$archive = UnifiedArchive::open(<span class="stringliteral">&#39;filename.tar&#39;</span>, [</div>
+<div class="line">    \<a class="code hl_namespace" href="namespacewapmorgan.html">wapmorgan</a>\UnifiedArchive\Drivers\Basic\BasicDriver::EXTRACT_CONTENT,</div>
+<div class="line">    \<a class="code hl_namespace" href="namespacewapmorgan.html">wapmorgan</a>\UnifiedArchive\Drivers\Basic\BasicDriver::STREAM_CONTENT,</div>
+<div class="line">    \<a class="code hl_namespace" href="namespacewapmorgan.html">wapmorgan</a>\UnifiedArchive\Drivers\Basic\BasicDriver::APPEND,</div>
+<div class="line">]);</div>
+<div class="line"><span class="comment">// or</span></div>
+<div class="line">$archive = UnifiedArchive::open(<span class="stringliteral">&#39;filename.7z&#39;</span>, <span class="keyword">null</span>, <span class="stringliteral">&#39;password&#39;</span>);</div>
+<div class="ttc" id="anamespacewapmorgan_html"><div class="ttname"><a href="namespacewapmorgan.html">wapmorgan</a></div></div>
+<div class="ttc" id="areport_8contract_8php_html_a77b973d137fb33212e018b042df6e3e7"><div class="ttname"><a href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">$y</a></div><div class="ttdeci">$y</div><div class="ttdef"><b>Definition</b> report.contract.php:71</div></div>
+</div><!-- fragment --></li>
+<li><p class="startli">Read the list of files of archive or check that file is in archive.</p>
+<div class="fragment"><div class="line"><span class="keywordflow">foreach</span>($archive-&gt;getFiles() <a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">as</a> $filename) { <span class="comment">// [&#39;file&#39;, &#39;file2&#39;, &#39;file3&#39;, ...]</span></div>
+<div class="line">     <span class="comment">// ...</span></div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordflow">foreach</span>($archive-&gt;getFiles(<span class="stringliteral">&#39;*.txt&#39;</span>) <a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">as</a> $filename) { <span class="comment">// [&#39;README.txt&#39;, &#39;doc.txt&#39;, ...]</span></div>
+<div class="line">     <span class="comment">// ...</span></div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordflow">foreach</span> ($archive <a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">as</a> $filename) {</div>
+<div class="line">     <span class="comment">// ...</span></div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordflow">if</span> ($archive-&gt;hasFile(<span class="stringliteral">&#39;README.md&#39;</span>)) {</div>
+<div class="line">    <span class="comment">// some operations</span></div>
+<div class="line">}</div>
+</div><!-- fragment --></li>
+<li><p class="startli">To get common information about concrete file use <code>getFileData()</code> method. This method returns <a href="API.md#ArchiveEntry">an <code>ArchiveEntry</code> instance</a>. To get raw file contents use <code>getFileContent()</code> method, to get stream for file use <code>getFileStream()</code> method.</p>
+<div class="fragment"><div class="line"><span class="comment">// file meta</span></div>
+<div class="line"><a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">$file_data</a> = $archive-&gt;getFileData(<span class="stringliteral">&#39;README.md&#39;</span>)); <span class="comment">// ArchiveEntry with file information</span></div>
+<div class="line"><a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">echo</a> <span class="stringliteral">&#39;Original size is &#39;</span> . <a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">$file_data</a>-&gt;uncompressedSize.PHP_EOL;</div>
+<div class="line"><a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">echo</a> <span class="stringliteral">&#39;Modification datetime is &#39;</span> . date(<span class="charliteral">&#39;r&#39;</span>, <a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">$file_data</a>-&gt;modificationTime).PHP_EOL;</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// raw file content</span></div>
+<div class="line"><a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">$file_content</a> = $archive-&gt;getFileContent(<span class="stringliteral">&#39;README.md&#39;</span>)); <span class="comment">// string</span></div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// pass stream to standard output</span></div>
+<div class="line">fpassthru($archive-&gt;getFileStream(<span class="stringliteral">&#39;README.md&#39;</span>));</div>
+</div><!-- fragment --></li>
+<li><p class="startli">Unpack all archive or specific files on a disk - <code>extract()</code>.</p>
+<div class="fragment"><div class="line"><span class="comment">// to unpack all contents of archive to &quot;output&quot; folder</span></div>
+<div class="line">$archive-&gt;extract(<a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">__DIR__</a>.<span class="stringliteral">&#39;/output&#39;</span>);</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// to unpack specific files (README.md and composer.json) from archive to &quot;output&quot; folder</span></div>
+<div class="line">$archive-&gt;extract(<a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">__DIR__</a>.<span class="stringliteral">&#39;/output&#39;</span>, [<span class="stringliteral">&#39;README.md&#39;</span>, <span class="stringliteral">&#39;composer.json&#39;</span>]);</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// to unpack the &quot;src&quot; catalog with all content from archive into the &quot;sources&quot; catalog on a disk</span></div>
+<div class="line">$archive-&gt;extract(<a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">__DIR__</a>.<span class="stringliteral">&#39;/output&#39;</span>, <span class="stringliteral">&#39;src/&#39;</span>, <span class="keyword">true</span>);</div>
+</div><!-- fragment --></li>
+</ol>
+<h1><a class="anchor" id="autotoc_md7505"></a>
+Archive modification</h1>
+<p>Only few archive formats support modification: (zip, 7z, tar) - it depends on low-level driver - see <b>Formats</b> page for details.</p>
+<ol type="1">
+<li><p class="startli"><a href="API.md#UnifiedArchive--delete">Delete files</a> from archive</p>
+<div class="fragment"><div class="line"><span class="comment">// Delete a single file</span></div>
+<div class="line">$archive-&gt;delete(<span class="stringliteral">&#39;README.md&#39;</span>);</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Delete multiple files</span></div>
+<div class="line">$archive-&gt;delete([<span class="stringliteral">&#39;README.md&#39;</span>, <span class="stringliteral">&#39;MANIFEST.MF&#39;</span>]);</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Delete directory with full content</span></div>
+<div class="line">$archive-&gt;delete(<span class="stringliteral">&#39;src/&#39;</span>, <span class="keyword">true</span>);</div>
+</div><!-- fragment --><p class="startli">In case of success the number of successfully deleted files will be returned.</p>
+</li>
+<li><p class="startli"><a href="API.md#UnifiedArchive--add">Add files</a> to archive</p>
+<div class="fragment"><div class="line"><span class="comment">// Add a catalog with all contents with full paths</span></div>
+<div class="line">$archive-&gt;add(<span class="stringliteral">&#39;/var/log/&#39;</span>);</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// To add one file (will be stored as one file &quot;syslog&quot;)</span></div>
+<div class="line">$archive-&gt;add(<span class="stringliteral">&#39;/var/log/syslog&#39;</span>);</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// To add some files or catalogs (all catalogs structure in paths will be kept)</span></div>
+<div class="line">$archive-&gt;add([$directory, <a class="code hl_variable" href="aealarabiya_8php.html#aa1bfbd27060176201b271918dff57e8f">$file</a>, <a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">$file2</a>, ...]);</div>
+<div class="ttc" id="aaealarabiya_8php_html_aa1bfbd27060176201b271918dff57e8f"><div class="ttname"><a href="aealarabiya_8php.html#aa1bfbd27060176201b271918dff57e8f">$file</a></div><div class="ttdeci">$file</div><div class="ttdef"><b>Definition</b> aealarabiya.php:11</div></div>
+</div><!-- fragment --></li>
+</ol>
+<h1><a class="anchor" id="autotoc_md7506"></a>
+Archiving</h1>
+<p>Only few archive formats support modification: zip, 7z, tar (with restrictions).</p>
+<p>To pack completely the catalog with all attached files and subdirectories in new archive:</p>
+<div class="fragment"><div class="line"><span class="preprocessor"># archive all folder content</span></div>
+<div class="line">UnifiedArchive::archive(<span class="stringliteral">&#39;/var/log&#39;</span>, <span class="stringliteral">&#39;Archive.zip&#39;</span>);</div>
+<div class="line"> </div>
+<div class="line"><span class="preprocessor"># archive one file</span></div>
+<div class="line">UnifiedArchive::archive(<span class="stringliteral">&#39;/var/log/syslog&#39;</span>, <span class="stringliteral">&#39;Archive.zip&#39;</span>);</div>
+<div class="line"> </div>
+<div class="line"><span class="preprocessor"># archive few files / folders</span></div>
+<div class="line">UnifiedArchive::archive([$directory, <a class="code hl_variable" href="aealarabiya_8php.html#aa1bfbd27060176201b271918dff57e8f">$file</a>, <a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">$file2</a>, ...], <span class="stringliteral">&#39;Archive.zip&#39;</span>);</div>
+</div><!-- fragment --><p>Also, there is <a href="API.md#UnifiedArchive--archive">extended syntax</a> for <code>add()</code> and <code><a class="el" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">archive()</a></code>:</p>
+<div class="fragment"><div class="line">UnifiedArchive::archive([</div>
+<div class="line">          <span class="stringliteral">&#39;abc.log&#39;</span> =&gt; <span class="stringliteral">&#39;/var/www/site/abc.log&#39;</span>,   <span class="comment">// stored as &#39;abc.log&#39;</span></div>
+<div class="line">          <span class="stringliteral">&#39;/var/www/site/abc.log&#39;</span>,                <span class="comment">// stored as &#39;/var/www/site/abc.log&#39;</span></div>
+<div class="line">          <span class="stringliteral">&#39;logs&#39;</span> =&gt; <span class="stringliteral">&#39;/var/www/site/runtime/logs&#39;</span>, <span class="comment">// directory content stored in &#39;logs&#39; dir</span></div>
+<div class="line">          <span class="stringliteral">&#39;/var/www/site/runtime/logs&#39;</span>,           <span class="comment">// stored as &#39;/var/www/site/runtime/logs&#39;</span></div>
+<div class="line">          <span class="stringliteral">&#39;&#39;</span> =&gt; [<span class="stringliteral">&#39;/home/user1/docs&#39;</span>, <span class="stringliteral">&#39;/home/user2/docs&#39;</span>], <span class="comment">// user1 and user2 docs stored in archive root</span></div>
+<div class="line">    ], <span class="stringliteral">&#39;archive.zip&#39;</span>);</div>
+</div><!-- fragment --> </div></div><!-- contents -->
+</div><!-- PageDoc -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0
+</small></address>
+</body>
+</html>

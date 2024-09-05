@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_md_public_2glpi_2vendor_2symfony_2var-exporter_2_r_e_a_d_m_e" xml:lang="fr">
+<title>VarExporter Component</title>
+<indexterm><primary>VarExporter Component</primary></indexterm>
+
+<para>The VarExporter component allows exporting any serializable PHP data structure to plain PHP code. While doing so, it preserves all the semantics associated with the serialization mechanism of PHP (<computeroutput>__wakeup</computeroutput>, <computeroutput>__sleep</computeroutput>, <computeroutput>Serializable</computeroutput>, <computeroutput>__serialize</computeroutput>, <computeroutput>__unserialize</computeroutput>).</para>
+
+<para>It also provides an instantiator that allows creating and populating objects without calling their constructor nor any other methods.</para>
+
+<para>The reason to use this component <emphasis>vs</emphasis> <computeroutput>serialize()</computeroutput> or <link xlink:href="https://github.com/igbinary/igbinary">igbinary</link> is performance: thanks to OPcache, the resulting code is significantly faster and more memory efficient than using <computeroutput>unserialize()</computeroutput> or <computeroutput><link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">igbinary_unserialize()</link></computeroutput>.</para>
+
+<para>Unlike <computeroutput>var_export()</computeroutput>, this works on any serializable PHP value.</para>
+
+<para>It also provides a few improvements over <computeroutput>var_export()</computeroutput>/<computeroutput>serialize()</computeroutput>:</para>
+
+<para><itemizedlist>
+<listitem>
+<para>the output is PSR-2 compatible;</para>
+</listitem><listitem>
+<para>the output can be re-indented without messing up with <computeroutput>\r</computeroutput> or <computeroutput>\n</computeroutput> in the data</para>
+</listitem><listitem>
+<para>missing classes throw a <computeroutput>ClassNotFoundException</computeroutput> instead of being unserialized to <computeroutput>PHP_Incomplete_Class</computeroutput> objects;</para>
+</listitem><listitem>
+<para>references involving <computeroutput>SplObjectStorage</computeroutput>, <computeroutput>ArrayObject</computeroutput> or <computeroutput>ArrayIterator</computeroutput> instances are preserved;</para>
+</listitem><listitem>
+<para><computeroutput>Reflection*</computeroutput>, <computeroutput>IteratorIterator</computeroutput> and <computeroutput>RecursiveIteratorIterator</computeroutput> classes throw an exception when being serialized (their unserialized version is broken anyway, see <link xlink:href="https://bugs.php.net/76737">https://bugs.php.net/76737</link>).</para>
+</listitem></itemizedlist>
+</para>
+<section xml:id="_md_public_2glpi_2vendor_2symfony_2var-exporter_2_r_e_a_d_m_e_1autotoc_md7413">
+<title><title>Resources</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para><link xlink:href="https://symfony.com/doc/current/components/var_exporter.html">Documentation</link></para>
+</listitem><listitem>
+<para><link xlink:href="https://symfony.com/doc/current/contributing/index.html">Contributing</link></para>
+</listitem><listitem>
+<para><link xlink:href="https://github.com/symfony/symfony/issues">Report issues</link> and <link xlink:href="https://github.com/symfony/symfony/pulls">send Pull Requests</link> in the <link xlink:href="https://github.com/symfony/symfony">main Symfony repository</link> </para>
+</listitem></itemizedlist>
+</para>
+</section>
+</section>

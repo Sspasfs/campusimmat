@@ -1,0 +1,441 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_p_d_f417" xml:lang="fr">
+<title>Référence de la classe PDF417</title>
+<indexterm><primary>PDF417</primary></indexterm>
+Graphe de collaboration de PDF417:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_p_d_f417__coll__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Fonctions membres publiques    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_p_d_f417_1a356035604025c972ff971946ef18295b">__construct</link> ($code, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">ecl</link>=-1, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">aspectratio</link>=2, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">macro</link>=array())</para>
+</listitem>
+            <listitem><para><link linkend="_class_p_d_f417_1a011521cebd4c8b991845d6e24668199e">getBarcodeArray</link> ()</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Fonctions membres protégées    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_p_d_f417_1ae3a289c627d917a0910b0633052ee823">getErrorCorrectionLevel</link> ($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">ecl</link>, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">numcw</link>)</para>
+</listitem>
+            <listitem><para><link linkend="_class_p_d_f417_1a3f506851f9a4e2aa90bc753fe236c4fb">getErrorCorrection</link> ($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">cw</link>, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">ecl</link>)</para>
+</listitem>
+            <listitem><para><link linkend="_class_p_d_f417_1a70af9494e471413ca35cf23185bb6f59">getInputSequences</link> ($code)</para>
+</listitem>
+            <listitem><para><link linkend="_class_p_d_f417_1ad4ed791f0ad027c24cd481b0b8365e29">getCompaction</link> ($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">mode</link>, $code, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">addmode</link>=true)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Attributs protégés    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_p_d_f417_1a4895ebca50280ca6c9814246da0ece37">$barcode_array</link> = array()</para>
+</listitem>
+            <listitem><para><link linkend="_class_p_d_f417_1a16c2d18723645cbc25b0d5cd9bb48e9d">$start_pattern</link> = &apos;11111111010101000&apos;</para>
+</listitem>
+            <listitem><para><link linkend="_class_p_d_f417_1a440464a1590f307465c3da0826aa499f">$stop_pattern</link> = &apos;111111101000101001&apos;</para>
+</listitem>
+            <listitem><para><link linkend="_class_p_d_f417_1a6699a1cca1e992a8b67b6113a8d2a0e2">$textsubmodes</link></para>
+</listitem>
+            <listitem><para><link linkend="_class_p_d_f417_1a5db3a1081ea1a5990ba5eafd43a75777">$textlatch</link></para>
+</listitem>
+            <listitem><para><link linkend="_class_p_d_f417_1a638973fc95145f034df8a222c596c8ec">$clusters</link></para>
+</listitem>
+            <listitem><para><link linkend="_class_p_d_f417_1a725ac4adfd797d8dca33964e609affcd">$rsfactors</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Description détaillée</title>
+
+<para>Class to create <link linkend="_class_p_d_f417">PDF417</link> barcode arrays for <link linkend="_class_t_c_p_d_f">TCPDF</link> class. <link linkend="_class_p_d_f417">PDF417</link> (ISO/IEC 15438:2006) is a 2-dimensional stacked bar code created by Symbol Technologies in 1991. </para>
+</section>
+<section>
+<title>Documentation des constructeurs et destructeur</title>
+<anchor xml:id="_class_p_d_f417_1a356035604025c972ff971946ef18295b"/><section>
+    <title>__construct()</title>
+<indexterm><primary>__construct</primary><secondary>PDF417</secondary></indexterm>
+<indexterm><primary>PDF417</primary><secondary>__construct</secondary></indexterm>
+<para><computeroutput>__construct ( $code,  $ecl = <computeroutput>-1</computeroutput>
+,  $aspectratio = <computeroutput>2</computeroutput>
+,  $macro = <computeroutput>array()</computeroutput>
+)</computeroutput></para>
+<para>This is the class constructor. Creates a <link linkend="_class_p_d_f417">PDF417</link> object 
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$code</entry><entry>
+<para>code to represent using <link linkend="_class_p_d_f417">PDF417</link> </para>
+</entry>
+                            </row>
+                            <row>
+<entry>int</entry><entry>$ecl</entry><entry>
+<para>error correction level (0-8); default -1 = automatic correction level </para>
+</entry>
+                            </row>
+                            <row>
+<entry>float</entry><entry>$aspectratio</entry><entry>
+<para>the width to height of the symbol (excluding quiet zones) </para>
+</entry>
+                            </row>
+                            <row>
+<entry>array</entry><entry>$macro</entry><entry>
+<para>information for macro block </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_p_d_f417_a356035604025c972ff971946ef18295b_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+</section>
+<section>
+<title>Documentation des fonctions membres</title>
+<anchor xml:id="_class_p_d_f417_1a011521cebd4c8b991845d6e24668199e"/><section>
+    <title>getBarcodeArray()</title>
+<indexterm><primary>getBarcodeArray</primary><secondary>PDF417</secondary></indexterm>
+<indexterm><primary>PDF417</primary><secondary>getBarcodeArray</secondary></indexterm>
+<para><computeroutput>getBarcodeArray ( )</computeroutput></para>
+<para>Returns a barcode array which is readable by <link linkend="_class_t_c_p_d_f">TCPDF</link> <formalpara><title>Renvoie</title>
+
+<para>array barcode array readable by <link linkend="_class_t_c_p_d_f">TCPDF</link>; </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_class_p_d_f417_1ad4ed791f0ad027c24cd481b0b8365e29"/><section>
+    <title>getCompaction()</title>
+<indexterm><primary>getCompaction</primary><secondary>PDF417</secondary></indexterm>
+<indexterm><primary>PDF417</primary><secondary>getCompaction</secondary></indexterm>
+<para><computeroutput>getCompaction ( $mode,  $code,  $addmode = <computeroutput>true</computeroutput>
+)<computeroutput>[protected]</computeroutput></computeroutput></para>
+<para>Compact data by mode. 
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>int</entry><entry>$mode</entry><entry>
+<para>compaction mode number </para>
+</entry>
+                            </row>
+                            <row>
+<entry>string</entry><entry>$code</entry><entry>
+<para>data to compact </para>
+</entry>
+                            </row>
+                            <row>
+<entry>boolean</entry><entry>$addmode</entry><entry>
+<para>if true add the mode codeword at first position </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>array of codewords </para>
+</formalpara>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_p_d_f417_ad4ed791f0ad027c24cd481b0b8365e29_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_p_d_f417_1a3f506851f9a4e2aa90bc753fe236c4fb"/><section>
+    <title>getErrorCorrection()</title>
+<indexterm><primary>getErrorCorrection</primary><secondary>PDF417</secondary></indexterm>
+<indexterm><primary>PDF417</primary><secondary>getErrorCorrection</secondary></indexterm>
+<para><computeroutput>getErrorCorrection ( $cw,  $ecl)<computeroutput>[protected]</computeroutput></computeroutput></para>
+<para>Returns the error correction codewords 
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>array</entry><entry>$cw</entry><entry>
+<para>array of codewords including Symbol Length Descriptor and pad </para>
+</entry>
+                            </row>
+                            <row>
+<entry>int</entry><entry>$ecl</entry><entry>
+<para>error correction level 0-8 </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>array of error correction codewords </para>
+</formalpara>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_p_d_f417_a3f506851f9a4e2aa90bc753fe236c4fb_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_p_d_f417_1ae3a289c627d917a0910b0633052ee823"/><section>
+    <title>getErrorCorrectionLevel()</title>
+<indexterm><primary>getErrorCorrectionLevel</primary><secondary>PDF417</secondary></indexterm>
+<indexterm><primary>PDF417</primary><secondary>getErrorCorrectionLevel</secondary></indexterm>
+<para><computeroutput>getErrorCorrectionLevel ( $ecl,  $numcw)<computeroutput>[protected]</computeroutput></computeroutput></para>
+<para>Returns the error correction level (0-8) to be used 
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>int</entry><entry>$ecl</entry><entry>
+<para>error correction level </para>
+</entry>
+                            </row>
+                            <row>
+<entry>int</entry><entry>$numcw</entry><entry>
+<para>number of data codewords </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>int error correction level </para>
+</formalpara>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_p_d_f417_ae3a289c627d917a0910b0633052ee823_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_p_d_f417_1a70af9494e471413ca35cf23185bb6f59"/><section>
+    <title>getInputSequences()</title>
+<indexterm><primary>getInputSequences</primary><secondary>PDF417</secondary></indexterm>
+<indexterm><primary>PDF417</primary><secondary>getInputSequences</secondary></indexterm>
+<para><computeroutput>getInputSequences ( $code)<computeroutput>[protected]</computeroutput></computeroutput></para>
+<para>Create array of sequences from input 
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$code</entry><entry>
+<para>code </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>array bi-dimensional array containing characters and classification </para>
+</formalpara>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_p_d_f417_a70af9494e471413ca35cf23185bb6f59_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+</section>
+<section>
+<title>Documentation des champs</title>
+<anchor xml:id="_class_p_d_f417_1a4895ebca50280ca6c9814246da0ece37"/><section>
+    <title>$barcode_array</title>
+<indexterm><primary>$barcode_array</primary><secondary>PDF417</secondary></indexterm>
+<indexterm><primary>PDF417</primary><secondary>$barcode_array</secondary></indexterm>
+<para><computeroutput>$<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">barcode_array</link> = array()<computeroutput>[protected]</computeroutput></computeroutput></para>
+<para>Barcode array to be returned which is readable by <link linkend="_class_t_c_p_d_f">TCPDF</link>. </para>
+</section>
+<anchor xml:id="_class_p_d_f417_1a638973fc95145f034df8a222c596c8ec"/><section>
+    <title>$clusters</title>
+<indexterm><primary>$clusters</primary><secondary>PDF417</secondary></indexterm>
+<indexterm><primary>PDF417</primary><secondary>$clusters</secondary></indexterm>
+<para><computeroutput>$<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">clusters</link><computeroutput>[protected]</computeroutput></computeroutput></para>
+<para>Clusters of codewords (0, 3, 6)<?linebreak?> Values are hex equivalents of binary representation of bars (1 = bar, 0 = space).<?linebreak?> The codewords numbered from 900 to 928 have special meaning, some enable to switch between modes in order to optimise the code:<itemizedlist>
+<listitem>
+
+<para>900 : Switch to &quot;Text&quot; mode </para>
+</listitem>
+<listitem>
+
+<para>901 : Switch to &quot;Byte&quot; mode </para>
+</listitem>
+<listitem>
+
+<para>902 : Switch to &quot;Numeric&quot; mode </para>
+</listitem>
+<listitem>
+
+<para>903 - 912 : Reserved </para>
+</listitem>
+<listitem>
+
+<para>913 : Switch to &quot;Octet&quot; only for the next codeword </para>
+</listitem>
+<listitem>
+
+<para>914 - 920 : Reserved </para>
+</listitem>
+<listitem>
+
+<para>921 : Initialization </para>
+</listitem>
+<listitem>
+
+<para>922 : Terminator codeword for Macro PDF control block </para>
+</listitem>
+<listitem>
+
+<para>923 : Sequence tag to identify the beginning of optional fields in the Macro PDF control block </para>
+</listitem>
+<listitem>
+
+<para>924 : Switch to &quot;Byte&quot; mode (If the total number of byte is multiple of 6) </para>
+</listitem>
+<listitem>
+
+<para>925 : Identifier for a user defined Extended Channel Interpretation (ECI) </para>
+</listitem>
+<listitem>
+
+<para>926 : Identifier for a general purpose ECI format </para>
+</listitem>
+<listitem>
+
+<para>927 : Identifier for an ECI of a character set or code page </para>
+</listitem>
+<listitem>
+
+<para>928 : Macro marker codeword to indicate the beginning of a Macro PDF Control Block </para>
+</listitem>
+</itemizedlist>
+</para>
+</section>
+<anchor xml:id="_class_p_d_f417_1a725ac4adfd797d8dca33964e609affcd"/><section>
+    <title>$rsfactors</title>
+<indexterm><primary>$rsfactors</primary><secondary>PDF417</secondary></indexterm>
+<indexterm><primary>PDF417</primary><secondary>$rsfactors</secondary></indexterm>
+<para><computeroutput>$<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">rsfactors</link><computeroutput>[protected]</computeroutput></computeroutput></para>
+<para>Array of factors of the Reed-Solomon polynomial equations used for error correction; one sub array for each correction level (0-8). </para>
+</section>
+<anchor xml:id="_class_p_d_f417_1a16c2d18723645cbc25b0d5cd9bb48e9d"/><section>
+    <title>$start_pattern</title>
+<indexterm><primary>$start_pattern</primary><secondary>PDF417</secondary></indexterm>
+<indexterm><primary>PDF417</primary><secondary>$start_pattern</secondary></indexterm>
+<para><computeroutput>$<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">start_pattern</link> = &apos;11111111010101000&apos;<computeroutput>[protected]</computeroutput></computeroutput></para>
+<para>Start pattern. </para>
+</section>
+<anchor xml:id="_class_p_d_f417_1a440464a1590f307465c3da0826aa499f"/><section>
+    <title>$stop_pattern</title>
+<indexterm><primary>$stop_pattern</primary><secondary>PDF417</secondary></indexterm>
+<indexterm><primary>PDF417</primary><secondary>$stop_pattern</secondary></indexterm>
+<para><computeroutput>$<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">stop_pattern</link> = &apos;111111101000101001&apos;<computeroutput>[protected]</computeroutput></computeroutput></para>
+<para>Stop pattern. </para>
+</section>
+<anchor xml:id="_class_p_d_f417_1a5db3a1081ea1a5990ba5eafd43a75777"/><section>
+    <title>$textlatch</title>
+<indexterm><primary>$textlatch</primary><secondary>PDF417</secondary></indexterm>
+<indexterm><primary>PDF417</primary><secondary>$textlatch</secondary></indexterm>
+<para><computeroutput>$<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">textlatch</link><computeroutput>[protected]</computeroutput></computeroutput></para><emphasis role="strong">Valeur initiale :</emphasis><programlisting linenumbering="unnumbered">=&#32;array(
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&apos;01&apos;</emphasis>&#32;=&gt;&#32;array(27),&#32;<emphasis role="stringliteral">&apos;02&apos;</emphasis>&#32;=&gt;&#32;array(28),&#32;<emphasis role="stringliteral">&apos;03&apos;</emphasis>&#32;=&gt;&#32;array(28,25),&#32;
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&apos;10&apos;</emphasis>&#32;=&gt;&#32;array(28,28),&#32;<emphasis role="stringliteral">&apos;12&apos;</emphasis>&#32;=&gt;&#32;array(28),&#32;<emphasis role="stringliteral">&apos;13&apos;</emphasis>&#32;=&gt;&#32;array(28,25),&#32;
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&apos;20&apos;</emphasis>&#32;=&gt;&#32;array(28),&#32;<emphasis role="stringliteral">&apos;21&apos;</emphasis>&#32;=&gt;&#32;array(27),&#32;<emphasis role="stringliteral">&apos;23&apos;</emphasis>&#32;=&gt;&#32;array(25),&#32;
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&apos;30&apos;</emphasis>&#32;=&gt;&#32;array(29),&#32;<emphasis role="stringliteral">&apos;31&apos;</emphasis>&#32;=&gt;&#32;array(29,27),&#32;<emphasis role="stringliteral">&apos;32&apos;</emphasis>&#32;=&gt;&#32;array(29,28)&#32;
+&#32;&#32;&#32;&#32;)
+</programlisting>
+<para>Array of switching codes for Text Compaction Sub-Modes. </para>
+</section>
+<anchor xml:id="_class_p_d_f417_1a6699a1cca1e992a8b67b6113a8d2a0e2"/><section>
+    <title>$textsubmodes</title>
+<indexterm><primary>$textsubmodes</primary><secondary>PDF417</secondary></indexterm>
+<indexterm><primary>PDF417</primary><secondary>$textsubmodes</secondary></indexterm>
+<para><computeroutput>$<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">textsubmodes</link><computeroutput>[protected]</computeroutput></computeroutput></para><emphasis role="strong">Valeur initiale :</emphasis><programlisting linenumbering="unnumbered">=&#32;array(
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;array(0<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">x41</link>,0<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">x42</link>,0<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">x43</link>,0<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">x44</link>,0<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">x45</link>,0<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">x46</link>,0<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">x47</link>,0<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">x48</link>,0<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">x49</link>,0<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">x4a</link>,0<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">x4b</link>,0<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">x4c</link>,0<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">x4d</link>,0<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">x4e</link>,0<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">x4f</link>,0<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">x50</link>,0<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">x51</link>,0<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">x52</link>,0<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">x53</link>,0<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">x54</link>,0<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">x55</link>,0<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">x56</link>,0<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">x57</link>,0<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">x58</link>,0<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">x59</link>,0<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">x5a</link>,0<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">x20</link>,0<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">xFD</link>,0<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">xFE</link>,0<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">xFF</link>),&#32;
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;array(0<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">x61</link>,0<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">x62</link>,0<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">x63</link>,0<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">x64</link>,0<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">x65</link>,0<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">x66</link>,0<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">x67</link>,0<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">x68</link>,0<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">x69</link>,0<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">x6a</link>,0<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">x6b</link>,0<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">x6c</link>,0<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">x6d</link>,0<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">x6e</link>,0<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">x6f</link>,0<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">x70</link>,0<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">x71</link>,0<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">x72</link>,0<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">x73</link>,0<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">x74</link>,0<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">x75</link>,0<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">x76</link>,0<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">x77</link>,0<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">x78</link>,0<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">x79</link>,0<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">x7a</link>,0<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">x20</link>,0<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">xFD</link>,0<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">xFE</link>,0<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">xFF</link>),&#32;
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;array(0<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">x30</link>,0<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">x31</link>,0<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">x32</link>,0<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">x33</link>,0<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">x34</link>,0<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">x35</link>,0<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">x36</link>,0<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">x37</link>,0<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">x38</link>,0<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">x39</link>,0<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">x26</link>,0<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">x0d</link>,0<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">x09</link>,0<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">x2c</link>,0<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">x3a</link>,0<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">x23</link>,0<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">x2d</link>,0<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">x2e</link>,0<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">x24</link>,0<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">x2f</link>,0<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">x2b</link>,0<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">x25</link>,0<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">x2a</link>,0<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">x3d</link>,0<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">x5e</link>,0<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">xFB</link>,0<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">x20</link>,0<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">xFD</link>,0<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">xFE</link>,0<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">xFF</link>),&#32;
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;array(0<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">x3b</link>,0<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">x3c</link>,0<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">x3e</link>,0<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">x40</link>,0<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">x5b</link>,0<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">x5c</link>,0<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">x5d</link>,0<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">x5f</link>,0<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">x60</link>,0<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">x7e</link>,0<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">x21</link>,0<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">x0d</link>,0<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">x09</link>,0<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">x2c</link>,0<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">x3a</link>,0<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">x0a</link>,0<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">x2d</link>,0<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">x2e</link>,0<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">x24</link>,0<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">x2f</link>,0<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">x22</link>,0<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">x7c</link>,0<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">x2a</link>,0<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">x28</link>,0<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">x29</link>,0<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">x3f</link>,0<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">x7b</link>,0<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">x7d</link>,0<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">x27</link>,0<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">xFF</link>)&#32;
+&#32;&#32;&#32;&#32;)
+</programlisting>
+<para>Array of text Compaction Sub-Modes (values 0xFB - 0xFF are used for submode changers). </para>
+</section>
+<para>
+La documentation de cette classe a été générée à partir du fichier suivant :</para>
+public/glpi/vendor/tecnickcom/tcpdf/include/barcodes/<link linkend="_pdf417_8php">pdf417.php</link></section>
+</section>

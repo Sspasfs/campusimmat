@@ -1,0 +1,74 @@
+\doxysection{Référence de la classe Settings}
+\hypertarget{class_sabre_1_1_v_object_1_1_settings}{}\label{class_sabre_1_1_v_object_1_1_settings}\index{Settings@{Settings}}
+
+
+Graphe de collaboration de Settings\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=189pt]{class_sabre_1_1_v_object_1_1_settings__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Attributs publics statiques}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_sabre_1_1_v_object_1_1_settings_a6f055c32d2ef3f21edc47dd3bdf176d6}{\$min\+Date}} = \textquotesingle{}1900-\/01-\/01\textquotesingle{}
+\item 
+static \mbox{\hyperlink{class_sabre_1_1_v_object_1_1_settings_af023a62d483553e10dd0acb56623f0c9}{\$max\+Date}} = \textquotesingle{}2100-\/01-\/01\textquotesingle{}
+\item 
+static \mbox{\hyperlink{class_sabre_1_1_v_object_1_1_settings_ad91bc0788d1d122866aaa5b855ff011d}{\$max\+Recurrences}} = 3500
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+This class provides a list of global defaults for vobject.
+
+Some of these started to appear in various classes, so it made a bit more sense to centralize them, so it\textquotesingle{}s easier for user to find and change these.
+
+The global nature of them does mean that changing the settings for one instance has a global influence.
+
+\begin{DoxyCopyright}{Copyright}
+Copyright (C) fruux GmbH (\href{https://fruux.com/}{\texttt{ https\+://fruux.\+com/}}) 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Auteur}
+Evert Pot (\href{http://evertpot.com/}{\texttt{ http\+://evertpot.\+com/}}) @license \href{http://sabre.io/license/}{\texttt{ http\+://sabre.\+io/license/}} Modified BSD License 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Documentation des champs}
+\Hypertarget{class_sabre_1_1_v_object_1_1_settings_af023a62d483553e10dd0acb56623f0c9}\label{class_sabre_1_1_v_object_1_1_settings_af023a62d483553e10dd0acb56623f0c9} 
+\index{Settings@{Settings}!\$maxDate@{\$maxDate}}
+\index{\$maxDate@{\$maxDate}!Settings@{Settings}}
+\doxysubsubsection{\texorpdfstring{\$maxDate}{\$maxDate}}
+{\footnotesize\ttfamily \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{max\+Date}} = \textquotesingle{}2100-\/01-\/01\textquotesingle{}\hspace{0.3cm}{\ttfamily [static]}}
+
+The maximum date we accept for various calculations with dates, such as recurrences.
+
+The choice of 2100 is pretty arbitrary, but should cover most appointments made for many years to come. \Hypertarget{class_sabre_1_1_v_object_1_1_settings_ad91bc0788d1d122866aaa5b855ff011d}\label{class_sabre_1_1_v_object_1_1_settings_ad91bc0788d1d122866aaa5b855ff011d} 
+\index{Settings@{Settings}!\$maxRecurrences@{\$maxRecurrences}}
+\index{\$maxRecurrences@{\$maxRecurrences}!Settings@{Settings}}
+\doxysubsubsection{\texorpdfstring{\$maxRecurrences}{\$maxRecurrences}}
+{\footnotesize\ttfamily \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{max\+Recurrences}} = 3500\hspace{0.3cm}{\ttfamily [static]}}
+
+The maximum number of recurrences that will be generated.
+
+This setting limits the maximum of recurring events that this library generates in its recurrence iterators.
+
+This is a security measure. Without this, it would be possible to craft specific events that recur many, many times, potentially DDOSing the server.
+
+The default (3500) allows creation of a daily event that goes on for 10 years, which is hopefully long enough for most.
+
+Set this value to -\/1 to disable this control altogether. \Hypertarget{class_sabre_1_1_v_object_1_1_settings_a6f055c32d2ef3f21edc47dd3bdf176d6}\label{class_sabre_1_1_v_object_1_1_settings_a6f055c32d2ef3f21edc47dd3bdf176d6} 
+\index{Settings@{Settings}!\$minDate@{\$minDate}}
+\index{\$minDate@{\$minDate}!Settings@{Settings}}
+\doxysubsubsection{\texorpdfstring{\$minDate}{\$minDate}}
+{\footnotesize\ttfamily \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{min\+Date}} = \textquotesingle{}1900-\/01-\/01\textquotesingle{}\hspace{0.3cm}{\ttfamily [static]}}
+
+The minimum date we accept for various calculations with dates, such as recurrences.
+
+The choice of 1900 is pretty arbitrary, but it covers most common use-\/cases. In particular, it covers birthdates for virtually everyone alive on earth, which is less than 5 people at the time of writing. 
+
+La documentation de cette classe a été générée à partir du fichier suivant \+:\begin{DoxyCompactItemize}
+\item 
+public/glpi/vendor/sabre/vobject/lib/\mbox{\hyperlink{_settings_8php}{Settings.\+php}}\end{DoxyCompactItemize}

@@ -1,0 +1,77 @@
+\doxysection{Référence de la classe Signal\+Handler}
+\hypertarget{class_monolog_1_1_signal_handler}{}\label{class_monolog_1_1_signal_handler}\index{SignalHandler@{SignalHandler}}
+
+
+Graphe de collaboration de Signal\+Handler\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=236pt]{class_monolog_1_1_signal_handler__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_monolog_1_1_signal_handler_a2bd426f7ee55a596b1893454a77a006a}{\+\_\+\+\_\+construct}} (\mbox{\hyperlink{interface_psr_1_1_log_1_1_logger_interface}{Logger\+Interface}} \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{logger}})
+\item 
+\mbox{\hyperlink{class_monolog_1_1_signal_handler_a5a0be44d503e9b8a4053da3bd723af68}{register\+Signal\+Handler}} (int \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{signo}}, \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{level}}=Log\+Level\+::\+CRITICAL, bool \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{call\+Previous}}=true, bool \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{restart\+Syscalls}}=true, ?bool \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{async}}=true)
+\item 
+\mbox{\hyperlink{class_monolog_1_1_signal_handler_a97e1cc3987211310a0ed163bd739bb61}{handle\+Signal}} (int \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{signo}}, \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{siginfo}}=null)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+\doxylink{namespace_monolog}{Monolog} POSIX signal handler
+
+\begin{DoxyAuthor}{Auteur}
+Robert Gust-\/\+Bardon \href{mailto:robert@gust-bardon.org}{\texttt{ robert@gust-\/bardon.\+org}}
+\end{DoxyAuthor}
+@phpstan-\/import-\/type Level from \textbackslash{}\+Monolog\textbackslash{}\+Logger @phpstan-\/import-\/type Level\+Name from \textbackslash{}\+Monolog\textbackslash{}\+Logger 
+
+\doxysubsection{Documentation des constructeurs et destructeur}
+\Hypertarget{class_monolog_1_1_signal_handler_a2bd426f7ee55a596b1893454a77a006a}\label{class_monolog_1_1_signal_handler_a2bd426f7ee55a596b1893454a77a006a} 
+\index{SignalHandler@{SignalHandler}!\_\_construct@{\_\_construct}}
+\index{\_\_construct@{\_\_construct}!SignalHandler@{SignalHandler}}
+\doxysubsubsection{\texorpdfstring{\_\_construct()}{\_\_construct()}}
+{\footnotesize\ttfamily \+\_\+\+\_\+construct (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{interface_psr_1_1_log_1_1_logger_interface}{Logger\+Interface}}}]{\$logger }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Documentation des fonctions membres}
+\Hypertarget{class_monolog_1_1_signal_handler_a97e1cc3987211310a0ed163bd739bb61}\label{class_monolog_1_1_signal_handler_a97e1cc3987211310a0ed163bd739bb61} 
+\index{SignalHandler@{SignalHandler}!handleSignal@{handleSignal}}
+\index{handleSignal@{handleSignal}!SignalHandler@{SignalHandler}}
+\doxysubsubsection{\texorpdfstring{handleSignal()}{handleSignal()}}
+{\footnotesize\ttfamily handle\+Signal (\begin{DoxyParamCaption}\item[{int}]{\$signo,  }\item[{}]{\$siginfo = {\ttfamily null} }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}[1]{Paramètres}
+mixed & {\em \$siginfo} & \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_monolog_1_1_signal_handler_a5a0be44d503e9b8a4053da3bd723af68}\label{class_monolog_1_1_signal_handler_a5a0be44d503e9b8a4053da3bd723af68} 
+\index{SignalHandler@{SignalHandler}!registerSignalHandler@{registerSignalHandler}}
+\index{registerSignalHandler@{registerSignalHandler}!SignalHandler@{SignalHandler}}
+\doxysubsubsection{\texorpdfstring{registerSignalHandler()}{registerSignalHandler()}}
+{\footnotesize\ttfamily register\+Signal\+Handler (\begin{DoxyParamCaption}\item[{int}]{\$signo,  }\item[{}]{\$level = {\ttfamily LogLevel\+:\+:CRITICAL},  }\item[{bool}]{\$call\+Previous = {\ttfamily true},  }\item[{bool}]{\$restart\+Syscalls = {\ttfamily true},  }\item[{?bool}]{\$async = {\ttfamily true} }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}[1]{Paramètres}
+int | string & {\em \$level} & Level or level name \\
+\hline
+bool & {\em \$call\+Previous} & \\
+\hline
+bool & {\em \$restart\+Syscalls} & \\
+\hline
+bool | null & {\em \$async} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+\$this
+\end{DoxyReturn}
+@phpstan-\/param Level\texorpdfstring{$\vert$}{|}\+Level\+Name\texorpdfstring{$\vert$}{|}\+Log\+Level\+::\texorpdfstring{$\ast$}{*} \$level 
+
+La documentation de cette classe a été générée à partir du fichier suivant \+:\begin{DoxyCompactItemize}
+\item 
+public/glpi/vendor/monolog/monolog/src/\+Monolog/\mbox{\hyperlink{_signal_handler_8php}{Signal\+Handler.\+php}}\end{DoxyCompactItemize}

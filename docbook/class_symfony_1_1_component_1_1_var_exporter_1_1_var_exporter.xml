@@ -1,0 +1,112 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_symfony_1_1_component_1_1_var_exporter_1_1_var_exporter" xml:lang="fr">
+<title>Référence de la classe VarExporter</title>
+<indexterm><primary>VarExporter</primary></indexterm>
+Graphe de collaboration de VarExporter:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_symfony_1_1_component_1_1_var_exporter_1_1_var_exporter__coll__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Fonctions membres publiques statiques    </title>
+        <itemizedlist>
+            <listitem><para>static <link linkend="_class_symfony_1_1_component_1_1_var_exporter_1_1_var_exporter_1a022d7e7e377d5b3071a375024b57f493">export</link> ($value, bool &amp;$<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">isStaticValue</link>=null, array &amp;$<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">foundClasses</link>=[])</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Description détaillée</title>
+
+<para>Exports serializable PHP values to PHP code.</para>
+
+<para>VarExporter allows serializing PHP data structures to plain PHP code (like var_export()) while preserving all the semantics associated with serialize() (unlike var_export()).</para>
+
+<para>By leveraging OPcache, the generated PHP code is faster than doing the same with unserialize().</para>
+
+<para><formalpara><title>Auteur</title>
+
+<para>Nicolas Grekas <link xlink:href="mailto:p@tchwork.com">p@tchwork.com</link> </para>
+</formalpara>
+</para>
+</section>
+<section>
+<title>Documentation des fonctions membres</title>
+<anchor xml:id="_class_symfony_1_1_component_1_1_var_exporter_1_1_var_exporter_1a022d7e7e377d5b3071a375024b57f493"/><section>
+    <title>export()</title>
+<indexterm><primary>export</primary><secondary>VarExporter</secondary></indexterm>
+<indexterm><primary>VarExporter</primary><secondary>export</secondary></indexterm>
+<para><computeroutput>static export ( $value, bool &amp; $isStaticValue = <computeroutput>null</computeroutput>
+, array &amp; $foundClasses = <computeroutput>[]</computeroutput>
+)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>Exports a serializable PHP value to PHP code.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>mixed</entry><entry>$value</entry><entry>
+<para>The value to export </para>
+</entry>
+                            </row>
+                            <row>
+<entry>bool</entry><entry>&amp;$isStaticValue</entry><entry>
+<para>Set to true after execution if the provided value is static, false otherwise </para>
+</entry>
+                            </row>
+                            <row>
+<entry>array</entry><entry>&amp;$foundClasses</entry><entry>
+<para>Classes found in the value are added to this list as both keys and values</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>ExceptionInterface</entry><entry>
+<para>When the provided value cannot be serialized </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_symfony_1_1_component_1_1_var_exporter_1_1_var_exporter_a022d7e7e377d5b3071a375024b57f493_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<para>
+La documentation de cette classe a été générée à partir du fichier suivant :</para>
+public/glpi/vendor/symfony/var-exporter/<link linkend="__var_exporter_8php">VarExporter.php</link></section>
+</section>

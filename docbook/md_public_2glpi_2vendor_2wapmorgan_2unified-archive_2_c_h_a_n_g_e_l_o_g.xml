@@ -1,0 +1,681 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_md_public_2glpi_2vendor_2wapmorgan_2unified-archive_2_c_h_a_n_g_e_l_o_g" xml:lang="fr">
+<title>Change Log</title>
+<indexterm><primary>Change Log</primary></indexterm>
+
+<para><anchor xml:id="_md_public_2glpi_2vendor_2wapmorgan_2unified-archive_2_c_h_a_n_g_e_l_o_g_1autotoc_md7459"/> </para>
+<section xml:id="_md_public_2glpi_2vendor_2wapmorgan_2unified-archive_2_c_h_a_n_g_e_l_o_g_1autotoc_md7460">
+<title><title>1.1.8 - Nov 20, 2022</title></title>
+
+<para>Fixed:<itemizedlist>
+<listitem>
+<para>Fixed opening an archive with password (#37)</para>
+</listitem><listitem>
+<para>Fixed <computeroutput>UnifiedArchive-&gt;getComment()</computeroutput> now returns null when comment is not supported by driver (#39)</para>
+</listitem><listitem>
+<para>Fixed <computeroutput>UnifiedArchive-&gt;getFileData()-&gt;modificationTime</computeroutput> is integer timestamp now in case of NelexaZip driver instead of DateTimeImmutable (#38)</para>
+</listitem><listitem>
+<para>Fixed <computeroutput>PharData::create</computeroutput> for zip-archives</para>
+</listitem></itemizedlist>
+</para>
+
+<para>Deprecations:<itemizedlist>
+<listitem>
+<para>Renamed methods of <computeroutput>UnifiedArchive</computeroutput>:<itemizedlist>
+<listitem>
+<para><computeroutput>getFileNames</computeroutput> =&gt; <computeroutput>getFiles</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>extractFiles</computeroutput> =&gt; <computeroutput>extract</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>addFiles</computeroutput> =&gt; <computeroutput>add</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>deleteFiles</computeroutput> =&gt; <computeroutput>delete</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>archiveFiles</computeroutput> =&gt; <computeroutput>archive</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>canOpenArchive</computeroutput> =&gt; <computeroutput>canOpen</computeroutput></para>
+</listitem><listitem>
+<para>Old methods are marked as deprecated and will be deleted in future releases.</para>
+</listitem></itemizedlist>
+</para>
+</listitem><listitem>
+<para>Marked as deprecated:<itemizedlist>
+<listitem>
+<para><computeroutput>UnifiedArchive::detectArchiveType</computeroutput> - use <computeroutput>Formats::detectArchiveFormat</computeroutput> instead</para>
+</listitem><listitem>
+<para><computeroutput>UnifiedArchive::archiveDirectory</computeroutput>/<computeroutput>archiveFile</computeroutput> - use <computeroutput>UnifiedArchive::archive</computeroutput> instead</para>
+</listitem><listitem>
+<para><computeroutput>UnifiedArchive::canCreateType</computeroutput> - <computeroutput>Formats::canCreate</computeroutput></para>
+</listitem></itemizedlist>
+</para>
+</listitem></itemizedlist>
+</para>
+
+<para>New functions:<itemizedlist>
+<listitem>
+<para>Added method to get file extension for format: <computeroutput>Formats::getFormatExtension($archiveFormat)</computeroutput></para>
+</listitem><listitem>
+<para>Added method to get info about ready to archive files: <computeroutput>UnifiedArchive-&gt;prepareForArchiving($fileOrFiles, $archiveName = null)</computeroutput></para>
+</listitem><listitem>
+<para>Added method to create archive in memory: <computeroutput>UnifiedArchive::createInString()</computeroutput> and <computeroutput>BasicDriver::CREATE_IN_STRING</computeroutput> ability constant</para>
+</listitem><listitem>
+<para>Added new pure driver for Zip/Tar(gz/bz2) - SplitbrainPhpArchive.</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2wapmorgan_2unified-archive_2_c_h_a_n_g_e_l_o_g_1autotoc_md7461">
+<title><title>1.1.7 - Jul 31, 2022</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para><computeroutput>open</computeroutput> does not throw an Exception, it returns null</para>
+</listitem><listitem>
+<para>returned deleted methods in UnifiedArchive: <computeroutput>canOpenArchive</computeroutput>, <computeroutput>canOpenType</computeroutput>, <computeroutput>canCreateType</computeroutput>, <computeroutput>getArchiveType</computeroutput>, <computeroutput>detectArchiveType</computeroutput>, <computeroutput>getFileResource</computeroutput>, <computeroutput>getArchiveFormat</computeroutput>, <computeroutput>isFileExists</computeroutput>, <computeroutput>getArchiveSize</computeroutput>, <computeroutput>countCompressedFilesSize</computeroutput>, <computeroutput>countUncompressedFilesSize</computeroutput>.</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2wapmorgan_2unified-archive_2_c_h_a_n_g_e_l_o_g_1autotoc_md7462">
+<title><title>1.1.6 - Jul 31, 2022</title></title>
+
+<para><emphasis role="bold">BC-breaking changes</emphasis>:<itemizedlist>
+<listitem>
+<para>Changed signature: <computeroutput>UnifiedArchive::open($filename, string|null $password = null)</computeroutput> =&gt; <computeroutput>UnifiedArchive::open($filename, array $abilities = [], string|null $password = null)</computeroutput>. Right now if second argument is string, it will be treated as password (for BC-compatability).</para>
+</listitem><listitem>
+<para><computeroutput>open</computeroutput> throws an Exception when format is not recognized or there&apos;s no driver that support requested abilities.</para>
+</listitem><listitem>
+<para><computeroutput>addFiles</computeroutput>/<computeroutput>deleteFiles</computeroutput>/<computeroutput>getComment</computeroutput>/<computeroutput>setComment</computeroutput> throws an Exception when driver does not support this ability.</para>
+</listitem><listitem>
+<para>Deleted methods in UnifiedArchive: <computeroutput>canOpenArchive</computeroutput>, <computeroutput>canOpenType</computeroutput>, <computeroutput>canCreateType</computeroutput>, <computeroutput>getArchiveType</computeroutput>, <computeroutput>detectArchiveType</computeroutput>, <computeroutput>getFileResource</computeroutput>, <computeroutput>getArchiveFormat</computeroutput>, <computeroutput>isFileExists</computeroutput>, <computeroutput>getArchiveSize</computeroutput>, <computeroutput>countCompressedFilesSize</computeroutput>, <computeroutput>countUncompressedFilesSize</computeroutput>.</para>
+</listitem></itemizedlist>
+</para>
+
+<para><emphasis role="bold">New features</emphasis>:<itemizedlist>
+<listitem>
+<para>Added passing needed abilities to <emphasis role="bold">UnifiedArchive::open()</emphasis> to select a better driver: <literallayout><computeroutput>use&#32;wapmorgan\UnifiedArchive\Drivers\Basic\BasicDriver;
+
+#&#32;opens&#32;an&#32;array&#32;with&#32;driver,&#32;that&#32;supports&#32;content&#32;streaming&#32;and&#32;appending
+$archive&#32;=&#32;\wapmorgan\UnifiedArchive\UnifiedArchive::open(&apos;archive.7z&apos;,&#32;[BasicDriver::STREAM_CONTENT,&#32;BasicDriver::APPEND]);
+#&#32;if&#32;not&#32;specified,&#32;uses&#32;OPEN&#32;or&#32;OPEN_ENCRYPTED&#32;check,&#32;if&#32;password&#32;passed
+</computeroutput></literallayout></para>
+</listitem><listitem>
+<para>Added <computeroutput>UnifiedArchive::test($files = [])</computeroutput> (and <computeroutput>cam files:test</computeroutput> command) to test archive contents (compare actual control sum with stored crc32).</para>
+</listitem><listitem>
+<para>More informative output in commands: <computeroutput>system:drivers</computeroutput>, <computeroutput>system:formats</computeroutput>, <computeroutput>system:format</computeroutput>, added command <computeroutput>files:test</computeroutput>.</para>
+</listitem><listitem>
+<para>Added driver abilities to select better driver.</para>
+</listitem></itemizedlist>
+</para>
+
+<para><emphasis role="bold">Driver changes:</emphasis><itemizedlist>
+<listitem>
+<para>Added <computeroutput>NelexaZip</computeroutput> pure-PHP driver.</para>
+</listitem><listitem>
+<para>Added <computeroutput>Iso</computeroutput> driver extraction ability.</para>
+</listitem><listitem>
+<para>Added commenting-ability for <computeroutput>SevenZip</computeroutput> driver (via <computeroutput>descript.ion</computeroutput> file in archive).</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2wapmorgan_2unified-archive_2_c_h_a_n_g_e_l_o_g_1autotoc_md7463">
+<title><title>1.1.5 - Jun 28, 2022</title></title>
+
+<para><emphasis role="bold">New features</emphasis>:<itemizedlist>
+<listitem>
+<para>Reimplemented <computeroutput>cam</computeroutput> (console utility) - now it&apos;s on symfony/console and supports all features and more functions (folders, types) of UA.</para>
+</listitem><listitem>
+<para>Added more detailed installation instructions (<computeroutput>./vendor/bin/cam system:drivers</computeroutput>) of specific drivers: AlchemyZippy, Cab, Iso, Lzma, Rar, SevenZip, TarByPear.</para>
+</listitem><listitem>
+<para>Added ability to track progress of archive creation - new argument <computeroutput>?callable $fileProgressCallable</computeroutput> of <computeroutput>UnifiedArchive::archiveFiles()</computeroutput>.</para>
+</listitem><listitem>
+<para>Added ability to <emphasis role="bold">pass few directories to be placed in one in-archive directory</emphasis> in archiving/appending (<computeroutput>addFiles()</computeroutput>/<computeroutput>archiveFiles()</computeroutput>) <literallayout><computeroutput>[
+&#32;&#32;&#32;&#32;&apos;&apos;&#32;=&gt;&#32;[&apos;./folder1&apos;,&#32;&apos;./folder2&apos;],
+&#32;&#32;&#32;&#32;&apos;README.md&apos;&#32;=&gt;&#32;&apos;./subfolder/README.md&apos;
+]&#32;#&#32;Archive&#32;will&#32;have&#32;all&#32;folder1,&#32;folder2&#32;contents&#32;in&#32;the&#32;root&#32;and&#32;README.md
+</computeroutput></literallayout></para>
+</listitem></itemizedlist>
+</para>
+
+<para><emphasis role="bold">Fixed</emphasis>:<itemizedlist>
+<listitem>
+<para>Fixed <computeroutput>extract()</computeroutput> and <computeroutput>listContent()</computeroutput> and their result of <emphasis role="bold">PclZip</emphasis> interface (<computeroutput>UnifiedArchive::getPclZipInterface()</computeroutput>) to correspond to original library (object =&gt; array).</para>
+</listitem><listitem>
+<para>Added tests on archiving, extraction and for PclZip-interface.</para>
+</listitem></itemizedlist>
+</para>
+
+<para><emphasis role="bold">Format changes</emphasis>:<itemizedlist>
+<listitem>
+<para>Fixed counting of extracted files when extracting the whole archive in <computeroutput>TarByPear, TarByPhar, Zip</computeroutput>.</para>
+</listitem><listitem>
+<para>Fixed calculation archive entry compressed size (approximately) and modification time, implemented entry content streaming in <computeroutput>TarByPhar</computeroutput>.</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2wapmorgan_2unified-archive_2_c_h_a_n_g_e_l_o_g_1autotoc_md7464">
+<title><title>1.1.4 - Dec 21, 2021</title></title>
+
+<para>Disabled <computeroutput>rar</computeroutput> for SevenZip driver.</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2wapmorgan_2unified-archive_2_c_h_a_n_g_e_l_o_g_1autotoc_md7465">
+<title><title>1.1.3 - May 2, 2021</title></title>
+
+<para><emphasis role="bold">Changed format of <computeroutput>$files</computeroutput> in <computeroutput>archiveFiles()</computeroutput> and <computeroutput>addFiles()</computeroutput></emphasis> <literallayout><computeroutput>[
+&#32;&#32;&#32;&#32;&apos;/var/www/log.txt&apos;,&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;//&#32;will&#32;be&#32;&quot;/var/www/log.txt&quot;
+&#32;&#32;&#32;&#32;&apos;log2.txt&apos;&#32;=&gt;&#32;&apos;/var/www/log2.txt&apos;,&#32;//&#32;will&#32;be&#32;&quot;/log2.txt&quot;
+&#32;&#32;&#32;&#32;&apos;/var/www/site&apos;,&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;//&#32;will&#32;be&#32;&quot;/var/www/site&quot;
+&#32;&#32;&#32;&#32;&apos;site2&apos;&#32;=&gt;&#32;&apos;/var/www/site2&apos;,&#32;&#32;&#32;&#32;&#32;&#32;&#32;//&#32;will&#32;be&#32;&quot;/site2&quot;
+]
+</computeroutput></literallayout></para>
+
+<para>Old format also works, but there can be a bad case. If you have */var/www/log2.txt* and <emphasis>log2.txt</emphasis> (in current directory) and pass following: <literallayout><computeroutput>[
+&apos;/var/www/log2.txt&apos;&#32;=&gt;&#32;&apos;log2.txt&apos;,
+]
+</computeroutput></literallayout> it will archive <emphasis>log2.txt</emphasis> as */var/www/log2.txt* in an archive (new behaviour).</para>
+
+<para><emphasis role="bold">New features</emphasis>:<itemizedlist>
+<listitem>
+<para>Added <computeroutput>Formats::canStream()</computeroutput> to check if an archive files can be streamed.</para>
+</listitem><listitem>
+<para>Added ability to create archives, encrypted with password (only <emphasis>zip</emphasis> (<computeroutput>Zip</computeroutput>, <computeroutput>SevenZip</computeroutput>) and <emphasis>7z</emphasis> (<computeroutput>SevenZip</computeroutput>)) - added nullable <computeroutput>$password</computeroutput> argument to:<itemizedlist>
+<listitem>
+<para><computeroutput>UnifiedArchive::archiveFiles($fileOrFiles, $archiveName, $compressionLevel = BasicDriver::COMPRESSION_AVERAGE, $password = null)</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>UnifiedArchive::archiveFile($file, $archiveName, $compressionLevel = BasicDriver::COMPRESSION_AVERAGE, $password = null)</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>UnifiedArchive::archiveDirectory($directory, $archiveName, $compressionLevel = BasicDriver::COMPRESSION_AVERAGE, $password = null)</computeroutput></para>
+</listitem></itemizedlist>
+</para>
+</listitem><listitem>
+<para>Added <computeroutput>UnifiedArchive-&gt;getMimeType()</computeroutput> to get mime type of archive.</para>
+</listitem><listitem>
+<para>Added <computeroutput>UnifiedArchive-&gt;getComment()</computeroutput> to get comment of an archive. Available only in <computeroutput>Zip</computeroutput> and <computeroutput>Rar</computeroutput> drivers, others return <computeroutput>null</computeroutput>.</para>
+</listitem><listitem>
+<para>Added <computeroutput>UnifiedArchive-&gt;setComment(?string $comment)</computeroutput> to set comment. Available only in <computeroutput>Zip</computeroutput>.</para>
+</listitem><listitem>
+<para>Added filter in <computeroutput>UnifiedArcihve-&gt;getFileNames()</computeroutput>. If works as <computeroutput><link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">fnmatch()</link></computeroutput> does.</para>
+</listitem><listitem>
+<para>Added ability to iterate over archive and access files data as array: <literallayout><computeroutput>$a&#32;=&#32;\wapmorgan\UnifiedArchive\UnifiedArchive::open(&apos;tests/archives/fixtures.7z&apos;);
+foreach&#32;($a&#32;as&#32;$file&#32;=&gt;&#32;$data)&#32;{
+&#32;&#32;&#32;&#32;echo&#32;$file.PHP_EOL;
+&#32;}
+
+$file_data&#32;=&#32;$a[&apos;filename&apos;];
+</computeroutput></literallayout></para>
+</listitem></itemizedlist>
+</para>
+
+<para><emphasis role="bold">Fixed:</emphasis><itemizedlist>
+<listitem>
+<para>Fixed <computeroutput>SevenZip</computeroutput> driver: disabled <emphasis>tar.gz, tar.bzip2</emphasis> support as it isn&apos;t supported properly and described which formats driver can create, append, modify and encrypt.</para>
+</listitem></itemizedlist>
+</para>
+
+<para><emphasis role="bold">Methods renamed</emphasis> (old exist, but marked as deprecated):<itemizedlist>
+<listitem>
+<para><computeroutput>UnifiedArchive-&gt;getArchiveFormat</computeroutput> -&gt; <computeroutput>UnifiedArchive-&gt;getFormat</computeroutput>.</para>
+</listitem><listitem>
+<para><computeroutput>UnifiedArchive-&gt;getArchiveSize</computeroutput> -&gt; <computeroutput>UnifiedArchive-&gt;getSize</computeroutput>.</para>
+</listitem><listitem>
+<para><computeroutput>UnifiedArchive-&gt;countCompressedFilesSize</computeroutput> -&gt; <computeroutput>UnifiedArchive-&gt;getCompressedSize</computeroutput>.</para>
+</listitem><listitem>
+<para><computeroutput>UnifiedArchive-&gt;countUncompressedFilesSize</computeroutput> -&gt; <computeroutput>UnifiedArchive-&gt;getOriginalSize</computeroutput>.</para>
+</listitem><listitem>
+<para><computeroutput>UnifiedArchive-&gt;getFileResource</computeroutput> -&gt; <computeroutput>UnifiedArchive-&gt;getFileStream</computeroutput>.</para>
+</listitem><listitem>
+<para><computeroutput>UnifiedArchive-&gt;isFileExists</computeroutput> -&gt; <computeroutput>UnifiedArchive-&gt;hasFile</computeroutput>.</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2wapmorgan_2unified-archive_2_c_h_a_n_g_e_l_o_g_1autotoc_md7466">
+<title><title>1.1.2 - Mar 1, 2021</title></title>
+
+<para>Fixed calculation of tar&apos;s uncompressed size opened via <computeroutput>TarByPear</computeroutput> driver. Fixed working with <emphasis>tar.xz</emphasis> archives.</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2wapmorgan_2unified-archive_2_c_h_a_n_g_e_l_o_g_1autotoc_md7467">
+<title><title>1.1.1 - Feb 13, 2021</title></title>
+
+<para>Cleaned package.</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2wapmorgan_2unified-archive_2_c_h_a_n_g_e_l_o_g_1autotoc_md7468">
+<title><title>1.1.0 - Feb 13, 2021</title></title>
+
+<para><emphasis role="bold">New features</emphasis>:<itemizedlist>
+<listitem>
+<para>Added ability to open archives encrypted with password - added <computeroutput>$password</computeroutput> argument to <computeroutput>UnifiedArchive::open($fileName, $password = null)</computeroutput>. Works only with: zip, rar, 7z. <?linebreak?></para>
+</listitem><listitem>
+<para>Added ability to adjust compression level for new archives - added <computeroutput>$compressionLevel</computeroutput> argument (with default <computeroutput>BasicDriver::COMPRESSION_AVERAGE</computeroutput> level) to:<itemizedlist>
+<listitem>
+<para><computeroutput>UnifiedArchive::archiveFiles($fileOrFiles, $archiveName, $compressionLevel = BasicDriver::COMPRESSION_AVERAGE)</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>UnifiedArchive::archiveFile($file, $archiveName, $compressionLevel = BasicDriver::COMPRESSION_AVERAGE)</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>UnifiedArchive::archiveDirectory($file, $archiveName, $compressionLevel = BasicDriver::COMPRESSION_AVERAGE)</computeroutput> Works only with: zip, gzip.</para>
+</listitem></itemizedlist>
+</para>
+</listitem><listitem>
+<para>Added ability to append the archive with a file from string - added <computeroutput>addFileFromString</computeroutput> method: <computeroutput>UnifiedArchive-&gt;addFileFromString(string $inArchiveName, string $content)</computeroutput>.</para>
+</listitem><listitem>
+<para>Added tests for format support:<itemizedlist>
+<listitem>
+<para><computeroutput>Formats::canOpen()</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>Formats::canCreate()</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>Formats::canAppend()</computeroutput> - check if file can be added to an archive</para>
+</listitem><listitem>
+<para><computeroutput>Formats::canUpdate()</computeroutput> - check if archive member can be removed</para>
+</listitem><listitem>
+<para><computeroutput>Formats::canEncrypt()</computeroutput> - check if encrypted archive can be opened</para>
+</listitem></itemizedlist>
+</para>
+</listitem></itemizedlist>
+</para>
+
+<para><emphasis role="bold">Format changes</emphasis>:<itemizedlist>
+<listitem>
+<para>Extended <emphasis>SevenZip</emphasis> driver: now it supports a lot of formats (7z, zip, rar, iso, tar and so on).</para>
+</listitem><listitem>
+<para>Added <emphasis>AlchemyZippy</emphasis> driver: it works via command-line programs for zip, tar, tar.gz and tar.bz2.</para>
+</listitem></itemizedlist>
+</para>
+
+<para><emphasis role="bold">Methods renamed:</emphasis><itemizedlist>
+<listitem>
+<para><computeroutput>UnifiedArchive::canOpenType</computeroutput> -&gt; <computeroutput>Formats::canOpen</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>UnifiedArchive::canOpenArchive</computeroutput> -&gt; <computeroutput>UnifiedArchive::canOpen</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>UnifiedArchive::canCreateType</computeroutput> -&gt; <computeroutput>Formats::canCreate</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>UnifiedArchive-&gt;getArchiveType</computeroutput> -&gt; <computeroutput>UnifiedArchive-&gt;getArchiveFormat</computeroutput></para>
+</listitem><listitem>
+<para>Old methods exist, but marked as deprecated.</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2wapmorgan_2unified-archive_2_c_h_a_n_g_e_l_o_g_1autotoc_md7469">
+<title><title>1.0.1 - Nov 28, 2020</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Improved extendable for all classes - used late-static binding everywhere.</para>
+</listitem></itemizedlist>
+</para>
+
+<para>Format specific:<itemizedlist>
+<listitem>
+<para><emphasis role="bold">gzip</emphasis>: improved detection of archive by content.</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2wapmorgan_2unified-archive_2_c_h_a_n_g_e_l_o_g_1autotoc_md7470">
+<title><title>1.0.0 - Jun 13, 2020</title></title>
+
+<para>Format specific:<itemizedlist>
+<listitem>
+<para><emphasis role="bold">tar</emphasis>:<itemizedlist>
+<listitem>
+<para>Fixed automatic opening of .tar.Z and .tar.xz.</para>
+</listitem></itemizedlist>
+</para>
+</listitem><listitem>
+<para><emphasis role="bold">rar</emphasis>:<itemizedlist>
+<listitem>
+<para>Exclude directories from files list.</para>
+</listitem></itemizedlist>
+</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2wapmorgan_2unified-archive_2_c_h_a_n_g_e_l_o_g_1autotoc_md7471">
+<title><title>0.2.0 - Feb 2, 2020</title></title>
+
+<para><emphasis role="bold">BC-breaking changes</emphasis>:<itemizedlist>
+<listitem>
+<para><emphasis role="bold">Deleted deprecated UnifiedArchive methods</emphasis>: <computeroutput>extractNode</computeroutput>, <computeroutput>archiveNodes</computeroutput>.</para>
+</listitem><listitem>
+<para>Functionality of preparing files list for archiving is moved from <computeroutput>archiveFiles()</computeroutput> to <computeroutput>prepareForArchiving()</computeroutput>.</para>
+</listitem><listitem>
+<para><emphasis role="bold">All mutable methods throws exceptions on errors now</emphasis>:<itemizedlist>
+<listitem>
+<para><computeroutput>getFileData</computeroutput>, <computeroutput>getFileContent</computeroutput>, <computeroutput>getFileResource</computeroutput> throws <computeroutput>NonExistentArchiveFileException</computeroutput> when file is not present in archive.</para>
+</listitem><listitem>
+<para><computeroutput>extractFiles</computeroutput> throws:<itemizedlist>
+<listitem>
+<para><computeroutput>EmptyFileListException</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>ArchiveExtractionException</computeroutput></para>
+</listitem></itemizedlist>
+</para>
+</listitem><listitem>
+<para><computeroutput>deleteFiles</computeroutput>, <computeroutput>addFiles</computeroutput>, <computeroutput>addFile</computeroutput> and <computeroutput>addDirectory</computeroutput> throws:<itemizedlist>
+<listitem>
+<para><computeroutput>EmptyFileListException</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>UnsupportedOperationException</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>ArchiveModificationException</computeroutput></para>
+</listitem></itemizedlist>
+</para>
+</listitem><listitem>
+<para><computeroutput>archiveFiles</computeroutput>, <computeroutput>archiveFile</computeroutput> and <computeroutput>archiveDirectory</computeroutput> throws:<itemizedlist>
+<listitem>
+<para><computeroutput>FileAlreadyExistsException</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>EmptyFileListException</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>UnsupportedOperationException</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>ArchiveCreationException</computeroutput></para>
+</listitem></itemizedlist>
+</para>
+</listitem></itemizedlist>
+</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2wapmorgan_2unified-archive_2_c_h_a_n_g_e_l_o_g_1autotoc_md7472">
+<title><title>0.1.3 - Jan 13, 2020</title></title>
+
+<para><emphasis role="bold">BC-breaking changes</emphasis>:<itemizedlist>
+<listitem>
+<para><emphasis role="bold">Minimal version is 5.5.0</emphasis>.</para>
+</listitem></itemizedlist>
+</para>
+
+<para>Format specific:<itemizedlist>
+<listitem>
+<para><emphasis role="bold">zip</emphasis>: Fixed PclZip-interface</para>
+</listitem><listitem>
+<para><emphasis role="bold">7zip</emphasis>: Fixed 7z-archiving, when archiving files should be renamed in archive</para>
+</listitem><listitem>
+<para><emphasis role="bold">lzw</emphasis>: Fixed check for availability (#15)</para>
+</listitem></itemizedlist>
+</para>
+
+<para>New features:<itemizedlist>
+<listitem>
+<para>Added <computeroutput>canCreateType(): bool</computeroutput></para>
+</listitem><listitem>
+<para>Added <computeroutput><link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">canAddFiles()</link>: bool</computeroutput></para>
+</listitem><listitem>
+<para>Added <computeroutput><link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">canDeleteFiles()</link>: bool</computeroutput></para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2wapmorgan_2unified-archive_2_c_h_a_n_g_e_l_o_g_1autotoc_md7473">
+<title><title>0.1.2 - Jan 03, 2019</title></title>
+
+<para><emphasis role="bold">BC-breaking changes</emphasis>:<itemizedlist>
+<listitem>
+<para>PclZip-interface getter renamed to <computeroutput>getPclZipInterface()</computeroutput>.</para>
+</listitem><listitem>
+<para>Make <computeroutput>addFiles()</computeroutput> return number of <emphasis role="bold">added files</emphasis> instead of total files number.</para>
+</listitem></itemizedlist>
+</para>
+
+<para>Other changes:<itemizedlist>
+<listitem>
+<para>Make <computeroutput>addFiles()</computeroutput> / <computeroutput>deleteFiles()</computeroutput> / <computeroutput>archiveFiles()</computeroutput> throw <computeroutput>\Exception</computeroutput>s when any error occurred (and even when files list is empty).</para>
+</listitem><listitem>
+<para>Fixed usage of <computeroutput>/</computeroutput> always as directory separator in <computeroutput>addFiles()</computeroutput> and <computeroutput>archiveFiles()</computeroutput>.</para>
+</listitem></itemizedlist>
+</para>
+
+<para>Format-specific changes:<itemizedlist>
+<listitem>
+<para>Divided format-specific code into separate components.</para>
+</listitem><listitem>
+<para><emphasis role="bold">zip</emphasis>:<itemizedlist>
+<listitem>
+<para>Excluded directories from files list (<computeroutput>getFileNames()</computeroutput>).</para>
+</listitem><listitem>
+<para>Fixed retrieving new list of files after <computeroutput>addFiles()</computeroutput> usage.</para>
+</listitem><listitem>
+<para>(#11) Fixed invalid &quot;/&quot; archive entry after <computeroutput>archiveFiles()</computeroutput> usage.</para>
+</listitem></itemizedlist>
+</para>
+</listitem><listitem>
+<para><emphasis role="bold">tar</emphasis> (<computeroutput>TarArchive</computeroutput> adapter):<itemizedlist>
+<listitem>
+<para>Fixed number of added files of <computeroutput>addFiles()</computeroutput>.</para>
+</listitem><listitem>
+<para>Fixed list of files after <computeroutput>deleteFiles()</computeroutput> usage.</para>
+</listitem><listitem>
+<para>Added checks for compressed tar&apos;s support in <computeroutput>canOpenArchive()</computeroutput> and <computeroutput>canOpenType()</computeroutput>.</para>
+</listitem></itemizedlist>
+</para>
+</listitem><listitem>
+<para><emphasis role="bold">tar</emphasis> (<computeroutput>PharData</computeroutput> adapter):<itemizedlist>
+<listitem>
+<para>Fixed list of files after <computeroutput>addFiles()</computeroutput>/<computeroutput>deleteFiles()</computeroutput> usage and path generation of archive in <computeroutput>archiveFiles()</computeroutput>.</para>
+</listitem><listitem>
+<para>Fixed path of files in <computeroutput>getFileNames()</computeroutput> to use UNIX path separator (&quot;/&quot;).</para>
+</listitem></itemizedlist>
+</para>
+</listitem><listitem>
+<para><emphasis role="bold">iso</emphasis>:<itemizedlist>
+<listitem>
+<para>Excluded directories from files list (<computeroutput>getFileNames()</computeroutput>).</para>
+</listitem></itemizedlist>
+</para>
+</listitem><listitem>
+<para><emphasis role="bold">7zip</emphasis>:<itemizedlist>
+<listitem>
+<para>Fixed result of <computeroutput>deleteFiles()</computeroutput> and <computeroutput>archiveFiles()</computeroutput> in-archive paths.</para>
+</listitem><listitem>
+<para>Fixed calculation of compressed file size in <computeroutput>getFileData()</computeroutput>.</para>
+</listitem><listitem>
+<para>(#10) Set infinite timeout of <computeroutput>7z</computeroutput> system call (useful for big archives).</para>
+</listitem></itemizedlist>
+</para>
+</listitem><listitem>
+<para><emphasis role="bold">cab</emphasis>:<itemizedlist>
+<listitem>
+<para>Fixed <computeroutput>extractFiles()</computeroutput> functionality.</para>
+</listitem></itemizedlist>
+</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2wapmorgan_2unified-archive_2_c_h_a_n_g_e_l_o_g_1autotoc_md7474">
+<title><title>0.1.1 - Sep 21, 2018</title></title>
+
+<para>API changes:<itemizedlist>
+<listitem>
+<para><emphasis role="bold">Changed algorithm of files list generation in <computeroutput>archiveFiles()</computeroutput> and <computeroutput>addFiles()</computeroutput></emphasis>: <literallayout><computeroutput>//&#32;1.&#32;one&#32;file
+$archive-&gt;archiveFiles(&apos;/var/www/site/abc.log&apos;,&#32;&apos;archive.zip&apos;);&#32;//&#32;=&gt;&#32;stored&#32;as&#32;&apos;abc.log&apos;
+//&#32;2.&#32;directory
+$archive-&gt;archiveFiles(&apos;/var/www/site/runtime/logs&apos;,&#32;&apos;archive.zip&apos;);&#32;//&#32;=&gt;&#32;directory&#32;content&#32;stored&#32;in&#32;archive&#32;root
+//&#32;3.&#32;list
+$archive-&gt;archiveFiles([
+&#32;&#32;&#32;&#32;&#32;&#32;&apos;/var/www/site/abc.log&apos;&#32;=&gt;&#32;&apos;abc.log&apos;,&#32;//&#32;stored&#32;as&#32;&apos;abc.log&apos;
+&#32;&#32;&#32;&#32;&#32;&#32;&apos;/var/www/site/abc.log&apos;,&#32;//&#32;stored&#32;as&#32;&apos;/var/www/site/abc.log&apos;
+&#32;&#32;&#32;&#32;&#32;&#32;&apos;/var/www/site/runtime/logs&apos;&#32;=&gt;&#32;&apos;logs&apos;,&#32;//&#32;directory&#32;content&#32;stored&#32;in&#32;&apos;logs&apos;&#32;dir
+&#32;&#32;&#32;&#32;&#32;&#32;&apos;/var/www/site/runtime/logs&apos;,&#32;//&#32;stored&#32;as&#32;&apos;/var/www/site/runtime/logs&apos;
+],&#32;&apos;archive.zip&apos;);
+</computeroutput></literallayout></para>
+</listitem><listitem>
+<para><emphasis role="bold">Disabled paths expanding in <computeroutput>extractFiles()</computeroutput> and <computeroutput>deleteFiles()</computeroutput> by default</emphasis>.</para>
+
+<para>If you need to expand <computeroutput>src/</computeroutput> path to all files within this directory in archive, set second argument <computeroutput>$expandFilesList</computeroutput> argument to <computeroutput>true</computeroutput>. <literallayout><computeroutput>$archive-&gt;extractFiles(__DIR__,&#32;&apos;src/&apos;,&#32;true);
+$archive-&gt;deleteFiles(&apos;tests/&apos;,&#32;true);
+</computeroutput></literallayout></para>
+</listitem><listitem>
+<para>Added new element in <computeroutput>archiveFiles()</computeroutput> result in emulation mode. Now it returns an archive with 4 elements: new <computeroutput>type</computeroutput> element with archive type.</para>
+</listitem></itemizedlist>
+</para>
+
+<para>Fixes:<itemizedlist>
+<listitem>
+<para>Fixed <emphasis role="bold">LZW-stream</emphasis> (.tar.Z) wrapper (before it didn&apos;t work).</para>
+</listitem><listitem>
+<para>Fixed <emphasis role="bold">ISO</emphasis> archives reading (before archive size could be calculated wrong).</para>
+</listitem><listitem>
+<para>Fixed <emphasis role="bold">CAB</emphasis> archives extraction in <computeroutput>getFileContent($file)</computeroutput> (before it didn&apos;t work).</para>
+</listitem><listitem>
+<para>Improved extraction in <computeroutput>getFileContent($file)</computeroutput> for <emphasis role="bold">RAR</emphasis> archives by using streams (before it did extract file in temporarily folder, read it and then delete it).</para>
+</listitem></itemizedlist>
+</para>
+
+<para>Improvements:<itemizedlist>
+<listitem>
+<para>Added <computeroutput>isFileExists($file): bool</computeroutput> method for checking if archive has a file with specific name.</para>
+</listitem><listitem>
+<para>Added <computeroutput>getFileResource($file): resource</computeroutput> method for getting a file descriptor for reading all file content without full extraction in memory.</para>
+</listitem><listitem>
+<para>Added <computeroutput>canOpenArchive($archiveFileName): bool</computeroutput> and <computeroutput>canOpenType($archiveFormat): bool</computeroutput> static methods to check if specific archive or format can be opened.</para>
+</listitem><listitem>
+<para>Added <computeroutput>detectArchiveType($fileName): string|false</computeroutput> static method to detect (by filename or content) archive type.</para>
+</listitem><listitem>
+<para>Added <computeroutput>addFile($file, $inArchiveName = null)</computeroutput> / <computeroutput>addDirectory($directory, $inArchivePath = null)</computeroutput> to add one file or one directory, <computeroutput>archiveFile($file, $archiveName)</computeroutput> / <computeroutput>archiveDirectory($directory, $archiveName)</computeroutput> to archive one file or directory.</para>
+</listitem></itemizedlist>
+</para>
+
+<para>Miscellaneous:<itemizedlist>
+<listitem>
+<para>Added simple tests.</para>
+</listitem><listitem>
+<para>Added <computeroutput>phar</computeroutput> distribution.</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2wapmorgan_2unified-archive_2_c_h_a_n_g_e_l_o_g_1autotoc_md7475">
+<title><title>0.1.0 - Apr 11, 2018</title></title>
+
+<para>API changes:<itemizedlist>
+<listitem>
+<para>Renamed methods <computeroutput><link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">extractNode()</link></computeroutput> → <computeroutput>extractFiles()</computeroutput>, <computeroutput><link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">archiveNodes()</link></computeroutput> → <computeroutput>archiveFiles()</computeroutput>. Original method are still available with <computeroutput>@deprecated</computeroutput> status.</para>
+</listitem><listitem>
+<para><computeroutput>getFileData()</computeroutput> now returns <computeroutput>ArchiveEntry</computeroutput> instance instead of <computeroutput>stdClass</computeroutput>. Original object fields are still available with <computeroutput>@deprecated</computeroutput> status.</para>
+</listitem><listitem>
+<para><computeroutput>addFiles()</computeroutput> and <computeroutput>deleteFiles()</computeroutput> now return false when archive is not editable.</para>
+</listitem></itemizedlist>
+</para>
+
+<para>Improvements:<itemizedlist>
+<listitem>
+<para>Added checks of archive opening status in constructor: now an <computeroutput>Exception</computeroutput> will be throwed if archive file is not readable.</para>
+</listitem><listitem>
+<para>Some changes in <computeroutput><link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">archiveNodes()</link></computeroutput> about handling directory names.</para>
+</listitem><listitem>
+<para>Fixed archive rescan in <computeroutput>addFiles()</computeroutput> and <computeroutput>deleteFiles()</computeroutput>.</para>
+</listitem></itemizedlist>
+</para>
+
+<para>Miscellaneous:<itemizedlist>
+<listitem>
+<para>Removed example scripts (<computeroutput>examples/</computeroutput>).</para>
+</listitem><listitem>
+<para>Code changes: added comments.</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2wapmorgan_2unified-archive_2_c_h_a_n_g_e_l_o_g_1autotoc_md7476">
+<title><title>0.0.11 - Mar 21, 2018</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Cleaned up some old code.</para>
+</listitem><listitem>
+<para>Added <computeroutput>ext-phar</computeroutput> adapter for tar archives (if <computeroutput>pear/archive_tar</computeroutput> is not installed).</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2wapmorgan_2unified-archive_2_c_h_a_n_g_e_l_o_g_1autotoc_md7477">
+<title><title>0.0.10 - Aug 7, 2017</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Remove <computeroutput>docopt</computeroutput> from requirements. Now it&apos;s a suggestion.</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2wapmorgan_2unified-archive_2_c_h_a_n_g_e_l_o_g_1autotoc_md7478">
+<title><title>0.0.9 - Jul 20, 2017</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Added <computeroutput>cam</computeroutput> (Console Archive Manager) script.</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2wapmorgan_2unified-archive_2_c_h_a_n_g_e_l_o_g_1autotoc_md7479">
+<title><title>0.0.8 - Jan 24, 2017</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Added initial support for <computeroutput>CAB</computeroutput> archives without extracting.</para>
+</listitem><listitem>
+<para>Added handling of short names of tar archives (.tgz/.tbz2/...).</para>
+</listitem><listitem>
+<para>Removed external repository declaration.</para>
+</listitem><listitem>
+<para>Removed <computeroutput><link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">die()</link></computeroutput> in source code.</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2wapmorgan_2unified-archive_2_c_h_a_n_g_e_l_o_g_1autotoc_md7480">
+<title><title>0.0.7 - Jan 14, 2017</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Fixed usage of <computeroutput>ereg</computeroutput> function for PHP &gt;7.</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2wapmorgan_2unified-archive_2_c_h_a_n_g_e_l_o_g_1autotoc_md7481">
+<title><title>0.0.6 - Jan 9, 2017</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Added functionality for adding files in archive.</para>
+</listitem><listitem>
+<para>Added functionality for deleting files from archive.</para>
+</listitem><listitem>
+<para>Fixed discovering <computeroutput>7z</computeroutput> archive number of files and creating new archive.</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2wapmorgan_2unified-archive_2_c_h_a_n_g_e_l_o_g_1autotoc_md7482">
+<title><title>0.0.5 - Jan 8, 2017</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Added support for <computeroutput>7z</computeroutput> (by 7zip-cli) archives.</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2wapmorgan_2unified-archive_2_c_h_a_n_g_e_l_o_g_1autotoc_md7483">
+<title><title>0.0.4 - Jan 7, 2017</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Added support for single-file <computeroutput>bz2</computeroutput> (bzip2) and <computeroutput>xz</computeroutput> (lzma2) archives.</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2wapmorgan_2unified-archive_2_c_h_a_n_g_e_l_o_g_1autotoc_md7484">
+<title><title>0.0.3 - Aug 18, 2015</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Removed <computeroutput>archive_tar</computeroutput> from required packages.</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2wapmorgan_2unified-archive_2_c_h_a_n_g_e_l_o_g_1autotoc_md7485">
+<title><title>0.0.2 - May 27, 2014</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Released under the MIT license</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2wapmorgan_2unified-archive_2_c_h_a_n_g_e_l_o_g_1autotoc_md7486">
+<title><title>0.0.1 - May 26, 2014</title></title>
+
+<para>First version. </para>
+</section>
+</section>

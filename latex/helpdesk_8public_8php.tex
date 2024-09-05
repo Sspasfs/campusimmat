@@ -1,0 +1,102 @@
+\doxysection{Référence du fichier public/glpi/front/helpdesk.public.\+php}
+\hypertarget{helpdesk_8public_8php}{}\label{helpdesk_8public_8php}\index{public/glpi/front/helpdesk.public.php@{public/glpi/front/helpdesk.public.php}}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{global}} \mbox{\hyperlink{helpdesk_8public_8php_a2e00a61703ee4673cdfb5eb376a9b295}{\$\+CFG\+\_\+\+GLPI}}
+\item 
+\mbox{\hyperlink{dropdown_location_8php_a52332c22f84432520971794825a5a8e7}{if}}(\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{isset}}(\$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\+\_\+\+GET}}\mbox{[}\textquotesingle{}\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{create\+\_\+ticket}}\textquotesingle{}\mbox{]})) \mbox{\hyperlink{helpdesk_8public_8php_affd3f1e3c4bde4e1730d429c2a4d5f1b}{else}}
+\item 
+\mbox{\hyperlink{helpdesk_8public_8php_a104fe84d08f6f6b7f4fd62f9882faec7}{\$password\+\_\+alert}} = "{}"{}
+\item 
+\mbox{\hyperlink{helpdesk_8public_8php_a598ca4e71b15a1313ec95f0df1027ca5}{\$user}} = \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{new}} \mbox{\hyperlink{class_user}{User}}()
+\item 
+\mbox{\hyperlink{helpdesk_8public_8php_a73fd4726e7c240f1eb485beeb9d5b6cf}{\$ticket\+\_\+summary}} = "{}"{}
+\item 
+\mbox{\hyperlink{helpdesk_8public_8php_a2244e6fbda2e8e4993e8bf7c98964fa7}{\$survey\+\_\+list}} = "{}"{}
+\item 
+\mbox{\hyperlink{dropdown_location_8php_a52332c22f84432520971794825a5a8e7}{if}}(\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{Session\+::have\+Right}}(\textquotesingle{}\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{ticket}}\textquotesingle{}, \mbox{\hyperlink{define_8php_ae7d71eec207ebcef53a99536e8ca8825}{CREATE}})) \mbox{\hyperlink{helpdesk_8public_8php_a4e61f52ef7db97da7a13032442491a96}{\$reminder\+\_\+list}} = "{}"{}
+\item 
+\mbox{\hyperlink{dropdown_location_8php_a52332c22f84432520971794825a5a8e7}{if}}(\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{Session\+::have\+Right}}("{}reminder\+\_\+public"{}, \mbox{\hyperlink{define_8php_add302975378da047de904daa059a332b}{READ}})) \mbox{\hyperlink{helpdesk_8public_8php_a149e7185756ce89660d8d90a9c2db167}{\$rss\+\_\+feed}} = "{}"{}
+\item 
+\mbox{\hyperlink{dropdown_location_8php_a52332c22f84432520971794825a5a8e7}{if}}(\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{Session\+::have\+Right}}("{}rssfeed\+\_\+public"{}, \mbox{\hyperlink{define_8php_add302975378da047de904daa059a332b}{READ}})) \mbox{\hyperlink{helpdesk_8public_8php_a4f88fdd5771d3aec41cce353fd314006}{\$kb\+\_\+popular}} = "{}"{}
+\item 
+\mbox{\hyperlink{helpdesk_8public_8php_a35f904a835b931a9be636969c95e7eb2}{\$kb\+\_\+recent}} = "{}"{}
+\item 
+\mbox{\hyperlink{helpdesk_8public_8php_abf1121e427812e4d90eeef68be8d1082}{\$kb\+\_\+lastupdate}} = "{}"{}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Documentation des variables}
+\Hypertarget{helpdesk_8public_8php_a2e00a61703ee4673cdfb5eb376a9b295}\label{helpdesk_8public_8php_a2e00a61703ee4673cdfb5eb376a9b295} 
+\index{helpdesk.public.php@{helpdesk.public.php}!\$CFG\_GLPI@{\$CFG\_GLPI}}
+\index{\$CFG\_GLPI@{\$CFG\_GLPI}!helpdesk.public.php@{helpdesk.public.php}}
+\doxysubsubsection{\texorpdfstring{\$CFG\_GLPI}{\$CFG\_GLPI}}
+{\footnotesize\ttfamily \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{global}} \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{CFG\+\_\+\+GLPI}}}
+
+\Hypertarget{helpdesk_8public_8php_abf1121e427812e4d90eeef68be8d1082}\label{helpdesk_8public_8php_abf1121e427812e4d90eeef68be8d1082} 
+\index{helpdesk.public.php@{helpdesk.public.php}!\$kb\_lastupdate@{\$kb\_lastupdate}}
+\index{\$kb\_lastupdate@{\$kb\_lastupdate}!helpdesk.public.php@{helpdesk.public.php}}
+\doxysubsubsection{\texorpdfstring{\$kb\_lastupdate}{\$kb\_lastupdate}}
+{\footnotesize\ttfamily \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{kb\+\_\+lastupdate}} = "{}"{}}
+
+\Hypertarget{helpdesk_8public_8php_a4f88fdd5771d3aec41cce353fd314006}\label{helpdesk_8public_8php_a4f88fdd5771d3aec41cce353fd314006} 
+\index{helpdesk.public.php@{helpdesk.public.php}!\$kb\_popular@{\$kb\_popular}}
+\index{\$kb\_popular@{\$kb\_popular}!helpdesk.public.php@{helpdesk.public.php}}
+\doxysubsubsection{\texorpdfstring{\$kb\_popular}{\$kb\_popular}}
+{\footnotesize\ttfamily \mbox{\hyperlink{dropdown_location_8php_a52332c22f84432520971794825a5a8e7}{if}} (\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{Session\+::have\+Right}}("{}rssfeed\+\_\+public"{}, \mbox{\hyperlink{define_8php_add302975378da047de904daa059a332b}{READ}})) \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{kb\+\_\+popular}} = "{}"{}}
+
+\Hypertarget{helpdesk_8public_8php_a35f904a835b931a9be636969c95e7eb2}\label{helpdesk_8public_8php_a35f904a835b931a9be636969c95e7eb2} 
+\index{helpdesk.public.php@{helpdesk.public.php}!\$kb\_recent@{\$kb\_recent}}
+\index{\$kb\_recent@{\$kb\_recent}!helpdesk.public.php@{helpdesk.public.php}}
+\doxysubsubsection{\texorpdfstring{\$kb\_recent}{\$kb\_recent}}
+{\footnotesize\ttfamily \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{kb\+\_\+recent}} = "{}"{}}
+
+\Hypertarget{helpdesk_8public_8php_a104fe84d08f6f6b7f4fd62f9882faec7}\label{helpdesk_8public_8php_a104fe84d08f6f6b7f4fd62f9882faec7} 
+\index{helpdesk.public.php@{helpdesk.public.php}!\$password\_alert@{\$password\_alert}}
+\index{\$password\_alert@{\$password\_alert}!helpdesk.public.php@{helpdesk.public.php}}
+\doxysubsubsection{\texorpdfstring{\$password\_alert}{\$password\_alert}}
+{\footnotesize\ttfamily \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{password\+\_\+alert}} = "{}"{}}
+
+\Hypertarget{helpdesk_8public_8php_a4e61f52ef7db97da7a13032442491a96}\label{helpdesk_8public_8php_a4e61f52ef7db97da7a13032442491a96} 
+\index{helpdesk.public.php@{helpdesk.public.php}!\$reminder\_list@{\$reminder\_list}}
+\index{\$reminder\_list@{\$reminder\_list}!helpdesk.public.php@{helpdesk.public.php}}
+\doxysubsubsection{\texorpdfstring{\$reminder\_list}{\$reminder\_list}}
+{\footnotesize\ttfamily \mbox{\hyperlink{dropdown_location_8php_a52332c22f84432520971794825a5a8e7}{if}} (\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{Session\+::have\+Right}}( \textquotesingle{}\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{ticket}}\textquotesingle{}, \mbox{\hyperlink{define_8php_ae7d71eec207ebcef53a99536e8ca8825}{CREATE}})) \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{reminder\+\_\+list}} = "{}"{}}
+
+\Hypertarget{helpdesk_8public_8php_a149e7185756ce89660d8d90a9c2db167}\label{helpdesk_8public_8php_a149e7185756ce89660d8d90a9c2db167} 
+\index{helpdesk.public.php@{helpdesk.public.php}!\$rss\_feed@{\$rss\_feed}}
+\index{\$rss\_feed@{\$rss\_feed}!helpdesk.public.php@{helpdesk.public.php}}
+\doxysubsubsection{\texorpdfstring{\$rss\_feed}{\$rss\_feed}}
+{\footnotesize\ttfamily \mbox{\hyperlink{dropdown_location_8php_a52332c22f84432520971794825a5a8e7}{if}} (\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{Session\+::have\+Right}}("{}reminder\+\_\+public"{}, \mbox{\hyperlink{define_8php_add302975378da047de904daa059a332b}{READ}})) \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{rss\+\_\+feed}} = "{}"{}}
+
+\Hypertarget{helpdesk_8public_8php_a2244e6fbda2e8e4993e8bf7c98964fa7}\label{helpdesk_8public_8php_a2244e6fbda2e8e4993e8bf7c98964fa7} 
+\index{helpdesk.public.php@{helpdesk.public.php}!\$survey\_list@{\$survey\_list}}
+\index{\$survey\_list@{\$survey\_list}!helpdesk.public.php@{helpdesk.public.php}}
+\doxysubsubsection{\texorpdfstring{\$survey\_list}{\$survey\_list}}
+{\footnotesize\ttfamily \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{survey\+\_\+list}} = "{}"{}}
+
+\Hypertarget{helpdesk_8public_8php_a73fd4726e7c240f1eb485beeb9d5b6cf}\label{helpdesk_8public_8php_a73fd4726e7c240f1eb485beeb9d5b6cf} 
+\index{helpdesk.public.php@{helpdesk.public.php}!\$ticket\_summary@{\$ticket\_summary}}
+\index{\$ticket\_summary@{\$ticket\_summary}!helpdesk.public.php@{helpdesk.public.php}}
+\doxysubsubsection{\texorpdfstring{\$ticket\_summary}{\$ticket\_summary}}
+{\footnotesize\ttfamily \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{ticket\+\_\+summary}} = "{}"{}}
+
+\Hypertarget{helpdesk_8public_8php_a598ca4e71b15a1313ec95f0df1027ca5}\label{helpdesk_8public_8php_a598ca4e71b15a1313ec95f0df1027ca5} 
+\index{helpdesk.public.php@{helpdesk.public.php}!\$user@{\$user}}
+\index{\$user@{\$user}!helpdesk.public.php@{helpdesk.public.php}}
+\doxysubsubsection{\texorpdfstring{\$user}{\$user}}
+{\footnotesize\ttfamily \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{user}} = \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{new}} \mbox{\hyperlink{class_user}{User}}()}
+
+\Hypertarget{helpdesk_8public_8php_affd3f1e3c4bde4e1730d429c2a4d5f1b}\label{helpdesk_8public_8php_affd3f1e3c4bde4e1730d429c2a4d5f1b} 
+\index{helpdesk.public.php@{helpdesk.public.php}!else@{else}}
+\index{else@{else}!helpdesk.public.php@{helpdesk.public.php}}
+\doxysubsubsection{\texorpdfstring{else}{else}}
+{\footnotesize\ttfamily \mbox{\hyperlink{dropdown_location_8php_a52332c22f84432520971794825a5a8e7}{if}} (\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{isset}}( \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\+\_\+\+GET}}\mbox{[} \textquotesingle{}\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{create\+\_\+ticket}}\textquotesingle{}\mbox{]})) else}
+
+{\bfseries Valeur initiale \+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ \ \ Html::helpHeader(\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\_\_}}(\textcolor{stringliteral}{'Home'}))}
+
+\end{DoxyCode}

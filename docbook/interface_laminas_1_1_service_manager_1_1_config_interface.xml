@@ -1,0 +1,114 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_interface_laminas_1_1_service_manager_1_1_config_interface" xml:lang="fr">
+<title>Référence de l&apos;interface ConfigInterface</title>
+<indexterm><primary>ConfigInterface</primary></indexterm>
+Graphe d&apos;héritage de ConfigInterface:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="interface_laminas_1_1_service_manager_1_1_config_interface__inherit__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Graphe de collaboration de ConfigInterface:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="interface_laminas_1_1_service_manager_1_1_config_interface__coll__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Fonctions membres publiques    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_interface_laminas_1_1_service_manager_1_1_config_interface_1a20e884e94db10ffe0d862e6883160fa0">configureServiceManager</link> (<link linkend="_class_laminas_1_1_service_manager_1_1_service_manager">ServiceManager</link> $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">serviceManager</link>)</para>
+</listitem>
+            <listitem><para><link linkend="_interface_laminas_1_1_service_manager_1_1_config_interface_1a658defb34762c8f40085aec87e16ba1a">toArray</link> ()</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Description détaillée</title>
+
+<para><formalpara><title>Voir également</title>
+
+<para>ContainerInterface </para>
+
+<para>ArrayAccess</para>
+</formalpara>
+@psalm-type AbstractFactoriesConfigurationType = array&lt; array-key, (class-string&lt;Factory\AbstractFactoryInterface&gt;|Factory\AbstractFactoryInterface) <blockquote>
+<para>&#8205; </para>
+</blockquote>@psalm-type DelegatorsConfigurationType = array&lt; string, array&lt; array-key, (class-string&lt;Factory\DelegatorFactoryInterface&gt;|Factory\DelegatorFactoryInterface) |callable(ContainerInterface,string,<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">callable()</link>:object,array&lt;mixed&gt;|null):object &gt; <blockquote>
+<para>&#8205; </para>
+</blockquote>@psalm-type FactoriesConfigurationType = array&lt; string, (class-string&lt;Factory\FactoryInterface&gt;|Factory\FactoryInterface) |callable(ContainerInterface,string,array&lt;mixed&gt;|null) <blockquote>
+<para>&#8205; </para>
+</blockquote>@psalm-type InitializersConfigurationType = array&lt; array-key, (class-string&lt;Initializer\InitializerInterface&gt;|Initializer\InitializerInterface) |callable(ContainerInterface,object):void <blockquote>
+<para>&#8205; </para>
+</blockquote>@psalm-type LazyServicesConfigurationType = array{ class_map?:array&lt;string,class-string&gt;, proxies_namespace?:non-empty-string, proxies_target_dir?:non-empty-string, write_proxy_files?:bool } @psalm-type ServiceManagerConfigurationType = array{ abstract_factories?: AbstractFactoriesConfigurationType, aliases?: array&lt;string,string&gt;, delegators?: DelegatorsConfigurationType, factories?: FactoriesConfigurationType, initializers?: InitializersConfigurationType, invokables?: array&lt;string,string&gt;, lazy_services?: LazyServicesConfigurationType, services?: array&lt;string,object|array&gt;, shared?:array&lt;string,bool&gt; } </para>
+</section>
+<section>
+<title>Documentation des fonctions membres</title>
+<anchor xml:id="_interface_laminas_1_1_service_manager_1_1_config_interface_1a20e884e94db10ffe0d862e6883160fa0"/><section>
+    <title>configureServiceManager()</title>
+<indexterm><primary>configureServiceManager</primary><secondary>ConfigInterface</secondary></indexterm>
+<indexterm><primary>ConfigInterface</primary><secondary>configureServiceManager</secondary></indexterm>
+<para><computeroutput>configureServiceManager (<link linkend="_class_laminas_1_1_service_manager_1_1_service_manager">ServiceManager</link> $serviceManager)</computeroutput></para>
+<para>Configure a service manager.</para>
+
+<para>Implementations should pull configuration from somewhere (typically local properties) and pass it to a ServiceManager&apos;s <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">withConfig()</link> method, returning a new instance.</para>
+
+<para><formalpara><title>Renvoie</title>
+
+<para>ServiceManager </para>
+</formalpara>
+</para>
+<para>
+Implémenté dans <link linkend="_class_laminas_1_1_i18n_1_1_view_1_1_helper_config_1a20e884e94db10ffe0d862e6883160fa0">HelperConfig</link>, et <link linkend="_class_laminas_1_1_service_manager_1_1_config_1a20e884e94db10ffe0d862e6883160fa0">Config</link>.</para>
+</section>
+<anchor xml:id="_interface_laminas_1_1_service_manager_1_1_config_interface_1a658defb34762c8f40085aec87e16ba1a"/><section>
+    <title>toArray()</title>
+<indexterm><primary>toArray</primary><secondary>ConfigInterface</secondary></indexterm>
+<indexterm><primary>ConfigInterface</primary><secondary>toArray</secondary></indexterm>
+<para><computeroutput>toArray ( )</computeroutput></para>
+<para>Return configuration for a service manager instance as an array.</para>
+
+<para>Implementations MUST return an array compatible with ServiceManager::configure, containing one or more of the following keys:</para>
+
+<para><itemizedlist>
+<listitem>
+<para>abstract_factories</para>
+</listitem><listitem>
+<para>aliases</para>
+</listitem><listitem>
+<para>delegators</para>
+</listitem><listitem>
+<para>factories</para>
+</listitem><listitem>
+<para>initializers</para>
+</listitem><listitem>
+<para>invokables</para>
+</listitem><listitem>
+<para>lazy_services</para>
+</listitem><listitem>
+<para>services</para>
+</listitem><listitem>
+<para>shared</para>
+</listitem></itemizedlist>
+</para>
+
+<para>In other words, this should return configuration that can be used to instantiate a service manager or plugin manager, or pass to its <computeroutput><link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">withConfig()</link></computeroutput> method.</para>
+
+<para><formalpara><title>Renvoie</title>
+
+<para>array @psalm-return ServiceManagerConfigurationType </para>
+</formalpara>
+</para>
+<para>
+Implémenté dans <link linkend="_class_laminas_1_1_i18n_1_1_view_1_1_helper_config_1a658defb34762c8f40085aec87e16ba1a">HelperConfig</link>, et <link linkend="_class_laminas_1_1_service_manager_1_1_config_1a658defb34762c8f40085aec87e16ba1a">Config</link>.</para>
+</section>
+<para>
+La documentation de cette interface a été générée à partir du fichier suivant :</para>
+public/glpi/vendor/laminas/laminas-servicemanager/src/<link linkend="__config_interface_8php">ConfigInterface.php</link></section>
+</section>

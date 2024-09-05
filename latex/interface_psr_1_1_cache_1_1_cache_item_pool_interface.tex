@@ -1,0 +1,251 @@
+\doxysection{Référence de l\textquotesingle{}interface Cache\+Item\+Pool\+Interface}
+\hypertarget{interface_psr_1_1_cache_1_1_cache_item_pool_interface}{}\label{interface_psr_1_1_cache_1_1_cache_item_pool_interface}\index{CacheItemPoolInterface@{CacheItemPoolInterface}}
+
+
+Graphe d\textquotesingle{}héritage de Cache\+Item\+Pool\+Interface\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{interface_psr_1_1_cache_1_1_cache_item_pool_interface__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Graphe de collaboration de Cache\+Item\+Pool\+Interface\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=245pt]{interface_psr_1_1_cache_1_1_cache_item_pool_interface__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{interface_psr_1_1_cache_1_1_cache_item_pool_interface_ac2c9d62db1d0ef7b0886d886c5103332}{get\+Item}} (\$key)
+\item 
+\mbox{\hyperlink{interface_psr_1_1_cache_1_1_cache_item_pool_interface_a0ea8e9976573140cac77c46c8f5dd038}{get\+Items}} (array \$keys=array())
+\item 
+\mbox{\hyperlink{interface_psr_1_1_cache_1_1_cache_item_pool_interface_af52c0b56089f49bf62ff41b59b2b0b19}{has\+Item}} (\$key)
+\item 
+\mbox{\hyperlink{interface_psr_1_1_cache_1_1_cache_item_pool_interface_aa821bec12eaa7e0f649397c9675ff505}{clear}} ()
+\item 
+\mbox{\hyperlink{interface_psr_1_1_cache_1_1_cache_item_pool_interface_a57019c6883a4447e87e4e12b8105834f}{delete\+Item}} (\$key)
+\item 
+\mbox{\hyperlink{interface_psr_1_1_cache_1_1_cache_item_pool_interface_af2ea95b29ace70903b16c4760efbf3d0}{delete\+Items}} (array \$keys)
+\item 
+\mbox{\hyperlink{interface_psr_1_1_cache_1_1_cache_item_pool_interface_a64a3e767e6943bc7f9270f05ff552dd6}{save}} (\mbox{\hyperlink{interface_psr_1_1_cache_1_1_cache_item_interface}{Cache\+Item\+Interface}} \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{item}})
+\item 
+\mbox{\hyperlink{interface_psr_1_1_cache_1_1_cache_item_pool_interface_aea2bb54c43685f962ab93f7124fee2ce}{save\+Deferred}} (\mbox{\hyperlink{interface_psr_1_1_cache_1_1_cache_item_interface}{Cache\+Item\+Interface}} \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{item}})
+\item 
+\mbox{\hyperlink{interface_psr_1_1_cache_1_1_cache_item_pool_interface_af5674c27d4a92f6228565010eacbb9cb}{commit}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Cache\+Item\+Pool\+Interface generates Cache\+Item\+Interface objects.
+
+The primary purpose of Cache\textbackslash{}\+Cache\+Item\+Pool\+Interface is to accept a key from the Calling Library and return the associated Cache\textbackslash{}\+Cache\+Item\+Interface object. It is also the primary point of interaction with the entire cache collection. All configuration and initialization of the Pool is left up to an Implementing Library. 
+
+\doxysubsection{Documentation des fonctions membres}
+\Hypertarget{interface_psr_1_1_cache_1_1_cache_item_pool_interface_aa821bec12eaa7e0f649397c9675ff505}\label{interface_psr_1_1_cache_1_1_cache_item_pool_interface_aa821bec12eaa7e0f649397c9675ff505} 
+\index{CacheItemPoolInterface@{CacheItemPoolInterface}!clear@{clear}}
+\index{clear@{clear}!CacheItemPoolInterface@{CacheItemPoolInterface}}
+\doxysubsubsection{\texorpdfstring{clear()}{clear()}}
+{\footnotesize\ttfamily clear (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Deletes all items in the pool.
+
+\begin{DoxyReturn}{Renvoie}
+bool True if the pool was successfully cleared. False if there was an error. 
+\end{DoxyReturn}
+\Hypertarget{interface_psr_1_1_cache_1_1_cache_item_pool_interface_af5674c27d4a92f6228565010eacbb9cb}\label{interface_psr_1_1_cache_1_1_cache_item_pool_interface_af5674c27d4a92f6228565010eacbb9cb} 
+\index{CacheItemPoolInterface@{CacheItemPoolInterface}!commit@{commit}}
+\index{commit@{commit}!CacheItemPoolInterface@{CacheItemPoolInterface}}
+\doxysubsubsection{\texorpdfstring{commit()}{commit()}}
+{\footnotesize\ttfamily commit (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Persists any deferred cache items.
+
+\begin{DoxyReturn}{Renvoie}
+bool True if all not-\/yet-\/saved items were successfully saved or there were none. False otherwise. 
+\end{DoxyReturn}
+
+
+Implémenté dans \mbox{\hyperlink{class_symfony_1_1_component_1_1_cache_1_1_adapter_1_1_abstract_adapter_af5674c27d4a92f6228565010eacbb9cb}{Abstract\+Adapter}}, \mbox{\hyperlink{class_symfony_1_1_component_1_1_cache_1_1_adapter_1_1_abstract_tag_aware_adapter_af5674c27d4a92f6228565010eacbb9cb}{Abstract\+Tag\+Aware\+Adapter}}, \mbox{\hyperlink{class_symfony_1_1_component_1_1_cache_1_1_adapter_1_1_array_adapter_af5674c27d4a92f6228565010eacbb9cb}{Array\+Adapter}}, \mbox{\hyperlink{class_symfony_1_1_component_1_1_cache_1_1_adapter_1_1_chain_adapter_af5674c27d4a92f6228565010eacbb9cb}{Chain\+Adapter}}, \mbox{\hyperlink{class_symfony_1_1_component_1_1_cache_1_1_adapter_1_1_null_adapter_af5674c27d4a92f6228565010eacbb9cb}{Null\+Adapter}}, \mbox{\hyperlink{class_symfony_1_1_component_1_1_cache_1_1_adapter_1_1_pdo_adapter_af5674c27d4a92f6228565010eacbb9cb}{Pdo\+Adapter}}, \mbox{\hyperlink{class_symfony_1_1_component_1_1_cache_1_1_adapter_1_1_php_array_adapter_af5674c27d4a92f6228565010eacbb9cb}{Php\+Array\+Adapter}}, \mbox{\hyperlink{class_symfony_1_1_component_1_1_cache_1_1_adapter_1_1_proxy_adapter_af5674c27d4a92f6228565010eacbb9cb}{Proxy\+Adapter}}, \mbox{\hyperlink{class_symfony_1_1_component_1_1_cache_1_1_adapter_1_1_tag_aware_adapter_af5674c27d4a92f6228565010eacbb9cb}{Tag\+Aware\+Adapter}}, et \mbox{\hyperlink{class_symfony_1_1_component_1_1_cache_1_1_adapter_1_1_traceable_adapter_af5674c27d4a92f6228565010eacbb9cb}{Traceable\+Adapter}}.
+
+\Hypertarget{interface_psr_1_1_cache_1_1_cache_item_pool_interface_a57019c6883a4447e87e4e12b8105834f}\label{interface_psr_1_1_cache_1_1_cache_item_pool_interface_a57019c6883a4447e87e4e12b8105834f} 
+\index{CacheItemPoolInterface@{CacheItemPoolInterface}!deleteItem@{deleteItem}}
+\index{deleteItem@{deleteItem}!CacheItemPoolInterface@{CacheItemPoolInterface}}
+\doxysubsubsection{\texorpdfstring{deleteItem()}{deleteItem()}}
+{\footnotesize\ttfamily delete\+Item (\begin{DoxyParamCaption}\item[{}]{\$key }\end{DoxyParamCaption})}
+
+Removes the item from the pool.
+
+
+\begin{DoxyParams}[1]{Paramètres}
+string & {\em \$key} & The key to delete.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Invalid\+Argument\+Exception} & If the \$key string is not a legal value a \textbackslash{}\+Psr\textbackslash{}\+Cache\textbackslash{}\+Invalid\+Argument\+Exception MUST be thrown.\\
+\hline
+\end{DoxyExceptions}
+\begin{DoxyReturn}{Renvoie}
+bool True if the item was successfully removed. False if there was an error. 
+\end{DoxyReturn}
+
+
+Implémenté dans \mbox{\hyperlink{class_symfony_1_1_component_1_1_cache_1_1_adapter_1_1_array_adapter_a57019c6883a4447e87e4e12b8105834f}{Array\+Adapter}}, \mbox{\hyperlink{class_symfony_1_1_component_1_1_cache_1_1_adapter_1_1_chain_adapter_a57019c6883a4447e87e4e12b8105834f}{Chain\+Adapter}}, \mbox{\hyperlink{class_symfony_1_1_component_1_1_cache_1_1_adapter_1_1_null_adapter_a57019c6883a4447e87e4e12b8105834f}{Null\+Adapter}}, \mbox{\hyperlink{class_symfony_1_1_component_1_1_cache_1_1_adapter_1_1_pdo_adapter_a57019c6883a4447e87e4e12b8105834f}{Pdo\+Adapter}}, \mbox{\hyperlink{class_symfony_1_1_component_1_1_cache_1_1_adapter_1_1_php_array_adapter_a57019c6883a4447e87e4e12b8105834f}{Php\+Array\+Adapter}}, \mbox{\hyperlink{class_symfony_1_1_component_1_1_cache_1_1_adapter_1_1_proxy_adapter_a57019c6883a4447e87e4e12b8105834f}{Proxy\+Adapter}}, \mbox{\hyperlink{class_symfony_1_1_component_1_1_cache_1_1_adapter_1_1_tag_aware_adapter_a57019c6883a4447e87e4e12b8105834f}{Tag\+Aware\+Adapter}}, et \mbox{\hyperlink{class_symfony_1_1_component_1_1_cache_1_1_adapter_1_1_traceable_adapter_a57019c6883a4447e87e4e12b8105834f}{Traceable\+Adapter}}.
+
+\Hypertarget{interface_psr_1_1_cache_1_1_cache_item_pool_interface_af2ea95b29ace70903b16c4760efbf3d0}\label{interface_psr_1_1_cache_1_1_cache_item_pool_interface_af2ea95b29ace70903b16c4760efbf3d0} 
+\index{CacheItemPoolInterface@{CacheItemPoolInterface}!deleteItems@{deleteItems}}
+\index{deleteItems@{deleteItems}!CacheItemPoolInterface@{CacheItemPoolInterface}}
+\doxysubsubsection{\texorpdfstring{deleteItems()}{deleteItems()}}
+{\footnotesize\ttfamily delete\+Items (\begin{DoxyParamCaption}\item[{array}]{\$keys }\end{DoxyParamCaption})}
+
+Removes multiple items from the pool.
+
+
+\begin{DoxyParams}[1]{Paramètres}
+string\mbox{[}$\,$\mbox{]} & {\em \$keys} & An array of keys that should be removed from the pool.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Invalid\+Argument\+Exception} & If any of the keys in \$keys are not a legal value a \textbackslash{}\+Psr\textbackslash{}\+Cache\textbackslash{}\+Invalid\+Argument\+Exception MUST be thrown.\\
+\hline
+\end{DoxyExceptions}
+\begin{DoxyReturn}{Renvoie}
+bool True if the items were successfully removed. False if there was an error. 
+\end{DoxyReturn}
+
+
+Implémenté dans \mbox{\hyperlink{class_symfony_1_1_component_1_1_cache_1_1_adapter_1_1_abstract_tag_aware_adapter_af2ea95b29ace70903b16c4760efbf3d0}{Abstract\+Tag\+Aware\+Adapter}}, \mbox{\hyperlink{class_symfony_1_1_component_1_1_cache_1_1_adapter_1_1_array_adapter_af2ea95b29ace70903b16c4760efbf3d0}{Array\+Adapter}}, \mbox{\hyperlink{class_symfony_1_1_component_1_1_cache_1_1_adapter_1_1_chain_adapter_af2ea95b29ace70903b16c4760efbf3d0}{Chain\+Adapter}}, \mbox{\hyperlink{class_symfony_1_1_component_1_1_cache_1_1_adapter_1_1_null_adapter_af2ea95b29ace70903b16c4760efbf3d0}{Null\+Adapter}}, \mbox{\hyperlink{class_symfony_1_1_component_1_1_cache_1_1_adapter_1_1_pdo_adapter_af2ea95b29ace70903b16c4760efbf3d0}{Pdo\+Adapter}}, \mbox{\hyperlink{class_symfony_1_1_component_1_1_cache_1_1_adapter_1_1_php_array_adapter_af2ea95b29ace70903b16c4760efbf3d0}{Php\+Array\+Adapter}}, \mbox{\hyperlink{class_symfony_1_1_component_1_1_cache_1_1_adapter_1_1_proxy_adapter_af2ea95b29ace70903b16c4760efbf3d0}{Proxy\+Adapter}}, \mbox{\hyperlink{class_symfony_1_1_component_1_1_cache_1_1_adapter_1_1_tag_aware_adapter_af2ea95b29ace70903b16c4760efbf3d0}{Tag\+Aware\+Adapter}}, et \mbox{\hyperlink{class_symfony_1_1_component_1_1_cache_1_1_adapter_1_1_traceable_adapter_af2ea95b29ace70903b16c4760efbf3d0}{Traceable\+Adapter}}.
+
+\Hypertarget{interface_psr_1_1_cache_1_1_cache_item_pool_interface_ac2c9d62db1d0ef7b0886d886c5103332}\label{interface_psr_1_1_cache_1_1_cache_item_pool_interface_ac2c9d62db1d0ef7b0886d886c5103332} 
+\index{CacheItemPoolInterface@{CacheItemPoolInterface}!getItem@{getItem}}
+\index{getItem@{getItem}!CacheItemPoolInterface@{CacheItemPoolInterface}}
+\doxysubsubsection{\texorpdfstring{getItem()}{getItem()}}
+{\footnotesize\ttfamily get\+Item (\begin{DoxyParamCaption}\item[{}]{\$key }\end{DoxyParamCaption})}
+
+Returns a Cache Item representing the specified key.
+
+This method must always return a Cache\+Item\+Interface object, even in case of a cache miss. It MUST NOT return null.
+
+
+\begin{DoxyParams}[1]{Paramètres}
+string & {\em \$key} & The key for which to return the corresponding Cache Item.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Invalid\+Argument\+Exception} & If the \$key string is not a legal value a \textbackslash{}\+Psr\textbackslash{}\+Cache\textbackslash{}\+Invalid\+Argument\+Exception MUST be thrown.\\
+\hline
+\end{DoxyExceptions}
+\begin{DoxyReturn}{Renvoie}
+Cache\+Item\+Interface The corresponding Cache Item. 
+\end{DoxyReturn}
+
+
+Implémenté dans \mbox{\hyperlink{interface_symfony_1_1_component_1_1_cache_1_1_adapter_1_1_adapter_interface_ac2c9d62db1d0ef7b0886d886c5103332}{Adapter\+Interface}}, \mbox{\hyperlink{class_symfony_1_1_component_1_1_cache_1_1_adapter_1_1_array_adapter_ac2c9d62db1d0ef7b0886d886c5103332}{Array\+Adapter}}, \mbox{\hyperlink{class_symfony_1_1_component_1_1_cache_1_1_adapter_1_1_chain_adapter_ac2c9d62db1d0ef7b0886d886c5103332}{Chain\+Adapter}}, \mbox{\hyperlink{class_symfony_1_1_component_1_1_cache_1_1_adapter_1_1_null_adapter_ac2c9d62db1d0ef7b0886d886c5103332}{Null\+Adapter}}, \mbox{\hyperlink{class_symfony_1_1_component_1_1_cache_1_1_adapter_1_1_pdo_adapter_ac2c9d62db1d0ef7b0886d886c5103332}{Pdo\+Adapter}}, \mbox{\hyperlink{class_symfony_1_1_component_1_1_cache_1_1_adapter_1_1_php_array_adapter_ac2c9d62db1d0ef7b0886d886c5103332}{Php\+Array\+Adapter}}, \mbox{\hyperlink{class_symfony_1_1_component_1_1_cache_1_1_adapter_1_1_proxy_adapter_ac2c9d62db1d0ef7b0886d886c5103332}{Proxy\+Adapter}}, \mbox{\hyperlink{class_symfony_1_1_component_1_1_cache_1_1_adapter_1_1_tag_aware_adapter_ac2c9d62db1d0ef7b0886d886c5103332}{Tag\+Aware\+Adapter}}, et \mbox{\hyperlink{class_symfony_1_1_component_1_1_cache_1_1_adapter_1_1_traceable_adapter_ac2c9d62db1d0ef7b0886d886c5103332}{Traceable\+Adapter}}.
+
+\Hypertarget{interface_psr_1_1_cache_1_1_cache_item_pool_interface_a0ea8e9976573140cac77c46c8f5dd038}\label{interface_psr_1_1_cache_1_1_cache_item_pool_interface_a0ea8e9976573140cac77c46c8f5dd038} 
+\index{CacheItemPoolInterface@{CacheItemPoolInterface}!getItems@{getItems}}
+\index{getItems@{getItems}!CacheItemPoolInterface@{CacheItemPoolInterface}}
+\doxysubsubsection{\texorpdfstring{getItems()}{getItems()}}
+{\footnotesize\ttfamily get\+Items (\begin{DoxyParamCaption}\item[{array}]{\$keys = {\ttfamily array()} }\end{DoxyParamCaption})}
+
+Returns a traversable set of cache items.
+
+
+\begin{DoxyParams}[1]{Paramètres}
+string\mbox{[}$\,$\mbox{]} & {\em \$keys} & An indexed array of keys of items to retrieve.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Invalid\+Argument\+Exception} & If any of the keys in \$keys are not a legal value a \textbackslash{}\+Psr\textbackslash{}\+Cache\textbackslash{}\+Invalid\+Argument\+Exception MUST be thrown.\\
+\hline
+\end{DoxyExceptions}
+\begin{DoxyReturn}{Renvoie}
+array\texorpdfstring{$\vert$}{|}\textbackslash{}\+Traversable A traversable collection of Cache Items keyed by the cache keys of each item. A Cache item will be returned for each key, even if that key is not found. However, if no keys are specified then an empty traversable MUST be returned instead. 
+\end{DoxyReturn}
+
+
+Implémenté dans \mbox{\hyperlink{interface_symfony_1_1_component_1_1_cache_1_1_adapter_1_1_adapter_interface_a3db5bc3828085ecc62d0c6eff743dcff}{Adapter\+Interface}}, \mbox{\hyperlink{class_symfony_1_1_component_1_1_cache_1_1_adapter_1_1_array_adapter_a3db5bc3828085ecc62d0c6eff743dcff}{Array\+Adapter}}, \mbox{\hyperlink{class_symfony_1_1_component_1_1_cache_1_1_adapter_1_1_chain_adapter_a3db5bc3828085ecc62d0c6eff743dcff}{Chain\+Adapter}}, \mbox{\hyperlink{class_symfony_1_1_component_1_1_cache_1_1_adapter_1_1_null_adapter_a3db5bc3828085ecc62d0c6eff743dcff}{Null\+Adapter}}, \mbox{\hyperlink{class_symfony_1_1_component_1_1_cache_1_1_adapter_1_1_pdo_adapter_a3db5bc3828085ecc62d0c6eff743dcff}{Pdo\+Adapter}}, \mbox{\hyperlink{class_symfony_1_1_component_1_1_cache_1_1_adapter_1_1_php_array_adapter_a3db5bc3828085ecc62d0c6eff743dcff}{Php\+Array\+Adapter}}, \mbox{\hyperlink{class_symfony_1_1_component_1_1_cache_1_1_adapter_1_1_proxy_adapter_a3db5bc3828085ecc62d0c6eff743dcff}{Proxy\+Adapter}}, \mbox{\hyperlink{class_symfony_1_1_component_1_1_cache_1_1_adapter_1_1_tag_aware_adapter_a3db5bc3828085ecc62d0c6eff743dcff}{Tag\+Aware\+Adapter}}, et \mbox{\hyperlink{class_symfony_1_1_component_1_1_cache_1_1_adapter_1_1_traceable_adapter_a3db5bc3828085ecc62d0c6eff743dcff}{Traceable\+Adapter}}.
+
+\Hypertarget{interface_psr_1_1_cache_1_1_cache_item_pool_interface_af52c0b56089f49bf62ff41b59b2b0b19}\label{interface_psr_1_1_cache_1_1_cache_item_pool_interface_af52c0b56089f49bf62ff41b59b2b0b19} 
+\index{CacheItemPoolInterface@{CacheItemPoolInterface}!hasItem@{hasItem}}
+\index{hasItem@{hasItem}!CacheItemPoolInterface@{CacheItemPoolInterface}}
+\doxysubsubsection{\texorpdfstring{hasItem()}{hasItem()}}
+{\footnotesize\ttfamily has\+Item (\begin{DoxyParamCaption}\item[{}]{\$key }\end{DoxyParamCaption})}
+
+Confirms if the cache contains specified cache item.
+
+Note\+: This method MAY avoid retrieving the cached value for performance reasons. This could result in a race condition with Cache\+Item\+Interface\+::get(). To avoid such situation use Cache\+Item\+Interface\+::is\+Hit() instead.
+
+
+\begin{DoxyParams}[1]{Paramètres}
+string & {\em \$key} & The key for which to check existence.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Invalid\+Argument\+Exception} & If the \$key string is not a legal value a \textbackslash{}\+Psr\textbackslash{}\+Cache\textbackslash{}\+Invalid\+Argument\+Exception MUST be thrown.\\
+\hline
+\end{DoxyExceptions}
+\begin{DoxyReturn}{Renvoie}
+bool True if item exists in the cache, false otherwise. 
+\end{DoxyReturn}
+
+
+Implémenté dans \mbox{\hyperlink{class_symfony_1_1_component_1_1_cache_1_1_adapter_1_1_array_adapter_af52c0b56089f49bf62ff41b59b2b0b19}{Array\+Adapter}}, \mbox{\hyperlink{class_symfony_1_1_component_1_1_cache_1_1_adapter_1_1_chain_adapter_af52c0b56089f49bf62ff41b59b2b0b19}{Chain\+Adapter}}, \mbox{\hyperlink{class_symfony_1_1_component_1_1_cache_1_1_adapter_1_1_null_adapter_af52c0b56089f49bf62ff41b59b2b0b19}{Null\+Adapter}}, \mbox{\hyperlink{class_symfony_1_1_component_1_1_cache_1_1_adapter_1_1_pdo_adapter_af52c0b56089f49bf62ff41b59b2b0b19}{Pdo\+Adapter}}, \mbox{\hyperlink{class_symfony_1_1_component_1_1_cache_1_1_adapter_1_1_php_array_adapter_af52c0b56089f49bf62ff41b59b2b0b19}{Php\+Array\+Adapter}}, \mbox{\hyperlink{class_symfony_1_1_component_1_1_cache_1_1_adapter_1_1_proxy_adapter_af52c0b56089f49bf62ff41b59b2b0b19}{Proxy\+Adapter}}, \mbox{\hyperlink{class_symfony_1_1_component_1_1_cache_1_1_adapter_1_1_tag_aware_adapter_af52c0b56089f49bf62ff41b59b2b0b19}{Tag\+Aware\+Adapter}}, et \mbox{\hyperlink{class_symfony_1_1_component_1_1_cache_1_1_adapter_1_1_traceable_adapter_af52c0b56089f49bf62ff41b59b2b0b19}{Traceable\+Adapter}}.
+
+\Hypertarget{interface_psr_1_1_cache_1_1_cache_item_pool_interface_a64a3e767e6943bc7f9270f05ff552dd6}\label{interface_psr_1_1_cache_1_1_cache_item_pool_interface_a64a3e767e6943bc7f9270f05ff552dd6} 
+\index{CacheItemPoolInterface@{CacheItemPoolInterface}!save@{save}}
+\index{save@{save}!CacheItemPoolInterface@{CacheItemPoolInterface}}
+\doxysubsubsection{\texorpdfstring{save()}{save()}}
+{\footnotesize\ttfamily save (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{interface_psr_1_1_cache_1_1_cache_item_interface}{Cache\+Item\+Interface}}}]{\$item }\end{DoxyParamCaption})}
+
+Persists a cache item immediately.
+
+
+\begin{DoxyParams}[1]{Paramètres}
+Cache\+Item\+Interface & {\em \$item} & The cache item to save.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+bool True if the item was successfully persisted. False if there was an error. 
+\end{DoxyReturn}
+
+
+Implémenté dans \mbox{\hyperlink{class_symfony_1_1_component_1_1_cache_1_1_adapter_1_1_array_adapter_a64a3e767e6943bc7f9270f05ff552dd6}{Array\+Adapter}}, \mbox{\hyperlink{class_symfony_1_1_component_1_1_cache_1_1_adapter_1_1_chain_adapter_a64a3e767e6943bc7f9270f05ff552dd6}{Chain\+Adapter}}, \mbox{\hyperlink{class_symfony_1_1_component_1_1_cache_1_1_adapter_1_1_null_adapter_a64a3e767e6943bc7f9270f05ff552dd6}{Null\+Adapter}}, \mbox{\hyperlink{class_symfony_1_1_component_1_1_cache_1_1_adapter_1_1_pdo_adapter_a64a3e767e6943bc7f9270f05ff552dd6}{Pdo\+Adapter}}, \mbox{\hyperlink{class_symfony_1_1_component_1_1_cache_1_1_adapter_1_1_php_array_adapter_a64a3e767e6943bc7f9270f05ff552dd6}{Php\+Array\+Adapter}}, \mbox{\hyperlink{class_symfony_1_1_component_1_1_cache_1_1_adapter_1_1_proxy_adapter_a64a3e767e6943bc7f9270f05ff552dd6}{Proxy\+Adapter}}, \mbox{\hyperlink{class_symfony_1_1_component_1_1_cache_1_1_adapter_1_1_tag_aware_adapter_a64a3e767e6943bc7f9270f05ff552dd6}{Tag\+Aware\+Adapter}}, et \mbox{\hyperlink{class_symfony_1_1_component_1_1_cache_1_1_adapter_1_1_traceable_adapter_a64a3e767e6943bc7f9270f05ff552dd6}{Traceable\+Adapter}}.
+
+\Hypertarget{interface_psr_1_1_cache_1_1_cache_item_pool_interface_aea2bb54c43685f962ab93f7124fee2ce}\label{interface_psr_1_1_cache_1_1_cache_item_pool_interface_aea2bb54c43685f962ab93f7124fee2ce} 
+\index{CacheItemPoolInterface@{CacheItemPoolInterface}!saveDeferred@{saveDeferred}}
+\index{saveDeferred@{saveDeferred}!CacheItemPoolInterface@{CacheItemPoolInterface}}
+\doxysubsubsection{\texorpdfstring{saveDeferred()}{saveDeferred()}}
+{\footnotesize\ttfamily save\+Deferred (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{interface_psr_1_1_cache_1_1_cache_item_interface}{Cache\+Item\+Interface}}}]{\$item }\end{DoxyParamCaption})}
+
+Sets a cache item to be persisted later.
+
+
+\begin{DoxyParams}[1]{Paramètres}
+Cache\+Item\+Interface & {\em \$item} & The cache item to save.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+bool False if the item could not be queued or if a commit was attempted and failed. True otherwise. 
+\end{DoxyReturn}
+
+
+Implémenté dans \mbox{\hyperlink{class_symfony_1_1_component_1_1_cache_1_1_adapter_1_1_array_adapter_aea2bb54c43685f962ab93f7124fee2ce}{Array\+Adapter}}, \mbox{\hyperlink{class_symfony_1_1_component_1_1_cache_1_1_adapter_1_1_chain_adapter_aea2bb54c43685f962ab93f7124fee2ce}{Chain\+Adapter}}, \mbox{\hyperlink{class_symfony_1_1_component_1_1_cache_1_1_adapter_1_1_null_adapter_aea2bb54c43685f962ab93f7124fee2ce}{Null\+Adapter}}, \mbox{\hyperlink{class_symfony_1_1_component_1_1_cache_1_1_adapter_1_1_pdo_adapter_aea2bb54c43685f962ab93f7124fee2ce}{Pdo\+Adapter}}, \mbox{\hyperlink{class_symfony_1_1_component_1_1_cache_1_1_adapter_1_1_php_array_adapter_aea2bb54c43685f962ab93f7124fee2ce}{Php\+Array\+Adapter}}, \mbox{\hyperlink{class_symfony_1_1_component_1_1_cache_1_1_adapter_1_1_proxy_adapter_aea2bb54c43685f962ab93f7124fee2ce}{Proxy\+Adapter}}, \mbox{\hyperlink{class_symfony_1_1_component_1_1_cache_1_1_adapter_1_1_tag_aware_adapter_aea2bb54c43685f962ab93f7124fee2ce}{Tag\+Aware\+Adapter}}, et \mbox{\hyperlink{class_symfony_1_1_component_1_1_cache_1_1_adapter_1_1_traceable_adapter_aea2bb54c43685f962ab93f7124fee2ce}{Traceable\+Adapter}}.
+
+
+
+La documentation de cette interface a été générée à partir du fichier suivant \+:\begin{DoxyCompactItemize}
+\item 
+public/glpi/vendor/psr/cache/src/\mbox{\hyperlink{_cache_item_pool_interface_8php}{Cache\+Item\+Pool\+Interface.\+php}}\end{DoxyCompactItemize}

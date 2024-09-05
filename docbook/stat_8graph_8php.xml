@@ -1,0 +1,133 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_stat_8graph_8php" xml:lang="fr">
+<title>Référence du fichier public/glpi/front/stat.graph.php</title>
+<indexterm><primary>public/glpi/front/stat.graph.php</primary></indexterm>
+<simplesect>
+    <title>Variables    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">global</link> <link linkend="_stat_8graph_8php_1a2e00a61703ee4673cdfb5eb376a9b295">$CFG_GLPI</link></para>
+</listitem>
+            <listitem><para><link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">global</link> <link linkend="_stat_8graph_8php_1a56f6c6070edb21a35cfa9e1df79ba61c">$DB</link></para>
+</listitem>
+            <listitem><para><link linkend="_dropdown_location_8php_1a52332c22f84432520971794825a5a8e7">if</link>(! $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">item</link>=<link linkend="_db_8function_8php_1a5bb7668a0ab5705035e0608178fabcba">getItemForItemtype</link>( $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">_GET</link>[ &apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">itemtype</link>&apos;])) <link linkend="_get_user_picture_8php_1a0df27c645324b72eaf7093e10f310670">foreach</link>([&apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">date1</link>&apos;, &apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">date2</link>&apos;] <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">as</link> $key) <link linkend="_dropdown_location_8php_1a52332c22f84432520971794825a5a8e7">if</link>(<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">empty</link>( $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">_POST</link>[&quot;date1&quot;]) &amp;&amp;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">empty</link>( $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">_POST</link>[&quot;date2&quot;])) <link linkend="_dropdown_location_8php_1a52332c22f84432520971794825a5a8e7">if</link>(!<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">empty</link>($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">_POST</link>[&quot;date1&quot;]) &amp;&amp;!<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">empty</link>($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">_POST</link>[&quot;date2&quot;]) &amp;&amp;(strcmp($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">_POST</link>[&quot;date2&quot;], $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">_POST</link>[&quot;date1&quot;])&lt; 0)) <link linkend="_stat_8graph_8php_1a10f314c6f15a3171ec2b8ab5cc0e7629">$cleantarget</link> = preg_replace(&quot;/[&amp;]date[12]=[0-9-]*/&quot;, &quot;&quot;, $_SERVER[&apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">QUERY_STRING</link>&apos;])</para>
+</listitem>
+            <listitem><para><link linkend="_stat_8graph_8php_1ac24f6189c7888ec50c77f7e65a837a62">$next</link> = 0</para>
+</listitem>
+            <listitem><para><link linkend="_stat_8graph_8php_1a6a84acde87e05eb2ec8ca7d45fe7d0c1">$prev</link> = 0</para>
+</listitem>
+            <listitem><para><link linkend="_stat_8graph_8php_1ada57e7bb7c152edad18fe2f166188691">$title</link> = &quot;&quot;</para>
+</listitem>
+            <listitem><para><link linkend="_stat_8graph_8php_1a4e2313a4b35b72a06ac45fd38960f677">$parent</link> = 0</para>
+</listitem>
+            <listitem><para><link linkend="_stat_8graph_8php_1af48b9ff0686bea115507e6ac535a15bc">$showuserlink</link> = 0</para>
+</listitem>
+            <listitem><para><link linkend="_dropdown_location_8php_1a52332c22f84432520971794825a5a8e7">if</link>(<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">Session::haveRight</link>(&apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">user</link>&apos;, <link linkend="_define_8php_1add302975378da047de904daa059a332b">READ</link>)) <link linkend="_stat_8graph_8php_1a480a6845f6b35b7d99437d09515a4091">$val1</link> = null</para>
+</listitem>
+            <listitem><para><link linkend="_stat_8graph_8php_1a262b6026c9c436ca9ef37a7a715822e3">$val2</link> = null</para>
+</listitem>
+            <listitem><para><link linkend="_stat_8graph_8php_1affc45c6ace2eeb3f300b054dbf9592b6">$values</link> = []</para>
+</listitem>
+            <listitem><para><link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">switch</link>($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">_GET</link>[&quot;type&quot;]) <link linkend="_stat_8graph_8php_1a91de50daf75a0bc452bea030e57373c3">$foundkey</link> = -1</para>
+</listitem>
+            <listitem><para><link linkend="_get_user_picture_8php_1a0df27c645324b72eaf7093e10f310670">foreach</link>( $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">values</link> <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">as</link> $key=&gt; $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">val</link>) <link linkend="_dropdown_location_8php_1a52332c22f84432520971794825a5a8e7">if</link>($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">foundkey</link> &gt;=0) <link linkend="_stat_8graph_8php_1a03eb047d02ef4f96cbc5136199e862cf">$stat</link> = <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">new</link> <link linkend="_class_stat">Stat</link>()</para>
+</listitem>
+            <listitem><para><link linkend="_stat_8graph_8php_1a70747c1b34135f8dbff5da67c378aa3d">if</link> ( $prev &gt; 0)</para>
+</listitem>
+            <listitem><para><link linkend="_stat_8graph_8php_1a97f00a3eb3f2c3198313323c8df7dcb2">$target</link> = preg_replace(&quot;/&amp;/&quot;, &quot;&amp;amp;&quot;, $_SERVER[&quot;REQUEST_URI&quot;])</para>
+</listitem>
+            <listitem><para><link linkend="_stat_8graph_8php_1a75934b947a4bd2eb91badea89ec53bed">$stat_params</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Documentation des variables</title>
+<anchor xml:id="_stat_8graph_8php_1a2e00a61703ee4673cdfb5eb376a9b295"/><section>
+    <title>$CFG_GLPI</title>
+<indexterm><primary>$CFG_GLPI</primary><secondary>stat.graph.php</secondary></indexterm>
+<indexterm><primary>stat.graph.php</primary><secondary>$CFG_GLPI</secondary></indexterm>
+<para><computeroutput><link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">global</link> $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">CFG_GLPI</link></computeroutput></para></section>
+<anchor xml:id="_stat_8graph_8php_1a10f314c6f15a3171ec2b8ab5cc0e7629"/><section>
+    <title>$cleantarget</title>
+<indexterm><primary>$cleantarget</primary><secondary>stat.graph.php</secondary></indexterm>
+<indexterm><primary>stat.graph.php</primary><secondary>$cleantarget</secondary></indexterm>
+<para><computeroutput>$<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">cleantarget</link> = preg_replace(&quot;/[&amp;]date[12]=[0-9-]*/&quot;, &quot;&quot;, $_SERVER[&apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">QUERY_STRING</link>&apos;])</computeroutput></para></section>
+<anchor xml:id="_stat_8graph_8php_1a56f6c6070edb21a35cfa9e1df79ba61c"/><section>
+    <title>$DB</title>
+<indexterm><primary>$DB</primary><secondary>stat.graph.php</secondary></indexterm>
+<indexterm><primary>stat.graph.php</primary><secondary>$DB</secondary></indexterm>
+<para><computeroutput><link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">global</link> $<link linkend="_class_d_b">DB</link></computeroutput></para></section>
+<anchor xml:id="_stat_8graph_8php_1a91de50daf75a0bc452bea030e57373c3"/><section>
+    <title>$foundkey</title>
+<indexterm><primary>$foundkey</primary><secondary>stat.graph.php</secondary></indexterm>
+<indexterm><primary>stat.graph.php</primary><secondary>$foundkey</secondary></indexterm>
+<para><computeroutput><link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">switch</link> ( $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">_GET</link>[&quot;type&quot;]) $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">foundkey</link> = -1</computeroutput></para></section>
+<anchor xml:id="_stat_8graph_8php_1ac24f6189c7888ec50c77f7e65a837a62"/><section>
+    <title>$next</title>
+<indexterm><primary>$next</primary><secondary>stat.graph.php</secondary></indexterm>
+<indexterm><primary>stat.graph.php</primary><secondary>$next</secondary></indexterm>
+<para><computeroutput>$next = 0</computeroutput></para></section>
+<anchor xml:id="_stat_8graph_8php_1a4e2313a4b35b72a06ac45fd38960f677"/><section>
+    <title>$parent</title>
+<indexterm><primary>$parent</primary><secondary>stat.graph.php</secondary></indexterm>
+<indexterm><primary>stat.graph.php</primary><secondary>$parent</secondary></indexterm>
+<para><computeroutput>$<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">parent</link> = 0</computeroutput></para></section>
+<anchor xml:id="_stat_8graph_8php_1a6a84acde87e05eb2ec8ca7d45fe7d0c1"/><section>
+    <title>$prev</title>
+<indexterm><primary>$prev</primary><secondary>stat.graph.php</secondary></indexterm>
+<indexterm><primary>stat.graph.php</primary><secondary>$prev</secondary></indexterm>
+<para><computeroutput>$prev = 0</computeroutput></para></section>
+<anchor xml:id="_stat_8graph_8php_1af48b9ff0686bea115507e6ac535a15bc"/><section>
+    <title>$showuserlink</title>
+<indexterm><primary>$showuserlink</primary><secondary>stat.graph.php</secondary></indexterm>
+<indexterm><primary>stat.graph.php</primary><secondary>$showuserlink</secondary></indexterm>
+<para><computeroutput>$<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">showuserlink</link> = 0</computeroutput></para></section>
+<anchor xml:id="_stat_8graph_8php_1a03eb047d02ef4f96cbc5136199e862cf"/><section>
+    <title>$stat</title>
+<indexterm><primary>$stat</primary><secondary>stat.graph.php</secondary></indexterm>
+<indexterm><primary>stat.graph.php</primary><secondary>$stat</secondary></indexterm>
+<para><computeroutput><link linkend="_get_user_picture_8php_1a0df27c645324b72eaf7093e10f310670">foreach</link>($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">values</link> <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">as</link> $key=&gt; $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">val</link>) <link linkend="_dropdown_location_8php_1a52332c22f84432520971794825a5a8e7">if</link> ( $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">foundkey</link> &gt;=0) $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">stat</link> = <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">new</link> <link linkend="_class_stat">Stat</link>()</computeroutput></para></section>
+<anchor xml:id="_stat_8graph_8php_1a75934b947a4bd2eb91badea89ec53bed"/><section>
+    <title>$stat_params</title>
+<indexterm><primary>$stat_params</primary><secondary>stat.graph.php</secondary></indexterm>
+<indexterm><primary>stat.graph.php</primary><secondary>$stat_params</secondary></indexterm>
+<para><computeroutput>$<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">stat_params</link></computeroutput></para><emphasis role="strong">Valeur initiale :</emphasis><programlisting linenumbering="unnumbered">=&#32;[
+&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&apos;itemtype&apos;</emphasis>&#32;=&gt;&#32;<link linkend="_common_8tabs_8php_1a7b2772071c2b50e11742306f5abe68e3">$_GET</link>[<emphasis role="stringliteral">&apos;itemtype&apos;</emphasis>],
+&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&apos;date1&apos;</emphasis>&#32;&#32;&#32;&#32;=&gt;&#32;<link linkend="_dropdown_delegation_users_8php_1aafd65e1fd3be66763660e541468d9f5d">$_POST</link>[<emphasis role="stringliteral">&apos;date1&apos;</emphasis>],
+&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&apos;date2&apos;</emphasis>&#32;&#32;&#32;&#32;=&gt;&#32;<link linkend="_dropdown_delegation_users_8php_1aafd65e1fd3be66763660e541468d9f5d">$_POST</link>[<emphasis role="stringliteral">&apos;date2&apos;</emphasis>],
+&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&apos;type&apos;</emphasis>&#32;&#32;&#32;&#32;&#32;=&gt;&#32;<link linkend="_common_8tabs_8php_1a7b2772071c2b50e11742306f5abe68e3">$_GET</link>[<emphasis role="stringliteral">&apos;type&apos;</emphasis>],
+&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&apos;val1&apos;</emphasis>&#32;&#32;&#32;&#32;&#32;=&gt;&#32;<link linkend="_stat_8graph_8php_1a480a6845f6b35b7d99437d09515a4091">$val1</link>,
+&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&apos;val2&apos;</emphasis>&#32;&#32;&#32;&#32;&#32;=&gt;&#32;<link linkend="_stat_8graph_8php_1a262b6026c9c436ca9ef37a7a715822e3">$val2</link>,
+]
+</programlisting></section>
+<anchor xml:id="_stat_8graph_8php_1a97f00a3eb3f2c3198313323c8df7dcb2"/><section>
+    <title>$target</title>
+<indexterm><primary>$target</primary><secondary>stat.graph.php</secondary></indexterm>
+<indexterm><primary>stat.graph.php</primary><secondary>$target</secondary></indexterm>
+<para><computeroutput>$<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">target</link> = preg_replace(&quot;/&amp;/&quot;, &quot;&amp;amp;&quot;, $_SERVER[&quot;REQUEST_URI&quot;])</computeroutput></para></section>
+<anchor xml:id="_stat_8graph_8php_1ada57e7bb7c152edad18fe2f166188691"/><section>
+    <title>$title</title>
+<indexterm><primary>$title</primary><secondary>stat.graph.php</secondary></indexterm>
+<indexterm><primary>stat.graph.php</primary><secondary>$title</secondary></indexterm>
+<para><computeroutput>$title = &quot;&quot;</computeroutput></para></section>
+<anchor xml:id="_stat_8graph_8php_1a480a6845f6b35b7d99437d09515a4091"/><section>
+    <title>$val1</title>
+<indexterm><primary>$val1</primary><secondary>stat.graph.php</secondary></indexterm>
+<indexterm><primary>stat.graph.php</primary><secondary>$val1</secondary></indexterm>
+<para><computeroutput><link linkend="_dropdown_location_8php_1a52332c22f84432520971794825a5a8e7">if</link> (<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">Session::haveRight</link>( &apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">user</link>&apos;, <link linkend="_define_8php_1add302975378da047de904daa059a332b">READ</link>)) $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">val1</link> = null</computeroutput></para></section>
+<anchor xml:id="_stat_8graph_8php_1a262b6026c9c436ca9ef37a7a715822e3"/><section>
+    <title>$val2</title>
+<indexterm><primary>$val2</primary><secondary>stat.graph.php</secondary></indexterm>
+<indexterm><primary>stat.graph.php</primary><secondary>$val2</secondary></indexterm>
+<para><computeroutput>$<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">val2</link> = null</computeroutput></para></section>
+<anchor xml:id="_stat_8graph_8php_1affc45c6ace2eeb3f300b054dbf9592b6"/><section>
+    <title>$values</title>
+<indexterm><primary>$values</primary><secondary>stat.graph.php</secondary></indexterm>
+<indexterm><primary>stat.graph.php</primary><secondary>$values</secondary></indexterm>
+<para><computeroutput>$<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">values</link> = []</computeroutput></para></section>
+<anchor xml:id="_stat_8graph_8php_1a70747c1b34135f8dbff5da67c378aa3d"/><section>
+    <title>if</title>
+<indexterm><primary>if</primary><secondary>stat.graph.php</secondary></indexterm>
+<indexterm><primary>stat.graph.php</primary><secondary>if</secondary></indexterm>
+<para><computeroutput>if($next &gt; 0) ( $prev, 0 )</computeroutput></para></section>
+</section>
+</section>

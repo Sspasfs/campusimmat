@@ -1,0 +1,72 @@
+\doxysection{Référence de la classe Instantiator}
+\hypertarget{class_symfony_1_1_component_1_1_var_exporter_1_1_instantiator}{}\label{class_symfony_1_1_component_1_1_var_exporter_1_1_instantiator}\index{Instantiator@{Instantiator}}
+
+
+Graphe de collaboration de Instantiator\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=194pt]{class_symfony_1_1_component_1_1_var_exporter_1_1_instantiator__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Fonctions membres publiques statiques}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_symfony_1_1_component_1_1_var_exporter_1_1_instantiator_a7e668ddb06619d09c4e1fcbafe4e5300}{instantiate}} (string \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{class}}, array \$properties=\mbox{[}$\,$\mbox{]}, array \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{private\+Properties}}=\mbox{[}$\,$\mbox{]})
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+A utility class to create objects without calling their constructor.
+
+\begin{DoxyAuthor}{Auteur}
+Nicolas Grekas \href{mailto:p@tchwork.com}{\texttt{ p@tchwork.\+com}} 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Documentation des fonctions membres}
+\Hypertarget{class_symfony_1_1_component_1_1_var_exporter_1_1_instantiator_a7e668ddb06619d09c4e1fcbafe4e5300}\label{class_symfony_1_1_component_1_1_var_exporter_1_1_instantiator_a7e668ddb06619d09c4e1fcbafe4e5300} 
+\index{Instantiator@{Instantiator}!instantiate@{instantiate}}
+\index{instantiate@{instantiate}!Instantiator@{Instantiator}}
+\doxysubsubsection{\texorpdfstring{instantiate()}{instantiate()}}
+{\footnotesize\ttfamily static instantiate (\begin{DoxyParamCaption}\item[{string}]{\$class,  }\item[{array}]{\$properties = {\ttfamily \mbox{[}\mbox{]}},  }\item[{array}]{\$private\+Properties = {\ttfamily \mbox{[}\mbox{]}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Creates an object and sets its properties without calling its constructor nor any other methods.
+
+For example\+: \begin{DoxyVerb}// creates an empty instance of Foo
+Instantiator::instantiate(Foo::class);
+
+// creates a Foo instance and sets one of its properties
+Instantiator::instantiate(Foo::class, ['propertyName' => $propertyValue]);
+
+// creates a Foo instance and sets a private property defined on its parent Bar class
+Instantiator::instantiate(Foo::class, [], [
+    Bar::class => ['privateBarProperty' => $propertyValue],
+]);
+\end{DoxyVerb}
+ Instances of Array\+Object, Array\+Iterator and Spl\+Object\+Storage can be created by using the special "{}\textbackslash{}0"{} property name to define their internal value\+: \begin{DoxyVerb}// creates an SplObjectStorage where $info1 is attached to $obj1, etc.
+Instantiator::instantiate(SplObjectStorage::class, ["\0" => [$obj1, $info1, $obj2, $info2...]]);
+
+// creates an ArrayObject populated with $inputArray
+Instantiator::instantiate(ArrayObject::class, ["\0" => [$inputArray]]);
+\end{DoxyVerb}
+ 
+\begin{DoxyParams}[1]{Paramètres}
+string & {\em \$class} & The class of the instance to create \\
+\hline
+array & {\em \$properties} & The properties to set on the instance \\
+\hline
+array & {\em \$private\+Properties} & The private properties to set on the instance, keyed by their declaring class\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Exception\+Interface} & When the instance cannot be created \\
+\hline
+\end{DoxyExceptions}
+
+
+La documentation de cette classe a été générée à partir du fichier suivant \+:\begin{DoxyCompactItemize}
+\item 
+public/glpi/vendor/symfony/var-\/exporter/\mbox{\hyperlink{_instantiator_8php}{Instantiator.\+php}}\end{DoxyCompactItemize}

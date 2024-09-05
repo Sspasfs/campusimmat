@@ -1,0 +1,281 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.10.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>CampusImmat: README</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">CampusImmat
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.10.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+</div><!-- top -->
+<div><div class="header">
+  <div class="headertitle"><div class="title">README</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><p><img src="https://github.com/firebase/php-jwt/actions/workflows/tests.yml/badge.svg" alt="Build Status" style="pointer-events: none;" class="inline"/> <a href="https://packagist.org/packages/firebase/php-jwt"><img src="https://poser.pugx.org/firebase/php-jwt/v/stable" alt="Latest Stable Version" class="inline"/></a> <a href="https://packagist.org/packages/firebase/php-jwt"><img src="https://poser.pugx.org/firebase/php-jwt/downloads" alt="Total Downloads" class="inline"/></a> <a href="https://packagist.org/packages/firebase/php-jwt"><img src="https://poser.pugx.org/firebase/php-jwt/license" alt="License" class="inline"/></a></p>
+<h1><a class="anchor" id="autotoc_md5788"></a>
+PHP-JWT</h1>
+<p>A simple library to encode and decode JSON Web Tokens (JWT) in PHP, conforming to <a href="https://tools.ietf.org/html/rfc7519">RFC 7519</a>.</p>
+<h2><a class="anchor" id="autotoc_md5789"></a>
+Installation</h2>
+<p>Use composer to manage your dependencies and download PHP-JWT:</p>
+<div class="fragment"><div class="line">composer require firebase/php-jwt</div>
+</div><!-- fragment --><p>Optionally, install the <code>paragonie/sodium_compat</code> package from composer if your php is &lt; 7.2 or does not have libsodium installed:</p>
+<div class="fragment"><div class="line">composer require paragonie/sodium_compat</div>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md5790"></a>
+Example</h2>
+<div class="fragment"><div class="line"><a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">use</a> <a class="code hl_class" href="class_firebase_1_1_j_w_t_1_1_j_w_t.html">Firebase\JWT\JWT</a>;</div>
+<div class="line"><a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">use</a> <a class="code hl_class" href="class_firebase_1_1_j_w_t_1_1_key.html">Firebase\JWT\Key</a>;</div>
+<div class="line"> </div>
+<div class="line">$key = <span class="stringliteral">&#39;example_key&#39;</span>;</div>
+<div class="line"><a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">$payload</a> = [</div>
+<div class="line">    <span class="stringliteral">&#39;iss&#39;</span> =&gt; <span class="stringliteral">&#39;http://example.org&#39;</span>,</div>
+<div class="line">    <span class="stringliteral">&#39;aud&#39;</span> =&gt; <span class="stringliteral">&#39;http://example.com&#39;</span>,</div>
+<div class="line">    <span class="stringliteral">&#39;iat&#39;</span> =&gt; 1356999524,</div>
+<div class="line">    <span class="stringliteral">&#39;nbf&#39;</span> =&gt; 1357000000</div>
+<div class="line">];</div>
+<div class="line"> </div>
+<div class="line"><a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">$jwt</a> = JWT::encode(<a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">$payload</a>, $key, <span class="stringliteral">&#39;HS256&#39;</span>);</div>
+<div class="line"><a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">$decoded</a> = JWT::decode(<a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">$jwt</a>, <span class="keyword">new</span> Key($key, <span class="stringliteral">&#39;HS256&#39;</span>));</div>
+<div class="line"> </div>
+<div class="line"><a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">print_r</a>(<a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">$decoded</a>);</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">/*</span></div>
+<div class="line"><span class="comment"> NOTE: This will now be an object instead of an associative array. To get</span></div>
+<div class="line"><span class="comment"> an associative array, you will need to cast it as such:</span></div>
+<div class="line"><span class="comment">*/</span></div>
+<div class="line"> </div>
+<div class="line"><a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">$decoded_array</a> = (array) <a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">$decoded</a>;</div>
+<div class="line"> </div>
+<div class="line">JWT::$leeway = 60; <span class="comment">// $leeway in seconds</span></div>
+<div class="line"><a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">$decoded</a> = JWT::decode(<a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">$jwt</a>, <span class="keyword">new</span> Key($key, <span class="stringliteral">&#39;HS256&#39;</span>));</div>
+<div class="ttc" id="aclass_firebase_1_1_j_w_t_1_1_j_w_t_html"><div class="ttname"><a href="class_firebase_1_1_j_w_t_1_1_j_w_t.html">Firebase\JWT\JWT</a></div><div class="ttdef"><b>Definition</b> JWT.php:29</div></div>
+<div class="ttc" id="aclass_firebase_1_1_j_w_t_1_1_key_html"><div class="ttname"><a href="class_firebase_1_1_j_w_t_1_1_key.html">Firebase\JWT\Key</a></div><div class="ttdef"><b>Definition</b> Key.php:11</div></div>
+<div class="ttc" id="areport_8contract_8php_html_a77b973d137fb33212e018b042df6e3e7"><div class="ttname"><a href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">$y</a></div><div class="ttdeci">$y</div><div class="ttdef"><b>Definition</b> report.contract.php:71</div></div>
+</div><!-- fragment --> <h2><a class="anchor" id="autotoc_md5791"></a>
+Example with RS256 (openssl)</h2>
+<div class="fragment"><div class="line"><a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">use</a> <a class="code hl_class" href="class_firebase_1_1_j_w_t_1_1_j_w_t.html">Firebase\JWT\JWT</a>;</div>
+<div class="line"><a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">use</a> <a class="code hl_class" href="class_firebase_1_1_j_w_t_1_1_key.html">Firebase\JWT\Key</a>;</div>
+<div class="line"> </div>
+<div class="line"><a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">$privateKey</a> = &lt;&lt;&lt;<a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">EOD</a></div>
+<div class="line">-----<a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">BEGIN</a> <a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">RSA</a> <a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">PRIVATE</a> <a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">KEY</a>-----</div>
+<div class="line"><a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">MIICXAIBAAKBgQC8kGa1pSjbSYZVebtTRBLxBz5H4i2p</a>/<a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">llLCrEeQhta5kaQu</a>/<a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">Rn</a></div>
+<div class="line"><a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">vuER4W8oDH3</a>+3<a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">iuIYW4VQAzyqFpwuzjkDI</a>+17<a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">t5t0tyazyZ8JXw</a>+<a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">KgXTxldMPEL9</a></div>
+<div class="line">5+<a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">qVhgXvwtihXC1c5oGbRlEDvDF6Sa53rcFVsYJ4ehde</a>/<a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">zUxo6UvS7UrBQIDAQAB</a></div>
+<div class="line"><a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">AoGAb</a>/<a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">MXV46XxCFRxNuB8LyAtmLDgi</a>/<a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">xRnTAlMHjSACddwkyKem8</a><span class="comment">//8eZtw9fzxz</span></div>
+<div class="line"><a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">bWZ</a>/1/<a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">doQOuHBGYZU8aDzzj59FZ78dyzNFoF91hbvZKkg</a>+6<a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">wGyd</a>/<a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">LrGVEB</a>+<a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">Xre0J</a></div>
+<div class="line"><a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">Nil0GReM2AHDNZUYRv</a>+<a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">HYJPIOrB0CRczLQsgFJ8K6aAD6F0CQQDzbpjYdx10qgK1</a></div>
+<div class="line"><a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">cP59UHiHjPZYC0loEsk7s</a>+<a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">hUmT3QHerAQJMZWC11Qrn2N</a>+<a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">ybwwNblDKv</a>+<a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">s5qgMQ5</a></div>
+<div class="line">5<a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">tNoQ9IfAkEAxkyffU6ythpg</a>/<a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">H0Ixe1I2rd0GbF05biIzO</a>/<a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">i77Det3n4YsJVlDck</a></div>
+<div class="line"><a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">ZkcvY3SK2iRIL4c9yY6hlIhs</a>+<a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">K9wXTtGWwJBAO9Dskl48mO7woPR9uD22jDpNSwe</a></div>
+<div class="line"><a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">k90OMepTjzSvlhjbfuPN1IdhqvSJTDychRwn1kIJ7LQZgQ8fVz9OCFZ</a>/6<a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">qMCQGOb</a></div>
+<div class="line"><a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">qaGwHmUK6xzpUbbacnYrIM6nLSkXgOAwv7XXCojvY614ILTK3iXiLBOxPu5Eu13k</a></div>
+<div class="line"><a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">eUz9sHyD6vkgZzjtxXECQAkp4Xerf5TGfQXGXhxIX52yH</a>+<a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">N2LtujCdkQZjXAsGdm</a></div>
+<div class="line"><a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">B2zNzvrlgRmgBrklMTrMYgm1NPcW</a>+<a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">bRLGcwgW2PTvNM</a>=</div>
+<div class="line">-----END <a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">RSA</a> <a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">PRIVATE</a> <a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">KEY</a>-----</div>
+<div class="line"><a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">EOD</a>;</div>
+<div class="line"> </div>
+<div class="line"><a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">$publicKey</a> = &lt;&lt;&lt;<a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">EOD</a></div>
+<div class="line">-----<a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">BEGIN</a> <a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">PUBLIC</a> <a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">KEY</a>-----</div>
+<div class="line"><a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQC8kGa1pSjbSYZVebtTRBLxBz5H</a></div>
+<div class="line">4<a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">i2p</a>/<a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">llLCrEeQhta5kaQu</a>/<a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">RnvuER4W8oDH3</a>+3<a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">iuIYW4VQAzyqFpwuzjkDI</a>+17<a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">t5t</a></div>
+<div class="line">0<a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">tyazyZ8JXw</a>+<a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">KgXTxldMPEL95</a>+<a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">qVhgXvwtihXC1c5oGbRlEDvDF6Sa53rcFVsYJ4</a></div>
+<div class="line"><a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">ehde</a>/<a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">zUxo6UvS7UrBQIDAQAB</a></div>
+<div class="line">-----END <a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">PUBLIC</a> <a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">KEY</a>-----</div>
+<div class="line"><a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">EOD</a>;</div>
+<div class="line"> </div>
+<div class="line"><a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">$payload</a> = [</div>
+<div class="line">    <span class="stringliteral">&#39;iss&#39;</span> =&gt; <span class="stringliteral">&#39;example.org&#39;</span>,</div>
+<div class="line">    <span class="stringliteral">&#39;aud&#39;</span> =&gt; <span class="stringliteral">&#39;example.com&#39;</span>,</div>
+<div class="line">    <span class="stringliteral">&#39;iat&#39;</span> =&gt; 1356999524,</div>
+<div class="line">    <span class="stringliteral">&#39;nbf&#39;</span> =&gt; 1357000000</div>
+<div class="line">];</div>
+<div class="line"> </div>
+<div class="line"><a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">$jwt</a> = JWT::encode(<a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">$payload</a>, <a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">$privateKey</a>, <span class="stringliteral">&#39;RS256&#39;</span>);</div>
+<div class="line"><a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">echo</a> <span class="stringliteral">&quot;Encode:\n&quot;</span> . <a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">print_r</a>(<a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">$jwt</a>, <span class="keyword">true</span>) . <span class="stringliteral">&quot;\n&quot;</span>;</div>
+<div class="line"> </div>
+<div class="line"><a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">$decoded</a> = JWT::decode(<a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">$jwt</a>, <span class="keyword">new</span> Key(<a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">$publicKey</a>, <span class="stringliteral">&#39;RS256&#39;</span>));</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">/*</span></div>
+<div class="line"><span class="comment"> NOTE: This will now be an object instead of an associative array. To get</span></div>
+<div class="line"><span class="comment"> an associative array, you will need to cast it as such:</span></div>
+<div class="line"><span class="comment">*/</span></div>
+<div class="line"> </div>
+<div class="line"><a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">$decoded_array</a> = (array) <a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">$decoded</a>;</div>
+<div class="line"><a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">echo</a> <span class="stringliteral">&quot;Decode:\n&quot;</span> . <a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">print_r</a>(<a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">$decoded_array</a>, <span class="keyword">true</span>) . <span class="stringliteral">&quot;\n&quot;</span>;</div>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md5792"></a>
+Example with a passphrase</h2>
+<div class="fragment"><div class="line"><a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">use</a> <a class="code hl_class" href="class_firebase_1_1_j_w_t_1_1_j_w_t.html">Firebase\JWT\JWT</a>;</div>
+<div class="line"><a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">use</a> <a class="code hl_class" href="class_firebase_1_1_j_w_t_1_1_key.html">Firebase\JWT\Key</a>;</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Your passphrase</span></div>
+<div class="line"><a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">$passphrase</a> = <span class="stringliteral">&#39;[YOUR_PASSPHRASE]&#39;</span>;</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Your private key file with passphrase</span></div>
+<div class="line"><span class="comment">// Can be generated with &quot;ssh-keygen -t rsa -m pem&quot;</span></div>
+<div class="line"><a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">$privateKeyFile</a> = <span class="stringliteral">&#39;/path/to/key-with-passphrase.pem&#39;</span>;</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Create a private key of type &quot;resource&quot;</span></div>
+<div class="line"><a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">$privateKey</a> = <a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">openssl_pkey_get_private</a>(</div>
+<div class="line">    file_get_contents(<a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">$privateKeyFile</a>),</div>
+<div class="line">    <a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">$passphrase</a></div>
+<div class="line">);</div>
+<div class="line"> </div>
+<div class="line"><a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">$payload</a> = [</div>
+<div class="line">    <span class="stringliteral">&#39;iss&#39;</span> =&gt; <span class="stringliteral">&#39;example.org&#39;</span>,</div>
+<div class="line">    <span class="stringliteral">&#39;aud&#39;</span> =&gt; <span class="stringliteral">&#39;example.com&#39;</span>,</div>
+<div class="line">    <span class="stringliteral">&#39;iat&#39;</span> =&gt; 1356999524,</div>
+<div class="line">    <span class="stringliteral">&#39;nbf&#39;</span> =&gt; 1357000000</div>
+<div class="line">];</div>
+<div class="line"> </div>
+<div class="line"><a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">$jwt</a> = JWT::encode(<a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">$payload</a>, <a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">$privateKey</a>, <span class="stringliteral">&#39;RS256&#39;</span>);</div>
+<div class="line"><a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">echo</a> <span class="stringliteral">&quot;Encode:\n&quot;</span> . <a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">print_r</a>(<a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">$jwt</a>, <span class="keyword">true</span>) . <span class="stringliteral">&quot;\n&quot;</span>;</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Get public key from the private key, or pull from from a file.</span></div>
+<div class="line"><a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">$publicKey</a> = <a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">openssl_pkey_get_details</a>(<a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">$privateKey</a>)[<span class="stringliteral">&#39;key&#39;</span>];</div>
+<div class="line"> </div>
+<div class="line"><a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">$decoded</a> = JWT::decode(<a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">$jwt</a>, <span class="keyword">new</span> Key(<a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">$publicKey</a>, <span class="stringliteral">&#39;RS256&#39;</span>));</div>
+<div class="line"><a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">echo</a> <span class="stringliteral">&quot;Decode:\n&quot;</span> . <a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">print_r</a>((array) <a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">$decoded</a>, <span class="keyword">true</span>) . <span class="stringliteral">&quot;\n&quot;</span>;</div>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md5793"></a>
+Example with EdDSA (libsodium and Ed25519 signature)</h2>
+<div class="fragment"><div class="line"><a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">use</a> <a class="code hl_class" href="class_firebase_1_1_j_w_t_1_1_j_w_t.html">Firebase\JWT\JWT</a>;</div>
+<div class="line"><a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">use</a> <a class="code hl_class" href="class_firebase_1_1_j_w_t_1_1_key.html">Firebase\JWT\Key</a>;</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Public and private keys are expected to be Base64 encoded. The last</span></div>
+<div class="line"><span class="comment">// non-empty line is used so that keys can be generated with</span></div>
+<div class="line"><span class="comment">// sodium_crypto_sign_keypair(). The secret keys generated by other tools may</span></div>
+<div class="line"><span class="comment">// need to be adjusted to match the input expected by libsodium.</span></div>
+<div class="line"> </div>
+<div class="line"><a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">$keyPair</a> = <a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">sodium_crypto_sign_keypair</a>();</div>
+<div class="line"> </div>
+<div class="line"><a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">$privateKey</a> = base64_encode(<a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">sodium_crypto_sign_secretkey</a>(<a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">$keyPair</a>));</div>
+<div class="line"> </div>
+<div class="line"><a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">$publicKey</a> = base64_encode(<a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">sodium_crypto_sign_publickey</a>(<a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">$keyPair</a>));</div>
+<div class="line"> </div>
+<div class="line"><a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">$payload</a> = [</div>
+<div class="line">    <span class="stringliteral">&#39;iss&#39;</span> =&gt; <span class="stringliteral">&#39;example.org&#39;</span>,</div>
+<div class="line">    <span class="stringliteral">&#39;aud&#39;</span> =&gt; <span class="stringliteral">&#39;example.com&#39;</span>,</div>
+<div class="line">    <span class="stringliteral">&#39;iat&#39;</span> =&gt; 1356999524,</div>
+<div class="line">    <span class="stringliteral">&#39;nbf&#39;</span> =&gt; 1357000000</div>
+<div class="line">];</div>
+<div class="line"> </div>
+<div class="line"><a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">$jwt</a> = JWT::encode(<a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">$payload</a>, <a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">$privateKey</a>, <span class="stringliteral">&#39;EdDSA&#39;</span>);</div>
+<div class="line"><a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">echo</a> <span class="stringliteral">&quot;Encode:\n&quot;</span> . <a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">print_r</a>(<a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">$jwt</a>, <span class="keyword">true</span>) . <span class="stringliteral">&quot;\n&quot;</span>;</div>
+<div class="line"> </div>
+<div class="line"><a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">$decoded</a> = JWT::decode(<a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">$jwt</a>, <span class="keyword">new</span> Key(<a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">$publicKey</a>, <span class="stringliteral">&#39;EdDSA&#39;</span>));</div>
+<div class="line"><a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">echo</a> <span class="stringliteral">&quot;Decode:\n&quot;</span> . <a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">print_r</a>((array) <a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">$decoded</a>, <span class="keyword">true</span>) . <span class="stringliteral">&quot;\n&quot;</span>;</div>
+<div class="line">````</div>
+<div class="line"> </div>
+<div class="line"><a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">Using</a> <a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">JWKs</a></div>
+<div class="line">----------</div>
+</div><!-- fragment --><p> php use Firebase\JWT\JWK; use Firebase\JWT\JWT;</p>
+<p>// Set of keys. The "keys" key is required. For example, the JSON response to // this endpoint: <a href="https://www.gstatic.com/iap/verify/public_key-jwk">https://www.gstatic.com/iap/verify/public_key-jwk</a> $jwks = ['keys' =&gt; []];</p>
+<p>// JWK::parseKeySet($jwks) returns an associative array of <b>kid</b> to Firebase\JWT\Key // objects. Pass this as the second parameter to JWT::decode. JWT::decode($payload, JWK::parseKeySet($jwks)); </p><div class="fragment"><div class="line">Using Cached Key Sets</div>
+<div class="line">---------------------</div>
+<div class="line"> </div>
+<div class="line">The `CachedKeySet` class can be used to fetch and cache JWKS (JSON Web Key Sets) from a public URI.</div>
+<div class="line">This has the following advantages:</div>
+<div class="line"> </div>
+<div class="line">1. The results are cached for performance.</div>
+<div class="line">2. If an unrecognized key is requested, the cache is refreshed, to accomodate for key rotation.</div>
+<div class="line">3. If rate limiting is enabled, the JWKS URI will not make more than 10 requests a second.</div>
+</div><!-- fragment --><p> php use Firebase\JWT\CachedKeySet; use Firebase\JWT\JWT;</p>
+<p>// The URI for the JWKS you wish to cache the results from $jwksUri = '<a href="https://www.gstatic.com/iap/verify/public_key-jwk';">https://www.gstatic.com/iap/verify/public_key-jwk';</a></p>
+<p>// Create an HTTP client (can be any PSR-7 compatible HTTP client) $httpClient = new <a class="el" href="namespace_guzzle_http.html">GuzzleHttp</a>\Client();</p>
+<p>// Create an HTTP request factory (can be any PSR-17 compatible HTTP request factory) $httpFactory = new <a class="el" href="namespace_guzzle_http.html">GuzzleHttp</a>\Psr\HttpFactory();</p>
+<p>// Create a cache item pool (can be any PSR-6 compatible cache item pool) $cacheItemPool = Phpfastcache\CacheManager::getInstance('files');</p>
+<p>$keySet = new CachedKeySet( $jwksUri, $httpClient, $httpFactory, $cacheItemPool, null, // $expiresAfter int seconds to set the JWKS to expire true // $rateLimit true to enable rate limit of 10 RPS on lookup of invalid keys );</p>
+<p>$jwt = 'eyJhbGci...'; // Some JWT signed by a key from the $jwkUri above $decoded = JWT::decode($jwt, $keySet); </p><div class="fragment"><div class="line">Miscellaneous</div>
+<div class="line">-------------</div>
+<div class="line"> </div>
+<div class="line">#### Exception Handling</div>
+<div class="line"> </div>
+<div class="line">When a call to `JWT::decode` is invalid, it will throw one of the following exceptions:</div>
+</div><!-- fragment --><p> php use Firebase\JWT\JWT; use Firebase\JWT\SignatureInvalidException; use Firebase\JWT\BeforeValidException; use Firebase\JWT\ExpiredException; use DomainException; use InvalidArgumentException; use UnexpectedValueException;</p>
+<p>try { $decoded = JWT::decode($payload, $keys); } catch (InvalidArgumentException $e) { // provided key/key-array is empty or malformed. } catch (DomainException $e) { // provided algorithm is unsupported OR // provided key is invalid OR // unknown error thrown in openSSL or libsodium OR // libsodium is required but not available. } catch (SignatureInvalidException $e) { // provided JWT signature verification failed. } catch (BeforeValidException $e) { // provided JWT is trying to be used before "nbf" claim OR // provided JWT is trying to be used before "iat" claim. } catch (ExpiredException $e) { // provided JWT is trying to be used after "exp" claim. } catch (UnexpectedValueException $e) { // provided JWT is malformed OR // provided JWT is missing an algorithm / using an unsupported algorithm OR // provided JWT algorithm does not match provided key OR // provided key ID in key/key-array is empty or invalid. } </p><div class="fragment"><div class="line">All exceptions in the `Firebase\JWT` namespace extend `UnexpectedValueException`, and can be simplified</div>
+<div class="line">like this:</div>
+</div><!-- fragment --><p> php try { $decoded = JWT::decode($payload, $keys); } catch (LogicException $e) { // errors having to do with environmental setup or malformed JWT Keys } catch (UnexpectedValueException $e) { // errors having to do with JWT signature and claims } </p><div class="fragment"><div class="line">#### Casting to array</div>
+<div class="line"> </div>
+<div class="line">The return value of `JWT::decode` is the generic PHP object `stdClass`. If you&#39;d like to handle with arrays</div>
+<div class="line">instead, you can do the following:</div>
+</div><!-- fragment --><p> php // return type is stdClass $decoded = JWT::decode($payload, $keys);</p>
+<p>// cast to array $decoded = json_decode(json_encode($decoded), true); </p><div class="fragment"><div class="line">Tests</div>
+<div class="line">-----</div>
+<div class="line">Run the tests using phpunit:</div>
+</div><!-- fragment --><p> bash $ pear install PHPUnit $ phpunit &ndash;configuration phpunit.xml.dist PHPUnit 3.7.10 by Sebastian Bergmann. ..... Time: 0 seconds, Memory: 2.50Mb OK (5 tests, 5 assertions) ```</p>
+<h2><a class="anchor" id="autotoc_md5794"></a>
+New Lines in private keys</h2>
+<p>If your private key contains <code>\n</code> characters, be sure to wrap it in double quotes <code>""</code> and not single quotes &lsquo;&rsquo;'` in order to properly interpret the escaped characters.</p>
+<h2><a class="anchor" id="autotoc_md5795"></a>
+License</h2>
+<p><a href="http://opensource.org/licenses/BSD-3-Clause">3-Clause BSD</a>. </p>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0
+</small></address>
+</body>
+</html>

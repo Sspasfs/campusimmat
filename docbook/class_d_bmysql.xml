@@ -1,0 +1,3447 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_d_bmysql" xml:lang="fr">
+<title>Référence de la classe DBmysql</title>
+<indexterm><primary>DBmysql</primary></indexterm>
+Graphe d&apos;héritage de DBmysql:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_d_bmysql__inherit__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Graphe de collaboration de DBmysql:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_d_bmysql__coll__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Fonctions membres publiques    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_d_bmysql_1a8800bfa1522db9ea3ec33117eb0935bb">__construct</link> ($choice=null)</para>
+</listitem>
+            <listitem><para><link linkend="_class_d_bmysql_1abf0976a747699d894af6a78345735bf5">connect</link> ($choice=null)</para>
+</listitem>
+            <listitem><para><link linkend="_class_d_bmysql_1a3aaacb3bf15de518985e055f6ebfbbbb">guessTimezone</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_class_d_bmysql_1a812cda4574715397b7ffd0be994adf10">escape</link> ($string)</para>
+</listitem>
+            <listitem><para><link linkend="_class_d_bmysql_1ac9fddec3f6bd1db128887a1b211d90f0">query</link> ($query)</para>
+</listitem>
+            <listitem><para><link linkend="_class_d_bmysql_1aa94454ef6b04d177f048a7031147f659">queryOrDie</link> ($query, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">message</link>=&apos;&apos;)</para>
+</listitem>
+            <listitem><para><link linkend="_class_d_bmysql_1a0af75a63b37f16b9e33c522400e0801a">doQueryOrDie</link> ($query, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">message</link>=&apos;&apos;)</para>
+</listitem>
+            <listitem><para><link linkend="_class_d_bmysql_1a66b27dcb565dd3f21f186b7ebdf2f0eb">result</link> ($result, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">i</link>, $field)</para>
+</listitem>
+            <listitem><para><link linkend="_class_d_bmysql_1a02aad8bce56a051204aa745cf7a7a2fd">numrows</link> ($result)</para>
+</listitem>
+            <listitem><para><link linkend="_class_d_bmysql_1a3a9c5d624ba334b33566d4df9cadde55">fetchArray</link> ($result)</para>
+</listitem>
+            <listitem><para><link linkend="_class_d_bmysql_1a606ca2f6d9d4169c2c5b75fab2d1d4c1">fetchRow</link> ($result)</para>
+</listitem>
+            <listitem><para><link linkend="_class_d_bmysql_1aba0c659a8a802abf2dd8e32d0c7be9c3">fetchAssoc</link> ($result)</para>
+</listitem>
+            <listitem><para><link linkend="_class_d_bmysql_1ae26b7616b6f306fb1d31146fa6d8de72">fetchObject</link> ($result)</para>
+</listitem>
+            <listitem><para><link linkend="_class_d_bmysql_1a004a0f4dc03c6bd48714719b55f993f8">dataSeek</link> ($result, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">num</link>)</para>
+</listitem>
+            <listitem><para><link linkend="_class_d_bmysql_1a34c19ca38286e9cac517f6adababf7c0">insertId</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_class_d_bmysql_1a1724d15f597378a9e67385b6cd3a75b9">numFields</link> ($result)</para>
+</listitem>
+            <listitem><para><link linkend="_class_d_bmysql_1a245f2d83349f49b9a7d7eb87ddd4a1a9">fieldName</link> ($result, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">nb</link>)</para>
+</listitem>
+            <listitem><para><link linkend="_class_d_bmysql_1aaf947ed77d49adbbb59d644c909ddb17">listTables</link> ($table=&apos;glpi\_%&apos;, array $where=[])</para>
+</listitem>
+            <listitem><para><link linkend="_class_d_bmysql_1ac3ff2e9bff41e93b719a18d911c0490c">getMyIsamTables</link> (bool $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">exclude_plugins</link>=false)</para>
+</listitem>
+            <listitem><para><link linkend="_class_d_bmysql_1a9e3a7c7f0032175c3fb6835ff4636229">getNonUtf8mb4Tables</link> (bool $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">exclude_plugins</link>=false)</para>
+</listitem>
+            <listitem><para><link linkend="_class_d_bmysql_1a3d738d2cdfcd82646037f267bba35ee7">getTzIncompatibleTables</link> (bool $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">exclude_plugins</link>=false)</para>
+</listitem>
+            <listitem><para><link linkend="_class_d_bmysql_1ae5b350b4d32d57429586b4f5487ad779">getSignedKeysColumns</link> (bool $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">exclude_plugins</link>=false)</para>
+</listitem>
+            <listitem><para><link linkend="_class_d_bmysql_1a4ae98f59d007833e6ae85211eb1c7fca">getForeignKeysContraints</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_class_d_bmysql_1ae78fa683db5c15ed1c0f10768a32ff66">listFields</link> ($table, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">usecache</link>=true)</para>
+</listitem>
+            <listitem><para><link linkend="_class_d_bmysql_1a034bd90f84ce88b4968a7658e662fab1">getField</link> (string $table, string $field, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">usecache</link>=true)</para>
+</listitem>
+            <listitem><para><link linkend="_class_d_bmysql_1a1289c8742f764b73b60011ce8339157d">affectedRows</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_class_d_bmysql_1a86816c82631c7f57cfc0e791a4caae8a">freeResult</link> ($result)</para>
+</listitem>
+            <listitem><para><link linkend="_class_d_bmysql_1ab2eeb64cab360a0f09923108b55c9099">errno</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_class_d_bmysql_1a43b8d30b879d4f09ceb059b02af2bc02">error</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_class_d_bmysql_1aa69c8bf1f1dcf4e72552efff1fe3e87e">close</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_class_d_bmysql_1a7fe7005ff423050b8038e60944bb69b1">isSlave</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_class_d_bmysql_1a154d1acf8761bebda5ab2d30c01b6017">runFile</link> ($path)</para>
+</listitem>
+            <listitem><para><link linkend="_class_d_bmysql_1a202b7ba3b4c2b434ac4db248e09210fc">request</link> ($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">tableorsql</link>, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">crit</link>=&quot;&quot;, $debug=false)</para>
+</listitem>
+            <listitem><para><link linkend="_class_d_bmysql_1a164026f74736817927e1cacd282a2e28">getInfo</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_class_d_bmysql_1aae330070111cb4848cc484b42f63daac">getLock</link> ($name)</para>
+</listitem>
+            <listitem><para><link linkend="_class_d_bmysql_1a0952460d8ae08f361943cbae22caaa1a">releaseLock</link> ($name)</para>
+</listitem>
+            <listitem><para><link linkend="_class_d_bmysql_1ab0082aa69d475a4a7b695fb748ad17ba">tableExists</link> ($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">tablename</link>, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">usecache</link>=true)</para>
+</listitem>
+            <listitem><para><link linkend="_class_d_bmysql_1a5678ce7bbd2ada315d37341d64930487">fieldExists</link> ($table, $field, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">usecache</link>=true)</para>
+</listitem>
+            <listitem><para><link linkend="_class_d_bmysql_1aaa28e7806dc4d64a3ecd41eaafd550bd">disableTableCaching</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_class_d_bmysql_1a4b1a401813cdd11cbee13b63068d6446">buildInsert</link> ($table, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">params</link>)</para>
+</listitem>
+            <listitem><para><link linkend="_class_d_bmysql_1af0f55c34cede5398d84a198ab2a1210d">insert</link> ($table, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">params</link>)</para>
+</listitem>
+            <listitem><para><link linkend="_class_d_bmysql_1aeeae2dee2723999d0e699bc3655a58b9">insertOrDie</link> ($table, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">params</link>, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">message</link>=&apos;&apos;)</para>
+</listitem>
+            <listitem><para><link linkend="_class_d_bmysql_1aa3507971ad0ab5474bc7daa53d673f40">buildUpdate</link> ($table, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">params</link>, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">clauses</link>, array $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">joins</link>=[])</para>
+</listitem>
+            <listitem><para><link linkend="_class_d_bmysql_1a1d9f917472764d83ab86a2d04b069c56">update</link> ($table, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">params</link>, $where, array $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">joins</link>=[])</para>
+</listitem>
+            <listitem><para><link linkend="_class_d_bmysql_1aa144f03262c6c5a923bf4eff0f49d17d">updateOrDie</link> ($table, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">params</link>, $where, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">message</link>=&apos;&apos;, array $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">joins</link>=[])</para>
+</listitem>
+            <listitem><para><link linkend="_class_d_bmysql_1aab1d8c0b5873d7e00a6f1db53f26a7f4">updateOrInsert</link> ($table, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">params</link>, $where, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">onlyone</link>=true)</para>
+</listitem>
+            <listitem><para><link linkend="_class_d_bmysql_1a80751d37bd48c811870a0b96391ddbba">buildDelete</link> ($table, $where, array $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">joins</link>=[])</para>
+</listitem>
+            <listitem><para><link linkend="_class_d_bmysql_1a872ed57f3a1168695886db7013c204a2">delete</link> ($table, $where, array $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">joins</link>=[])</para>
+</listitem>
+            <listitem><para><link linkend="_class_d_bmysql_1ab92019867ad47fcfe13c88a001ab84d6">deleteOrDie</link> ($table, $where, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">message</link>=&apos;&apos;, array $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">joins</link>=[])</para>
+</listitem>
+            <listitem><para><link linkend="_class_d_bmysql_1a26591d23d0bd43fc18e04a67915a9a80">truncate</link> ($table)</para>
+</listitem>
+            <listitem><para><link linkend="_class_d_bmysql_1a4e907438d145e41b6f99fc27ba8acc52">truncateOrDie</link> ($table, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">message</link>=&apos;&apos;)</para>
+</listitem>
+            <listitem><para><link linkend="_class_d_bmysql_1a9c02e1d90315d5e29d2e73e37efd37db">dropTable</link> (string $name, bool $exists=false)</para>
+</listitem>
+            <listitem><para><link linkend="_class_d_bmysql_1acc2ab25a5bc62803d8d9fd5fb9baf407">dropView</link> (string $name, bool $exists=false)</para>
+</listitem>
+            <listitem><para><link linkend="_class_d_bmysql_1a46eb1795dbe4675bb94759d40662bc63">buildDrop</link> (string $name, string $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">type</link>, bool $exists=false)</para>
+</listitem>
+            <listitem><para><link linkend="_class_d_bmysql_1afa8e7a3a646144eab50188b7a805a389">getVersion</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_class_d_bmysql_1af3380f3b13931d581fa973a382946b32">beginTransaction</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_class_d_bmysql_1ad4901508c3fcf47970f27983ad27c05a">setSavepoint</link> (string $name, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">force</link>=false)</para>
+</listitem>
+            <listitem><para><link linkend="_class_d_bmysql_1af5674c27d4a92f6228565010eacbb9cb">commit</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_class_d_bmysql_1a0ef1d25aec22c3d77ab020f03c8cc7ce">rollBack</link> ($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">savepoint</link>=null)</para>
+</listitem>
+            <listitem><para><link linkend="_class_d_bmysql_1aaf34a959f7c26d1f97713adab5a6c429">inTransaction</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_class_d_bmysql_1ac1b4cf4ebad277081311189dffb821f2">setTimezone</link> ($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">timezone</link>)</para>
+</listitem>
+            <listitem><para><link linkend="_class_d_bmysql_1a15226f0d9e56089d69c579335afdd1b7">getTimezones</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_class_d_bmysql_1ad91056c31c88127a41679f198c9ed00c">clearSchemaCache</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_class_d_bmysql_1acc2ee34dca1b69501739511cfe3dd387">quote</link> ($value, int $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">type</link>=2)</para>
+</listitem>
+            <listitem><para><link linkend="_class_d_bmysql_1a47769da88a73fa2de7f7e75641d20623">removeSqlComments</link> ($output)</para>
+</listitem>
+            <listitem><para><link linkend="_class_d_bmysql_1a6bbc20b7cc644e4647b19dcc5f850c06">removeSqlRemarks</link> ($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">sql</link>)</para>
+</listitem>
+            <listitem><para><link linkend="_class_d_bmysql_1a118d8a7ffbc5ddd2c930fc68094223b6">getLastQueryWarnings</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_class_d_bmysql_1a2a11eb0a72a307f7250571bf4ca62d34">setConnectionCharset</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_class_d_bmysql_1a94cc97771b6150391980b578b7bf0e18">executeStatement</link> (<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">mysqli_stmt</link> $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">stmt</link>)</para>
+</listitem>
+            <listitem><para><link linkend="_class_d_bmysql_1ac641ad6eb38cc89dc40c15c0c52d4f6d">getComputedConfigBooleanFlags</link> ()</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Fonctions membres publiques statiques    </title>
+        <itemizedlist>
+            <listitem><para>static <link linkend="_class_d_bmysql_1a95dc41d2d9d1b833d51acd5a3e88adfd">quoteName</link> ($name)</para>
+</listitem>
+            <listitem><para>static <link linkend="_class_d_bmysql_1ab8793b2a5fdfd93170b01a7e12478adc">getQuoteNameChar</link> ()</para>
+</listitem>
+            <listitem><para>static <link linkend="_class_d_bmysql_1ae40487b38f2ddd9000a74a71c0bd9ad4">isNameQuoted</link> ($value)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Champs de données    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_d_bmysql_1a580dd98ba7f04c133d1a1e1b01af4a30">$dbhost</link> = &quot;&quot;</para>
+
+<para><link linkend="_class_database">Database</link> Host - string or Array of string (round robin) </para>
+</listitem>
+            <listitem><para><link linkend="_class_d_bmysql_1a8d5ac1c3396a540f025f9bbe56a5b568">$dbuser</link> = &quot;&quot;</para>
+
+<para><link linkend="_class_database">Database</link> <link linkend="_class_user">User</link>. </para>
+</listitem>
+            <listitem><para><link linkend="_class_d_bmysql_1a0d42c2db361e096182a30d694e0cd6e4">$dbpassword</link> = &quot;&quot;</para>
+
+<para><link linkend="_class_database">Database</link> Password. </para>
+</listitem>
+            <listitem><para><link linkend="_class_d_bmysql_1a0388c04beacf970e197b090037ea4869">$dbdefault</link> = &quot;&quot;</para>
+
+<para>Default <link linkend="_class_database">Database</link>. </para>
+</listitem>
+            <listitem><para><link linkend="_class_d_bmysql_1aeba2ab722cedda53dbb7ec1a59f45550">$error</link> = 0</para>
+
+<para><link linkend="_class_database">Database</link> Error. </para>
+</listitem>
+            <listitem><para><link linkend="_class_d_bmysql_1a4f19940c4db7911696eaad4d71bdfff4">$slave</link> = false</para>
+</listitem>
+            <listitem><para><link linkend="_class_d_bmysql_1a385df0c8fdaab63f5037ffde3d2ccef9">$dbssl</link> = false</para>
+</listitem>
+            <listitem><para><link linkend="_class_d_bmysql_1a7b94e780f76049f1ea320bdcc5147ae1">$dbsslkey</link> = null</para>
+</listitem>
+            <listitem><para><link linkend="_class_d_bmysql_1a356a1f44b663948c5d7795713b1651f1">$dbsslcert</link> = null</para>
+</listitem>
+            <listitem><para><link linkend="_class_d_bmysql_1afa1db3f4b72407d89bd365322fdb24ff">$dbsslca</link> = null</para>
+</listitem>
+            <listitem><para><link linkend="_class_d_bmysql_1ac2e61d84234a93d2e852e108167d9f8c">$dbsslcapath</link> = null</para>
+</listitem>
+            <listitem><para><link linkend="_class_d_bmysql_1af5114543f3f79318cf38219baa5e8232">$dbsslcacipher</link> = null</para>
+</listitem>
+            <listitem><para><link linkend="_class_d_bmysql_1a078e0acdaf959dd7cdedf6b3c7b3c1e6">$use_timezones</link> = false</para>
+</listitem>
+            <listitem><para><link linkend="_class_d_bmysql_1a2d7e85f83a24aac7c47d06f88fcc106c">$log_deprecation_warnings</link> = false</para>
+</listitem>
+            <listitem><para><link linkend="_class_d_bmysql_1a5fb716ecf079d62465e1eb2e7ba4b3a2">$use_utf8mb4</link> = false</para>
+</listitem>
+            <listitem><para><link linkend="_class_d_bmysql_1af1035b735bfd1e8809d637c2cc2b9462">$allow_myisam</link> = true</para>
+</listitem>
+            <listitem><para><link linkend="_class_d_bmysql_1aa26a2a7c86f0b3e08e3e4a7ff9a639c6">$allow_datetime</link> = true</para>
+</listitem>
+            <listitem><para><link linkend="_class_d_bmysql_1a87210080d8443d50cb279575987f62b8">$allow_signed_keys</link> = true</para>
+</listitem>
+            <listitem><para><link linkend="_class_d_bmysql_1af1987b970e0fa42373f2468e56669ff3">$first_connection</link> = true</para>
+</listitem>
+            <listitem><para><link linkend="_class_d_bmysql_1adb9756d4524181e191069eaa76afb6cf">$connected</link> = false</para>
+</listitem>
+            <listitem><para><link linkend="_class_d_bmysql_1a2d8dc53e1ba1a00dd213589f7a5f4377">$execution_time</link> = false</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Fonctions membres protégées    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_d_bmysql_1a6127e37b9cd64cf52dbf355d3f860fef">rollbackTo</link> ($name)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Attributs protégés    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_d_bmysql_1acc1e62674bb7200ea73767c19dc1344d">$dbh</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Description détaillée</title>
+
+<para><link linkend="_class_database">Database</link> class for Mysql </para>
+</section>
+<section>
+<title>Documentation des constructeurs et destructeur</title>
+<anchor xml:id="_class_d_bmysql_1a8800bfa1522db9ea3ec33117eb0935bb"/><section>
+    <title>__construct()</title>
+<indexterm><primary>__construct</primary><secondary>DBmysql</secondary></indexterm>
+<indexterm><primary>DBmysql</primary><secondary>__construct</secondary></indexterm>
+<para><computeroutput>__construct ( $choice = <computeroutput>null</computeroutput>
+)</computeroutput></para>
+<para>Constructor / Connect to the MySQL <link linkend="_class_database">Database</link></para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>integer</entry><entry>$choice</entry><entry>
+<para>host number (default NULL)</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>void </para>
+</formalpara>
+</para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_d_bmysql_a8800bfa1522db9ea3ec33117eb0935bb_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+</section>
+<section>
+<title>Documentation des fonctions membres</title>
+<anchor xml:id="_class_d_bmysql_1a1289c8742f764b73b60011ce8339157d"/><section>
+    <title>affectedRows()</title>
+<indexterm><primary>affectedRows</primary><secondary>DBmysql</secondary></indexterm>
+<indexterm><primary>DBmysql</primary><secondary>affectedRows</secondary></indexterm>
+<para><computeroutput>affectedRows ( )</computeroutput></para>
+<para>Get number of affected rows in previous MySQL operation</para>
+
+<para><formalpara><title>Renvoie</title>
+
+<para>int number of affected rows on success, and -1 if the last query failed. </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_class_d_bmysql_1af3380f3b13931d581fa973a382946b32"/><section>
+    <title>beginTransaction()</title>
+<indexterm><primary>beginTransaction</primary><secondary>DBmysql</secondary></indexterm>
+<indexterm><primary>DBmysql</primary><secondary>beginTransaction</secondary></indexterm>
+<para><computeroutput>beginTransaction ( )</computeroutput></para>
+<para>Starts a transaction</para>
+
+<para><formalpara><title>Renvoie</title>
+
+<para>boolean </para>
+</formalpara>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_d_bmysql_af3380f3b13931d581fa973a382946b32_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_d_bmysql_1a80751d37bd48c811870a0b96391ddbba"/><section>
+    <title>buildDelete()</title>
+<indexterm><primary>buildDelete</primary><secondary>DBmysql</secondary></indexterm>
+<indexterm><primary>DBmysql</primary><secondary>buildDelete</secondary></indexterm>
+<para><computeroutput>buildDelete ( $table,  $where, array $joins = <computeroutput>[]</computeroutput>
+)</computeroutput></para>
+<para>Builds a delete statement</para>
+
+<para><formalpara><title>Depuis</title>
+
+<para>9.3</para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$table</entry><entry>
+<para>Table name </para>
+</entry>
+                            </row>
+                            <row>
+<entry>array</entry><entry>$params</entry><entry>
+<para>Query parameters ([field name =&gt; field value) </para>
+</entry>
+                            </row>
+                            <row>
+<entry>array</entry><entry>$where</entry><entry>
+<para>WHERE clause (</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Voir également</title>
+
+<para><link linkend="_class_d_bmysql_iterator">DBmysqlIterator</link> <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">capabilities</link>) </para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>array</entry><entry>$joins</entry><entry>
+<para>JOINS criteria array</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Depuis</title>
+
+<para>9.4.0 $joins parameter added </para>
+</formalpara>
+<formalpara><title>Renvoie</title>
+
+<para>string </para>
+</formalpara>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_d_bmysql_a80751d37bd48c811870a0b96391ddbba_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_d_bmysql_1a46eb1795dbe4675bb94759d40662bc63"/><section>
+    <title>buildDrop()</title>
+<indexterm><primary>buildDrop</primary><secondary>DBmysql</secondary></indexterm>
+<indexterm><primary>DBmysql</primary><secondary>buildDrop</secondary></indexterm>
+<para><computeroutput>buildDrop (string $name, string $type, bool $exists = <computeroutput>false</computeroutput>
+)</computeroutput></para>
+<para>Builds a DROP query</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$name</entry><entry>
+<para>Name to drop </para>
+</entry>
+                            </row>
+                            <row>
+<entry>string</entry><entry>$type</entry><entry>
+<para>Type to drop </para>
+</entry>
+                            </row>
+                            <row>
+<entry>bool</entry><entry>$exists</entry><entry>
+<para>Add IF EXISTS clause</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>string </para>
+</formalpara>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_d_bmysql_a46eb1795dbe4675bb94759d40662bc63_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_d_bmysql_1a4b1a401813cdd11cbee13b63068d6446"/><section>
+    <title>buildInsert()</title>
+<indexterm><primary>buildInsert</primary><secondary>DBmysql</secondary></indexterm>
+<indexterm><primary>DBmysql</primary><secondary>buildInsert</secondary></indexterm>
+<para><computeroutput>buildInsert ( $table,  $params)</computeroutput></para>
+<para>Builds an insert statement</para>
+
+<para><formalpara><title>Depuis</title>
+
+<para>9.3</para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$table</entry><entry>
+<para>Table name </para>
+</entry>
+                            </row>
+                            <row>
+<entry><link linkend="_class_query_sub_query">QuerySubQuery</link> | array</entry><entry>$params</entry><entry>
+<para>Array of field =&gt; value pairs or a <link linkend="_class_query_sub_query">QuerySubQuery</link> for INSERT INTO ... SELECT @phpstan-param array&lt;string, mixed&gt;|QuerySubQuery $params</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>string </para>
+</formalpara>
+</para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_d_bmysql_a4b1a401813cdd11cbee13b63068d6446_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_d_bmysql_a4b1a401813cdd11cbee13b63068d6446_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_d_bmysql_1aa3507971ad0ab5474bc7daa53d673f40"/><section>
+    <title>buildUpdate()</title>
+<indexterm><primary>buildUpdate</primary><secondary>DBmysql</secondary></indexterm>
+<indexterm><primary>DBmysql</primary><secondary>buildUpdate</secondary></indexterm>
+<para><computeroutput>buildUpdate ( $table,  $params,  $clauses, array $joins = <computeroutput>[]</computeroutput>
+)</computeroutput></para>
+<para>Builds an update statement</para>
+
+<para><formalpara><title>Depuis</title>
+
+<para>9.3</para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$table</entry><entry>
+<para>Table name </para>
+</entry>
+                            </row>
+                            <row>
+<entry>array</entry><entry>$params</entry><entry>
+<para>Query parameters ([field name =&gt; field value) </para>
+</entry>
+                            </row>
+                            <row>
+<entry>array</entry><entry>$clauses</entry><entry>
+<para>Clauses to use. If not &apos;WHERE&apos; key specified, will b the WHERE clause (</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Voir également</title>
+
+<para><link linkend="_class_d_bmysql_iterator">DBmysqlIterator</link> <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">capabilities</link>) </para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>array</entry><entry>$joins</entry><entry>
+<para>JOINS criteria array</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Depuis</title>
+
+<para>9.4.0 $joins parameter added </para>
+</formalpara>
+<formalpara><title>Renvoie</title>
+
+<para>string </para>
+</formalpara>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_d_bmysql_aa3507971ad0ab5474bc7daa53d673f40_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_d_bmysql_1ad91056c31c88127a41679f198c9ed00c"/><section>
+    <title>clearSchemaCache()</title>
+<indexterm><primary>clearSchemaCache</primary><secondary>DBmysql</secondary></indexterm>
+<indexterm><primary>DBmysql</primary><secondary>clearSchemaCache</secondary></indexterm>
+<para><computeroutput>clearSchemaCache ( )</computeroutput></para>
+<para>Clear cached schema information.</para>
+
+<para><formalpara><title>Renvoie</title>
+
+<para>void </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_class_d_bmysql_1aa69c8bf1f1dcf4e72552efff1fe3e87e"/><section>
+    <title>close()</title>
+<indexterm><primary>close</primary><secondary>DBmysql</secondary></indexterm>
+<indexterm><primary>DBmysql</primary><secondary>close</secondary></indexterm>
+<para><computeroutput>close ( )</computeroutput></para>
+<para>Close MySQL connection</para>
+
+<para><formalpara><title>Renvoie</title>
+
+<para>boolean TRUE on success or FALSE on failure. </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_class_d_bmysql_1af5674c27d4a92f6228565010eacbb9cb"/><section>
+    <title>commit()</title>
+<indexterm><primary>commit</primary><secondary>DBmysql</secondary></indexterm>
+<indexterm><primary>DBmysql</primary><secondary>commit</secondary></indexterm>
+<para><computeroutput>commit ( )</computeroutput></para>
+<para>Commits a transaction</para>
+
+<para><formalpara><title>Renvoie</title>
+
+<para>boolean </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_class_d_bmysql_1abf0976a747699d894af6a78345735bf5"/><section>
+    <title>connect()</title>
+<indexterm><primary>connect</primary><secondary>DBmysql</secondary></indexterm>
+<indexterm><primary>DBmysql</primary><secondary>connect</secondary></indexterm>
+<para><computeroutput>connect ( $choice = <computeroutput>null</computeroutput>
+)</computeroutput></para>
+<para>Connect using current database settings Use dbhost, dbuser, dbpassword and dbdefault</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>integer</entry><entry>$choice</entry><entry>
+<para>host number (default NULL)</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>void </para>
+</formalpara>
+</para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_d_bmysql_abf0976a747699d894af6a78345735bf5_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_d_bmysql_abf0976a747699d894af6a78345735bf5_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_d_bmysql_1a004a0f4dc03c6bd48714719b55f993f8"/><section>
+    <title>dataSeek()</title>
+<indexterm><primary>dataSeek</primary><secondary>DBmysql</secondary></indexterm>
+<indexterm><primary>DBmysql</primary><secondary>dataSeek</secondary></indexterm>
+<para><computeroutput>dataSeek ( $result,  $num)</computeroutput></para>
+<para>Move current pointer of a Mysql result to the specific row</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>mysqli_result</entry><entry>$result</entry><entry>
+<para>MySQL result handler </para>
+</entry>
+                            </row>
+                            <row>
+<entry>integer</entry><entry>$num</entry><entry>
+<para>Row to move current pointer</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>boolean </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_class_d_bmysql_1a872ed57f3a1168695886db7013c204a2"/><section>
+    <title>delete()</title>
+<indexterm><primary>delete</primary><secondary>DBmysql</secondary></indexterm>
+<indexterm><primary>DBmysql</primary><secondary>delete</secondary></indexterm>
+<para><computeroutput>delete ( $table,  $where, array $joins = <computeroutput>[]</computeroutput>
+)</computeroutput></para>
+<para>Delete rows in the database</para>
+
+<para><formalpara><title>Depuis</title>
+
+<para>9.3</para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$table</entry><entry>
+<para>Table name </para>
+</entry>
+                            </row>
+                            <row>
+<entry>array</entry><entry>$where</entry><entry>
+<para>WHERE clause </para>
+</entry>
+                            </row>
+                            <row>
+<entry>array</entry><entry>$joins</entry><entry>
+<para>JOINS criteria array</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Depuis</title>
+
+<para>9.4.0 $joins parameter added </para>
+</formalpara>
+<formalpara><title>Renvoie</title>
+
+<para>mysqli_result|boolean Query result handler </para>
+</formalpara>
+</para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_d_bmysql_a872ed57f3a1168695886db7013c204a2_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_d_bmysql_1ab92019867ad47fcfe13c88a001ab84d6"/><section>
+    <title>deleteOrDie()</title>
+<indexterm><primary>deleteOrDie</primary><secondary>DBmysql</secondary></indexterm>
+<indexterm><primary>DBmysql</primary><secondary>deleteOrDie</secondary></indexterm>
+<para><computeroutput>deleteOrDie ( $table,  $where,  $message = <computeroutput>&apos;&apos;</computeroutput>
+, array $joins = <computeroutput>[]</computeroutput>
+)</computeroutput></para>
+<para>Delete a row in the database and die (optionnaly with a message) if it fails</para>
+
+<para><formalpara><title>Depuis</title>
+
+<para>9.3</para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$table</entry><entry>
+<para>Table name </para>
+</entry>
+                            </row>
+                            <row>
+<entry>array</entry><entry>$where</entry><entry>
+<para>WHERE clause </para>
+</entry>
+                            </row>
+                            <row>
+<entry>string</entry><entry>$message</entry><entry>
+<para>Explanation of query (default &apos;&apos;) </para>
+</entry>
+                            </row>
+                            <row>
+<entry>array</entry><entry>$joins</entry><entry>
+<para>JOINS criteria array</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Depuis</title>
+
+<para>9.4.0 $joins parameter added </para>
+</formalpara>
+<formalpara><title>Renvoie</title>
+
+<para>mysqli_result|boolean Query result handler </para>
+</formalpara>
+</para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_d_bmysql_ab92019867ad47fcfe13c88a001ab84d6_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_d_bmysql_1aaa28e7806dc4d64a3ecd41eaafd550bd"/><section>
+    <title>disableTableCaching()</title>
+<indexterm><primary>disableTableCaching</primary><secondary>DBmysql</secondary></indexterm>
+<indexterm><primary>DBmysql</primary><secondary>disableTableCaching</secondary></indexterm>
+<para><computeroutput>disableTableCaching ( )</computeroutput></para>
+<para>Disable table cache globally; usefull for migrations</para>
+
+<para><formalpara><title>Renvoie</title>
+
+<para>void </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_class_d_bmysql_1a0af75a63b37f16b9e33c522400e0801a"/><section>
+    <title>doQueryOrDie()</title>
+<indexterm><primary>doQueryOrDie</primary><secondary>DBmysql</secondary></indexterm>
+<indexterm><primary>DBmysql</primary><secondary>doQueryOrDie</secondary></indexterm>
+<para><computeroutput>doQueryOrDie ( $query,  $message = <computeroutput>&apos;&apos;</computeroutput>
+)</computeroutput></para>
+<para>Execute a MySQL query and die (optionnaly with a message) if it fails</para>
+
+<para><formalpara><title>Depuis</title>
+
+<para>0.84</para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$query</entry><entry>
+<para>Query to execute </para>
+</entry>
+                            </row>
+                            <row>
+<entry>string</entry><entry>$message</entry><entry>
+<para>Explanation of query (default &apos;&apos;)</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>mysqli_result Query result handler </para>
+</formalpara>
+</para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_d_bmysql_a0af75a63b37f16b9e33c522400e0801a_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_d_bmysql_a0af75a63b37f16b9e33c522400e0801a_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_d_bmysql_1a9c02e1d90315d5e29d2e73e37efd37db"/><section>
+    <title>dropTable()</title>
+<indexterm><primary>dropTable</primary><secondary>DBmysql</secondary></indexterm>
+<indexterm><primary>DBmysql</primary><secondary>dropTable</secondary></indexterm>
+<para><computeroutput>dropTable (string $name, bool $exists = <computeroutput>false</computeroutput>
+)</computeroutput></para>
+<para>Drops a table</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$name</entry><entry>
+<para>Table name </para>
+</entry>
+                            </row>
+                            <row>
+<entry>bool</entry><entry>$exists</entry><entry>
+<para>Add IF EXISTS clause</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>bool|mysqli_result </para>
+</formalpara>
+</para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_d_bmysql_a9c02e1d90315d5e29d2e73e37efd37db_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_d_bmysql_1acc2ab25a5bc62803d8d9fd5fb9baf407"/><section>
+    <title>dropView()</title>
+<indexterm><primary>dropView</primary><secondary>DBmysql</secondary></indexterm>
+<indexterm><primary>DBmysql</primary><secondary>dropView</secondary></indexterm>
+<para><computeroutput>dropView (string $name, bool $exists = <computeroutput>false</computeroutput>
+)</computeroutput></para>
+<para>Drops a view</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$name</entry><entry>
+<para>View name </para>
+</entry>
+                            </row>
+                            <row>
+<entry>bool</entry><entry>$exists</entry><entry>
+<para>Add IF EXISTS clause</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>bool|mysqli_result </para>
+</formalpara>
+</para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_d_bmysql_acc2ab25a5bc62803d8d9fd5fb9baf407_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_d_bmysql_1ab2eeb64cab360a0f09923108b55c9099"/><section>
+    <title>errno()</title>
+<indexterm><primary>errno</primary><secondary>DBmysql</secondary></indexterm>
+<indexterm><primary>DBmysql</primary><secondary>errno</secondary></indexterm>
+<para><computeroutput>errno ( )</computeroutput></para>
+<para>Returns the numerical value of the error message from previous MySQL operation</para>
+
+<para><formalpara><title>Renvoie</title>
+
+<para>int error number from the last MySQL function, or 0 (zero) if no error occurred. </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_class_d_bmysql_1a43b8d30b879d4f09ceb059b02af2bc02"/><section>
+    <title>error()</title>
+<indexterm><primary>error</primary><secondary>DBmysql</secondary></indexterm>
+<indexterm><primary>DBmysql</primary><secondary>error</secondary></indexterm>
+<para><computeroutput>error ( )</computeroutput></para>
+<para>Returns the text of the error message from previous MySQL operation</para>
+
+<para><formalpara><title>Renvoie</title>
+
+<para>string error text from the last MySQL function, or &apos;&apos; (empty string) if no error occurred. </para>
+</formalpara>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_d_bmysql_a43b8d30b879d4f09ceb059b02af2bc02_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_d_bmysql_1a812cda4574715397b7ffd0be994adf10"/><section>
+    <title>escape()</title>
+<indexterm><primary>escape</primary><secondary>DBmysql</secondary></indexterm>
+<indexterm><primary>DBmysql</primary><secondary>escape</secondary></indexterm>
+<para><computeroutput>escape ( $string)</computeroutput></para>
+<para>Escapes special characters in a string for use in an SQL statement, taking into account the current charset of the connection</para>
+
+<para><formalpara><title>Depuis</title>
+
+<para>0.84</para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$string</entry><entry>
+<para>String to escape</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>string escaped string </para>
+</formalpara>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_d_bmysql_a812cda4574715397b7ffd0be994adf10_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_d_bmysql_1a94cc97771b6150391980b578b7bf0e18"/><section>
+    <title>executeStatement()</title>
+<indexterm><primary>executeStatement</primary><secondary>DBmysql</secondary></indexterm>
+<indexterm><primary>DBmysql</primary><secondary>executeStatement</secondary></indexterm>
+<para><computeroutput>executeStatement (<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">mysqli_stmt</link> $stmt)</computeroutput></para>
+<para>Executes a prepared statement</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>mysqli_stmt</entry><entry>$stmt</entry><entry>
+<para>Statement to execute</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>void </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_class_d_bmysql_1a3a9c5d624ba334b33566d4df9cadde55"/><section>
+    <title>fetchArray()</title>
+<indexterm><primary>fetchArray</primary><secondary>DBmysql</secondary></indexterm>
+<indexterm><primary>DBmysql</primary><secondary>fetchArray</secondary></indexterm>
+<para><computeroutput>fetchArray ( $result)</computeroutput></para>
+<para>Fetch array of the next row of a Mysql query Please prefer fetchRow or fetchAssoc</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>mysqli_result</entry><entry>$result</entry><entry>
+<para>MySQL result handler</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>string[]|null array results </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_class_d_bmysql_1aba0c659a8a802abf2dd8e32d0c7be9c3"/><section>
+    <title>fetchAssoc()</title>
+<indexterm><primary>fetchAssoc</primary><secondary>DBmysql</secondary></indexterm>
+<indexterm><primary>DBmysql</primary><secondary>fetchAssoc</secondary></indexterm>
+<para><computeroutput>fetchAssoc ( $result)</computeroutput></para>
+<para>Fetch assoc of the next row of a Mysql query</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>mysqli_result</entry><entry>$result</entry><entry>
+<para>MySQL result handler</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>string[]|null result associative array </para>
+</formalpara>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_d_bmysql_aba0c659a8a802abf2dd8e32d0c7be9c3_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_d_bmysql_1ae26b7616b6f306fb1d31146fa6d8de72"/><section>
+    <title>fetchObject()</title>
+<indexterm><primary>fetchObject</primary><secondary>DBmysql</secondary></indexterm>
+<indexterm><primary>DBmysql</primary><secondary>fetchObject</secondary></indexterm>
+<para><computeroutput>fetchObject ( $result)</computeroutput></para>
+<para>Fetch object of the next row of an SQL query</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>mysqli_result</entry><entry>$result</entry><entry>
+<para>MySQL result handler</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>object|null </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_class_d_bmysql_1a606ca2f6d9d4169c2c5b75fab2d1d4c1"/><section>
+    <title>fetchRow()</title>
+<indexterm><primary>fetchRow</primary><secondary>DBmysql</secondary></indexterm>
+<indexterm><primary>DBmysql</primary><secondary>fetchRow</secondary></indexterm>
+<para><computeroutput>fetchRow ( $result)</computeroutput></para>
+<para>Fetch row of the next row of a Mysql query</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>mysqli_result</entry><entry>$result</entry><entry>
+<para>MySQL result handler</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>mixed|null result row </para>
+</formalpara>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_d_bmysql_a606ca2f6d9d4169c2c5b75fab2d1d4c1_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_d_bmysql_1a5678ce7bbd2ada315d37341d64930487"/><section>
+    <title>fieldExists()</title>
+<indexterm><primary>fieldExists</primary><secondary>DBmysql</secondary></indexterm>
+<indexterm><primary>DBmysql</primary><secondary>fieldExists</secondary></indexterm>
+<para><computeroutput>fieldExists ( $table,  $field,  $usecache = <computeroutput>true</computeroutput>
+)</computeroutput></para>
+<para>Check if a field exists</para>
+
+<para><formalpara><title>Depuis</title>
+
+<para>9.2</para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$table</entry><entry>
+<para>Table name for the field we&apos;re looking for </para>
+</entry>
+                            </row>
+                            <row>
+<entry>string</entry><entry>$field</entry><entry>
+<para>Field name </para>
+</entry>
+                            </row>
+                            <row>
+<entry>Boolean</entry><entry>$usecache</entry><entry>
+<para>Use cache; </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Voir également</title>
+
+<para>DBmysql::listFields(), <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">defaults</link> <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">to</link> true</para>
+</formalpara>
+<formalpara><title>Renvoie</title>
+
+<para>boolean </para>
+</formalpara>
+</para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_d_bmysql_a5678ce7bbd2ada315d37341d64930487_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_d_bmysql_a5678ce7bbd2ada315d37341d64930487_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_d_bmysql_1a245f2d83349f49b9a7d7eb87ddd4a1a9"/><section>
+    <title>fieldName()</title>
+<indexterm><primary>fieldName</primary><secondary>DBmysql</secondary></indexterm>
+<indexterm><primary>DBmysql</primary><secondary>fieldName</secondary></indexterm>
+<para><computeroutput>fieldName ( $result,  $nb)</computeroutput></para>
+<para>Give name of a field of a Mysql result</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>mysqli_result</entry><entry>$result</entry><entry>
+<para>MySQL result handler </para>
+</entry>
+                            </row>
+                            <row>
+<entry>integer</entry><entry>$nb</entry><entry>
+<para>ID of the field</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>string name of the field </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_class_d_bmysql_1a86816c82631c7f57cfc0e791a4caae8a"/><section>
+    <title>freeResult()</title>
+<indexterm><primary>freeResult</primary><secondary>DBmysql</secondary></indexterm>
+<indexterm><primary>DBmysql</primary><secondary>freeResult</secondary></indexterm>
+<para><computeroutput>freeResult ( $result)</computeroutput></para>
+<para>Free result memory</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>mysqli_result</entry><entry>$result</entry><entry>
+<para>MySQL result handler</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>boolean </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_class_d_bmysql_1ac641ad6eb38cc89dc40c15c0c52d4f6d"/><section>
+    <title>getComputedConfigBooleanFlags()</title>
+<indexterm><primary>getComputedConfigBooleanFlags</primary><secondary>DBmysql</secondary></indexterm>
+<indexterm><primary>DBmysql</primary><secondary>getComputedConfigBooleanFlags</secondary></indexterm>
+<para><computeroutput>getComputedConfigBooleanFlags ( )</computeroutput></para>
+<para>Return configuration boolean properties computed using current state of tables.</para>
+
+<para><formalpara><title>Renvoie</title>
+
+<para>array </para>
+</formalpara>
+</para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_d_bmysql_ac641ad6eb38cc89dc40c15c0c52d4f6d_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_d_bmysql_1a034bd90f84ce88b4968a7658e662fab1"/><section>
+    <title>getField()</title>
+<indexterm><primary>getField</primary><secondary>DBmysql</secondary></indexterm>
+<indexterm><primary>DBmysql</primary><secondary>getField</secondary></indexterm>
+<para><computeroutput>getField (string $table, string $field,  $usecache = <computeroutput>true</computeroutput>
+)</computeroutput></para>
+<para>Get field of a table</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$table</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>string</entry><entry>$field</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>boolean</entry><entry>$usecache</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>array|null Field characteristics </para>
+</formalpara>
+</para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_d_bmysql_a034bd90f84ce88b4968a7658e662fab1_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_d_bmysql_1a4ae98f59d007833e6ae85211eb1c7fca"/><section>
+    <title>getForeignKeysContraints()</title>
+<indexterm><primary>getForeignKeysContraints</primary><secondary>DBmysql</secondary></indexterm>
+<indexterm><primary>DBmysql</primary><secondary>getForeignKeysContraints</secondary></indexterm>
+<para><computeroutput>getForeignKeysContraints ( )</computeroutput></para>
+<para>Returns foreign keys constraints.</para>
+
+<para><formalpara><title>Renvoie</title>
+
+<para><link linkend="_class_d_bmysql_iterator">DBmysqlIterator</link></para>
+</formalpara>
+<formalpara><title>Depuis</title>
+
+<para>9.5.7 </para>
+</formalpara>
+</para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_d_bmysql_a4ae98f59d007833e6ae85211eb1c7fca_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_d_bmysql_1a164026f74736817927e1cacd282a2e28"/><section>
+    <title>getInfo()</title>
+<indexterm><primary>getInfo</primary><secondary>DBmysql</secondary></indexterm>
+<indexterm><primary>DBmysql</primary><secondary>getInfo</secondary></indexterm>
+<para><computeroutput>getInfo ( )</computeroutput></para>
+<para>Get information about <link linkend="_class_d_b">DB</link> connection for showSystemInformation</para>
+
+<para><formalpara><title>Depuis</title>
+
+<para>0.84</para>
+</formalpara>
+<formalpara><title>Renvoie</title>
+
+<para>string[] Array of label / value </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_class_d_bmysql_1a118d8a7ffbc5ddd2c930fc68094223b6"/><section>
+    <title>getLastQueryWarnings()</title>
+<indexterm><primary>getLastQueryWarnings</primary><secondary>DBmysql</secondary></indexterm>
+<indexterm><primary>DBmysql</primary><secondary>getLastQueryWarnings</secondary></indexterm>
+<para><computeroutput>getLastQueryWarnings ( )</computeroutput></para>
+<para>Get SQL warnings related to last query. <formalpara><title>Renvoie</title>
+
+<para>array </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_class_d_bmysql_1aae330070111cb4848cc484b42f63daac"/><section>
+    <title>getLock()</title>
+<indexterm><primary>getLock</primary><secondary>DBmysql</secondary></indexterm>
+<indexterm><primary>DBmysql</primary><secondary>getLock</secondary></indexterm>
+<para><computeroutput>getLock ( $name)</computeroutput></para>
+<para>Get a global <link linkend="_class_d_b">DB</link> lock</para>
+
+<para><formalpara><title>Depuis</title>
+
+<para>0.84</para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$name</entry><entry>
+<para>lock&apos;s name</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>boolean </para>
+</formalpara>
+</para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_d_bmysql_aae330070111cb4848cc484b42f63daac_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_d_bmysql_1ac3ff2e9bff41e93b719a18d911c0490c"/><section>
+    <title>getMyIsamTables()</title>
+<indexterm><primary>getMyIsamTables</primary><secondary>DBmysql</secondary></indexterm>
+<indexterm><primary>DBmysql</primary><secondary>getMyIsamTables</secondary></indexterm>
+<para><computeroutput>getMyIsamTables (bool $exclude_plugins = <computeroutput>false</computeroutput>
+)</computeroutput></para>
+<para>Returns tables using &quot;MyIsam&quot; engine.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>bool</entry><entry>$exclude_plugins</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para><link linkend="_class_d_bmysql_iterator">DBmysqlIterator</link> </para>
+</formalpara>
+</para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_d_bmysql_ac3ff2e9bff41e93b719a18d911c0490c_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_d_bmysql_ac3ff2e9bff41e93b719a18d911c0490c_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_d_bmysql_1a9e3a7c7f0032175c3fb6835ff4636229"/><section>
+    <title>getNonUtf8mb4Tables()</title>
+<indexterm><primary>getNonUtf8mb4Tables</primary><secondary>DBmysql</secondary></indexterm>
+<indexterm><primary>DBmysql</primary><secondary>getNonUtf8mb4Tables</secondary></indexterm>
+<para><computeroutput>getNonUtf8mb4Tables (bool $exclude_plugins = <computeroutput>false</computeroutput>
+)</computeroutput></para>
+<para>Returns tables not using &quot;utf8mb4_unicode_ci&quot; collation.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>bool</entry><entry>$exclude_plugins</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para><link linkend="_class_d_bmysql_iterator">DBmysqlIterator</link> </para>
+</formalpara>
+</para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_d_bmysql_a9e3a7c7f0032175c3fb6835ff4636229_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_d_bmysql_a9e3a7c7f0032175c3fb6835ff4636229_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_d_bmysql_1ab8793b2a5fdfd93170b01a7e12478adc"/><section>
+    <title>getQuoteNameChar()</title>
+<indexterm><primary>getQuoteNameChar</primary><secondary>DBmysql</secondary></indexterm>
+<indexterm><primary>DBmysql</primary><secondary>getQuoteNameChar</secondary></indexterm>
+<para><computeroutput>static getQuoteNameChar ( )<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>Get character used to quote names for current database engine</para>
+
+<para><formalpara><title>Renvoie</title>
+
+<para>string</para>
+</formalpara>
+<formalpara><title>Depuis</title>
+
+<para>9.5.0 </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_class_d_bmysql_1ae5b350b4d32d57429586b4f5487ad779"/><section>
+    <title>getSignedKeysColumns()</title>
+<indexterm><primary>getSignedKeysColumns</primary><secondary>DBmysql</secondary></indexterm>
+<indexterm><primary>DBmysql</primary><secondary>getSignedKeysColumns</secondary></indexterm>
+<para><computeroutput>getSignedKeysColumns (bool $exclude_plugins = <computeroutput>false</computeroutput>
+)</computeroutput></para>
+<para>Returns columns that uses signed integers for primary/foreign keys.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>bool</entry><entry>$exclude_plugins</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para><link linkend="_class_d_bmysql_iterator">DBmysqlIterator</link></para>
+</formalpara>
+<formalpara><title>Depuis</title>
+
+<para>9.5.7 </para>
+</formalpara>
+</para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_d_bmysql_ae5b350b4d32d57429586b4f5487ad779_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_d_bmysql_ae5b350b4d32d57429586b4f5487ad779_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_d_bmysql_1a15226f0d9e56089d69c579335afdd1b7"/><section>
+    <title>getTimezones()</title>
+<indexterm><primary>getTimezones</primary><secondary>DBmysql</secondary></indexterm>
+<indexterm><primary>DBmysql</primary><secondary>getTimezones</secondary></indexterm>
+<para><computeroutput>getTimezones ( )</computeroutput></para>
+<para>Returns list of timezones.</para>
+
+<para><formalpara><title>Renvoie</title>
+
+<para>string[]</para>
+</formalpara>
+<formalpara><title>Depuis</title>
+
+<para>9.5.0 </para>
+</formalpara>
+</para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_d_bmysql_a15226f0d9e56089d69c579335afdd1b7_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_d_bmysql_1a3d738d2cdfcd82646037f267bba35ee7"/><section>
+    <title>getTzIncompatibleTables()</title>
+<indexterm><primary>getTzIncompatibleTables</primary><secondary>DBmysql</secondary></indexterm>
+<indexterm><primary>DBmysql</primary><secondary>getTzIncompatibleTables</secondary></indexterm>
+<para><computeroutput>getTzIncompatibleTables (bool $exclude_plugins = <computeroutput>false</computeroutput>
+)</computeroutput></para>
+<para>Returns tables not compatible with timezone usage, i.e. having &quot;datetime&quot; columns.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>bool</entry><entry>$exclude_plugins</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para><link linkend="_class_d_bmysql_iterator">DBmysqlIterator</link></para>
+</formalpara>
+<formalpara><title>Depuis</title>
+
+<para>10.0.0 </para>
+</formalpara>
+</para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_d_bmysql_a3d738d2cdfcd82646037f267bba35ee7_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_d_bmysql_a3d738d2cdfcd82646037f267bba35ee7_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_d_bmysql_1afa8e7a3a646144eab50188b7a805a389"/><section>
+    <title>getVersion()</title>
+<indexterm><primary>getVersion</primary><secondary>DBmysql</secondary></indexterm>
+<indexterm><primary>DBmysql</primary><secondary>getVersion</secondary></indexterm>
+<para><computeroutput>getVersion ( )</computeroutput></para>
+<para>Get database raw version</para>
+
+<para><formalpara><title>Renvoie</title>
+
+<para>string </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_class_d_bmysql_1a3aaacb3bf15de518985e055f6ebfbbbb"/><section>
+    <title>guessTimezone()</title>
+<indexterm><primary>guessTimezone</primary><secondary>DBmysql</secondary></indexterm>
+<indexterm><primary>DBmysql</primary><secondary>guessTimezone</secondary></indexterm>
+<para><computeroutput>guessTimezone ( )</computeroutput></para>
+<para>Guess timezone</para>
+
+<para>Will check for an existing loaded timezone from user, then will check in preferences and finally will fallback to system one.</para>
+
+<para><formalpara><title>Renvoie</title>
+
+<para>string</para>
+</formalpara>
+<formalpara><title>Depuis</title>
+
+<para>9.5.0 </para>
+</formalpara>
+</para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_d_bmysql_a3aaacb3bf15de518985e055f6ebfbbbb_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_d_bmysql_a3aaacb3bf15de518985e055f6ebfbbbb_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_d_bmysql_1af0f55c34cede5398d84a198ab2a1210d"/><section>
+    <title>insert()</title>
+<indexterm><primary>insert</primary><secondary>DBmysql</secondary></indexterm>
+<indexterm><primary>DBmysql</primary><secondary>insert</secondary></indexterm>
+<para><computeroutput>insert ( $table,  $params)</computeroutput></para>
+<para>Insert a row in the database</para>
+
+<para><formalpara><title>Depuis</title>
+
+<para>9.3</para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$table</entry><entry>
+<para>Table name </para>
+</entry>
+                            </row>
+                            <row>
+<entry>array</entry><entry>$params</entry><entry>
+<para>Query parameters ([field name =&gt; field value)</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>mysqli_result|boolean Query result handler </para>
+</formalpara>
+</para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_d_bmysql_af0f55c34cede5398d84a198ab2a1210d_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_d_bmysql_1a34c19ca38286e9cac517f6adababf7c0"/><section>
+    <title>insertId()</title>
+<indexterm><primary>insertId</primary><secondary>DBmysql</secondary></indexterm>
+<indexterm><primary>DBmysql</primary><secondary>insertId</secondary></indexterm>
+<para><computeroutput>insertId ( )</computeroutput></para>
+<para>Give ID of the last inserted item by Mysql</para>
+
+<para><formalpara><title>Renvoie</title>
+
+<para>mixed </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_class_d_bmysql_1aeeae2dee2723999d0e699bc3655a58b9"/><section>
+    <title>insertOrDie()</title>
+<indexterm><primary>insertOrDie</primary><secondary>DBmysql</secondary></indexterm>
+<indexterm><primary>DBmysql</primary><secondary>insertOrDie</secondary></indexterm>
+<para><computeroutput>insertOrDie ( $table,  $params,  $message = <computeroutput>&apos;&apos;</computeroutput>
+)</computeroutput></para>
+<para>Insert a row in the database and die (optionnaly with a message) if it fails</para>
+
+<para><formalpara><title>Depuis</title>
+
+<para>9.3</para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$table</entry><entry>
+<para>Table name </para>
+</entry>
+                            </row>
+                            <row>
+<entry>array</entry><entry>$params</entry><entry>
+<para>Query parameters ([field name =&gt; field value) </para>
+</entry>
+                            </row>
+                            <row>
+<entry>string</entry><entry>$message</entry><entry>
+<para>Explanation of query (default &apos;&apos;)</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>mysqli_result|boolean Query result handler </para>
+</formalpara>
+</para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_d_bmysql_aeeae2dee2723999d0e699bc3655a58b9_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_d_bmysql_aeeae2dee2723999d0e699bc3655a58b9_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_d_bmysql_1aaf34a959f7c26d1f97713adab5a6c429"/><section>
+    <title>inTransaction()</title>
+<indexterm><primary>inTransaction</primary><secondary>DBmysql</secondary></indexterm>
+<indexterm><primary>DBmysql</primary><secondary>inTransaction</secondary></indexterm>
+<para><computeroutput>inTransaction ( )</computeroutput></para>
+<para>Are we in a transaction?</para>
+
+<para><formalpara><title>Renvoie</title>
+
+<para>boolean </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_class_d_bmysql_1ae40487b38f2ddd9000a74a71c0bd9ad4"/><section>
+    <title>isNameQuoted()</title>
+<indexterm><primary>isNameQuoted</primary><secondary>DBmysql</secondary></indexterm>
+<indexterm><primary>DBmysql</primary><secondary>isNameQuoted</secondary></indexterm>
+<para><computeroutput>static isNameQuoted ( $value)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>Is value quoted as database field/expression?</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string | \QueryExpression</entry><entry>$value</entry><entry>
+<para>Value to check</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>boolean</para>
+</formalpara>
+<formalpara><title>Depuis</title>
+
+<para>9.5.0 </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_class_d_bmysql_1a7fe7005ff423050b8038e60944bb69b1"/><section>
+    <title>isSlave()</title>
+<indexterm><primary>isSlave</primary><secondary>DBmysql</secondary></indexterm>
+<indexterm><primary>DBmysql</primary><secondary>isSlave</secondary></indexterm>
+<para><computeroutput>isSlave ( )</computeroutput></para>
+<para>is a slave database ?</para>
+
+<para><formalpara><title>Renvoie</title>
+
+<para>boolean </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_class_d_bmysql_1ae78fa683db5c15ed1c0f10768a32ff66"/><section>
+    <title>listFields()</title>
+<indexterm><primary>listFields</primary><secondary>DBmysql</secondary></indexterm>
+<indexterm><primary>DBmysql</primary><secondary>listFields</secondary></indexterm>
+<para><computeroutput>listFields ( $table,  $usecache = <computeroutput>true</computeroutput>
+)</computeroutput></para>
+<para>List fields of a table</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$table</entry><entry>
+<para>Table name condition </para>
+</entry>
+                            </row>
+                            <row>
+<entry>boolean</entry><entry>$usecache</entry><entry>
+<para>If use field list cache (default true)</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>mixed list of fields </para>
+</formalpara>
+</para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_d_bmysql_ae78fa683db5c15ed1c0f10768a32ff66_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_d_bmysql_ae78fa683db5c15ed1c0f10768a32ff66_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_d_bmysql_1aaf947ed77d49adbbb59d644c909ddb17"/><section>
+    <title>listTables()</title>
+<indexterm><primary>listTables</primary><secondary>DBmysql</secondary></indexterm>
+<indexterm><primary>DBmysql</primary><secondary>listTables</secondary></indexterm>
+<para><computeroutput>listTables ( $table = <computeroutput>&apos;glpi\_%&apos;</computeroutput>
+, array $where = <computeroutput>[]</computeroutput>
+)</computeroutput></para>
+<para>List tables in database</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$table</entry><entry>
+<para>Table name condition (glpi_% as default to retrieve only glpi tables) </para>
+</entry>
+                            </row>
+                            <row>
+<entry>array</entry><entry>$where</entry><entry>
+<para>Where clause to append</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para><link linkend="_class_d_bmysql_iterator">DBmysqlIterator</link> </para>
+</formalpara>
+</para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_d_bmysql_aaf947ed77d49adbbb59d644c909ddb17_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_d_bmysql_aaf947ed77d49adbbb59d644c909ddb17_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_d_bmysql_1a1724d15f597378a9e67385b6cd3a75b9"/><section>
+    <title>numFields()</title>
+<indexterm><primary>numFields</primary><secondary>DBmysql</secondary></indexterm>
+<indexterm><primary>DBmysql</primary><secondary>numFields</secondary></indexterm>
+<para><computeroutput>numFields ( $result)</computeroutput></para>
+<para>Give number of fields of a Mysql result</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>mysqli_result</entry><entry>$result</entry><entry>
+<para>MySQL result handler</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>int number of fields </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_class_d_bmysql_1a02aad8bce56a051204aa745cf7a7a2fd"/><section>
+    <title>numrows()</title>
+<indexterm><primary>numrows</primary><secondary>DBmysql</secondary></indexterm>
+<indexterm><primary>DBmysql</primary><secondary>numrows</secondary></indexterm>
+<para><computeroutput>numrows ( $result)</computeroutput></para>
+<para>Number of rows</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>mysqli_result</entry><entry>$result</entry><entry>
+<para>MySQL result handler</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>integer number of rows </para>
+</formalpara>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_d_bmysql_a02aad8bce56a051204aa745cf7a7a2fd_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_d_bmysql_1ac9fddec3f6bd1db128887a1b211d90f0"/><section>
+    <title>query()</title>
+<indexterm><primary>query</primary><secondary>DBmysql</secondary></indexterm>
+<indexterm><primary>DBmysql</primary><secondary>query</secondary></indexterm>
+<para><computeroutput>query ( $query)</computeroutput></para>Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_d_bmysql_ac9fddec3f6bd1db128887a1b211d90f0_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_d_bmysql_1aa94454ef6b04d177f048a7031147f659"/><section>
+    <title>queryOrDie()</title>
+<indexterm><primary>queryOrDie</primary><secondary>DBmysql</secondary></indexterm>
+<indexterm><primary>DBmysql</primary><secondary>queryOrDie</secondary></indexterm>
+<para><computeroutput>queryOrDie ( $query,  $message = <computeroutput>&apos;&apos;</computeroutput>
+)</computeroutput></para>
+<para>Execute a MySQL query and die (optionnaly with a message) if it fails</para>
+
+<para><formalpara><title>Depuis</title>
+
+<para>0.84</para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$query</entry><entry>
+<para>Query to execute </para>
+</entry>
+                            </row>
+                            <row>
+<entry>string</entry><entry>$message</entry><entry>
+<para>Explanation of query (default &apos;&apos;)</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>mysqli_result Query result handler</para>
+</formalpara>
+<para><link linkend="_deprecated_1_deprecated000005">Obsolète</link> 
+<para>10.0.11 </para>
+</para></para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_d_bmysql_aa94454ef6b04d177f048a7031147f659_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_d_bmysql_1acc2ee34dca1b69501739511cfe3dd387"/><section>
+    <title>quote()</title>
+<indexterm><primary>quote</primary><secondary>DBmysql</secondary></indexterm>
+<indexterm><primary>DBmysql</primary><secondary>quote</secondary></indexterm>
+<para><computeroutput>quote ( $value, int $type = <computeroutput>2</computeroutput>
+)</computeroutput></para>
+<para>Quote a value for a specified type Should be used for PDO, but this will prevent heavy replacements in the source code in the future.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>mixed</entry><entry>$value</entry><entry>
+<para>Value to quote </para>
+</entry>
+                            </row>
+                            <row>
+<entry>integer</entry><entry>$type</entry><entry>
+<para>Value type, defaults to PDO::PARAM_STR</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>mixed</para>
+</formalpara>
+<formalpara><title>Depuis</title>
+
+<para>9.5.0 </para>
+</formalpara>
+</para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_d_bmysql_acc2ee34dca1b69501739511cfe3dd387_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_d_bmysql_1a95dc41d2d9d1b833d51acd5a3e88adfd"/><section>
+    <title>quoteName()</title>
+<indexterm><primary>quoteName</primary><secondary>DBmysql</secondary></indexterm>
+<indexterm><primary>DBmysql</primary><secondary>quoteName</secondary></indexterm>
+<para><computeroutput>static quoteName ( $name)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>Quote field name</para>
+
+<para><formalpara><title>Depuis</title>
+
+<para>9.3</para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$name</entry><entry>
+<para>of field to quote (or table.field)</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>string </para>
+</formalpara>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_d_bmysql_a95dc41d2d9d1b833d51acd5a3e88adfd_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_d_bmysql_1a0952460d8ae08f361943cbae22caaa1a"/><section>
+    <title>releaseLock()</title>
+<indexterm><primary>releaseLock</primary><secondary>DBmysql</secondary></indexterm>
+<indexterm><primary>DBmysql</primary><secondary>releaseLock</secondary></indexterm>
+<para><computeroutput>releaseLock ( $name)</computeroutput></para>
+<para>Release a global <link linkend="_class_d_b">DB</link> lock</para>
+
+<para><formalpara><title>Depuis</title>
+
+<para>0.84</para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$name</entry><entry>
+<para>lock&apos;s name</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>boolean </para>
+</formalpara>
+</para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_d_bmysql_a0952460d8ae08f361943cbae22caaa1a_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_d_bmysql_1a47769da88a73fa2de7f7e75641d20623"/><section>
+    <title>removeSqlComments()</title>
+<indexterm><primary>removeSqlComments</primary><secondary>DBmysql</secondary></indexterm>
+<indexterm><primary>DBmysql</primary><secondary>removeSqlComments</secondary></indexterm>
+<para><computeroutput>removeSqlComments ( $output)</computeroutput></para>
+<para>Remove SQL comments © 2011 PHPBB <link linkend="_class_group">Group</link></para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$output</entry><entry>
+<para>SQL statements</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>string </para>
+</formalpara>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_d_bmysql_a47769da88a73fa2de7f7e75641d20623_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_d_bmysql_1a6bbc20b7cc644e4647b19dcc5f850c06"/><section>
+    <title>removeSqlRemarks()</title>
+<indexterm><primary>removeSqlRemarks</primary><secondary>DBmysql</secondary></indexterm>
+<indexterm><primary>DBmysql</primary><secondary>removeSqlRemarks</secondary></indexterm>
+<para><computeroutput>removeSqlRemarks ( $sql)</computeroutput></para>
+<para>Remove remarks and comments from SQL <formalpara><title>Voir également</title>
+
+<para>DBmysql::removeSqlComments() <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">©</link> 2011 <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">PHPBB</link> <link linkend="_class_group">Group</link></para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>$string</entry><entry>
+<para>$sql SQL statements</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>string </para>
+</formalpara>
+</para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_d_bmysql_a6bbc20b7cc644e4647b19dcc5f850c06_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_d_bmysql_a6bbc20b7cc644e4647b19dcc5f850c06_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_d_bmysql_1a202b7ba3b4c2b434ac4db248e09210fc"/><section>
+    <title>request()</title>
+<indexterm><primary>request</primary><secondary>DBmysql</secondary></indexterm>
+<indexterm><primary>DBmysql</primary><secondary>request</secondary></indexterm>
+<para><computeroutput>request ( $tableorsql,  $crit = <computeroutput>&quot;&quot;</computeroutput>
+,  $debug = <computeroutput>false</computeroutput>
+)</computeroutput></para>
+<para>Instanciate a Simple DBIterator</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string | string[]</entry><entry>$tableorsql</entry><entry>
+<para>Table name, array of names or SQL query </para>
+</entry>
+                            </row>
+                            <row>
+<entry>string | string[]</entry><entry>$crit</entry><entry>
+<para>String or array of filed/values, ex array(&quot;id&quot;=&gt;1), if empty =&gt; all rows (default &apos;&apos;) </para>
+</entry>
+                            </row>
+                            <row>
+<entry>boolean</entry><entry>$debug</entry><entry>
+<para>To log the request (default false)</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para><link linkend="_class_d_bmysql_iterator">DBmysqlIterator</link> </para>
+</formalpara>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_d_bmysql_a202b7ba3b4c2b434ac4db248e09210fc_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_d_bmysql_1a66b27dcb565dd3f21f186b7ebdf2f0eb"/><section>
+    <title>result()</title>
+<indexterm><primary>result</primary><secondary>DBmysql</secondary></indexterm>
+<indexterm><primary>DBmysql</primary><secondary>result</secondary></indexterm>
+<para><computeroutput>result ( $result,  $i,  $field)</computeroutput></para>
+<para>Give result from a sql result</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>mysqli_result</entry><entry>$result</entry><entry>
+<para>MySQL result handler </para>
+</entry>
+                            </row>
+                            <row>
+<entry>int</entry><entry>$i</entry><entry>
+<para>Row offset to give </para>
+</entry>
+                            </row>
+                            <row>
+<entry>string</entry><entry>$field</entry><entry>
+<para>Field to give</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>mixed Value of the Row $i and the Field $field of the Mysql $result </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_class_d_bmysql_1a0ef1d25aec22c3d77ab020f03c8cc7ce"/><section>
+    <title>rollBack()</title>
+<indexterm><primary>rollBack</primary><secondary>DBmysql</secondary></indexterm>
+<indexterm><primary>DBmysql</primary><secondary>rollBack</secondary></indexterm>
+<para><computeroutput>rollBack ( $savepoint = <computeroutput>null</computeroutput>
+)</computeroutput></para>
+<para>Rollbacks a transaction completely or to a specified savepoint</para>
+
+<para><formalpara><title>Renvoie</title>
+
+<para>boolean </para>
+</formalpara>
+</para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_d_bmysql_a0ef1d25aec22c3d77ab020f03c8cc7ce_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_d_bmysql_1a6127e37b9cd64cf52dbf355d3f860fef"/><section>
+    <title>rollbackTo()</title>
+<indexterm><primary>rollbackTo</primary><secondary>DBmysql</secondary></indexterm>
+<indexterm><primary>DBmysql</primary><secondary>rollbackTo</secondary></indexterm>
+<para><computeroutput>rollbackTo ( $name)<computeroutput>[protected]</computeroutput></computeroutput></para>
+<para>Rollbacks a transaction to a specified savepoint</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$name</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>boolean </para>
+</formalpara>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_d_bmysql_a6127e37b9cd64cf52dbf355d3f860fef_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_d_bmysql_1a154d1acf8761bebda5ab2d30c01b6017"/><section>
+    <title>runFile()</title>
+<indexterm><primary>runFile</primary><secondary>DBmysql</secondary></indexterm>
+<indexterm><primary>DBmysql</primary><secondary>runFile</secondary></indexterm>
+<para><computeroutput>runFile ( $path)</computeroutput></para>
+<para>Execute all the request in a file</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$path</entry><entry>
+<para>with file full path</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>boolean true if all query are successfull </para>
+</formalpara>
+</para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_d_bmysql_a154d1acf8761bebda5ab2d30c01b6017_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_d_bmysql_1a2a11eb0a72a307f7250571bf4ca62d34"/><section>
+    <title>setConnectionCharset()</title>
+<indexterm><primary>setConnectionCharset</primary><secondary>DBmysql</secondary></indexterm>
+<indexterm><primary>DBmysql</primary><secondary>setConnectionCharset</secondary></indexterm>
+<para><computeroutput>setConnectionCharset ( )</computeroutput></para>
+<para>Set charset to use for <link linkend="_class_d_b">DB</link> connection.</para>
+
+<para><formalpara><title>Renvoie</title>
+
+<para>void </para>
+</formalpara>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_d_bmysql_a2a11eb0a72a307f7250571bf4ca62d34_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_d_bmysql_1ad4901508c3fcf47970f27983ad27c05a"/><section>
+    <title>setSavepoint()</title>
+<indexterm><primary>setSavepoint</primary><secondary>DBmysql</secondary></indexterm>
+<indexterm><primary>DBmysql</primary><secondary>setSavepoint</secondary></indexterm>
+<para><computeroutput>setSavepoint (string $name,  $force = <computeroutput>false</computeroutput>
+)</computeroutput></para>Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_d_bmysql_ad4901508c3fcf47970f27983ad27c05a_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_d_bmysql_1ac1b4cf4ebad277081311189dffb821f2"/><section>
+    <title>setTimezone()</title>
+<indexterm><primary>setTimezone</primary><secondary>DBmysql</secondary></indexterm>
+<indexterm><primary>DBmysql</primary><secondary>setTimezone</secondary></indexterm>
+<para><computeroutput>setTimezone ( $timezone)</computeroutput></para>
+<para>Defines timezone to use.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$timezone</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para><link linkend="_class_d_bmysql">DBmysql</link> </para>
+</formalpara>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_d_bmysql_ac1b4cf4ebad277081311189dffb821f2_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_d_bmysql_1ab0082aa69d475a4a7b695fb748ad17ba"/><section>
+    <title>tableExists()</title>
+<indexterm><primary>tableExists</primary><secondary>DBmysql</secondary></indexterm>
+<indexterm><primary>DBmysql</primary><secondary>tableExists</secondary></indexterm>
+<para><computeroutput>tableExists ( $tablename,  $usecache = <computeroutput>true</computeroutput>
+)</computeroutput></para>
+<para>Check if a table exists</para>
+
+<para><formalpara><title>Depuis</title>
+
+<para>9.2 </para>
+
+<para>9.5 Added $usecache parameter.</para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$tablename</entry><entry>
+<para>Table name </para>
+</entry>
+                            </row>
+                            <row>
+<entry>boolean</entry><entry>$usecache</entry><entry>
+<para>If use table list cache</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>boolean </para>
+</formalpara>
+</para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_d_bmysql_ab0082aa69d475a4a7b695fb748ad17ba_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_d_bmysql_ab0082aa69d475a4a7b695fb748ad17ba_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_d_bmysql_1a26591d23d0bd43fc18e04a67915a9a80"/><section>
+    <title>truncate()</title>
+<indexterm><primary>truncate</primary><secondary>DBmysql</secondary></indexterm>
+<indexterm><primary>DBmysql</primary><secondary>truncate</secondary></indexterm>
+<para><computeroutput>truncate ( $table)</computeroutput></para>
+<para>Truncate table in the database</para>
+
+<para><formalpara><title>Depuis</title>
+
+<para>10.0.0</para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$table</entry><entry>
+<para>Table name</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>mysqli_result|boolean Query result handler </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_class_d_bmysql_1a4e907438d145e41b6f99fc27ba8acc52"/><section>
+    <title>truncateOrDie()</title>
+<indexterm><primary>truncateOrDie</primary><secondary>DBmysql</secondary></indexterm>
+<indexterm><primary>DBmysql</primary><secondary>truncateOrDie</secondary></indexterm>
+<para><computeroutput>truncateOrDie ( $table,  $message = <computeroutput>&apos;&apos;</computeroutput>
+)</computeroutput></para>
+<para>Truncate table in the database or die (optionally with a message) if it fails</para>
+
+<para><formalpara><title>Depuis</title>
+
+<para>10.0.0</para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$table</entry><entry>
+<para>Table name </para>
+</entry>
+                            </row>
+                            <row>
+<entry>string</entry><entry>$message</entry><entry>
+<para>Explanation of query (default &apos;&apos;)</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>mysqli_result|boolean Query result handler </para>
+</formalpara>
+</para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_d_bmysql_a4e907438d145e41b6f99fc27ba8acc52_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_d_bmysql_1a1d9f917472764d83ab86a2d04b069c56"/><section>
+    <title>update()</title>
+<indexterm><primary>update</primary><secondary>DBmysql</secondary></indexterm>
+<indexterm><primary>DBmysql</primary><secondary>update</secondary></indexterm>
+<para><computeroutput>update ( $table,  $params,  $where, array $joins = <computeroutput>[]</computeroutput>
+)</computeroutput></para>
+<para><link linkend="_class_update">Update</link> a row in the database</para>
+
+<para><formalpara><title>Depuis</title>
+
+<para>9.3</para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$table</entry><entry>
+<para>Table name </para>
+</entry>
+                            </row>
+                            <row>
+<entry>array</entry><entry>$params</entry><entry>
+<para>Query parameters ([:field name =&gt; field value) </para>
+</entry>
+                            </row>
+                            <row>
+<entry>array</entry><entry>$where</entry><entry>
+<para>WHERE clause </para>
+</entry>
+                            </row>
+                            <row>
+<entry>array</entry><entry>$joins</entry><entry>
+<para>JOINS criteria array</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Depuis</title>
+
+<para>9.4.0 $joins parameter added </para>
+</formalpara>
+<formalpara><title>Renvoie</title>
+
+<para>mysqli_result|boolean Query result handler </para>
+</formalpara>
+</para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_d_bmysql_a1d9f917472764d83ab86a2d04b069c56_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_d_bmysql_1aa144f03262c6c5a923bf4eff0f49d17d"/><section>
+    <title>updateOrDie()</title>
+<indexterm><primary>updateOrDie</primary><secondary>DBmysql</secondary></indexterm>
+<indexterm><primary>DBmysql</primary><secondary>updateOrDie</secondary></indexterm>
+<para><computeroutput>updateOrDie ( $table,  $params,  $where,  $message = <computeroutput>&apos;&apos;</computeroutput>
+, array $joins = <computeroutput>[]</computeroutput>
+)</computeroutput></para>
+<para><link linkend="_class_update">Update</link> a row in the database or die (optionnaly with a message) if it fails</para>
+
+<para><formalpara><title>Depuis</title>
+
+<para>9.3</para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$table</entry><entry>
+<para>Table name </para>
+</entry>
+                            </row>
+                            <row>
+<entry>array</entry><entry>$params</entry><entry>
+<para>Query parameters ([:field name =&gt; field value) </para>
+</entry>
+                            </row>
+                            <row>
+<entry>array</entry><entry>$where</entry><entry>
+<para>WHERE clause </para>
+</entry>
+                            </row>
+                            <row>
+<entry>string</entry><entry>$message</entry><entry>
+<para>Explanation of query (default &apos;&apos;) </para>
+</entry>
+                            </row>
+                            <row>
+<entry>array</entry><entry>$joins</entry><entry>
+<para>JOINS criteria array</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Depuis</title>
+
+<para>9.4.0 $joins parameter added </para>
+</formalpara>
+<formalpara><title>Renvoie</title>
+
+<para>mysqli_result|boolean Query result handler </para>
+</formalpara>
+</para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_d_bmysql_aa144f03262c6c5a923bf4eff0f49d17d_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_d_bmysql_aa144f03262c6c5a923bf4eff0f49d17d_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_d_bmysql_1aab1d8c0b5873d7e00a6f1db53f26a7f4"/><section>
+    <title>updateOrInsert()</title>
+<indexterm><primary>updateOrInsert</primary><secondary>DBmysql</secondary></indexterm>
+<indexterm><primary>DBmysql</primary><secondary>updateOrInsert</secondary></indexterm>
+<para><computeroutput>updateOrInsert ( $table,  $params,  $where,  $onlyone = <computeroutput>true</computeroutput>
+)</computeroutput></para>
+<para><link linkend="_class_update">Update</link> a row in the database or insert a new one</para>
+
+<para><formalpara><title>Depuis</title>
+
+<para>9.4</para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$table</entry><entry>
+<para>Table name </para>
+</entry>
+                            </row>
+                            <row>
+<entry>array</entry><entry>$params</entry><entry>
+<para>Query parameters ([:field name =&gt; field value) </para>
+</entry>
+                            </row>
+                            <row>
+<entry>array</entry><entry>$where</entry><entry>
+<para>WHERE clause </para>
+</entry>
+                            </row>
+                            <row>
+<entry>boolean</entry><entry>$onlyone</entry><entry>
+<para>Do the update only one element, defaults to true</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>mysqli_result|boolean Query result handler </para>
+</formalpara>
+</para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_d_bmysql_aab1d8c0b5873d7e00a6f1db53f26a7f4_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+</section>
+<section>
+<title>Documentation des champs</title>
+<anchor xml:id="_class_d_bmysql_1aa26a2a7c86f0b3e08e3e4a7ff9a639c6"/><section>
+    <title>$allow_datetime</title>
+<indexterm><primary>$allow_datetime</primary><secondary>DBmysql</secondary></indexterm>
+<indexterm><primary>DBmysql</primary><secondary>$allow_datetime</secondary></indexterm>
+<para><computeroutput>$<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">allow_datetime</link> = true</computeroutput></para></section>
+<anchor xml:id="_class_d_bmysql_1af1035b735bfd1e8809d637c2cc2b9462"/><section>
+    <title>$allow_myisam</title>
+<indexterm><primary>$allow_myisam</primary><secondary>DBmysql</secondary></indexterm>
+<indexterm><primary>DBmysql</primary><secondary>$allow_myisam</secondary></indexterm>
+<para><computeroutput>$<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">allow_myisam</link> = true</computeroutput></para></section>
+<anchor xml:id="_class_d_bmysql_1a87210080d8443d50cb279575987f62b8"/><section>
+    <title>$allow_signed_keys</title>
+<indexterm><primary>$allow_signed_keys</primary><secondary>DBmysql</secondary></indexterm>
+<indexterm><primary>DBmysql</primary><secondary>$allow_signed_keys</secondary></indexterm>
+<para><computeroutput>$<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">allow_signed_keys</link> = true</computeroutput></para></section>
+<anchor xml:id="_class_d_bmysql_1adb9756d4524181e191069eaa76afb6cf"/><section>
+    <title>$connected</title>
+<indexterm><primary>$connected</primary><secondary>DBmysql</secondary></indexterm>
+<indexterm><primary>DBmysql</primary><secondary>$connected</secondary></indexterm>
+<para><computeroutput>$connected = false</computeroutput></para></section>
+<anchor xml:id="_class_d_bmysql_1a0388c04beacf970e197b090037ea4869"/><section>
+    <title>$dbdefault</title>
+<indexterm><primary>$dbdefault</primary><secondary>DBmysql</secondary></indexterm>
+<indexterm><primary>DBmysql</primary><secondary>$dbdefault</secondary></indexterm>
+<para><computeroutput>$<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">dbdefault</link> = &quot;&quot;</computeroutput></para><para>
+
+<para>Default <link linkend="_class_database">Database</link>. </para>
+</para>
+</section>
+<anchor xml:id="_class_d_bmysql_1acc1e62674bb7200ea73767c19dc1344d"/><section>
+    <title>$dbh</title>
+<indexterm><primary>$dbh</primary><secondary>DBmysql</secondary></indexterm>
+<indexterm><primary>DBmysql</primary><secondary>$dbh</secondary></indexterm>
+<para><computeroutput>$<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">dbh</link><computeroutput>[protected]</computeroutput></computeroutput></para></section>
+<anchor xml:id="_class_d_bmysql_1a580dd98ba7f04c133d1a1e1b01af4a30"/><section>
+    <title>$dbhost</title>
+<indexterm><primary>$dbhost</primary><secondary>DBmysql</secondary></indexterm>
+<indexterm><primary>DBmysql</primary><secondary>$dbhost</secondary></indexterm>
+<para><computeroutput>$<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">dbhost</link> = &quot;&quot;</computeroutput></para><para>
+
+<para><link linkend="_class_database">Database</link> Host - string or Array of string (round robin) </para>
+</para>
+</section>
+<anchor xml:id="_class_d_bmysql_1a0d42c2db361e096182a30d694e0cd6e4"/><section>
+    <title>$dbpassword</title>
+<indexterm><primary>$dbpassword</primary><secondary>DBmysql</secondary></indexterm>
+<indexterm><primary>DBmysql</primary><secondary>$dbpassword</secondary></indexterm>
+<para><computeroutput>$<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">dbpassword</link> = &quot;&quot;</computeroutput></para><para>
+
+<para><link linkend="_class_database">Database</link> Password. </para>
+</para>
+</section>
+<anchor xml:id="_class_d_bmysql_1a385df0c8fdaab63f5037ffde3d2ccef9"/><section>
+    <title>$dbssl</title>
+<indexterm><primary>$dbssl</primary><secondary>DBmysql</secondary></indexterm>
+<indexterm><primary>DBmysql</primary><secondary>$dbssl</secondary></indexterm>
+<para><computeroutput>$<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">dbssl</link> = false</computeroutput></para></section>
+<anchor xml:id="_class_d_bmysql_1afa1db3f4b72407d89bd365322fdb24ff"/><section>
+    <title>$dbsslca</title>
+<indexterm><primary>$dbsslca</primary><secondary>DBmysql</secondary></indexterm>
+<indexterm><primary>DBmysql</primary><secondary>$dbsslca</secondary></indexterm>
+<para><computeroutput>$<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">dbsslca</link> = null</computeroutput></para></section>
+<anchor xml:id="_class_d_bmysql_1af5114543f3f79318cf38219baa5e8232"/><section>
+    <title>$dbsslcacipher</title>
+<indexterm><primary>$dbsslcacipher</primary><secondary>DBmysql</secondary></indexterm>
+<indexterm><primary>DBmysql</primary><secondary>$dbsslcacipher</secondary></indexterm>
+<para><computeroutput>$<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">dbsslcacipher</link> = null</computeroutput></para></section>
+<anchor xml:id="_class_d_bmysql_1ac2e61d84234a93d2e852e108167d9f8c"/><section>
+    <title>$dbsslcapath</title>
+<indexterm><primary>$dbsslcapath</primary><secondary>DBmysql</secondary></indexterm>
+<indexterm><primary>DBmysql</primary><secondary>$dbsslcapath</secondary></indexterm>
+<para><computeroutput>$<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">dbsslcapath</link> = null</computeroutput></para></section>
+<anchor xml:id="_class_d_bmysql_1a356a1f44b663948c5d7795713b1651f1"/><section>
+    <title>$dbsslcert</title>
+<indexterm><primary>$dbsslcert</primary><secondary>DBmysql</secondary></indexterm>
+<indexterm><primary>DBmysql</primary><secondary>$dbsslcert</secondary></indexterm>
+<para><computeroutput>$<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">dbsslcert</link> = null</computeroutput></para></section>
+<anchor xml:id="_class_d_bmysql_1a7b94e780f76049f1ea320bdcc5147ae1"/><section>
+    <title>$dbsslkey</title>
+<indexterm><primary>$dbsslkey</primary><secondary>DBmysql</secondary></indexterm>
+<indexterm><primary>DBmysql</primary><secondary>$dbsslkey</secondary></indexterm>
+<para><computeroutput>$<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">dbsslkey</link> = null</computeroutput></para></section>
+<anchor xml:id="_class_d_bmysql_1a8d5ac1c3396a540f025f9bbe56a5b568"/><section>
+    <title>$dbuser</title>
+<indexterm><primary>$dbuser</primary><secondary>DBmysql</secondary></indexterm>
+<indexterm><primary>DBmysql</primary><secondary>$dbuser</secondary></indexterm>
+<para><computeroutput>$<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">dbuser</link> = &quot;&quot;</computeroutput></para><para>
+
+<para><link linkend="_class_database">Database</link> <link linkend="_class_user">User</link>. </para>
+</para>
+</section>
+<anchor xml:id="_class_d_bmysql_1aeba2ab722cedda53dbb7ec1a59f45550"/><section>
+    <title>$error</title>
+<indexterm><primary>$error</primary><secondary>DBmysql</secondary></indexterm>
+<indexterm><primary>DBmysql</primary><secondary>$error</secondary></indexterm>
+<para><computeroutput>$error = 0</computeroutput></para><para>
+
+<para><link linkend="_class_database">Database</link> Error. </para>
+</para>
+</section>
+<anchor xml:id="_class_d_bmysql_1a2d8dc53e1ba1a00dd213589f7a5f4377"/><section>
+    <title>$execution_time</title>
+<indexterm><primary>$execution_time</primary><secondary>DBmysql</secondary></indexterm>
+<indexterm><primary>DBmysql</primary><secondary>$execution_time</secondary></indexterm>
+<para><computeroutput>$<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">execution_time</link> = false</computeroutput></para></section>
+<anchor xml:id="_class_d_bmysql_1af1987b970e0fa42373f2468e56669ff3"/><section>
+    <title>$first_connection</title>
+<indexterm><primary>$first_connection</primary><secondary>DBmysql</secondary></indexterm>
+<indexterm><primary>DBmysql</primary><secondary>$first_connection</secondary></indexterm>
+<para><computeroutput>$<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">first_connection</link> = true</computeroutput></para>
+<para>Is it a first connection ? Indicates if the first connection attempt is successful or not if first attempt fail -&gt; display a warning which indicates that glpi is in readonly </para>
+</section>
+<anchor xml:id="_class_d_bmysql_1a2d7e85f83a24aac7c47d06f88fcc106c"/><section>
+    <title>$log_deprecation_warnings</title>
+<indexterm><primary>$log_deprecation_warnings</primary><secondary>DBmysql</secondary></indexterm>
+<indexterm><primary>DBmysql</primary><secondary>$log_deprecation_warnings</secondary></indexterm>
+<para><computeroutput>$<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">log_deprecation_warnings</link> = false</computeroutput></para></section>
+<anchor xml:id="_class_d_bmysql_1a4f19940c4db7911696eaad4d71bdfff4"/><section>
+    <title>$slave</title>
+<indexterm><primary>$slave</primary><secondary>DBmysql</secondary></indexterm>
+<indexterm><primary>DBmysql</primary><secondary>$slave</secondary></indexterm>
+<para><computeroutput>$<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">slave</link> = false</computeroutput></para></section>
+<anchor xml:id="_class_d_bmysql_1a078e0acdaf959dd7cdedf6b3c7b3c1e6"/><section>
+    <title>$use_timezones</title>
+<indexterm><primary>$use_timezones</primary><secondary>DBmysql</secondary></indexterm>
+<indexterm><primary>DBmysql</primary><secondary>$use_timezones</secondary></indexterm>
+<para><computeroutput>$<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">use_timezones</link> = false</computeroutput></para></section>
+<anchor xml:id="_class_d_bmysql_1a5fb716ecf079d62465e1eb2e7ba4b3a2"/><section>
+    <title>$use_utf8mb4</title>
+<indexterm><primary>$use_utf8mb4</primary><secondary>DBmysql</secondary></indexterm>
+<indexterm><primary>DBmysql</primary><secondary>$use_utf8mb4</secondary></indexterm>
+<para><computeroutput>$<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">use_utf8mb4</link> = false</computeroutput></para></section>
+<para>
+La documentation de cette classe a été générée à partir du fichier suivant :</para>
+public/glpi/src/<link linkend="__d_bmysql_8php">DBmysql.php</link></section>
+</section>

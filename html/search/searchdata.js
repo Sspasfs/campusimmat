@@ -1,12 +1,12 @@
 var indexSectionsWithContent =
 {
-  0: "$02abcdefilmoprstuvw",
-  1: "abcdeimpstu",
-  2: "adt",
-  3: "02acdeiprstuw",
-  4: "abcdefiprstuv",
-  5: "$il",
-  6: "r"
+  0: "$0123456789_abcdefghijklmnopqrstuvwxyzàé–🇺🔥",
+  1: "_abcdefghijklmnopqrstuvwxz",
+  2: "abcdfghilmprstw",
+  3: "0123456789abcdefghijklmnopqrstuvwxyz",
+  4: "_abcdefghijklmnopqrstuvwxyz",
+  5: "$_abcdefghijklmnopqrstuvwxyz",
+  6: "02678abcdefghijlmnoprstuvwxàé🔥"
 };
 
 var indexSectionNames =

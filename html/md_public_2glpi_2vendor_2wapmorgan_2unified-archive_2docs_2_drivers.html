@@ -1,0 +1,204 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.10.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>CampusImmat: Drivers</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">CampusImmat
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.10.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+</div><!-- top -->
+<div><div class="header">
+  <div class="headertitle"><div class="title">Drivers</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><ul>
+<li><a class="el" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">Proposals for installation drivers</a></li>
+</ul>
+<p><a class="el" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">Drivers</a></p><ul>
+<li><a class="el" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">PHP Extensions</a></li>
+<li><a class="el" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">Utilities + bridge</a></li>
+<li><a class="el" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">Pure PHP</a></li>
+</ul>
+<p><a class="el" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">Full support matrix</a></p>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadNone">Type   </th><th class="markdownTableHeadNone">Pros   </th><th class="markdownTableHeadNone">Cons   </th><th class="markdownTableHeadNone">Useful for    </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">PHP Exteniosn   </td><td class="markdownTableBodyNone">Fast, supports a lot of functions   </td><td class="markdownTableBodyNone">Sometimes can not support specific functions (e.g. password-protection in zip on old php versions)   </td><td class="markdownTableBodyNone">Use it when possible (when extensions installed)    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">Utilities + bridge   </td><td class="markdownTableBodyNone">Uses system utilities, so should be fast (and even faster PHP Extensions)   </td><td class="markdownTableBodyNone">Do not support streaming   </td><td class="markdownTableBodyNone">Packing a lot of files / Unpacking the whole archives without streaming    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">Pure PHP   </td><td class="markdownTableBodyNone">Works without PHP Extensions or system utilities, can be installed via composer only   </td><td class="markdownTableBodyNone">Uses a lot of memory, lack of speed   </td><td class="markdownTableBodyNone">Fallback method   </td></tr>
+</table>
+<h1><a class="anchor" id="autotoc_md7496"></a>
+Proposals for installation drivers</h1>
+<ul>
+<li><b>In common case:</b><ul>
+<li>install <code>TarByPear</code>, <code>NelexaZip</code></li>
+<li>If installed <code>7za</code> utility - configure <code>SevenZip</code> driver</li>
+<li>Else if installed <code>tar</code> or <code>unzip</code> utilities - configure <code>AlchemyZippy</code> driver</li>
+</ul>
+</li>
+<li><b>In docker/on VDS:</b><ul>
+<li>install all php extensions (<code>zip, rar, phar, zlib, bz2</code>)</li>
+<li>install utility (<code>7za</code> - <code>p7zip-full</code> on ubuntu) and <code>SevenZip</code> driver</li>
+</ul>
+</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md7497"></a>
+Drivers</h1>
+<h2><a class="anchor" id="autotoc_md7498"></a>
+PHP extensions</h2>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadNone">Driver   </th><th class="markdownTableHeadNone">Formats   </th><th class="markdownTableHeadNone">php extension   </th><th class="markdownTableHeadNone">notes    </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">Zip   </td><td class="markdownTableBodyNone">zip, jar   </td><td class="markdownTableBodyNone"><code>zip</code>   </td><td class="markdownTableBodyNone">supports password-protection since 7.2.0    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">Rar   </td><td class="markdownTableBodyNone">rar   </td><td class="markdownTableBodyNone"><code>rar</code>   </td><td class="markdownTableBodyNone">read-only mode    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">TarByPhar   </td><td class="markdownTableBodyNone">zip, tar, tar.gz, tar.bz2   </td><td class="markdownTableBodyNone"><code>phar</code>   </td><td class="markdownTableBodyNone">Has a bug <a href="https://bugs.php.net/bug.php?id=71966&amp;thanks=10">#71966</a> in <code>ext-phar</code> (<a href="https://github.com/wapmorgan/UnifiedArchive/issues/12">related issue</a>) - an archive will <code>./</code> in paths cannot be opened.   </td></tr>
+</table>
+<h3><a class="anchor" id="autotoc_md7499"></a>
+PHP extensions for compression only</h3>
+<p>These drivers support only compressed (not archived) data. They support opening, extracting&amp;streaming and creation.</p>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadNone">Driver   </th><th class="markdownTableHeadNone">Formats   </th><th class="markdownTableHeadNone">PHP extension    </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">Bzip   </td><td class="markdownTableBodyNone">.bz2   </td><td class="markdownTableBodyNone"><code>bzip2</code>    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">Gzip   </td><td class="markdownTableBodyNone">.gz   </td><td class="markdownTableBodyNone"><code>zlib</code>    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">Lzma   </td><td class="markdownTableBodyNone">.xz   </td><td class="markdownTableBodyNone"><code>xz</code> - <a href="https://github.com/payden/php-xz">5.x</a> / <a href="https://github.com/codemasher/php-ext-xz">7.x</a>   </td></tr>
+</table>
+<h2><a class="anchor" id="autotoc_md7500"></a>
+Utilities + bridge</h2>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadNone">Driver   </th><th class="markdownTableHeadNone">Formats   </th><th class="markdownTableHeadNone">utility + bridge    </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">SevenZip   </td><td class="markdownTableBodyNone">7z, xz, bzip2, gzip, tar, zip, wim, ar, arj, cab, chm, cpio, cramfs, dmg, ext, fat, gpt, hfs, ihex, iso, lzh, lzma, mbr, msi, nsis, ntfs, qcow2, rar, rpm, squashfs, udf, uefi, vdi, vhd, vmdk, wim, xar, z   </td><td class="markdownTableBodyNone">p7zip (<a href="http://p7zip.sourceforge.net/"><code>7za</code></a>) + <a href="https://packagist.org/packages/gemorroj/archive7z"><code>gemorroj/archive7z</code></a>    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">AlchemyZippy   </td><td class="markdownTableBodyNone">zip, tar, tar.gz, tar.bz2   </td><td class="markdownTableBodyNone"><code>zip</code>/<code>tar</code> + <a href="https://packagist.org/packages/alchemy/zippy"><code>alchemy/zippy</code></a>   </td></tr>
+</table>
+<p><b>If you install SevenZip and AlchemyZippy at the same time</b>:</p><ol type="1">
+<li>You should specify symfony/console version before installation to any <b>3.x.x version</b>: <code>composer require symfony/process:~3.4</code>, because they require different <code>symfony/process</code> versions.</li>
+<li>Install archive7z version 4.0.0: <code>composer require gemorroj/archive7z:~4.0</code></li>
+</ol>
+<h2><a class="anchor" id="autotoc_md7501"></a>
+Pure php implementation</h2>
+<p>Works with binary data in php-land (= eats a lot of memory for big archives).</p>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadNone">Driver   </th><th class="markdownTableHeadNone">Formats   </th><th class="markdownTableHeadNone">library   </th><th class="markdownTableHeadNone">notes    </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">NelexaZip   </td><td class="markdownTableBodyNone">zip   </td><td class="markdownTableBodyNone"><a href="https://packagist.org/packages/nelexa/zip"><code>nelexa/zip</code></a> and optionally php-extensions (<code>bz2</code>, <code>fileinfo</code>, <code>iconv</code>, <code>openssl</code>)   </td><td class="markdownTableBodyNone"></td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">TarByPear   </td><td class="markdownTableBodyNone">tar, tar.gz, tar.bz2, tar.xz, tar.Z   </td><td class="markdownTableBodyNone"><a href="https://packagist.org/packages/pear/archive_tar"><code>pear/archive_tar</code></a> and optionally php-extensions (<code>zlib</code>, <code>bzip2</code>, <code>xz</code> - <a href="https://github.com/payden/php-xz">5.x</a> / <a href="https://github.com/codemasher/php-ext-xz">7.x</a>   </td><td class="markdownTableBodyNone">dont support updating archive (deleteFiles)    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">Cab   </td><td class="markdownTableBodyNone">cab   </td><td class="markdownTableBodyNone"><a href="https://packagist.org/packages/wapmorgan/cab-archive"><code>wapmorgan/cab-archive</code></a>   </td><td class="markdownTableBodyNone">Getting files content and extraction is supported only on PHP 7.0.22+, 7.1.8+, 7.2.0. Support only opening &amp; extraction    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">Iso   </td><td class="markdownTableBodyNone">iso   </td><td class="markdownTableBodyNone"><a href="https://packagist.org/packages/phpclasses/php-iso-file"><code>phpclasses/php-iso-file</code></a>   </td><td class="markdownTableBodyNone">Support only opening &amp; extraction   </td></tr>
+</table>
+<h1><a class="anchor" id="autotoc_md7502"></a>
+Full support matrix</h1>
+<p>Result of <code>./vendor/bin/cam system:formats</code> when all drivers installed and configured (except of AlchemyZippy): </p><div class="fragment"><div class="line">+-----------------+------------+------+------+------+-------+--------+--------+--------+-----------+-----+-----+-----+------+-----+-----+-----+-----+-----+-----+-----+------+-------+</div>
+<div class="line">| driver / format | zip        | rar  | gz   | bz2  | xz    | tar    | tgz    | tbz2   | 7z        | cab | iso | arj | uefi | gpt | mbr | msi | dmg | rpm | deb | udf | txz  | tar.z |</div>
+<div class="line">+-----------------+------------+------+------+------+-------+--------+--------+--------+-----------+-----+-----+-----+------+-----+-----+-----+-----+-----+-----+-----+------+-------+</div>
+<div class="line">| Zip             | oOtxsadTcC |      |      |      |       |        |        |        |           |     |     |     |      |     |     |     |     |     |     |     |      |       |</div>
+<div class="line">| Rar             |            | oOxs |      |      |       |        |        |        |           |     |     |     |      |     |     |     |     |     |     |     |      |       |</div>
+<div class="line">| Gzip            |            |      | oxsc |      |       |        |        |        |           |     |     |     |      |     |     |     |     |     |     |     |      |       |</div>
+<div class="line">| Bzip            |            |      |      | oxsc |       |        |        |        |           |     |     |     |      |     |     |     |     |     |     |     |      |       |</div>
+<div class="line">| Lzma            |            |      |      |      | oxsc  |        |        |        |           |     |     |     |      |     |     |     |     |     |     |     |      |       |</div>
+<div class="line">| TarByPhar       | oxsadc     |      |      |      |       | oxsadc | oxsadc | oxsadc |           |     |     |     |      |     |     |     |     |     |     |     |      |       |</div>
+<div class="line">| SevenZip        | oOxadcC    |      |      |      | oxadc | oxadc  |        |        | oOtxadTcC | ox  | ox  | ox  | ox   | ox  | ox  | ox  | ox  | ox  | ox  | ox  |      |       |</div>
+<div class="line">| AlchemyZippy    |            |      |      |      |       |        |        |        |           |     |     |     |      |     |     |     |     |     |     |     |      |       |</div>
+<div class="line">| NelexaZip       | oOxad      |      |      |      |       |        |        |        |           |     |     |     |      |     |     |     |     |     |     |     |      |       |</div>
+<div class="line">| TarByPear       |            |      |      |      |       | oxac   | oxac   | oxac   |           |     |     |     |      |     |     |     |     |     |     |     | oxac |       |</div>
+<div class="line">| Iso             |            |      |      |      |       |        |        |        |           |     | ox  |     |      |     |     |     |     |     |     |     |      |       |</div>
+<div class="line">| Cab             |            |      |      |      |       |        |        |        |           | ox  |     |     |      |     |     |     |     |     |     |     |      |       |</div>
+<div class="line">+-----------------+------------+------+------+------+-------+--------+--------+--------+-----------+-----+-----+-----+------+-----+-----+-----+-----+-----+-----+-----+------+-------+</div>
+</div><!-- fragment --><ul>
+<li>o - open</li>
+<li>O - open (+password)</li>
+<li>t - get comment</li>
+<li>x - extract</li>
+<li>s - stream</li>
+<li>a - append</li>
+<li>d - delete</li>
+<li>T - set comment</li>
+<li>c - create</li>
+<li>C - create (+password) </li>
+</ul>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0
+</small></address>
+</body>
+</html>

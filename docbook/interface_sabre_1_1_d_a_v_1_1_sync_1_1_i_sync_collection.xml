@@ -1,0 +1,169 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_interface_sabre_1_1_d_a_v_1_1_sync_1_1_i_sync_collection" xml:lang="fr">
+<title>Référence de l&apos;interface ISyncCollection</title>
+<indexterm><primary>ISyncCollection</primary></indexterm>
+Graphe d&apos;héritage de ISyncCollection:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="interface_sabre_1_1_d_a_v_1_1_sync_1_1_i_sync_collection__inherit__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Graphe de collaboration de ISyncCollection:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="interface_sabre_1_1_d_a_v_1_1_sync_1_1_i_sync_collection__coll__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Fonctions membres publiques    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_interface_sabre_1_1_d_a_v_1_1_sync_1_1_i_sync_collection_1a88cf40715fea416e00bc445278bc704b">getSyncToken</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_interface_sabre_1_1_d_a_v_1_1_sync_1_1_i_sync_collection_1ae443d6cda9d7e33376af53e57a7c2294">getChanges</link> ($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">syncToken</link>, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">syncLevel</link>, $limit=null)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+Fonctions membres publiques hérités de <link linkend="_interface_sabre_1_1_d_a_v_1_1_i_collection">ICollection</link>        <itemizedlist>
+            <listitem><para><link linkend="_interface_sabre_1_1_d_a_v_1_1_i_collection_1a4135c8ffb4787bd20d7409ad699d8e0d">createFile</link> ($name, $data=null)</para>
+</listitem>
+            <listitem><para><link linkend="_interface_sabre_1_1_d_a_v_1_1_i_collection_1ad2c87f2e1012d1860d1d343a9ee54fa1">createDirectory</link> ($name)</para>
+</listitem>
+            <listitem><para><link linkend="_interface_sabre_1_1_d_a_v_1_1_i_collection_1a1cfdba129d25b04b73af8290f58ba7c1">getChild</link> ($name)</para>
+</listitem>
+            <listitem><para><link linkend="_interface_sabre_1_1_d_a_v_1_1_i_collection_1a8650a4f6150ed357d88fa043f1685ac5">getChildren</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_interface_sabre_1_1_d_a_v_1_1_i_collection_1a9c5c664f8f1e4a514235a31837de9988">childExists</link> ($name)</para>
+</listitem>
+        </itemizedlist>
+Fonctions membres publiques hérités de <link linkend="_interface_sabre_1_1_d_a_v_1_1_i_node">INode</link>        <itemizedlist>
+            <listitem><para><link linkend="_interface_sabre_1_1_d_a_v_1_1_i_node_1a13bdffdd926f26b825ea57066334ff01">delete</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_interface_sabre_1_1_d_a_v_1_1_i_node_1a3d0963e68bb313b163a73f2803c64600">getName</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_interface_sabre_1_1_d_a_v_1_1_i_node_1a2fe666694997d047711d7653eca2f132">setName</link> ($name)</para>
+</listitem>
+            <listitem><para><link linkend="_interface_sabre_1_1_d_a_v_1_1_i_node_1aa388e2fda4fe702e8953c1a731868f18">getLastModified</link> ()</para>
+</listitem>
+        </itemizedlist>
+<section>
+<title>Description détaillée</title>
+
+<para>If a class extends ISyncCollection, it supports WebDAV-sync.</para>
+
+<para>You are responsible for maintaining a changelist for this collection. This means that if any child nodes in this collection was created, modified or deleted in any way, you should maintain an updated changelist.</para>
+
+<para><formalpara><title>Copyright</title>
+
+<para>Copyright (C) fruux GmbH (<link xlink:href="https://fruux.com/">https://fruux.com/</link>) </para>
+</formalpara>
+<formalpara><title>Auteur</title>
+
+<para>Evert Pot (<link xlink:href="http://evertpot.com/">http://evertpot.com/</link>) @license <link xlink:href="http://sabre.io/license/">http://sabre.io/license/</link> Modified BSD License </para>
+</formalpara>
+</para>
+</section>
+<section>
+<title>Documentation des fonctions membres</title>
+<anchor xml:id="_interface_sabre_1_1_d_a_v_1_1_sync_1_1_i_sync_collection_1ae443d6cda9d7e33376af53e57a7c2294"/><section>
+    <title>getChanges()</title>
+<indexterm><primary>getChanges</primary><secondary>ISyncCollection</secondary></indexterm>
+<indexterm><primary>ISyncCollection</primary><secondary>getChanges</secondary></indexterm>
+<para><computeroutput>getChanges ( $syncToken,  $syncLevel,  $limit = <computeroutput>null</computeroutput>
+)</computeroutput></para>
+<para>The getChanges method returns all the changes that have happened, since the specified syncToken and the current collection.</para>
+
+<para>This function should return an array, such as the following:</para>
+
+<para>[ &apos;syncToken&apos; =&gt; &apos;The current synctoken&apos;, &apos;added&apos; =&gt; [ &apos;new.txt&apos;, ], &apos;modified&apos; =&gt; [ &apos;modified.txt&apos;, ], &apos;deleted&apos; =&gt; array( &apos;foo.php.bak&apos;, &apos;old.txt&apos; ) ];</para>
+
+<para>The syncToken property should reflect the <emphasis>current</emphasis> syncToken of the collection, as reported getSyncToken(). This is needed here too, to ensure the operation is atomic.</para>
+
+<para>If the syncToken is specified as null, this is an initial sync, and all members should be reported.</para>
+
+<para>The modified property is an array of nodenames that have changed since the last token.</para>
+
+<para>The deleted property is an array with nodenames, that have been deleted from collection.</para>
+
+<para>The second argument is basically the &apos;depth&apos; of the report. If it&apos;s 1, you only have to report changes that happened only directly in immediate descendants. If it&apos;s 2, it should also include changes from the nodes below the child collections. (grandchildren)</para>
+
+<para>The third (optional) argument allows a client to specify how many results should be returned at most. If the limit is not specified, it should be treated as infinite.</para>
+
+<para>If the limit (infinite or not) is higher than you&apos;re willing to return, you should throw a Sabre\DAV\Exception\TooMuchMatches() exception.</para>
+
+<para>If the syncToken is expired (due to data cleanup) or unknown, you must return null.</para>
+
+<para>The limit is &apos;suggestive&apos;. You are free to ignore it.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$syncToken</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>int</entry><entry>$syncLevel</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>int</entry><entry>$limit</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>array </para>
+</formalpara>
+</para>
+<para>
+Implémenté dans <link linkend="_class_sabre_1_1_cal_d_a_v_1_1_calendar_1ae443d6cda9d7e33376af53e57a7c2294">Calendar</link>, et <link linkend="_class_sabre_1_1_card_d_a_v_1_1_address_book_1ae443d6cda9d7e33376af53e57a7c2294">AddressBook</link>.</para>
+</section>
+<anchor xml:id="_interface_sabre_1_1_d_a_v_1_1_sync_1_1_i_sync_collection_1a88cf40715fea416e00bc445278bc704b"/><section>
+    <title>getSyncToken()</title>
+<indexterm><primary>getSyncToken</primary><secondary>ISyncCollection</secondary></indexterm>
+<indexterm><primary>ISyncCollection</primary><secondary>getSyncToken</secondary></indexterm>
+<para><computeroutput>getSyncToken ( )</computeroutput></para>
+<para>This method returns the current sync-token for this collection. This can be any string.</para>
+
+<para>If null is returned from this function, the plugin assumes there&apos;s no sync information available.</para>
+
+<para><formalpara><title>Renvoie</title>
+
+<para>string|null </para>
+</formalpara>
+</para>
+<para>
+Implémenté dans <link linkend="_class_sabre_1_1_cal_d_a_v_1_1_calendar_1a88cf40715fea416e00bc445278bc704b">Calendar</link>, et <link linkend="_class_sabre_1_1_card_d_a_v_1_1_address_book_1a88cf40715fea416e00bc445278bc704b">AddressBook</link>.</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="interface_sabre_1_1_d_a_v_1_1_sync_1_1_i_sync_collection_a88cf40715fea416e00bc445278bc704b_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<para>
+La documentation de cette interface a été générée à partir du fichier suivant :</para>
+public/glpi/vendor/sabre/dav/lib/DAV/Sync/<link linkend="__i_sync_collection_8php">ISyncCollection.php</link></section>
+</section>

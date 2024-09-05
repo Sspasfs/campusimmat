@@ -1,0 +1,130 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_interface_sabre_1_1_d_a_v_1_1_i_extended_collection" xml:lang="fr">
+<title>Référence de l&apos;interface IExtendedCollection</title>
+<indexterm><primary>IExtendedCollection</primary></indexterm>
+Graphe d&apos;héritage de IExtendedCollection:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="interface_sabre_1_1_d_a_v_1_1_i_extended_collection__inherit__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Graphe de collaboration de IExtendedCollection:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="interface_sabre_1_1_d_a_v_1_1_i_extended_collection__coll__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Fonctions membres publiques    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_interface_sabre_1_1_d_a_v_1_1_i_extended_collection_1acc2505cdc0e3b05f482b34cda52068ac">createExtendedCollection</link> ($name, <link linkend="_class_sabre_1_1_d_a_v_1_1_mk_col">MkCol</link> $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">mkCol</link>)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+Fonctions membres publiques hérités de <link linkend="_interface_sabre_1_1_d_a_v_1_1_i_collection">ICollection</link>        <itemizedlist>
+            <listitem><para><link linkend="_interface_sabre_1_1_d_a_v_1_1_i_collection_1a4135c8ffb4787bd20d7409ad699d8e0d">createFile</link> ($name, $data=null)</para>
+</listitem>
+            <listitem><para><link linkend="_interface_sabre_1_1_d_a_v_1_1_i_collection_1ad2c87f2e1012d1860d1d343a9ee54fa1">createDirectory</link> ($name)</para>
+</listitem>
+            <listitem><para><link linkend="_interface_sabre_1_1_d_a_v_1_1_i_collection_1a1cfdba129d25b04b73af8290f58ba7c1">getChild</link> ($name)</para>
+</listitem>
+            <listitem><para><link linkend="_interface_sabre_1_1_d_a_v_1_1_i_collection_1a8650a4f6150ed357d88fa043f1685ac5">getChildren</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_interface_sabre_1_1_d_a_v_1_1_i_collection_1a9c5c664f8f1e4a514235a31837de9988">childExists</link> ($name)</para>
+</listitem>
+        </itemizedlist>
+Fonctions membres publiques hérités de <link linkend="_interface_sabre_1_1_d_a_v_1_1_i_node">INode</link>        <itemizedlist>
+            <listitem><para><link linkend="_interface_sabre_1_1_d_a_v_1_1_i_node_1a13bdffdd926f26b825ea57066334ff01">delete</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_interface_sabre_1_1_d_a_v_1_1_i_node_1a3d0963e68bb313b163a73f2803c64600">getName</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_interface_sabre_1_1_d_a_v_1_1_i_node_1a2fe666694997d047711d7653eca2f132">setName</link> ($name)</para>
+</listitem>
+            <listitem><para><link linkend="_interface_sabre_1_1_d_a_v_1_1_i_node_1aa388e2fda4fe702e8953c1a731868f18">getLastModified</link> ()</para>
+</listitem>
+        </itemizedlist>
+<section>
+<title>Description détaillée</title>
+
+<para>The IExtendedCollection interface.</para>
+
+<para>This interface can be used to create special-type of collection-resources as defined by RFC 5689.</para>
+
+<para><formalpara><title>Copyright</title>
+
+<para>Copyright (C) fruux GmbH (<link xlink:href="https://fruux.com/">https://fruux.com/</link>) </para>
+</formalpara>
+<formalpara><title>Auteur</title>
+
+<para>Evert Pot (<link xlink:href="http://evertpot.com/">http://evertpot.com/</link>) @license <link xlink:href="http://sabre.io/license/">http://sabre.io/license/</link> Modified BSD License </para>
+</formalpara>
+</para>
+</section>
+<section>
+<title>Documentation des fonctions membres</title>
+<anchor xml:id="_interface_sabre_1_1_d_a_v_1_1_i_extended_collection_1acc2505cdc0e3b05f482b34cda52068ac"/><section>
+    <title>createExtendedCollection()</title>
+<indexterm><primary>createExtendedCollection</primary><secondary>IExtendedCollection</secondary></indexterm>
+<indexterm><primary>IExtendedCollection</primary><secondary>createExtendedCollection</secondary></indexterm>
+<para><computeroutput>createExtendedCollection ( $name, <link linkend="_class_sabre_1_1_d_a_v_1_1_mk_col">MkCol</link> $mkCol)</computeroutput></para>
+<para>Creates a new collection.</para>
+
+<para>This method will receive a MkCol object with all the information about the new collection that&apos;s being created.</para>
+
+<para>The MkCol object contains information about the resourceType of the new collection. If you don&apos;t support the specified resourceType, you should throw Exception\InvalidResourceType.</para>
+
+<para>The object also contains a list of WebDAV properties for the new collection.</para>
+
+<para>You should call the handle() method on this object to specify exactly which properties you are storing. This allows the system to figure out exactly which properties you didn&apos;t store, which in turn allows other plugins (such as the propertystorage plugin) to handle storing the property for you.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$name</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>Exception</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                InvalidResourceType </para>
+<para>
+Implémenté dans <link linkend="_class_sabre_1_1_cal_d_a_v_1_1_calendar_home_1acc2505cdc0e3b05f482b34cda52068ac">CalendarHome</link>, <link linkend="_class_sabre_1_1_card_d_a_v_1_1_address_book_home_1acc2505cdc0e3b05f482b34cda52068ac">AddressBookHome</link>, et <link linkend="_class_sabre_1_1_d_a_v_a_c_l_1_1_principal_collection_1acc2505cdc0e3b05f482b34cda52068ac">PrincipalCollection</link>.</para>
+</section>
+<para>
+La documentation de cette interface a été générée à partir du fichier suivant :</para>
+public/glpi/vendor/sabre/dav/lib/DAV/<link linkend="__i_extended_collection_8php">IExtendedCollection.php</link></section>
+</section>

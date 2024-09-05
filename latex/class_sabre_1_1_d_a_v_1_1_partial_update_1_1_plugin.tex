@@ -1,0 +1,227 @@
+\doxysection{Référence de la classe Plugin}
+\hypertarget{class_sabre_1_1_d_a_v_1_1_partial_update_1_1_plugin}{}\label{class_sabre_1_1_d_a_v_1_1_partial_update_1_1_plugin}\index{Plugin@{Plugin}}
+
+
+Graphe d\textquotesingle{}héritage de Plugin\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=227pt]{class_sabre_1_1_d_a_v_1_1_partial_update_1_1_plugin__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Graphe de collaboration de Plugin\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=312pt]{class_sabre_1_1_d_a_v_1_1_partial_update_1_1_plugin__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_partial_update_1_1_plugin_a2f763b753d8c30e255c076537f0f498d}{initialize}} (\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_server}{DAV\textbackslash{}\+Server}} \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{server}})
+\item 
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_partial_update_1_1_plugin_a667b4742b17228855e7ebec67113e629}{get\+Plugin\+Name}} ()
+\item 
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_partial_update_1_1_plugin_ac30290b589c493f35b9850ea1a508d31}{get\+HTTPMethods}} (\$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{uri}})
+\item 
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_partial_update_1_1_plugin_a96fc19c600322e93e3e3a3463410e7ca}{get\+Features}} ()
+\item 
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_partial_update_1_1_plugin_ae9d7766a2c0f35796a0ae184e51f4723}{http\+Patch}} (\mbox{\hyperlink{interface_sabre_1_1_h_t_t_p_1_1_request_interface}{Request\+Interface}} \$request, \mbox{\hyperlink{interface_sabre_1_1_h_t_t_p_1_1_response_interface}{Response\+Interface}} \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{response}})
+\item 
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_partial_update_1_1_plugin_a79e22e5fd9d62c789df1108b130dd071}{get\+HTTPUpdate\+Range}} (\mbox{\hyperlink{interface_sabre_1_1_h_t_t_p_1_1_request_interface}{Request\+Interface}} \$request)
+\end{DoxyCompactItemize}
+\doxysubsection*{Fonctions membres publiques hérités de \mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_server_plugin}{Server\+Plugin}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_server_plugin_a9ba20c29dc9549a401506d368f5d3089}{initialize}} (\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_server}{Server}} \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{server}})
+\item 
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_server_plugin_a07ebbe608e0b7b0a8079181bc13bf52c}{get\+Supported\+Report\+Set}} (\$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{uri}})
+\item 
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_server_plugin_a53dac37743dbcb1170a0cd454a2e13a9}{get\+Plugin\+Info}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Champs de données}
+\begin{DoxyCompactItemize}
+\item 
+const \mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_partial_update_1_1_plugin_abcc916fedf2383de69180914eb4b81f8}{RANGE\+\_\+\+APPEND}} = 1
+\item 
+const \mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_partial_update_1_1_plugin_a28e3960f91d4c191e4bee0125a0da603}{RANGE\+\_\+\+START}} = 2
+\item 
+const \mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_partial_update_1_1_plugin_a4e26c4aa2fa3b64d940a46df8e008aab}{RANGE\+\_\+\+END}} = 3
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Attributs protégés}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_partial_update_1_1_plugin_ad135cc8a47e55f0829949cf62214170f}{\$server}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Partial update plugin (Patch method).
+
+This plugin provides a way to modify only part of a target resource It may bu used to update a file chunk, upload big a file into smaller chunks or resume an upload.
+
+\$patch\+Plugin = new \textbackslash{}\+Sabre\textbackslash{}\+DAV\textbackslash{}\+Partial\+Update\textbackslash{}\+Plugin(); \$server-\/\texorpdfstring{$>$}{>}add\+Plugin(\$patch\+Plugin);
+
+\begin{DoxyCopyright}{Copyright}
+Copyright (C) fruux GmbH (\href{https://fruux.com/}{\texttt{ https\+://fruux.\+com/}}) 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Auteur}
+Jean-\/\+Tiare LE BIGOT (\href{http://www.jtlebi.fr/}{\texttt{ http\+://www.\+jtlebi.\+fr/}}) @license \href{http://sabre.io/license/}{\texttt{ http\+://sabre.\+io/license/}} Modified BSD License 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Documentation des fonctions membres}
+\Hypertarget{class_sabre_1_1_d_a_v_1_1_partial_update_1_1_plugin_a96fc19c600322e93e3e3a3463410e7ca}\label{class_sabre_1_1_d_a_v_1_1_partial_update_1_1_plugin_a96fc19c600322e93e3e3a3463410e7ca} 
+\index{Plugin@{Plugin}!getFeatures@{getFeatures}}
+\index{getFeatures@{getFeatures}!Plugin@{Plugin}}
+\doxysubsubsection{\texorpdfstring{getFeatures()}{getFeatures()}}
+{\footnotesize\ttfamily get\+Features (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Returns a list of features for the HTTP OPTIONS Dav\+: header.
+
+\begin{DoxyReturn}{Renvoie}
+array 
+\end{DoxyReturn}
+
+
+Réimplémentée à partir de \mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_server_plugin_a96fc19c600322e93e3e3a3463410e7ca}{Server\+Plugin}}.
+
+\Hypertarget{class_sabre_1_1_d_a_v_1_1_partial_update_1_1_plugin_ac30290b589c493f35b9850ea1a508d31}\label{class_sabre_1_1_d_a_v_1_1_partial_update_1_1_plugin_ac30290b589c493f35b9850ea1a508d31} 
+\index{Plugin@{Plugin}!getHTTPMethods@{getHTTPMethods}}
+\index{getHTTPMethods@{getHTTPMethods}!Plugin@{Plugin}}
+\doxysubsubsection{\texorpdfstring{getHTTPMethods()}{getHTTPMethods()}}
+{\footnotesize\ttfamily get\+HTTPMethods (\begin{DoxyParamCaption}\item[{}]{\$uri }\end{DoxyParamCaption})}
+
+Use this method to tell the server this plugin defines additional HTTP methods.
+
+This method is passed a uri. It should only return HTTP methods that are available for the specified uri.
+
+We claim to support PATCH method (partirl update) if and only if
+\begin{DoxyItemize}
+\item the node exist
+\item the node implements our partial update interface
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}[1]{Paramètres}
+string & {\em \$uri} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+array 
+\end{DoxyReturn}
+
+
+Réimplémentée à partir de \mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_server_plugin_ab59b6b102a57fa2484a3c22e53bb694a}{Server\+Plugin}}.
+
+\Hypertarget{class_sabre_1_1_d_a_v_1_1_partial_update_1_1_plugin_a79e22e5fd9d62c789df1108b130dd071}\label{class_sabre_1_1_d_a_v_1_1_partial_update_1_1_plugin_a79e22e5fd9d62c789df1108b130dd071} 
+\index{Plugin@{Plugin}!getHTTPUpdateRange@{getHTTPUpdateRange}}
+\index{getHTTPUpdateRange@{getHTTPUpdateRange}!Plugin@{Plugin}}
+\doxysubsubsection{\texorpdfstring{getHTTPUpdateRange()}{getHTTPUpdateRange()}}
+{\footnotesize\ttfamily get\+HTTPUpdate\+Range (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{interface_sabre_1_1_h_t_t_p_1_1_request_interface}{Request\+Interface}}}]{\$request }\end{DoxyParamCaption})}
+
+Returns the HTTP custom range update header.
+
+This method returns null if there is no well-\/formed HTTP range request header. It returns array(1) if it was an append request, array(2, \$start, \$end) if it\textquotesingle{}s a start and end range, lastly it\textquotesingle{}s array(3, \$endoffset) if the offset was negative, and should be calculated from the end of the file.
+
+Examples\+:
+
+null -\/ invalid \mbox{[}1\mbox{]} -\/ append \mbox{[}2,10,15\mbox{]} -\/ update bytes 10, 11, 12, 13, 14, 15 \mbox{[}2,10,null\mbox{]} -\/ update bytes 10 until the end of the patch body \mbox{[}3,-\/5\mbox{]} -\/ update from 5 bytes from the end of the file.
+
+\begin{DoxyReturn}{Renvoie}
+array\texorpdfstring{$\vert$}{|}null 
+\end{DoxyReturn}
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_sabre_1_1_d_a_v_1_1_partial_update_1_1_plugin_a79e22e5fd9d62c789df1108b130dd071_cgraph}
+\end{center}
+\end{figure}
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=290pt]{class_sabre_1_1_d_a_v_1_1_partial_update_1_1_plugin_a79e22e5fd9d62c789df1108b130dd071_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_sabre_1_1_d_a_v_1_1_partial_update_1_1_plugin_a667b4742b17228855e7ebec67113e629}\label{class_sabre_1_1_d_a_v_1_1_partial_update_1_1_plugin_a667b4742b17228855e7ebec67113e629} 
+\index{Plugin@{Plugin}!getPluginName@{getPluginName}}
+\index{getPluginName@{getPluginName}!Plugin@{Plugin}}
+\doxysubsubsection{\texorpdfstring{getPluginName()}{getPluginName()}}
+{\footnotesize\ttfamily get\+Plugin\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Returns a plugin name.
+
+Using this name other plugins will be able to access other plugins using DAV\textbackslash{}\+Server\+::get\+Plugin
+
+\begin{DoxyReturn}{Renvoie}
+string 
+\end{DoxyReturn}
+
+
+Réimplémentée à partir de \mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_server_plugin_a667b4742b17228855e7ebec67113e629}{Server\+Plugin}}.
+
+\Hypertarget{class_sabre_1_1_d_a_v_1_1_partial_update_1_1_plugin_ae9d7766a2c0f35796a0ae184e51f4723}\label{class_sabre_1_1_d_a_v_1_1_partial_update_1_1_plugin_ae9d7766a2c0f35796a0ae184e51f4723} 
+\index{Plugin@{Plugin}!httpPatch@{httpPatch}}
+\index{httpPatch@{httpPatch}!Plugin@{Plugin}}
+\doxysubsubsection{\texorpdfstring{httpPatch()}{httpPatch()}}
+{\footnotesize\ttfamily http\+Patch (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{interface_sabre_1_1_h_t_t_p_1_1_request_interface}{Request\+Interface}}}]{\$request,  }\item[{\mbox{\hyperlink{interface_sabre_1_1_h_t_t_p_1_1_response_interface}{Response\+Interface}}}]{\$response }\end{DoxyParamCaption})}
+
+Patch an uri.
+
+The Web\+DAV patch request can be used to modify only a part of an existing resource. If the resource does not exist yet and the first offset is not 0, the request fails Voici le graphe d\textquotesingle{}appel pour cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_sabre_1_1_d_a_v_1_1_partial_update_1_1_plugin_ae9d7766a2c0f35796a0ae184e51f4723_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_sabre_1_1_d_a_v_1_1_partial_update_1_1_plugin_a2f763b753d8c30e255c076537f0f498d}\label{class_sabre_1_1_d_a_v_1_1_partial_update_1_1_plugin_a2f763b753d8c30e255c076537f0f498d} 
+\index{Plugin@{Plugin}!initialize@{initialize}}
+\index{initialize@{initialize}!Plugin@{Plugin}}
+\doxysubsubsection{\texorpdfstring{initialize()}{initialize()}}
+{\footnotesize\ttfamily initialize (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_server}{DAV\textbackslash{}\+Server}}}]{\$server }\end{DoxyParamCaption})}
+
+Initializes the plugin.
+
+This method is automatically called by the Server class after add\+Plugin. 
+
+\doxysubsection{Documentation des champs}
+\Hypertarget{class_sabre_1_1_d_a_v_1_1_partial_update_1_1_plugin_ad135cc8a47e55f0829949cf62214170f}\label{class_sabre_1_1_d_a_v_1_1_partial_update_1_1_plugin_ad135cc8a47e55f0829949cf62214170f} 
+\index{Plugin@{Plugin}!\$server@{\$server}}
+\index{\$server@{\$server}!Plugin@{Plugin}}
+\doxysubsubsection{\texorpdfstring{\$server}{\$server}}
+{\footnotesize\ttfamily \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{server}}\hspace{0.3cm}{\ttfamily [protected]}}
+
+\Hypertarget{class_sabre_1_1_d_a_v_1_1_partial_update_1_1_plugin_abcc916fedf2383de69180914eb4b81f8}\label{class_sabre_1_1_d_a_v_1_1_partial_update_1_1_plugin_abcc916fedf2383de69180914eb4b81f8} 
+\index{Plugin@{Plugin}!RANGE\_APPEND@{RANGE\_APPEND}}
+\index{RANGE\_APPEND@{RANGE\_APPEND}!Plugin@{Plugin}}
+\doxysubsubsection{\texorpdfstring{RANGE\_APPEND}{RANGE\_APPEND}}
+{\footnotesize\ttfamily const RANGE\+\_\+\+APPEND = 1}
+
+\Hypertarget{class_sabre_1_1_d_a_v_1_1_partial_update_1_1_plugin_a4e26c4aa2fa3b64d940a46df8e008aab}\label{class_sabre_1_1_d_a_v_1_1_partial_update_1_1_plugin_a4e26c4aa2fa3b64d940a46df8e008aab} 
+\index{Plugin@{Plugin}!RANGE\_END@{RANGE\_END}}
+\index{RANGE\_END@{RANGE\_END}!Plugin@{Plugin}}
+\doxysubsubsection{\texorpdfstring{RANGE\_END}{RANGE\_END}}
+{\footnotesize\ttfamily const RANGE\+\_\+\+END = 3}
+
+\Hypertarget{class_sabre_1_1_d_a_v_1_1_partial_update_1_1_plugin_a28e3960f91d4c191e4bee0125a0da603}\label{class_sabre_1_1_d_a_v_1_1_partial_update_1_1_plugin_a28e3960f91d4c191e4bee0125a0da603} 
+\index{Plugin@{Plugin}!RANGE\_START@{RANGE\_START}}
+\index{RANGE\_START@{RANGE\_START}!Plugin@{Plugin}}
+\doxysubsubsection{\texorpdfstring{RANGE\_START}{RANGE\_START}}
+{\footnotesize\ttfamily const RANGE\+\_\+\+START = 2}
+
+
+
+La documentation de cette classe a été générée à partir du fichier suivant \+:\begin{DoxyCompactItemize}
+\item 
+public/glpi/vendor/sabre/dav/lib/\+DAV/\+Partial\+Update/\mbox{\hyperlink{vendor_2sabre_2dav_2lib_2_d_a_v_2_partial_update_2plugin_8php}{Plugin.\+php}}\end{DoxyCompactItemize}

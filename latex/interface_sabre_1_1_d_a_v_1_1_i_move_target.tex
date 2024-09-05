@@ -1,0 +1,105 @@
+\doxysection{Référence de l\textquotesingle{}interface IMove\+Target}
+\hypertarget{interface_sabre_1_1_d_a_v_1_1_i_move_target}{}\label{interface_sabre_1_1_d_a_v_1_1_i_move_target}\index{IMoveTarget@{IMoveTarget}}
+
+
+Graphe d\textquotesingle{}héritage de IMove\+Target\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{interface_sabre_1_1_d_a_v_1_1_i_move_target__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Graphe de collaboration de IMove\+Target\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=200pt]{interface_sabre_1_1_d_a_v_1_1_i_move_target__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_i_move_target_a7d2c72b64b3c93a2c8b97a8a71e5d6ad}{move\+Into}} (\$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{target\+Name}}, \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{source\+Path}}, \mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_i_node}{INode}} \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{source\+Node}})
+\end{DoxyCompactItemize}
+\doxysubsection*{Fonctions membres publiques hérités de \mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_i_collection}{ICollection}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_i_collection_a4135c8ffb4787bd20d7409ad699d8e0d}{create\+File}} (\$name, \$data=null)
+\item 
+\mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_i_collection_ad2c87f2e1012d1860d1d343a9ee54fa1}{create\+Directory}} (\$name)
+\item 
+\mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_i_collection_a1cfdba129d25b04b73af8290f58ba7c1}{get\+Child}} (\$name)
+\item 
+\mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_i_collection_a8650a4f6150ed357d88fa043f1685ac5}{get\+Children}} ()
+\item 
+\mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_i_collection_a9c5c664f8f1e4a514235a31837de9988}{child\+Exists}} (\$name)
+\end{DoxyCompactItemize}
+\doxysubsection*{Fonctions membres publiques hérités de \mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_i_node}{INode}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_i_node_a13bdffdd926f26b825ea57066334ff01}{delete}} ()
+\item 
+\mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_i_node_a3d0963e68bb313b163a73f2803c64600}{get\+Name}} ()
+\item 
+\mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_i_node_a2fe666694997d047711d7653eca2f132}{set\+Name}} (\$name)
+\item 
+\mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_i_node_aa388e2fda4fe702e8953c1a731868f18}{get\+Last\+Modified}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+By implementing this interface, a collection can effectively say "{}other nodes may be moved into this collection"{}.
+
+The benefit of this, is that sabre/dav will by default perform a move, by transferring an entire directory tree, copying every collection, and deleting every item.
+
+If a backend supports a better optimized move operation, this can trigger some huge speed gains.
+
+\begin{DoxyCopyright}{Copyright}
+Copyright (C) fruux GmbH (\href{https://fruux.com/}{\texttt{ https\+://fruux.\+com/}}) 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Auteur}
+Evert Pot (\href{http://evertpot.com/}{\texttt{ http\+://evertpot.\+com/}}) @license \href{http://sabre.io/license/}{\texttt{ http\+://sabre.\+io/license/}} Modified BSD License 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Documentation des fonctions membres}
+\Hypertarget{interface_sabre_1_1_d_a_v_1_1_i_move_target_a7d2c72b64b3c93a2c8b97a8a71e5d6ad}\label{interface_sabre_1_1_d_a_v_1_1_i_move_target_a7d2c72b64b3c93a2c8b97a8a71e5d6ad} 
+\index{IMoveTarget@{IMoveTarget}!moveInto@{moveInto}}
+\index{moveInto@{moveInto}!IMoveTarget@{IMoveTarget}}
+\doxysubsubsection{\texorpdfstring{moveInto()}{moveInto()}}
+{\footnotesize\ttfamily move\+Into (\begin{DoxyParamCaption}\item[{}]{\$target\+Name,  }\item[{}]{\$source\+Path,  }\item[{\mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_i_node}{INode}}}]{\$source\+Node }\end{DoxyParamCaption})}
+
+Moves a node into this collection.
+
+It is up to the implementors to\+:
+\begin{DoxyEnumerate}
+\item Create the new resource.
+\item Remove the old resource.
+\item \doxylink{class_transfer}{Transfer} any properties or other data.
+\end{DoxyEnumerate}
+
+Generally you should make very sure that your collection can easily move the move.
+
+If you don\textquotesingle{}t, just return false, which will trigger sabre/dav to handle the move itself. If you return true from this function, the assumption is that the move was successful.
+
+
+\begin{DoxyParams}[1]{Paramètres}
+string & {\em \$target\+Name} & new local file/collection name \\
+\hline
+string & {\em \$source\+Path} & Full path to source node \\
+\hline
+INode & {\em \$source\+Node} & Source node itself\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+bool 
+\end{DoxyReturn}
+
+
+La documentation de cette interface a été générée à partir du fichier suivant \+:\begin{DoxyCompactItemize}
+\item 
+public/glpi/vendor/sabre/dav/lib/\+DAV/\mbox{\hyperlink{_i_move_target_8php}{IMove\+Target.\+php}}\end{DoxyCompactItemize}

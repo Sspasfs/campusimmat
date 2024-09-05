@@ -1,0 +1,311 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_namespace_sabre_1_1_uri" xml:lang="fr">
+<title>Référence de l&apos;espace de nommage Sabre\Uri</title>
+<indexterm><primary>Sabre\Uri</primary></indexterm>
+<simplesect>
+    <title>Structures de données    </title>
+        <itemizedlist>
+            <listitem><para>class <link linkend="_class_sabre_1_1_uri_1_1_invalid_uri_exception">InvalidUriException</link></para>
+</listitem>
+            <listitem><para>class <link linkend="_class_sabre_1_1_uri_1_1_version">Version</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Fonctions    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_namespace_sabre_1_1_uri_1a530f4c5d84c11023bfd5e7e093997a11">resolve</link> (string $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">basePath</link>, string $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">newPath</link>)</para>
+</listitem>
+            <listitem><para><link linkend="_namespace_sabre_1_1_uri_1ae53435a758cbc72a19a0b3d2794b5ccf">normalize</link> (string $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">uri</link>)</para>
+</listitem>
+            <listitem><para><link linkend="_namespace_sabre_1_1_uri_1a282c0fa09e3895aad7195d6c7071ca16">parse</link> (string $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">uri</link>)</para>
+</listitem>
+            <listitem><para><link linkend="_namespace_sabre_1_1_uri_1a05383c03702ec0525c86be0e88e2023e">build</link> (array $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">parts</link>)</para>
+</listitem>
+            <listitem><para><link linkend="_namespace_sabre_1_1_uri_1a9c9fad3e3f06187375bf1eadb359cafe">split</link> (string $path)</para>
+</listitem>
+            <listitem><para><link linkend="_namespace_sabre_1_1_uri_1a7560381bbee5cad477c431c98733d37c">_parse_fallback</link> (string $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">uri</link>)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Documentation des fonctions</title>
+<anchor xml:id="_namespace_sabre_1_1_uri_1a7560381bbee5cad477c431c98733d37c"/><section>
+    <title>_parse_fallback()</title>
+<indexterm><primary>_parse_fallback</primary><secondary>Sabre\Uri</secondary></indexterm>
+<indexterm><primary>Sabre\Uri</primary><secondary>_parse_fallback</secondary></indexterm>
+<para><computeroutput>_parse_fallback (string $uri)</computeroutput></para>
+<para>This function is another implementation of parse_url, except this one is fully written in PHP.</para>
+
+<para>The reason is that the PHP bug team is not willing to admit that there are bugs in the parse_url implementation.</para>
+
+<para>This function is only called if the main parse method fails. It&apos;s pretty crude and probably slow, so the original parse_url is usually preferred.</para>
+
+<para><formalpara><title>Renvoie</title>
+
+<para>array&lt;string, mixed&gt;</para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>InvalidUriException</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="namespace_sabre_1_1_uri_a7560381bbee5cad477c431c98733d37c_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_namespace_sabre_1_1_uri_1a05383c03702ec0525c86be0e88e2023e"/><section>
+    <title>build()</title>
+<indexterm><primary>build</primary><secondary>Sabre\Uri</secondary></indexterm>
+<indexterm><primary>Sabre\Uri</primary><secondary>build</secondary></indexterm>
+<para><computeroutput>build (array $parts)</computeroutput></para>
+<para>This function takes the components returned from PHP&apos;s parse_url, and uses it to generate a new uri.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>array&lt;string, int|string|null&gt;</entry><entry>
+<para>$parts </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="namespace_sabre_1_1_uri_a05383c03702ec0525c86be0e88e2023e_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_namespace_sabre_1_1_uri_1ae53435a758cbc72a19a0b3d2794b5ccf"/><section>
+    <title>normalize()</title>
+<indexterm><primary>normalize</primary><secondary>Sabre\Uri</secondary></indexterm>
+<indexterm><primary>Sabre\Uri</primary><secondary>normalize</secondary></indexterm>
+<para><computeroutput>normalize (string $uri)</computeroutput></para>
+<para>Takes a URI or partial URI as its argument, and normalizes it.</para>
+
+<para>After normalizing a URI, you can safely compare it to other URIs. This function will for instance convert a %7E into a tilde, according to rfc3986.</para>
+
+<para>It will also change a %3a into a %3A.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>InvalidUriException</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="namespace_sabre_1_1_uri_ae53435a758cbc72a19a0b3d2794b5ccf_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="namespace_sabre_1_1_uri_ae53435a758cbc72a19a0b3d2794b5ccf_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_namespace_sabre_1_1_uri_1a282c0fa09e3895aad7195d6c7071ca16"/><section>
+    <title>parse()</title>
+<indexterm><primary>parse</primary><secondary>Sabre\Uri</secondary></indexterm>
+<indexterm><primary>Sabre\Uri</primary><secondary>parse</secondary></indexterm>
+<para><computeroutput>parse (string $uri)</computeroutput></para>
+<para>Parses a URI and returns its individual components.</para>
+
+<para>This method largely behaves the same as PHP&apos;s parse_url, except that it will return an array with all the array keys, including the ones that are not set by parse_url, which makes it a bit easier to work with.</para>
+
+<para>Unlike PHP&apos;s parse_url, it will also convert any non-ascii characters to percent-encoded strings. PHP&apos;s parse_url corrupts these characters on OS X.</para>
+
+<para><formalpara><title>Renvoie</title>
+
+<para>array&lt;string, string&gt;</para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>InvalidUriException</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="namespace_sabre_1_1_uri_a282c0fa09e3895aad7195d6c7071ca16_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="namespace_sabre_1_1_uri_a282c0fa09e3895aad7195d6c7071ca16_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_namespace_sabre_1_1_uri_1a530f4c5d84c11023bfd5e7e093997a11"/><section>
+    <title>resolve()</title>
+<indexterm><primary>resolve</primary><secondary>Sabre\Uri</secondary></indexterm>
+<indexterm><primary>Sabre\Uri</primary><secondary>resolve</secondary></indexterm>
+<para><computeroutput>resolve (string $basePath, string $newPath)</computeroutput></para>
+<para>This file contains all the uri handling functions.</para>
+
+<para><formalpara><title>Copyright</title>
+
+<para>Copyright (C) fruux GmbH (<link xlink:href="https://fruux.com/">https://fruux.com/</link>) </para>
+</formalpara>
+<formalpara><title>Auteur</title>
+
+<para>Evert Pot (<link xlink:href="http://evertpot.com/">http://evertpot.com/</link>) @license <link xlink:href="http://sabre.io/license/">http://sabre.io/license/</link> Resolves relative urls, like a browser would.</para>
+</formalpara>
+This function takes a basePath, which itself <emphasis>may</emphasis> also be relative, and then applies the relative path on top of it.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>InvalidUriException</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="namespace_sabre_1_1_uri_a530f4c5d84c11023bfd5e7e093997a11_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="namespace_sabre_1_1_uri_a530f4c5d84c11023bfd5e7e093997a11_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_namespace_sabre_1_1_uri_1a9c9fad3e3f06187375bf1eadb359cafe"/><section>
+    <title>split()</title>
+<indexterm><primary>split</primary><secondary>Sabre\Uri</secondary></indexterm>
+<indexterm><primary>Sabre\Uri</primary><secondary>split</secondary></indexterm>
+<para><computeroutput>split (string $path)</computeroutput></para>
+<para>Returns the &apos;dirname&apos; and &apos;basename&apos; for a path.</para>
+
+<para>The reason there is a custom function for this purpose, is because basename() is locale aware (behaviour changes if C locale or a UTF-8 locale is used) and we need a method that just operates on UTF-8 characters.</para>
+
+<para>In addition basename and dirname are platform aware, and will treat backslash () as a directory separator on Windows.</para>
+
+<para>This method returns the 2 components as an array.</para>
+
+<para>If there is no dirname, it will return an empty string. Any / appearing at the end of the string is stripped off.</para>
+
+<para><formalpara><title>Renvoie</title>
+
+<para>array&lt;int, mixed&gt; </para>
+</formalpara>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="namespace_sabre_1_1_uri_a9c9fad3e3f06187375bf1eadb359cafe_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+</section>
+</section>

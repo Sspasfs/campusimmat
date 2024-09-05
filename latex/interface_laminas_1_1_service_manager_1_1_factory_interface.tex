@@ -1,0 +1,79 @@
+\doxysection{Référence de l\textquotesingle{}interface Factory\+Interface}
+\hypertarget{interface_laminas_1_1_service_manager_1_1_factory_interface}{}\label{interface_laminas_1_1_service_manager_1_1_factory_interface}\index{FactoryInterface@{FactoryInterface}}
+
+
+Graphe d\textquotesingle{}héritage de Factory\+Interface\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{interface_laminas_1_1_service_manager_1_1_factory_interface__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Graphe de collaboration de Factory\+Interface\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=228pt]{interface_laminas_1_1_service_manager_1_1_factory_interface__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{interface_laminas_1_1_service_manager_1_1_factory_interface_a64e3cd334e129e64507e954aad4bb6f1}{create\+Service}} (\mbox{\hyperlink{interface_laminas_1_1_service_manager_1_1_service_locator_interface}{Service\+Locator\+Interface}} \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{service\+Locator}})
+\end{DoxyCompactItemize}
+\doxysubsection*{Fonctions membres publiques hérités de \mbox{\hyperlink{interface_laminas_1_1_service_manager_1_1_factory_1_1_factory_interface}{Factory\+Interface}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{interface_laminas_1_1_service_manager_1_1_factory_1_1_factory_interface_ab386f3c76f2a4819824f98962352df18}{\+\_\+\+\_\+invoke}} (\mbox{\hyperlink{interface_interop_1_1_container_1_1_container_interface}{Container\+Interface}} \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{container}}, \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{requested\+Name}}, ?array \$options=null)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Backwards-\/compatibility shim for Factory\+Interface.
+
+Implementations should update to implement only Laminas\textbackslash{}\+Service\+Manager\textbackslash{}\+Factory\textbackslash{}\+Factory\+Interface.
+
+If upgrading from v2, take the following steps\+:
+
+
+\begin{DoxyItemize}
+\item rename the method {\ttfamily create\+Service()} to {\ttfamily \+\_\+\+\_\+invoke()}, and\+:
+\begin{DoxyItemize}
+\item rename the {\ttfamily \$service\+Locator} argument to {\ttfamily \$container}, and change the typehint to {\ttfamily Interop\textbackslash{}Container\textbackslash{}Container\+Interface}
+\item add the {\ttfamily \$requested\+Name} as a second argument
+\item add the optional {\ttfamily array \$options = null} argument as a final argument
+\end{DoxyItemize}
+\item create a {\ttfamily create\+Service()} method as defined in this interface, and have it proxy to {\ttfamily \+\_\+\+\_\+invoke()}.
+\end{DoxyItemize}
+
+Once you have tested your code, you can then update your class to only implement Laminas\textbackslash{}\+Service\+Manager\textbackslash{}\+Factory\textbackslash{}\+Factory\+Interface, and remove the {\ttfamily create\+Service()} method.
+
+\begin{DoxyRefDesc}{Obsolète}
+\item[\mbox{\hyperlink{deprecated__deprecated000077}{Obsolète}}]Use Laminas\textbackslash{}\+Service\+Manager\textbackslash{}\+Factory\textbackslash{}\+Factory\+Interface instead. \end{DoxyRefDesc}
+
+
+\doxysubsection{Documentation des fonctions membres}
+\Hypertarget{interface_laminas_1_1_service_manager_1_1_factory_interface_a64e3cd334e129e64507e954aad4bb6f1}\label{interface_laminas_1_1_service_manager_1_1_factory_interface_a64e3cd334e129e64507e954aad4bb6f1} 
+\index{FactoryInterface@{FactoryInterface}!createService@{createService}}
+\index{createService@{createService}!FactoryInterface@{FactoryInterface}}
+\doxysubsubsection{\texorpdfstring{createService()}{createService()}}
+{\footnotesize\ttfamily create\+Service (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{interface_laminas_1_1_service_manager_1_1_service_locator_interface}{Service\+Locator\+Interface}}}]{\$service\+Locator }\end{DoxyParamCaption})}
+
+Create service
+
+\begin{DoxyReturn}{Renvoie}
+mixed 
+\end{DoxyReturn}
+
+
+Implémenté dans \mbox{\hyperlink{class_laminas_1_1_i18n_1_1_translator_1_1_loader_plugin_manager_factory_a450838e41c228e959e688164fc94eaed}{Loader\+Plugin\+Manager\+Factory}}, et \mbox{\hyperlink{class_laminas_1_1_i18n_1_1_translator_1_1_translator_service_factory_a64e3cd334e129e64507e954aad4bb6f1}{Translator\+Service\+Factory}}.
+
+
+
+La documentation de cette interface a été générée à partir du fichier suivant \+:\begin{DoxyCompactItemize}
+\item 
+public/glpi/vendor/laminas/laminas-\/servicemanager/src/\mbox{\hyperlink{_factory_interface_8php}{Factory\+Interface.\+php}}\end{DoxyCompactItemize}

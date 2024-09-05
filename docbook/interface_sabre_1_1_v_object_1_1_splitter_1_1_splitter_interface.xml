@@ -1,0 +1,108 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_interface_sabre_1_1_v_object_1_1_splitter_1_1_splitter_interface" xml:lang="fr">
+<title>Référence de l&apos;interface SplitterInterface</title>
+<indexterm><primary>SplitterInterface</primary></indexterm>
+Graphe d&apos;héritage de SplitterInterface:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="interface_sabre_1_1_v_object_1_1_splitter_1_1_splitter_interface__inherit__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Graphe de collaboration de SplitterInterface:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="interface_sabre_1_1_v_object_1_1_splitter_1_1_splitter_interface__coll__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Fonctions membres publiques    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_interface_sabre_1_1_v_object_1_1_splitter_1_1_splitter_interface_1ade22206ffe41068eed8c5a35952f7543">__construct</link> ($input)</para>
+</listitem>
+            <listitem><para><link linkend="_interface_sabre_1_1_v_object_1_1_splitter_1_1_splitter_interface_1a40b8da315cd66793e9fd685973ea8782">getNext</link> ()</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Description détaillée</title>
+
+<para><link linkend="_class_v_object">VObject</link> splitter.</para>
+
+<para>The splitter is responsible for reading a large vCard or iCalendar object, and splitting it into multiple objects.</para>
+
+<para>This is for example for Card and CalDAV, which require every event and vcard to exist in their own objects, instead of one large one.</para>
+
+<para><formalpara><title>Copyright</title>
+
+<para>Copyright (C) fruux GmbH (<link xlink:href="https://fruux.com/">https://fruux.com/</link>) </para>
+</formalpara>
+<formalpara><title>Auteur</title>
+
+<para>Dominik Tobschall (<link xlink:href="http://tobschall.de/">http://tobschall.de/</link>) @license <link xlink:href="http://sabre.io/license/">http://sabre.io/license/</link> Modified BSD License </para>
+</formalpara>
+</para>
+</section>
+<section>
+<title>Documentation des constructeurs et destructeur</title>
+<anchor xml:id="_interface_sabre_1_1_v_object_1_1_splitter_1_1_splitter_interface_1ade22206ffe41068eed8c5a35952f7543"/><section>
+    <title>__construct()</title>
+<indexterm><primary>__construct</primary><secondary>SplitterInterface</secondary></indexterm>
+<indexterm><primary>SplitterInterface</primary><secondary>__construct</secondary></indexterm>
+<para><computeroutput>__construct ( $input)</computeroutput></para>
+<para>Constructor.</para>
+
+<para>The splitter should receive an readable file stream as its input.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>resource</entry><entry>$input</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
+</section>
+<section>
+<title>Documentation des fonctions membres</title>
+<anchor xml:id="_interface_sabre_1_1_v_object_1_1_splitter_1_1_splitter_interface_1a40b8da315cd66793e9fd685973ea8782"/><section>
+    <title>getNext()</title>
+<indexterm><primary>getNext</primary><secondary>SplitterInterface</secondary></indexterm>
+<indexterm><primary>SplitterInterface</primary><secondary>getNext</secondary></indexterm>
+<para><computeroutput>getNext ( )</computeroutput></para>
+<para>Every time getNext() is called, a new object will be parsed, until we hit the end of the stream.</para>
+
+<para>When the end is reached, null will be returned.</para>
+
+<para><formalpara><title>Renvoie</title>
+
+<para>\Sabre\VObject\Component|null </para>
+</formalpara>
+</para>
+<para>
+Implémenté dans <link linkend="_class_sabre_1_1_v_object_1_1_splitter_1_1_i_calendar_1a40b8da315cd66793e9fd685973ea8782">ICalendar</link>, et <link linkend="_class_sabre_1_1_v_object_1_1_splitter_1_1_v_card_1a40b8da315cd66793e9fd685973ea8782">VCard</link>.</para>
+</section>
+<para>
+La documentation de cette interface a été générée à partir du fichier suivant :</para>
+public/glpi/vendor/sabre/vobject/lib/Splitter/<link linkend="__splitter_interface_8php">SplitterInterface.php</link></section>
+</section>

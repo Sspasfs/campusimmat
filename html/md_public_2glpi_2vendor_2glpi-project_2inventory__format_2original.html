@@ -1,0 +1,917 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.10.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>CampusImmat: Original XML specification</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">CampusImmat
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.10.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+</div><!-- top -->
+<div><div class="header">
+  <div class="headertitle"><div class="title">Original XML specification</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><div class="fragment"><div class="line">&lt;!<span class="keyword">ELEMENT</span> <span class="keyword">REQUEST</span> (<span class="keyword">CONTENT</span>, <span class="keyword">DEVICEID</span>, <span class="keyword">QUERY</span>)&gt;</div>
+<div class="line"> </div>
+<div class="line">  &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">CONTENT</span> (<span class="keyword">ACCESSLOG</span>, <span class="keyword">BIOS</span>, <span class="keyword">HARDWARE</span>, <span class="keyword">OPERATINGSYSTEM</span>, <span class="keyword">ANTIVIRUS</span>+,</div>
+<div class="line">  <span class="keyword">BATTERIES</span>+, <span class="keyword">CONTROLLERS</span>+, <span class="keyword">CPUS</span>+, <span class="keyword">DRIVES</span>+, <span class="keyword">ENVS</span>+, <span class="keyword">FIREWALL</span>, <span class="keyword">INPUTS</span>+, <span class="keyword">LICENSEINFOS</span>+,</div>
+<div class="line">  <span class="keyword">LOCAL_GROUPS</span>+, <span class="keyword">LOCAL_USERS</span>+, <span class="keyword">LOGICAL_VOLUMES</span>+, <span class="keyword">MEMORIES</span>+, <span class="keyword">MODEMS</span>+, <span class="keyword">FIRMWARES</span>+,</div>
+<div class="line">  <span class="keyword">MONITORS</span>+, <span class="keyword">NETWORKS</span>+, <span class="keyword">PHYSICAL_VOLUMES</span>+, <span class="keyword">PORTS</span>+, <span class="keyword">PRINTERS</span>+, <span class="keyword">PROCESSES</span>+, <span class="keyword">SLOTS</span>+,</div>
+<div class="line">  <span class="keyword">SOFTWARES</span>+, <span class="keyword">USERS</span>+, <span class="keyword">STORAGES</span>+, <span class="keyword">VIDEOS</span>+, <span class="keyword">SOUNDS</span>+, <span class="keyword">VIRTUALMACHINES</span>+, <span class="keyword">USBDEVICES</span>+,</div>
+<div class="line">  <span class="keyword">VOLUME_GROUPS</span>+, <span class="keyword">REMOTE_MGMT</span>+, <span class="keyword">SIMCARDS</span>+, <span class="keyword">SENSORS</span>+, <span class="keyword">POWERSUPPLIES</span>+, <span class="keyword">REGISTRY</span>,</div>
+<div class="line">  <span class="keyword">RUDDER</span>, <span class="keyword">CAMERAS</span>+)&gt;</div>
+<div class="line"> </div>
+<div class="line">     &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">BIOS</span> (<span class="keyword">SMODEL</span>, <span class="keyword">SMANUFACTURER</span>, <span class="keyword">SSN</span>, <span class="keyword">BDATE</span>, <span class="keyword">BVERSION</span>,</div>
+<div class="line">     <span class="keyword">BMANUFACTURER</span>, <span class="keyword">MMANUFACTURER</span>, <span class="keyword">MSN</span>, <span class="keyword">MMODEL</span>, <span class="keyword">ASSETTAG</span>, <span class="keyword">ENCLOSURESERIAL</span>,</div>
+<div class="line">     <span class="keyword">BIOSSERIAL</span>, <span class="keyword">TYPE</span>, <span class="keyword">SKUNUMBER</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- System model (string) --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">SMODEL</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- System manufacturer (string) --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">SMANUFACTURER</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- System Serial number (string) --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">SSN</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- BIOS release date, in MM/DD/YYYY format --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">BDATE</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- BIOS version --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">BVERSION</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- BIOS manufacturer --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">BMANUFACTURER</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">BIOSSERIAL</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- Motherboard manufacturer --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">MMANUFACTURER</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- Motherboard Serial number --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">MSN</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- Motherboard model --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">MMODEL</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- asset tag --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">ASSETTAG</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">ENCLOSURESERIAL</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- obsoleted by HARDWARE/CHASSIS_TYPE --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">TYPE</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">SKUNUMBER</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line"> </div>
+<div class="line">     &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">HARDWARE</span> (<span class="keyword">USERID</span>, <span class="keyword">OSVERSION</span>, <span class="keyword">PROCESSORN</span>, <span class="keyword">OSCOMMENTS</span>, <span class="keyword">CHECKSUM</span>,</div>
+<div class="line">     <span class="keyword">PROCESSORT</span>, <span class="keyword">NAME</span>, <span class="keyword">PROCESSORS</span>, <span class="keyword">SWAP</span>, <span class="keyword">ETIME</span>, <span class="keyword">TYPE</span>, <span class="keyword">OSNAME</span>, <span class="keyword">IPADDR</span>,</div>
+<div class="line">     <span class="keyword">WORKGROUP</span>, <span class="keyword">DESCRIPTION</span>, <span class="keyword">MEMORY</span>, <span class="keyword">UUID</span>, <span class="keyword">DNS</span>, <span class="keyword">LASTLOGGEDUSER</span>,</div>
+<div class="line">     <span class="keyword">USERDOMAIN</span>, <span class="keyword">DATELASTLOGGEDUSER</span>, <span class="keyword">DEFAULTGATEWAY</span>, <span class="keyword">VMSYSTEM</span>, <span class="keyword">WINOWNER</span>,</div>
+<div class="line">     <span class="keyword">WINPRODID</span>, <span class="keyword">WINPRODKEY</span>, <span class="keyword">WINCOMPANY</span>, <span class="keyword">WINLANG</span>, <span class="keyword">CHASSIS_TYPE</span>, <span class="keyword">VMNAME</span>,</div>
+<div class="line">     <span class="keyword">VMHOSTSERIAL</span>, <span class="keyword">ARCHNAME</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- current user list (&#39;/&#39; as delimiter, obsoleted by USERS) --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">USERID</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- operating system version number (obsoleted by</span></div>
+<div class="line"><span class="comment">          OPERATINGSYSTEM/VERSION and OPERATINGSYSTEM/KERNEL_VERSION) --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">OSVERSION</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- operating system revision number (Service Pack on Windows, kernel</span></div>
+<div class="line"><span class="comment">          build date on Linux) --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">OSCOMMENTS</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- operating system full name (obsoleted by OPERATINGSYSTEM/NAME or</span></div>
+<div class="line"><span class="comment">          OPERATINGSYSTEM/FULL_NAME) --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">OSNAME</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- deprecated --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">CHECKSUM</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- obsoleted by CPUS --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">PROCESSORT</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- obsoleted by CPUS --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">PROCESSORN</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- obsoleted by CPUS --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">PROCESSORS</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line"> </div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">NAME</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- swap memory in MB --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">SWAP</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- Total system memory in MB --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">MEMORY</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- time needed to run the inventory --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">ETIME</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">TYPE</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- computer chassis format, ie &#39;Notebook&#39;, &#39;Laptop&#39;, &#39;Server&#39;, etc.</span></div>
+<div class="line"><span class="comment">          --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">CHASSIS_TYPE</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">IPADDR</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">WORKGROUP</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- computer description --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">DESCRIPTION</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- computer unique identifier --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">UUID</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">DNS</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- last logged user login --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">LASTLOGGEDUSER</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- obsoleted by USERS --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">USERDOMAIN</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">DATELASTLOGGEDUSER</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">DEFAULTGATEWAY</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- virtualization technology</span></div>
+<div class="line"><span class="comment">          (Physical|Xen|VirtualBox|Virtual Machine|VMware|QEMU|SolarisZone|</span></div>
+<div class="line"><span class="comment">          VServer|OpenVZ|BSDJail|Parallels|Hyper-V|AIX_LPAR)</span></div>
+<div class="line"><span class="comment">          --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">VMSYSTEM</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- virtual machine name the hypervisor (VM only) --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">VMNAME</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">WINOWNER</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">WINPRODID</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">WINPRODKEY</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">WINCOMPANY</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- Language code (Windows only) --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">WINLANG</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">VMHOSTSERIAL</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">ARCHNAME</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line"> </div>
+<div class="line">     &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">OPERATINGSYSTEM</span> (<span class="keyword">KERNEL_NAME</span>, <span class="keyword">KERNEL_VERSION</span>, <span class="keyword">NAME</span>, <span class="keyword">VERSION</span>,</div>
+<div class="line">     <span class="keyword">FULL_NAME</span>, <span class="keyword">SERVICE_PACK</span>, <span class="keyword">INSTALL_DATE</span>, <span class="keyword">FQDN</span>, <span class="keyword">DNS_DOMAIN</span>, <span class="keyword">SSH_KEY</span>, <span class="keyword">ARCH</span>,</div>
+<div class="line">     <span class="keyword">BOOT_TIME</span>, <span class="keyword">TIMEZONE</span>, <span class="keyword">HOSTID</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- kernel name, ie &#39;freebsd&#39;, &#39;linux&#39;, &#39;hpux&#39;, &#39;win32&#39;, etc. --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">KERNEL_NAME</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- kernel version, ie &#39;2.6.32&#39; on Linux, &#39;5.2.x.y&#39; on Windows</span></div>
+<div class="line"><span class="comment">          Server 2003, etc. --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">KERNEL_VERSION</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- operating system name (&quot;Distributor ID&quot; in LSB terms), ie</span></div>
+<div class="line"><span class="comment">          &#39;Debian&#39;, &#39;Ubuntu&#39;, &#39;CentOS&#39;, &#39;SUSE LINUX&#39;, &#39;Windows&#39;, &#39;OS X&#39;,</span></div>
+<div class="line"><span class="comment">          &#39;FreeBSD&#39;, &#39;AIX&#39;, &#39;Android&#39;, etc. --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">NAME</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- operating system full name, ie &#39;Debian GNU/Linux unstable (sid)&#39;,</span></div>
+<div class="line"><span class="comment">          &#39;Microsoft(R) Windows(R) Server 2003, Enterprise Edition x64&#39;, etc.</span></div>
+<div class="line"><span class="comment">          --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">FULL_NAME</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- operating system version (&quot;Release&quot; in LSB terms), ie &#39;11.04&#39; on</span></div>
+<div class="line"><span class="comment">          Ubuntu natty, &#39;5.0.8&#39; on Debian Lenny, &#39;5.4&#39; on CentOS 5.4, &#39;2003&#39;</span></div>
+<div class="line"><span class="comment">          for Windows Server 2003, etc. --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">VERSION</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- operating system minor version --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">SERVICE_PACK</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- operating system installation date --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">INSTALL_DATE</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">FQDN</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">DNS_DOMAIN</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">HOSTID</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">SSH_KEY</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- operating system architecture --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">ARCH</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- computer boot date, ie &#39;2012-12-09 15:58:20&#39; --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">BOOT_TIME</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- operating system time zone information--&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">TIMEZONE</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">          <span class="comment">&lt;!-- time zone name, ie &#39;Europe/Paris&#39; or &#39;CEST&#39; --&gt;</span></div>
+<div class="line">          &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">NAME</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">          <span class="comment">&lt;!-- time zone offset to UTC, ie &#39;+0200&#39; --&gt;</span></div>
+<div class="line">          &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">OFFSET</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line"> </div>
+<div class="line">     &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">ACCESSLOG</span> (<span class="keyword">USERID</span>, <span class="keyword">LOGDATE</span>)&gt;</div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">USERID</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">LOGDATE</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line"> </div>
+<div class="line">     &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">ANTIVIRUS</span> (<span class="keyword">COMPANY</span>, <span class="keyword">NAME</span>, <span class="keyword">GUID</span>, <span class="keyword">ENABLED</span>, <span class="keyword">UPTODATE</span>, <span class="keyword">VERSION</span>,</div>
+<div class="line">     <span class="keyword">EXPIRATION</span>, <span class="keyword">BASE_CREATION</span>, <span class="keyword">BASE_VERSION</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- company name --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">COMPANY</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">NAME</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- unique ID --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">GUID</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- wether the antivirus is enabled (0|1) --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">ENABLED</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- wether the antivirus is up to date (0|1) --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">UPTODATE</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">VERSION</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- License expiration date, in DD/MM/YYYY format --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">EXPIRATION</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- signatures base creation --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">BASE_CREATION</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- signatures base version --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">BASE_VERSION</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line"> </div>
+<div class="line">     &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">BATTERIES</span> (<span class="keyword">CAPACITY</span>, <span class="keyword">CHEMISTRY</span>, <span class="keyword">DATE</span>, <span class="keyword">NAME</span>, <span class="keyword">SERIAL</span>,</div>
+<div class="line">     <span class="keyword">MANUFACTURER</span>, <span class="keyword">VOLTAGE</span>)&gt;</div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">CHEMISTRY</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- manufacturing date, in DD/MM/YYYY format --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">DATE</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- battery name --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">NAME</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- battery serial number --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">SERIAL</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- battery manufacturer --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">MANUFACTURER</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- battery max capacity (the maximum capacity by design), in mWh --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">CAPACITY</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- battery real max capacity (decreases as the battery gets old), in mWh --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">REAL_CAPACITY</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- battery voltage, in mV --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">VOLTAGE</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line"> </div>
+<div class="line">     &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">CONTROLLERS</span> (<span class="keyword">CAPTION</span>, <span class="keyword">DRIVER</span>, <span class="keyword">NAME</span>, <span class="keyword">MANUFACTURER</span>, <span class="keyword">PCICLASS</span>,</div>
+<div class="line">     <span class="keyword">VENDORID</span>, <span class="keyword">PRODUCTID</span>, <span class="keyword">PCISUBSYSTEMID</span>, <span class="keyword">PCISLOT</span>, <span class="keyword">TYPE</span>, <span class="keyword">REV</span>)&gt;</div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">DRIVER</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- device name --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">NAME</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- device caption --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">CAPTION</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- manifacturer name --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">MANUFACTURER</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- device model --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">MODEL</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- device serial number --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">SERIAL</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- device PCI class ID --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">PCICLASS</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- device PCI vendor ID --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">VENDORID</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- device PCI product ID --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">PRODUCTID</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- device PCI subsystem ID, ie &#39;8086:2a40&#39; --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">PCISUBSYSTEMID</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- device PCI slot, ie &#39;00:02.1&#39; --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">PCISLOT</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">TYPE</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- controller revision, ie &#39;rev 02&#39; --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">REV</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line"> </div>
+<div class="line">     &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">CPUS</span> (<span class="keyword">CACHE</span>, <span class="keyword">CORE</span>, <span class="keyword">DESCRIPTION</span>, <span class="keyword">MANUFACTURER</span>, <span class="keyword">NAME</span>, <span class="keyword">THREAD</span>,</div>
+<div class="line">     <span class="keyword">SERIAL</span>, <span class="keyword">STEPPING</span>, <span class="keyword">FAMILYNAME</span>, <span class="keyword">FAMILYNUMBER</span>, <span class="keyword">MODEL</span>, <span class="keyword">SPEED</span>, <span class="keyword">ID</span>,</div>
+<div class="line">     <span class="keyword">EXTERNAL_CLOCK</span>, <span class="keyword">ARCH</span>, <span class="keyword">CORECOUNT</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- total CPU cache size, in KB --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">CACHE</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- cores number --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">CORE</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- total available cores,as CORE only reports enabled count --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">CORECOUNT</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">DESCRIPTION</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- CPU manufacturer, ie &#39;Intel&#39;, &#39;AMD&#39;, etc. --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">MANUFACTURER</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- CPU name, ie &#39;Intel(R) Core(TM)2 Duo CPU P8600  @ 2.40GHz&#39; --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">NAME</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- threads per core number --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">THREAD</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- CPU serial number --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">SERIAL</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- stepping value --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">STEPPING</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- family name --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">FAMILYNAME</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- family value --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">FAMILYNUMBER</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- model value --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">MODEL</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- CPU frequency, in MHz --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">SPEED</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- CPU ID --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">ID</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">EXTERNAL_CLOCK</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- CPU architecture</span></div>
+<div class="line"><span class="comment">          (MIPS|MIPS64|Alpha|SPARC|SPARC64|m68k|i386|x86_64|PowerPC|</span></div>
+<div class="line"><span class="comment">          PowerPC64|ARM|AArch64)</span></div>
+<div class="line"><span class="comment">          --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">ARCH</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line"> </div>
+<div class="line">     <span class="comment">&lt;!-- a filesystem --&gt;</span></div>
+<div class="line">     &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">DRIVES</span> (<span class="keyword">CREATEDATE</span>, <span class="keyword">DESCRIPTION</span>, <span class="keyword">FREE</span>, <span class="keyword">FILESYSTEM</span>, <span class="keyword">LABEL</span>,</div>
+<div class="line">     <span class="keyword">LETTER</span>, <span class="keyword">SERIAL</span>, <span class="keyword">SYSTEMDRIVE</span>, <span class="keyword">TOTAL</span>, <span class="keyword">TYPE</span>, <span class="keyword">VOLUMN</span>, <span class="keyword">ENCRYPT_NAME</span>,</div>
+<div class="line">     <span class="keyword">ENCRYPT_ALGO</span>, <span class="keyword">ENCRYPT_STATUS</span>, <span class="keyword">ENCRYPT_TYPE</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- creation date, in DD/MM/YYYY format --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">CREATEDATE</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">DESCRIPTION</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- free space, in MB --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">FREE</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- total space, in MB --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">TOTAL</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- filesystem type, ie &#39;ext3&#39; --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">FILESYSTEM</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- filesystem user name --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">LABEL</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- filesystem system name, ie &#39;/dev/sda1&#39; or &#39;host:/path&#39; for NFS</span></div>
+<div class="line"><span class="comment">          --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">VOLUMN</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- filesystem letter (Windows only) --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">LETTER</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- filesystem serial number or UUID --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">SERIAL</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- wether it is the system partition (0|1) (Windows only) --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">SYSTEMDRIVE</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- filesystem mount point (Unix only) --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">TYPE</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- supported encryption: BitLocker, cryptsetup, FileVault, ... --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">ENCRYPT_NAME</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- encryption algorithm: AES_128, AES_256, HARDWARE_ENCRYPTION, ... --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">ENCRYPT_ALGO</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- encryption status: Yes, No, Partially, ... --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">ENCRYPT_STATUS</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- encryption type: hardware, software, ... --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">ENCRYPT_TYPE</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line"> </div>
+<div class="line">     &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">ENVS</span> (<span class="keyword">KEY</span>, <span class="keyword">VAL</span>)&gt;</div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">KEY</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">VAL</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line"> </div>
+<div class="line">     <span class="comment">&lt;!-- Firewall --&gt;</span></div>
+<div class="line">     &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">FIREWALL</span> (<span class="keyword">DESCRIPTION</span> <span class="keyword">IPADDRESS</span> <span class="keyword">IPADDRESS6</span> <span class="keyword">PROFILE</span> <span class="keyword">STATUS</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- active connection&#39;s interface (Windows only) --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">DESCRIPTION</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- active connection&#39;s ip (Windows only) --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">IPADDRESS</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- active connection&#39;s ip v6 (Windows only) --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">IPADDRESS6</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- firewall profile (Windows only) --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">PROFILE</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- firewall status --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">STATUS</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line"> </div>
+<div class="line">     &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">INPUTS</span> (<span class="keyword">NAME</span>, <span class="keyword">MANUFACTURER</span>, <span class="keyword">CAPTION</span>, <span class="keyword">DESCRIPTION</span>, <span class="keyword">INTERFACE</span>,</div>
+<div class="line">     <span class="keyword">LAYOUT</span>, <span class="keyword">POINTINGTYPE</span>, <span class="keyword">TYPE</span>)&gt;</div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">NAME</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">MANUFACTURER</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">CAPTION</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">DESCRIPTION</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">INTERFACE</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">LAYOUT</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">POINTINGTYPE</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">TYPE</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line"> </div>
+<div class="line">     <span class="comment">&lt;!-- a license --&gt;</span></div>
+<div class="line">     &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">LICENSEINFOS</span> (<span class="keyword">NAME</span>, <span class="keyword">FULLNAME</span>, <span class="keyword">KEY</span>, <span class="keyword">COMPONENTS</span>, <span class="keyword">TRIAL</span>, <span class="keyword">UPDATE</span>,</div>
+<div class="line">     <span class="keyword">OEM</span>, <span class="keyword">ACTIVATION_DATE</span>, <span class="keyword">PRODUCTID</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- name --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">NAME</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- full name --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">FULLNAME</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- registration key --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">KEY</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- components covered --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">COMPONENTS</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">TRIAL</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">UPDATE</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">OEM</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">ACTIVATION_DATE</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- installation ID --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">PRODUCTID</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line"> </div>
+<div class="line">     &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">LOCAL_GROUPS</span> (<span class="keyword">ID</span>, <span class="keyword">NAME</span>, <span class="keyword">MEMBER</span>+)&gt;</div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">NAME</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">ID</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">MEMBER</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line"> </div>
+<div class="line">     &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">LOCAL_USERS</span> (<span class="keyword">HOME</span>, <span class="keyword">ID</span>, <span class="keyword">LOGIN</span>, <span class="keyword">NAME</span>, <span class="keyword">SHELL</span>)&gt;</div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">LOGIN</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">NAME</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">ID</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">HOME</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">SHELL</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line"> </div>
+<div class="line">     <span class="comment">&lt;!-- a LVM logical volume --&gt;</span></div>
+<div class="line">     &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">LOGICAL_VOLUMES</span> (<span class="keyword">LV_NAME</span>, <span class="keyword">VG_NAME</span>, <span class="keyword">ATTR</span>, <span class="keyword">SIZE</span>, <span class="keyword">LV_UUID</span>,</div>
+<div class="line">     <span class="keyword">SEG_COUNT</span>, <span class="keyword">VG_UUID</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- name --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">LV_NAME</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- UUID --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">LV_UUID</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- attributes --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">ATTR</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- size, in MB --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">SIZE</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">SEG_COUNT</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- volume group name --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">VG_NAME</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- volume group UUID --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">VG_UUID</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line"> </div>
+<div class="line">     &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">MEMORIES</span> (<span class="keyword">CAPACITY</span>, <span class="keyword">CAPTION</span>, <span class="keyword">FORMFACTOR</span>, <span class="keyword">REMOVABLE</span>, <span class="keyword">PURPOSE</span>,</div>
+<div class="line">     <span class="keyword">SPEED</span>, <span class="keyword">SERIALNUMBER</span>, <span class="keyword">TYPE</span>, <span class="keyword">DESCRIPTION</span>, <span class="keyword">NUMSLOTS</span>, <span class="keyword">MEMORYCORRECTION</span>,</div>
+<div class="line">     <span class="keyword">MANUFACTURER</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- memory capacity, in MB --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">CAPACITY</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">CAPTION</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- See Win32_PhysicalMemory documentation --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">FORMFACTOR</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">REMOVABLE</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- See Win32_PhysicalMemory documentation --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">PURPOSE</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- memory frequency, in Mhz --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">SPEED</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- memory serial number --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">SERIALNUMBER</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- memory model --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">MODEL</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">TYPE</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">DESCRIPTION</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- memory slot number --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">NUMSLOTS</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">MEMORYCORRECTION</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">MANUFACTURER</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line"> </div>
+<div class="line">     &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">MODEMS</span> (<span class="keyword">NAME</span>, <span class="keyword">DESCRIPTION</span>, <span class="keyword">TYPE</span>, <span class="keyword">MODEL</span>, <span class="keyword">MANUFACTURER</span>, <span class="keyword">SERIAL</span>, <span class="keyword">IMEI</span>+)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- modem name --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">NAME</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- modem description if available --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">DESCRIPTION</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- modem type --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">TYPE</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- modem model --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">MODEL</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- modem manufacturer --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">MANUFACTURER</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- modem serial --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">SERIAL</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- IMEI information --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">IMEI</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line"> </div>
+<div class="line">     <span class="comment">&lt;!-- component firmwares --&gt;</span></div>
+<div class="line">     &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">FIRMWARES</span> (<span class="keyword">NAME</span>, <span class="keyword">DESCRIPTION</span>, <span class="keyword">TYPE</span>, <span class="keyword">VERSION</span>, <span class="keyword">DATE</span>, <span class="keyword">MANUFACTURER</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- component name using the firmware --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">NAME</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- firmware description if available --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">DESCRIPTION</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- short description of firmware type: modem, bios, ... --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">TYPE</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- full firmware version --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">VERSION</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- firmware date --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">DATE</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- firmware manufacturer --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">MANUFACTURER</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line"> </div>
+<div class="line">     &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">MONITORS</span> (<span class="keyword">BASE64</span>, <span class="keyword">CAPTION</span>, <span class="keyword">DESCRIPTION</span>, <span class="keyword">MANUFACTURER</span>, <span class="keyword">SERIAL</span>,</div>
+<div class="line">       <span class="keyword">ALTSERIAL</span>?, <span class="keyword">PORT</span>?, <span class="keyword">UUENCODE</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- uuencoded EDID trame --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">BASE64</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">CAPTION</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">DESCRIPTION</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- monitor manufacturer --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">MANUFACTURER</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- monitor serial number --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">SERIAL</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- alternative monitor serial number computed from known manufacter</span></div>
+<div class="line"><span class="comment">          formula and if different from SERIAL --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">ALTSERIAL</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- Used port to connect the device --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">PORT</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- uuencoded EDID trame --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">UUENCODE</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">NAME</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">TYPE</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line"> </div>
+<div class="line">     <span class="comment">&lt;!-- a network configuration, ie a combination of an interface and an</span></div>
+<div class="line"><span class="comment">       IP address --&gt;</span></div>
+<div class="line">     &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">NETWORKS</span> (<span class="keyword">DESCRIPTION</span>, <span class="keyword">MANUFACTURER</span>, <span class="keyword">MODEL</span>, <span class="keyword">MANAGEMENT</span>, <span class="keyword">TYPE</span>,</div>
+<div class="line">     <span class="keyword">VIRTUALDEV</span>, <span class="keyword">MACADDR</span>, <span class="keyword">WWN</span>, <span class="keyword">DRIVER</span>, <span class="keyword">FIRMWARE</span>, <span class="keyword">PCIID</span>, <span class="keyword">PCISLOT</span>, <span class="keyword">PNPDEVICEID</span>,</div>
+<div class="line">     <span class="keyword">MTU</span>, <span class="keyword">SPEED</span>, <span class="keyword">STATUS</span>, <span class="keyword">SLAVES</span>, <span class="keyword">BASE</span>, <span class="keyword">IPADDRESS</span>, <span class="keyword">IPSUBNET</span>, <span class="keyword">IPMASK</span>, <span class="keyword">IPDHCP</span>,</div>
+<div class="line">     <span class="keyword">IPGATEWAY</span>, <span class="keyword">IPADDRESS6</span>, <span class="keyword">IPSUBNET6</span>, <span class="keyword">IPMASK6</span>, <span class="keyword">WIFI_BSSID</span>, <span class="keyword">WIFI_SSID</span>,</div>
+<div class="line">     <span class="keyword">WIFI_MODE</span>, <span class="keyword">WIFI_VERSION</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- interface name, ie &#39;eth0&#39; on Linux, &#39;AMD PCNET Family Ethernet</span></div>
+<div class="line"><span class="comment">       Adapter&#39; on Windows --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">DESCRIPTION</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- interface manufacturer --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">MANUFACTURER</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- interface model --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">MODEL</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- wether it is a remote management interface such as HP iLO, Sun</span></div>
+<div class="line"><span class="comment">          SC, HP MP (0|1) --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">MANAGEMENT</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- interface type</span></div>
+<div class="line"><span class="comment">          (ethernet|wifi|infiniband|aggregate|alias|dialup|loopback|bridge|fibrechannel)</span></div>
+<div class="line"><span class="comment">          --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">TYPE</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- wether it is a virtual interface (0|1) --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">VIRTUALDEV</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">MACADDR</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- World Wide Name http://fr.wikipedia.org/wiki/World_Wide_Name --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">WWN</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- driver name --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">DRIVER</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">FIRMWARE</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- PCI slot name --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">PCISLOT</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- PCI device ID --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">PCIID</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- PCI device ID (windows only) --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">PNPDEVICEID</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">MTU</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- interface speed, in Mb/s --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">SPEED</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- interface status (up|down) --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">STATUS</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- list of component interfaces, for aggregate and bridges, with</span></div>
+<div class="line"><span class="comment">          &#39;,&#39; as delimiter --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">SLAVES</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- actual interface for aliases --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">BASE</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- IPv4 address --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">IPADDRESS</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">IPSUBNET</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">IPMASK</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- DHCP server IP address --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">IPDHCP</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- gateway IP address --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">IPGATEWAY</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- IPv6 address of the interface --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">IPADDRESS6</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">IPSUBNET6</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">IPMASK6</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- wifi access point name --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">WIFI_SSID</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- wifi access point MAC address --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">WIFI_BSSID</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- wifi mode --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">WIFI_MODE</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- wifi protocol version --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">WIFI_VERSION</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line"> </div>
+<div class="line">     <span class="comment">&lt;!-- a LVM physical volume --&gt;</span></div>
+<div class="line">     &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">PHYSICAL_VOLUMES</span> (<span class="keyword">DEVICE</span>, <span class="keyword">PV_PE_COUNT</span>, <span class="keyword">PV_UUID</span>, <span class="keyword">FORMAT</span>, <span class="keyword">ATTR</span>,</div>
+<div class="line">     <span class="keyword">SIZE</span>, <span class="keyword">FREE</span>, <span class="keyword">PE_SIZE</span>, <span class="keyword">VG_UUID</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- UUID --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">PV_UUID</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- device name, ie &#39;/dev/sda1&#39; --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">DEVICE</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">PV_PE_COUNT</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- format, ie &#39;lvm2&#39; --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">FORMAT</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- attributes --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">ATTR</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- size, in MB --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">SIZE</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">FREE</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">PE_SIZE</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">VG_UUID</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line"> </div>
+<div class="line"> </div>
+<div class="line">     &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">PORTS</span> (<span class="keyword">CAPTION</span>, <span class="keyword">DESCRIPTION</span>, <span class="keyword">NAME</span>, <span class="keyword">TYPE</span>)&gt;</div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">CAPTION</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">DESCRIPTION</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">NAME</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">TYPE</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line"> </div>
+<div class="line">     &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">PRINTERS</span> (<span class="keyword">COMMENT</span>, <span class="keyword">DESCRIPTION</span>, <span class="keyword">DRIVER</span>, <span class="keyword">NAME</span>, <span class="keyword">NETWORK</span>, <span class="keyword">PORT</span>,</div>
+<div class="line">     <span class="keyword">RESOLUTION</span>, <span class="keyword">SHARED</span>, <span class="keyword">STATUS</span>, <span class="keyword">ERRSTATUS</span>, <span class="keyword">SERVERNAME</span>, <span class="keyword">SHARENAME</span>,</div>
+<div class="line">     <span class="keyword">PRINTPROCESSOR</span>, <span class="keyword">SERIAL</span>)&gt;</div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">COMMENT</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">DESCRIPTION</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">DRIVER</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">NAME</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- wether it is a network printer (0|1) --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">NETWORK</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">PORT</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- printer resolution, ie &#39;600x600&#39; --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">RESOLUTION</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- wether it is a shared printer (0|1) (Windows only) --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">SHARED</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">STATUS</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">ERRSTATUS</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">SERVERNAME</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">SHARENAME</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">PRINTPROCESSOR</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- printer serial number --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">SERIAL</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line"> </div>
+<div class="line">     &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">PROCESSES</span> (<span class="keyword">USER</span>, <span class="keyword">PID</span>, <span class="keyword">CPUUSAGE</span>, <span class="keyword">MEM</span>, <span class="keyword">VIRTUALMEMORY</span>, <span class="keyword">TTY</span>,</div>
+<div class="line">     <span class="keyword">STARTED</span>, <span class="keyword">CMD</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- process owner --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">USER</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- process ID --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">PID</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- CPU usage --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">CPUUSAGE</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- memory usage --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">MEM</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">VIRTUALMEMORY</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">TTY</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- process start time, in YYYY/MM/DD HH:MM format --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">STARTED</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- process command --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">CMD</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line"> </div>
+<div class="line">     &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">REGISTRY</span> (<span class="keyword">NAME</span>, <span class="keyword">REGVALUE</span>, <span class="keyword">HIVE</span>)&gt;</div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">NAME</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">REGVALUE</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">HIVE</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line"> </div>
+<div class="line">     &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">RUDDER</span> (<span class="keyword">AGENT</span>, <span class="keyword">UUID</span>, <span class="keyword">HOSTNAME</span>, <span class="keyword">SERVER_ROLES</span>, <span class="keyword">AGENT_CAPABILITIES</span>)&gt;</div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">AGENT</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">UUID</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">HOSTNAME</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">SERVER_ROLES</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">AGENT_CAPABILITIES</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line"> </div>
+<div class="line">     <span class="comment">&lt;!-- a physical connection points including ports, motherboard slots</span></div>
+<div class="line"><span class="comment">     and peripherals, and proprietary connection points --&gt;</span></div>
+<div class="line">     &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">SLOTS</span> (<span class="keyword">DESCRIPTION</span>, <span class="keyword">DESIGNATION</span>, <span class="keyword">NAME</span>, <span class="keyword">STATUS</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- bus type --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">DESCRIPTION</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">DESIGNATION</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- slot identifier --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">NAME</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- slot usage status (free|used) --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">STATUS</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line"> </div>
+<div class="line">     &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">SOFTWARES</span> (<span class="keyword">COMMENTS</span>, <span class="keyword">FILESIZE</span>, <span class="keyword">FOLDER</span>, <span class="keyword">FROM</span>, <span class="keyword">HELPLINK</span>,</div>
+<div class="line">     <span class="keyword">INSTALLDATE</span>, <span class="keyword">NAME</span>, <span class="keyword">NO_REMOVE</span>, <span class="keyword">RELEASE_TYPE</span>, <span class="keyword">PUBLISHER</span>,</div>
+<div class="line">     <span class="keyword">UNINSTALL_STRING</span>, <span class="keyword">URL_INFO_ABOUT</span>, <span class="keyword">VERSION</span>, <span class="keyword">VERSION_MINOR</span>,</div>
+<div class="line">     <span class="keyword">VERSION_MAJOR</span>, <span class="keyword">GUID</span>, <span class="keyword">ARCH</span>, <span class="keyword">USERNAME</span>, <span class="keyword">USERID</span>, <span class="keyword">SYSTEM_CATEGORY</span>)&gt;</div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">COMMENTS</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">FILESIZE</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">FOLDER</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       &lt;!-- <span class="keyword">information</span> <span class="keyword">source</span>, <span class="keyword">ie</span> <span class="stringliteral">&#39;registry&#39;</span>, <span class="stringliteral">&#39;rpm&#39;</span>, <span class="stringliteral">&#39;deb&#39;</span>, <span class="keyword">etc.</span> -&gt;</div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">FROM</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">HELPLINK</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- installation date, in DD/MM/YYYY format --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">INSTALLDATE</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">NAME</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- wether the software can be uninstalled (0|1) --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">NO_REMOVE</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">RELEASE_TYPE</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">PUBLISHER</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">UNINSTALL_STRING</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">URL_INFO_ABOUT</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">VERSION</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">VERSION_MINOR</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">VERSION_MAJOR</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- software GUID (Windows only) --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">GUID</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- software architecture --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">ARCH</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- software owner name --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">USERNAME</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- software owner ID --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">USERID</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- software system category  --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">SYSTEM_CATEGORY</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line"> </div>
+<div class="line">     &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">SOUNDS</span> (<span class="keyword">CAPTION</span>, <span class="keyword">DESCRIPTION</span>, <span class="keyword">MANUFACTURER</span>, <span class="keyword">NAME</span>)&gt;</div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">CAPTION</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">DESCRIPTION</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">MANUFACTURER</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">NAME</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line"> </div>
+<div class="line">     &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">STORAGES</span> (<span class="keyword">DESCRIPTION</span>, <span class="keyword">DISKSIZE</span>, <span class="keyword">INTERFACE</span>, <span class="keyword">MANUFACTURER</span>,</div>
+<div class="line">     <span class="keyword">MODEL</span>, <span class="keyword">NAME</span>, <span class="keyword">TYPE</span>, <span class="keyword">SERIAL</span>, <span class="keyword">SERIALNUMBER</span>, <span class="keyword">FIRMWARE</span>, <span class="keyword">SCSI_COID</span>,</div>
+<div class="line">     <span class="keyword">SCSI_CHID</span>, <span class="keyword">SCSI_UNID</span>, <span class="keyword">SCSI_LUN</span>, <span class="keyword">WWN</span>, <span class="keyword">ENCRYPT_NAME</span>, <span class="keyword">ENCRYPT_ALGO</span>,</div>
+<div class="line">     <span class="keyword">ENCRYPT_STATUS</span>, <span class="keyword">ENCRYPT_TYPE</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- device name, ie &#39;hda&#39; on Linux, &#39;\\.\PHYSICALDRIVE0&#39; on Windows</span></div>
+<div class="line"><span class="comment">          --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">NAME</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- device description --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">DESCRIPTION</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- device size, in MB --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">DISKSIZE</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- device interface type (SCSI|HDC|IDE|USB|1394|serial-ATA|SAS) --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">INTERFACE</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">MANUFACTURER</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">MODEL</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">TYPE</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- device serial number --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">SERIAL</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- device serial number, obsoleted by SERIAL --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">SERIALNUMBER</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">FIRMWARE</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">SCSI_COID</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">SCSI_CHID</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">SCSI_UNID</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">SCSI_LUN</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- World Wide Name http://fr.wikipedia.org/wiki/World_Wide_Name --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">WWN</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- supported encryption name --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">ENCRYPT_NAME</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- encryption algorithme --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">ENCRYPT_ALGO</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- encryption status --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">ENCRYPT_STATUS</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- encryption type --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">ENCRYPT_TYPE</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line"> </div>
+<div class="line">     &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">VIDEOS</span> (<span class="keyword">CHIPSET</span>, <span class="keyword">MEMORY</span>, <span class="keyword">NAME</span>, <span class="keyword">RESOLUTION</span>, <span class="keyword">PCISLOT</span>)&gt;</div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">CHIPSET</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- video card memory, in MB --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">MEMORY</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">NAME</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- video card resolution, ie &#39;1024x768&#39; --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">RESOLUTION</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- video card PCI slot ID --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">PCISLOT</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line"> </div>
+<div class="line">     &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">USBDEVICES</span> (<span class="keyword">VENDORID</span>, <span class="keyword">PRODUCTID</span>, <span class="keyword">MANUFACTURER</span>, <span class="keyword">CAPTION</span>,</div>
+<div class="line">     <span class="keyword">SERIAL</span>, <span class="keyword">CLASS</span>, <span class="keyword">SUBCLASS</span>, <span class="keyword">NAME</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- device USB vendor ID --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">VENDORID</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- device USB product ID --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">PRODUCTID</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- device manufacturer --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">MANUFACTURER</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- device caption --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">CAPTION</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- device serial number --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">SERIAL</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- device USB class ID --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">CLASS</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- device USB subclass ID --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">SUBCLASS</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- device name --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">NAME</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line"> </div>
+<div class="line">     &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">USERS</span> (<span class="keyword">LOGIN</span>, <span class="keyword">DOMAIN</span>)&gt;</div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">LOGIN</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- user domain (Windows only) --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">DOMAIN</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line"> </div>
+<div class="line">     &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">VIRTUALMACHINES</span> (<span class="keyword">MEMORY</span>, <span class="keyword">NAME</span>, <span class="keyword">UUID</span>, <span class="keyword">STATUS</span>, <span class="keyword">SUBSYSTEM</span>,</div>
+<div class="line">     <span class="keyword">VMTYPE</span>, <span class="keyword">VCPU</span>, <span class="keyword">VMID</span>, <span class="keyword">MAC</span>, <span class="keyword">COMMENT</span>, <span class="keyword">OWNER</span>, <span class="keyword">SERIAL</span>, <span class="keyword">IMAGE</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- name --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">NAME</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- UUID --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">UUID</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- status</span></div>
+<div class="line"><span class="comment">          (running|blocked|idle|paused|shutdown|crashed|dying|off)</span></div>
+<div class="line"><span class="comment">          --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">STATUS</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- virtualisation software, ie &#39;VmWare ESX&#39; --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">SUBSYSTEM</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       &lt;!- <span class="keyword">virtualisation</span> <span class="keyword">technology</span></div>
+<div class="line">          (<span class="keyword">Physical</span>|<span class="keyword">Xen</span>|<span class="keyword">VirtualBox</span>|<span class="keyword">Virtual</span> <span class="keyword">Machine</span>|<span class="keyword">VMware</span>|<span class="keyword">QEMU</span>|<span class="keyword">SolarisZone</span>|</div>
+<div class="line">          <span class="keyword">VServer</span>|<span class="keyword">OpenVZ</span>|<span class="keyword">BSDJail</span>|<span class="keyword">Parallels</span>|<span class="keyword">Hyper-V</span>|<span class="keyword">AIX_LPAR</span>|<span class="keyword">Docker</span>)</div>
+<div class="line">          --&gt;</div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">VMTYPE</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- memory size, in MB --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">MEMORY</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- CPU numbers --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">VCPU</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- ID --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">VMID</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- list of the MAC addresses of the virtual machine, with &#39;/&#39; as</span></div>
+<div class="line"><span class="comment">          delimiter --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">MAC</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">COMMENT</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">OWNER</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">SERIAL</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- image used for creation (Docker image for instance) --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">IMAGE</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line"> </div>
+<div class="line">     <span class="comment">&lt;!-- a LVM logical volume group --&gt;</span></div>
+<div class="line">     &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">VOLUME_GROUPS</span> (<span class="keyword">VG_NAME</span>, <span class="keyword">PV_COUNT</span>, <span class="keyword">LV_COUNT</span>, <span class="keyword">ATTR</span>, <span class="keyword">SIZE</span>, <span class="keyword">FREE</span>,</div>
+<div class="line">     <span class="keyword">VG_UUID</span>, <span class="keyword">VG_EXTENT_SIZE</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- name --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">VG_NAME</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- UUID --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">VG_UUID</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">PV_COUNT</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">LV_COUNT</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- attributes --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">ATTR</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- size, in MB --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">SIZE</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- free space --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">FREE</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">VG_EXTENT_SIZE</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line"> </div>
+<div class="line">     &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">REMOTE_MGMT</span> (<span class="keyword">ID</span>, <span class="keyword">TYPE</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- id --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">ID</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- type</span></div>
+<div class="line"><span class="comment">          (teamviewer)</span></div>
+<div class="line"><span class="comment">          --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">TYPE</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line"> </div>
+<div class="line">     &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">SIMCARDS</span> (<span class="keyword">IMSI</span>, <span class="keyword">PHONE_NUMBER</span>, <span class="keyword">ICCID</span>, <span class="keyword">STATE</span>, <span class="keyword">COUNTRY</span>, <span class="keyword">OPERATOR_CODE</span>,</div>
+<div class="line">     <span class="keyword">OPERATOR_NAME</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- IMSI --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">IMSI</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- Phone number --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">PHONE_NUMBER</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- ICCID (serial number) --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">ICCID</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- State --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">STATE</span>(#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- Country --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">COUNTRY</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- Operator code --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">OPERATOR_CODE</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- Operator Name --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">OPERATOR_NAME</span>(#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line"> </div>
+<div class="line">     &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">SENSORS</span> (<span class="keyword">NAME</span>, <span class="keyword">MANUFACTURER</span>, <span class="keyword">TYPE</span>, <span class="keyword">VERSION</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- Name --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">NAME</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- MANUFACTURER --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">MANUFACTURER</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- version --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">VERSION</span> (#<span class="keyword">PCDATA</span>)&gt;&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- type --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">TYPE</span> (#<span class="keyword">PCDATA</span>)&gt;&gt;</div>
+<div class="line"> </div>
+<div class="line">     &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">POWERSUPPLIES</span> (<span class="keyword">NAME</span>, <span class="keyword">POWER_MAX</span>, <span class="keyword">SERIALNUMBER</span>, <span class="keyword">PARTNUM</span></div>
+<div class="line">     <span class="keyword">MANUFACTURER</span>, <span class="keyword">MODEL</span>, <span class="keyword">HOTREPLACEABLE</span>, <span class="keyword">PLUGGED</span>, <span class="keyword">STATUS</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- powersupply name --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">NAME</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- powersupply max power in Watt --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">POWER_MAX</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- powersupply serial number --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">SERIALNUMBER</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- powersupply manufacturer --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">MANUFACTURER</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- powersupply Part Number --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">PARTNUM</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- powersupply model --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">MODEL</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- powersupply hotreplaceable feature (Yes|No) --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">HOTREPLACEABLE</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- powersupply plugged status (Yes|No) --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">PLUGGED</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- powersupply status --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">STATUS</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- powersupply location in computer --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">LOCATION</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line"> </div>
+<div class="line">     &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">CAMERAS</span> (<span class="keyword">RESOLUTION</span>, <span class="keyword">LENSFACING</span>, <span class="keyword">FLASHUNIT</span>,</div>
+<div class="line">     <span class="keyword">IMAGEFORMATS</span>+, <span class="keyword">ORIENTATION</span>, <span class="keyword">FOCALLENGHT</span>, <span class="keyword">SENSORSIZE</span>, <span class="keyword">MANUFACTURER</span>,</div>
+<div class="line">     <span class="keyword">RESOLUTIONVIDEO</span>, <span class="keyword">MODEL</span>, <span class="keyword">SUPPORTS</span>+)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- Camera resolution, ie &#39;1200x800&#39; --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">RESOLUTION</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- Direction the camera faces, relative to device screen --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">LENSFACING</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- Whether this camera device has a flash unit --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">FLASHUNIT</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- Image output formats --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">IMAGEFORMATS</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- Orientation camera - Degrees of clockwise rotation --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">ORIENTATION</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- List of focal lengths - Units in Millimeters --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">FOCALLENGHT</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- This is the physical size of the sensor - Units in Millimeters --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">SENSORSIZE</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- Name of the Manufacturer --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">MANUFACTURER</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!--  Video Camera resolution, ie &#39;1200x800&#39;  --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">RESOLUTIONVIDEO</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- Name of the Model --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">MODEL</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">       <span class="comment">&lt;!-- List of intefaces and protocols about Camera --&gt;</span></div>
+<div class="line">       &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">SUPPORTS</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line"> </div>
+<div class="line">  <span class="comment">&lt;!-- agent ID (string) --&gt;</span></div>
+<div class="line">  &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">DEVICEID</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+<div class="line">  <span class="comment">&lt;!-- message type, ie &quot;SNMPQUERY&quot; --&gt;</span></div>
+<div class="line">  &lt;!<span class="keyword">ELEMENT</span> <span class="keyword">QUERY</span> (#<span class="keyword">PCDATA</span>)&gt;</div>
+</div><!-- fragment --> </div></div><!-- contents -->
+</div><!-- PageDoc -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0
+</small></address>
+</body>
+</html>

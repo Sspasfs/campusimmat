@@ -1,0 +1,80 @@
+\doxysection{Référence du fichier public/glpi/ajax/itilfollowup.php}
+\hypertarget{ajax_2itilfollowup_8php}{}\label{ajax_2itilfollowup_8php}\index{public/glpi/ajax/itilfollowup.php@{public/glpi/ajax/itilfollowup.php}}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{ajax_2itilfollowup_8php_a552d3624f6937978f96deed2b8b13fdc}{\$\+AJAX\+\_\+\+INCLUDE}} = 1
+\item 
+\mbox{\hyperlink{ajax_2itilfollowup_8php_a67e8a85f6d568cc9da9277cf44a19120}{\$itilfollowuptemplates\+\_\+id}} = \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\+\_\+\+POST}}\mbox{[}\textquotesingle{}\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{itilfollowuptemplates\+\_\+id}}\textquotesingle{}\mbox{]} ?? null
+\item 
+\mbox{\hyperlink{dropdown_location_8php_a52332c22f84432520971794825a5a8e7}{if}}( \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{itilfollowuptemplates\+\_\+id}}===null) \mbox{\hyperlink{actorinformation_8php_a261cb4406f3e438761eb84a7d2102c75}{else}} \mbox{\hyperlink{dropdown_location_8php_a52332c22f84432520971794825a5a8e7}{if}}(\$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{itilfollowuptemplates\+\_\+id}}==0) \mbox{\hyperlink{ajax_2itilfollowup_8php_a7d13f68475f2046f67c63d127e559ffe}{\$parents\+\_\+id}} = \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\+\_\+\+POST}}\mbox{[}\textquotesingle{}\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{items\+\_\+id}}\textquotesingle{}\mbox{]} ?? 0
+\item 
+\mbox{\hyperlink{dropdown_location_8php_a52332c22f84432520971794825a5a8e7}{if}}(! \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{parents\+\_\+id}}) \mbox{\hyperlink{ajax_2itilfollowup_8php_a1008faec09327de2796c96457fb8d5c5}{\$parents\+\_\+itemtype}} = \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\+\_\+\+POST}}\mbox{[}\textquotesingle{}\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{itemtype}}\textquotesingle{}\mbox{]} ?? \textquotesingle{}\textquotesingle{}
+\item 
+\mbox{\hyperlink{dropdown_location_8php_a52332c22f84432520971794825a5a8e7}{if}}(\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{empty}}(\$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{parents\+\_\+itemtype}})\texorpdfstring{$\vert$}{|}\texorpdfstring{$\vert$}{|}!is\+\_\+subclass\+\_\+of(\$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{parents\+\_\+itemtype}}, \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{Common\+ITILObject\+::class}})) \mbox{\hyperlink{ajax_2itilfollowup_8php_ae6d46796200bb084bf0b277152a47a42}{\$template}} = \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{new}} \mbox{\hyperlink{class_i_t_i_l_followup_template}{ITILFollowup\+Template}}()
+\item 
+\mbox{\hyperlink{dropdown_location_8php_a52332c22f84432520971794825a5a8e7}{if}}(! \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{template}}-\/$>$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{get\+From\+DB}}(\$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{itilfollowuptemplates\+\_\+id}})) \mbox{\hyperlink{ajax_2itilfollowup_8php_a8af28987e4af59c811bc9b423279dce3}{\$parent}} = \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{new}} \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{parents\+\_\+itemtype}}()
+\item 
+\mbox{\hyperlink{dropdown_location_8php_a52332c22f84432520971794825a5a8e7}{if}}(! \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{parent}}-\/$>$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{get\+From\+DB}}(\$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{parents\+\_\+id}})) \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{template}} \mbox{\hyperlink{ajax_2itilfollowup_8php_a17a7e302f481c3bba8c3c5cce540260f}{fields}} \mbox{[}\textquotesingle{}\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{content}}\textquotesingle{}\mbox{]} = \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{template}}-\/$>$get\+Rendered\+Content(\$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{parent}})
+\item 
+\$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{template}} \mbox{\hyperlink{ajax_2itilfollowup_8php_ab9a3b6252d5ddef2ad36a65eaf447d06}{fields}} \mbox{[}\textquotesingle{}\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{requesttypes\+\_\+name}}\textquotesingle{}\mbox{]} = "{}"{}
+\item 
+\mbox{\hyperlink{ajax_2itilfollowup_8php_a89b46444a88ecddc77db24b75871698e}{if}} ( \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{template}}-\/$>$\mbox{\hyperlink{dropdown_fields_blacklist_8php_a5c75a53080fde91f4f343f206474308d}{fields}}\mbox{[} \textquotesingle{}\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{requesttypes\+\_\+id}}\textquotesingle{}\mbox{]})
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Documentation des variables}
+\Hypertarget{ajax_2itilfollowup_8php_a552d3624f6937978f96deed2b8b13fdc}\label{ajax_2itilfollowup_8php_a552d3624f6937978f96deed2b8b13fdc} 
+\index{itilfollowup.php@{itilfollowup.php}!\$AJAX\_INCLUDE@{\$AJAX\_INCLUDE}}
+\index{\$AJAX\_INCLUDE@{\$AJAX\_INCLUDE}!itilfollowup.php@{itilfollowup.php}}
+\doxysubsubsection{\texorpdfstring{\$AJAX\_INCLUDE}{\$AJAX\_INCLUDE}}
+{\footnotesize\ttfamily \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{AJAX\+\_\+\+INCLUDE}} = 1}
+
+\Hypertarget{ajax_2itilfollowup_8php_a67e8a85f6d568cc9da9277cf44a19120}\label{ajax_2itilfollowup_8php_a67e8a85f6d568cc9da9277cf44a19120} 
+\index{itilfollowup.php@{itilfollowup.php}!\$itilfollowuptemplates\_id@{\$itilfollowuptemplates\_id}}
+\index{\$itilfollowuptemplates\_id@{\$itilfollowuptemplates\_id}!itilfollowup.php@{itilfollowup.php}}
+\doxysubsubsection{\texorpdfstring{\$itilfollowuptemplates\_id}{\$itilfollowuptemplates\_id}}
+{\footnotesize\ttfamily \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{itilfollowuptemplates\+\_\+id}} = \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\+\_\+\+POST}}\mbox{[}\textquotesingle{}\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{itilfollowuptemplates\+\_\+id}}\textquotesingle{}\mbox{]} ?? null}
+
+\Hypertarget{ajax_2itilfollowup_8php_a8af28987e4af59c811bc9b423279dce3}\label{ajax_2itilfollowup_8php_a8af28987e4af59c811bc9b423279dce3} 
+\index{itilfollowup.php@{itilfollowup.php}!\$parent@{\$parent}}
+\index{\$parent@{\$parent}!itilfollowup.php@{itilfollowup.php}}
+\doxysubsubsection{\texorpdfstring{\$parent}{\$parent}}
+{\footnotesize\ttfamily \mbox{\hyperlink{dropdown_location_8php_a52332c22f84432520971794825a5a8e7}{if}} (! \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{template}}-\/$>$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{get\+From\+DB}}( \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{itilfollowuptemplates\+\_\+id}})) \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{parent}} = \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{new}} \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{parents\+\_\+itemtype}}()}
+
+\Hypertarget{ajax_2itilfollowup_8php_a7d13f68475f2046f67c63d127e559ffe}\label{ajax_2itilfollowup_8php_a7d13f68475f2046f67c63d127e559ffe} 
+\index{itilfollowup.php@{itilfollowup.php}!\$parents\_id@{\$parents\_id}}
+\index{\$parents\_id@{\$parents\_id}!itilfollowup.php@{itilfollowup.php}}
+\doxysubsubsection{\texorpdfstring{\$parents\_id}{\$parents\_id}}
+{\footnotesize\ttfamily \mbox{\hyperlink{dropdown_location_8php_a52332c22f84432520971794825a5a8e7}{if}}(\$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{itilfollowuptemplates\+\_\+id}}===null) \mbox{\hyperlink{actorinformation_8php_a261cb4406f3e438761eb84a7d2102c75}{else}} \mbox{\hyperlink{dropdown_location_8php_a52332c22f84432520971794825a5a8e7}{if}} ( \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{itilfollowuptemplates\+\_\+id}}==0) \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{parents\+\_\+id}} = \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\+\_\+\+POST}}\mbox{[}\textquotesingle{}\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{items\+\_\+id}}\textquotesingle{}\mbox{]} ?? 0}
+
+\Hypertarget{ajax_2itilfollowup_8php_a1008faec09327de2796c96457fb8d5c5}\label{ajax_2itilfollowup_8php_a1008faec09327de2796c96457fb8d5c5} 
+\index{itilfollowup.php@{itilfollowup.php}!\$parents\_itemtype@{\$parents\_itemtype}}
+\index{\$parents\_itemtype@{\$parents\_itemtype}!itilfollowup.php@{itilfollowup.php}}
+\doxysubsubsection{\texorpdfstring{\$parents\_itemtype}{\$parents\_itemtype}}
+{\footnotesize\ttfamily \mbox{\hyperlink{dropdown_location_8php_a52332c22f84432520971794825a5a8e7}{if}} (! \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{parents\+\_\+id}}) \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{parents\+\_\+itemtype}} = \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\+\_\+\+POST}}\mbox{[}\textquotesingle{}\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{itemtype}}\textquotesingle{}\mbox{]} ?? \textquotesingle{}\textquotesingle{}}
+
+\Hypertarget{ajax_2itilfollowup_8php_ae6d46796200bb084bf0b277152a47a42}\label{ajax_2itilfollowup_8php_ae6d46796200bb084bf0b277152a47a42} 
+\index{itilfollowup.php@{itilfollowup.php}!\$template@{\$template}}
+\index{\$template@{\$template}!itilfollowup.php@{itilfollowup.php}}
+\doxysubsubsection{\texorpdfstring{\$template}{\$template}}
+{\footnotesize\ttfamily \mbox{\hyperlink{dropdown_location_8php_a52332c22f84432520971794825a5a8e7}{if}} (\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{empty}}( \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{parents\+\_\+itemtype}})\texorpdfstring{$\vert$}{|}\texorpdfstring{$\vert$}{|}!is\+\_\+subclass\+\_\+of( \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{parents\+\_\+itemtype}}, \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{Common\+ITILObject\+::class}})) \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{template}} = \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{new}} \mbox{\hyperlink{class_i_t_i_l_followup_template}{ITILFollowup\+Template}}()}
+
+\Hypertarget{ajax_2itilfollowup_8php_a17a7e302f481c3bba8c3c5cce540260f}\label{ajax_2itilfollowup_8php_a17a7e302f481c3bba8c3c5cce540260f} 
+\index{itilfollowup.php@{itilfollowup.php}!fields@{fields}}
+\index{fields@{fields}!itilfollowup.php@{itilfollowup.php}}
+\doxysubsubsection{\texorpdfstring{fields}{fields}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{dropdown_location_8php_a52332c22f84432520971794825a5a8e7}{if}} (! \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{parent}}-\/$>$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{get\+From\+DB}}( \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{parents\+\_\+id}})) \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{template}} fields\mbox{[} \textquotesingle{}\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{content}}\textquotesingle{}\mbox{]} = \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{template}}-\/$>$get\+Rendered\+Content(\$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{parent}})}
+
+\Hypertarget{ajax_2itilfollowup_8php_ab9a3b6252d5ddef2ad36a65eaf447d06}\label{ajax_2itilfollowup_8php_ab9a3b6252d5ddef2ad36a65eaf447d06} 
+\index{itilfollowup.php@{itilfollowup.php}!fields@{fields}}
+\index{fields@{fields}!itilfollowup.php@{itilfollowup.php}}
+\doxysubsubsection{\texorpdfstring{fields}{fields}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{template}} fields\mbox{[} \textquotesingle{}\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{requesttypes\+\_\+name}}\textquotesingle{}\mbox{]} = "{}"{}}
+
+\Hypertarget{ajax_2itilfollowup_8php_a89b46444a88ecddc77db24b75871698e}\label{ajax_2itilfollowup_8php_a89b46444a88ecddc77db24b75871698e} 
+\index{itilfollowup.php@{itilfollowup.php}!if@{if}}
+\index{if@{if}!itilfollowup.php@{itilfollowup.php}}
+\doxysubsubsection{\texorpdfstring{if}{if}}
+{\footnotesize\ttfamily if(\$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{template}}-\/$>$\mbox{\hyperlink{dropdown_fields_blacklist_8php_a5c75a53080fde91f4f343f206474308d}{fields}}\mbox{[}\textquotesingle{}\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{requesttypes\+\_\+id}}\textquotesingle{}\mbox{]}) (\begin{DoxyParamCaption}\item[{}]{\$template-\/$>$\mbox{[} \textquotesingle{}requesttypes\+\_\+id\textquotesingle{}\mbox{]} }\end{DoxyParamCaption})}
+

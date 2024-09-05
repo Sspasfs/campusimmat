@@ -1,0 +1,340 @@
+\doxysection{Référence de la classe Tree}
+\hypertarget{class_sabre_1_1_d_a_v_1_1_tree}{}\label{class_sabre_1_1_d_a_v_1_1_tree}\index{Tree@{Tree}}
+
+
+Graphe de collaboration de Tree\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=234pt]{class_sabre_1_1_d_a_v_1_1_tree__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_tree_a624b5edeaf7fcb2936c4483b7d946106}{\+\_\+\+\_\+construct}} (\mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_i_collection}{ICollection}} \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{root\+Node}})
+\item 
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_tree_ac73e1df78168121681f367d91bb154f7}{get\+Node\+For\+Path}} (\$path)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_tree_abdb8db867b8f6e31918d7c7dcd498f64}{node\+Exists}} (\$path)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_tree_aa2158cb4ac7389d477139823c89a9b33}{copy}} (\$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{source\+Path}}, \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{destination\+Path}})
+\item 
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_tree_a091c1c1674edd72d58aa13aa51c20258}{move}} (\$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{source\+Path}}, \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{destination\+Path}})
+\item 
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_tree_af7fd3d73b2e3a63615deedd5c4801f17}{delete}} (\$path)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_tree_a2be78c63113f819cbf7fd786d77b0bb5}{get\+Children}} (\$path)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_tree_a69ec10a74c1431bfaa06bc66ccbea9d7}{mark\+Dirty}} (\$path)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_tree_a230262e463ed3a02c8cf032786a8543d}{get\+Multiple\+Nodes}} (\$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{paths}})
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Fonctions membres protégées}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_tree_a6109c0931705dbd5b707093d9b042b37}{copy\+Node}} (\mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_i_node}{INode}} \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{source}}, \mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_i_collection}{ICollection}} \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{destination\+Parent}}, \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{destination\+Name}}=null)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Attributs protégés}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_tree_a79045a1d0d4538a42a2007c85e539441}{\$root\+Node}}
+\item 
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_tree_ac2dc76d756ec398393d4b1d23659276c}{\$cache}} = \mbox{[}$\,$\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+The tree object is responsible for basic tree operations.
+
+It allows for fetching nodes by path, facilitates deleting, copying and moving.
+
+\begin{DoxyCopyright}{Copyright}
+Copyright (C) fruux GmbH (\href{https://fruux.com/}{\texttt{ https\+://fruux.\+com/}}) 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Auteur}
+Evert Pot (\href{http://evertpot.com/}{\texttt{ http\+://evertpot.\+com/}}) @license \href{http://sabre.io/license/}{\texttt{ http\+://sabre.\+io/license/}} Modified BSD License 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Documentation des constructeurs et destructeur}
+\Hypertarget{class_sabre_1_1_d_a_v_1_1_tree_a624b5edeaf7fcb2936c4483b7d946106}\label{class_sabre_1_1_d_a_v_1_1_tree_a624b5edeaf7fcb2936c4483b7d946106} 
+\index{Tree@{Tree}!\_\_construct@{\_\_construct}}
+\index{\_\_construct@{\_\_construct}!Tree@{Tree}}
+\doxysubsubsection{\texorpdfstring{\_\_construct()}{\_\_construct()}}
+{\footnotesize\ttfamily \+\_\+\+\_\+construct (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_i_collection}{ICollection}}}]{\$root\+Node }\end{DoxyParamCaption})}
+
+Creates the object.
+
+This method expects the root\+Object to be passed as a parameter 
+
+\doxysubsection{Documentation des fonctions membres}
+\Hypertarget{class_sabre_1_1_d_a_v_1_1_tree_aa2158cb4ac7389d477139823c89a9b33}\label{class_sabre_1_1_d_a_v_1_1_tree_aa2158cb4ac7389d477139823c89a9b33} 
+\index{Tree@{Tree}!copy@{copy}}
+\index{copy@{copy}!Tree@{Tree}}
+\doxysubsubsection{\texorpdfstring{copy()}{copy()}}
+{\footnotesize\ttfamily copy (\begin{DoxyParamCaption}\item[{}]{\$source\+Path,  }\item[{}]{\$destination\+Path }\end{DoxyParamCaption})}
+
+Copies a file from path to another.
+
+
+\begin{DoxyParams}[1]{Paramètres}
+string & {\em \$source\+Path} & The source location \\
+\hline
+string & {\em \$destination\+Path} & The full destination path \\
+\hline
+\end{DoxyParams}
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_sabre_1_1_d_a_v_1_1_tree_aa2158cb4ac7389d477139823c89a9b33_cgraph}
+\end{center}
+\end{figure}
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=193pt]{class_sabre_1_1_d_a_v_1_1_tree_aa2158cb4ac7389d477139823c89a9b33_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_sabre_1_1_d_a_v_1_1_tree_a6109c0931705dbd5b707093d9b042b37}\label{class_sabre_1_1_d_a_v_1_1_tree_a6109c0931705dbd5b707093d9b042b37} 
+\index{Tree@{Tree}!copyNode@{copyNode}}
+\index{copyNode@{copyNode}!Tree@{Tree}}
+\doxysubsubsection{\texorpdfstring{copyNode()}{copyNode()}}
+{\footnotesize\ttfamily copy\+Node (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_i_node}{INode}}}]{\$source,  }\item[{\mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_i_collection}{ICollection}}}]{\$destination\+Parent,  }\item[{}]{\$destination\+Name = {\ttfamily null} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+copy\+Node.
+
+
+\begin{DoxyParams}[1]{Paramètres}
+string & {\em \$destination\+Name} & \\
+\hline
+\end{DoxyParams}
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=312pt]{class_sabre_1_1_d_a_v_1_1_tree_a6109c0931705dbd5b707093d9b042b37_cgraph}
+\end{center}
+\end{figure}
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=289pt]{class_sabre_1_1_d_a_v_1_1_tree_a6109c0931705dbd5b707093d9b042b37_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_sabre_1_1_d_a_v_1_1_tree_af7fd3d73b2e3a63615deedd5c4801f17}\label{class_sabre_1_1_d_a_v_1_1_tree_af7fd3d73b2e3a63615deedd5c4801f17} 
+\index{Tree@{Tree}!delete@{delete}}
+\index{delete@{delete}!Tree@{Tree}}
+\doxysubsubsection{\texorpdfstring{delete()}{delete()}}
+{\footnotesize\ttfamily delete (\begin{DoxyParamCaption}\item[{}]{\$path }\end{DoxyParamCaption})}
+
+Deletes a node from the tree.
+
+
+\begin{DoxyParams}[1]{Paramètres}
+string & {\em \$path} & \\
+\hline
+\end{DoxyParams}
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_sabre_1_1_d_a_v_1_1_tree_af7fd3d73b2e3a63615deedd5c4801f17_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_sabre_1_1_d_a_v_1_1_tree_a2be78c63113f819cbf7fd786d77b0bb5}\label{class_sabre_1_1_d_a_v_1_1_tree_a2be78c63113f819cbf7fd786d77b0bb5} 
+\index{Tree@{Tree}!getChildren@{getChildren}}
+\index{getChildren@{getChildren}!Tree@{Tree}}
+\doxysubsubsection{\texorpdfstring{getChildren()}{getChildren()}}
+{\footnotesize\ttfamily get\+Children (\begin{DoxyParamCaption}\item[{}]{\$path }\end{DoxyParamCaption})}
+
+Returns a list of childnodes for a given path.
+
+
+\begin{DoxyParams}[1]{Paramètres}
+string & {\em \$path} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+\textbackslash{}\+Traversable 
+\end{DoxyReturn}
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_sabre_1_1_d_a_v_1_1_tree_a2be78c63113f819cbf7fd786d77b0bb5_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_sabre_1_1_d_a_v_1_1_tree_a230262e463ed3a02c8cf032786a8543d}\label{class_sabre_1_1_d_a_v_1_1_tree_a230262e463ed3a02c8cf032786a8543d} 
+\index{Tree@{Tree}!getMultipleNodes@{getMultipleNodes}}
+\index{getMultipleNodes@{getMultipleNodes}!Tree@{Tree}}
+\doxysubsubsection{\texorpdfstring{getMultipleNodes()}{getMultipleNodes()}}
+{\footnotesize\ttfamily get\+Multiple\+Nodes (\begin{DoxyParamCaption}\item[{}]{\$paths }\end{DoxyParamCaption})}
+
+This method tells the tree system to pre-\/fetch and cache a list of children of a single parent.
+
+There are a bunch of operations in the Web\+DAV stack that request many children (based on uris), and sometimes fetching many at once can optimize this.
+
+This method returns an array with the found nodes. It\textquotesingle{}s keys are the original paths. The result may be out of order.
+
+
+\begin{DoxyParams}[1]{Paramètres}
+array & {\em \$paths} & list of nodes that must be fetched\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+array 
+\end{DoxyReturn}
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_sabre_1_1_d_a_v_1_1_tree_a230262e463ed3a02c8cf032786a8543d_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_sabre_1_1_d_a_v_1_1_tree_ac73e1df78168121681f367d91bb154f7}\label{class_sabre_1_1_d_a_v_1_1_tree_ac73e1df78168121681f367d91bb154f7} 
+\index{Tree@{Tree}!getNodeForPath@{getNodeForPath}}
+\index{getNodeForPath@{getNodeForPath}!Tree@{Tree}}
+\doxysubsubsection{\texorpdfstring{getNodeForPath()}{getNodeForPath()}}
+{\footnotesize\ttfamily get\+Node\+For\+Path (\begin{DoxyParamCaption}\item[{}]{\$path }\end{DoxyParamCaption})}
+
+Returns the INode object for the requested path.
+
+
+\begin{DoxyParams}[1]{Paramètres}
+string & {\em \$path} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+INode 
+\end{DoxyReturn}
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=282pt]{class_sabre_1_1_d_a_v_1_1_tree_ac73e1df78168121681f367d91bb154f7_cgraph}
+\end{center}
+\end{figure}
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_sabre_1_1_d_a_v_1_1_tree_ac73e1df78168121681f367d91bb154f7_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_sabre_1_1_d_a_v_1_1_tree_a69ec10a74c1431bfaa06bc66ccbea9d7}\label{class_sabre_1_1_d_a_v_1_1_tree_a69ec10a74c1431bfaa06bc66ccbea9d7} 
+\index{Tree@{Tree}!markDirty@{markDirty}}
+\index{markDirty@{markDirty}!Tree@{Tree}}
+\doxysubsubsection{\texorpdfstring{markDirty()}{markDirty()}}
+{\footnotesize\ttfamily mark\+Dirty (\begin{DoxyParamCaption}\item[{}]{\$path }\end{DoxyParamCaption})}
+
+This method is called with every tree update.
+
+Examples of tree updates are\+:
+\begin{DoxyItemize}
+\item node deletions
+\item node creations
+\item copy
+\item move
+\item renaming nodes
+\end{DoxyItemize}
+
+If Tree classes implement a form of caching, this will allow them to make sure caches will be expired.
+
+If a path is passed, it is assumed that the entire subtree is dirty
+
+
+\begin{DoxyParams}[1]{Paramètres}
+string & {\em \$path} & \\
+\hline
+\end{DoxyParams}
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=293pt]{class_sabre_1_1_d_a_v_1_1_tree_a69ec10a74c1431bfaa06bc66ccbea9d7_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_sabre_1_1_d_a_v_1_1_tree_a091c1c1674edd72d58aa13aa51c20258}\label{class_sabre_1_1_d_a_v_1_1_tree_a091c1c1674edd72d58aa13aa51c20258} 
+\index{Tree@{Tree}!move@{move}}
+\index{move@{move}!Tree@{Tree}}
+\doxysubsubsection{\texorpdfstring{move()}{move()}}
+{\footnotesize\ttfamily move (\begin{DoxyParamCaption}\item[{}]{\$source\+Path,  }\item[{}]{\$destination\+Path }\end{DoxyParamCaption})}
+
+Moves a file from one location to another.
+
+
+\begin{DoxyParams}[1]{Paramètres}
+string & {\em \$source\+Path} & The path to the file which should be moved \\
+\hline
+string & {\em \$destination\+Path} & The full destination path, so not just the destination parent node \\
+\hline
+\end{DoxyParams}
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_sabre_1_1_d_a_v_1_1_tree_a091c1c1674edd72d58aa13aa51c20258_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_sabre_1_1_d_a_v_1_1_tree_abdb8db867b8f6e31918d7c7dcd498f64}\label{class_sabre_1_1_d_a_v_1_1_tree_abdb8db867b8f6e31918d7c7dcd498f64} 
+\index{Tree@{Tree}!nodeExists@{nodeExists}}
+\index{nodeExists@{nodeExists}!Tree@{Tree}}
+\doxysubsubsection{\texorpdfstring{nodeExists()}{nodeExists()}}
+{\footnotesize\ttfamily node\+Exists (\begin{DoxyParamCaption}\item[{}]{\$path }\end{DoxyParamCaption})}
+
+This function allows you to check if a node exists.
+
+Implementors of this class should override this method to make it cheaper.
+
+
+\begin{DoxyParams}[1]{Paramètres}
+string & {\em \$path} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+bool 
+\end{DoxyReturn}
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_sabre_1_1_d_a_v_1_1_tree_abdb8db867b8f6e31918d7c7dcd498f64_cgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Documentation des champs}
+\Hypertarget{class_sabre_1_1_d_a_v_1_1_tree_ac2dc76d756ec398393d4b1d23659276c}\label{class_sabre_1_1_d_a_v_1_1_tree_ac2dc76d756ec398393d4b1d23659276c} 
+\index{Tree@{Tree}!\$cache@{\$cache}}
+\index{\$cache@{\$cache}!Tree@{Tree}}
+\doxysubsubsection{\texorpdfstring{\$cache}{\$cache}}
+{\footnotesize\ttfamily \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{cache}} = \mbox{[}$\,$\mbox{]}\hspace{0.3cm}{\ttfamily [protected]}}
+
+\Hypertarget{class_sabre_1_1_d_a_v_1_1_tree_a79045a1d0d4538a42a2007c85e539441}\label{class_sabre_1_1_d_a_v_1_1_tree_a79045a1d0d4538a42a2007c85e539441} 
+\index{Tree@{Tree}!\$rootNode@{\$rootNode}}
+\index{\$rootNode@{\$rootNode}!Tree@{Tree}}
+\doxysubsubsection{\texorpdfstring{\$rootNode}{\$rootNode}}
+{\footnotesize\ttfamily \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{root\+Node}}\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+La documentation de cette classe a été générée à partir du fichier suivant \+:\begin{DoxyCompactItemize}
+\item 
+public/glpi/vendor/sabre/dav/lib/\+DAV/\mbox{\hyperlink{_tree_8php}{Tree.\+php}}\end{DoxyCompactItemize}

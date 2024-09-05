@@ -1,0 +1,387 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_md_public_2glpi_2vendor_2paragonie_2sodium__compat_2_r_e_a_d_m_e" xml:lang="fr">
+<title>Sodium Compat</title>
+<indexterm><primary>Sodium Compat</primary></indexterm>
+
+<para><anchor xml:id="_md_public_2glpi_2vendor_2paragonie_2sodium__compat_2_r_e_a_d_m_e_1autotoc_md6871"/> <link xlink:href="https://github.com/paragonie/sodium_compat/actions"></link> <link xlink:href="https://github.com/paragonie/sodium_compat/actions"></link> <link xlink:href="https://ci.appveyor.com/project/paragonie-scott/sodium-compat"></link> <link xlink:href="https://packagist.org/packages/paragonie/sodium_compat"></link> <link xlink:href="https://packagist.org/packages/paragonie/sodium_compat"></link> <link xlink:href="https://packagist.org/packages/paragonie/sodium_compat"></link> <link xlink:href="https://packagist.org/packages/paragonie/sodium_compat"></link></para>
+
+<para><link linkend="_namespace_sodium">Sodium</link> Compat is a pure PHP polyfill for the <link linkend="_namespace_sodium">Sodium</link> cryptography library (libsodium), a core extension in PHP 7.2.0+ and otherwise <link xlink:href="https://pecl.php.net/package/libsodium">available in PECL</link>.</para>
+
+<para>This library tentativeley supports PHP 5.2.4 - 8.x (latest), but officially only supports <link xlink:href="https://secure.php.net/supported-versions.php">non-EOL&apos;d versions of PHP</link>.</para>
+
+<para>If you have the PHP extension installed, <link linkend="_namespace_sodium">Sodium</link> Compat will opportunistically and transparently use the PHP extension instead of our implementation.</para>
+<section xml:id="_md_public_2glpi_2vendor_2paragonie_2sodium__compat_2_r_e_a_d_m_e_1autotoc_md6872">
+<title><title>IMPORTANT!</title></title>
+
+<para>This cryptography library has not been formally audited by an independent third party that specializes in cryptography or cryptanalysis.</para>
+
+<para>If you require such an audit before you can use sodium_compat in your projects and have the funds for such an audit, please open an issue or contact <computeroutput>security at paragonie dot com</computeroutput> so we can help get the ball rolling.</para>
+
+<para>However, sodium_compat has been adopted by high profile open source projects, such as <link xlink:href="https://github.com/joomla/joomla-cms/blob/459d74686d2a638ec51149d7c44ddab8075852be/composer.json#L40">Joomla!</link> and <link xlink:href="https://github.com/magento/magento2/blob/8fd89cfdf52c561ac0ca7bc20fd38ef688e201b0/composer.json#L44">Magento</link>. Furthermore, sodium_compat was developed by Paragon Initiative Enterprises, a company that <emphasis>specializes</emphasis> in secure PHP development and PHP cryptography, and has been informally reviewed by many other security experts who also specialize in PHP.</para>
+
+<para>If you&apos;d like to learn more about the defensive security measures we&apos;ve taken to prevent sodium_compat from being a source of vulnerability in your systems, please read <link xlink:href="https://paragonie.com/blog/2017/02/cryptographically-secure-php-development"><emphasis>Cryptographically Secure PHP Development</emphasis></link>.</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2paragonie_2sodium__compat_2_r_e_a_d_m_e_1autotoc_md6873">
+<title><title>Installing Sodium Compat</title></title>
+
+<para>If you&apos;re using <link linkend="_namespace_composer">Composer</link>:</para>
+
+<para><literallayout><computeroutput>composer&#32;require&#32;paragonie/sodium_compat
+</computeroutput></literallayout></para>
+<section xml:id="_md_public_2glpi_2vendor_2paragonie_2sodium__compat_2_r_e_a_d_m_e_1autotoc_md6874">
+<title><title>Install From Source</title></title>
+
+<para>If you&apos;re not using <link linkend="_namespace_composer">Composer</link>, download a <link xlink:href="https://github.com/paragonie/sodium_compat/releases">release tarball</link> (which should be signed with <link xlink:href="https://paragonie.com/static/gpg-public-key.txt">our GnuPG public key</link>), extract its contents, then include our <computeroutput>autoload.php</computeroutput> script in your project.</para>
+
+<para><literallayout><computeroutput>&lt;?php
+require_once&#32;&quot;/path/to/sodium_compat/autoload.php&quot;;
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2paragonie_2sodium__compat_2_r_e_a_d_m_e_1autotoc_md6875">
+<title><title>PHP Archives (Phar) Releases</title></title>
+
+<para>Since version 1.3.0, <link xlink:href="https://github.com/paragonie/sodium_compat/releases">sodium_compat releases</link> include a PHP Archive (.phar file) and associated GPG signature. First, download both files and verify them with our GPG public key, like so:</para>
+
+<para><literallayout><computeroutput>#&#32;Getting&#32;our&#32;public&#32;key&#32;from&#32;the&#32;keyserver:
+gpg&#32;--fingerprint&#32;7F52D5C61D1255C731362E826B97A1C2826404DA
+if&#32;[&#32;$?&#32;-ne&#32;0&#32;];&#32;then
+&#32;&#32;&#32;&#32;echo&#32;-e&#32;&quot;\033[33mDownloading&#32;PGP&#32;Public&#32;Key...\033[0m&quot;
+&#32;&#32;&#32;&#32;gpg&#32;&#32;--keyserver&#32;pgp.mit.edu&#32;--recv-keys&#32;7F52D5C61D1255C731362E826B97A1C2826404DA
+&#32;&#32;&#32;&#32;#&#32;Security&#32;&lt;security@paragonie.com&gt;
+&#32;&#32;&#32;&#32;gpg&#32;--fingerprint&#32;7F52D5C61D1255C731362E826B97A1C2826404DA
+&#32;&#32;&#32;&#32;if&#32;[&#32;$?&#32;-ne&#32;0&#32;];&#32;then
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;echo&#32;-e&#32;&quot;\033[31mCould&#32;not&#32;download&#32;PGP&#32;public&#32;key&#32;for&#32;verification\033[0m&quot;
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;exit&#32;1
+&#32;&#32;&#32;&#32;fi
+fi
+
+#&#32;Verifying&#32;the&#32;PHP&#32;Archive
+gpg&#32;--verify&#32;sodium-compat.phar.sig&#32;sodium-compat.phar
+</computeroutput></literallayout></para>
+
+<para>Now, simply include this .phar file in your application.</para>
+
+<para><literallayout><computeroutput>&lt;?php
+require_once&#32;&quot;/path/to/sodium-compat.phar&quot;;
+</computeroutput></literallayout></para>
+</section>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2paragonie_2sodium__compat_2_r_e_a_d_m_e_1autotoc_md6876">
+<title><title>Support</title></title>
+
+<para><link xlink:href="https://download.libsodium.org/doc/commercial_support/">Commercial support for libsodium</link> is available from multiple vendors. If you need help using sodium_compat in one of your projects, <link xlink:href="https://paragonie.com/contact">contact Paragon Initiative Enterprises</link>.</para>
+
+<para>Non-commercial report will be facilitated through <link xlink:href="https://github.com/paragonie/sodium_compat/issues">Github issues</link>. We offer no guarantees of our availability to resolve questions about integrating sodium_compat into third-party software for free, but will strive to fix any bugs (security-related or otherwise) in our library.</para>
+<section xml:id="_md_public_2glpi_2vendor_2paragonie_2sodium__compat_2_r_e_a_d_m_e_1autotoc_md6877">
+<title><title>Support Contracts</title></title>
+
+<para>If your company uses this library in their products or services, you may be interested in <link xlink:href="https://paragonie.com/enterprise">purchasing a support contract from Paragon Initiative Enterprises</link>.</para>
+</section>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2paragonie_2sodium__compat_2_r_e_a_d_m_e_1autotoc_md6878">
+<title><title>Using Sodium Compat</title></title>
+<section xml:id="_md_public_2glpi_2vendor_2paragonie_2sodium__compat_2_r_e_a_d_m_e_1autotoc_md6879">
+<title><title>True Polyfill</title></title>
+
+<para>If you&apos;re using PHP 5.3.0 or newer and do not have the PECL extension installed, you can just use the <link xlink:href="https://paragonie.com/book/pecl-libsodium">standard ext/sodium API features as-is</link> and the polyfill will work its magic.</para>
+
+<para><literallayout><computeroutput>&lt;?php
+require_once&#32;&quot;/path/to/sodium_compat/autoload.php&quot;;
+
+$alice_kp&#32;=&#32;\Sodium\crypto_sign_keypair();
+$alice_sk&#32;=&#32;\Sodium\crypto_sign_secretkey($alice_kp);
+$alice_pk&#32;=&#32;\Sodium\crypto_sign_publickey($alice_kp);
+
+$message&#32;=&#32;&apos;This&#32;is&#32;a&#32;test&#32;message.&apos;;
+$signature&#32;=&#32;\Sodium\crypto_sign_detached($message,&#32;$alice_sk);
+if&#32;(\Sodium\crypto_sign_verify_detached($signature,&#32;$message,&#32;$alice_pk))&#32;{
+&#32;&#32;&#32;&#32;echo&#32;&apos;OK&apos;,&#32;PHP_EOL;
+}&#32;else&#32;{
+&#32;&#32;&#32;&#32;throw&#32;new&#32;Exception(&apos;Invalid&#32;signature&apos;);
+}
+</computeroutput></literallayout></para>
+
+<para>The polyfill does not expose this API on PHP &lt; 5.3, or if you have the PHP extension installed already.</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2paragonie_2sodium__compat_2_r_e_a_d_m_e_1autotoc_md6880">
+<title><title>General-Use Polyfill</title></title>
+
+<para>If your users are on PHP &lt; 5.3, or you want to write code that will work whether or not the PECL extension is available, you&apos;ll want to use the **<computeroutput><link linkend="_class_paragon_i_e___sodium___compat">ParagonIE_Sodium_Compat</link></computeroutput>** class for most of your libsodium needs.</para>
+
+<para>The above example, written for general use:</para>
+
+<para><literallayout><computeroutput>&lt;?php
+require_once&#32;&quot;/path/to/sodium_compat/autoload.php&quot;;
+
+$alice_kp&#32;=&#32;ParagonIE_Sodium_Compat::crypto_sign_keypair();
+$alice_sk&#32;=&#32;ParagonIE_Sodium_Compat::crypto_sign_secretkey($alice_kp);
+$alice_pk&#32;=&#32;ParagonIE_Sodium_Compat::crypto_sign_publickey($alice_kp);
+
+$message&#32;=&#32;&apos;This&#32;is&#32;a&#32;test&#32;message.&apos;;
+$signature&#32;=&#32;ParagonIE_Sodium_Compat::crypto_sign_detached($message,&#32;$alice_sk);
+if&#32;(ParagonIE_Sodium_Compat::crypto_sign_verify_detached($signature,&#32;$message,&#32;$alice_pk))&#32;{
+&#32;&#32;&#32;&#32;echo&#32;&apos;OK&apos;,&#32;PHP_EOL;
+}&#32;else&#32;{
+&#32;&#32;&#32;&#32;throw&#32;new&#32;Exception(&apos;Invalid&#32;signature&apos;);
+}
+</computeroutput></literallayout></para>
+
+<para>Generally: If you replace <computeroutput>\<link linkend="_namespace_sodium">Sodium</link>\</computeroutput> with <computeroutput><link linkend="_class_paragon_i_e___sodium___compat">ParagonIE_Sodium_Compat</link>::</computeroutput>, any code already written for the libsodium PHP extension should work with our polyfill without additional code changes.</para>
+
+<para>Since this doesn&apos;t require a namespace, this API <emphasis>is</emphasis> exposed on PHP 5.2.</para>
+
+<para>Since version 0.7.0, we have our own namespaced API (<computeroutput>ParagonIE\<link linkend="_namespace_sodium">Sodium</link>\*</computeroutput>) to allow brevity in software that uses PHP 5.3+. This is useful if you want to use our file cryptography features without writing <computeroutput><link linkend="_class_paragon_i_e___sodium___file">ParagonIE_Sodium_File</link></computeroutput> every time. This is not exposed on PHP &lt; 5.3, so if your project supports PHP &lt; 5.3, use the underscore method instead.</para>
+
+<para>To learn how to use Libsodium, read <link xlink:href="https://paragonie.com/book/pecl-libsodium"><emphasis>Using Libsodium in PHP Projects</emphasis></link>.</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2paragonie_2sodium__compat_2_r_e_a_d_m_e_1autotoc_md6881">
+<title><title>PHP 7.2 Polyfill</title></title>
+
+<para>As per the <link xlink:href="https://wiki.php.net/rfc/libsodium#proposed_voting_choices">second vote on the libsodium RFC</link>, PHP 7.2 uses <computeroutput>sodium_*</computeroutput> instead of <computeroutput>\<link linkend="_namespace_sodium">Sodium</link>\*</computeroutput>.</para>
+
+<para><literallayout><computeroutput>&lt;?php
+require_once&#32;&quot;/path/to/sodium_compat/autoload.php&quot;;
+
+$alice_kp&#32;=&#32;sodium_crypto_sign_keypair();
+$alice_sk&#32;=&#32;sodium_crypto_sign_secretkey($alice_kp);
+$alice_pk&#32;=&#32;sodium_crypto_sign_publickey($alice_kp);
+
+$message&#32;=&#32;&apos;This&#32;is&#32;a&#32;test&#32;message.&apos;;
+$signature&#32;=&#32;sodium_crypto_sign_detached($message,&#32;$alice_sk);
+if&#32;(sodium_crypto_sign_verify_detached($signature,&#32;$message,&#32;$alice_pk))&#32;{
+&#32;&#32;&#32;&#32;echo&#32;&apos;OK&apos;,&#32;PHP_EOL;
+}&#32;else&#32;{
+&#32;&#32;&#32;&#32;throw&#32;new&#32;Exception(&apos;Invalid&#32;signature&apos;);
+}
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2paragonie_2sodium__compat_2_r_e_a_d_m_e_1autotoc_md6882">
+<title><title>Help, Sodium_Compat is Slow! How can I make it fast?</title></title>
+
+<para>There are three ways to make it fast:</para>
+
+<para><orderedlist>
+<listitem>
+<para>Use PHP 7.2.</para>
+</listitem><listitem>
+<para><link xlink:href="https://paragonie.com/book/pecl-libsodium/read/00-intro.md#installing-libsodium">Install the libsodium PHP extension from PECL</link>.</para>
+</listitem><listitem>
+<para>Only if the previous two options are not available for you:<orderedlist>
+<listitem>
+<para>Verify that <link xlink:href="https://bearssl.org/ctmul.html">the processor you&apos;re using actually implements constant-time multiplication</link>. Sodium_compat does, but it must trade some speed in order to attain cross-platform security.</para>
+</listitem><listitem>
+<para>Only if you are 100% certain that your processor is safe, you can set <computeroutput><link linkend="_class_paragon_i_e___sodium___compat">ParagonIE_Sodium_Compat</link>::$fastMult = true;</computeroutput> without harming the security of your cryptography keys. If your processor <emphasis>isn&apos;t</emphasis> safe, then decide whether you want speed or security because you can&apos;t have both.</para>
+</listitem></orderedlist>
+</para>
+</listitem></orderedlist>
+</para>
+<section xml:id="_md_public_2glpi_2vendor_2paragonie_2sodium__compat_2_r_e_a_d_m_e_1autotoc_md6883">
+<title><title>How can I tell if sodium_compat will be slow, at runtime?</title></title>
+
+<para>Since version 1.8, you can use the <computeroutput>polyfill_is_fast()</computeroutput> static method to determine if sodium_compat will be slow at runtime.</para>
+
+<para><literallayout><computeroutput>&lt;?php
+if&#32;(ParagonIE_Sodium_Compat::polyfill_is_fast())&#32;{
+&#32;&#32;&#32;&#32;//&#32;Use&#32;libsodium&#32;now
+&#32;&#32;&#32;&#32;$process-&gt;execute();
+}&#32;else&#32;{
+&#32;&#32;&#32;&#32;//&#32;Defer&#32;to&#32;a&#32;cron&#32;job&#32;or&#32;other&#32;sort&#32;of&#32;asynchronous&#32;process
+&#32;&#32;&#32;&#32;$process-&gt;enqueue();
+}
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2paragonie_2sodium__compat_2_r_e_a_d_m_e_1autotoc_md6884">
+<title><title>Help, my PHP only has 32-Bit Integers! It&apos;s super slow!</title></title>
+
+<para>Some features of sodium_compat are ***incredibly slow* with PHP 5 on Windows** (in particular: public-key cryptography (encryption and signatures) is affected), and there is nothing we can do about that, due to platform restrictions on integers.</para>
+
+<para>For acceptable performance, we highly recommend Windows users to version 1.0.6 of the libsodium extension from PECL or, alternatively, simply upgrade to PHP 7 and the slowdown will be greatly reduced.</para>
+
+<para>This is also true of non-Windows 32-bit operating systems, or if somehow PHP was compiled where <computeroutput>PHP_INT_SIZE</computeroutput> equals <computeroutput>4</computeroutput> instead of <computeroutput>8</computeroutput> (i.e. Linux on i386).</para>
+</section>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2paragonie_2sodium__compat_2_r_e_a_d_m_e_1autotoc_md6885">
+<title><title>Documentation</title></title>
+
+<para>First, you&apos;ll want to read the <link xlink:href="https://paragonie.com/blog/2017/06/libsodium-quick-reference-quick-comparison-similar-functions-and-which-one-use">Libsodium Quick Reference</link>. It aims to answer, &quot;Which function should I use for [common problem]?&quot;.</para>
+
+<para>If you don&apos;t find the answers in the Quick Reference page, check out <link xlink:href="https://paragonie.com/book/pecl-libsodium"><emphasis>Using Libsodium in PHP Projects</emphasis></link>.</para>
+
+<para>Finally, the <link xlink:href="https://download.libsodium.org/doc/">official libsodium documentation</link> (which was written for the C library, not the PHP library) also contains a lot of insightful technical information you may find helpful.</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2paragonie_2sodium__compat_2_r_e_a_d_m_e_1autotoc_md6886">
+<title><title>API Coverage</title></title>
+
+<para><emphasis role="bold">Recommended reading:</emphasis> <link xlink:href="https://paragonie.com/blog/2017/06/libsodium-quick-reference-quick-comparison-similar-functions-and-which-one-use">Libsodium Quick Reference</link></para>
+
+<para><itemizedlist>
+<listitem>
+<para>Mainline NaCl Features<itemizedlist>
+<listitem>
+<para><computeroutput>crypto_auth()</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>crypto_auth_verify()</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>crypto_box()</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>crypto_box_open()</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>crypto_scalarmult()</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>crypto_secretbox()</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>crypto_secretbox_open()</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>crypto_sign()</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>crypto_sign_open()</computeroutput></para>
+</listitem></itemizedlist>
+</para>
+</listitem><listitem>
+<para>PECL Libsodium Features<itemizedlist>
+<listitem>
+<para><computeroutput>crypto_aead_aes256gcm_encrypt()</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput><link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">crypto_aead_aes256gcm_decrypt()</link></computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>crypto_aead_chacha20poly1305_encrypt()</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>crypto_aead_chacha20poly1305_decrypt()</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>crypto_aead_chacha20poly1305_ietf_encrypt()</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>crypto_aead_chacha20poly1305_ietf_decrypt()</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>crypto_aead_xchacha20poly1305_ietf_encrypt()</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>crypto_aead_xchacha20poly1305_ietf_decrypt()</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput><link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">crypto_box_xchacha20poly1305()</link></computeroutput></para>
+</listitem><listitem>
+<para><computeroutput><link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">crypto_box_xchacha20poly1305_open()</link></computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>crypto_box_seal()</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>crypto_box_seal_open()</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>crypto_generichash()</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>crypto_generichash_init()</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>crypto_generichash_update()</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>crypto_generichash_final()</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>crypto_kx()</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>crypto_secretbox_xchacha20poly1305()</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>crypto_secretbox_xchacha20poly1305_open()</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>crypto_shorthash()</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>crypto_sign_detached()</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>crypto_sign_ed25519_pk_to_curve25519()</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>crypto_sign_ed25519_sk_to_curve25519()</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>crypto_sign_verify_detached()</computeroutput></para>
+</listitem><listitem>
+<para>For advanced users only:<itemizedlist>
+<listitem>
+<para><computeroutput>crypto_stream()</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>crypto_stream_xor()</computeroutput></para>
+</listitem></itemizedlist>
+</para>
+</listitem><listitem>
+<para>Other utilities (e.g. <computeroutput>crypto_*_keypair()</computeroutput>)<itemizedlist>
+<listitem>
+<para><computeroutput>add()</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput><link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">base642bin()</link></computeroutput></para>
+</listitem><listitem>
+<para><computeroutput><link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">bin2base64()</link></computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>bin2hex()</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>hex2bin()</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>crypto_kdf_derive_from_key()</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>crypto_kx_client_session_keys()</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>crypto_kx_server_session_keys()</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>crypto_secretstream_xchacha20poly1305_init_push()</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>crypto_secretstream_xchacha20poly1305_push()</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>crypto_secretstream_xchacha20poly1305_init_pull()</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>crypto_secretstream_xchacha20poly1305_pull()</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>crypto_secretstream_xchacha20poly1305_rekey()</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>pad()</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>unpad()</computeroutput></para>
+</listitem></itemizedlist>
+</para>
+</listitem></itemizedlist>
+</para>
+</listitem></itemizedlist>
+</para>
+<section xml:id="_md_public_2glpi_2vendor_2paragonie_2sodium__compat_2_r_e_a_d_m_e_1autotoc_md6887">
+<title><title>Cryptography Primitives Provided</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para><emphasis role="bold">X25519</emphasis> - Elliptic Curve Diffie Hellman over Curve25519</para>
+</listitem><listitem>
+<para><emphasis role="bold">Ed25519</emphasis> - Edwards curve Digital Signature Algorithm over Curve25519</para>
+</listitem><listitem>
+<para><emphasis role="bold">Xsalsa20</emphasis> - Extended-nonce Salsa20 stream cipher</para>
+</listitem><listitem>
+<para><emphasis role="bold">ChaCha20</emphasis> - Stream cipher</para>
+</listitem><listitem>
+<para><emphasis role="bold">Xchacha20</emphasis> - Extended-nonce ChaCha20 stream cipher</para>
+</listitem><listitem>
+<para><emphasis role="bold">Poly1305</emphasis> - Polynomial Evaluation Message Authentication Code modulo 2^130 - 5</para>
+</listitem><listitem>
+<para><emphasis role="bold">BLAKE2b</emphasis> - Cryptographic Hash Function</para>
+</listitem><listitem>
+<para><emphasis role="bold">SipHash-2-4</emphasis> - Fast hash, but not collision-resistant; ideal for hash tables.</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2paragonie_2sodium__compat_2_r_e_a_d_m_e_1autotoc_md6888">
+<title><title>Features Excluded from this Polyfill</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para><computeroutput>\<link linkend="_namespace_sodium">Sodium</link>\memzero()</computeroutput> - Although we expose this API endpoint, we can&apos;t reliably zero buffers from PHP.</para>
+
+<para>If you have the PHP extension installed, sodium_compat will use the native implementation to zero out the string provided. Otherwise it will throw a <computeroutput>SodiumException</computeroutput>.</para>
+</listitem><listitem>
+<para><computeroutput>\<link linkend="_namespace_sodium">Sodium</link>\crypto_pwhash()</computeroutput> - It&apos;s not feasible to polyfill scrypt or Argon2 into PHP and get reasonable performance. Users would feel motivated to select parameters that downgrade security to avoid denial of service (DoS) attacks.</para>
+
+<para>The only winning move is not to play.</para>
+
+<para>If ext/sodium or ext/libsodium is installed, these API methods will fallthrough to the extension. Otherwise, our polyfill library will throw a <computeroutput>SodiumException</computeroutput>.</para>
+
+<para>To detect support for Argon2i at runtime, use <computeroutput>ParagonIE_Sodium_Compat::crypto_pwhash_is_available()</computeroutput>, which returns a boolean value (<computeroutput>TRUE</computeroutput> or <computeroutput>FALSE</computeroutput>).</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2paragonie_2sodium__compat_2_r_e_a_d_m_e_1autotoc_md6889">
+<title><title>PHPCompatibility Ruleset</title></title>
+
+<para>For sodium_compat users and that utilize <link xlink:href="https://github.com/PHPCompatibility/PHPCompatibility"><computeroutput>PHPCompatibility</computeroutput></link> in their CI process, there is now a custom ruleset available which can be used to prevent false positives being thrown by <computeroutput>PHPCompatibility</computeroutput> for the native PHP functionality being polyfilled by this repo.</para>
+
+<para>You can find the repo for the <computeroutput>PHPCompatibilityParagonieSodiumCompat</computeroutput> ruleset here <link xlink:href="https://github.com/PHPCompatibility/PHPCompatibilityParagonie">on Github</link> and <link xlink:href="https://packagist.org/packages/phpcompatibility/phpcompatibility-paragonie">on Packagist</link>. </para>
+</section>
+</section>
+</section>
+</section>

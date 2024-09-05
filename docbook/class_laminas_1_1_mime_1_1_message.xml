@@ -1,0 +1,469 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_laminas_1_1_mime_1_1_message" xml:lang="fr">
+<title>Référence de la classe Message</title>
+<indexterm><primary>Message</primary></indexterm>
+Graphe de collaboration de Message:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_laminas_1_1_mime_1_1_message__coll__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Fonctions membres publiques    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_laminas_1_1_mime_1_1_message_1ab449d43ad919a6167a711c76301efcd2">getParts</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_class_laminas_1_1_mime_1_1_message_1ac15593c8c10fe31e5d447118c0515ab8">setParts</link> ($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">parts</link>)</para>
+</listitem>
+            <listitem><para><link linkend="_class_laminas_1_1_mime_1_1_message_1a3fb1ab397db36200a0e65d127f113e9f">addPart</link> (<link linkend="_class_laminas_1_1_mime_1_1_part">Part</link> $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">part</link>)</para>
+</listitem>
+            <listitem><para><link linkend="_class_laminas_1_1_mime_1_1_message_1aad065925a76a396e116eea1e271ee2f2">isMultiPart</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_class_laminas_1_1_mime_1_1_message_1a972b5d4c568cbcffb6808abaa61f3811">setMime</link> (<link linkend="_class_laminas_1_1_mime_1_1_mime">Mime</link> $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">mime</link>)</para>
+</listitem>
+            <listitem><para><link linkend="_class_laminas_1_1_mime_1_1_message_1a6a50ed843959cc086f297772d2adff3c">getMime</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_class_laminas_1_1_mime_1_1_message_1a5bf4e01d9bfa901c7df03abd7d3c7ed0">generateMessage</link> ($EOL=<link linkend="_class_laminas_1_1_mime_1_1_mime_1a04b8f3b5de38ea0d80fe91d321fae1c2">Mime::LINEEND</link>)</para>
+</listitem>
+            <listitem><para><link linkend="_class_laminas_1_1_mime_1_1_message_1aef7d140e35bfbbcb7d80cd8ac84efe5c">getPartHeadersArray</link> ($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">partnum</link>)</para>
+</listitem>
+            <listitem><para><link linkend="_class_laminas_1_1_mime_1_1_message_1acc15458d26d3ca17463fb21ea3c4c6d4">getPartHeaders</link> ($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">partnum</link>, $EOL=<link linkend="_class_laminas_1_1_mime_1_1_mime_1a04b8f3b5de38ea0d80fe91d321fae1c2">Mime::LINEEND</link>)</para>
+</listitem>
+            <listitem><para><link linkend="_class_laminas_1_1_mime_1_1_message_1a24074ab2e751d40b22bb2504332983b4">getPartContent</link> ($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">partnum</link>, $EOL=<link linkend="_class_laminas_1_1_mime_1_1_mime_1a04b8f3b5de38ea0d80fe91d321fae1c2">Mime::LINEEND</link>)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Fonctions membres protégées statiques    </title>
+        <itemizedlist>
+            <listitem><para>static <link linkend="_class_laminas_1_1_mime_1_1_message_1a3721f991fd9462a95485452ba9356e66">_disassembleMime</link> ($body, $boundary)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Attributs protégés    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_laminas_1_1_mime_1_1_message_1aa8dfa90e1feaffe49fc70696cc75c2f3">$parts</link> = []</para>
+</listitem>
+            <listitem><para><link linkend="_class_laminas_1_1_mime_1_1_message_1a958cf7aca45cea5359ba0fa80ee2f2c1">$mime</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Documentation des fonctions membres</title>
+<anchor xml:id="_class_laminas_1_1_mime_1_1_message_1a3721f991fd9462a95485452ba9356e66"/><section>
+    <title>_disassembleMime()</title>
+<indexterm><primary>_disassembleMime</primary><secondary>Message</secondary></indexterm>
+<indexterm><primary>Message</primary><secondary>_disassembleMime</secondary></indexterm>
+<para><computeroutput>static _disassembleMime ( $body,  $boundary)<computeroutput>[static]</computeroutput>, <computeroutput>[protected]</computeroutput></computeroutput></para>
+<para>Explode MIME multipart string into separate parts</para>
+
+<para>Parts consist of the header and the body of each MIME part.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$body</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>string</entry><entry>$boundary</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>Exception</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                RuntimeException <formalpara><title>Renvoie</title>
+
+<para>array </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_class_laminas_1_1_mime_1_1_message_1a3fb1ab397db36200a0e65d127f113e9f"/><section>
+    <title>addPart()</title>
+<indexterm><primary>addPart</primary><secondary>Message</secondary></indexterm>
+<indexterm><primary>Message</primary><secondary>addPart</secondary></indexterm>
+<para><computeroutput>addPart (<link linkend="_class_laminas_1_1_mime_1_1_part">Part</link> $part)</computeroutput></para>
+<para>Append a new Laminas\Mime\Part to the current message</para>
+
+<para>
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>Exception</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                InvalidArgumentException <formalpara><title>Renvoie</title>
+
+<para>self </para>
+</formalpara>
+</para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_laminas_1_1_mime_1_1_message_a3fb1ab397db36200a0e65d127f113e9f_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_laminas_1_1_mime_1_1_message_1a5bf4e01d9bfa901c7df03abd7d3c7ed0"/><section>
+    <title>generateMessage()</title>
+<indexterm><primary>generateMessage</primary><secondary>Message</secondary></indexterm>
+<indexterm><primary>Message</primary><secondary>generateMessage</secondary></indexterm>
+<para><computeroutput>generateMessage ( $EOL = <computeroutput><link linkend="_class_laminas_1_1_mime_1_1_mime_1a04b8f3b5de38ea0d80fe91d321fae1c2">Mime::LINEEND</link></computeroutput>
+)</computeroutput></para>
+<para>Generate MIME-compliant message from the current configuration</para>
+
+<para>This can be a multipart message if more than one MIME part was added. If only one part is present, the content of this part is returned. If no part had been added, an empty string is returned.</para>
+
+<para>Parts are separated by the mime boundary as defined in Laminas\Mime\Mime. If <computeroutput><link linkend="_">setMime()</link></computeroutput> has been called before this method, the Laminas\Mime\Mime object set by this call will be used. Otherwise, a new Laminas\Mime\Mime object is generated and used.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$EOL</entry><entry>
+<para>EOL string; defaults to <computeroutput><link linkend="_">Laminas\Mime\Mime::LINEEND</link></computeroutput> </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>string </para>
+</formalpara>
+</para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_laminas_1_1_mime_1_1_message_a5bf4e01d9bfa901c7df03abd7d3c7ed0_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_laminas_1_1_mime_1_1_message_1a6a50ed843959cc086f297772d2adff3c"/><section>
+    <title>getMime()</title>
+<indexterm><primary>getMime</primary><secondary>Message</secondary></indexterm>
+<indexterm><primary>Message</primary><secondary>getMime</secondary></indexterm>
+<para><computeroutput>getMime ( )</computeroutput></para>
+<para>Returns the Laminas\Mime\Mime object in use by the message</para>
+
+<para>If the object was not present, it is created and returned. Can be used to determine the boundary used in this message.</para>
+
+<para><formalpara><title>Renvoie</title>
+
+<para>Mime </para>
+</formalpara>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_laminas_1_1_mime_1_1_message_a6a50ed843959cc086f297772d2adff3c_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_laminas_1_1_mime_1_1_message_1a24074ab2e751d40b22bb2504332983b4"/><section>
+    <title>getPartContent()</title>
+<indexterm><primary>getPartContent</primary><secondary>Message</secondary></indexterm>
+<indexterm><primary>Message</primary><secondary>getPartContent</secondary></indexterm>
+<para><computeroutput>getPartContent ( $partnum,  $EOL = <computeroutput><link linkend="_class_laminas_1_1_mime_1_1_mime_1a04b8f3b5de38ea0d80fe91d321fae1c2">Mime::LINEEND</link></computeroutput>
+)</computeroutput></para>
+<para>Get the (encoded) content of a given part as a string</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>int</entry><entry>$partnum</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>string</entry><entry>$EOL</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>string </para>
+</formalpara>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_laminas_1_1_mime_1_1_message_a24074ab2e751d40b22bb2504332983b4_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_laminas_1_1_mime_1_1_message_1acc15458d26d3ca17463fb21ea3c4c6d4"/><section>
+    <title>getPartHeaders()</title>
+<indexterm><primary>getPartHeaders</primary><secondary>Message</secondary></indexterm>
+<indexterm><primary>Message</primary><secondary>getPartHeaders</secondary></indexterm>
+<para><computeroutput>getPartHeaders ( $partnum,  $EOL = <computeroutput><link linkend="_class_laminas_1_1_mime_1_1_mime_1a04b8f3b5de38ea0d80fe91d321fae1c2">Mime::LINEEND</link></computeroutput>
+)</computeroutput></para>
+<para>Get the headers of a given part as a string</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>int</entry><entry>$partnum</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>string</entry><entry>$EOL</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>string </para>
+</formalpara>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_laminas_1_1_mime_1_1_message_acc15458d26d3ca17463fb21ea3c4c6d4_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_laminas_1_1_mime_1_1_message_1aef7d140e35bfbbcb7d80cd8ac84efe5c"/><section>
+    <title>getPartHeadersArray()</title>
+<indexterm><primary>getPartHeadersArray</primary><secondary>Message</secondary></indexterm>
+<indexterm><primary>Message</primary><secondary>getPartHeadersArray</secondary></indexterm>
+<para><computeroutput>getPartHeadersArray ( $partnum)</computeroutput></para>
+<para>Get the headers of a given part as an array</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>int</entry><entry>$partnum</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>array </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_class_laminas_1_1_mime_1_1_message_1ab449d43ad919a6167a711c76301efcd2"/><section>
+    <title>getParts()</title>
+<indexterm><primary>getParts</primary><secondary>Message</secondary></indexterm>
+<indexterm><primary>Message</primary><secondary>getParts</secondary></indexterm>
+<para><computeroutput>getParts ( )</computeroutput></para>
+<para>Returns the list of all Laminas\Mime\Part in the message</para>
+
+<para><formalpara><title>Renvoie</title>
+
+<para>Part[] </para>
+</formalpara>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_laminas_1_1_mime_1_1_message_ab449d43ad919a6167a711c76301efcd2_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_laminas_1_1_mime_1_1_message_1aad065925a76a396e116eea1e271ee2f2"/><section>
+    <title>isMultiPart()</title>
+<indexterm><primary>isMultiPart</primary><secondary>Message</secondary></indexterm>
+<indexterm><primary>Message</primary><secondary>isMultiPart</secondary></indexterm>
+<para><computeroutput>isMultiPart ( )</computeroutput></para>
+<para>Check if message needs to be sent as multipart MIME message or if it has only one part.</para>
+
+<para><formalpara><title>Renvoie</title>
+
+<para>bool </para>
+</formalpara>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_laminas_1_1_mime_1_1_message_aad065925a76a396e116eea1e271ee2f2_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_laminas_1_1_mime_1_1_message_1a972b5d4c568cbcffb6808abaa61f3811"/><section>
+    <title>setMime()</title>
+<indexterm><primary>setMime</primary><secondary>Message</secondary></indexterm>
+<indexterm><primary>Message</primary><secondary>setMime</secondary></indexterm>
+<para><computeroutput>setMime (<link linkend="_class_laminas_1_1_mime_1_1_mime">Mime</link> $mime)</computeroutput></para>
+<para>Set Laminas\Mime\Mime object for the message</para>
+
+<para>This can be used to set the boundary specifically or to use a subclass of Laminas\Mime for generating the boundary.</para>
+
+<para><formalpara><title>Renvoie</title>
+
+<para>self </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_class_laminas_1_1_mime_1_1_message_1ac15593c8c10fe31e5d447118c0515ab8"/><section>
+    <title>setParts()</title>
+<indexterm><primary>setParts</primary><secondary>Message</secondary></indexterm>
+<indexterm><primary>Message</primary><secondary>setParts</secondary></indexterm>
+<para><computeroutput>setParts ( $parts)</computeroutput></para>
+<para>Sets the given array of Laminas\Mime\Part as the array for the message</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>array</entry><entry>$parts</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>self </para>
+</formalpara>
+</para>
+</section>
+</section>
+<section>
+<title>Documentation des champs</title>
+<anchor xml:id="_class_laminas_1_1_mime_1_1_message_1a958cf7aca45cea5359ba0fa80ee2f2c1"/><section>
+    <title>$mime</title>
+<indexterm><primary>$mime</primary><secondary>Message</secondary></indexterm>
+<indexterm><primary>Message</primary><secondary>$mime</secondary></indexterm>
+<para><computeroutput>$<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">mime</link><computeroutput>[protected]</computeroutput></computeroutput></para></section>
+<anchor xml:id="_class_laminas_1_1_mime_1_1_message_1aa8dfa90e1feaffe49fc70696cc75c2f3"/><section>
+    <title>$parts</title>
+<indexterm><primary>$parts</primary><secondary>Message</secondary></indexterm>
+<indexterm><primary>Message</primary><secondary>$parts</secondary></indexterm>
+<para><computeroutput>$<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">parts</link> = []<computeroutput>[protected]</computeroutput></computeroutput></para></section>
+<para>
+La documentation de cette classe a été générée à partir du fichier suivant :</para>
+public/glpi/vendor/laminas/laminas-mime/src/<link linkend="_laminas_2laminas-mime_2src_2_message_8php">Message.php</link></section>
+</section>

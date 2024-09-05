@@ -1,0 +1,222 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_twig_1_1_loader_1_1_array_loader" xml:lang="fr">
+<title>Référence de la classe ArrayLoader</title>
+<indexterm><primary>ArrayLoader</primary></indexterm>
+Graphe d&apos;héritage de ArrayLoader:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_twig_1_1_loader_1_1_array_loader__inherit__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Graphe de collaboration de ArrayLoader:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_twig_1_1_loader_1_1_array_loader__coll__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Fonctions membres publiques    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_twig_1_1_loader_1_1_array_loader_1a91ac15d849f12992d10fa2769d6e4b2c">__construct</link> (array $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">templates</link>=[])</para>
+</listitem>
+            <listitem><para><link linkend="_class_twig_1_1_loader_1_1_array_loader_1a9027b9a570ff02277fe98e1b4710894b">setTemplate</link> (string $name, string $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">template</link>)</para>
+</listitem>
+            <listitem><para><link linkend="_class_twig_1_1_loader_1_1_array_loader_1abfc637f5f1aae6c5380d152c8fd3d90b">getSourceContext</link> (string $name)</para>
+</listitem>
+            <listitem><para><link linkend="_class_twig_1_1_loader_1_1_array_loader_1acaf4047bd8411d1720781784a49c3818">exists</link> (string $name)</para>
+</listitem>
+            <listitem><para><link linkend="_class_twig_1_1_loader_1_1_array_loader_1abae7186a3c0b7a02bc3d953496e4ac87">getCacheKey</link> (string $name)</para>
+</listitem>
+            <listitem><para><link linkend="_class_twig_1_1_loader_1_1_array_loader_1a8523ad7036f1545e34abece31daa914e">isFresh</link> (string $name, int $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">time</link>)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Description détaillée</title>
+
+<para>Loads a template from an array.</para>
+
+<para>When using this loader with a cache mechanism, you should know that a new cache key is generated each time a template content &quot;changes&quot; (the cache key being the source code of the template). If you don&apos;t want to see your cache grows out of control, you need to take care of clearing the old cache file by yourself.</para>
+
+<para>This loader should only be used for unit testing.</para>
+
+<para><formalpara><title>Auteur</title>
+
+<para>Fabien Potencier <link xlink:href="mailto:fabien@symfony.com">fabien@symfony.com</link> </para>
+</formalpara>
+</para>
+</section>
+<section>
+<title>Documentation des constructeurs et destructeur</title>
+<anchor xml:id="_class_twig_1_1_loader_1_1_array_loader_1a91ac15d849f12992d10fa2769d6e4b2c"/><section>
+    <title>__construct()</title>
+<indexterm><primary>__construct</primary><secondary>ArrayLoader</secondary></indexterm>
+<indexterm><primary>ArrayLoader</primary><secondary>__construct</secondary></indexterm>
+<para><computeroutput>__construct (array $templates = <computeroutput>[]</computeroutput>
+)</computeroutput></para>
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>array</entry><entry>$templates</entry><entry>
+<para>An array of templates (keys are the names, and values are the source code) </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
+</section>
+<section>
+<title>Documentation des fonctions membres</title>
+<anchor xml:id="_class_twig_1_1_loader_1_1_array_loader_1acaf4047bd8411d1720781784a49c3818"/><section>
+    <title>exists()</title>
+<indexterm><primary>exists</primary><secondary>ArrayLoader</secondary></indexterm>
+<indexterm><primary>ArrayLoader</primary><secondary>exists</secondary></indexterm>
+<para><computeroutput>exists (string $name)</computeroutput></para>
+<para><formalpara><title>Renvoie</title>
+
+<para>bool </para>
+</formalpara>
+</para>
+<para>
+Implémente <link linkend="_interface_twig_1_1_loader_1_1_loader_interface_1acaf4047bd8411d1720781784a49c3818">LoaderInterface</link>.</para>
+</section>
+<anchor xml:id="_class_twig_1_1_loader_1_1_array_loader_1abae7186a3c0b7a02bc3d953496e4ac87"/><section>
+    <title>getCacheKey()</title>
+<indexterm><primary>getCacheKey</primary><secondary>ArrayLoader</secondary></indexterm>
+<indexterm><primary>ArrayLoader</primary><secondary>getCacheKey</secondary></indexterm>
+<para><computeroutput>getCacheKey (string $name)</computeroutput></para>
+<para>Gets the cache key to use for the cache for a given template name.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>LoaderError</entry><entry>
+<para>When $name is not found </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Implémente <link linkend="_interface_twig_1_1_loader_1_1_loader_interface_1abae7186a3c0b7a02bc3d953496e4ac87">LoaderInterface</link>.</para>
+</section>
+<anchor xml:id="_class_twig_1_1_loader_1_1_array_loader_1abfc637f5f1aae6c5380d152c8fd3d90b"/><section>
+    <title>getSourceContext()</title>
+<indexterm><primary>getSourceContext</primary><secondary>ArrayLoader</secondary></indexterm>
+<indexterm><primary>ArrayLoader</primary><secondary>getSourceContext</secondary></indexterm>
+<para><computeroutput>getSourceContext (string $name)</computeroutput></para>
+<para>Returns the source context for a given template logical name.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>LoaderError</entry><entry>
+<para>When $name is not found </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Implémente <link linkend="_interface_twig_1_1_loader_1_1_loader_interface_1abfc637f5f1aae6c5380d152c8fd3d90b">LoaderInterface</link>.</para>
+</section>
+<anchor xml:id="_class_twig_1_1_loader_1_1_array_loader_1a8523ad7036f1545e34abece31daa914e"/><section>
+    <title>isFresh()</title>
+<indexterm><primary>isFresh</primary><secondary>ArrayLoader</secondary></indexterm>
+<indexterm><primary>ArrayLoader</primary><secondary>isFresh</secondary></indexterm>
+<para><computeroutput>isFresh (string $name, int $time)</computeroutput></para>
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>int</entry><entry>$time</entry><entry>
+<para>Timestamp of the last modification time of the cached template</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>LoaderError</entry><entry>
+<para>When $name is not found </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Implémente <link linkend="_interface_twig_1_1_loader_1_1_loader_interface_1a8523ad7036f1545e34abece31daa914e">LoaderInterface</link>.</para>
+</section>
+<anchor xml:id="_class_twig_1_1_loader_1_1_array_loader_1a9027b9a570ff02277fe98e1b4710894b"/><section>
+    <title>setTemplate()</title>
+<indexterm><primary>setTemplate</primary><secondary>ArrayLoader</secondary></indexterm>
+<indexterm><primary>ArrayLoader</primary><secondary>setTemplate</secondary></indexterm>
+<para><computeroutput>setTemplate (string $name, string $template)</computeroutput></para></section>
+<para>
+La documentation de cette classe a été générée à partir du fichier suivant :</para>
+public/glpi/vendor/twig/twig/src/Loader/<link linkend="__array_loader_8php">ArrayLoader.php</link></section>
+</section>

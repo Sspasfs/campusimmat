@@ -1,0 +1,95 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_actorinformation_8php" xml:lang="fr">
+<title>Référence du fichier public/glpi/ajax/actorinformation.php</title>
+<indexterm><primary>public/glpi/ajax/actorinformation.php</primary></indexterm>
+<simplesect>
+    <title>Variables    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_actorinformation_8php_1ae65138ea0da687641773455a90f1bb83">$only_number</link> = <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">boolval</link>($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">_REQUEST</link>[&apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">only_number</link>&apos;] ?? false)</para>
+</listitem>
+            <listitem><para><link linkend="_actorinformation_8php_1a5b6273e1afe3f1c4e5d374600e791b24">$actor_keys</link> = <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">preg_grep</link>(&apos;/^(<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">users</link>|<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">groups</link>|<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">suppliers</link>)<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">_id_</link>(.*)$/&apos;, array_keys($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">_REQUEST</link>))</para>
+</listitem>
+            <listitem><para><link linkend="_dropdown_location_8php_1a52332c22f84432520971794825a5a8e7">if</link>(count($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">actor_keys</link>) !==1) <link linkend="_actorinformation_8php_1a0848854e8c6f2c710c9cbf0b10d8456a">$actor_key</link> = reset($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">actor_keys</link>)</para>
+</listitem>
+            <listitem><para><link linkend="_actorinformation_8php_1af25555b353a5a0f5a79fc2d9c4b7865c">$actor_id</link> = (int)$<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">_REQUEST</link>[$<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">actor_key</link>]</para>
+</listitem>
+            <listitem><para><link linkend="_dropdown_location_8php_1a52332c22f84432520971794825a5a8e7">if</link>( $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">actor_id</link> !=Session::getLoginUserID()) <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">switch</link>($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">actor_key</link>) <link linkend="_actorinformation_8php_1a235dfa294dc759e14312809dbeacad95">$options2</link></para>
+</listitem>
+            <listitem><para><link linkend="_actorinformation_8php_1abf7832c7c53a3be2ca8a8fc305006bb0">$ticket</link> = <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">new</link> <link linkend="_class_ticket">Ticket</link>()</para>
+</listitem>
+            <listitem><para><link linkend="_actorinformation_8php_1acf215f34a917d014776ce684a9ee8909">$url</link> = $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">ticket</link>-&gt;getSearchURL() . &quot;?&quot; . <link linkend="_class_toolbox_1ad50280b7166f71c7e5fbabb05274b730">Toolbox::append_params</link>($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">options2</link>, &apos;&amp;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">amp</link>;&apos;)</para>
+</listitem>
+            <listitem><para><link linkend="_actorinformation_8php_1a6a0639ee5f0757e1964b1f0603b7c4bd">$nb</link> = $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">ticket</link>-&gt;{$<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">method</link>}($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">actor_id</link>)</para>
+</listitem>
+            <listitem><para><link linkend="_dropdown_location_8php_1a52332c22f84432520971794825a5a8e7">if</link>($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">only_number</link>) <link linkend="_actorinformation_8php_1a261cb4406f3e438761eb84a7d2102c75">else</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Documentation des variables</title>
+<anchor xml:id="_actorinformation_8php_1af25555b353a5a0f5a79fc2d9c4b7865c"/><section>
+    <title>$actor_id</title>
+<indexterm><primary>$actor_id</primary><secondary>actorinformation.php</secondary></indexterm>
+<indexterm><primary>actorinformation.php</primary><secondary>$actor_id</secondary></indexterm>
+<para><computeroutput>$<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">actor_id</link> = (int)$<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">_REQUEST</link>[$<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">actor_key</link>]</computeroutput></para></section>
+<anchor xml:id="_actorinformation_8php_1a0848854e8c6f2c710c9cbf0b10d8456a"/><section>
+    <title>$actor_key</title>
+<indexterm><primary>$actor_key</primary><secondary>actorinformation.php</secondary></indexterm>
+<indexterm><primary>actorinformation.php</primary><secondary>$actor_key</secondary></indexterm>
+<para><computeroutput><link linkend="_dropdown_location_8php_1a52332c22f84432520971794825a5a8e7">if</link> (count( $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">actor_keys</link>) !==1) $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">actor_key</link> = reset($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">actor_keys</link>)</computeroutput></para></section>
+<anchor xml:id="_actorinformation_8php_1a5b6273e1afe3f1c4e5d374600e791b24"/><section>
+    <title>$actor_keys</title>
+<indexterm><primary>$actor_keys</primary><secondary>actorinformation.php</secondary></indexterm>
+<indexterm><primary>actorinformation.php</primary><secondary>$actor_keys</secondary></indexterm>
+<para><computeroutput>$<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">actor_keys</link> = <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">preg_grep</link>(&apos;/^(<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">users</link>|<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">groups</link>|<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">suppliers</link>)<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">_id_</link>(.*)$/&apos;, array_keys($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">_REQUEST</link>))</computeroutput></para></section>
+<anchor xml:id="_actorinformation_8php_1a6a0639ee5f0757e1964b1f0603b7c4bd"/><section>
+    <title>$nb</title>
+<indexterm><primary>$nb</primary><secondary>actorinformation.php</secondary></indexterm>
+<indexterm><primary>actorinformation.php</primary><secondary>$nb</secondary></indexterm>
+<para><computeroutput>$<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">nb</link> = $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">ticket</link>-&gt;{$<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">method</link>}($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">actor_id</link>)</computeroutput></para></section>
+<anchor xml:id="_actorinformation_8php_1ae65138ea0da687641773455a90f1bb83"/><section>
+    <title>$only_number</title>
+<indexterm><primary>$only_number</primary><secondary>actorinformation.php</secondary></indexterm>
+<indexterm><primary>actorinformation.php</primary><secondary>$only_number</secondary></indexterm>
+<para><computeroutput>$<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">only_number</link> = <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">boolval</link>($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">_REQUEST</link>[&apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">only_number</link>&apos;] ?? false)</computeroutput></para></section>
+<anchor xml:id="_actorinformation_8php_1a235dfa294dc759e14312809dbeacad95"/><section>
+    <title>$options2</title>
+<indexterm><primary>$options2</primary><secondary>actorinformation.php</secondary></indexterm>
+<indexterm><primary>actorinformation.php</primary><secondary>$options2</secondary></indexterm>
+<para><computeroutput><link linkend="_dropdown_location_8php_1a52332c22f84432520971794825a5a8e7">if</link>($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">actor_id</link> !=Session::getLoginUserID()) <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">switch</link> ( $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">actor_key</link>) $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">options2</link></computeroutput></para><emphasis role="strong">Valeur initiale :</emphasis><programlisting linenumbering="unnumbered">=&#32;[
+&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&apos;criteria&apos;</emphasis>&#32;=&gt;&#32;[
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;[
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&apos;field&apos;</emphasis>&#32;&#32;&#32;&#32;&#32;&#32;=&gt;&#32;<link linkend="_dropdown_fields_blacklist_8php_1a83e4d6721f3491a4fd780dbd3ce1a3c0">$field</link>,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&apos;searchtype&apos;</emphasis>&#32;=&gt;&#32;<emphasis role="stringliteral">&apos;equals&apos;</emphasis>,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&apos;value&apos;</emphasis>&#32;&#32;&#32;&#32;&#32;&#32;=&gt;&#32;<link linkend="_actorinformation_8php_1af25555b353a5a0f5a79fc2d9c4b7865c">$actor_id</link>,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&apos;link&apos;</emphasis>&#32;&#32;&#32;&#32;&#32;&#32;&#32;=&gt;&#32;<emphasis role="stringliteral">&apos;AND&apos;</emphasis>,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;],
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;[
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&apos;field&apos;</emphasis>&#32;&#32;&#32;&#32;&#32;&#32;=&gt;&#32;12,&#32;
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&apos;searchtype&apos;</emphasis>&#32;=&gt;&#32;<emphasis role="stringliteral">&apos;equals&apos;</emphasis>,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&apos;value&apos;</emphasis>&#32;&#32;&#32;&#32;&#32;&#32;=&gt;&#32;<emphasis role="stringliteral">&apos;notold&apos;</emphasis>,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&apos;link&apos;</emphasis>&#32;&#32;&#32;&#32;&#32;&#32;&#32;=&gt;&#32;<emphasis role="stringliteral">&apos;AND&apos;</emphasis>,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;],
+&#32;&#32;&#32;&#32;],
+&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&apos;reset&apos;</emphasis>&#32;=&gt;&#32;<emphasis role="stringliteral">&apos;reset&apos;</emphasis>,
+]
+</programlisting></section>
+<anchor xml:id="_actorinformation_8php_1abf7832c7c53a3be2ca8a8fc305006bb0"/><section>
+    <title>$ticket</title>
+<indexterm><primary>$ticket</primary><secondary>actorinformation.php</secondary></indexterm>
+<indexterm><primary>actorinformation.php</primary><secondary>$ticket</secondary></indexterm>
+<para><computeroutput>$<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">ticket</link> = <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">new</link> <link linkend="_class_ticket">Ticket</link>()</computeroutput></para></section>
+<anchor xml:id="_actorinformation_8php_1acf215f34a917d014776ce684a9ee8909"/><section>
+    <title>$url</title>
+<indexterm><primary>$url</primary><secondary>actorinformation.php</secondary></indexterm>
+<indexterm><primary>actorinformation.php</primary><secondary>$url</secondary></indexterm>
+<para><computeroutput>$url = $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">ticket</link>-&gt;getSearchURL() . &quot;?&quot; . <link linkend="_class_toolbox_1ad50280b7166f71c7e5fbabb05274b730">Toolbox::append_params</link>($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">options2</link>, &apos;&amp;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">amp</link>;&apos;)</computeroutput></para></section>
+<anchor xml:id="_actorinformation_8php_1a261cb4406f3e438761eb84a7d2102c75"/><section>
+    <title>else</title>
+<indexterm><primary>else</primary><secondary>actorinformation.php</secondary></indexterm>
+<indexterm><primary>actorinformation.php</primary><secondary>else</secondary></indexterm>
+<para><computeroutput><link linkend="_dropdown_location_8php_1a52332c22f84432520971794825a5a8e7">if</link> ( $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">only_number</link>) else</computeroutput></para><emphasis role="strong">Valeur initiale :</emphasis><programlisting linenumbering="unnumbered">{
+&#32;&#32;&#32;&#32;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">echo</link>&#32;<emphasis role="stringliteral">&quot;&amp;nbsp;&lt;a&#32;href=&apos;$url&apos;&#32;title=\&quot;&quot;</emphasis>&#32;.&#32;<link linkend="_autoload_8function_8php_1a00370b448958fc4d545e649de32d26fa">__s</link>(<emphasis role="stringliteral">&apos;Processing&apos;</emphasis>)&#32;.&#32;<emphasis role="stringliteral">&quot;\&quot;&gt;(&quot;</emphasis>
+</programlisting></section>
+</section>
+</section>

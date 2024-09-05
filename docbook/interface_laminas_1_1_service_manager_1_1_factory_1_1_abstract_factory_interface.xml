@@ -1,0 +1,82 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_interface_laminas_1_1_service_manager_1_1_factory_1_1_abstract_factory_interface" xml:lang="fr">
+<title>Référence de l&apos;interface AbstractFactoryInterface</title>
+<indexterm><primary>AbstractFactoryInterface</primary></indexterm>
+Graphe d&apos;héritage de AbstractFactoryInterface:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="interface_laminas_1_1_service_manager_1_1_factory_1_1_abstract_factory_interface__inherit__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Graphe de collaboration de AbstractFactoryInterface:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="interface_laminas_1_1_service_manager_1_1_factory_1_1_abstract_factory_interface__coll__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Fonctions membres publiques    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_interface_laminas_1_1_service_manager_1_1_factory_1_1_abstract_factory_interface_1a31d2a9a970cd65e6d610b34dcec9fd54">canCreate</link> (<link linkend="_interface_interop_1_1_container_1_1_container_interface">ContainerInterface</link> $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">container</link>, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">requestedName</link>)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+Fonctions membres publiques hérités de <link linkend="_interface_laminas_1_1_service_manager_1_1_factory_1_1_factory_interface">FactoryInterface</link>        <itemizedlist>
+            <listitem><para><link linkend="_interface_laminas_1_1_service_manager_1_1_factory_1_1_factory_interface_1ab386f3c76f2a4819824f98962352df18">__invoke</link> (<link linkend="_interface_interop_1_1_container_1_1_container_interface">ContainerInterface</link> $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">container</link>, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">requestedName</link>, ?array $options=null)</para>
+</listitem>
+        </itemizedlist>
+<section>
+<title>Description détaillée</title>
+
+<para>Interface for an abstract factory.</para>
+
+<para>An abstract factory extends the factory interface, but also has an additional &quot;canCreate&quot; method, which is called to check if the abstract factory has the ability to create an instance for the given service. You should limit the number of abstract factories to ensure good performance. Starting from ServiceManager v3, remember that you can also attach multiple names to the same factory, which reduces the need for abstract factories. </para>
+</section>
+<section>
+<title>Documentation des fonctions membres</title>
+<anchor xml:id="_interface_laminas_1_1_service_manager_1_1_factory_1_1_abstract_factory_interface_1a31d2a9a970cd65e6d610b34dcec9fd54"/><section>
+    <title>canCreate()</title>
+<indexterm><primary>canCreate</primary><secondary>AbstractFactoryInterface</secondary></indexterm>
+<indexterm><primary>AbstractFactoryInterface</primary><secondary>canCreate</secondary></indexterm>
+<para><computeroutput>canCreate (<link linkend="_interface_interop_1_1_container_1_1_container_interface">ContainerInterface</link> $container,  $requestedName)</computeroutput></para>
+<para>Can the factory create an instance for the service?</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$requestedName</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>bool </para>
+</formalpara>
+</para>
+<para>
+Implémenté dans <link linkend="_class_laminas_1_1_service_manager_1_1_abstract_factory_1_1_config_abstract_factory_1a31d2a9a970cd65e6d610b34dcec9fd54">ConfigAbstractFactory</link>, et <link linkend="_class_laminas_1_1_service_manager_1_1_abstract_factory_1_1_reflection_based_abstract_factory_1a31d2a9a970cd65e6d610b34dcec9fd54">ReflectionBasedAbstractFactory</link>.</para>
+</section>
+<para>
+La documentation de cette interface a été générée à partir du fichier suivant :</para>
+public/glpi/vendor/laminas/laminas-servicemanager/src/Factory/<link linkend="__factory_2_abstract_factory_interface_8php">AbstractFactoryInterface.php</link></section>
+</section>

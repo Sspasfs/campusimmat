@@ -1,0 +1,1582 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.10.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>CampusImmat: Changelog</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">CampusImmat
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.10.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+</div><!-- top -->
+<div><div class="header">
+  <div class="headertitle"><div class="title">Changelog</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><p><a class="anchor" id="autotoc_md6441"></a> All Notable changes to <code>Csv</code> will be documented in this file</p>
+<h1><a class="anchor" id="autotoc_md6442"></a>
+<a href="https://github.com/thephpleague/csv/compare/9.7.4...9.8.0">9.8.0</a> - 2022-01-04</h1>
+<h2><a class="anchor" id="autotoc_md6443"></a>
+Added</h2>
+<ul>
+<li>Added PHP7.4 typed properties where applicable</li>
+<li><code>TabularDataReader::fetchColumnByName</code> to replace <code>TabularDataReader::fetchColumn</code></li>
+<li><code>TabularDataReader::fetchColumnByOffset</code> to replace <code>TabularDataReader::fetchColumn</code></li>
+</ul>
+<h2><a class="anchor" id="autotoc_md6444"></a>
+Deprecated</h2>
+<ul>
+<li><code>TabularDataReader::fetchColumn</code> use <code>TabularDataReader::fetchColumnByOffset</code> or <code>TabularDataReader::fetchColumnByName</code> instead</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md6445"></a>
+Fixed</h2>
+<ul>
+<li><code>AbstractCsv</code> constructor is marked final via docblock. <br  />
+ The method should never be extended or changed in child classes to avoid unexpected behaviour</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md6446"></a>
+Removed</h2>
+<ul>
+<li>PHP7.3 support</li>
+<li>Remove internal <code>EmptyEscapeParser</code> Polyfill used in <code>Reader</code> class</li>
+<li>Remove PHP7.4 polyfill features in <code>Writer</code> class</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md6447"></a>
+<a href="https://github.com/thephpleague/csv/compare/9.7.3...9.7.4">9.7.4</a> - 2021-11-30</h1>
+<h2><a class="anchor" id="autotoc_md6448"></a>
+Added</h2>
+<ul>
+<li>None</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md6449"></a>
+Deprecated</h2>
+<ul>
+<li>None</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md6450"></a>
+Fixed</h2>
+<ul>
+<li>Bug fix <code>EscapeFormula</code> to follow OWASP latest recommendation <a href="https://github.com/thephpleague/csv/pull/452">PR #452</a> <br  />
+ thanks to <a href="https://github.com/robertfausk">@robertfausk</a> and <a href="https://github.com/Lehmhub">@Lehmub</a></li>
+</ul>
+<h2><a class="anchor" id="autotoc_md6451"></a>
+Removed</h2>
+<ul>
+<li>None</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md6452"></a>
+<a href="https://github.com/thephpleague/csv/compare/9.7.2...9.7.3">9.7.3</a> - 2021-11-21</h1>
+<h2><a class="anchor" id="autotoc_md6453"></a>
+Added</h2>
+<ul>
+<li>None</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md6454"></a>
+Deprecated</h2>
+<ul>
+<li>None</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md6455"></a>
+Fixed</h2>
+<ul>
+<li><a class="el" href="class_update.html">Update</a> PHPStan requirement for development</li>
+<li>Improve Documentation generation thanks to <a href="https://github.com/pdelre">pdelre</a></li>
+<li>PHP8.1 compliance: using <code>ReturnTypeWillChange</code> to avoid emitting a unnecessary deprecation notice. thanks to <a href="https://github.com/cedric-anne">cedric-anne</a></li>
+</ul>
+<h2><a class="anchor" id="autotoc_md6456"></a>
+Removed</h2>
+<ul>
+<li>None</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md6457"></a>
+<a href="https://github.com/thephpleague/csv/compare/9.7.1...9.7.2">9.7.2</a> - 2021-10-05</h1>
+<h2><a class="anchor" id="autotoc_md6458"></a>
+Added</h2>
+<ul>
+<li>None</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md6459"></a>
+Deprecated</h2>
+<ul>
+<li>None</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md6460"></a>
+Fixed</h2>
+<ul>
+<li><a class="el" href="class_update.html">Update</a> dependencies requirement for development</li>
+<li>PHP8.1 compliance: replace <code>FILTER_SANITIZE_STRING</code> by <code>FILTER_UNSAFE_RAW</code></li>
+<li>PHP8.1 compliance: remove duplicated public properties declaration</li>
+<li>PHP8.1 compliance: add support for fputcsv <code>$eol</code> argument</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md6461"></a>
+Removed</h2>
+<ul>
+<li>None</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md6462"></a>
+<a href="https://github.com/thephpleague/csv/compare/9.7.0...9.7.1">9.7.1</a> - 2021-04-17</h1>
+<h2><a class="anchor" id="autotoc_md6463"></a>
+Added</h2>
+<ul>
+<li>None</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md6464"></a>
+Deprecated</h2>
+<ul>
+<li>None</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md6465"></a>
+Fixed</h2>
+<ul>
+<li>fix writer filter <a href="https://github.com/thephpleague/csv/pull/421">#421</a> by <a href="https://github.com/cpj555">LosingBattle</a></li>
+</ul>
+<h2><a class="anchor" id="autotoc_md6466"></a>
+Removed</h2>
+<ul>
+<li>None</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md6467"></a>
+<a href="https://github.com/thephpleague/csv/compare/9.6.2...9.7.0">9.7.0</a> - 2021-03-26</h1>
+<h2><a class="anchor" id="autotoc_md6468"></a>
+Added</h2>
+<ul>
+<li><code>League\Csv\SyntaxError::duplicateColumnNames</code> to expose column name duplicates during header usage</li>
+<li><code>League\Csv\UnableToProcessCsv</code> as the new Exception Marker Interface</li>
+<li><code>League\Csv\UnavailableStream</code> as the new Exception</li>
+<li><code>League\Csv\Info::getDelimiterStats</code> to replace the namespace function <code>delimiter_detect</code></li>
+<li><code>League\Csv\Info::fetchBOMSequence</code> to replace the namespace function <code>bom_match</code></li>
+<li><code>League\Csv\AbstractCsv::toString</code> to replace <code>League\Csv\AbstractCsv::getContent</code> and <code>League\Csv\AbstractCsv::__toString</code></li>
+<li><code>League\Csv\XMLConverter::create</code> to replace <code>League\Csv\XMLConverter::__construct</code></li>
+<li><code>League\Csv\HTMLConverter::create</code> to replace <code>League\Csv\HTMLConverter::__construct</code></li>
+<li><code>League\Csv\AbstractCsv::supportsStreamFilterOnRead</code> and <code>League\Csv\AbstractCsv::supportsStreamFilterOnWrite</code> to replace <code>League\Csv\AbstractCsv::supportsStreamFilter</code> and <code>League\Csv\AbstractCsv::getStreamFilterMode</code></li>
+</ul>
+<h2><a class="anchor" id="autotoc_md6469"></a>
+Deprecated</h2>
+<ul>
+<li><code>League\Csv\delimiter_detect</code> use <code>League\Csv\Info::getDelimiterStats</code></li>
+<li><code>League\Csv\bom_match</code> use <code>League\Csv\Info::fetchBOMSequence</code></li>
+<li><code>League\Csv\AbstractCsv::getContent</code> use <code>League\Csv\AbstractCsv::toString</code></li>
+<li><code>League\Csv\AbstractCsv::getStreamFilterMode</code> use <code>League\Csv\AbstractCsv::supportsStreamFilterOnRead</code> or <code>League\Csv\AbstractCsv::supportsStreamFilterOnWrite</code></li>
+<li><code>League\Csv\AbstractCsv::supportsStreamFilter</code> use <code>League\Csv\AbstractCsv::supportsStreamFilterOnRead</code> or <code>League\Csv\AbstractCsv::supportsStreamFilterOnWrite</code></li>
+<li>Calling exceptions constructor, use named constructors instead.</li>
+<li><code>League\Csv\XMLConverter::__construct</code> use <code>League\Csv\XMLConverter::create</code></li>
+<li><code>League\Csv\HTMLConverter::__construct</code> use <code>League\Csv\HTMLConverter::create</code></li>
+</ul>
+<h2><a class="anchor" id="autotoc_md6470"></a>
+Fixed</h2>
+<ul>
+<li>Move tests into the <code>src</code> directory</li>
+<li>Fixed encoder method resolver implementation</li>
+<li>all classes marked as <code>@internal</code> are now final</li>
+<li><code>League\Csv\AbstractCsv::STREAM_FILTER_MODE</code> constant replaces <code>League\Csv\AbstractCsv::$stream_filter_mode</code></li>
+</ul>
+<h2><a class="anchor" id="autotoc_md6471"></a>
+Removed</h2>
+<ul>
+<li>PHP7.2 support</li>
+<li><code>League\Csv\AbstractCsv::$stream_filter_mode</code></li>
+</ul>
+<h1><a class="anchor" id="autotoc_md6472"></a>
+<a href="https://github.com/thephpleague/csv/compare/9.6.1...9.6.2">9.6.2</a> - 2020-12-10</h1>
+<h2><a class="anchor" id="autotoc_md6473"></a>
+Added</h2>
+<ul>
+<li>Using Github actions as development tools.</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md6474"></a>
+Deprecated</h2>
+<ul>
+<li>None</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md6475"></a>
+Fixed</h2>
+<ul>
+<li>Adding official support for PHP8 <a href="https://github.com/thephpleague/csv/pull/405">#405</a> and <a href="https://github.com/thephpleague/csv/pull/406">#406</a> by <a href="https://github.com/IonBazan">Ion Bazan</a></li>
+</ul>
+<h2><a class="anchor" id="autotoc_md6476"></a>
+Removed</h2>
+<ul>
+<li>Removing Travis and Scrutinizr as development tools</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md6477"></a>
+<a href="https://github.com/thephpleague/csv/compare/9.6.0...9.6.1">9.6.1</a> - 2020-09-05</h1>
+<h2><a class="anchor" id="autotoc_md6478"></a>
+Added</h2>
+<ul>
+<li>None</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md6479"></a>
+Deprecated</h2>
+<ul>
+<li>None</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md6480"></a>
+Fixed</h2>
+<ul>
+<li>BOM sequence processing fix <a href="https://github.com/thephpleague/csv/issues/394">#394</a></li>
+</ul>
+<h2><a class="anchor" id="autotoc_md6481"></a>
+Removed</h2>
+<ul>
+<li>None</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md6482"></a>
+<a href="https://github.com/thephpleague/csv/compare/9.5.0...9.6.0">9.6.0</a> - 2020-03-17</h1>
+<h2><a class="anchor" id="autotoc_md6483"></a>
+Added</h2>
+<ul>
+<li>More return types and type parameters as supported in PHP7.2+</li>
+<li><code>League\Csv\Statement::create</code> named constructor to ease constraint builder instantiation</li>
+<li><code>League\Csv\Statement</code> can now also process <code>League\Csv\ResultSet</code> instances.</li>
+<li><code>League\Csv\TabularDataReader</code> interface to represent how to read tabular data</li>
+<li><code>League\Csv\ResultSet::getRecords</code> has an optional <code>$header</code> second argument to make the method works like <code>League\Csv\Reader::getRecords</code></li>
+<li><code>League\Csv\ResultSet::createFromTabularDataReader</code> create a new instance from <code>League\Csv\TabularDataReader</code> implementing class.</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md6484"></a>
+Deprecated</h2>
+<ul>
+<li>Nothing</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md6485"></a>
+Fixed</h2>
+<ul>
+<li><code>League\Csv\Reader</code> no longer uses <code>__call</code> to implement <code>fetchOne</code>, <code>fetchPairs</code> and <code>fetchColumn</code> methods.</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md6486"></a>
+Removed</h2>
+<ul>
+<li>Internal polyfill for <code>is_iterable</code></li>
+<li>Internal polyfill for <code>is_nullable_int</code></li>
+<li>Support for PHP7.0 and PHP7.1</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md6487"></a>
+<a href="https://github.com/thephpleague/csv/compare/9.4.1...9.5.0">9.5.0</a> - 2019-12-15</h1>
+<h2><a class="anchor" id="autotoc_md6488"></a>
+Added</h2>
+<ul>
+<li>Improve package exception throwing by adding new exceptions classes that extends the <code>League\Csv\Exception</code> exception marker class <a href="https://github.com/thephpleague/csv/issues/360">#360</a>, <a href="https://github.com/thephpleague/csv/issues/360">#361</a> feature proposed and developed by <a href="https://github.com/dmlogic">Darren Miller</a><ul>
+<li><code>League\Csv\UnavailableFeature</code></li>
+<li><code>League\Csv\InvalidArgument</code></li>
+<li><code>League\Csv\SyntaxError</code></li>
+</ul>
+</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md6489"></a>
+Deprecated</h2>
+<ul>
+<li>Nothing</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md6490"></a>
+Fixed</h2>
+<ul>
+<li>bug fix <code>bom_match</code> function see issue <a href="https://github.com/thephpleague/csv/issues/363">#363</a> resolved based on PR from <a href="https://github.com/jmwebservices">Jerry Martinez</a></li>
+<li>bug fix <code>delemiter_detect</code> function see issue <a href="https://github.com/thephpleague/csv/issues/366">#366</a></li>
+</ul>
+<h2><a class="anchor" id="autotoc_md6491"></a>
+Removed</h2>
+<ul>
+<li>Nothing</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md6492"></a>
+<a href="https://github.com/thephpleague/csv/compare/9.4.0...9.4.1">9.4.1</a> - 2019-10-17</h1>
+<h2><a class="anchor" id="autotoc_md6493"></a>
+Added</h2>
+<ul>
+<li>Nothing</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md6494"></a>
+Deprecated</h2>
+<ul>
+<li>Nothing</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md6495"></a>
+Fixed</h2>
+<ul>
+<li>bug fix the escape mechanism polyfill <a href="https://github.com/thephpleague/csv/pull/358">#358</a> fix provided by <a href="https://github.com/on2">on2</a></li>
+</ul>
+<h2><a class="anchor" id="autotoc_md6496"></a>
+Removed</h2>
+<ul>
+<li>Nothing</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md6497"></a>
+<a href="https://github.com/thephpleague/csv/compare/9.3.0...9.4.0">9.4.0</a> - 2019-10-02</h1>
+<h2><a class="anchor" id="autotoc_md6498"></a>
+Added</h2>
+<ul>
+<li>Adding support for controlling empty record presence in <code>Reader::getRecords</code> return value.<ul>
+<li><code>Reader::includeEmptyRecords</code></li>
+<li><code>Reader::skipEmptyRecords</code></li>
+<li><code>Reader::isEmptyRecordsIncluded</code></li>
+</ul>
+</li>
+<li>Adding support for controlling Input BOM usage in the library:<ul>
+<li><code>AbstractCsv::skipInputBOM</code></li>
+<li><code>AbstractCsv::includeInputBOM</code></li>
+<li><code>AbstractCsv::isInputBOMIncluded</code></li>
+</ul>
+</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md6499"></a>
+Deprecated</h2>
+<ul>
+<li>Nothing</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md6500"></a>
+Fixed</h2>
+<ul>
+<li><code>EmptyEscapeParser::parse</code> no longer auto skip empty records</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md6501"></a>
+Removed</h2>
+<ul>
+<li>Nothing</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md6502"></a>
+<a href="https://github.com/thephpleague/csv/compare/9.2.1...9.3.0">9.3.0</a> - 2019-07-30</h1>
+<h2><a class="anchor" id="autotoc_md6503"></a>
+Added</h2>
+<ul>
+<li><code>XMLConverter::import</code> see <a href="https://github.com/thephpleague/csv/pull/348">#348</a> thanks <a href="https://github.com/kusabi">@kusabi</a></li>
+<li>Support for <code>thead</code>, <code>tfoot</code> and <code>tbody</code> in <code>HTMLConverter::convert</code> via the addition of protected methods <code>HTMLConverter::addHTMLAttributes</code> and <code>HTMLConverter::appendHeaderSection</code> <a href="https://github.com/thephpleague/csv/pull/348">#348</a> thanks <a href="https://github.com/kusabi">@kusabi</a></li>
+</ul>
+<h2><a class="anchor" id="autotoc_md6504"></a>
+Deprecated</h2>
+<ul>
+<li>Nothing</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md6505"></a>
+Fixed</h2>
+<ul>
+<li>Internal improvement in <code>Reader</code> dockblock thanks <a href="https://github.com/ghobaty">@ghobaty</a>.</li>
+<li>Improve strict comparison when using <code>preg_match</code>.</li>
+<li>Improve CSV control in <code>Stream</code>.</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md6506"></a>
+Removed</h2>
+<ul>
+<li>Nothing</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md6507"></a>
+<a href="https://github.com/thephpleague/csv/compare/9.2.0...9.2.1">9.2.1</a> - 2019-06-08</h1>
+<h2><a class="anchor" id="autotoc_md6508"></a>
+Added</h2>
+<ul>
+<li>Nothing</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md6509"></a>
+Deprecated</h2>
+<ul>
+<li>Nothing</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md6510"></a>
+Fixed</h2>
+<ul>
+<li><code>AbstractCSV::chunk</code> see <a href="https://github.com/thephpleague/csv/pull/325">#325</a> remove CSV flags from the Stream class to avoid infinite loop.</li>
+<li>Internal improve <code>HTMLConverter</code>.</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md6511"></a>
+Removed</h2>
+<ul>
+<li>Nothing</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md6512"></a>
+<a href="https://github.com/thephpleague/csv/compare/9.1.4...9.2.0">9.2.0</a> - 2019-03-08</h1>
+<h2><a class="anchor" id="autotoc_md6513"></a>
+Added</h2>
+<ul>
+<li>Supports for PHP7.4 empty string for the escape character</li>
+<li>Supports for empty string for the escape character with a polyfill for PHP7.4- versions.</li>
+<li><code>AbstractCSV::getPathname</code> see <a href="https://github.com/thephpleague/csv/pull/321">#321</a> thanks <a href="https://github.com/tomkyle">@tomkyle</a></li>
+</ul>
+<h2><a class="anchor" id="autotoc_md6514"></a>
+Deprecated</h2>
+<ul>
+<li><code>League\Csv\RFC4180Field</code> use <code>AbstractCSV::setEscape</code> method with an empty string instead.</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md6515"></a>
+Fixed</h2>
+<ul>
+<li><code>AbstractCSV::__construct</code> correctly initializes properties</li>
+<li><code>AbstractCSV::createFromString</code> named constructor default argument is now the empty string</li>
+<li><code>AbstractCSV::setEscape</code> now accepts the empty string like <code>fputcsv</code> and <code>fgetcsv</code></li>
+<li><code>Writer::insertOne</code> fixes throwing exception when record can not be inserted</li>
+<li><code>XMLConverter</code> convert to string the record value to avoid PHP warning on <code>null</code> value</li>
+<li>Internal <code>Stream::createFromString</code> named constructor default argument is now the empty string</li>
+<li>Internal <code>Stream::fwrite</code> improved</li>
+<li>Internal <code>Stream::__destruct</code> no longer emit warning on invalid stream filter removal.</li>
+<li>Internal <code>Stream::seek</code> returns <code>0</code> if the seeked position <code>0</code> is valid see <a href="https://github.com/thephpleague/csv/pull/332">#321</a> thanks <a href="https://github.com/HaozhouChen">@HaozhouChen</a></li>
+<li><code>Reader:getHeader</code> when the record is an empty line.</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md6516"></a>
+Removed</h2>
+<ul>
+<li>Nothing</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md6517"></a>
+<a href="https://github.com/thephpleague/csv/compare/9.1.3...9.1.4">9.1.4</a> - 2018-05-01</h1>
+<h2><a class="anchor" id="autotoc_md6518"></a>
+Added</h2>
+<ul>
+<li>Nothing</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md6519"></a>
+Deprecated</h2>
+<ul>
+<li>Nothing</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md6520"></a>
+Fixed</h2>
+<ul>
+<li><code>Writer::setFlushThreshold</code> should accept 1 as an argument <a href="https://github.com/thephpleague/csv/issue/289">#289</a></li>
+<li><code>CharsetConverter::convert</code> should not try to convert numeric value <a href="https://github.com/thephpleague/csv/issue/287">#287</a></li>
+</ul>
+<h2><a class="anchor" id="autotoc_md6521"></a>
+Removed</h2>
+<ul>
+<li>Nothing</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md6522"></a>
+<a href="https://github.com/thephpleague/csv/compare/9.1.2...9.1.3">9.1.3</a> - 2018-03-12</h1>
+<h2><a class="anchor" id="autotoc_md6523"></a>
+Added</h2>
+<ul>
+<li>Nothing</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md6524"></a>
+Deprecated</h2>
+<ul>
+<li>Nothing</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md6525"></a>
+Fixed</h2>
+<ul>
+<li><code>Writer::insertOne</code> allow empty array to be added to the CSV (allow inserting empty row)</li>
+<li>Removed all return type from named constructor see <a href="https://github.com/thephpleague/csv/pull/285">#285</a></li>
+<li>Added PHPStan for static code analysis</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md6526"></a>
+Removed</h2>
+<ul>
+<li>Nothing</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md6527"></a>
+<a href="https://github.com/thephpleague/csv/compare/9.1.1...9.1.2">9.1.2</a> - 2018-02-05</h1>
+<h2><a class="anchor" id="autotoc_md6528"></a>
+Added</h2>
+<ul>
+<li>Nothing</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md6529"></a>
+Deprecated</h2>
+<ul>
+<li>Nothing</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md6530"></a>
+Fixed</h2>
+<ul>
+<li><code>is_iterable</code> polyfill for PHP7.0</li>
+<li><code>Reader::getHeader</code> no longer throws exception because of a bug in PHP7.2+ <a href="https://github.com/thephpleague/csv/issues/279">issue #279</a></li>
+</ul>
+<h2><a class="anchor" id="autotoc_md6531"></a>
+Removed</h2>
+<ul>
+<li>Nothing</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md6532"></a>
+<a href="https://github.com/thephpleague/csv/compare/9.1.0...9.1.1">9.1.1</a> - 2017-11-28</h1>
+<h2><a class="anchor" id="autotoc_md6533"></a>
+Added</h2>
+<ul>
+<li>Nothing</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md6534"></a>
+Deprecated</h2>
+<ul>
+<li>Nothing</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md6535"></a>
+Fixed</h2>
+<ul>
+<li>issue with <code>error_get_last</code> usage when using a modified PHP error handler see <a href="https://github.com/thephpleague/csv/issues/254">#254</a> - fixed by <a href="https://github.com/csiszarattila">@csiszarattila</a></li>
+<li>Removed seekable word from Stream exception messages.</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md6536"></a>
+Removed</h2>
+<ul>
+<li>Nothing</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md6537"></a>
+<a href="https://github.com/thephpleague/csv/compare/9.0.1...9.1.0">9.1.0</a> - 2017-10-20</h1>
+<h2><a class="anchor" id="autotoc_md6538"></a>
+Added</h2>
+<ul>
+<li>Support for non seekable stream. When seekable feature are required an exceptions will be thrown.</li>
+<li><code>League\Csv\EncloseField</code> to force enclosure insertion on every field. <a href="https://github.com/thephpleague/csv/pull/269">#269</a></li>
+<li><code>League\Csv\EscapeFormula</code> a League CSV formatter to prevent CSV Formula Injection in Spreadsheet programs.</li>
+<li><code>League\Csv\RFC4180Field::addTo</code> accept an option <code>$replace_whitespace</code> argument to improve RFC4180 compliance.</li>
+<li><code>League\Csv\Abstract::getContent</code> to replace <code>League\Csv\Abstract::__toString</code>. The <code>__toString</code> method may trigger a Fatal Error with non seekable stream, instead you are recommended to used the new <code>getContent</code> method which will trigger an exception instead.</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md6539"></a>
+Deprecated</h2>
+<ul>
+<li><code>League\Csv\Abstract::__toString</code> use <code>League\Csv\Abstract::getContent</code> instead. the <code>__toString</code> triggers a Fatal Error when used on a non-seekable CSV document. use the <code>getContent</code> method instead which will trigger an exception instead.</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md6540"></a>
+Fixed</h2>
+<ul>
+<li>Bug fixes headers from AbstractCsv::output according to RFC6266 <a href="https://github.com/thephpleague/csv/issues/250">#250</a></li>
+<li>Make sure the internal source still exists before closing it <a href="https://github.com/thephpleague/csv/issues/251">#251</a></li>
+<li>Make sure the <code>Reader::createFromPath</code> default open mode is <code>r</code> see <a href="https://github.com/thephpleague/csv/pull/258">#258</a> and <a href="https://github.com/thephpleague/csv/pull/266">#266</a></li>
+</ul>
+<h2><a class="anchor" id="autotoc_md6541"></a>
+Removed</h2>
+<ul>
+<li>Nothing</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md6542"></a>
+<a href="https://github.com/thephpleague/csv/compare/9.0.0...9.0.1">9.0.1</a> - 2017-08-21</h1>
+<h2><a class="anchor" id="autotoc_md6543"></a>
+Added</h2>
+<ul>
+<li>Nothing</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md6544"></a>
+Deprecated</h2>
+<ul>
+<li>Nothing</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md6545"></a>
+Fixed</h2>
+<ul>
+<li>CSV controls not applied when calling Writer::insertOne</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md6546"></a>
+Removed</h2>
+<ul>
+<li>Nothing</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md6547"></a>
+<a href="https://github.com/thephpleague/csv/compare/8.2.2...9.0.0">9.0.0</a> - 2017-08-18</h1>
+<h2><a class="anchor" id="autotoc_md6548"></a>
+Added</h2>
+<ul>
+<li>Improved CSV Records selection<ul>
+<li><code>League\Csv\Reader::getRecords</code> to access all CSV records</li>
+<li><code>League\Csv\Statement</code> provides a constraint builder to select CSV records.</li>
+<li><code>League\Csv\ResultSet</code> represents the result set of the selected CSV records.</li>
+<li><code>League\Csv\delimiter_detect</code> function to detect CSV delimiter character</li>
+</ul>
+</li>
+<li>Improved CSV document header selection.<ul>
+<li><code>League\Csv\Reader::getHeader</code></li>
+<li><code>League\Csv\Reader::getHeaderOffset</code></li>
+<li><code>League\Csv\Reader::setHeaderOffset</code></li>
+</ul>
+</li>
+<li>Improved CSV Records conversion<ul>
+<li><code>League\Csv\CharsetConverter</code> converts CSV records charset.</li>
+<li><code>League\Csv\XMLConverter</code> converts CSV records into DOMDocument</li>
+<li><code>League\Csv\HTMLConverter</code> converts CSV records into HTML table.</li>
+</ul>
+</li>
+<li>Improved Exception handling<ul>
+<li><code>League\Csv\Exception</code> the default exception</li>
+<li><code>League\Csv\CannotInsertRecord</code></li>
+</ul>
+</li>
+<li>Improved CSV document output<ul>
+<li><code>League\Csv\AbstractCsv::chunk</code> method to output the CSV document in chunk</li>
+<li><code>League\Csv\bom_match</code> function to detect BOM sequence in a given string</li>
+<li><code>League\Csv\ByteSequence</code> interface to decoupled BOM sequence from CSV documents</li>
+</ul>
+</li>
+<li>Improved CSV records column count consistency on insertion<ul>
+<li><code>League\Csv\ColumnConsistency</code></li>
+</ul>
+</li>
+<li>Improved CSV document flush mechanism on insertion<ul>
+<li><code>League\Csv\Writer::setFlushThreshold</code></li>
+<li><code>League\Csv\Writer::getFlushThreshold</code></li>
+</ul>
+</li>
+<li>Improve RFC4180 compliance<ul>
+<li><code>League\Csv\RFC4180Field</code> to format field according to RFC4180 rules</li>
+</ul>
+</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md6549"></a>
+Deprecated</h2>
+<ul>
+<li>Nothing</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md6550"></a>
+Fixed</h2>
+<ul>
+<li>Improved CSV record insertion<ul>
+<li><code>League\Csv\Writer::insertOne</code> only accepts an array and returns a integer</li>
+<li><code>League\Csv\Writer::insertAll</code> only accepts an iterable of array and returns an integer</li>
+</ul>
+</li>
+<li>Normalized CSV offset returned value<ul>
+<li><code>League\Csv\Reader::fetchColumn</code> always returns the CSV document original offset.</li>
+</ul>
+</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md6551"></a>
+Removed</h2>
+<ul>
+<li><code>examples</code> directory</li>
+<li><code>PHP5</code> support</li>
+<li>The following method is removed because The BOM API is simplified:<ul>
+<li><code>League\Csv\AbstractCsv::stripBOM</code></li>
+</ul>
+</li>
+<li>All conversion methods are removed in favor of the conversion classes:<ul>
+<li><code>League\Csv\Writer::jsonSerialize</code></li>
+<li><code>League\Csv\AbstractCsv::toHTML</code></li>
+<li><code>League\Csv\AbstractCsv::toXML</code></li>
+<li><code>League\Csv\AbstractCsv::setInputEncoding</code></li>
+<li><code>League\Csv\AbstractCsv::getInputEncoding</code></li>
+</ul>
+</li>
+<li>The following methods are removed because the PHP stream filter API is simplified:<ul>
+<li><code>League\Csv\AbstractCsv::isActiveStreamFilter</code></li>
+<li><code>League\Csv\AbstractCsv::setStreamFilterMode</code></li>
+<li><code>League\Csv\AbstractCsv::appendStreamFilter</code></li>
+<li><code>League\Csv\AbstractCsv::prependStreamFilter</code></li>
+<li><code>League\Csv\AbstractCsv::removeStreamFilter</code></li>
+<li><code>League\Csv\AbstractCsv::clearStreamFilters</code></li>
+</ul>
+</li>
+<li>The following methods are removed because switching between connections is no longer possible:<ul>
+<li><code>League\Csv\AbstractCsv::newReader</code></li>
+<li><code>League\Csv\AbstractCsv::newWriter</code></li>
+<li><code>League\Csv\Reader::getNewline</code></li>
+<li><code>League\Csv\Reader::setNewline</code></li>
+</ul>
+</li>
+<li>The Exception mechanism is improved thus the following class is removed:<ul>
+<li><code>League\Csv\Exception\InvalidRowException</code>;</li>
+</ul>
+</li>
+<li>The CSV records filtering methods are removed in favor of the <code>League\Csv\Statement</code> class:<ul>
+<li><code>League\Csv\AbstractCsv::addFilter</code>,</li>
+<li><code>League\Csv\AbstractCsv::addSortBy</code>,</li>
+<li><code>League\Csv\AbstractCsv::setOffset</code>,</li>
+<li><code>League\Csv\AbstractCsv::setLimit</code>;</li>
+</ul>
+</li>
+<li>CSV records selecting API methods is simplified:<ul>
+<li><code>League\Csv\Reader::each</code></li>
+<li><code>League\Csv\Reader::fetch</code></li>
+<li><code>League\Csv\Reader::fetchAll</code></li>
+<li><code>League\Csv\Reader::fetchAssoc</code></li>
+<li><code>League\Csv\Reader::fetchPairsWithoutDuplicates</code></li>
+</ul>
+</li>
+<li>Formatting and validating CSV records on insertion is simplified, the following methods are removed:<ul>
+<li><code>League\Csv\Writer::hasFormatter</code></li>
+<li><code>League\Csv\Writer::removeFormatter</code></li>
+<li><code>League\Csv\Writer::clearFormatters</code></li>
+<li><code>League\Csv\Writer::hasValidator</code></li>
+<li><code>League\Csv\Writer::removeValidator</code></li>
+<li><code>League\Csv\Writer::clearValidators</code></li>
+<li><code>League\Csv\Writer::getIterator</code></li>
+</ul>
+</li>
+<li>The following Formatters and Validators classes are removed from the package:<ul>
+<li><code>League\Csv\<a class="el" href="class_plugin.html">Plugin</a>\SkipNullValuesFormatter</code></li>
+<li><code>League\Csv\<a class="el" href="class_plugin.html">Plugin</a>\ForbiddenNullValuesValidator</code></li>
+<li><code>League\Csv\<a class="el" href="class_plugin.html">Plugin</a>\ColumnConsistencyValidator</code> <em>replace by <code>League\Csv\ColumnConsistency</code></em></li>
+</ul>
+</li>
+<li><code>League\Csv\Writer</code> no longers implements the <code>IteratorAggregate</code> interface</li>
+<li><code>League\Csv\AbstractCsv::fetchDelimitersOccurrence</code> is removed <em>replace by <code>League\Csv\delimiter_detect</code> function</em></li>
+</ul>
+<h1><a class="anchor" id="autotoc_md6552"></a>
+8.2.2 - 2017-07-12</h1>
+<h2><a class="anchor" id="autotoc_md6553"></a>
+Added</h2>
+<ul>
+<li>None</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md6554"></a>
+Deprecated</h2>
+<ul>
+<li>None</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md6555"></a>
+Fixed</h2>
+<ul>
+<li><code>Writer::insertOne</code> was silently failing when inserting record in a CSV document in non-writing mode.</li>
+<li>bug fix docblock</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md6556"></a>
+Removed</h2>
+<ul>
+<li>None</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md6557"></a>
+8.2.1 - 2017-02-22</h1>
+<h2><a class="anchor" id="autotoc_md6558"></a>
+Added</h2>
+<ul>
+<li>Nothing</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md6559"></a>
+Deprecated</h2>
+<ul>
+<li>Nothing</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md6560"></a>
+Fixed</h2>
+<ul>
+<li>internal <code>Reader::getRow</code> when using a <code>StreamIterator</code> <a href="https://github.com/thephpleague/csv/issues/213">issue #213</a></li>
+<li>Removed <code>@deprecated</code> from selected methods <a href="https://github.com/thephpleague/csv/issues/213">issue #208</a></li>
+</ul>
+<h2><a class="anchor" id="autotoc_md6561"></a>
+Removed</h2>
+<ul>
+<li>Nothing</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md6562"></a>
+8.2.0 - 2017-01-25</h1>
+<h2><a class="anchor" id="autotoc_md6563"></a>
+Added</h2>
+<ul>
+<li><code>AbstractCsv::createFromStream</code> to enable working with resource stream <a href="https://github.com/thephpleague/csv/issues/202">issue #202</a></li>
+</ul>
+<h2><a class="anchor" id="autotoc_md6564"></a>
+Deprecated</h2>
+<ul>
+<li><code>League\Csv\AbstractCsv::stripBom</code></li>
+<li><code>League\Csv\Reader::getOffset</code></li>
+<li><code>League\Csv\Reader::getLimit</code></li>
+<li><code>League\Csv\Reader::getSortBy</code></li>
+<li><code>League\Csv\Reader::getFilter</code></li>
+<li><code>League\Csv\Reader::setOffset</code></li>
+<li><code>League\Csv\Reader::setLimit</code></li>
+<li><code>League\Csv\Reader::addSortBy</code></li>
+<li><code>League\Csv\Reader::addFilter</code></li>
+<li><code>League\Csv\Reader::fetch</code></li>
+<li><code>League\Csv\Reader::each</code></li>
+<li><code>League\Csv\Reader::fetchPairsWithoutDuplicates</code></li>
+<li><code>League\Csv\Reader::fetchAssoc</code></li>
+<li><code>League\Csv\Writer::removeFormatter</code></li>
+<li><code>League\Csv\Writer::hasFormatter</code></li>
+<li><code>League\Csv\Writer::clearFormatters</code></li>
+<li><code>League\Csv\Writer::removeValidator</code></li>
+<li><code>League\Csv\Writer::hasValidator</code></li>
+<li><code>League\Csv\Writer::clearValidators</code></li>
+<li><code>League\Csv\Writer::jsonSerialize</code></li>
+<li><code>League\Csv\Writer::toHTML</code></li>
+<li><code>League\Csv\Writer::toXML</code></li>
+</ul>
+<h2><a class="anchor" id="autotoc_md6565"></a>
+Fixed</h2>
+<ul>
+<li>Nothing</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md6566"></a>
+Removed</h2>
+<ul>
+<li>Nothing</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md6567"></a>
+8.1.2 - 2016-10-27</h1>
+<h2><a class="anchor" id="autotoc_md6568"></a>
+Added</h2>
+<ul>
+<li>Nothing</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md6569"></a>
+Deprecated</h2>
+<ul>
+<li>Nothing</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md6570"></a>
+Fixed</h2>
+<ul>
+<li>BOM filtering fix <a href="https://github.com/thephpleague/csv/issues/184">issue #184</a></li>
+<li><code>AbstractCsv::BOM_UTF32_LE</code> value fixed</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md6571"></a>
+Removed</h2>
+<ul>
+<li>Nothing</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md6572"></a>
+8.1.1 - 2016-09-05</h1>
+<h2><a class="anchor" id="autotoc_md6573"></a>
+Added</h2>
+<ul>
+<li>Nothing</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md6574"></a>
+Deprecated</h2>
+<ul>
+<li>Nothing</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md6575"></a>
+Fixed</h2>
+<ul>
+<li><code>getInputBOM</code> method name is now consistent everywhere in the API <a href="https://github.com/thephpleague/csv/pull/171">PR #171</a></li>
+<li>preserve fileObject CSV controls <a href="https://github.com/thephpleague/csv/commit/8a20c56144effa552a8cba5d8c626063222975b7">commit #8a20c56</a></li>
+<li><a class="el" href="class_change.html">Change</a> <code>output</code> method header content-type value to <code>text/csv</code> <a href="https://github.com/thephpleague/csv/pull/175">PR #175</a></li>
+</ul>
+<h2><a class="anchor" id="autotoc_md6576"></a>
+Removed</h2>
+<ul>
+<li>Nothing</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md6577"></a>
+8.1.0 - 2016-05-31</h1>
+<h2><a class="anchor" id="autotoc_md6578"></a>
+Added</h2>
+<ul>
+<li>The package now includes its own autoloader.</li>
+<li><code>Ouput::getInputEncoding</code></li>
+<li><code>Ouput::setInputEncoding</code></li>
+</ul>
+<h2><a class="anchor" id="autotoc_md6579"></a>
+Deprecated</h2>
+<ul>
+<li><code>Ouput::getEncodingFrom</code> replaced by <code>Ouput::getInputEncoding</code></li>
+<li><code>Ouput::setEncodingFrom</code> replaced by <code>Ouput::setInputEncoding</code></li>
+</ul>
+<h2><a class="anchor" id="autotoc_md6580"></a>
+Fixed</h2>
+<ul>
+<li>Stream Filters are now url encoded before usage <a href="https://github.com/thephpleague/csv/issues/72">issue #72</a></li>
+<li>All internal parameters are now using the snake case format</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md6581"></a>
+Removed</h2>
+<ul>
+<li>Nothing</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md6582"></a>
+8.0.0 - 2015-12-11</h1>
+<h2><a class="anchor" id="autotoc_md6583"></a>
+Added</h2>
+<ul>
+<li><code>Reader::fetchPairs</code></li>
+<li><code>Reader::fetchPairsWithoutDuplicates</code></li>
+</ul>
+<h2><a class="anchor" id="autotoc_md6584"></a>
+Deprecated</h2>
+<ul>
+<li>Nothing</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md6585"></a>
+Fixed</h2>
+<ul>
+<li><code>Reader::fetchColumn</code> and <code>Reader::fetchAssoc</code> now return <code>Iterator</code></li>
+<li><code>Reader::fetchAssoc</code> callable argument expects an indexed row using the submitted keys as its first argument</li>
+<li><code>Reader::fetchColumn</code> callable argument expects the selected column value as its first argument</li>
+<li>Default value on <code>setOutputBOM</code> is removed</li>
+<li><code>AbstractCsv::getOutputBOM</code> always return a string</li>
+<li><code>AbstractCsv::getInputBOM</code> always return a string</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md6586"></a>
+Removed</h2>
+<ul>
+<li><code>Controls::setFlags</code></li>
+<li><code>Controls::getFlags</code></li>
+<li><code>Controls::detectDelimiterList</code></li>
+<li><code>QueryFilter::removeFilter</code></li>
+<li><code>QueryFilter::removeSortBy</code></li>
+<li><code>QueryFilter::hasFilter</code></li>
+<li><code>QueryFilter::hasSortBy</code></li>
+<li><code>QueryFilter::clearFilter</code></li>
+<li><code>QueryFilter::clearSortBy</code></li>
+<li><code>Reader::query</code></li>
+<li>The <code>$newline</code> argument from <code>AbstractCsv::createFromString</code></li>
+</ul>
+<h1><a class="anchor" id="autotoc_md6587"></a>
+7.2.0 - 2015-11-02</h1>
+<h2><a class="anchor" id="autotoc_md6588"></a>
+Added</h2>
+<ul>
+<li><code>Reader::fetch</code> replaces <code>League\Csv\Reader::query</code> for naming consistency</li>
+<li><code>Controls::fetchDelimitersOccurrence</code> to replace <code>Controls::detectDelimiterList</code> the latter gives erronous results</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md6589"></a>
+Deprecated</h2>
+<ul>
+<li><code>Controls::detectDelimiterList</code></li>
+<li><code>Reader::query</code></li>
+<li>The <code>$newline</code> argument from <code>AbstractCsv::createFromString</code></li>
+</ul>
+<h2><a class="anchor" id="autotoc_md6590"></a>
+Fixed</h2>
+<ul>
+<li>Streamming feature no longer trim filter name argument <a href="https://github.com/thephpleague/csv/issues/122">issue #122</a></li>
+<li>Fix default <code>SplFileObject</code> flags usage <a href="https://github.com/thephpleague/csv/pull/130">PR #130</a></li>
+<li><code>AbstractCsv::createFromString</code> no longer trim the submitted string <a href="https://github.com/thephpleague/csv/issues/132">issue #132</a></li>
+</ul>
+<h2><a class="anchor" id="autotoc_md6591"></a>
+Removed</h2>
+<ul>
+<li>Nothing</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md6592"></a>
+7.1.2 - 2015-06-10</h1>
+<h2><a class="anchor" id="autotoc_md6593"></a>
+Added</h2>
+<ul>
+<li>Nothing</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md6594"></a>
+Deprecated</h2>
+<ul>
+<li>Nothing</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md6595"></a>
+Fixed</h2>
+<ul>
+<li>Enclosures should be removed when a BOM sequence is stripped <a href="http://github.com/thephpleague/csv/issues/99">issue #102</a></li>
+</ul>
+<h2><a class="anchor" id="autotoc_md6596"></a>
+Removed</h2>
+<ul>
+<li>Nothing</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md6597"></a>
+7.1.1 - 2015-05-20</h1>
+<h2><a class="anchor" id="autotoc_md6598"></a>
+Added</h2>
+<ul>
+<li>Nothing</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md6599"></a>
+Deprecated</h2>
+<ul>
+<li>Nothing</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md6600"></a>
+Fixed</h2>
+<ul>
+<li><code>SplFileObject</code> flags were not always applied using query filter <a href="http://github.com/thephpleague/csv/issues/99">issue #99</a></li>
+</ul>
+<h2><a class="anchor" id="autotoc_md6601"></a>
+Removed</h2>
+<ul>
+<li>Nothing</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md6602"></a>
+7.1.0 - 2015-05-06</h1>
+<h2><a class="anchor" id="autotoc_md6603"></a>
+Added</h2>
+<ul>
+<li><code>stripBOM</code> query filtering method to ease removing the BOM sequence when querying the CSV document.</li>
+<li>All query filters are now accessible in the <code>Writer</code> class for conversion methods.</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md6604"></a>
+Deprecated</h2>
+<ul>
+<li>Nothing</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md6605"></a>
+Fixed</h2>
+<ul>
+<li>Internal code has been updated to take into account <a href="http://bugs.php.net/68479">issue #68479</a></li>
+<li><code>setFlags</code> on conversion methods SplFileObject default flags are <code>SplFileObject::READ_AHEAD|SplFileObject<a class="el" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">SKIP_EMPTY</a></code></li>
+<li><code>insertOne</code> now takes into account the escape character when modified after the first insert.</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md6606"></a>
+Removed</h2>
+<ul>
+<li>Nothing</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md6607"></a>
+7.0.1 - 2015-03-23</h1>
+<h2><a class="anchor" id="autotoc_md6608"></a>
+Added</h2>
+<ul>
+<li>Nothing</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md6609"></a>
+Deprecated</h2>
+<ul>
+<li>Nothing</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md6610"></a>
+Fixed</h2>
+<ul>
+<li><code>setFlags</code>: <code>SplFileObject::DROP_NEW_LINE</code> can be remove using <code>setFlags</code> method.</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md6611"></a>
+Removed</h2>
+<ul>
+<li>Nothing</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md6612"></a>
+7.0.0 - 2015-02-19</h1>
+<h2><a class="anchor" id="autotoc_md6613"></a>
+Added</h2>
+<ul>
+<li>A new flexible mechanism to format and validate a row before its insertion by adding<ul>
+<li><code>Writer::addFormatter</code> to add a formatter to the <code>Writer</code> object</li>
+<li><code>Writer::removeFormatter</code> to remove an already registered formatter</li>
+<li><code>Writer::hasFormatter</code> to detect the presence of a formatter</li>
+<li><code>Writer::clearFormatters</code> to clear all registered formatter</li>
+<li><code>Writer::addValidator</code> to add a validator to the <code>Writer</code> object</li>
+<li><code>Writer::removeValidator</code> to remove an already registered validator</li>
+<li><code>Writer::hasValidator</code> to detect the presence of a validator</li>
+<li><code>Writer::clearValidators</code> to clear all registered validator</li>
+<li><code>League\Csv\Exception\InvalidRowException</code> exception thrown when row validation failed</li>
+</ul>
+</li>
+<li>Classes to maintain removed features from the <code>Writer</code> class<ul>
+<li><code>League\Csv\<a class="el" href="class_plugin.html">Plugin</a>\ColumnConsistencyValidator</code> to validate column consistency on insertion</li>
+<li><code>League\Csv\<a class="el" href="class_plugin.html">Plugin</a>\ForbiddenNullValuesValidator</code> to validate <code>null</code> value on insertion</li>
+<li><code>League\Csv\<a class="el" href="class_plugin.html">Plugin</a>\SkipNullValuesFormatter</code> to format <code>null</code> value on insertion</li>
+</ul>
+</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md6614"></a>
+Deprecated</h2>
+<ul>
+<li>Nothing</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md6615"></a>
+Fixed</h2>
+<ul>
+<li><code>jsonSerialize</code>, <code>toXML</code> and <code>toHTML</code> output can be modified using <code>Reader</code> query options methods.</li>
+<li><code>AbstractCSV::detectDelimiterList</code> index keys now represents the occurrence of the found delimiter.</li>
+<li><code>getNewline</code> and <code>setNewline</code> are accessible on the <code>Reader</code> class too.</li>
+<li>the named constructor <code>createFromString</code> now accepts the <code>$newline</code> sequence as a second argument to specify the last added new line character to better work with interoperability.</li>
+<li>Default value on CSV controls setter methods <code>setDelimiter</code>, <code>setEnclosure</code> and <code>setEscape</code> are removed</li>
+<li>Default <code>SplFileObject</code> flags value is now <code>SplFileObject::READ_CSV|SplFileObject<a class="el" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">DROP_NEW_LINE</a></code></li>
+<li>All CSV properties are now copied when using <code>newReader</code> and <code>newWriter</code> methods</li>
+<li>BOM addition on output improved by removing if found the existing BOM character</li>
+<li>the <code>AbstractCSV::output</code> method now returns the number of bytes send to the output buffer</li>
+<li><code>Reader::fetchColumn</code> will automatically filter out non existing values from the return array</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md6616"></a>
+Removed</h2>
+<ul>
+<li>Setting <code>ini_set("auto_detect_line_endings", true);</code> is no longer set in the class constructor. Mac OS X users must explicitly set this ini options in their script.</li>
+<li><code>Writer</code> and <code>Reader</code> default constructor are removed from public API in favor of the named constructors.</li>
+<li>All <code>Writer</code> methods and constant related to CSV data validation and formatting before insertion<ul>
+<li><code>Writer::getNullHandlingMode</code></li>
+<li><code>Writer::setNullHandlingMode</code></li>
+<li><code>Writer::setColumnsCount</code></li>
+<li><code>Writer::getColumnsCount</code></li>
+<li><code>Writer::autodetectColumnsCount</code></li>
+<li><code>Writer::NULL_AS_EXCEPTION</code></li>
+<li><code>Writer::NULL_AS_EMPTY</code></li>
+<li><code>Writer::NULL_AS_SKIP_CELL</code></li>
+</ul>
+</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md6617"></a>
+6.3.0 - 2015-01-21</h1>
+<h2><a class="anchor" id="autotoc_md6618"></a>
+Added</h2>
+<ul>
+<li><code>AbstractCSV::setOutputBOM</code></li>
+<li><code>AbstractCSV::getOutputBOM</code></li>
+<li><code>AbstractCSV::getInputBOM</code></li>
+</ul>
+<p>to manage BOM character with CSV.</p>
+<h2><a class="anchor" id="autotoc_md6619"></a>
+Deprecated</h2>
+<ul>
+<li>Nothing</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md6620"></a>
+Fixed</h2>
+<ul>
+<li>Nothing</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md6621"></a>
+Removed</h2>
+<ul>
+<li>Nothing</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md6622"></a>
+6.2.0 - 2014-12-12</h1>
+<h2><a class="anchor" id="autotoc_md6623"></a>
+Added</h2>
+<ul>
+<li><code>Writer::setNewline</code> , <code>Writer::getNewline</code> to control the newline sequence character added at the end of each CSV row.</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md6624"></a>
+Deprecated</h2>
+<ul>
+<li>Nothing</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md6625"></a>
+Fixed</h2>
+<ul>
+<li>Nothing</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md6626"></a>
+Removed</h2>
+<ul>
+<li>Nothing</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md6627"></a>
+6.1.0 - 2014-12-08</h1>
+<h2><a class="anchor" id="autotoc_md6628"></a>
+Added</h2>
+<ul>
+<li><code>Reader::fetchAssoc</code> now also accepts an integer as first argument representing a row index.</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md6629"></a>
+Deprecated</h2>
+<ul>
+<li>Nothing</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md6630"></a>
+Fixed</h2>
+<ul>
+<li>Nothing</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md6631"></a>
+Removed</h2>
+<ul>
+<li>Nothing</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md6632"></a>
+6.0.1 - 2014-11-12</h1>
+<h2><a class="anchor" id="autotoc_md6633"></a>
+Added</h2>
+<ul>
+<li>Nothing</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md6634"></a>
+Deprecated</h2>
+<ul>
+<li>Nothing</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md6635"></a>
+Fixed</h2>
+<ul>
+<li>Bug Fixed <code>detectDelimiterList</code></li>
+</ul>
+<h2><a class="anchor" id="autotoc_md6636"></a>
+Removed</h2>
+<ul>
+<li>Nothing</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md6637"></a>
+6.0.0 - 2014-08-28</h1>
+<h2><a class="anchor" id="autotoc_md6638"></a>
+Added</h2>
+<ul>
+<li>Stream Filter API in <code>League\Csv\AbstractCsv</code></li>
+<li>named constructors <code>createFromPath</code> and <code>createFromFileObject</code> in <code>League\Csv\AbstractCsv</code> to ease CSV object instantiation</li>
+<li><code>detectDelimiterList</code> in <code>League\Csv\AbstractCsv</code> to replace and remove the use of <code>RuntimeException</code> in <code>detectDelimiter</code></li>
+<li><code>setEncodingFrom</code> and <code>setDecodingFrom</code> in <code>League\Csv\AbstractCsv</code> to replace <code>setEncoding</code> and <code>getEncoding</code> for naming consistency</li>
+<li><code>newWriter</code> and <code>newReader</code> methods in <code>League\Csv\AbstractCsv</code> to replace <code>Writer::getReader</code> and <code>Reader::getWriter</code></li>
+</ul>
+<h2><a class="anchor" id="autotoc_md6639"></a>
+Deprecated</h2>
+<ul>
+<li>Nothing</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md6640"></a>
+Fixed</h2>
+<ul>
+<li><code>League\Csv\Reader::each</code> more strict <code>$callable</code> MUST returns <code>true</code></li>
+</ul>
+<h2><a class="anchor" id="autotoc_md6641"></a>
+Remove</h2>
+<ul>
+<li><code>League\Csv\AbstractCsv::detectDelimiter</code></li>
+<li><code>League\Csv\AbstractCsv::setEncoding</code> and <code>League\Csv\AbstractCsv::getEncoding</code></li>
+<li><code>League\Csv\Reader::setSortBy</code></li>
+<li><code>League\Csv\Reader::setFilter</code></li>
+<li><code>League\Csv\Reader::getWriter</code></li>
+<li><code>League\Csv\Writer::getReader</code></li>
+<li><code>League\Csv\Reader::fetchCol</code></li>
+</ul>
+<h1><a class="anchor" id="autotoc_md6642"></a>
+5.4.0 - 2014-04-17</h1>
+<h2><a class="anchor" id="autotoc_md6643"></a>
+Added</h2>
+<ul>
+<li><code>League\Csv\Writer::setColumnsCount</code>, <code>League\Csv\Writer::getColumnsCount</code>, <code>League\Csv\Writer::autodetectColumnsCount</code> to enable column consistency in writer mode</li>
+<li><code>League\Csv\Reader::fetchColumn</code> replaces <code>League\Csv\Reader::fetchCol</code> for naming consistency</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md6644"></a>
+Deprecated</h2>
+<ul>
+<li><code>League\Csv\Reader::fetchCol</code></li>
+</ul>
+<h2><a class="anchor" id="autotoc_md6645"></a>
+Fixed</h2>
+<ul>
+<li>Nothing</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md6646"></a>
+Removed</h2>
+<ul>
+<li>Nothing</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md6647"></a>
+5.3.1 - 2014-04-09</h1>
+<h2><a class="anchor" id="autotoc_md6648"></a>
+Added</h2>
+<ul>
+<li>Nothing</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md6649"></a>
+Deprecated</h2>
+<ul>
+<li>Nothing</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md6650"></a>
+Fixed</h2>
+<ul>
+<li><code>$open_mode</code> default to <code>r+</code> in <code>League\Csv\AbstractCsv</code> constructors</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md6651"></a>
+Removed</h2>
+<ul>
+<li>Nothing</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md6652"></a>
+5.3.0 - 2014-03-24</h1>
+<h2><a class="anchor" id="autotoc_md6653"></a>
+Added</h2>
+<ul>
+<li><code>League\Csv\Writer::setNullHandlingMode</code> and <code>League\Csv\Writer::getNullHandlingMode</code> to handle <code>null</code> value</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md6654"></a>
+Deprecated</h2>
+<ul>
+<li>Nothing</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md6655"></a>
+Fixed</h2>
+<ul>
+<li><code>setting ini_set("auto_detect_line_endings", true);</code> no longer needed for Mac OS</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md6656"></a>
+Removed</h2>
+<ul>
+<li>Nothing</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md6657"></a>
+5.2.0 - 2014-03-13</h1>
+<h2><a class="anchor" id="autotoc_md6658"></a>
+Added</h2>
+<ul>
+<li><code>League\Csv\Reader::addSortBy</code>, <code>League\Csv\Reader::removeSortBy</code>, <code>League\Csv\Reader::hasSortBy</code>, <code>League\Csv\Reader::clearSortBy</code> to improve sorting</li>
+<li><code>League\Csv\Reader::clearFilter</code> to align extract filter capabilities to sorting capabilities</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md6659"></a>
+Deprecated</h2>
+<ul>
+<li><code>League\Csv\Reader::setSortBy</code> replaced by a better implementation</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md6660"></a>
+Fixed</h2>
+<ul>
+<li><code>League\Csv\Reader::setOffset</code> now default to 0;</li>
+<li><code>League\Csv\Reader::setLimit</code> now default to -1;</li>
+<li><code>detectDelimiter</code> bug fixes</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md6661"></a>
+Removed</h2>
+<ul>
+<li>Nothing</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md6662"></a>
+5.1.0 - 2014-03-11</h1>
+<h2><a class="anchor" id="autotoc_md6663"></a>
+Added</h2>
+<ul>
+<li><code>League\Csv\Reader::each</code> to ease CSV import data</li>
+<li><code>League\Csv\Reader::addFilter</code>, <code>League\Csv\Reader::removeFilter</code>, <code>League\Csv\Reader::hasFilter</code> to improve extract filter capabilities</li>
+<li><code>detectDelimiter</code> method to <code>League\Csv\AbstractCsv</code> to sniff CSV delimiter character.</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md6664"></a>
+Deprecated</h2>
+<ul>
+<li><code>League\Csv\Reader::setFilter</code> replaced by a better implementation</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md6665"></a>
+Fixed</h2>
+<ul>
+<li>Nothing</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md6666"></a>
+Removed</h2>
+<ul>
+<li>Nothing</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md6667"></a>
+5.0.0 - 2014-02-28</h1>
+<h2><a class="anchor" id="autotoc_md6668"></a>
+Added</h2>
+<ul>
+<li><a class="el" href="class_change.html">Change</a> namespace from <code>Bakame\Csv</code> to <code>League\Csv</code></li>
+</ul>
+<h2><a class="anchor" id="autotoc_md6669"></a>
+Deprecated</h2>
+<ul>
+<li>Nothing</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md6670"></a>
+Fixed</h2>
+<ul>
+<li>Nothing</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md6671"></a>
+Removed</h2>
+<ul>
+<li>Nothing</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md6672"></a>
+4.2.1 - 2014-02-22</h1>
+<h2><a class="anchor" id="autotoc_md6673"></a>
+Fixed</h2>
+<ul>
+<li><code>$open_mode</code> validation is done by PHP internals directly</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md6674"></a>
+Removed</h2>
+<ul>
+<li>Nothing</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md6675"></a>
+4.2.0 - 2014-02-17</h1>
+<h2><a class="anchor" id="autotoc_md6676"></a>
+Added</h2>
+<ul>
+<li><code>toXML</code> method to transcode the CSV into a <a class="el" href="class_x_m_l.html" title="XML class.">XML</a> in <code>Bakame\Csv\AbstractCsv</code></li>
+</ul>
+<h2><a class="anchor" id="autotoc_md6677"></a>
+Fixed</h2>
+<ul>
+<li><code>toHTML</code> method bug in <code>Bakame\Csv\AbstractCsv</code></li>
+<li><code>output</code> method accepts an optional <code>$filename</code> argument</li>
+<li><code>Bakame\Csv\Reader::fetchCol</code> default to <code>$columnIndex = 0</code></li>
+<li><code>Bakame\Csv\Reader::fetchOne</code> default to <code>$offset = 0</code></li>
+</ul>
+<h1><a class="anchor" id="autotoc_md6678"></a>
+4.1.2 - 2014-02-14</h1>
+<h2><a class="anchor" id="autotoc_md6679"></a>
+Added</h2>
+<ul>
+<li>Move from <code>PSR-0</code> to <code>PSR-4</code> to autoload the library</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md6680"></a>
+4.1.1 - 2014-02-14</h1>
+<h2><a class="anchor" id="autotoc_md6681"></a>
+Fixed</h2>
+<ul>
+<li><code>Bakame\Csv\Reader</code> methods fixed</li>
+<li><code>jsonSerialize</code> bug fixed</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md6682"></a>
+4.1.0 - 2014-02-07</h1>
+<h2><a class="anchor" id="autotoc_md6683"></a>
+Added</h2>
+<ul>
+<li><code>getEncoding</code> and <code>setEncoding</code> methods to <code>Bakame\Csv\AbstractCsv</code></li>
+</ul>
+<h2><a class="anchor" id="autotoc_md6684"></a>
+Fixed</h2>
+<ul>
+<li><code>Bakame\Csv\Writer::insertOne</code> takes into account CSV controls</li>
+<li><code>toHTML</code> method takes into account encoding</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md6685"></a>
+4.0.0 - 2014-02-05</h1>
+<h2><a class="anchor" id="autotoc_md6686"></a>
+Added</h2>
+<ul>
+<li><code>Bakame\Csv\Writer</code></li>
+<li><code>Bakame\Csv\Writer</code> and <code>Bakame\Csv\Reader</code> extend <code>Bakame\Csv\AbstractCsv</code></li>
+</ul>
+<h2><a class="anchor" id="autotoc_md6687"></a>
+Deprecated</h2>
+<ul>
+<li>Nothing</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md6688"></a>
+Fixed</h2>
+<ul>
+<li><code>Bakame\Csv\Reader::fetchOne</code> is no longer deprecated</li>
+<li><code>Bakame\Csv\Reader::fetchCol</code> no longer accepts a third parameter <code>$strict</code></li>
+</ul>
+<h2><a class="anchor" id="autotoc_md6689"></a>
+Removed</h2>
+<ul>
+<li><code>Bakame\Csv\Codec</code> now the library is composer of 2 main classes</li>
+<li><code>Bakame\Csv\Reader::getFile</code></li>
+<li><code>Bakame\Csv\Reader::fetchValue</code></li>
+<li><code>Bakame\Csv\Reader</code> no longer implements the <code>ArrayAccess</code> interface</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md6690"></a>
+3.3.0 - 2014-01-28</h1>
+<h2><a class="anchor" id="autotoc_md6691"></a>
+Added</h2>
+<ul>
+<li><code>Bakame\Csv\Reader</code> implements <code>IteratorAggregate</code> Interface</li>
+<li><code>Bakame\Csv\Reader::createFromString</code> to create a CSV object from a raw string</li>
+<li><code>Bakame\Csv\Reader::query</code> accept an optional <code>$callable</code> parameter</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md6692"></a>
+Deprecated</h2>
+<ul>
+<li><code>Bakame\Csv\Reader::getFile</code> in favor of <code>Bakame\Csv\Reader::getIterator</code></li>
+</ul>
+<h2><a class="anchor" id="autotoc_md6693"></a>
+Removed</h2>
+<ul>
+<li><code>Bakame\Csv\ReaderInterface</code> useless interface</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md6694"></a>
+Fixed</h2>
+<ul>
+<li><code>Bakame\Csv\Reader::fetch*</code> <code>$callable</code> parameter is normalized to accept an array</li>
+<li><code>Bakame\Csv\Reader::fetchCol</code> accepts a third parameter <code>$strict</code></li>
+</ul>
+<h1><a class="anchor" id="autotoc_md6695"></a>
+3.2.0 - 2014-01-16</h1>
+<h2><a class="anchor" id="autotoc_md6696"></a>
+Added</h2>
+<ul>
+<li><code>Bakame\Csv\Reader</code> implements the following interfaces <code>JsonSerializable</code> and <code>ArrayAccess</code></li>
+<li><code>Bakame\Csv\Reader::toHTML</code> to output the CSV as a HTML table</li>
+<li><code>Bakame\Csv\Reader::setFilter</code>, <code>Bakame\Csv\Reader::setSortBy</code>, <code>Bakame\Csv\Reader::setOffset</code>, <code>Bakame\Csv\Reader::setLimit</code>, <code>Bakame\Csv\Reader::query</code> to perform SQL like queries on the CSV content.</li>
+<li><code>Bakame\Csv\Codec::setFlags</code>, <code>Bakame\Csv\Codec::getFlags</code>, Bakame\Csv\Codec::__construct : add an optional <code>$flags</code> parameter to enable the use of <code>SplFileObject</code> constants flags</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md6697"></a>
+Deprecated</h2>
+<ul>
+<li><code>Bakame\Csv\Reader::fetchOne</code> replaced by <code>Bakame\Csv\Reader::offsetGet</code></li>
+<li><code>Bakame\Csv\Reader::fetchValue</code> useless method</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md6698"></a>
+3.1.0 - 2014-01-13</h1>
+<h2><a class="anchor" id="autotoc_md6699"></a>
+Added</h2>
+<ul>
+<li><code>Bakame\Csv\Reader::output</code> output the CSV data directly in the output buffer</li>
+<li><code>Bakame\Csv\Reader::__toString</code> can be use to echo the raw CSV</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md6700"></a>
+3.0.1 - 2014-01-10</h1>
+<h2><a class="anchor" id="autotoc_md6701"></a>
+Fixed</h2>
+<ul>
+<li><code>Bakame\Csv\Reader::fetchAssoc</code> when users keys and CSV row data don't have the same length</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md6702"></a>
+3.0.0 - 2014-01-10</h1>
+<h2><a class="anchor" id="autotoc_md6703"></a>
+Added</h2>
+<ul>
+<li><code>Bakame\Csv\ReaderInterface</code></li>
+<li><code>Bakame\Csv\Reader</code> class</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md6704"></a>
+Fixed</h2>
+<ul>
+<li><code>Bakame\Csv\Codec::loadString</code>returns a <code>Bakame\Csv\Reader</code> object</li>
+<li><code>Bakame\Csv\Codec::loadFile</code> returns a <code>Bakame\Csv\Reader</code> object</li>
+<li><code>Bakame\Csv\Codec::save</code> returns a <code>Bakame\Csv\Reader</code> object</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md6705"></a>
+2.0.0 - 2014-01-09</h1>
+<h2><a class="anchor" id="autotoc_md6706"></a>
+Added</h2>
+<ul>
+<li><code>Bakame\Csv\CsvCodec</code> class renamed <code>Bakame\Csv\Codec</code></li>
+</ul>
+<h2><a class="anchor" id="autotoc_md6707"></a>
+Deprecated</h2>
+<ul>
+<li>Nothing</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md6708"></a>
+Fixed</h2>
+<ul>
+<li>Nothing</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md6709"></a>
+Removed</h2>
+<ul>
+<li><code>Bakame\Csv\Codec::create</code> from public API</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md6710"></a>
+1.0.0 - 2013-12-03</h1>
+<p>Initial Release of <code>Bakame\Csv</code> </p>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0
+</small></address>
+</body>
+</html>

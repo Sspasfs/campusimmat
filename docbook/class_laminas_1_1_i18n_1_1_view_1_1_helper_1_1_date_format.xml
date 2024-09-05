@@ -1,0 +1,256 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_laminas_1_1_i18n_1_1_view_1_1_helper_1_1_date_format" xml:lang="fr">
+<title>Référence de la classe DateFormat</title>
+<indexterm><primary>DateFormat</primary></indexterm>
+Graphe d&apos;héritage de DateFormat:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_laminas_1_1_i18n_1_1_view_1_1_helper_1_1_date_format__inherit__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Graphe de collaboration de DateFormat:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_laminas_1_1_i18n_1_1_view_1_1_helper_1_1_date_format__coll__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Fonctions membres publiques    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_laminas_1_1_i18n_1_1_view_1_1_helper_1_1_date_format_1afb6e11b7011e7b69c0d2fad48699579a">__invoke</link> ( $date, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">dateType</link>=IntlDateFormatter::NONE, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">timeType</link>=IntlDateFormatter::NONE, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">locale</link>=null, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">pattern</link>=null)</para>
+</listitem>
+            <listitem><para><link linkend="_class_laminas_1_1_i18n_1_1_view_1_1_helper_1_1_date_format_1a1bef7c51e9f6a97840f016a8f0a615ae">setLocale</link> ($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">locale</link>)</para>
+</listitem>
+            <listitem><para><link linkend="_class_laminas_1_1_i18n_1_1_view_1_1_helper_1_1_date_format_1ad532b661eb33c3e755bd3fa8ff1bd7af">getLocale</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_class_laminas_1_1_i18n_1_1_view_1_1_helper_1_1_date_format_1ac1b4cf4ebad277081311189dffb821f2">setTimezone</link> ($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">timezone</link>)</para>
+</listitem>
+            <listitem><para><link linkend="_class_laminas_1_1_i18n_1_1_view_1_1_helper_1_1_date_format_1a23e87a365ef1aea5bc5fdad51d8925ae">getTimezone</link> ()</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Attributs protégés    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_laminas_1_1_i18n_1_1_view_1_1_helper_1_1_date_format_1a3b392f5a691b803e728f1fb42b35f6e1">$locale</link></para>
+</listitem>
+            <listitem><para><link linkend="_class_laminas_1_1_i18n_1_1_view_1_1_helper_1_1_date_format_1af1cceca0f6633f202e2e3eccb72912af">$timezone</link></para>
+</listitem>
+            <listitem><para><link linkend="_class_laminas_1_1_i18n_1_1_view_1_1_helper_1_1_date_format_1a1e1b0937073db0198a45136adf2d296c">$formatters</link> = []</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Description détaillée</title>
+
+<para>View helper for formatting dates. </para>
+</section>
+<section>
+<title>Documentation des fonctions membres</title>
+<anchor xml:id="_class_laminas_1_1_i18n_1_1_view_1_1_helper_1_1_date_format_1afb6e11b7011e7b69c0d2fad48699579a"/><section>
+    <title>__invoke()</title>
+<indexterm><primary>__invoke</primary><secondary>DateFormat</secondary></indexterm>
+<indexterm><primary>DateFormat</primary><secondary>__invoke</secondary></indexterm>
+<para><computeroutput>__invoke ( $date,  $dateType = <computeroutput>IntlDateFormatter::NONE</computeroutput>
+,  $timeType = <computeroutput>IntlDateFormatter::NONE</computeroutput>
+,  $locale = <computeroutput>null</computeroutput>
+,  $pattern = <computeroutput>null</computeroutput>
+)</computeroutput></para>
+<para>Format a date</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>DateTimeInterface | IntlCalendar | int | array</entry><entry>$date</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>int</entry><entry>$dateType</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>int</entry><entry>$timeType</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>string | null</entry><entry>$locale</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>string | null</entry><entry>$pattern</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>string </para>
+</formalpara>
+</para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_laminas_1_1_i18n_1_1_view_1_1_helper_1_1_date_format_afb6e11b7011e7b69c0d2fad48699579a_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_laminas_1_1_i18n_1_1_view_1_1_helper_1_1_date_format_1ad532b661eb33c3e755bd3fa8ff1bd7af"/><section>
+    <title>getLocale()</title>
+<indexterm><primary>getLocale</primary><secondary>DateFormat</secondary></indexterm>
+<indexterm><primary>DateFormat</primary><secondary>getLocale</secondary></indexterm>
+<para><computeroutput>getLocale ( )</computeroutput></para>
+<para>Get the locale to use</para>
+
+<para><formalpara><title>Renvoie</title>
+
+<para>string </para>
+</formalpara>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_laminas_1_1_i18n_1_1_view_1_1_helper_1_1_date_format_ad532b661eb33c3e755bd3fa8ff1bd7af_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_laminas_1_1_i18n_1_1_view_1_1_helper_1_1_date_format_1a23e87a365ef1aea5bc5fdad51d8925ae"/><section>
+    <title>getTimezone()</title>
+<indexterm><primary>getTimezone</primary><secondary>DateFormat</secondary></indexterm>
+<indexterm><primary>DateFormat</primary><secondary>getTimezone</secondary></indexterm>
+<para><computeroutput>getTimezone ( )</computeroutput></para>
+<para>Get the timezone to use</para>
+
+<para><formalpara><title>Renvoie</title>
+
+<para>string </para>
+</formalpara>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_laminas_1_1_i18n_1_1_view_1_1_helper_1_1_date_format_a23e87a365ef1aea5bc5fdad51d8925ae_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_laminas_1_1_i18n_1_1_view_1_1_helper_1_1_date_format_1a1bef7c51e9f6a97840f016a8f0a615ae"/><section>
+    <title>setLocale()</title>
+<indexterm><primary>setLocale</primary><secondary>DateFormat</secondary></indexterm>
+<indexterm><primary>DateFormat</primary><secondary>setLocale</secondary></indexterm>
+<para><computeroutput>setLocale ( $locale)</computeroutput></para>
+<para>Set locale to use instead of the default</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$locale</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>$this </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_class_laminas_1_1_i18n_1_1_view_1_1_helper_1_1_date_format_1ac1b4cf4ebad277081311189dffb821f2"/><section>
+    <title>setTimezone()</title>
+<indexterm><primary>setTimezone</primary><secondary>DateFormat</secondary></indexterm>
+<indexterm><primary>DateFormat</primary><secondary>setTimezone</secondary></indexterm>
+<para><computeroutput>setTimezone ( $timezone)</computeroutput></para>
+<para>Set timezone to use instead of the default</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$timezone</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>$this </para>
+</formalpara>
+</para>
+</section>
+</section>
+<section>
+<title>Documentation des champs</title>
+<anchor xml:id="_class_laminas_1_1_i18n_1_1_view_1_1_helper_1_1_date_format_1a1e1b0937073db0198a45136adf2d296c"/><section>
+    <title>$formatters</title>
+<indexterm><primary>$formatters</primary><secondary>DateFormat</secondary></indexterm>
+<indexterm><primary>DateFormat</primary><secondary>$formatters</secondary></indexterm>
+<para><computeroutput>$<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">formatters</link> = []<computeroutput>[protected]</computeroutput></computeroutput></para></section>
+<anchor xml:id="_class_laminas_1_1_i18n_1_1_view_1_1_helper_1_1_date_format_1a3b392f5a691b803e728f1fb42b35f6e1"/><section>
+    <title>$locale</title>
+<indexterm><primary>$locale</primary><secondary>DateFormat</secondary></indexterm>
+<indexterm><primary>DateFormat</primary><secondary>$locale</secondary></indexterm>
+<para><computeroutput>$<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">locale</link><computeroutput>[protected]</computeroutput></computeroutput></para></section>
+<anchor xml:id="_class_laminas_1_1_i18n_1_1_view_1_1_helper_1_1_date_format_1af1cceca0f6633f202e2e3eccb72912af"/><section>
+    <title>$timezone</title>
+<indexterm><primary>$timezone</primary><secondary>DateFormat</secondary></indexterm>
+<indexterm><primary>DateFormat</primary><secondary>$timezone</secondary></indexterm>
+<para><computeroutput>$<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">timezone</link><computeroutput>[protected]</computeroutput></computeroutput></para></section>
+<para>
+La documentation de cette classe a été générée à partir du fichier suivant :</para>
+public/glpi/vendor/laminas/laminas-i18n/src/View/Helper/<link linkend="__date_format_8php">DateFormat.php</link></section>
+</section>

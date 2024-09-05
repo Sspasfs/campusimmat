@@ -1,0 +1,286 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_guzzle_http_1_1_psr7_1_1_message" xml:lang="fr">
+<title>Référence de la classe Message</title>
+<indexterm><primary>Message</primary></indexterm>
+Graphe de collaboration de Message:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_guzzle_http_1_1_psr7_1_1_message__coll__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Fonctions membres publiques statiques    </title>
+        <itemizedlist>
+            <listitem><para>static <link linkend="_class_guzzle_http_1_1_psr7_1_1_message_1a61fed09ecd12f06595bb87c49380aaa3">toString</link> (<link linkend="_interface_psr_1_1_http_1_1_message_1_1_message_interface">MessageInterface</link> $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">message</link>)</para>
+</listitem>
+            <listitem><para>static <link linkend="_class_guzzle_http_1_1_psr7_1_1_message_1af1afca680561281f70ed138ffc4a3502">bodySummary</link> (<link linkend="_interface_psr_1_1_http_1_1_message_1_1_message_interface">MessageInterface</link> $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">message</link>, int $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">truncateAt</link>=120)</para>
+</listitem>
+            <listitem><para>static <link linkend="_class_guzzle_http_1_1_psr7_1_1_message_1ab60963bc8dda1502e6de257d0a85bcd4">rewindBody</link> (<link linkend="_interface_psr_1_1_http_1_1_message_1_1_message_interface">MessageInterface</link> $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">message</link>)</para>
+</listitem>
+            <listitem><para>static <link linkend="_class_guzzle_http_1_1_psr7_1_1_message_1a1afb27a5d0155e1ad2f3fb20556fc5db">parseRequestUri</link> (string $path, array $headers)</para>
+</listitem>
+            <listitem><para>static <link linkend="_class_guzzle_http_1_1_psr7_1_1_message_1a800913e2a86a94b3f3cfc6e516b3dd24">parseRequest</link> (string $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">message</link>)</para>
+</listitem>
+            <listitem><para>static <link linkend="_class_guzzle_http_1_1_psr7_1_1_message_1addae1ae0165126a25198afcd13727391">parseResponse</link> (string $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">message</link>)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Documentation des fonctions membres</title>
+<anchor xml:id="_class_guzzle_http_1_1_psr7_1_1_message_1af1afca680561281f70ed138ffc4a3502"/><section>
+    <title>bodySummary()</title>
+<indexterm><primary>bodySummary</primary><secondary>Message</secondary></indexterm>
+<indexterm><primary>Message</primary><secondary>bodySummary</secondary></indexterm>
+<para><computeroutput>static bodySummary (<link linkend="_interface_psr_1_1_http_1_1_message_1_1_message_interface">MessageInterface</link> $message, int $truncateAt = <computeroutput>120</computeroutput>
+)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>Get a short summary of the message body.</para>
+
+<para>Will return <computeroutput>null</computeroutput> if the response is not printable.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>MessageInterface</entry><entry>$message</entry><entry>
+<para>The message to get the body summary </para>
+</entry>
+                            </row>
+                            <row>
+<entry>int</entry><entry>$truncateAt</entry><entry>
+<para>The maximum allowed size of the summary </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_guzzle_http_1_1_psr7_1_1_message_af1afca680561281f70ed138ffc4a3502_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_guzzle_http_1_1_psr7_1_1_message_1a800913e2a86a94b3f3cfc6e516b3dd24"/><section>
+    <title>parseRequest()</title>
+<indexterm><primary>parseRequest</primary><secondary>Message</secondary></indexterm>
+<indexterm><primary>Message</primary><secondary>parseRequest</secondary></indexterm>
+<para><computeroutput>static parseRequest (string $message)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>Parses a request message string into a request object.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$message</entry><entry>
+<para>Request message string. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_guzzle_http_1_1_psr7_1_1_message_a800913e2a86a94b3f3cfc6e516b3dd24_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_guzzle_http_1_1_psr7_1_1_message_1a1afb27a5d0155e1ad2f3fb20556fc5db"/><section>
+    <title>parseRequestUri()</title>
+<indexterm><primary>parseRequestUri</primary><secondary>Message</secondary></indexterm>
+<indexterm><primary>Message</primary><secondary>parseRequestUri</secondary></indexterm>
+<para><computeroutput>static parseRequestUri (string $path, array $headers)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>Constructs a URI for an HTTP request message.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$path</entry><entry>
+<para>Path from the start-line </para>
+</entry>
+                            </row>
+                            <row>
+<entry>array</entry><entry>$headers</entry><entry>
+<para>Array of headers (each value an array). </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
+<anchor xml:id="_class_guzzle_http_1_1_psr7_1_1_message_1addae1ae0165126a25198afcd13727391"/><section>
+    <title>parseResponse()</title>
+<indexterm><primary>parseResponse</primary><secondary>Message</secondary></indexterm>
+<indexterm><primary>Message</primary><secondary>parseResponse</secondary></indexterm>
+<para><computeroutput>static parseResponse (string $message)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>Parses a response message string into a response object.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$message</entry><entry>
+<para>Response message string. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
+<anchor xml:id="_class_guzzle_http_1_1_psr7_1_1_message_1ab60963bc8dda1502e6de257d0a85bcd4"/><section>
+    <title>rewindBody()</title>
+<indexterm><primary>rewindBody</primary><secondary>Message</secondary></indexterm>
+<indexterm><primary>Message</primary><secondary>rewindBody</secondary></indexterm>
+<para><computeroutput>static rewindBody (<link linkend="_interface_psr_1_1_http_1_1_message_1_1_message_interface">MessageInterface</link> $message)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>Attempts to rewind a message body and throws an exception on failure.</para>
+
+<para>The body of the message will only be rewound if a call to <computeroutput>tell()</computeroutput> returns a value other than <computeroutput>0</computeroutput>.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>MessageInterface</entry><entry>$message</entry><entry>
+<para>Message to rewind</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry></entry>
+<entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                RuntimeException </para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_guzzle_http_1_1_psr7_1_1_message_ab60963bc8dda1502e6de257d0a85bcd4_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_guzzle_http_1_1_psr7_1_1_message_1a61fed09ecd12f06595bb87c49380aaa3"/><section>
+    <title>toString()</title>
+<indexterm><primary>toString</primary><secondary>Message</secondary></indexterm>
+<indexterm><primary>Message</primary><secondary>toString</secondary></indexterm>
+<para><computeroutput>static toString (<link linkend="_interface_psr_1_1_http_1_1_message_1_1_message_interface">MessageInterface</link> $message)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>Returns the string representation of an HTTP message.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>MessageInterface</entry><entry>$message</entry><entry>
+<para>Message to convert to a string. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_guzzle_http_1_1_psr7_1_1_message_a61fed09ecd12f06595bb87c49380aaa3_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<para>
+La documentation de cette classe a été générée à partir du fichier suivant :</para>
+public/glpi/vendor/guzzlehttp/psr7/src/<link linkend="_guzzlehttp_2psr7_2src_2_message_8php">Message.php</link></section>
+</section>

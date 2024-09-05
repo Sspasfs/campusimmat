@@ -1,0 +1,192 @@
+\chapter{PHP User Agent Parser}
+\hypertarget{md_public_2glpi_2vendor_2donatj_2phpuseragentparser_2_r_e_a_d_m_e}{}\label{md_public_2glpi_2vendor_2donatj_2phpuseragentparser_2_r_e_a_d_m_e}\index{PHP User Agent Parser@{PHP User Agent Parser}}
+\label{md_public_2glpi_2vendor_2donatj_2phpuseragentparser_2_r_e_a_d_m_e_autotoc_md5752}%
+\Hypertarget{md_public_2glpi_2vendor_2donatj_2phpuseragentparser_2_r_e_a_d_m_e_autotoc_md5752}%
+ \href{https://gitter.im/PhpUserAgentParser/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge}{\texttt{ }}
+
+\href{https://packagist.org/packages/donatj/phpuseragentparser}{\texttt{ }} \href{https://packagist.org/packages/donatj/phpuseragentparser}{\texttt{ }} \href{https://packagist.org/packages/donatj/phpuseragentparser}{\texttt{ }} \href{https://github.com/donatj/phpUserAgent/actions?query=workflow\%3ACI}{\texttt{ }}\hypertarget{md_public_2glpi_2vendor_2donatj_2phpuseragentparser_2_r_e_a_d_m_e_autotoc_md5753}{}\doxysection{\texorpdfstring{What It Is}{What It Is}}\label{md_public_2glpi_2vendor_2donatj_2phpuseragentparser_2_r_e_a_d_m_e_autotoc_md5753}
+A simple, streamlined PHP user-\/agent parser!
+
+Licensed under the MIT license\+: \href{https://www.opensource.org/licenses/mit-license.php}{\texttt{ https\+://www.\+opensource.\+org/licenses/mit-\/license.\+php}}\hypertarget{md_public_2glpi_2vendor_2donatj_2phpuseragentparser_2_r_e_a_d_m_e_autotoc_md5754}{}\doxysection{\texorpdfstring{Upgrading to {\ttfamily 1.\texorpdfstring{$\ast$}{*}}}{Upgrading to {\ttfamily 1.\texorpdfstring{$\ast$}{*}}}}\label{md_public_2glpi_2vendor_2donatj_2phpuseragentparser_2_r_e_a_d_m_e_autotoc_md5754}
+The new {\ttfamily 1.\texorpdfstring{$\ast$}{*}} release {\bfseries{does not break compatibility}} with {\ttfamily 0.\texorpdfstring{$\ast$}{*}} and nothing need to change to upgrade. However, the global {\ttfamily parse\+\_\+user\+\_\+agent} is now deprecated; it has been replaced with the namespaced {\ttfamily \textbackslash{}donatj\textbackslash{}User\+Agent\textbackslash{}parse\+\_\+user\+\_\+agent} and functions exactly the same. You can easily replace any existing call to {\ttfamily parse\+\_\+user\+\_\+agent} with {\ttfamily \textbackslash{}donatj\textbackslash{}User\+Agent\textbackslash{}parse\+\_\+user\+\_\+agent}
+
+In addition, 1.\+x adds a convenience object wrapper you may use should you prefer. More information on this is in the Usage section below.\hypertarget{md_public_2glpi_2vendor_2donatj_2phpuseragentparser_2_r_e_a_d_m_e_autotoc_md5755}{}\doxysection{\texorpdfstring{Why Use This}{Why Use This}}\label{md_public_2glpi_2vendor_2donatj_2phpuseragentparser_2_r_e_a_d_m_e_autotoc_md5755}
+You have your choice in user-\/agent parsers. This one detects {\bfseries{all modern browsers}} in a very light, quick, understandable fashion. It is less than 200 lines of code, and consists of just three regular expressions! It can also correctly identify exotic versions of IE others fail on.
+
+It offers 100\% unit test coverage, is installable via \doxylink{namespace_composer}{Composer}, and is very easy to use.\hypertarget{md_public_2glpi_2vendor_2donatj_2phpuseragentparser_2_r_e_a_d_m_e_autotoc_md5756}{}\doxysection{\texorpdfstring{What It Does Not Do}{What It Does Not Do}}\label{md_public_2glpi_2vendor_2donatj_2phpuseragentparser_2_r_e_a_d_m_e_autotoc_md5756}
+This is not meant as a browser "{}knowledge engine"{} but rather a simple parser. Anything not adequately provided directly by the user agent string itself will simply not be provided by this.\hypertarget{md_public_2glpi_2vendor_2donatj_2phpuseragentparser_2_r_e_a_d_m_e_autotoc_md5757}{}\doxysubsection{\texorpdfstring{OS Versions}{OS Versions}}\label{md_public_2glpi_2vendor_2donatj_2phpuseragentparser_2_r_e_a_d_m_e_autotoc_md5757}
+User-\/agent strings {\bfseries{are not}} a reliable source of OS Version!
+
+
+\begin{DoxyItemize}
+\item Many agents simply don\textquotesingle{}t send the information.
+\item Others provide varying levels of accuracy.
+\item Parsing Windows versions alone almost nearly doubles the size of the code.
+\end{DoxyItemize}
+
+I\textquotesingle{}m much more interested in keeping this thing {\itshape tiny} and accurate than adding niché features and would rather focus on things that can be {\bfseries{done well}}.
+
+All that said, there is the start of a \href{https://github.com/donatj/PhpUserAgent/tree/os_version_detection}{\texttt{ branch to do it}} I created for a client if you want to poke it, I update it from time to time, but frankly if you need to {\itshape reliably detect OS Version}, using user-\/agent isn\textquotesingle{}t the way to do it. I\textquotesingle{}d go with Java\+Script.\hypertarget{md_public_2glpi_2vendor_2donatj_2phpuseragentparser_2_r_e_a_d_m_e_autotoc_md5758}{}\doxysubsection{\texorpdfstring{Undetectable Browsers}{Undetectable Browsers}}\label{md_public_2glpi_2vendor_2donatj_2phpuseragentparser_2_r_e_a_d_m_e_autotoc_md5758}
+
+\begin{DoxyItemize}
+\item {\bfseries{Brave}} -\/ Brave is simply not differentiable from Chrome. This was a design decision on their part.
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2donatj_2phpuseragentparser_2_r_e_a_d_m_e_autotoc_md5759}{}\doxysubsection{\texorpdfstring{Undetectable Platforms}{Undetectable Platforms}}\label{md_public_2glpi_2vendor_2donatj_2phpuseragentparser_2_r_e_a_d_m_e_autotoc_md5759}
+
+\begin{DoxyItemize}
+\item {\bfseries{i\+Pad\+OS 13+}} -\/ Starting with i\+Pad\+OS 13 and further hardened in 14, i\+Pad\+OS returns the {\bfseries{exact}} same string as mac\+OS. It is no longer distinguishable by UA string. (See\+: \href{https://github.com/donatj/PhpUserAgent/issues/69}{\texttt{ \#69}})
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2donatj_2phpuseragentparser_2_r_e_a_d_m_e_autotoc_md5760}{}\doxysection{\texorpdfstring{Requirements}{Requirements}}\label{md_public_2glpi_2vendor_2donatj_2phpuseragentparser_2_r_e_a_d_m_e_autotoc_md5760}
+
+\begin{DoxyItemize}
+\item {\bfseries{php}}\+: \texorpdfstring{$>$}{>}=5.\+4.\+0
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2donatj_2phpuseragentparser_2_r_e_a_d_m_e_autotoc_md5761}{}\doxysection{\texorpdfstring{Installing}{Installing}}\label{md_public_2glpi_2vendor_2donatj_2phpuseragentparser_2_r_e_a_d_m_e_autotoc_md5761}
+PHP \doxylink{class_user}{User} \doxylink{class_agent}{Agent} is available through Packagist via \doxylink{namespace_composer}{Composer}.
+
+Install the latest version with\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{composer\ require\ 'donatj/phpuseragentparser'}
+
+\end{DoxyCode}
+\hypertarget{md_public_2glpi_2vendor_2donatj_2phpuseragentparser_2_r_e_a_d_m_e_autotoc_md5762}{}\doxysection{\texorpdfstring{Usage}{Usage}}\label{md_public_2glpi_2vendor_2donatj_2phpuseragentparser_2_r_e_a_d_m_e_autotoc_md5762}
+The classic procedural use is as simple as\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\$ua\_info}}\ =\ \mbox{\hyperlink{_user_agent_parser_8php_a44520ae234000f6b7498d74ca82723ec}{parse\_user\_agent}}();}
+\DoxyCodeLine{\textcolor{comment}{/*}}
+\DoxyCodeLine{\textcolor{comment}{[}}
+\DoxyCodeLine{\textcolor{comment}{\ \ \ \ 'platform'\ =>\ '[Detected\ Platform]',}}
+\DoxyCodeLine{\textcolor{comment}{\ \ \ \ 'browser'\ \ =>\ '[Detected\ Browser]',}}
+\DoxyCodeLine{\textcolor{comment}{\ \ \ \ 'version'\ \ =>\ '[Detected\ Browser\ Version]',}}
+\DoxyCodeLine{\textcolor{comment}{]}}
+\DoxyCodeLine{\textcolor{comment}{*/}}
+
+\end{DoxyCode}
+
+
+The new object oriented wrapper form\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\$parser\ =\ \textcolor{keyword}{new}\ UserAgentParser();}
+\DoxyCodeLine{}
+\DoxyCodeLine{\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\$ua}}\ =\ \$parser-\/>parse();}
+\DoxyCodeLine{\textcolor{comment}{//\ or}}
+\DoxyCodeLine{\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\$ua}}\ =\ \$parser();}
+\DoxyCodeLine{}
+\DoxyCodeLine{\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\$ua}}-\/>platform();}
+\DoxyCodeLine{\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\$ua}}-\/>browser();}
+\DoxyCodeLine{\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\$ua}}-\/>browserVersion();}
+
+\end{DoxyCode}
+\hypertarget{md_public_2glpi_2vendor_2donatj_2phpuseragentparser_2_r_e_a_d_m_e_autotoc_md5763}{}\doxysection{\texorpdfstring{Currently Detected Platforms}{Currently Detected Platforms}}\label{md_public_2glpi_2vendor_2donatj_2phpuseragentparser_2_r_e_a_d_m_e_autotoc_md5763}
+Predefined helper constants from {\ttfamily donatj\textbackslash{}User\+Agent\textbackslash{}Platforms} ~\newline
+
+
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Constant   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Platform    }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Constant   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Platform    }\\\cline{1-2}
+\endhead
+{\ttfamily Platforms\+::\+MACINTOSH}   &Macintosh    \\\cline{1-2}
+{\ttfamily Platforms\+::\+CHROME\+\_\+\+OS}   &Chrome OS    \\\cline{1-2}
+{\ttfamily Platforms\+::\+LINUX}   &Linux    \\\cline{1-2}
+{\ttfamily Platforms\+::\+WINDOWS}   &Windows    \\\cline{1-2}
+{\ttfamily Platforms\+::\+ANDROID}   &Android    \\\cline{1-2}
+{\ttfamily Platforms\+::\+BLACKBERRY}   &Black\+Berry    \\\cline{1-2}
+{\ttfamily Platforms\+::\+FREEBSD}   &Free\+BSD    \\\cline{1-2}
+{\ttfamily Platforms\+::\+IPAD}   &i\+Pad    \\\cline{1-2}
+{\ttfamily Platforms\+::\+IPHONE}   &i\+Phone    \\\cline{1-2}
+{\ttfamily Platforms\+::\+IPOD}   &i\+Pod    \\\cline{1-2}
+{\ttfamily Platforms\+::\+KINDLE}   &Kindle    \\\cline{1-2}
+{\ttfamily Platforms\+::\+KINDLE\+\_\+\+FIRE}   &Kindle Fire    \\\cline{1-2}
+{\ttfamily Platforms\+::\+NETBSD}   &Net\+BSD    \\\cline{1-2}
+{\ttfamily Platforms\+::\+NEW\+\_\+\+NINTENDO\+\_\+3\+DS}   &New Nintendo 3DS    \\\cline{1-2}
+{\ttfamily Platforms\+::\+NINTENDO\+\_\+3\+DS}   &Nintendo 3DS    \\\cline{1-2}
+{\ttfamily Platforms\+::\+NINTENDO\+\_\+\+DS}   &Nintendo DS    \\\cline{1-2}
+{\ttfamily Platforms\+::\+NINTENDO\+\_\+\+SWITCH}   &Nintendo Switch    \\\cline{1-2}
+{\ttfamily Platforms\+::\+NINTENDO\+\_\+\+WII}   &Nintendo Wii    \\\cline{1-2}
+{\ttfamily Platforms\+::\+NINTENDO\+\_\+\+WIIU}   &Nintendo WiiU    \\\cline{1-2}
+{\ttfamily Platforms\+::\+OPENBSD}   &Open\+BSD    \\\cline{1-2}
+{\ttfamily Platforms\+::\+PLAYBOOK}   &Play\+Book    \\\cline{1-2}
+{\ttfamily Platforms\+::\+PLAYSTATION\+\_\+3}   &Play\+Station 3    \\\cline{1-2}
+{\ttfamily Platforms\+::\+PLAYSTATION\+\_\+4}   &Play\+Station 4    \\\cline{1-2}
+{\ttfamily Platforms\+::\+PLAYSTATION\+\_\+5}   &Play\+Station 5    \\\cline{1-2}
+{\ttfamily Platforms\+::\+PLAYSTATION\+\_\+\+VITA}   &Play\+Station Vita    \\\cline{1-2}
+{\ttfamily Platforms\+::\+SAILFISH}   &Sailfish    \\\cline{1-2}
+{\ttfamily Platforms\+::\+SYMBIAN}   &Symbian    \\\cline{1-2}
+{\ttfamily Platforms\+::\+TIZEN}   &Tizen    \\\cline{1-2}
+{\ttfamily Platforms\+::\+WINDOWS\+\_\+\+PHONE}   &Windows \doxylink{class_phone}{Phone}    \\\cline{1-2}
+{\ttfamily Platforms\+::\+XBOX}   &Xbox    \\\cline{1-2}
+{\ttfamily Platforms\+::\+XBOX\+\_\+\+ONE}   &Xbox One   \\\cline{1-2}
+\end{longtabu}
+\hypertarget{md_public_2glpi_2vendor_2donatj_2phpuseragentparser_2_r_e_a_d_m_e_autotoc_md5764}{}\doxysection{\texorpdfstring{Currently Detected Browsers}{Currently Detected Browsers}}\label{md_public_2glpi_2vendor_2donatj_2phpuseragentparser_2_r_e_a_d_m_e_autotoc_md5764}
+Predefined helper constants from {\ttfamily donatj\textbackslash{}User\+Agent\textbackslash{}Browsers} ~\newline
+
+
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Constant   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Browser    }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Constant   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Browser    }\\\cline{1-2}
+\endhead
+{\ttfamily Browsers\+::\+ADSBOT\+\_\+\+GOOGLE}   &Ads\+Bot-\/\+Google    \\\cline{1-2}
+{\ttfamily Browsers\+::\+ANDROID\+\_\+\+BROWSER}   &Android Browser    \\\cline{1-2}
+{\ttfamily Browsers\+::\+APPLEBOT}   &Applebot    \\\cline{1-2}
+{\ttfamily Browsers\+::\+BAIDUSPIDER}   &Baiduspider    \\\cline{1-2}
+{\ttfamily Browsers\+::\+BINGBOT}   &bingbot    \\\cline{1-2}
+{\ttfamily Browsers\+::\+BLACKBERRY\+\_\+\+BROWSER}   &Black\+Berry Browser    \\\cline{1-2}
+{\ttfamily Browsers\+::\+BROWSER}   &Browser    \\\cline{1-2}
+{\ttfamily Browsers\+::\+BUNJALLOO}   &Bunjalloo    \\\cline{1-2}
+{\ttfamily Browsers\+::\+CAMINO}   &Camino    \\\cline{1-2}
+{\ttfamily Browsers\+::\+CHROME}   &Chrome    \\\cline{1-2}
+{\ttfamily Browsers\+::\+CURL}   &curl    \\\cline{1-2}
+{\ttfamily Browsers\+::\+EDGE}   &Edge    \\\cline{1-2}
+{\ttfamily Browsers\+::\+FACEBOOKEXTERNALHIT}   &facebookexternalhit    \\\cline{1-2}
+{\ttfamily Browsers\+::\+FEEDVALIDATOR}   &Feed\+Validator    \\\cline{1-2}
+{\ttfamily Browsers\+::\+FIREFOX}   &Firefox    \\\cline{1-2}
+{\ttfamily Browsers\+::\+GOOGLEBOT}   &Googlebot    \\\cline{1-2}
+{\ttfamily Browsers\+::\+GOOGLEBOT\+\_\+\+IMAGE}   &Googlebot-\/\+Image    \\\cline{1-2}
+{\ttfamily Browsers\+::\+GOOGLEBOT\+\_\+\+VIDEO}   &Googlebot-\/\+Video    \\\cline{1-2}
+{\ttfamily Browsers\+::\+HEADLESSCHROME}   &Headless\+Chrome    \\\cline{1-2}
+{\ttfamily Browsers\+::\+IEMOBILE}   &IEMobile    \\\cline{1-2}
+{\ttfamily Browsers\+::\+IMESSAGEBOT}   &i\+Message\+Bot    \\\cline{1-2}
+{\ttfamily Browsers\+::\+KINDLE}   &Kindle    \\\cline{1-2}
+{\ttfamily Browsers\+::\+LYNX}   &Lynx    \\\cline{1-2}
+{\ttfamily Browsers\+::\+MIDORI}   &Midori    \\\cline{1-2}
+{\ttfamily Browsers\+::\+MIUIBROWSER}   &Miui\+Browser    \\\cline{1-2}
+{\ttfamily Browsers\+::\+MSIE}   &MSIE    \\\cline{1-2}
+{\ttfamily Browsers\+::\+MSNBOT\+\_\+\+MEDIA}   &msnbot-\/media    \\\cline{1-2}
+{\ttfamily Browsers\+::\+NETFRONT}   &Net\+Front    \\\cline{1-2}
+{\ttfamily Browsers\+::\+NINTENDOBROWSER}   &Nintendo\+Browser    \\\cline{1-2}
+{\ttfamily Browsers\+::\+OCULUSBROWSER}   &Oculus\+Browser    \\\cline{1-2}
+{\ttfamily Browsers\+::\+OPERA}   &Opera    \\\cline{1-2}
+{\ttfamily Browsers\+::\+PUFFIN}   &Puffin    \\\cline{1-2}
+{\ttfamily Browsers\+::\+SAFARI}   &Safari    \\\cline{1-2}
+{\ttfamily Browsers\+::\+SAILFISHBROWSER}   &Sailfish\+Browser    \\\cline{1-2}
+{\ttfamily Browsers\+::\+SAMSUNGBROWSER}   &Samsung\+Browser    \\\cline{1-2}
+{\ttfamily Browsers\+::\+SILK}   &Silk    \\\cline{1-2}
+{\ttfamily Browsers\+::\+TELEGRAMBOT}   &Telegram\+Bot    \\\cline{1-2}
+{\ttfamily Browsers\+::\+TIZENBROWSER}   &Tizen\+Browser    \\\cline{1-2}
+{\ttfamily Browsers\+::\+TWITTERBOT}   &Twitterbot    \\\cline{1-2}
+{\ttfamily Browsers\+::\+UC\+\_\+\+BROWSER}   &UC Browser    \\\cline{1-2}
+{\ttfamily Browsers\+::\+VALVE\+\_\+\+STEAM\+\_\+\+TENFOOT}   &Valve Steam Tenfoot    \\\cline{1-2}
+{\ttfamily Browsers\+::\+VIVALDI}   &Vivaldi    \\\cline{1-2}
+{\ttfamily Browsers\+::\+WGET}   &Wget    \\\cline{1-2}
+{\ttfamily Browsers\+::\+WORDPRESS}   &Word\+Press    \\\cline{1-2}
+{\ttfamily Browsers\+::\+YANDEX}   &Yandex    \\\cline{1-2}
+{\ttfamily Browsers\+::\+YANDEXBOT}   &Yandex\+Bot   \\\cline{1-2}
+\end{longtabu}
+
+
+More information is available at \href{https://donatstudios.com/PHP-Parser-HTTP_USER_AGENT}{\texttt{ Donat Studios}}. 

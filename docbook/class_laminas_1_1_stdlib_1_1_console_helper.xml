@@ -1,0 +1,346 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_laminas_1_1_stdlib_1_1_console_helper" xml:lang="fr">
+<title>Référence de la classe ConsoleHelper</title>
+<indexterm><primary>ConsoleHelper</primary></indexterm>
+Graphe de collaboration de ConsoleHelper:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_laminas_1_1_stdlib_1_1_console_helper__coll__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Fonctions membres publiques    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_laminas_1_1_stdlib_1_1_console_helper_1aa360bb2b80ad033f9d5f1373c29353b9">__construct</link> ($resource=STDOUT)</para>
+</listitem>
+            <listitem><para><link linkend="_class_laminas_1_1_stdlib_1_1_console_helper_1a3039813a6280554a031ec3e4a7ac279e">colorize</link> ($string)</para>
+</listitem>
+            <listitem><para><link linkend="_class_laminas_1_1_stdlib_1_1_console_helper_1a9079677576dd5ca307ec22d08e839584">write</link> ($string, $<link linkend="_class_laminas_1_1_stdlib_1_1_console_helper_1a3039813a6280554a031ec3e4a7ac279e">colorize</link>=true, $resource=STDOUT)</para>
+</listitem>
+            <listitem><para><link linkend="_class_laminas_1_1_stdlib_1_1_console_helper_1ae00365e5e8ef97fd787aed143e8798f9">writeLine</link> ($string, $<link linkend="_class_laminas_1_1_stdlib_1_1_console_helper_1a3039813a6280554a031ec3e4a7ac279e">colorize</link>=true, $resource=STDOUT)</para>
+</listitem>
+            <listitem><para><link linkend="_class_laminas_1_1_stdlib_1_1_console_helper_1a3907038e9af678acd9b44d8572469cd4">writeErrorMessage</link> ($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">message</link>)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Champs de données    </title>
+        <itemizedlist>
+            <listitem><para>const <link linkend="_class_laminas_1_1_stdlib_1_1_console_helper_1a1a6de7cb25ae3a57acc11f4becd40b69">COLOR_GREEN</link> = &quot;\033[32m&quot;</para>
+</listitem>
+            <listitem><para>const <link linkend="_class_laminas_1_1_stdlib_1_1_console_helper_1a62ebfbff0297f46e3ca94b0dd10a15a3">COLOR_RED</link> = &quot;\033[31m&quot;</para>
+</listitem>
+            <listitem><para>const <link linkend="_class_laminas_1_1_stdlib_1_1_console_helper_1aa65ef8e0301e12421f57c353b8bfbe82">COLOR_RESET</link> = &quot;\033[0m&quot;</para>
+</listitem>
+            <listitem><para>const <link linkend="_class_laminas_1_1_stdlib_1_1_console_helper_1a94963e1035430a46a92ccc8f001358eb">HIGHLIGHT_INFO</link> = &apos;info&apos;</para>
+</listitem>
+            <listitem><para>const <link linkend="_class_laminas_1_1_stdlib_1_1_console_helper_1a1bbd9821feb5031276e5e34a1ce7f52c">HIGHLIGHT_ERROR</link> = &apos;error&apos;</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Description détaillée</title>
+
+<para>Utilities for console tooling.</para>
+
+<para>Provides the following facilities:</para>
+
+<para><itemizedlist>
+<listitem>
+<para>Colorize strings using markup (e.g., <computeroutput>&lt;info&gt;message&lt;/info&gt;</computeroutput>, <computeroutput>&lt;error&gt;message&lt;/error&gt;</computeroutput>)</para>
+</listitem><listitem>
+<para>Write output to a specified stream, optionally with colorization.</para>
+</listitem><listitem>
+<para>Write a line of output to a specified stream, optionally with colorization, using the system EOL sequence..</para>
+</listitem><listitem>
+<para>Write an error message to STDERR.</para>
+</listitem></itemizedlist>
+</para>
+
+<para>Colorization will only occur when expected sequences are discovered, and then, only if the console terminal allows it.</para>
+
+<para>Essentially, provides the bare minimum to allow you to provide messages to the current console. </para>
+</section>
+<section>
+<title>Documentation des constructeurs et destructeur</title>
+<anchor xml:id="_class_laminas_1_1_stdlib_1_1_console_helper_1aa360bb2b80ad033f9d5f1373c29353b9"/><section>
+    <title>__construct()</title>
+<indexterm><primary>__construct</primary><secondary>ConsoleHelper</secondary></indexterm>
+<indexterm><primary>ConsoleHelper</primary><secondary>__construct</secondary></indexterm>
+<para><computeroutput>__construct ( $resource = <computeroutput>STDOUT</computeroutput>
+)</computeroutput></para>
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>resource</entry><entry>$resource</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
+</section>
+<section>
+<title>Documentation des fonctions membres</title>
+<anchor xml:id="_class_laminas_1_1_stdlib_1_1_console_helper_1a3039813a6280554a031ec3e4a7ac279e"/><section>
+    <title>colorize()</title>
+<indexterm><primary>colorize</primary><secondary>ConsoleHelper</secondary></indexterm>
+<indexterm><primary>ConsoleHelper</primary><secondary>colorize</secondary></indexterm>
+<para><computeroutput>colorize ( $string)</computeroutput></para>
+<para>Colorize a string for use with the terminal.</para>
+
+<para>Takes strings formatted as <computeroutput>&lt;key&gt;string&lt;/key&gt;</computeroutput> and formats them per the $highlightMap; if color support is disabled, simply removes the formatting tags.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$string</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>string </para>
+</formalpara>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_laminas_1_1_stdlib_1_1_console_helper_a3039813a6280554a031ec3e4a7ac279e_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_laminas_1_1_stdlib_1_1_console_helper_1a9079677576dd5ca307ec22d08e839584"/><section>
+    <title>write()</title>
+<indexterm><primary>write</primary><secondary>ConsoleHelper</secondary></indexterm>
+<indexterm><primary>ConsoleHelper</primary><secondary>write</secondary></indexterm>
+<para><computeroutput>write ( $string,  $colorize = <computeroutput>true</computeroutput>
+,  $resource = <computeroutput>STDOUT</computeroutput>
+)</computeroutput></para>
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$string</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>bool</entry><entry>$colorize</entry><entry>
+<para>Whether or not to colorize the string </para>
+</entry>
+                            </row>
+                            <row>
+<entry>resource</entry><entry>$resource</entry><entry>
+<para>Defaults to STDOUT </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>void </para>
+</formalpara>
+</para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_laminas_1_1_stdlib_1_1_console_helper_a9079677576dd5ca307ec22d08e839584_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_laminas_1_1_stdlib_1_1_console_helper_a9079677576dd5ca307ec22d08e839584_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_laminas_1_1_stdlib_1_1_console_helper_1a3907038e9af678acd9b44d8572469cd4"/><section>
+    <title>writeErrorMessage()</title>
+<indexterm><primary>writeErrorMessage</primary><secondary>ConsoleHelper</secondary></indexterm>
+<indexterm><primary>ConsoleHelper</primary><secondary>writeErrorMessage</secondary></indexterm>
+<para><computeroutput>writeErrorMessage ( $message)</computeroutput></para>
+<para>Emit an error message.</para>
+
+<para>Wraps the message in <computeroutput>&lt;error&gt;&lt;/error&gt;</computeroutput>, and passes it to <computeroutput>writeLine()</computeroutput>, using STDERR as the resource; emits an additional empty line when done, also to STDERR.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$message</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>void </para>
+</formalpara>
+</para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_laminas_1_1_stdlib_1_1_console_helper_a3907038e9af678acd9b44d8572469cd4_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_laminas_1_1_stdlib_1_1_console_helper_1ae00365e5e8ef97fd787aed143e8798f9"/><section>
+    <title>writeLine()</title>
+<indexterm><primary>writeLine</primary><secondary>ConsoleHelper</secondary></indexterm>
+<indexterm><primary>ConsoleHelper</primary><secondary>writeLine</secondary></indexterm>
+<para><computeroutput>writeLine ( $string,  $colorize = <computeroutput>true</computeroutput>
+,  $resource = <computeroutput>STDOUT</computeroutput>
+)</computeroutput></para>
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$string</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>bool</entry><entry>$colorize</entry><entry>
+<para>Whether or not to colorize the line </para>
+</entry>
+                            </row>
+                            <row>
+<entry>resource</entry><entry>$resource</entry><entry>
+<para>Defaults to STDOUT </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>void </para>
+</formalpara>
+</para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_laminas_1_1_stdlib_1_1_console_helper_ae00365e5e8ef97fd787aed143e8798f9_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_laminas_1_1_stdlib_1_1_console_helper_ae00365e5e8ef97fd787aed143e8798f9_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+</section>
+<section>
+<title>Documentation des champs</title>
+<anchor xml:id="_class_laminas_1_1_stdlib_1_1_console_helper_1a1a6de7cb25ae3a57acc11f4becd40b69"/><section>
+    <title>COLOR_GREEN</title>
+<indexterm><primary>COLOR_GREEN</primary><secondary>ConsoleHelper</secondary></indexterm>
+<indexterm><primary>ConsoleHelper</primary><secondary>COLOR_GREEN</secondary></indexterm>
+<para><computeroutput>const COLOR_GREEN = &quot;\033[32m&quot;</computeroutput></para></section>
+<anchor xml:id="_class_laminas_1_1_stdlib_1_1_console_helper_1a62ebfbff0297f46e3ca94b0dd10a15a3"/><section>
+    <title>COLOR_RED</title>
+<indexterm><primary>COLOR_RED</primary><secondary>ConsoleHelper</secondary></indexterm>
+<indexterm><primary>ConsoleHelper</primary><secondary>COLOR_RED</secondary></indexterm>
+<para><computeroutput>const COLOR_RED = &quot;\033[31m&quot;</computeroutput></para></section>
+<anchor xml:id="_class_laminas_1_1_stdlib_1_1_console_helper_1aa65ef8e0301e12421f57c353b8bfbe82"/><section>
+    <title>COLOR_RESET</title>
+<indexterm><primary>COLOR_RESET</primary><secondary>ConsoleHelper</secondary></indexterm>
+<indexterm><primary>ConsoleHelper</primary><secondary>COLOR_RESET</secondary></indexterm>
+<para><computeroutput>const COLOR_RESET = &quot;\033[0m&quot;</computeroutput></para></section>
+<anchor xml:id="_class_laminas_1_1_stdlib_1_1_console_helper_1a1bbd9821feb5031276e5e34a1ce7f52c"/><section>
+    <title>HIGHLIGHT_ERROR</title>
+<indexterm><primary>HIGHLIGHT_ERROR</primary><secondary>ConsoleHelper</secondary></indexterm>
+<indexterm><primary>ConsoleHelper</primary><secondary>HIGHLIGHT_ERROR</secondary></indexterm>
+<para><computeroutput>const HIGHLIGHT_ERROR = &apos;error&apos;</computeroutput></para></section>
+<anchor xml:id="_class_laminas_1_1_stdlib_1_1_console_helper_1a94963e1035430a46a92ccc8f001358eb"/><section>
+    <title>HIGHLIGHT_INFO</title>
+<indexterm><primary>HIGHLIGHT_INFO</primary><secondary>ConsoleHelper</secondary></indexterm>
+<indexterm><primary>ConsoleHelper</primary><secondary>HIGHLIGHT_INFO</secondary></indexterm>
+<para><computeroutput>const HIGHLIGHT_INFO = &apos;info&apos;</computeroutput></para></section>
+<para>
+La documentation de cette classe a été générée à partir du fichier suivant :</para>
+public/glpi/vendor/laminas/laminas-stdlib/src/<link linkend="__console_helper_8php">ConsoleHelper.php</link></section>
+</section>

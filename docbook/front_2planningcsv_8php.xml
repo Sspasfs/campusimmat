@@ -1,0 +1,64 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_front_2planningcsv_8php" xml:lang="fr">
+<title>Référence du fichier public/glpi/front/planningcsv.php</title>
+<indexterm><primary>public/glpi/front/planningcsv.php</primary></indexterm>
+<simplesect>
+    <title>Variables    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_front_2planningcsv_8php_1adb6f452e1a6b5d20f124596a46edf692">$users_id</link> = null</para>
+</listitem>
+            <listitem><para><link linkend="_front_2planningcsv_8php_1a214cf9a0a6fdb8035d8e50bf9216528d">$groups_id</link> = (<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">isset</link>($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">_GET</link>[&quot;gID&quot;]) ? (int)$<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">_GET</link>[&apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">uID</link>&apos;] : 0)</para>
+</listitem>
+            <listitem><para><link linkend="_front_2planningcsv_8php_1aeda99bf9a9a091fe2d0d29bdcdbe5e11">$limititemtype</link> = (<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">isset</link>($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">_GET</link>[&apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">limititemtype</link>&apos;]) ? $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">_GET</link>[&apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">limititemtype</link>&apos;] : &apos;&apos;)</para>
+</listitem>
+            <listitem><para><link linkend="_dropdown_location_8php_1a52332c22f84432520971794825a5a8e7">if</link>(!<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">isset</link>($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">_GET</link>[&quot;uID&quot;])) <link linkend="_front_2planningcsv_8php_1a25751c121d901efa28845475ffea91cb">else</link></para>
+</listitem>
+            <listitem><para><link linkend="_front_2planningcsv_8php_1a598ca4e71b15a1313ec95f0df1027ca5">$user</link> = <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">new</link> <link linkend="_class_user">User</link>()</para>
+</listitem>
+            <listitem><para><link linkend="_front_2planningcsv_8php_1ac374f70041aa8a50703895c5cc599288">$ismine</link> = false</para>
+</listitem>
+            <listitem><para><link linkend="_dropdown_location_8php_1a52332c22f84432520971794825a5a8e7">if</link>( $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">user</link>-&gt;getID()==$<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">users_id</link>) <link linkend="_dropdown_location_8php_1a52332c22f84432520971794825a5a8e7">if</link>(! $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">ismine</link> &amp;&amp; $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">groups_id</link> !==0 <link linkend="_front_2planningcsv_8php_1a1c9c4fa12b6defefefbb5508b1fde141">$canview</link> ) = false</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Documentation des variables</title>
+<anchor xml:id="_front_2planningcsv_8php_1a1c9c4fa12b6defefefbb5508b1fde141"/><section>
+    <title>$canview</title>
+<indexterm><primary>$canview</primary><secondary>planningcsv.php</secondary></indexterm>
+<indexterm><primary>planningcsv.php</primary><secondary>$canview</secondary></indexterm>
+<para><computeroutput><link linkend="_dropdown_location_8php_1a52332c22f84432520971794825a5a8e7">if</link>($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">user</link>-&gt;getID()==$<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">users_id</link>) <link linkend="_dropdown_location_8php_1a52332c22f84432520971794825a5a8e7">if</link> (! $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">ismine</link> &amp;&amp;$<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">groups_id</link> !==0 $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">canview</link>)  = false</computeroutput></para></section>
+<anchor xml:id="_front_2planningcsv_8php_1a214cf9a0a6fdb8035d8e50bf9216528d"/><section>
+    <title>$groups_id</title>
+<indexterm><primary>$groups_id</primary><secondary>planningcsv.php</secondary></indexterm>
+<indexterm><primary>planningcsv.php</primary><secondary>$groups_id</secondary></indexterm>
+<para><computeroutput>$<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">groups_id</link> = (<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">isset</link>($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">_GET</link>[&quot;gID&quot;]) ? (int)$<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">_GET</link>[&apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">uID</link>&apos;] : 0)</computeroutput></para></section>
+<anchor xml:id="_front_2planningcsv_8php_1ac374f70041aa8a50703895c5cc599288"/><section>
+    <title>$ismine</title>
+<indexterm><primary>$ismine</primary><secondary>planningcsv.php</secondary></indexterm>
+<indexterm><primary>planningcsv.php</primary><secondary>$ismine</secondary></indexterm>
+<para><computeroutput>$<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">ismine</link> = false</computeroutput></para></section>
+<anchor xml:id="_front_2planningcsv_8php_1aeda99bf9a9a091fe2d0d29bdcdbe5e11"/><section>
+    <title>$limititemtype</title>
+<indexterm><primary>$limititemtype</primary><secondary>planningcsv.php</secondary></indexterm>
+<indexterm><primary>planningcsv.php</primary><secondary>$limititemtype</secondary></indexterm>
+<para><computeroutput>$<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">limititemtype</link> = (<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">isset</link>($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">_GET</link>[&apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">limititemtype</link>&apos;]) ? $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">_GET</link>[&apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">limititemtype</link>&apos;] : &apos;&apos;)</computeroutput></para></section>
+<anchor xml:id="_front_2planningcsv_8php_1a598ca4e71b15a1313ec95f0df1027ca5"/><section>
+    <title>$user</title>
+<indexterm><primary>$user</primary><secondary>planningcsv.php</secondary></indexterm>
+<indexterm><primary>planningcsv.php</primary><secondary>$user</secondary></indexterm>
+<para><computeroutput>$<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">user</link> = <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">new</link> <link linkend="_class_user">User</link>()</computeroutput></para></section>
+<anchor xml:id="_front_2planningcsv_8php_1adb6f452e1a6b5d20f124596a46edf692"/><section>
+    <title>$users_id</title>
+<indexterm><primary>$users_id</primary><secondary>planningcsv.php</secondary></indexterm>
+<indexterm><primary>planningcsv.php</primary><secondary>$users_id</secondary></indexterm>
+<para><computeroutput>$<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">users_id</link> = null</computeroutput></para></section>
+<anchor xml:id="_front_2planningcsv_8php_1a25751c121d901efa28845475ffea91cb"/><section>
+    <title>else</title>
+<indexterm><primary>else</primary><secondary>planningcsv.php</secondary></indexterm>
+<indexterm><primary>planningcsv.php</primary><secondary>else</secondary></indexterm>
+<para><computeroutput><link linkend="_dropdown_location_8php_1a52332c22f84432520971794825a5a8e7">if</link> (!<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">isset</link>( $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">_GET</link>[&quot;uID&quot;])) else</computeroutput></para><emphasis role="strong">Valeur initiale :</emphasis><programlisting linenumbering="unnumbered">{
+&#32;&#32;&#32;&#32;<link linkend="_front_2planningcsv_8php_1adb6f452e1a6b5d20f124596a46edf692">$users_id</link>&#32;=&#32;(int)<link linkend="_common_8tabs_8php_1a7b2772071c2b50e11742306f5abe68e3">$_GET</link>[<emphasis role="stringliteral">&apos;uID&apos;</emphasis>]
+</programlisting></section>
+</section>
+</section>

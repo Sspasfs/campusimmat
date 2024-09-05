@@ -1,0 +1,60 @@
+\chapter{RRULE for PHP}
+\hypertarget{md_public_2glpi_2vendor_2rlanvin_2php-rrule_2_r_e_a_d_m_e}{}\label{md_public_2glpi_2vendor_2rlanvin_2php-rrule_2_r_e_a_d_m_e}\index{RRULE for PHP@{RRULE for PHP}}
+\label{md_public_2glpi_2vendor_2rlanvin_2php-rrule_2_r_e_a_d_m_e_autotoc_md7035}%
+\Hypertarget{md_public_2glpi_2vendor_2rlanvin_2php-rrule_2_r_e_a_d_m_e_autotoc_md7035}%
+ Lightweight and fast implementation of recurrence rules for PHP ({\ttfamily RRULE} from RFC 5545), to easily calculate recurring/repeating dates and events (such as in a calendar). This library started as a port of \href{https://labix.org/python-dateutil}{\texttt{ python-\/dateutil}}.
+
+\href{https://github.com/rlanvin/php-rrule/actions}{\texttt{ }} \href{https://packagist.org/packages/rlanvin/php-rrule}{\texttt{ }} \href{https://packagist.org/packages/rlanvin/php-rrule}{\texttt{ }}\hypertarget{md_public_2glpi_2vendor_2rlanvin_2php-rrule_2_r_e_a_d_m_e_autotoc_md7036}{}\doxysection{\texorpdfstring{Basic example}{Basic example}}\label{md_public_2glpi_2vendor_2rlanvin_2php-rrule_2_r_e_a_d_m_e_autotoc_md7036}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{use}}\ \mbox{\hyperlink{class_r_rule_1_1_r_rule}{RRule\(\backslash\)RRule}};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\$rrule}}\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{namespace_r_rule}{RRule}}([}
+\DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{'FREQ'}\ =>\ \textcolor{stringliteral}{'MONTHLY'},}
+\DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{'INTERVAL'}\ =>\ 1,}
+\DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{'DTSTART'}\ =>\ \textcolor{stringliteral}{'2015-\/06-\/01'},}
+\DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{'COUNT'}\ =>\ 6}
+\DoxyCodeLine{]);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordflow}{foreach}\ (\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\$rrule}}\ \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{as}}\ \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\$occurrence}})\ \{}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{echo}}\ \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\$occurrence}}-\/>format(\textcolor{stringliteral}{'D\ d\ M\ Y'}),\textcolor{stringliteral}{"{},\ "{}};}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{\textcolor{comment}{//\ Mon\ 01\ Jun\ 2015,\ Wed\ 01\ Jul\ 2015,\ Sat\ 01\ Aug\ 2015,\ Tue\ 01\ Sep\ 2015,\ Thu\ 01\ Oct\ 2015,\ Sun\ 01\ Nov\ 2015}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{echo}}\ \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\$rrule}}-\/>humanReadable(),\textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{\textcolor{comment}{//\ monthly\ on\ the\ 1st\ of\ the\ month,\ starting\ from\ 01/06/2015,\ 6\ times}}
+
+\end{DoxyCode}
+
+
+Complete documentation and more examples are available in \href{https://github.com/rlanvin/php-rrule/wiki}{\texttt{ the wiki}}.\hypertarget{md_public_2glpi_2vendor_2rlanvin_2php-rrule_2_r_e_a_d_m_e_autotoc_md7037}{}\doxysection{\texorpdfstring{Requirements}{Requirements}}\label{md_public_2glpi_2vendor_2rlanvin_2php-rrule_2_r_e_a_d_m_e_autotoc_md7037}
+
+\begin{DoxyItemize}
+\item PHP \texorpdfstring{$>$}{>}= 5.\+6
+\item \href{http://php.net/manual/en/book.intl.php}{\texttt{ intl extension}} is recommended for {\ttfamily human\+Readable()} but not strictly required
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2rlanvin_2php-rrule_2_r_e_a_d_m_e_autotoc_md7038}{}\doxysection{\texorpdfstring{Installation}{Installation}}\label{md_public_2glpi_2vendor_2rlanvin_2php-rrule_2_r_e_a_d_m_e_autotoc_md7038}
+The recommended way is to install the lib \href{http://getcomposer.org/}{\texttt{ through Composer}}.
+
+Simply run {\ttfamily composer require rlanvin/php-\/rrule} for it to be automatically installed and included in your {\ttfamily composer.\+json}.
+
+Now you can use the autoloader, and you will have access to the library\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{require}}\ \textcolor{stringliteral}{'vendor/autoload.php'};}
+
+\end{DoxyCode}
+\hypertarget{md_public_2glpi_2vendor_2rlanvin_2php-rrule_2_r_e_a_d_m_e_autotoc_md7039}{}\doxysection{\texorpdfstring{Documentation}{Documentation}}\label{md_public_2glpi_2vendor_2rlanvin_2php-rrule_2_r_e_a_d_m_e_autotoc_md7039}
+Complete documentation is available in \href{https://github.com/rlanvin/php-rrule/wiki}{\texttt{ the wiki}}.
+
+You will also find useful information in the \href{https://tools.ietf.org/html/rfc5545\#section-3.3.10}{\texttt{ RFC 5545 section 3.\+3.\+10}}.\hypertarget{md_public_2glpi_2vendor_2rlanvin_2php-rrule_2_r_e_a_d_m_e_autotoc_md7040}{}\doxysection{\texorpdfstring{Contribution}{Contribution}}\label{md_public_2glpi_2vendor_2rlanvin_2php-rrule_2_r_e_a_d_m_e_autotoc_md7040}
+Feel free to contribute! Just create a new issue or a new pull request.
+
+The coding style is (mostly) PSR-\/2, but with tabs.\hypertarget{md_public_2glpi_2vendor_2rlanvin_2php-rrule_2_r_e_a_d_m_e_autotoc_md7041}{}\doxysubsection{\texorpdfstring{Translation}{Translation}}\label{md_public_2glpi_2vendor_2rlanvin_2php-rrule_2_r_e_a_d_m_e_autotoc_md7041}
+Use {\ttfamily ./bin/review\+\_\+translations.php -\/-\/locale \texorpdfstring{$<$}{<}locale\texorpdfstring{$>$}{>}} to print a list of examples using the locale specified (default is English). Use {\ttfamily ./bin/review\+\_\+translations.php -\/-\/rule "{}$<$rule$>$"{}} to test a specific rule in all available locales.\hypertarget{md_public_2glpi_2vendor_2rlanvin_2php-rrule_2_r_e_a_d_m_e_autotoc_md7042}{}\doxysection{\texorpdfstring{Note}{Note}}\label{md_public_2glpi_2vendor_2rlanvin_2php-rrule_2_r_e_a_d_m_e_autotoc_md7042}
+I started this library because I wasn\textquotesingle{}t happy with the existing implementations in PHP, so I thought it would be a good learning project to port the python-\/dateutil rrule implementation into PHP.
+
+The Python lib was a bit difficult to understand because the algorithms are not commented and the variables are very opaque (I\textquotesingle{}m looking at you {\ttfamily lno1wkst}). I tried to comment and explain as much of the algorithm as possible in this PHP port, so feel free to check the code if you\textquotesingle{}re interested.
+
+The lib differs from the python version in various aspects, notably in the respect of the RFC. This version is a bit strictier and will not accept many non-\/compliant combinations of rule parts, that the python version otherwise accepts. There are also some additional features in this version.\hypertarget{md_public_2glpi_2vendor_2rlanvin_2php-rrule_2_r_e_a_d_m_e_autotoc_md7043}{}\doxysection{\texorpdfstring{License}{License}}\label{md_public_2glpi_2vendor_2rlanvin_2php-rrule_2_r_e_a_d_m_e_autotoc_md7043}
+This library is released under the MIT License. 

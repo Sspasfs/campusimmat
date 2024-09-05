@@ -1,0 +1,1279 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_md_public_2glpi_2vendor_2monolog_2monolog_2_c_h_a_n_g_e_l_o_g" xml:lang="fr">
+<title>2.8.0 (2022-07-24)</title>
+<indexterm><primary>2.8.0 (2022-07-24)</primary></indexterm>
+
+<para><anchor xml:id="_md_public_2glpi_2vendor_2monolog_2monolog_2_c_h_a_n_g_e_l_o_g_1autotoc_md6783"/><itemizedlist>
+<listitem>
+<para>Deprecated <computeroutput>CubeHandler</computeroutput> and <computeroutput>PHPConsoleHandler</computeroutput> as both projects are abandoned and those should not be used anymore (#1734)</para>
+</listitem><listitem>
+<para>Added RFC 5424 level (<computeroutput>7</computeroutput> to <computeroutput>0</computeroutput>) support to <computeroutput>Logger::log</computeroutput> and <computeroutput>Logger::addRecord</computeroutput> to increase interoperability (#1723)</para>
+</listitem><listitem>
+<para>Added support for <computeroutput>__toString</computeroutput> for objects which are not json serializable in <computeroutput>JsonFormatter</computeroutput> (#1733)</para>
+</listitem><listitem>
+<para>Added <computeroutput>GoogleCloudLoggingFormatter</computeroutput> (#1719)</para>
+</listitem><listitem>
+<para>Added support for Predis 2.x (#1732)</para>
+</listitem><listitem>
+<para>Added <computeroutput>AmqpHandler-&gt;setExtraAttributes</computeroutput> to allow configuring attributes when using an AMQPExchange (#1724)</para>
+</listitem><listitem>
+<para>Fixed serialization/unserialization of handlers to make sure private properties are included (#1727)</para>
+</listitem><listitem>
+<para>Fixed allowInlineLineBreaks in LineFormatter causing issues with windows paths containing <computeroutput>\n</computeroutput> or <computeroutput>\r</computeroutput> sequences (#1720)</para>
+</listitem><listitem>
+<para>Fixed max normalization depth not being taken into account when formatting exceptions with a deep chain of previous exceptions (#1726)</para>
+</listitem><listitem>
+<para>Fixed PHP 8.2 deprecation warnings (#1722)</para>
+</listitem><listitem>
+<para>Fixed rare race condition or filesystem issue where StreamHandler is unable to create the directory the log should go into yet it exists already (#1678)</para>
+</listitem></itemizedlist>
+</para>
+<section xml:id="_md_public_2glpi_2vendor_2monolog_2monolog_2_c_h_a_n_g_e_l_o_g_1autotoc_md6784">
+<title><title>2.7.0 (2022-06-09)</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Added <computeroutput>$datetime</computeroutput> parameter to <computeroutput>Logger::addRecord</computeroutput> as low level API to allow logging into the past or future (#1682)</para>
+</listitem><listitem>
+<para>Added <computeroutput>Logger::useLoggingLoopDetection</computeroutput> to allow disabling cyclic logging detection in concurrent frameworks (#1681)</para>
+</listitem><listitem>
+<para>Fixed handling of fatal errors if callPrevious is disabled in ErrorHandler (#1670)</para>
+</listitem><listitem>
+<para>Marked the reusable <computeroutput><link linkend="_namespace_monolog">Monolog</link>\Test\TestCase</computeroutput> class as <computeroutput>@internal</computeroutput> to make sure PHPStorm does not show it above PHPUnit, you may still use it to test your own handlers/etc though (#1677)</para>
+</listitem><listitem>
+<para>Fixed RotatingFileHandler issue when the date format contained slashes (#1671)</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2monolog_2monolog_2_c_h_a_n_g_e_l_o_g_1autotoc_md6785">
+<title><title>2.6.0 (2022-05-10)</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Deprecated <computeroutput>SwiftMailerHandler</computeroutput>, use <computeroutput>SymfonyMailerHandler</computeroutput> instead</para>
+</listitem><listitem>
+<para>Added <computeroutput>SymfonyMailerHandler</computeroutput> (#1663)</para>
+</listitem><listitem>
+<para>Added ElasticSearch 8.x support to the ElasticsearchHandler (#1662)</para>
+</listitem><listitem>
+<para>Added a way to filter/modify stack traces in LineFormatter (#1665)</para>
+</listitem><listitem>
+<para>Fixed UdpSocket not being able to reopen/reconnect after close()</para>
+</listitem><listitem>
+<para>Fixed infinite loops if a Handler is triggering logging while handling log records</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2monolog_2monolog_2_c_h_a_n_g_e_l_o_g_1autotoc_md6786">
+<title><title>2.5.0 (2022-04-08)</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Added <computeroutput>callType</computeroutput> to IntrospectionProcessor (#1612)</para>
+</listitem><listitem>
+<para>Fixed AsMonologProcessor syntax to be compatible with PHP 7.2 (#1651)</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2monolog_2monolog_2_c_h_a_n_g_e_l_o_g_1autotoc_md6787">
+<title><title>2.4.0 (2022-03-14)</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Added <link xlink:href="src/Monolog/LogRecord.php"><computeroutput>Monolog\LogRecord</computeroutput></link> interface that can be used to type-hint records like <computeroutput>array|\<link linkend="_namespace_monolog">Monolog</link>\LogRecord $record</computeroutput> to be forward compatible with the upcoming <link linkend="_namespace_monolog">Monolog</link> 3 changes</para>
+</listitem><listitem>
+<para>Added <computeroutput>includeStacktraces</computeroutput> constructor params to LineFormatter &amp; JsonFormatter (#1603)</para>
+</listitem><listitem>
+<para>Added <computeroutput>persistent</computeroutput>, <computeroutput>timeout</computeroutput>, <computeroutput>writingTimeout</computeroutput>, <computeroutput>connectionTimeout</computeroutput>, <computeroutput>chunkSize</computeroutput> constructor params to SocketHandler and derivatives (#1600)</para>
+</listitem><listitem>
+<para>Added <computeroutput>AsMonologProcessor</computeroutput> PHP attribute which can help autowiring / autoconfiguration of processors if frameworks / integrations decide to make use of it. This is useless when used purely with <link linkend="_namespace_monolog">Monolog</link> (#1637)</para>
+</listitem><listitem>
+<para>Added support for keeping native BSON types as is in MongoDBFormatter (#1620)</para>
+</listitem><listitem>
+<para>Added support for a <computeroutput>user_agent</computeroutput> key in WebProcessor, disabled by default but you can use it by configuring the $extraFields you want (#1613)</para>
+</listitem><listitem>
+<para>Added support for username/userIcon in SlackWebhookHandler (#1617)</para>
+</listitem><listitem>
+<para>Added extension points to BrowserConsoleHandler (#1593)</para>
+</listitem><listitem>
+<para>Added record message/context/extra info to exceptions thrown when a StreamHandler cannot open its stream to avoid completely losing the data logged (#1630)</para>
+</listitem><listitem>
+<para>Fixed error handler signature to accept a null $context which happens with internal PHP errors (#1614)</para>
+</listitem><listitem>
+<para>Fixed a few setter methods not returning <computeroutput>self</computeroutput> (#1609)</para>
+</listitem><listitem>
+<para>Fixed handling of records going over the max Telegram message length (#1616)</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2monolog_2monolog_2_c_h_a_n_g_e_l_o_g_1autotoc_md6788">
+<title><title>2.3.5 (2021-10-01)</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Fixed regression in StreamHandler since 2.3.3 on systems with the memory_limit set to &gt;=20GB (#1592)</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2monolog_2monolog_2_c_h_a_n_g_e_l_o_g_1autotoc_md6789">
+<title><title>2.3.4 (2021-09-15)</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Fixed support for psr/log 3.x (#1589)</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2monolog_2monolog_2_c_h_a_n_g_e_l_o_g_1autotoc_md6790">
+<title><title>2.3.3 (2021-09-14)</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Fixed memory usage when using StreamHandler and calling stream_get_contents on the resource you passed to it (#1578, #1577)</para>
+</listitem><listitem>
+<para>Fixed support for psr/log 2.x (#1587)</para>
+</listitem><listitem>
+<para>Fixed some type annotations</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2monolog_2monolog_2_c_h_a_n_g_e_l_o_g_1autotoc_md6791">
+<title><title>2.3.2 (2021-07-23)</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Fixed compatibility with PHP 7.2 - 7.4 when experiencing PCRE errors (#1568)</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2monolog_2monolog_2_c_h_a_n_g_e_l_o_g_1autotoc_md6792">
+<title><title>2.3.1 (2021-07-14)</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Fixed Utils::getClass handling of anonymous classes not being fully compatible with PHP 8 (#1563)</para>
+</listitem><listitem>
+<para>Fixed some <computeroutput>@inheritDoc</computeroutput> annotations having the wrong case</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2monolog_2monolog_2_c_h_a_n_g_e_l_o_g_1autotoc_md6793">
+<title><title>2.3.0 (2021-07-05)</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Added a ton of PHPStan type annotations as well as type aliases on <link linkend="_namespace_monolog">Monolog</link>\Logger for Record, Level and LevelName that you can import (#1557)</para>
+</listitem><listitem>
+<para>Added ability to customize date format when using JsonFormatter (#1561)</para>
+</listitem><listitem>
+<para>Fixed FilterHandler not calling reset on its internal handler when reset() is called on it (#1531)</para>
+</listitem><listitem>
+<para>Fixed SyslogUdpHandler not setting the timezone correctly on DateTimeImmutable instances (#1540)</para>
+</listitem><listitem>
+<para>Fixed StreamHandler thread safety - chunk size set to 2GB now to avoid interlacing when doing concurrent writes (#1553)</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2monolog_2monolog_2_c_h_a_n_g_e_l_o_g_1autotoc_md6794">
+<title><title>2.2.0 (2020-12-14)</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Added JSON_PARTIAL_OUTPUT_ON_ERROR to default json encoding flags, to avoid dropping entire context data or even records due to an invalid subset of it somewhere</para>
+</listitem><listitem>
+<para>Added setDateFormat to NormalizerFormatter (and Line/Json formatters by extension) to allow changing this after object creation</para>
+</listitem><listitem>
+<para>Added RedisPubSubHandler to log records to a Redis channel using PUBLISH</para>
+</listitem><listitem>
+<para>Added support for Elastica 7, and deprecated the $type argument of ElasticaFormatter which is not in use anymore as of Elastica 7</para>
+</listitem><listitem>
+<para>Added support for millisecond write timeouts in SocketHandler, you can now pass floats to setWritingTimeout, e.g. 0.2 is 200ms</para>
+</listitem><listitem>
+<para>Added support for unix sockets in SyslogUdpHandler (set $port to 0 to make the $host a unix socket)</para>
+</listitem><listitem>
+<para>Added handleBatch support for TelegramBotHandler</para>
+</listitem><listitem>
+<para>Added RFC5424e extended date format including milliseconds to SyslogUdpHandler</para>
+</listitem><listitem>
+<para>Added support for configuring handlers with numeric level values in strings (coming from e.g. env vars)</para>
+</listitem><listitem>
+<para>Fixed Wildfire/FirePHP/ChromePHP handling of unicode characters</para>
+</listitem><listitem>
+<para>Fixed PHP 8 issues in SyslogUdpHandler</para>
+</listitem><listitem>
+<para>Fixed internal type error when mbstring is missing</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2monolog_2monolog_2_c_h_a_n_g_e_l_o_g_1autotoc_md6795">
+<title><title>2.1.1 (2020-07-23)</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Fixed removing of json encoding options</para>
+</listitem><listitem>
+<para>Fixed type hint of $level not accepting strings in SendGridHandler and OverflowHandler</para>
+</listitem><listitem>
+<para>Fixed SwiftMailerHandler not accepting email templates with an empty subject</para>
+</listitem><listitem>
+<para>Fixed array access on null in RavenHandler</para>
+</listitem><listitem>
+<para>Fixed unique_id in WebProcessor not being disableable</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2monolog_2monolog_2_c_h_a_n_g_e_l_o_g_1autotoc_md6796">
+<title><title>2.1.0 (2020-05-22)</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Added <computeroutput>JSON_INVALID_UTF8_SUBSTITUTE</computeroutput> to default json flags, so that invalid UTF8 characters now get converted to <link xlink:href="https://en.wikipedia.org/wiki/Specials_(Unicode_block)#Replacement_character">�</link> instead of being converted from ISO-8859-15 to UTF8 as it was before, which was hardly a comprehensive solution</para>
+</listitem><listitem>
+<para>Added <computeroutput>$ignoreEmptyContextAndExtra</computeroutput> option to JsonFormatter to skip empty context/extra entirely from the output</para>
+</listitem><listitem>
+<para>Added <computeroutput>$parseMode</computeroutput>, <computeroutput>$disableWebPagePreview</computeroutput> and <computeroutput>$disableNotification</computeroutput> options to TelegramBotHandler</para>
+</listitem><listitem>
+<para>Added tentative support for PHP 8</para>
+</listitem><listitem>
+<para>NormalizerFormatter::addJsonEncodeOption and removeJsonEncodeOption are now public to allow modifying default json flags</para>
+</listitem><listitem>
+<para>Fixed GitProcessor type error when there is no git repo present</para>
+</listitem><listitem>
+<para>Fixed normalization of SoapFault objects containing deeply nested objects as &quot;detail&quot;</para>
+</listitem><listitem>
+<para>Fixed support for relative paths in RotatingFileHandler</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2monolog_2monolog_2_c_h_a_n_g_e_l_o_g_1autotoc_md6797">
+<title><title>2.0.2 (2019-12-20)</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Fixed ElasticsearchHandler swallowing exceptions details when failing to index log records</para>
+</listitem><listitem>
+<para>Fixed normalization of SoapFault objects containing non-strings as &quot;detail&quot; in LineFormatter</para>
+</listitem><listitem>
+<para>Fixed formatting of resources in JsonFormatter</para>
+</listitem><listitem>
+<para>Fixed RedisHandler failing to use MULTI properly when passed a proxied Redis instance (e.g. in Symfony with lazy services)</para>
+</listitem><listitem>
+<para>Fixed FilterHandler triggering a notice when handleBatch was filtering all records passed to it</para>
+</listitem><listitem>
+<para>Fixed Turkish locale messing up the conversion of level names to their constant values</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2monolog_2monolog_2_c_h_a_n_g_e_l_o_g_1autotoc_md6798">
+<title><title>2.0.1 (2019-11-13)</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Fixed normalization of Traversables to avoid traversing them as not all of them are rewindable</para>
+</listitem><listitem>
+<para>Fixed setFormatter/getFormatter to forward to the nested handler in FilterHandler, FingersCrossedHandler, BufferHandler, OverflowHandler and SamplingHandler</para>
+</listitem><listitem>
+<para>Fixed BrowserConsoleHandler formatting when using multiple styles</para>
+</listitem><listitem>
+<para>Fixed normalization of exception codes to be always integers even for PDOException which have them as numeric strings</para>
+</listitem><listitem>
+<para>Fixed normalization of SoapFault objects containing non-strings as &quot;detail&quot;</para>
+</listitem><listitem>
+<para>Fixed json encoding across all handlers to always attempt recovery of non-UTF-8 strings instead of failing the whole encoding</para>
+</listitem><listitem>
+<para>Fixed ChromePHPHandler to avoid sending more data than latest Chrome versions allow in headers (4KB down from 256KB).</para>
+</listitem><listitem>
+<para>Fixed type error in BrowserConsoleHandler when the context array of log records was not associative.</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2monolog_2monolog_2_c_h_a_n_g_e_l_o_g_1autotoc_md6799">
+<title><title>2.0.0 (2019-08-30)</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>BC Break: This is a major release, see <link linkend="_md_public_2glpi_2vendor_2monolog_2monolog_2_u_p_g_r_a_d_e">UPGRADE.md</link> for details if you are coming from a 1.x release</para>
+</listitem><listitem>
+<para>BC Break: Logger methods log/debug/info/notice/warning/error/critical/alert/emergency now have explicit void return types</para>
+</listitem><listitem>
+<para>Added FallbackGroupHandler which works like the WhatFailureGroupHandler but stops dispatching log records as soon as one handler accepted it</para>
+</listitem><listitem>
+<para>Fixed support for UTF-8 when cutting strings to avoid cutting a multibyte-character in half</para>
+</listitem><listitem>
+<para>Fixed normalizers handling of exception backtraces to avoid serializing arguments in some cases</para>
+</listitem><listitem>
+<para>Fixed date timezone handling in SyslogUdpHandler</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2monolog_2monolog_2_c_h_a_n_g_e_l_o_g_1autotoc_md6800">
+<title><title>2.0.0-beta2 (2019-07-06)</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>BC Break: This is a major release, see <link linkend="_md_public_2glpi_2vendor_2monolog_2monolog_2_u_p_g_r_a_d_e">UPGRADE.md</link> for details if you are coming from a 1.x release</para>
+</listitem><listitem>
+<para>BC Break: PHP 7.2 is now the minimum required PHP version.</para>
+</listitem><listitem>
+<para>BC Break: Removed SlackbotHandler, RavenHandler and HipChatHandler, see <link linkend="_md_public_2glpi_2vendor_2monolog_2monolog_2_u_p_g_r_a_d_e">UPGRADE.md</link> for details</para>
+</listitem><listitem>
+<para>Added OverflowHandler which will only flush log records to its nested handler when reaching a certain amount of logs (i.e. only pass through when things go really bad)</para>
+</listitem><listitem>
+<para>Added TelegramBotHandler to log records to a <link xlink:href="https://core.telegram.org/bots/api">Telegram</link> bot account</para>
+</listitem><listitem>
+<para>Added support for JsonSerializable when normalizing exceptions</para>
+</listitem><listitem>
+<para>Added support for RFC3164 (outdated BSD syslog protocol) to SyslogUdpHandler</para>
+</listitem><listitem>
+<para>Added SoapFault details to formatted exceptions</para>
+</listitem><listitem>
+<para>Fixed DeduplicationHandler silently failing to start when file could not be opened</para>
+</listitem><listitem>
+<para>Fixed issue in GroupHandler and WhatFailureGroupHandler where setting multiple processors would duplicate records</para>
+</listitem><listitem>
+<para>Fixed GelfFormatter losing some data when one attachment was too long</para>
+</listitem><listitem>
+<para>Fixed issue in SignalHandler restarting syscalls functionality</para>
+</listitem><listitem>
+<para>Improved performance of LogglyHandler when sending multiple logs in a single request</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2monolog_2monolog_2_c_h_a_n_g_e_l_o_g_1autotoc_md6801">
+<title><title>2.0.0-beta1 (2018-12-08)</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>BC Break: This is a major release, see <link linkend="_md_public_2glpi_2vendor_2monolog_2monolog_2_u_p_g_r_a_d_e">UPGRADE.md</link> for details if you are coming from a 1.x release</para>
+</listitem><listitem>
+<para>BC Break: PHP 7.1 is now the minimum required PHP version.</para>
+</listitem><listitem>
+<para>BC Break: Quite a few interface changes, only relevant if you implemented your own handlers/processors/formatters</para>
+</listitem><listitem>
+<para>BC Break: Removed non-PSR-3 methods to add records, all the <computeroutput>add*</computeroutput> (e.g. <computeroutput>addWarning</computeroutput>) methods as well as <computeroutput>emerg</computeroutput>, <computeroutput>crit</computeroutput>, <computeroutput>err</computeroutput> and <computeroutput>warn</computeroutput></para>
+</listitem><listitem>
+<para>BC Break: The record timezone is now set per Logger instance and not statically anymore</para>
+</listitem><listitem>
+<para>BC Break: There is no more default handler configured on empty Logger instances</para>
+</listitem><listitem>
+<para>BC Break: ElasticSearchHandler renamed to ElasticaHandler</para>
+</listitem><listitem>
+<para>BC Break: Various handler-specific breaks, see <link linkend="_md_public_2glpi_2vendor_2monolog_2monolog_2_u_p_g_r_a_d_e">UPGRADE.md</link> for details</para>
+</listitem><listitem>
+<para>Added scalar type hints and return hints in all the places it was possible. Switched strict_types on for more reliability.</para>
+</listitem><listitem>
+<para>Added DateTimeImmutable support, all record datetime are now immutable, and will toString/json serialize with the correct date format, including microseconds (unless disabled)</para>
+</listitem><listitem>
+<para>Added timezone and microseconds to the default date format</para>
+</listitem><listitem>
+<para>Added SendGridHandler to use the SendGrid API to send emails</para>
+</listitem><listitem>
+<para>Added LogmaticHandler to use the Logmatic.io API to store log records</para>
+</listitem><listitem>
+<para>Added SqsHandler to send log records to an AWS SQS queue</para>
+</listitem><listitem>
+<para>Added ElasticsearchHandler to send records via the official ES library. Elastica users should now use ElasticaHandler instead of ElasticSearchHandler</para>
+</listitem><listitem>
+<para>Added NoopHandler which is similar to the NullHandle but does not prevent the bubbling of log records to handlers further down the configuration, useful for temporarily disabling a handler in configuration files</para>
+</listitem><listitem>
+<para>Added ProcessHandler to write log output to the STDIN of a given process</para>
+</listitem><listitem>
+<para>Added HostnameProcessor that adds the machine&apos;s hostname to log records</para>
+</listitem><listitem>
+<para>Added a <computeroutput>$dateFormat</computeroutput> option to the PsrLogMessageProcessor which lets you format DateTime instances nicely</para>
+</listitem><listitem>
+<para>Added support for the PHP 7.x <computeroutput>mongodb</computeroutput> extension in the MongoDBHandler</para>
+</listitem><listitem>
+<para>Fixed many minor issues in various handlers, and probably added a few regressions too</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2monolog_2monolog_2_c_h_a_n_g_e_l_o_g_1autotoc_md6802">
+<title><title>1.26.1 (2021-05-28)</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Fixed PHP 8.1 deprecation warning</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2monolog_2monolog_2_c_h_a_n_g_e_l_o_g_1autotoc_md6803">
+<title><title>1.26.0 (2020-12-14)</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Added $dateFormat and $removeUsedContextFields arguments to PsrLogMessageProcessor (backport from 2.x)</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2monolog_2monolog_2_c_h_a_n_g_e_l_o_g_1autotoc_md6804">
+<title><title>1.25.5 (2020-07-23)</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Fixed array access on null in RavenHandler</para>
+</listitem><listitem>
+<para>Fixed unique_id in WebProcessor not being disableable</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2monolog_2monolog_2_c_h_a_n_g_e_l_o_g_1autotoc_md6805">
+<title><title>1.25.4 (2020-05-22)</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Fixed GitProcessor type error when there is no git repo present</para>
+</listitem><listitem>
+<para>Fixed normalization of SoapFault objects containing deeply nested objects as &quot;detail&quot;</para>
+</listitem><listitem>
+<para>Fixed support for relative paths in RotatingFileHandler</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2monolog_2monolog_2_c_h_a_n_g_e_l_o_g_1autotoc_md6806">
+<title><title>1.25.3 (2019-12-20)</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Fixed formatting of resources in JsonFormatter</para>
+</listitem><listitem>
+<para>Fixed RedisHandler failing to use MULTI properly when passed a proxied Redis instance (e.g. in Symfony with lazy services)</para>
+</listitem><listitem>
+<para>Fixed FilterHandler triggering a notice when handleBatch was filtering all records passed to it</para>
+</listitem><listitem>
+<para>Fixed Turkish locale messing up the conversion of level names to their constant values</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2monolog_2monolog_2_c_h_a_n_g_e_l_o_g_1autotoc_md6807">
+<title><title>1.25.2 (2019-11-13)</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Fixed normalization of Traversables to avoid traversing them as not all of them are rewindable</para>
+</listitem><listitem>
+<para>Fixed setFormatter/getFormatter to forward to the nested handler in FilterHandler, FingersCrossedHandler, BufferHandler and SamplingHandler</para>
+</listitem><listitem>
+<para>Fixed BrowserConsoleHandler formatting when using multiple styles</para>
+</listitem><listitem>
+<para>Fixed normalization of exception codes to be always integers even for PDOException which have them as numeric strings</para>
+</listitem><listitem>
+<para>Fixed normalization of SoapFault objects containing non-strings as &quot;detail&quot;</para>
+</listitem><listitem>
+<para>Fixed json encoding across all handlers to always attempt recovery of non-UTF-8 strings instead of failing the whole encoding</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2monolog_2monolog_2_c_h_a_n_g_e_l_o_g_1autotoc_md6808">
+<title><title>1.25.1 (2019-09-06)</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Fixed forward-compatible interfaces to be compatible with <link linkend="_namespace_monolog">Monolog</link> 1.x too.</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2monolog_2monolog_2_c_h_a_n_g_e_l_o_g_1autotoc_md6809">
+<title><title>1.25.0 (2019-09-06)</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Deprecated SlackbotHandler, use SlackWebhookHandler or SlackHandler instead</para>
+</listitem><listitem>
+<para>Deprecated RavenHandler, use sentry/sentry 2.x and their Sentry\Monolog\Handler instead</para>
+</listitem><listitem>
+<para>Deprecated HipChatHandler, migrate to Slack and use SlackWebhookHandler or SlackHandler instead</para>
+</listitem><listitem>
+<para>Added forward-compatible interfaces and traits FormattableHandlerInterface, FormattableHandlerTrait, ProcessableHandlerInterface, ProcessableHandlerTrait. If you use modern PHP and want to make code compatible with <link linkend="_namespace_monolog">Monolog</link> 1 and 2 this can help. You will have to require at least <link linkend="_namespace_monolog">Monolog</link> 1.25 though.</para>
+</listitem><listitem>
+<para>Added support for RFC3164 (outdated BSD syslog protocol) to SyslogUdpHandler</para>
+</listitem><listitem>
+<para>Fixed issue in GroupHandler and WhatFailureGroupHandler where setting multiple processors would duplicate records</para>
+</listitem><listitem>
+<para>Fixed issue in SignalHandler restarting syscalls functionality</para>
+</listitem><listitem>
+<para>Fixed normalizers handling of exception backtraces to avoid serializing arguments in some cases</para>
+</listitem><listitem>
+<para>Fixed ZendMonitorHandler to work with the latest Zend Server versions</para>
+</listitem><listitem>
+<para>Fixed ChromePHPHandler to avoid sending more data than latest Chrome versions allow in headers (4KB down from 256KB).</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2monolog_2monolog_2_c_h_a_n_g_e_l_o_g_1autotoc_md6810">
+<title><title>1.24.0 (2018-11-05)</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>BC Notice: If you are extending any of the <link linkend="_namespace_monolog">Monolog</link>&apos;s Formatters&apos; <computeroutput>normalize</computeroutput> method, make sure you add the new <computeroutput>$depth = 0</computeroutput> argument to your function signature to avoid strict PHP warnings.</para>
+</listitem><listitem>
+<para>Added a <computeroutput>ResettableInterface</computeroutput> in order to reset/reset/clear/flush handlers and processors</para>
+</listitem><listitem>
+<para>Added a <computeroutput>ProcessorInterface</computeroutput> as an optional way to label a class as being a processor (mostly useful for autowiring dependency containers)</para>
+</listitem><listitem>
+<para>Added a way to log signals being received using <link linkend="_namespace_monolog">Monolog</link>\SignalHandler</para>
+</listitem><listitem>
+<para>Added ability to customize error handling at the Logger level using Logger::setExceptionHandler</para>
+</listitem><listitem>
+<para>Added InsightOpsHandler to migrate users of the LogEntriesHandler</para>
+</listitem><listitem>
+<para>Added protection to NormalizerFormatter against circular and very deep structures, it now stops normalizing at a depth of 9</para>
+</listitem><listitem>
+<para>Added capture of stack traces to ErrorHandler when logging PHP errors</para>
+</listitem><listitem>
+<para>Added RavenHandler support for a <computeroutput>contexts</computeroutput> context or extra key to forward that to Sentry&apos;s contexts</para>
+</listitem><listitem>
+<para>Added forwarding of context info to FluentdFormatter</para>
+</listitem><listitem>
+<para>Added SocketHandler::setChunkSize to override the default chunk size in case you must send large log lines to rsyslog for example</para>
+</listitem><listitem>
+<para>Added ability to extend/override BrowserConsoleHandler</para>
+</listitem><listitem>
+<para>Added SlackWebhookHandler::getWebhookUrl and SlackHandler::getToken to enable class extensibility</para>
+</listitem><listitem>
+<para>Added SwiftMailerHandler::getSubjectFormatter to enable class extensibility</para>
+</listitem><listitem>
+<para>Dropped official support for HHVM in test builds</para>
+</listitem><listitem>
+<para>Fixed normalization of exception traces when call_user_func is used to avoid serializing objects and the data they contain</para>
+</listitem><listitem>
+<para>Fixed naming of fields in Slack handler, all field names are now capitalized in all cases</para>
+</listitem><listitem>
+<para>Fixed HipChatHandler bug where slack dropped messages randomly</para>
+</listitem><listitem>
+<para>Fixed normalization of objects in Slack handlers</para>
+</listitem><listitem>
+<para>Fixed support for PHP7&apos;s Throwable in NewRelicHandler</para>
+</listitem><listitem>
+<para>Fixed race bug when StreamHandler sometimes incorrectly reported it failed to create a directory</para>
+</listitem><listitem>
+<para>Fixed table row styling issues in HtmlFormatter</para>
+</listitem><listitem>
+<para>Fixed RavenHandler dropping the message when logging exception</para>
+</listitem><listitem>
+<para>Fixed WhatFailureGroupHandler skipping processors when using handleBatch and implement it where possible</para>
+</listitem><listitem>
+<para>Fixed display of anonymous class names</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2monolog_2monolog_2_c_h_a_n_g_e_l_o_g_1autotoc_md6811">
+<title><title>1.23.0 (2017-06-19)</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Improved SyslogUdpHandler&apos;s support for RFC5424 and added optional <computeroutput>$ident</computeroutput> argument</para>
+</listitem><listitem>
+<para>Fixed GelfHandler truncation to be per field and not per message</para>
+</listitem><listitem>
+<para>Fixed compatibility issue with PHP &lt;5.3.6</para>
+</listitem><listitem>
+<para>Fixed support for headless Chrome in ChromePHPHandler</para>
+</listitem><listitem>
+<para>Fixed support for latest Aws SDK in DynamoDbHandler</para>
+</listitem><listitem>
+<para>Fixed support for SwiftMailer 6.0+ in SwiftMailerHandler</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2monolog_2monolog_2_c_h_a_n_g_e_l_o_g_1autotoc_md6812">
+<title><title>1.22.1 (2017-03-13)</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Fixed lots of minor issues in the new Slack integrations</para>
+</listitem><listitem>
+<para>Fixed support for allowInlineLineBreaks in LineFormatter when formatting exception backtraces</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2monolog_2monolog_2_c_h_a_n_g_e_l_o_g_1autotoc_md6813">
+<title><title>1.22.0 (2016-11-26)</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Added SlackbotHandler and SlackWebhookHandler to set up Slack integration more easily</para>
+</listitem><listitem>
+<para>Added MercurialProcessor to add mercurial revision and branch names to log records</para>
+</listitem><listitem>
+<para>Added support for AWS SDK v3 in DynamoDbHandler</para>
+</listitem><listitem>
+<para>Fixed fatal errors occurring when normalizing generators that have been fully consumed</para>
+</listitem><listitem>
+<para>Fixed RollbarHandler to include a level (rollbar level), monolog_level (original name), channel and datetime (unix)</para>
+</listitem><listitem>
+<para>Fixed RollbarHandler not flushing records automatically, calling close() explicitly is not necessary anymore</para>
+</listitem><listitem>
+<para>Fixed SyslogUdpHandler to avoid sending empty frames</para>
+</listitem><listitem>
+<para>Fixed a few PHP 7.0 and 7.1 compatibility issues</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2monolog_2monolog_2_c_h_a_n_g_e_l_o_g_1autotoc_md6814">
+<title><title>1.21.0 (2016-07-29)</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Break: Reverted the addition of $context when the ErrorHandler handles regular php errors from 1.20.0 as it was causing issues</para>
+</listitem><listitem>
+<para>Added support for more formats in RotatingFileHandler::setFilenameFormat as long as they have Y, m and d in order</para>
+</listitem><listitem>
+<para>Added ability to format the main line of text the SlackHandler sends by explicitly setting a formatter on the handler</para>
+</listitem><listitem>
+<para>Added information about SoapFault instances in NormalizerFormatter</para>
+</listitem><listitem>
+<para>Added $handleOnlyReportedErrors option on ErrorHandler::registerErrorHandler (default true) to allow logging of all errors no matter the error_reporting level</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2monolog_2monolog_2_c_h_a_n_g_e_l_o_g_1autotoc_md6815">
+<title><title>1.20.0 (2016-07-02)</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Added FingersCrossedHandler::activate() to manually trigger the handler regardless of the activation policy</para>
+</listitem><listitem>
+<para>Added StreamHandler::getUrl to retrieve the stream&apos;s URL</para>
+</listitem><listitem>
+<para>Added ability to override addRow/addTitle in HtmlFormatter</para>
+</listitem><listitem>
+<para>Added the $context to context information when the ErrorHandler handles a regular php error</para>
+</listitem><listitem>
+<para>Deprecated RotatingFileHandler::setFilenameFormat to only support 3 formats: Y, Y-m and Y-m-d</para>
+</listitem><listitem>
+<para>Fixed WhatFailureGroupHandler to work with PHP7 throwables</para>
+</listitem><listitem>
+<para>Fixed a few minor bugs</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2monolog_2monolog_2_c_h_a_n_g_e_l_o_g_1autotoc_md6816">
+<title><title>1.19.0 (2016-04-12)</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Break: StreamHandler will not close streams automatically that it does not own. If you pass in a stream (not a path/url), then it will not close it for you. You can retrieve those using getStream() if needed</para>
+</listitem><listitem>
+<para>Added DeduplicationHandler to remove duplicate records from notifications across multiple requests, useful for email or other notifications on errors</para>
+</listitem><listitem>
+<para>Added ability to use <computeroutput>message%</computeroutput> and other LineFormatter replacements in the subject line of emails sent with NativeMailHandler and SwiftMailerHandler</para>
+</listitem><listitem>
+<para>Fixed HipChatHandler handling of long messages</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2monolog_2monolog_2_c_h_a_n_g_e_l_o_g_1autotoc_md6817">
+<title><title>1.18.2 (2016-04-02)</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Fixed ElasticaFormatter to use more precise dates</para>
+</listitem><listitem>
+<para>Fixed GelfMessageFormatter sending too long messages</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2monolog_2monolog_2_c_h_a_n_g_e_l_o_g_1autotoc_md6818">
+<title><title>1.18.1 (2016-03-13)</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Fixed SlackHandler bug where slack dropped messages randomly</para>
+</listitem><listitem>
+<para>Fixed RedisHandler issue when using with the PHPRedis extension</para>
+</listitem><listitem>
+<para>Fixed AmqpHandler content-type being incorrectly set when using with the AMQP extension</para>
+</listitem><listitem>
+<para>Fixed BrowserConsoleHandler regression</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2monolog_2monolog_2_c_h_a_n_g_e_l_o_g_1autotoc_md6819">
+<title><title>1.18.0 (2016-03-01)</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Added optional reduction of timestamp precision via <computeroutput>Logger-&gt;useMicrosecondTimestamps(false)</computeroutput>, disabling it gets you a bit of performance boost but reduces the precision to the second instead of microsecond</para>
+</listitem><listitem>
+<para>Added possibility to skip some extra stack frames in IntrospectionProcessor if you have some library wrapping <link linkend="_namespace_monolog">Monolog</link> that is always adding frames</para>
+</listitem><listitem>
+<para>Added <computeroutput>Logger-&gt;withName</computeroutput> to clone a logger (keeping all handlers) with a new name</para>
+</listitem><listitem>
+<para>Added FluentdFormatter for the Fluentd unix socket protocol</para>
+</listitem><listitem>
+<para>Added HandlerWrapper base class to ease the creation of handler wrappers, just extend it and override as needed</para>
+</listitem><listitem>
+<para>Added support for replacing context sub-keys using <computeroutput>context.*%</computeroutput> in LineFormatter</para>
+</listitem><listitem>
+<para>Added support for <computeroutput>payload</computeroutput> context value in RollbarHandler</para>
+</listitem><listitem>
+<para>Added setRelease to RavenHandler to describe the application version, sent with every log</para>
+</listitem><listitem>
+<para>Added support for <computeroutput>fingerprint</computeroutput> context value in RavenHandler</para>
+</listitem><listitem>
+<para>Fixed JSON encoding errors that would gobble up the whole log record, we now handle those more gracefully by dropping chars as needed</para>
+</listitem><listitem>
+<para>Fixed write timeouts in SocketHandler and derivatives, set to 10sec by default, lower it with <computeroutput>setWritingTimeout()</computeroutput></para>
+</listitem><listitem>
+<para>Fixed PHP7 compatibility with regard to Exception/Throwable handling in a few places</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2monolog_2monolog_2_c_h_a_n_g_e_l_o_g_1autotoc_md6820">
+<title><title>1.17.2 (2015-10-14)</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Fixed ErrorHandler compatibility with non-Monolog PSR-3 loggers</para>
+</listitem><listitem>
+<para>Fixed SlackHandler handling to use slack functionalities better</para>
+</listitem><listitem>
+<para>Fixed SwiftMailerHandler bug when sending multiple emails they all had the same id</para>
+</listitem><listitem>
+<para>Fixed 5.3 compatibility regression</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2monolog_2monolog_2_c_h_a_n_g_e_l_o_g_1autotoc_md6821">
+<title><title>1.17.1 (2015-08-31)</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Fixed RollbarHandler triggering PHP notices</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2monolog_2monolog_2_c_h_a_n_g_e_l_o_g_1autotoc_md6822">
+<title><title>1.17.0 (2015-08-30)</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Added support for <computeroutput>checksum</computeroutput> and <computeroutput>release</computeroutput> context/extra values in RavenHandler</para>
+</listitem><listitem>
+<para>Added better support for exceptions in RollbarHandler</para>
+</listitem><listitem>
+<para>Added UidProcessor::getUid</para>
+</listitem><listitem>
+<para>Added support for showing the resource type in NormalizedFormatter</para>
+</listitem><listitem>
+<para>Fixed IntrospectionProcessor triggering PHP notices</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2monolog_2monolog_2_c_h_a_n_g_e_l_o_g_1autotoc_md6823">
+<title><title>1.16.0 (2015-08-09)</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Added IFTTTHandler to notify ifttt.com triggers</para>
+</listitem><listitem>
+<para>Added Logger::setHandlers() to allow setting/replacing all handlers</para>
+</listitem><listitem>
+<para>Added $capSize in RedisHandler to cap the log size</para>
+</listitem><listitem>
+<para>Fixed StreamHandler creation of directory to only trigger when the first log write happens</para>
+</listitem><listitem>
+<para>Fixed bug in the handling of curl failures</para>
+</listitem><listitem>
+<para>Fixed duplicate logging of fatal errors when both error and fatal error handlers are registered in monolog&apos;s ErrorHandler</para>
+</listitem><listitem>
+<para>Fixed missing fatal errors records with handlers that need to be closed to flush log records</para>
+</listitem><listitem>
+<para>Fixed TagProcessor::addTags support for associative arrays</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2monolog_2monolog_2_c_h_a_n_g_e_l_o_g_1autotoc_md6824">
+<title><title>1.15.0 (2015-07-12)</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Added addTags and setTags methods to change a TagProcessor</para>
+</listitem><listitem>
+<para>Added automatic creation of directories if they are missing for a StreamHandler to open a log file</para>
+</listitem><listitem>
+<para>Added retry functionality to Loggly, Cube and Mandrill handlers so they retry up to 5 times in case of network failure</para>
+</listitem><listitem>
+<para>Fixed process exit code being incorrectly reset to 0 if ErrorHandler::registerExceptionHandler was used</para>
+</listitem><listitem>
+<para>Fixed HTML/JS escaping in BrowserConsoleHandler</para>
+</listitem><listitem>
+<para>Fixed JSON encoding errors being silently suppressed (PHP 5.5+ only)</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2monolog_2monolog_2_c_h_a_n_g_e_l_o_g_1autotoc_md6825">
+<title><title>1.14.0 (2015-06-19)</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Added PHPConsoleHandler to send record to Chrome&apos;s PHP Console extension and library</para>
+</listitem><listitem>
+<para>Added support for objects implementing __toString in the NormalizerFormatter</para>
+</listitem><listitem>
+<para>Added support for HipChat&apos;s v2 API in HipChatHandler</para>
+</listitem><listitem>
+<para>Added Logger::setTimezone() to initialize the timezone monolog should use in case date.timezone isn&apos;t correct for your app</para>
+</listitem><listitem>
+<para>Added an option to send formatted message instead of the raw record on PushoverHandler via -&gt;useFormattedMessage(true)</para>
+</listitem><listitem>
+<para>Fixed curl errors being silently suppressed</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2monolog_2monolog_2_c_h_a_n_g_e_l_o_g_1autotoc_md6826">
+<title><title>1.13.1 (2015-03-09)</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Fixed regression in HipChat requiring a new token to be created</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2monolog_2monolog_2_c_h_a_n_g_e_l_o_g_1autotoc_md6827">
+<title><title>1.13.0 (2015-03-05)</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Added Registry::hasLogger to check for the presence of a logger instance</para>
+</listitem><listitem>
+<para>Added context.user support to RavenHandler</para>
+</listitem><listitem>
+<para>Added HipChat API v2 support in the HipChatHandler</para>
+</listitem><listitem>
+<para>Added NativeMailerHandler::addParameter to pass params to the mail() process</para>
+</listitem><listitem>
+<para>Added context data to SlackHandler when $includeContextAndExtra is true</para>
+</listitem><listitem>
+<para>Added ability to customize the Swift_Message per-email in SwiftMailerHandler</para>
+</listitem><listitem>
+<para>Fixed SwiftMailerHandler to lazily create message instances if a callback is provided</para>
+</listitem><listitem>
+<para>Fixed serialization of INF and NaN values in Normalizer and LineFormatter</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2monolog_2monolog_2_c_h_a_n_g_e_l_o_g_1autotoc_md6828">
+<title><title>1.12.0 (2014-12-29)</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Break: HandlerInterface::isHandling now receives a partial record containing only a level key. This was always the intent and does not break any <link linkend="_namespace_monolog">Monolog</link> handler but is strictly speaking a BC break and you should check if you relied on any other field in your own handlers.</para>
+</listitem><listitem>
+<para>Added PsrHandler to forward records to another PSR-3 logger</para>
+</listitem><listitem>
+<para>Added SamplingHandler to wrap around a handler and include only every Nth record</para>
+</listitem><listitem>
+<para>Added MongoDBFormatter to support better storage with MongoDBHandler (it must be enabled manually for now)</para>
+</listitem><listitem>
+<para>Added exception codes in the output of most formatters</para>
+</listitem><listitem>
+<para>Added LineFormatter::includeStacktraces to enable exception stack traces in logs (uses more than one line)</para>
+</listitem><listitem>
+<para>Added $useShortAttachment to SlackHandler to minify attachment size and $includeExtra to append extra data</para>
+</listitem><listitem>
+<para>Added $host to HipChatHandler for users of private instances</para>
+</listitem><listitem>
+<para>Added $transactionName to NewRelicHandler and support for a transaction_name context value</para>
+</listitem><listitem>
+<para>Fixed MandrillHandler to avoid outputting API call responses</para>
+</listitem><listitem>
+<para>Fixed some non-standard behaviors in SyslogUdpHandler</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2monolog_2monolog_2_c_h_a_n_g_e_l_o_g_1autotoc_md6829">
+<title><title>1.11.0 (2014-09-30)</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Break: The NewRelicHandler extra and context data are now prefixed with extra_ and context_ to avoid clashes. Watch out if you have scripts reading those from the API and rely on names</para>
+</listitem><listitem>
+<para>Added WhatFailureGroupHandler to suppress any exception coming from the wrapped handlers and avoid chain failures if a logging service fails</para>
+</listitem><listitem>
+<para>Added MandrillHandler to send emails via the Mandrillapp.com API</para>
+</listitem><listitem>
+<para>Added SlackHandler to log records to a Slack.com account</para>
+</listitem><listitem>
+<para>Added FleepHookHandler to log records to a Fleep.io account</para>
+</listitem><listitem>
+<para>Added LogglyHandler::addTag to allow adding tags to an existing handler</para>
+</listitem><listitem>
+<para>Added $ignoreEmptyContextAndExtra to LineFormatter to avoid empty [] at the end</para>
+</listitem><listitem>
+<para>Added $useLocking to StreamHandler and RotatingFileHandler to enable <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">flock()</link> while writing</para>
+</listitem><listitem>
+<para>Added support for PhpAmqpLib in the AmqpHandler</para>
+</listitem><listitem>
+<para>Added FingersCrossedHandler::clear and BufferHandler::clear to reset them between batches in long running jobs</para>
+</listitem><listitem>
+<para>Added support for adding extra fields from $_SERVER in the WebProcessor</para>
+</listitem><listitem>
+<para>Fixed support for non-string values in PrsLogMessageProcessor</para>
+</listitem><listitem>
+<para>Fixed SwiftMailer messages being sent with the wrong date in long running scripts</para>
+</listitem><listitem>
+<para>Fixed minor PHP 5.6 compatibility issues</para>
+</listitem><listitem>
+<para>Fixed BufferHandler::close being called twice</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2monolog_2monolog_2_c_h_a_n_g_e_l_o_g_1autotoc_md6830">
+<title><title>1.10.0 (2014-06-04)</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Added Logger::getHandlers() and Logger::getProcessors() methods</para>
+</listitem><listitem>
+<para>Added $passthruLevel argument to FingersCrossedHandler to let it always pass some records through even if the trigger level is not reached</para>
+</listitem><listitem>
+<para>Added support for extra data in NewRelicHandler</para>
+</listitem><listitem>
+<para>Added $expandNewlines flag to the ErrorLogHandler to create multiple log entries when a message has multiple lines</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2monolog_2monolog_2_c_h_a_n_g_e_l_o_g_1autotoc_md6831">
+<title><title>1.9.1 (2014-04-24)</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Fixed regression in RotatingFileHandler file permissions</para>
+</listitem><listitem>
+<para>Fixed initialization of the BufferHandler to make sure it gets flushed after receiving records</para>
+</listitem><listitem>
+<para>Fixed ChromePHPHandler and FirePHPHandler&apos;s activation strategies to be more conservative</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2monolog_2monolog_2_c_h_a_n_g_e_l_o_g_1autotoc_md6832">
+<title><title>1.9.0 (2014-04-20)</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Added LogEntriesHandler to send logs to a LogEntries account</para>
+</listitem><listitem>
+<para>Added $filePermissions to tweak file mode on StreamHandler and RotatingFileHandler</para>
+</listitem><listitem>
+<para>Added $useFormatting flag to MemoryProcessor to make it send raw data in bytes</para>
+</listitem><listitem>
+<para>Added support for table formatting in FirePHPHandler via the table context key</para>
+</listitem><listitem>
+<para>Added a TagProcessor to add tags to records, and support for tags in RavenHandler</para>
+</listitem><listitem>
+<para>Added $appendNewline flag to the JsonFormatter to enable using it when logging to files</para>
+</listitem><listitem>
+<para>Added sound support to the PushoverHandler</para>
+</listitem><listitem>
+<para>Fixed multi-threading support in StreamHandler</para>
+</listitem><listitem>
+<para>Fixed empty headers issue when ChromePHPHandler received no records</para>
+</listitem><listitem>
+<para>Fixed default format of the ErrorLogHandler</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2monolog_2monolog_2_c_h_a_n_g_e_l_o_g_1autotoc_md6833">
+<title><title>1.8.0 (2014-03-23)</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Break: the LineFormatter now strips newlines by default because this was a bug, set $allowInlineLineBreaks to true if you need them</para>
+</listitem><listitem>
+<para>Added BrowserConsoleHandler to send logs to any browser&apos;s console via console.log() injection in the output</para>
+</listitem><listitem>
+<para>Added FilterHandler to filter records and only allow those of a given list of levels through to the wrapped handler</para>
+</listitem><listitem>
+<para>Added FlowdockHandler to send logs to a Flowdock account</para>
+</listitem><listitem>
+<para>Added RollbarHandler to send logs to a Rollbar account</para>
+</listitem><listitem>
+<para>Added HtmlFormatter to send prettier log emails with colors for each log level</para>
+</listitem><listitem>
+<para>Added GitProcessor to add the current branch/commit to extra record data</para>
+</listitem><listitem>
+<para>Added a <link linkend="_namespace_monolog">Monolog</link>\Registry class to allow easier global access to pre-configured loggers</para>
+</listitem><listitem>
+<para>Added support for the new official graylog2/gelf-php lib for GelfHandler, upgrade if you can by replacing the mlehner/gelf-php requirement</para>
+</listitem><listitem>
+<para>Added support for HHVM</para>
+</listitem><listitem>
+<para>Added support for Loggly batch uploads</para>
+</listitem><listitem>
+<para>Added support for tweaking the content type and encoding in NativeMailerHandler</para>
+</listitem><listitem>
+<para>Added $skipClassesPartials to tweak the ignored classes in the IntrospectionProcessor</para>
+</listitem><listitem>
+<para>Fixed batch request support in GelfHandler</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2monolog_2monolog_2_c_h_a_n_g_e_l_o_g_1autotoc_md6834">
+<title><title>1.7.0 (2013-11-14)</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Added ElasticSearchHandler to send logs to an Elastic <link linkend="_class_search">Search</link> server</para>
+</listitem><listitem>
+<para>Added DynamoDbHandler and ScalarFormatter to send logs to Amazon&apos;s Dynamo <link linkend="_class_d_b">DB</link></para>
+</listitem><listitem>
+<para>Added SyslogUdpHandler to send logs to a remote syslogd server</para>
+</listitem><listitem>
+<para>Added LogglyHandler to send logs to a Loggly account</para>
+</listitem><listitem>
+<para>Added $level to IntrospectionProcessor so it only adds backtraces when needed</para>
+</listitem><listitem>
+<para>Added $version to LogstashFormatter to allow using the new v1 Logstash format</para>
+</listitem><listitem>
+<para>Added $appName to NewRelicHandler</para>
+</listitem><listitem>
+<para>Added configuration of Pushover notification retries/expiry</para>
+</listitem><listitem>
+<para>Added $maxColumnWidth to NativeMailerHandler to change the 70 chars default</para>
+</listitem><listitem>
+<para>Added chainability to most setters for all handlers</para>
+</listitem><listitem>
+<para>Fixed RavenHandler batch processing so it takes the message from the record with highest priority</para>
+</listitem><listitem>
+<para>Fixed HipChatHandler batch processing so it sends all messages at once</para>
+</listitem><listitem>
+<para>Fixed issues with eAccelerator</para>
+</listitem><listitem>
+<para>Fixed and improved many small things</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2monolog_2monolog_2_c_h_a_n_g_e_l_o_g_1autotoc_md6835">
+<title><title>1.6.0 (2013-07-29)</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Added HipChatHandler to send logs to a HipChat chat room</para>
+</listitem><listitem>
+<para>Added ErrorLogHandler to send logs to PHP&apos;s error_log function</para>
+</listitem><listitem>
+<para>Added NewRelicHandler to send logs to NewRelic&apos;s service</para>
+</listitem><listitem>
+<para>Added <link linkend="_namespace_monolog">Monolog</link>\ErrorHandler helper class to register a Logger as exception/error/fatal handler</para>
+</listitem><listitem>
+<para>Added ChannelLevelActivationStrategy for the FingersCrossedHandler to customize levels by channel</para>
+</listitem><listitem>
+<para>Added stack traces output when normalizing exceptions (json output &amp; co)</para>
+</listitem><listitem>
+<para>Added <link linkend="_namespace_monolog">Monolog</link>\Logger::API constant (currently 1)</para>
+</listitem><listitem>
+<para>Added support for ChromePHP&apos;s v4.0 extension</para>
+</listitem><listitem>
+<para>Added support for message priorities in PushoverHandler, see $highPriorityLevel and $emergencyLevel</para>
+</listitem><listitem>
+<para>Added support for sending messages to multiple users at once with the PushoverHandler</para>
+</listitem><listitem>
+<para>Fixed RavenHandler&apos;s support for batch sending of messages (when behind a Buffer or FingersCrossedHandler)</para>
+</listitem><listitem>
+<para>Fixed normalization of Traversables with very large data sets, only the first 1000 items are shown now</para>
+</listitem><listitem>
+<para>Fixed issue in RotatingFileHandler when an open_basedir restriction is active</para>
+</listitem><listitem>
+<para>Fixed minor issues in RavenHandler and bumped the API to Raven 0.5.0</para>
+</listitem><listitem>
+<para>Fixed SyslogHandler issue when many were used concurrently with different facilities</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2monolog_2monolog_2_c_h_a_n_g_e_l_o_g_1autotoc_md6836">
+<title><title>1.5.0 (2013-04-23)</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Added ProcessIdProcessor to inject the PID in log records</para>
+</listitem><listitem>
+<para>Added UidProcessor to inject a unique identifier to all log records of one request/run</para>
+</listitem><listitem>
+<para>Added support for previous exceptions in the LineFormatter exception serialization</para>
+</listitem><listitem>
+<para>Added <link linkend="_namespace_monolog">Monolog</link>\Logger::getLevels() to get all available levels</para>
+</listitem><listitem>
+<para>Fixed ChromePHPHandler so it avoids sending headers larger than Chrome can handle</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2monolog_2monolog_2_c_h_a_n_g_e_l_o_g_1autotoc_md6837">
+<title><title>1.4.1 (2013-04-01)</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Fixed exception formatting in the LineFormatter to be more minimalistic</para>
+</listitem><listitem>
+<para>Fixed RavenHandler&apos;s handling of context/extra data, requires Raven client &gt;0.1.0</para>
+</listitem><listitem>
+<para>Fixed log rotation in RotatingFileHandler to work with long running scripts spanning multiple days</para>
+</listitem><listitem>
+<para>Fixed WebProcessor array access so it checks for data presence</para>
+</listitem><listitem>
+<para>Fixed Buffer, <link linkend="_class_group">Group</link> and FingersCrossed handlers to make use of their processors</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2monolog_2monolog_2_c_h_a_n_g_e_l_o_g_1autotoc_md6838">
+<title><title>1.4.0 (2013-02-13)</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Added RedisHandler to log to Redis via the Predis library or the phpredis extension</para>
+</listitem><listitem>
+<para>Added ZendMonitorHandler to log to the Zend Server monitor</para>
+</listitem><listitem>
+<para>Added the possibility to pass arrays of handlers and processors directly in the Logger constructor</para>
+</listitem><listitem>
+<para>Added <computeroutput>$useSSL</computeroutput> option to the PushoverHandler which is enabled by default</para>
+</listitem><listitem>
+<para>Fixed ChromePHPHandler and FirePHPHandler issue when multiple instances are used simultaneously</para>
+</listitem><listitem>
+<para>Fixed header injection capability in the NativeMailHandler</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2monolog_2monolog_2_c_h_a_n_g_e_l_o_g_1autotoc_md6839">
+<title><title>1.3.1 (2013-01-11)</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Fixed LogstashFormatter to be usable with stream handlers</para>
+</listitem><listitem>
+<para>Fixed GelfMessageFormatter levels on Windows</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2monolog_2monolog_2_c_h_a_n_g_e_l_o_g_1autotoc_md6840">
+<title><title>1.3.0 (2013-01-08)</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Added PSR-3 compliance, the <computeroutput><link linkend="_namespace_monolog">Monolog</link>\Logger</computeroutput> class is now an instance of <computeroutput>Psr\<link linkend="_class_log">Log</link>\LoggerInterface</computeroutput></para>
+</listitem><listitem>
+<para>Added PsrLogMessageProcessor that you can selectively enable for full PSR-3 compliance</para>
+</listitem><listitem>
+<para>Added LogstashFormatter (combine with SocketHandler or StreamHandler to send logs to Logstash)</para>
+</listitem><listitem>
+<para>Added PushoverHandler to send mobile notifications</para>
+</listitem><listitem>
+<para>Added CouchDBHandler and DoctrineCouchDBHandler</para>
+</listitem><listitem>
+<para>Added RavenHandler to send data to Sentry servers</para>
+</listitem><listitem>
+<para>Added support for the new MongoClient class in MongoDBHandler</para>
+</listitem><listitem>
+<para>Added microsecond precision to log records&apos; timestamps</para>
+</listitem><listitem>
+<para>Added <computeroutput>$flushOnOverflow</computeroutput> param to BufferHandler to flush by batches instead of losing the oldest entries</para>
+</listitem><listitem>
+<para>Fixed normalization of objects with cyclic references</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2monolog_2monolog_2_c_h_a_n_g_e_l_o_g_1autotoc_md6841">
+<title><title>1.2.1 (2012-08-29)</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Added new $logopts arg to SyslogHandler to provide custom openlog options</para>
+</listitem><listitem>
+<para>Fixed fatal error in SyslogHandler</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2monolog_2monolog_2_c_h_a_n_g_e_l_o_g_1autotoc_md6842">
+<title><title>1.2.0 (2012-08-18)</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Added AmqpHandler (for use with AMQP servers)</para>
+</listitem><listitem>
+<para>Added CubeHandler</para>
+</listitem><listitem>
+<para>Added NativeMailerHandler::addHeader() to send custom headers in mails</para>
+</listitem><listitem>
+<para>Added the possibility to specify more than one recipient in NativeMailerHandler</para>
+</listitem><listitem>
+<para>Added the possibility to specify float timeouts in SocketHandler</para>
+</listitem><listitem>
+<para>Added NOTICE and EMERGENCY levels to conform with RFC 5424</para>
+</listitem><listitem>
+<para>Fixed the log records to use the php default timezone instead of UTC</para>
+</listitem><listitem>
+<para>Fixed BufferHandler not being flushed properly on PHP fatal errors</para>
+</listitem><listitem>
+<para>Fixed normalization of exotic resource types</para>
+</listitem><listitem>
+<para>Fixed the default format of the SyslogHandler to avoid duplicating datetimes in syslog</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2monolog_2monolog_2_c_h_a_n_g_e_l_o_g_1autotoc_md6843">
+<title><title>1.1.0 (2012-04-23)</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Added <link linkend="_namespace_monolog">Monolog</link>\Logger::isHandling() to check if a handler will handle the given log level</para>
+</listitem><listitem>
+<para>Added ChromePHPHandler</para>
+</listitem><listitem>
+<para>Added MongoDBHandler</para>
+</listitem><listitem>
+<para>Added GelfHandler (for use with Graylog2 servers)</para>
+</listitem><listitem>
+<para>Added SocketHandler (for use with syslog-ng for example)</para>
+</listitem><listitem>
+<para>Added NormalizerFormatter</para>
+</listitem><listitem>
+<para>Added the possibility to change the activation strategy of the FingersCrossedHandler</para>
+</listitem><listitem>
+<para>Added possibility to show microseconds in logs</para>
+</listitem><listitem>
+<para>Added <computeroutput>server</computeroutput> and <computeroutput>referer</computeroutput> to WebProcessor output</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2monolog_2monolog_2_c_h_a_n_g_e_l_o_g_1autotoc_md6844">
+<title><title>1.0.2 (2011-10-24)</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Fixed bug in IE with large response headers and FirePHPHandler</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2monolog_2monolog_2_c_h_a_n_g_e_l_o_g_1autotoc_md6845">
+<title><title>1.0.1 (2011-08-25)</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Added MemoryPeakUsageProcessor and MemoryUsageProcessor</para>
+</listitem><listitem>
+<para>Added <link linkend="_namespace_monolog">Monolog</link>\Logger::getName() to get a logger&apos;s channel name</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2monolog_2monolog_2_c_h_a_n_g_e_l_o_g_1autotoc_md6846">
+<title><title>1.0.0 (2011-07-06)</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Added IntrospectionProcessor to get info from where the logger was called</para>
+</listitem><listitem>
+<para>Fixed WebProcessor in CLI</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2monolog_2monolog_2_c_h_a_n_g_e_l_o_g_1autotoc_md6847">
+<title><title>1.0.0-RC1 (2011-07-01)</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Initial release </para>
+</listitem></itemizedlist>
+</para>
+</section>
+</section>

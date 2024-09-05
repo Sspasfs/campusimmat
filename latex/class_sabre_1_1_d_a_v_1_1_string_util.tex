@@ -1,0 +1,80 @@
+\doxysection{Référence de la classe String\+Util}
+\hypertarget{class_sabre_1_1_d_a_v_1_1_string_util}{}\label{class_sabre_1_1_d_a_v_1_1_string_util}\index{StringUtil@{StringUtil}}
+
+
+Graphe de collaboration de String\+Util\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=241pt]{class_sabre_1_1_d_a_v_1_1_string_util__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Fonctions membres publiques statiques}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_string_util_ae357d91218de0814d84c91aa5c660fa2}{text\+Match}} (\$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{haystack}}, \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{needle}}, \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{collation}}, \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{match\+Type}}=\textquotesingle{}contains\textquotesingle{})
+\item 
+static \mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_string_util_a02a4366053ce16696c439999b9ff7eaf}{ensure\+UTF8}} (\$input)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+String utility.
+
+This class is mainly used to implement the \textquotesingle{}text-\/match\textquotesingle{} filter, used by both the Cal\+DAV calendar-\/query REPORT, and Card\+DAV addressbook-\/query REPORT. Because they both need it, it was decided to put it in Sabre\textbackslash{}\+DAV instead.
+
+\begin{DoxyCopyright}{Copyright}
+Copyright (C) fruux GmbH (\href{https://fruux.com/}{\texttt{ https\+://fruux.\+com/}}) 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Auteur}
+Evert Pot (\href{http://evertpot.com/}{\texttt{ http\+://evertpot.\+com/}}) @license \href{http://sabre.io/license/}{\texttt{ http\+://sabre.\+io/license/}} Modified BSD License 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Documentation des fonctions membres}
+\Hypertarget{class_sabre_1_1_d_a_v_1_1_string_util_a02a4366053ce16696c439999b9ff7eaf}\label{class_sabre_1_1_d_a_v_1_1_string_util_a02a4366053ce16696c439999b9ff7eaf} 
+\index{StringUtil@{StringUtil}!ensureUTF8@{ensureUTF8}}
+\index{ensureUTF8@{ensureUTF8}!StringUtil@{StringUtil}}
+\doxysubsubsection{\texorpdfstring{ensureUTF8()}{ensureUTF8()}}
+{\footnotesize\ttfamily static ensure\+UTF8 (\begin{DoxyParamCaption}\item[{}]{\$input }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+This method takes an input string, checks if it\textquotesingle{}s not valid UTF-\/8 and attempts to convert it to UTF-\/8 if it\textquotesingle{}s not.
+
+Note that currently this can only convert ISO-\/8859-\/1 to UTF-\/8 (latin-\/1), anything else will likely fail.
+
+
+\begin{DoxyParams}[1]{Paramètres}
+string & {\em \$input} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+string 
+\end{DoxyReturn}
+\Hypertarget{class_sabre_1_1_d_a_v_1_1_string_util_ae357d91218de0814d84c91aa5c660fa2}\label{class_sabre_1_1_d_a_v_1_1_string_util_ae357d91218de0814d84c91aa5c660fa2} 
+\index{StringUtil@{StringUtil}!textMatch@{textMatch}}
+\index{textMatch@{textMatch}!StringUtil@{StringUtil}}
+\doxysubsubsection{\texorpdfstring{textMatch()}{textMatch()}}
+{\footnotesize\ttfamily static text\+Match (\begin{DoxyParamCaption}\item[{}]{\$haystack,  }\item[{}]{\$needle,  }\item[{}]{\$collation,  }\item[{}]{\$match\+Type = {\ttfamily \textquotesingle{}contains\textquotesingle{}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Checks if a needle occurs in a haystack ;).
+
+
+\begin{DoxyParams}[1]{Paramètres}
+string & {\em \$haystack} & \\
+\hline
+string & {\em \$needle} & \\
+\hline
+string & {\em \$collation} & \\
+\hline
+string & {\em \$match\+Type} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+bool 
+\end{DoxyReturn}
+
+
+La documentation de cette classe a été générée à partir du fichier suivant \+:\begin{DoxyCompactItemize}
+\item 
+public/glpi/vendor/sabre/dav/lib/\+DAV/\mbox{\hyperlink{dav_2lib_2_d_a_v_2_string_util_8php}{String\+Util.\+php}}\end{DoxyCompactItemize}

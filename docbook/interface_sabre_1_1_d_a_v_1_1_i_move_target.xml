@@ -1,0 +1,135 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_interface_sabre_1_1_d_a_v_1_1_i_move_target" xml:lang="fr">
+<title>Référence de l&apos;interface IMoveTarget</title>
+<indexterm><primary>IMoveTarget</primary></indexterm>
+Graphe d&apos;héritage de IMoveTarget:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="interface_sabre_1_1_d_a_v_1_1_i_move_target__inherit__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Graphe de collaboration de IMoveTarget:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="interface_sabre_1_1_d_a_v_1_1_i_move_target__coll__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Fonctions membres publiques    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_interface_sabre_1_1_d_a_v_1_1_i_move_target_1a7d2c72b64b3c93a2c8b97a8a71e5d6ad">moveInto</link> ($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">targetName</link>, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">sourcePath</link>, <link linkend="_interface_sabre_1_1_d_a_v_1_1_i_node">INode</link> $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">sourceNode</link>)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+Fonctions membres publiques hérités de <link linkend="_interface_sabre_1_1_d_a_v_1_1_i_collection">ICollection</link>        <itemizedlist>
+            <listitem><para><link linkend="_interface_sabre_1_1_d_a_v_1_1_i_collection_1a4135c8ffb4787bd20d7409ad699d8e0d">createFile</link> ($name, $data=null)</para>
+</listitem>
+            <listitem><para><link linkend="_interface_sabre_1_1_d_a_v_1_1_i_collection_1ad2c87f2e1012d1860d1d343a9ee54fa1">createDirectory</link> ($name)</para>
+</listitem>
+            <listitem><para><link linkend="_interface_sabre_1_1_d_a_v_1_1_i_collection_1a1cfdba129d25b04b73af8290f58ba7c1">getChild</link> ($name)</para>
+</listitem>
+            <listitem><para><link linkend="_interface_sabre_1_1_d_a_v_1_1_i_collection_1a8650a4f6150ed357d88fa043f1685ac5">getChildren</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_interface_sabre_1_1_d_a_v_1_1_i_collection_1a9c5c664f8f1e4a514235a31837de9988">childExists</link> ($name)</para>
+</listitem>
+        </itemizedlist>
+Fonctions membres publiques hérités de <link linkend="_interface_sabre_1_1_d_a_v_1_1_i_node">INode</link>        <itemizedlist>
+            <listitem><para><link linkend="_interface_sabre_1_1_d_a_v_1_1_i_node_1a13bdffdd926f26b825ea57066334ff01">delete</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_interface_sabre_1_1_d_a_v_1_1_i_node_1a3d0963e68bb313b163a73f2803c64600">getName</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_interface_sabre_1_1_d_a_v_1_1_i_node_1a2fe666694997d047711d7653eca2f132">setName</link> ($name)</para>
+</listitem>
+            <listitem><para><link linkend="_interface_sabre_1_1_d_a_v_1_1_i_node_1aa388e2fda4fe702e8953c1a731868f18">getLastModified</link> ()</para>
+</listitem>
+        </itemizedlist>
+<section>
+<title>Description détaillée</title>
+
+<para>By implementing this interface, a collection can effectively say &quot;other
+nodes may be moved into this collection&quot;.</para>
+
+<para>The benefit of this, is that sabre/dav will by default perform a move, by transferring an entire directory tree, copying every collection, and deleting every item.</para>
+
+<para>If a backend supports a better optimized move operation, this can trigger some huge speed gains.</para>
+
+<para><formalpara><title>Copyright</title>
+
+<para>Copyright (C) fruux GmbH (<link xlink:href="https://fruux.com/">https://fruux.com/</link>) </para>
+</formalpara>
+<formalpara><title>Auteur</title>
+
+<para>Evert Pot (<link xlink:href="http://evertpot.com/">http://evertpot.com/</link>) @license <link xlink:href="http://sabre.io/license/">http://sabre.io/license/</link> Modified BSD License </para>
+</formalpara>
+</para>
+</section>
+<section>
+<title>Documentation des fonctions membres</title>
+<anchor xml:id="_interface_sabre_1_1_d_a_v_1_1_i_move_target_1a7d2c72b64b3c93a2c8b97a8a71e5d6ad"/><section>
+    <title>moveInto()</title>
+<indexterm><primary>moveInto</primary><secondary>IMoveTarget</secondary></indexterm>
+<indexterm><primary>IMoveTarget</primary><secondary>moveInto</secondary></indexterm>
+<para><computeroutput>moveInto ( $targetName,  $sourcePath, <link linkend="_interface_sabre_1_1_d_a_v_1_1_i_node">INode</link> $sourceNode)</computeroutput></para>
+<para>Moves a node into this collection.</para>
+
+<para>It is up to the implementors to:<orderedlist>
+<listitem>
+<para>Create the new resource.</para>
+</listitem><listitem>
+<para>Remove the old resource.</para>
+</listitem><listitem>
+<para><link linkend="_class_transfer">Transfer</link> any properties or other data.</para>
+</listitem></orderedlist>
+</para>
+
+<para>Generally you should make very sure that your collection can easily move the move.</para>
+
+<para>If you don&apos;t, just return false, which will trigger sabre/dav to handle the move itself. If you return true from this function, the assumption is that the move was successful.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$targetName</entry><entry>
+<para>new local file/collection name </para>
+</entry>
+                            </row>
+                            <row>
+<entry>string</entry><entry>$sourcePath</entry><entry>
+<para>Full path to source node </para>
+</entry>
+                            </row>
+                            <row>
+<entry>INode</entry><entry>$sourceNode</entry><entry>
+<para>Source node itself</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>bool </para>
+</formalpara>
+</para>
+</section>
+<para>
+La documentation de cette interface a été générée à partir du fichier suivant :</para>
+public/glpi/vendor/sabre/dav/lib/DAV/<link linkend="__i_move_target_8php">IMoveTarget.php</link></section>
+</section>

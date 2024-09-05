@@ -1,0 +1,73 @@
+\doxysection{Référence de la classe Wildcard\+Emitter}
+\hypertarget{class_sabre_1_1_event_1_1_wildcard_emitter}{}\label{class_sabre_1_1_event_1_1_wildcard_emitter}\index{WildcardEmitter@{WildcardEmitter}}
+
+
+Graphe d\textquotesingle{}héritage de Wildcard\+Emitter\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=242pt]{class_sabre_1_1_event_1_1_wildcard_emitter__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Graphe de collaboration de Wildcard\+Emitter\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=242pt]{class_sabre_1_1_event_1_1_wildcard_emitter__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Membres hérités additionnels}
+\doxysubsection*{Fonctions membres publiques hérités de \mbox{\hyperlink{interface_sabre_1_1_event_1_1_emitter_interface}{Emitter\+Interface}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{interface_sabre_1_1_event_1_1_emitter_interface_a33e6415f7f3f457744ad1746759646c4}{on}} (string \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{event\+Name}}, \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{callable}} \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{call\+Back}}, int \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{priority}}=100)
+\item 
+\mbox{\hyperlink{interface_sabre_1_1_event_1_1_emitter_interface_a150b782ec28a64c0fc324a02e8523341}{once}} (string \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{event\+Name}}, \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{callable}} \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{call\+Back}}, int \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{priority}}=100)
+\item 
+\mbox{\hyperlink{interface_sabre_1_1_event_1_1_emitter_interface_a17650c695025842efe69c5ef3dae0473}{emit}} (string \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{event\+Name}}, array \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{arguments}}=\mbox{[}$\,$\mbox{]}, \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{callable}} \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{continue\+Call\+Back}}=null)
+\item 
+\mbox{\hyperlink{interface_sabre_1_1_event_1_1_emitter_interface_aba0d942bfcf8fd7abc2f58749f5b8432}{listeners}} (string \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{event\+Name}})
+\item 
+\mbox{\hyperlink{interface_sabre_1_1_event_1_1_emitter_interface_a0e747e11d0882655ee8a77dd1f4b5298}{remove\+Listener}} (string \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{event\+Name}}, \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{callable}} \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{listener}})
+\item 
+\mbox{\hyperlink{interface_sabre_1_1_event_1_1_emitter_interface_a0016e4737c8baecc64f62655510b252f}{remove\+All\+Listeners}} (string \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{event\+Name}}=null)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+This class is an Event\+Emitter with support for wildcard event handlers.
+
+What this means is that you can emit events like this\+:
+
+emit(\textquotesingle{}change\+:first\+Name\textquotesingle{})
+
+and listen to this event like this\+:
+
+on(\textquotesingle{}change\+:\texorpdfstring{$\ast$}{*}\textquotesingle{})
+
+A few notes\+:
+
+
+\begin{DoxyItemize}
+\item Wildcards only work at the end of an event name.
+\item Currently you can only use 1 wildcard.
+\item Using "{}\+:"{} as a separator is optional, but it\textquotesingle{}s highly recommended to use some kind of separator.
+\end{DoxyItemize}
+
+The Wildcard\+Emitter is a bit slower than the regular Emitter. If your code must be very high performance, it might be better to try to use the other emitter. For most usage the difference is negligible though.
+
+\begin{DoxyCopyright}{Copyright}
+Copyright (C) fruux GmbH (\href{https://fruux.com/}{\texttt{ https\+://fruux.\+com/}}) 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Auteur}
+Evert Pot (\href{http://evertpot.com/}{\texttt{ http\+://evertpot.\+com/}}) @license \href{http://sabre.io/license/}{\texttt{ http\+://sabre.\+io/license/}} Modified BSD License 
+\end{DoxyAuthor}
+
+
+La documentation de cette classe a été générée à partir du fichier suivant \+:\begin{DoxyCompactItemize}
+\item 
+public/glpi/vendor/sabre/event/lib/\mbox{\hyperlink{_wildcard_emitter_8php}{Wildcard\+Emitter.\+php}}\end{DoxyCompactItemize}

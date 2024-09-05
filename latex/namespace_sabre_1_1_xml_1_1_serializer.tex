@@ -1,0 +1,127 @@
+\doxysection{Référence de l\textquotesingle{}espace de nommage Sabre\textbackslash{}Xml\textbackslash{}Serializer}
+\hypertarget{namespace_sabre_1_1_xml_1_1_serializer}{}\label{namespace_sabre_1_1_xml_1_1_serializer}\index{Sabre\textbackslash{}Xml\textbackslash{}Serializer@{Sabre\textbackslash{}Xml\textbackslash{}Serializer}}
+\doxysubsubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespace_sabre_1_1_xml_1_1_serializer_ab6555ceed1c98f2e338588cbeebf2bab}{enum}} (\mbox{\hyperlink{class_sabre_1_1_xml_1_1_writer}{Writer}} \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{writer}}, array \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{values}})
+\item 
+\mbox{\hyperlink{namespace_sabre_1_1_xml_1_1_serializer_a6a01adb6ece094196be668f4705d604d}{value\+Object}} (\mbox{\hyperlink{class_sabre_1_1_xml_1_1_writer}{Writer}} \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{writer}}, \$value\+Object, string \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{namespace}})
+\item 
+\mbox{\hyperlink{namespace_sabre_1_1_xml_1_1_serializer_ac4444bf82fec45623df32bcda1f7250a}{repeating\+Elements}} (\mbox{\hyperlink{class_sabre_1_1_xml_1_1_writer}{Writer}} \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{writer}}, array \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{items}}, string \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{child\+Element\+Name}})
+\item 
+\mbox{\hyperlink{namespace_sabre_1_1_xml_1_1_serializer_ad9ce4adbff42c586d3056ed904811730}{standard\+Serializer}} (\mbox{\hyperlink{class_sabre_1_1_xml_1_1_writer}{Writer}} \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{writer}}, \$value)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Documentation des fonctions}
+\Hypertarget{namespace_sabre_1_1_xml_1_1_serializer_ab6555ceed1c98f2e338588cbeebf2bab}\label{namespace_sabre_1_1_xml_1_1_serializer_ab6555ceed1c98f2e338588cbeebf2bab} 
+\index{Sabre\textbackslash{}Xml\textbackslash{}Serializer@{Sabre\textbackslash{}Xml\textbackslash{}Serializer}!enum@{enum}}
+\index{enum@{enum}!Sabre\textbackslash{}Xml\textbackslash{}Serializer@{Sabre\textbackslash{}Xml\textbackslash{}Serializer}}
+\doxysubsubsection{\texorpdfstring{enum()}{enum()}}
+{\footnotesize\ttfamily enum (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_sabre_1_1_xml_1_1_writer}{Writer}}}]{\$writer,  }\item[{array}]{\$values }\end{DoxyParamCaption})}
+
+This file provides a number of \textquotesingle{}serializer\textquotesingle{} helper functions.
+
+These helper functions can be used to easily xml-\/encode common PHP data structures, or can be placed in the \$class\+Map. The \textquotesingle{}enum\textquotesingle{} serializer writes simple list of elements.
+
+For example, calling\+:
+
+enum(\$writer, \mbox{[} "{}\{http\+://sabredav.\+org/ns\}elem1"{}, "{}\{http\+://sabredav.\+org/ns\}elem2"{}, "{}\{http\+://sabredav.\+org/ns\}elem3"{}, "{}\{http\+://sabredav.\+org/ns\}elem4"{}, "{}\{http\+://sabredav.\+org/ns\}elem5"{}, \mbox{]});
+
+Will generate something like this (if the correct namespace is declared)\+:
+
+\texorpdfstring{$<$}{<}s\+:elem1 /\texorpdfstring{$>$}{>} \texorpdfstring{$<$}{<}s\+:elem2 /\texorpdfstring{$>$}{>} \texorpdfstring{$<$}{<}s\+:elem3 /\texorpdfstring{$>$}{>} \texorpdfstring{$<$}{<}s\+:elem4\texorpdfstring{$>$}{>}content\texorpdfstring{$<$}{<}/s\+:elem4\texorpdfstring{$>$}{>} \texorpdfstring{$<$}{<}s\+:elem5 attr="{}val"{} /\texorpdfstring{$>$}{>}
+
+
+\begin{DoxyParams}[1]{Paramètres}
+string\mbox{[}$\,$\mbox{]} & {\em \$values} & \\
+\hline
+\end{DoxyParams}
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=301pt]{namespace_sabre_1_1_xml_1_1_serializer_ab6555ceed1c98f2e338588cbeebf2bab_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{namespace_sabre_1_1_xml_1_1_serializer_ac4444bf82fec45623df32bcda1f7250a}\label{namespace_sabre_1_1_xml_1_1_serializer_ac4444bf82fec45623df32bcda1f7250a} 
+\index{Sabre\textbackslash{}Xml\textbackslash{}Serializer@{Sabre\textbackslash{}Xml\textbackslash{}Serializer}!repeatingElements@{repeatingElements}}
+\index{repeatingElements@{repeatingElements}!Sabre\textbackslash{}Xml\textbackslash{}Serializer@{Sabre\textbackslash{}Xml\textbackslash{}Serializer}}
+\doxysubsubsection{\texorpdfstring{repeatingElements()}{repeatingElements()}}
+{\footnotesize\ttfamily repeating\+Elements (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_sabre_1_1_xml_1_1_writer}{Writer}}}]{\$writer,  }\item[{array}]{\$items,  }\item[{string}]{\$child\+Element\+Name }\end{DoxyParamCaption})}
+
+This serializer helps you serialize xml structures that look like this\+:.
+
+$<$collection$>$ ... ... ... $<$/collection$>$
+
+In that previous example, this serializer just serializes the item element, and this could be called like this\+:
+
+repeating\+Elements(\$writer, \$items, \textquotesingle{}\{\}item\textquotesingle{}); \Hypertarget{namespace_sabre_1_1_xml_1_1_serializer_ad9ce4adbff42c586d3056ed904811730}\label{namespace_sabre_1_1_xml_1_1_serializer_ad9ce4adbff42c586d3056ed904811730} 
+\index{Sabre\textbackslash{}Xml\textbackslash{}Serializer@{Sabre\textbackslash{}Xml\textbackslash{}Serializer}!standardSerializer@{standardSerializer}}
+\index{standardSerializer@{standardSerializer}!Sabre\textbackslash{}Xml\textbackslash{}Serializer@{Sabre\textbackslash{}Xml\textbackslash{}Serializer}}
+\doxysubsubsection{\texorpdfstring{standardSerializer()}{standardSerializer()}}
+{\footnotesize\ttfamily standard\+Serializer (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_sabre_1_1_xml_1_1_writer}{Writer}}}]{\$writer,  }\item[{}]{\$value }\end{DoxyParamCaption})}
+
+This function is the \textquotesingle{}default\textquotesingle{} serializer that is able to serialize most things, and delegates to other serializers if needed.
+
+The standard\+Serializer supports a wide-\/array of values.
+
+\$value may be a string or integer, it will just write out the string as text. \$value may be an instance of Xml\+Serializable or Element, in which case it calls it\textquotesingle{}s xml\+Serialize() method. \$value may be a PHP callback/function/closure, in case we call the callback and give it the Writer as an argument. \$value may be a an object, and if it\textquotesingle{}s in the class\+Map we automatically call the correct serializer for it. \$value may be null, in which case we do nothing.
+
+If \$value is an array, the array must look like this\+:
+
+\mbox{[} \mbox{[} \textquotesingle{}name\textquotesingle{} =\texorpdfstring{$>$}{>} \textquotesingle{}\{namespace\+Uri\}element-\/name\textquotesingle{}, \textquotesingle{}value\textquotesingle{} =\texorpdfstring{$>$}{>} \textquotesingle{}...\textquotesingle{}, \textquotesingle{}attributes\textquotesingle{} =\texorpdfstring{$>$}{>} \mbox{[} \textquotesingle{}att\+Name\textquotesingle{} =\texorpdfstring{$>$}{>} \textquotesingle{}att\+Value\textquotesingle{} \mbox{]} \mbox{]} \mbox{[}, \textquotesingle{}name\textquotesingle{} =\texorpdfstring{$>$}{>} \textquotesingle{}\{namespace\+Uri\}element-\/name2\textquotesingle{}, \textquotesingle{}value\textquotesingle{} =\texorpdfstring{$>$}{>} \textquotesingle{}...\textquotesingle{}, \mbox{]} \mbox{]}
+
+This would result in xml like\+:
+
+\texorpdfstring{$<$}{<}element-\/name xmlns="{}namespace\+Uri"{} att\+Name="{}att\+Value"{}\texorpdfstring{$>$}{>} ... \texorpdfstring{$<$}{<}/element-\/name\texorpdfstring{$>$}{>} \texorpdfstring{$<$}{<}element-\/name2\texorpdfstring{$>$}{>} ... \texorpdfstring{$<$}{<}/element-\/name2\texorpdfstring{$>$}{>}
+
+The value property may be any value standard\+Serializer supports, so you can nest data-\/structures this way. Both value and attributes are optional.
+
+Alternatively, you can also specify the array using this syntax\+:
+
+\mbox{[} \mbox{[} \textquotesingle{}\{namespace\+Uri\}element-\/name\textquotesingle{} =\texorpdfstring{$>$}{>} \textquotesingle{}...\textquotesingle{}, \textquotesingle{}\{namespace\+Uri\}element-\/name2\textquotesingle{} =\texorpdfstring{$>$}{>} \textquotesingle{}...\textquotesingle{}, \mbox{]} \mbox{]}
+
+This is excellent for simple key-\/\texorpdfstring{$>$}{>}value structures, and here you can also specify anything for the value.
+
+You can even mix the two array syntaxes.
+
+
+\begin{DoxyParams}[1]{Paramètres}
+string | int | float | bool | array | object & {\em \$value} & \\
+\hline
+\end{DoxyParams}
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=342pt]{namespace_sabre_1_1_xml_1_1_serializer_ad9ce4adbff42c586d3056ed904811730_cgraph}
+\end{center}
+\end{figure}
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespace_sabre_1_1_xml_1_1_serializer_ad9ce4adbff42c586d3056ed904811730_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{namespace_sabre_1_1_xml_1_1_serializer_a6a01adb6ece094196be668f4705d604d}\label{namespace_sabre_1_1_xml_1_1_serializer_a6a01adb6ece094196be668f4705d604d} 
+\index{Sabre\textbackslash{}Xml\textbackslash{}Serializer@{Sabre\textbackslash{}Xml\textbackslash{}Serializer}!valueObject@{valueObject}}
+\index{valueObject@{valueObject}!Sabre\textbackslash{}Xml\textbackslash{}Serializer@{Sabre\textbackslash{}Xml\textbackslash{}Serializer}}
+\doxysubsubsection{\texorpdfstring{valueObject()}{valueObject()}}
+{\footnotesize\ttfamily value\+Object (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_sabre_1_1_xml_1_1_writer}{Writer}}}]{\$writer,  }\item[{}]{\$value\+Object,  }\item[{string}]{\$namespace }\end{DoxyParamCaption})}
+
+The value\+Object serializer turns a simple PHP object into a classname.
+
+Every public property will be encoded as an xml element with the same name, in the \doxylink{class_x_m_l}{XML} namespace as specified.
+
+Values that are set to null or an empty array are not serialized. To serialize empty properties, you must specify them as an empty string.
+
+
+\begin{DoxyParams}[1]{Paramètres}
+object & {\em \$value\+Object} & \\
+\hline
+\end{DoxyParams}

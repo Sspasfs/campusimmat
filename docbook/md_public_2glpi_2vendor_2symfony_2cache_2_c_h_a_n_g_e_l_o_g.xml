@@ -1,0 +1,203 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_md_public_2glpi_2vendor_2symfony_2cache_2_c_h_a_n_g_e_l_o_g" xml:lang="fr">
+<title>CHANGELOG</title>
+<indexterm><primary>CHANGELOG</primary></indexterm>
+<section xml:id="_md_public_2glpi_2vendor_2symfony_2cache_2_c_h_a_n_g_e_l_o_g_1autotoc_md7342">
+<title><title>5.4</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Deprecate <computeroutput>DoctrineProvider</computeroutput> and <computeroutput>DoctrineAdapter</computeroutput> because these classes have been added to the <computeroutput>doctrine/cache</computeroutput> package</para>
+</listitem><listitem>
+<para>Add <computeroutput>DoctrineDbalAdapter</computeroutput> identical to <computeroutput>PdoAdapter</computeroutput> for <computeroutput>Doctrine\DBAL\Connection</computeroutput> or DBAL URL</para>
+</listitem><listitem>
+<para>Deprecate usage of <computeroutput>PdoAdapter</computeroutput> with <computeroutput>Doctrine\DBAL\Connection</computeroutput> or DBAL URL</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2symfony_2cache_2_c_h_a_n_g_e_l_o_g_1autotoc_md7343">
+<title><title>5.3</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>added support for connecting to Redis Sentinel clusters when using the Redis PHP extension</para>
+</listitem><listitem>
+<para>add support for a custom serializer to the <computeroutput>ApcuAdapter</computeroutput> class</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2symfony_2cache_2_c_h_a_n_g_e_l_o_g_1autotoc_md7344">
+<title><title>5.2.0</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>added integration with Messenger to allow computing cached values in a worker</para>
+</listitem><listitem>
+<para>allow ISO 8601 time intervals to specify default lifetime</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2symfony_2cache_2_c_h_a_n_g_e_l_o_g_1autotoc_md7345">
+<title><title>5.1.0</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>added max-items + LRU + max-lifetime capabilities to <computeroutput>ArrayCache</computeroutput></para>
+</listitem><listitem>
+<para>added <computeroutput>CouchbaseBucketAdapter</computeroutput></para>
+</listitem><listitem>
+<para>added context <computeroutput>cache-adapter</computeroutput> to log messages</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2symfony_2cache_2_c_h_a_n_g_e_l_o_g_1autotoc_md7346">
+<title><title>5.0.0</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>removed all PSR-16 implementations in the <computeroutput>Simple</computeroutput> namespace</para>
+</listitem><listitem>
+<para>removed <computeroutput>SimpleCacheAdapter</computeroutput></para>
+</listitem><listitem>
+<para>removed <computeroutput>AbstractAdapter::unserialize()</computeroutput></para>
+</listitem><listitem>
+<para>removed <computeroutput>CacheItem::getPreviousTags()</computeroutput></para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2symfony_2cache_2_c_h_a_n_g_e_l_o_g_1autotoc_md7347">
+<title><title>4.4.0</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>added support for connecting to Redis Sentinel clusters</para>
+</listitem><listitem>
+<para>added argument <computeroutput>$prefix</computeroutput> to <computeroutput>AdapterInterface::clear()</computeroutput></para>
+</listitem><listitem>
+<para>improved <computeroutput>RedisTagAwareAdapter</computeroutput> to support Redis server &gt;= 2.8 and up to 4B items per tag</para>
+</listitem><listitem>
+<para>added <computeroutput>TagAwareMarshaller</computeroutput> for optimized data storage when using <computeroutput>AbstractTagAwareAdapter</computeroutput></para>
+</listitem><listitem>
+<para>added <computeroutput>DeflateMarshaller</computeroutput> to compress serialized values</para>
+</listitem><listitem>
+<para>removed support for phpredis 4 <computeroutput>compression</computeroutput></para>
+</listitem><listitem>
+<para>[BC BREAK] <computeroutput>RedisTagAwareAdapter</computeroutput> is not compatible with <computeroutput>RedisCluster</computeroutput> from <computeroutput>Predis</computeroutput> anymore, use <computeroutput>phpredis</computeroutput> instead</para>
+</listitem><listitem>
+<para>Marked the <computeroutput>CacheDataCollector</computeroutput> class as <computeroutput>@final</computeroutput>.</para>
+</listitem><listitem>
+<para>added <computeroutput>SodiumMarshaller</computeroutput> to encrypt/decrypt values using libsodium</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2symfony_2cache_2_c_h_a_n_g_e_l_o_g_1autotoc_md7348">
+<title><title>4.3.0</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>removed <computeroutput>psr/simple-cache</computeroutput> dependency, run <computeroutput>composer require psr/simple-cache</computeroutput> if you need it</para>
+</listitem><listitem>
+<para>deprecated all PSR-16 adapters, use <computeroutput>Psr16Cache</computeroutput> or <computeroutput>Symfony\Contracts\Cache\CacheInterface</computeroutput> implementations instead</para>
+</listitem><listitem>
+<para>deprecated <computeroutput>SimpleCacheAdapter</computeroutput>, use <computeroutput>Psr16Adapter</computeroutput> instead</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2symfony_2cache_2_c_h_a_n_g_e_l_o_g_1autotoc_md7349">
+<title><title>4.2.0</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>added support for connecting to Redis clusters via DSN</para>
+</listitem><listitem>
+<para>added support for configuring multiple Memcached servers via DSN</para>
+</listitem><listitem>
+<para>added <computeroutput>MarshallerInterface</computeroutput> and <computeroutput>DefaultMarshaller</computeroutput> to allow changing the serializer and provide one that automatically uses igbinary when available</para>
+</listitem><listitem>
+<para>implemented <computeroutput>CacheInterface</computeroutput>, which provides stampede protection via probabilistic early expiration and should become the preferred way to use a cache</para>
+</listitem><listitem>
+<para>added sub-second expiry accuracy for backends that support it</para>
+</listitem><listitem>
+<para>added support for phpredis 4 <computeroutput>compression</computeroutput> and <computeroutput>tcp_keepalive</computeroutput> options</para>
+</listitem><listitem>
+<para>added automatic table creation when using Doctrine DBAL with PDO-based backends</para>
+</listitem><listitem>
+<para>throw <computeroutput>LogicException</computeroutput> when <computeroutput>CacheItem::tag()</computeroutput> is called on an item coming from a non tag-aware pool</para>
+</listitem><listitem>
+<para>deprecated <computeroutput>CacheItem::getPreviousTags()</computeroutput>, use <computeroutput>CacheItem::getMetadata()</computeroutput> instead</para>
+</listitem><listitem>
+<para>deprecated the <computeroutput>AbstractAdapter::unserialize()</computeroutput> and <computeroutput>AbstractCache::unserialize()</computeroutput> methods</para>
+</listitem><listitem>
+<para>added <computeroutput>CacheCollectorPass</computeroutput> (originally in <computeroutput>FrameworkBundle</computeroutput>)</para>
+</listitem><listitem>
+<para>added <computeroutput>CachePoolClearerPass</computeroutput> (originally in <computeroutput>FrameworkBundle</computeroutput>)</para>
+</listitem><listitem>
+<para>added <computeroutput>CachePoolPass</computeroutput> (originally in <computeroutput>FrameworkBundle</computeroutput>)</para>
+</listitem><listitem>
+<para>added <computeroutput>CachePoolPrunerPass</computeroutput> (originally in <computeroutput>FrameworkBundle</computeroutput>)</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2symfony_2cache_2_c_h_a_n_g_e_l_o_g_1autotoc_md7350">
+<title><title>3.4.0</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>added using options from Memcached DSN</para>
+</listitem><listitem>
+<para>added PruneableInterface so PSR-6 or PSR-16 cache implementations can declare support for manual stale cache pruning</para>
+</listitem><listitem>
+<para>added prune logic to FilesystemTrait, PhpFilesTrait, PdoTrait, TagAwareAdapter and ChainTrait</para>
+</listitem><listitem>
+<para>now FilesystemAdapter, PhpFilesAdapter, FilesystemCache, PhpFilesCache, PdoAdapter, PdoCache, ChainAdapter, and ChainCache implement PruneableInterface and support manual stale cache pruning</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2symfony_2cache_2_c_h_a_n_g_e_l_o_g_1autotoc_md7351">
+<title><title>3.3.0</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>added CacheItem::getPreviousTags() to get bound tags coming from the pool storage if any</para>
+</listitem><listitem>
+<para>added PSR-16 &quot;Simple Cache&quot; implementations for all existing PSR-6 adapters</para>
+</listitem><listitem>
+<para>added Psr6Cache and SimpleCacheAdapter for bidirectional interoperability between PSR-6 and PSR-16</para>
+</listitem><listitem>
+<para>added MemcachedAdapter (PSR-6) and MemcachedCache (PSR-16)</para>
+</listitem><listitem>
+<para>added TraceableAdapter (PSR-6) and TraceableCache (PSR-16)</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2symfony_2cache_2_c_h_a_n_g_e_l_o_g_1autotoc_md7352">
+<title><title>3.2.0</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>added TagAwareAdapter for tags-based invalidation</para>
+</listitem><listitem>
+<para>added PdoAdapter with PDO and Doctrine DBAL support</para>
+</listitem><listitem>
+<para>added PhpArrayAdapter and PhpFilesAdapter for OPcache-backed shared memory storage (PHP 7+ only)</para>
+</listitem><listitem>
+<para>added NullAdapter</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2symfony_2cache_2_c_h_a_n_g_e_l_o_g_1autotoc_md7353">
+<title><title>3.1.0</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>added the component with strict PSR-6 implementations</para>
+</listitem><listitem>
+<para>added ApcuAdapter, ArrayAdapter, FilesystemAdapter and RedisAdapter</para>
+</listitem><listitem>
+<para>added AbstractAdapter, ChainAdapter and ProxyAdapter</para>
+</listitem><listitem>
+<para>added DoctrineAdapter and DoctrineProvider for bidirectional interoperability with Doctrine Cache </para>
+</listitem></itemizedlist>
+</para>
+</section>
+</section>

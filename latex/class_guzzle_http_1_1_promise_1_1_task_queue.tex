@@ -1,0 +1,113 @@
+\doxysection{Référence de la classe Task\+Queue}
+\hypertarget{class_guzzle_http_1_1_promise_1_1_task_queue}{}\label{class_guzzle_http_1_1_promise_1_1_task_queue}\index{TaskQueue@{TaskQueue}}
+
+
+Graphe d\textquotesingle{}héritage de Task\+Queue\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=218pt]{class_guzzle_http_1_1_promise_1_1_task_queue__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Graphe de collaboration de Task\+Queue\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=218pt]{class_guzzle_http_1_1_promise_1_1_task_queue__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_guzzle_http_1_1_promise_1_1_task_queue_a5c4046e02132cce76816b8cc54b7a75f}{\+\_\+\+\_\+construct}} (\$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{with\+Shutdown}}=true)
+\item 
+\mbox{\hyperlink{class_guzzle_http_1_1_promise_1_1_task_queue_aedcc52b3673b8df9425e52f13accb2a1}{is\+Empty}} ()
+\item 
+\mbox{\hyperlink{class_guzzle_http_1_1_promise_1_1_task_queue_a90f7e91dfc2303d0f368a1922c7f3544}{add}} (\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{callable}} \$\mbox{\hyperlink{namespace_guzzle_http_1_1_promise_ad46008bb92f80f8605bcc4a9808b8c62}{task}})
+\item 
+\mbox{\hyperlink{class_guzzle_http_1_1_promise_1_1_task_queue_a4f38ee70ae3488812f0c8d970ff3978c}{disable\+Shutdown}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Fonctions membres publiques hérités de \mbox{\hyperlink{interface_guzzle_http_1_1_promise_1_1_task_queue_interface}{Task\+Queue\+Interface}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{interface_guzzle_http_1_1_promise_1_1_task_queue_interface_afb0fafe7e02a3ae1993c01c19fad2bae}{run}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+A task queue that executes tasks in a FIFO order.
+
+This task queue class is used to settle promises asynchronously and maintains a constant stack size. You can use the task queue asynchronously by calling the {\ttfamily run()} function of the global task queue in an event loop. \begin{DoxyVerb}GuzzleHttp\Promise\Utils::queue()->run();
+\end{DoxyVerb}
+ 
+
+\doxysubsection{Documentation des constructeurs et destructeur}
+\Hypertarget{class_guzzle_http_1_1_promise_1_1_task_queue_a5c4046e02132cce76816b8cc54b7a75f}\label{class_guzzle_http_1_1_promise_1_1_task_queue_a5c4046e02132cce76816b8cc54b7a75f} 
+\index{TaskQueue@{TaskQueue}!\_\_construct@{\_\_construct}}
+\index{\_\_construct@{\_\_construct}!TaskQueue@{TaskQueue}}
+\doxysubsubsection{\texorpdfstring{\_\_construct()}{\_\_construct()}}
+{\footnotesize\ttfamily \+\_\+\+\_\+construct (\begin{DoxyParamCaption}\item[{}]{\$with\+Shutdown = {\ttfamily true} }\end{DoxyParamCaption})}
+
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=306pt]{class_guzzle_http_1_1_promise_1_1_task_queue_a5c4046e02132cce76816b8cc54b7a75f_cgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Documentation des fonctions membres}
+\Hypertarget{class_guzzle_http_1_1_promise_1_1_task_queue_a90f7e91dfc2303d0f368a1922c7f3544}\label{class_guzzle_http_1_1_promise_1_1_task_queue_a90f7e91dfc2303d0f368a1922c7f3544} 
+\index{TaskQueue@{TaskQueue}!add@{add}}
+\index{add@{add}!TaskQueue@{TaskQueue}}
+\doxysubsubsection{\texorpdfstring{add()}{add()}}
+{\footnotesize\ttfamily add (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{callable}}}]{\$task }\end{DoxyParamCaption})}
+
+Adds a task to the queue that will be executed the next time run is called. 
+
+Implémente \mbox{\hyperlink{interface_guzzle_http_1_1_promise_1_1_task_queue_interface_a90f7e91dfc2303d0f368a1922c7f3544}{Task\+Queue\+Interface}}.
+
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_guzzle_http_1_1_promise_1_1_task_queue_a90f7e91dfc2303d0f368a1922c7f3544_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_guzzle_http_1_1_promise_1_1_task_queue_a4f38ee70ae3488812f0c8d970ff3978c}\label{class_guzzle_http_1_1_promise_1_1_task_queue_a4f38ee70ae3488812f0c8d970ff3978c} 
+\index{TaskQueue@{TaskQueue}!disableShutdown@{disableShutdown}}
+\index{disableShutdown@{disableShutdown}!TaskQueue@{TaskQueue}}
+\doxysubsubsection{\texorpdfstring{disableShutdown()}{disableShutdown()}}
+{\footnotesize\ttfamily disable\+Shutdown (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+The task queue will be run and exhausted by default when the process exits IFF the exit is not the result of a PHP E\+\_\+\+ERROR error.
+
+You can disable running the automatic shutdown of the queue by calling this function. If you disable the task queue shutdown process, then you MUST either run the task queue (as a result of running your event loop or manually using the run() method) or wait on each outstanding promise.
+
+Note\+: This shutdown will occur before any destructors are triggered. \Hypertarget{class_guzzle_http_1_1_promise_1_1_task_queue_aedcc52b3673b8df9425e52f13accb2a1}\label{class_guzzle_http_1_1_promise_1_1_task_queue_aedcc52b3673b8df9425e52f13accb2a1} 
+\index{TaskQueue@{TaskQueue}!isEmpty@{isEmpty}}
+\index{isEmpty@{isEmpty}!TaskQueue@{TaskQueue}}
+\doxysubsubsection{\texorpdfstring{isEmpty()}{isEmpty()}}
+{\footnotesize\ttfamily is\+Empty (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Returns true if the queue is empty.
+
+\begin{DoxyReturn}{Renvoie}
+bool 
+\end{DoxyReturn}
+
+
+Implémente \mbox{\hyperlink{interface_guzzle_http_1_1_promise_1_1_task_queue_interface_aedcc52b3673b8df9425e52f13accb2a1}{Task\+Queue\+Interface}}.
+
+
+
+La documentation de cette classe a été générée à partir du fichier suivant \+:\begin{DoxyCompactItemize}
+\item 
+public/glpi/vendor/guzzlehttp/promises/src/\mbox{\hyperlink{_task_queue_8php}{Task\+Queue.\+php}}\end{DoxyCompactItemize}

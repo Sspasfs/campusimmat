@@ -1,0 +1,23 @@
+\chapter{Scope\+Exit}
+\hypertarget{md_public_2glpi_2vendor_2phplang_2scope-exit_2_r_e_a_d_m_e}{}\label{md_public_2glpi_2vendor_2phplang_2scope-exit_2_r_e_a_d_m_e}\index{ScopeExit@{ScopeExit}}
+\label{md_public_2glpi_2vendor_2phplang_2scope-exit_2_r_e_a_d_m_e_autotoc_md6892}%
+\Hypertarget{md_public_2glpi_2vendor_2phplang_2scope-exit_2_r_e_a_d_m_e_autotoc_md6892}%
+ This simple class provides an implementation of C++\textquotesingle{}s {\ttfamily SCOPE\+\_\+\+EXIT}, or Go\+Lang\textquotesingle{}s {\ttfamily defer}.
+
+To use, assign an instance of this object to a local variable. When that variable falls out of scope (or is explicitly {\ttfamily unset}, the callback passed to the constructor will be invoked. This is useful, for example, to aid cleanup at the end of a funciton.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{function\ f(\&\$x)\ \{}
+\DoxyCodeLine{\ \ \$x\ =\ 1;}
+\DoxyCodeLine{\ \ \$\_\ =\ new\ \(\backslash\)PhpLang\(\backslash\)ScopeExit(function()\ use\ (\&\$x)\ \{\ \$x\ =\ 2;\ \});}
+\DoxyCodeLine{\ \ //\ \$x\ is\ still\ 1\ at\ this\ point.}
+\DoxyCodeLine{\ \ return\ 42;}
+\DoxyCodeLine{\ \ //\ After\ the\ return,\ the\ local\ scope\ is\ cleaned\ up,\ the\ closure\ is\ invoked,\ and\ it's\ set\ to\ 2}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{f(\$a);}
+\DoxyCodeLine{var\_dump(\$a);\ //\ int(2)}
+
+\end{DoxyCode}
+ 

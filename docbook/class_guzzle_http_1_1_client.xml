@@ -1,0 +1,383 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_guzzle_http_1_1_client" xml:lang="fr">
+<title>Référence de la classe Client</title>
+<indexterm><primary>Client</primary></indexterm>
+Graphe d&apos;héritage de Client:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_guzzle_http_1_1_client__inherit__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Graphe de collaboration de Client:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_guzzle_http_1_1_client__coll__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Fonctions membres publiques    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_guzzle_http_1_1_client_1abfe0ed44b9c821db97c86d87c86904b1">__construct</link> (array $config=[])</para>
+</listitem>
+            <listitem><para><link linkend="_class_guzzle_http_1_1_client_1acc4af8670c8e19590b205f2a477397e2">sendAsync</link> (<link linkend="_interface_psr_1_1_http_1_1_message_1_1_request_interface">RequestInterface</link> $<link linkend="_class_guzzle_http_1_1_client_1a6c404324a51407f52f33717842c0c587">request</link>, array $options=[])</para>
+</listitem>
+            <listitem><para><link linkend="_class_guzzle_http_1_1_client_1a79dbc4de862ed0389dc53da81cff765e">send</link> (<link linkend="_interface_psr_1_1_http_1_1_message_1_1_request_interface">RequestInterface</link> $<link linkend="_class_guzzle_http_1_1_client_1a6c404324a51407f52f33717842c0c587">request</link>, array $options=[])</para>
+</listitem>
+            <listitem><para><link linkend="_class_guzzle_http_1_1_client_1a65443cda3300bb4a1be73de1f3e2f39a">sendRequest</link> (<link linkend="_interface_psr_1_1_http_1_1_message_1_1_request_interface">RequestInterface</link> $<link linkend="_class_guzzle_http_1_1_client_1a6c404324a51407f52f33717842c0c587">request</link>)</para>
+</listitem>
+            <listitem><para><link linkend="_class_guzzle_http_1_1_client_1a2c1bb98c2de7bb6b136fb22cbb6b17ce">requestAsync</link> (string $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">method</link>, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">uri</link>=&apos;&apos;, array $options=[])</para>
+</listitem>
+            <listitem><para><link linkend="_class_guzzle_http_1_1_client_1a6c404324a51407f52f33717842c0c587">request</link> (string $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">method</link>, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">uri</link>=&apos;&apos;, array $options=[])</para>
+</listitem>
+            <listitem><para><link linkend="_class_guzzle_http_1_1_client_1a50a8bdf2c9aa3bf12ea443fd67ccdcfe">getConfig</link> (?string $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">option</link>=null)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Membres hérités additionnels    </title>
+Champs de données hérités de <link linkend="_interface_guzzle_http_1_1_client_interface">ClientInterface</link>        <itemizedlist>
+            <listitem><para>const <link linkend="_interface_guzzle_http_1_1_client_interface_1a3131af273a7c8eca1728d5b8660bb9c0">MAJOR_VERSION</link> = 7</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Description détaillée</title>
+
+<para>@final </para>
+</section>
+<section>
+<title>Documentation des constructeurs et destructeur</title>
+<anchor xml:id="_class_guzzle_http_1_1_client_1abfe0ed44b9c821db97c86d87c86904b1"/><section>
+    <title>__construct()</title>
+<indexterm><primary>__construct</primary><secondary>Client</secondary></indexterm>
+<indexterm><primary>Client</primary><secondary>__construct</secondary></indexterm>
+<para><computeroutput>__construct (array $config = <computeroutput>[]</computeroutput>
+)</computeroutput></para>
+<para>Clients accept an array of constructor parameters.</para>
+
+<para>Here&apos;s an example of creating a client using a base_uri and an array of default request options to apply to each request: <literallayout><computeroutput>$client = new Client([
+    &apos;base_uri&apos;        =&gt; &apos;http://www.foo.com/1.0/&apos;,
+    &apos;timeout&apos;         =&gt; 0,
+    &apos;allow_redirects&apos; =&gt; false,
+    &apos;proxy&apos;           =&gt; &apos;192.168.16.1:10&apos;
+]);
+</computeroutput></literallayout> Client configuration settings include the following options:</para>
+
+<para><itemizedlist>
+<listitem>
+<para>handler: (callable) Function that transfers HTTP requests over the wire. The function is called with a Psr7\Http\Message\RequestInterface and array of transfer options, and must return a <link linkend="_namespace_guzzle_http">GuzzleHttp</link>\Promise\PromiseInterface that is fulfilled with a Psr7\Http\Message\ResponseInterface on success. If no handler is provided, a default handler will be created that enables all of the request options below by attaching all of the default middleware to the handler.</para>
+</listitem><listitem>
+<para>base_uri: (string|UriInterface) Base URI of the client that is merged into relative URIs. Can be a string or instance of UriInterface.</para>
+</listitem><listitem>
+<para>**: any request option</para>
+</listitem></itemizedlist>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>array</entry><entry>$config</entry><entry>
+<para>Client configuration settings.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Voir également</title>
+
+<para>\GuzzleHttp\RequestOptions <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">for</link> <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">a</link> <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">list</link> of <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">available</link> request options. </para>
+</formalpara>
+</para>
+</section>
+</section>
+<section>
+<title>Documentation des fonctions membres</title>
+<anchor xml:id="_class_guzzle_http_1_1_client_1a50a8bdf2c9aa3bf12ea443fd67ccdcfe"/><section>
+    <title>getConfig()</title>
+<indexterm><primary>getConfig</primary><secondary>Client</secondary></indexterm>
+<indexterm><primary>Client</primary><secondary>getConfig</secondary></indexterm>
+<para><computeroutput>getConfig (?string $option = <computeroutput>null</computeroutput>
+)</computeroutput></para>
+<para>Get a client configuration option.</para>
+
+<para>These options include default request options of the client, a &quot;handler&quot; (if utilized by the concrete client), and a &quot;base_uri&quot; if utilized by the concrete client.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string | null</entry><entry>$option</entry><entry>
+<para>The config option to retrieve.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>mixed</para>
+</formalpara>
+<para><link linkend="_deprecated_1_deprecated000026">Obsolète</link> 
+<para>Client::getConfig will be removed in guzzlehttp/guzzle:8.0. </para>
+</para></para>
+<para>
+Implémente <link linkend="_interface_guzzle_http_1_1_client_interface_1a50a8bdf2c9aa3bf12ea443fd67ccdcfe">ClientInterface</link>.</para>
+</section>
+<anchor xml:id="_class_guzzle_http_1_1_client_1a6c404324a51407f52f33717842c0c587"/><section>
+    <title>request()</title>
+<indexterm><primary>request</primary><secondary>Client</secondary></indexterm>
+<indexterm><primary>Client</primary><secondary>request</secondary></indexterm>
+<para><computeroutput>request (string $method,  $uri = <computeroutput>&apos;&apos;</computeroutput>
+, array $options = <computeroutput>[]</computeroutput>
+)</computeroutput></para>
+<para>Create and send an HTTP request.</para>
+
+<para>Use an absolute path to override the base path of the client, or a relative path to append to the base path of the client. The URL can contain the query string as well.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$method</entry><entry>
+<para>HTTP method. </para>
+</entry>
+                            </row>
+                            <row>
+<entry>string | UriInterface</entry><entry>$uri</entry><entry>
+<para>URI object or string. </para>
+</entry>
+                            </row>
+                            <row>
+<entry>array</entry><entry>$options</entry><entry>
+<para>Request options to apply. See \GuzzleHttp\RequestOptions.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>GuzzleException</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Implémente <link linkend="_interface_guzzle_http_1_1_client_interface_1a615d208d1c7fe4691b7ee9eec3f5eb4b">ClientInterface</link>.</para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_guzzle_http_1_1_client_a6c404324a51407f52f33717842c0c587_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_guzzle_http_1_1_client_1a2c1bb98c2de7bb6b136fb22cbb6b17ce"/><section>
+    <title>requestAsync()</title>
+<indexterm><primary>requestAsync</primary><secondary>Client</secondary></indexterm>
+<indexterm><primary>Client</primary><secondary>requestAsync</secondary></indexterm>
+<para><computeroutput>requestAsync (string $method,  $uri = <computeroutput>&apos;&apos;</computeroutput>
+, array $options = <computeroutput>[]</computeroutput>
+)</computeroutput></para>
+<para>Create and send an asynchronous HTTP request.</para>
+
+<para>Use an absolute path to override the base path of the client, or a relative path to append to the base path of the client. The URL can contain the query string as well. Use an array to provide a URL template and additional variables to use in the URL template expansion.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$method</entry><entry>
+<para>HTTP method </para>
+</entry>
+                            </row>
+                            <row>
+<entry>string | UriInterface</entry><entry>$uri</entry><entry>
+<para>URI object or string. </para>
+</entry>
+                            </row>
+                            <row>
+<entry>array</entry><entry>$options</entry><entry>
+<para>Request options to apply. See \GuzzleHttp\RequestOptions. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Implémente <link linkend="_interface_guzzle_http_1_1_client_interface_1a4a81ba549dcf2e189e634af20dabe6da">ClientInterface</link>.</para>
+</section>
+<anchor xml:id="_class_guzzle_http_1_1_client_1a79dbc4de862ed0389dc53da81cff765e"/><section>
+    <title>send()</title>
+<indexterm><primary>send</primary><secondary>Client</secondary></indexterm>
+<indexterm><primary>Client</primary><secondary>send</secondary></indexterm>
+<para><computeroutput>send (<link linkend="_interface_psr_1_1_http_1_1_message_1_1_request_interface">RequestInterface</link> $request, array $options = <computeroutput>[]</computeroutput>
+)</computeroutput></para>
+<para>Send an HTTP request.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>array</entry><entry>$options</entry><entry>
+<para>Request options to apply to the given request and to the transfer. See \GuzzleHttp\RequestOptions.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>GuzzleException</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Implémente <link linkend="_interface_guzzle_http_1_1_client_interface_1a79dbc4de862ed0389dc53da81cff765e">ClientInterface</link>.</para>
+</section>
+<anchor xml:id="_class_guzzle_http_1_1_client_1acc4af8670c8e19590b205f2a477397e2"/><section>
+    <title>sendAsync()</title>
+<indexterm><primary>sendAsync</primary><secondary>Client</secondary></indexterm>
+<indexterm><primary>Client</primary><secondary>sendAsync</secondary></indexterm>
+<para><computeroutput>sendAsync (<link linkend="_interface_psr_1_1_http_1_1_message_1_1_request_interface">RequestInterface</link> $request, array $options = <computeroutput>[]</computeroutput>
+)</computeroutput></para>
+<para>Asynchronously send an HTTP request.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>array</entry><entry>$options</entry><entry>
+<para>Request options to apply to the given request and to the transfer. See \GuzzleHttp\RequestOptions. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Implémente <link linkend="_interface_guzzle_http_1_1_client_interface_1acc4af8670c8e19590b205f2a477397e2">ClientInterface</link>.</para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_guzzle_http_1_1_client_acc4af8670c8e19590b205f2a477397e2_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_guzzle_http_1_1_client_1a65443cda3300bb4a1be73de1f3e2f39a"/><section>
+    <title>sendRequest()</title>
+<indexterm><primary>sendRequest</primary><secondary>Client</secondary></indexterm>
+<indexterm><primary>Client</primary><secondary>sendRequest</secondary></indexterm>
+<para><computeroutput>sendRequest (<link linkend="_interface_psr_1_1_http_1_1_message_1_1_request_interface">RequestInterface</link> $request)</computeroutput></para>
+<para>The HttpClient PSR (PSR-18) specify this method.</para>
+
+<para>@inheritDoc </para>
+<para>
+Implémente <link linkend="_interface_psr_1_1_http_1_1_client_1_1_client_interface_1a65443cda3300bb4a1be73de1f3e2f39a">ClientInterface</link>.</para>
+</section>
+<para>
+La documentation de cette classe a été générée à partir du fichier suivant :</para>
+public/glpi/vendor/guzzlehttp/guzzle/src/<link linkend="_guzzlehttp_2guzzle_2src_2_client_8php">Client.php</link></section>
+</section>

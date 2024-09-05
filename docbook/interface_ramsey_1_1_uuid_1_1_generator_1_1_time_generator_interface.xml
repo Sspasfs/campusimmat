@@ -1,0 +1,83 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_interface_ramsey_1_1_uuid_1_1_generator_1_1_time_generator_interface" xml:lang="fr">
+<title>Référence de l&apos;interface TimeGeneratorInterface</title>
+<indexterm><primary>TimeGeneratorInterface</primary></indexterm>
+Graphe d&apos;héritage de TimeGeneratorInterface:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="interface_ramsey_1_1_uuid_1_1_generator_1_1_time_generator_interface__inherit__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Graphe de collaboration de TimeGeneratorInterface:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="interface_ramsey_1_1_uuid_1_1_generator_1_1_time_generator_interface__coll__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Fonctions membres publiques    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_interface_ramsey_1_1_uuid_1_1_generator_1_1_time_generator_interface_1a8ce2bfb40818af23362132297f0c1806">generate</link> ($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">node</link>=null, ?int $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">clockSeq</link>=null)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Description détaillée</title>
+
+<para>A time generator generates strings of binary data based on a node ID, clock sequence, and the current time </para>
+</section>
+<section>
+<title>Documentation des fonctions membres</title>
+<anchor xml:id="_interface_ramsey_1_1_uuid_1_1_generator_1_1_time_generator_interface_1a8ce2bfb40818af23362132297f0c1806"/><section>
+    <title>generate()</title>
+<indexterm><primary>generate</primary><secondary>TimeGeneratorInterface</secondary></indexterm>
+<indexterm><primary>TimeGeneratorInterface</primary><secondary>generate</secondary></indexterm>
+<para><computeroutput>generate ( $node = <computeroutput>null</computeroutput>
+, ?int $clockSeq = <computeroutput>null</computeroutput>
+)</computeroutput></para>
+<para>Generate a binary string from a node ID, clock sequence, and current time</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>Hexadecimal | int | string | null</entry><entry>$node</entry><entry>
+<para>A 48-bit number representing the hardware address; this number may be represented as an integer or a hexadecimal string </para>
+</entry>
+                            </row>
+                            <row>
+<entry>int | null</entry><entry>$clockSeq</entry><entry>
+<para>A 14-bit number used to help avoid duplicates that could arise when the clock is set backwards in time or if the node ID changes</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>string A binary string </para>
+</formalpara>
+</para>
+<para>
+Implémenté dans <link linkend="_class_ramsey_1_1_uuid_1_1_generator_1_1_default_time_generator_1a8ce2bfb40818af23362132297f0c1806">DefaultTimeGenerator</link>, et <link linkend="_class_ramsey_1_1_uuid_1_1_generator_1_1_pecl_uuid_time_generator_1a8ce2bfb40818af23362132297f0c1806">PeclUuidTimeGenerator</link>.</para>
+</section>
+<para>
+La documentation de cette interface a été générée à partir du fichier suivant :</para>
+public/glpi/vendor/ramsey/uuid/src/Generator/<link linkend="__time_generator_interface_8php">TimeGeneratorInterface.php</link></section>
+</section>

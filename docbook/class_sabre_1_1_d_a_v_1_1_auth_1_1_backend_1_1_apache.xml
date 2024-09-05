@@ -1,0 +1,126 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_sabre_1_1_d_a_v_1_1_auth_1_1_backend_1_1_apache" xml:lang="fr">
+<title>Référence de la classe Apache</title>
+<indexterm><primary>Apache</primary></indexterm>
+Graphe d&apos;héritage de Apache:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_sabre_1_1_d_a_v_1_1_auth_1_1_backend_1_1_apache__inherit__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Graphe de collaboration de Apache:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_sabre_1_1_d_a_v_1_1_auth_1_1_backend_1_1_apache__coll__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Fonctions membres publiques    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_sabre_1_1_d_a_v_1_1_auth_1_1_backend_1_1_apache_1a6842b5de20e46939164e6b51e7b62cfa">check</link> (<link linkend="_interface_sabre_1_1_h_t_t_p_1_1_request_interface">RequestInterface</link> $request, <link linkend="_interface_sabre_1_1_h_t_t_p_1_1_response_interface">ResponseInterface</link> $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">response</link>)</para>
+</listitem>
+            <listitem><para><link linkend="_class_sabre_1_1_d_a_v_1_1_auth_1_1_backend_1_1_apache_1a5bb4c145c79dd8ad38052f88f866cb2c">challenge</link> (<link linkend="_interface_sabre_1_1_h_t_t_p_1_1_request_interface">RequestInterface</link> $request, <link linkend="_interface_sabre_1_1_h_t_t_p_1_1_response_interface">ResponseInterface</link> $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">response</link>)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Attributs protégés    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_sabre_1_1_d_a_v_1_1_auth_1_1_backend_1_1_apache_1ae6ba5686e503854363b3f7c7bc1fa413">$principalPrefix</link> = &apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">principals</link>/&apos;</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Description détaillée</title>
+
+<para>Apache (or NGINX) authenticator.</para>
+
+<para>This authentication backend assumes that authentication has been configured in apache (or NGINX), rather than within SabreDAV.</para>
+
+<para>Make sure apache (or NGINX) is properly configured for this to work.</para>
+
+<para><formalpara><title>Copyright</title>
+
+<para>Copyright (C) fruux GmbH (<link xlink:href="https://fruux.com/">https://fruux.com/</link>) </para>
+</formalpara>
+<formalpara><title>Auteur</title>
+
+<para>Evert Pot (<link xlink:href="http://evertpot.com/">http://evertpot.com/</link>) @license <link xlink:href="http://sabre.io/license/">http://sabre.io/license/</link> Modified BSD License </para>
+</formalpara>
+</para>
+</section>
+<section>
+<title>Documentation des fonctions membres</title>
+<anchor xml:id="_class_sabre_1_1_d_a_v_1_1_auth_1_1_backend_1_1_apache_1a5bb4c145c79dd8ad38052f88f866cb2c"/><section>
+    <title>challenge()</title>
+<indexterm><primary>challenge</primary><secondary>Apache</secondary></indexterm>
+<indexterm><primary>Apache</primary><secondary>challenge</secondary></indexterm>
+<para><computeroutput>challenge (<link linkend="_interface_sabre_1_1_h_t_t_p_1_1_request_interface">RequestInterface</link> $request, <link linkend="_interface_sabre_1_1_h_t_t_p_1_1_response_interface">ResponseInterface</link> $response)</computeroutput></para>
+<para>This method is called when a user could not be authenticated, and authentication was required for the current request.</para>
+
+<para>This gives you the opportunity to set authentication headers. The 401 status code will already be set.</para>
+
+<para>In this case of Basic <link linkend="_class_auth">Auth</link>, this would for example mean that the following header needs to be set:</para>
+
+<para>$response-&gt;addHeader(&apos;WWW-Authenticate&apos;, &apos;Basic realm=SabreDAV&apos;);</para>
+
+<para>Keep in mind that in the case of multiple authentication backends, other WWW-Authenticate headers may already have been set, and you&apos;ll want to append your own WWW-Authenticate header instead of overwriting the existing one. </para>
+<para>
+Implémente <link linkend="_interface_sabre_1_1_d_a_v_1_1_auth_1_1_backend_1_1_backend_interface_1a5bb4c145c79dd8ad38052f88f866cb2c">BackendInterface</link>.</para>
+</section>
+<anchor xml:id="_class_sabre_1_1_d_a_v_1_1_auth_1_1_backend_1_1_apache_1a6842b5de20e46939164e6b51e7b62cfa"/><section>
+    <title>check()</title>
+<indexterm><primary>check</primary><secondary>Apache</secondary></indexterm>
+<indexterm><primary>Apache</primary><secondary>check</secondary></indexterm>
+<para><computeroutput>check (<link linkend="_interface_sabre_1_1_h_t_t_p_1_1_request_interface">RequestInterface</link> $request, <link linkend="_interface_sabre_1_1_h_t_t_p_1_1_response_interface">ResponseInterface</link> $response)</computeroutput></para>
+<para>When this method is called, the backend must check if authentication was successful.</para>
+
+<para>The returned value must be one of the following</para>
+
+<para>[true, &quot;principals/username&quot;] [false, &quot;reason for failure&quot;]</para>
+
+<para>If authentication was successful, it&apos;s expected that the authentication backend returns a so-called principal url.</para>
+
+<para>Examples of a principal url:</para>
+
+<para>principals/admin principals/user1 principals/users/joe principals/uid/123457</para>
+
+<para>If you don&apos;t use WebDAV ACL (RFC3744) we recommend that you simply return a string such as:</para>
+
+<para>principals/users/[username]</para>
+
+<para><formalpara><title>Renvoie</title>
+
+<para>array </para>
+</formalpara>
+</para>
+<para>
+Implémente <link linkend="_interface_sabre_1_1_d_a_v_1_1_auth_1_1_backend_1_1_backend_interface_1a6842b5de20e46939164e6b51e7b62cfa">BackendInterface</link>.</para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_sabre_1_1_d_a_v_1_1_auth_1_1_backend_1_1_apache_a6842b5de20e46939164e6b51e7b62cfa_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+</section>
+<section>
+<title>Documentation des champs</title>
+<anchor xml:id="_class_sabre_1_1_d_a_v_1_1_auth_1_1_backend_1_1_apache_1ae6ba5686e503854363b3f7c7bc1fa413"/><section>
+    <title>$principalPrefix</title>
+<indexterm><primary>$principalPrefix</primary><secondary>Apache</secondary></indexterm>
+<indexterm><primary>Apache</primary><secondary>$principalPrefix</secondary></indexterm>
+<para><computeroutput>$<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">principalPrefix</link> = &apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">principals</link>/&apos;<computeroutput>[protected]</computeroutput></computeroutput></para></section>
+<para>
+La documentation de cette classe a été générée à partir du fichier suivant :</para>
+public/glpi/vendor/sabre/dav/lib/DAV/Auth/Backend/<link linkend="__apache_8php">Apache.php</link></section>
+</section>

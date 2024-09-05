@@ -1,0 +1,114 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_interface_laminas_1_1_service_manager_1_1_factory_1_1_delegator_factory_interface" xml:lang="fr">
+<title>Référence de l&apos;interface DelegatorFactoryInterface</title>
+<indexterm><primary>DelegatorFactoryInterface</primary></indexterm>
+Graphe d&apos;héritage de DelegatorFactoryInterface:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="interface_laminas_1_1_service_manager_1_1_factory_1_1_delegator_factory_interface__inherit__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Graphe de collaboration de DelegatorFactoryInterface:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="interface_laminas_1_1_service_manager_1_1_factory_1_1_delegator_factory_interface__coll__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Fonctions membres publiques    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_interface_laminas_1_1_service_manager_1_1_factory_1_1_delegator_factory_interface_1a67d7f11cb132fb6d4d3546155ce705b6">__invoke</link> (<link linkend="_interface_interop_1_1_container_1_1_container_interface">ContainerInterface</link> $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">container</link>, $name, <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">callable</link> $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">callback</link>, ?array $options=null)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Description détaillée</title>
+
+<para>Delegator factory interface.</para>
+
+<para>Defines the capabilities required by a delegator factory. Delegator factories are used to either decorate a service instance, or to allow decorating the instantiation of a service instance (for instance, to provide optional dependencies via setters, etc.). </para>
+</section>
+<section>
+<title>Documentation des fonctions membres</title>
+<anchor xml:id="_interface_laminas_1_1_service_manager_1_1_factory_1_1_delegator_factory_interface_1a67d7f11cb132fb6d4d3546155ce705b6"/><section>
+    <title>__invoke()</title>
+<indexterm><primary>__invoke</primary><secondary>DelegatorFactoryInterface</secondary></indexterm>
+<indexterm><primary>DelegatorFactoryInterface</primary><secondary>__invoke</secondary></indexterm>
+<para><computeroutput>__invoke (<link linkend="_interface_interop_1_1_container_1_1_container_interface">ContainerInterface</link> $container,  $name, <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">callable</link> $callback, ?array $options = <computeroutput>null</computeroutput>
+)</computeroutput></para>
+<para>A factory that creates delegates of a given service</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$name</entry><entry>
+<para>@psalm-param <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">callable()</link>:mixed $callback </para>
+</entry>
+                            </row>
+                            <row>
+<entry>null | array</entry><entry>$options</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>object </para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>ServiceNotFoundException</entry><entry>
+<para>If unable to resolve the service. </para>
+</entry>
+                            </row>
+                            <row>
+<entry>ServiceNotCreatedException</entry><entry>
+<para>If an exception is raised when creating a service. </para>
+</entry>
+                            </row>
+                            <row>
+<entry>ContainerException</entry><entry>
+<para>If any other error occurs. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Implémenté dans <link linkend="_class_laminas_1_1_service_manager_1_1_proxy_1_1_lazy_service_factory_1a67d7f11cb132fb6d4d3546155ce705b6">LazyServiceFactory</link>.</para>
+</section>
+<para>
+La documentation de cette interface a été générée à partir du fichier suivant :</para>
+public/glpi/vendor/laminas/laminas-servicemanager/src/Factory/<link linkend="__factory_2_delegator_factory_interface_8php">DelegatorFactoryInterface.php</link></section>
+</section>

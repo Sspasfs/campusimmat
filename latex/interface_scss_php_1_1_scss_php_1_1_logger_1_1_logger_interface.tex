@@ -1,0 +1,86 @@
+\doxysection{Référence de l\textquotesingle{}interface Logger\+Interface}
+\hypertarget{interface_scss_php_1_1_scss_php_1_1_logger_1_1_logger_interface}{}\label{interface_scss_php_1_1_scss_php_1_1_logger_1_1_logger_interface}\index{LoggerInterface@{LoggerInterface}}
+
+
+Graphe d\textquotesingle{}héritage de Logger\+Interface\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{interface_scss_php_1_1_scss_php_1_1_logger_1_1_logger_interface__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Graphe de collaboration de Logger\+Interface\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=228pt]{interface_scss_php_1_1_scss_php_1_1_logger_1_1_logger_interface__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{interface_scss_php_1_1_scss_php_1_1_logger_1_1_logger_interface_a7ba747e1e8543cb73c925d10b9eefbd2}{warn}} (\$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{message}}, \$deprecation=false)
+\item 
+\mbox{\hyperlink{interface_scss_php_1_1_scss_php_1_1_logger_1_1_logger_interface_a568d49c8c4f47314610017c56d159482}{debug}} (\$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{message}})
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Interface implemented by loggers for warnings and debug messages.
+
+The official Sass implementation recommends that loggers report the messages immediately rather than waiting for the end of the compilation, to provide a better debugging experience when the compilation does not end (error or infinite loop after the warning for instance). 
+
+\doxysubsection{Documentation des fonctions membres}
+\Hypertarget{interface_scss_php_1_1_scss_php_1_1_logger_1_1_logger_interface_a568d49c8c4f47314610017c56d159482}\label{interface_scss_php_1_1_scss_php_1_1_logger_1_1_logger_interface_a568d49c8c4f47314610017c56d159482} 
+\index{LoggerInterface@{LoggerInterface}!debug@{debug}}
+\index{debug@{debug}!LoggerInterface@{LoggerInterface}}
+\doxysubsubsection{\texorpdfstring{debug()}{debug()}}
+{\footnotesize\ttfamily debug (\begin{DoxyParamCaption}\item[{}]{\$message }\end{DoxyParamCaption})}
+
+Emits a debugging message.
+
+
+\begin{DoxyParams}[1]{Paramètres}
+string & {\em \$message} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+void 
+\end{DoxyReturn}
+
+
+Implémenté dans \mbox{\hyperlink{class_scss_php_1_1_scss_php_1_1_logger_1_1_quiet_logger_a568d49c8c4f47314610017c56d159482}{Quiet\+Logger}}, et \mbox{\hyperlink{class_scss_php_1_1_scss_php_1_1_logger_1_1_stream_logger_a568d49c8c4f47314610017c56d159482}{Stream\+Logger}}.
+
+\Hypertarget{interface_scss_php_1_1_scss_php_1_1_logger_1_1_logger_interface_a7ba747e1e8543cb73c925d10b9eefbd2}\label{interface_scss_php_1_1_scss_php_1_1_logger_1_1_logger_interface_a7ba747e1e8543cb73c925d10b9eefbd2} 
+\index{LoggerInterface@{LoggerInterface}!warn@{warn}}
+\index{warn@{warn}!LoggerInterface@{LoggerInterface}}
+\doxysubsubsection{\texorpdfstring{warn()}{warn()}}
+{\footnotesize\ttfamily warn (\begin{DoxyParamCaption}\item[{}]{\$message,  }\item[{}]{\$deprecation = {\ttfamily false} }\end{DoxyParamCaption})}
+
+Emits a warning with the given message.
+
+If \$deprecation is true, it indicates that this is a deprecation warning. Implementations should surface all this information to the end user.
+
+
+\begin{DoxyParams}[1]{Paramètres}
+string & {\em \$message} & \\
+\hline
+bool & {\em \$deprecation} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+void 
+\end{DoxyReturn}
+
+
+Implémenté dans \mbox{\hyperlink{class_scss_php_1_1_scss_php_1_1_logger_1_1_quiet_logger_a7ba747e1e8543cb73c925d10b9eefbd2}{Quiet\+Logger}}, et \mbox{\hyperlink{class_scss_php_1_1_scss_php_1_1_logger_1_1_stream_logger_a7ba747e1e8543cb73c925d10b9eefbd2}{Stream\+Logger}}.
+
+
+
+La documentation de cette interface a été générée à partir du fichier suivant \+:\begin{DoxyCompactItemize}
+\item 
+public/glpi/vendor/scssphp/scssphp/src/\+Logger/\mbox{\hyperlink{scssphp_2scssphp_2src_2_logger_2_logger_interface_8php}{Logger\+Interface.\+php}}\end{DoxyCompactItemize}

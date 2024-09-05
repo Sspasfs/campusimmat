@@ -1,0 +1,141 @@
+\doxysection{Référence de l\textquotesingle{}espace de nommage Sabre\textbackslash{}Event}
+\hypertarget{namespace_sabre_1_1_event}{}\label{namespace_sabre_1_1_event}\index{Sabre\textbackslash{}Event@{Sabre\textbackslash{}Event}}
+\doxysubsubsection*{Espaces de nommage}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespace_sabre_1_1_event_1_1_loop}{Loop}}
+\item 
+namespace \mbox{\hyperlink{namespace_sabre_1_1_event_1_1_promise}{Promise}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Structures de données}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_sabre_1_1_event_1_1_emitter}{Emitter}}
+\item 
+interface \mbox{\hyperlink{interface_sabre_1_1_event_1_1_emitter_interface}{Emitter\+Interface}}
+\item 
+class \mbox{\hyperlink{class_sabre_1_1_event_1_1_event_emitter}{Event\+Emitter}}
+\item 
+class \mbox{\hyperlink{class_sabre_1_1_event_1_1_promise}{Promise}}
+\item 
+class \mbox{\hyperlink{class_sabre_1_1_event_1_1_promise_already_resolved_exception}{Promise\+Already\+Resolved\+Exception}}
+\item 
+class \mbox{\hyperlink{class_sabre_1_1_event_1_1_version}{Version}}
+\item 
+class \mbox{\hyperlink{class_sabre_1_1_event_1_1_wildcard_emitter}{Wildcard\+Emitter}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespace_sabre_1_1_event_a8ae6594f7f7f23b47f7cd44fc2cab3bf}{coroutine}} (\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{callable}} \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{gen}})
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{trait}} \mbox{\hyperlink{namespace_sabre_1_1_event_a7732f775b37087effa9b3b0e6b1197da}{Emitter\+Trait}}
+\item 
+\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{trait}} \mbox{\hyperlink{namespace_sabre_1_1_event_a76ec333002e4917bb1e7a259ba19a388}{Wildcard\+Emitter\+Trait}}
+\item 
+\mbox{\hyperlink{namespace_sabre_1_1_event_ab57017be1396c7b2958ff337732845d4}{\$wildcard\+Listeners}} = \mbox{[}$\,$\mbox{]}
+\item 
+\mbox{\hyperlink{namespace_sabre_1_1_event_a7f50fdbb0aa77709d05cc98aaa338d18}{\$listener\+Index}} = \mbox{[}$\,$\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Documentation des fonctions}
+\Hypertarget{namespace_sabre_1_1_event_a8ae6594f7f7f23b47f7cd44fc2cab3bf}\label{namespace_sabre_1_1_event_a8ae6594f7f7f23b47f7cd44fc2cab3bf} 
+\index{Sabre\textbackslash{}Event@{Sabre\textbackslash{}Event}!coroutine@{coroutine}}
+\index{coroutine@{coroutine}!Sabre\textbackslash{}Event@{Sabre\textbackslash{}Event}}
+\doxysubsubsection{\texorpdfstring{coroutine()}{coroutine()}}
+{\footnotesize\ttfamily coroutine (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{callable}}}]{\$gen }\end{DoxyParamCaption})}
+
+Turn asynchronous promise-\/based code into something that looks synchronous again, through the use of generators.
+
+Example without coroutines\+:
+
+\$promise = \$http\+Client-\/\texorpdfstring{$>$}{>}request(\textquotesingle{}GET\textquotesingle{}, \textquotesingle{}/foo\textquotesingle{}); \$promise-\/\texorpdfstring{$>$}{>}then(function(\$value) \{
+
+return \$http\+Client-\/\texorpdfstring{$>$}{>}request(\textquotesingle{}DELETE\textquotesingle{},\textquotesingle{}/foo\textquotesingle{});
+
+\})-\/\texorpdfstring{$>$}{>}then(function(\$value) \{
+
+return \$http\+Client-\/\texorpdfstring{$>$}{>}request(\textquotesingle{}PUT\textquotesingle{}, \textquotesingle{}/foo\textquotesingle{});
+
+\})-\/\texorpdfstring{$>$}{>}error(function(\$reason) \{
+
+echo "{}\+Failed because\+: \$reason\textbackslash{}n"{};
+
+\});
+
+Example with coroutines\+:
+
+coroutine(function() \{
+
+try \{ yield \$http\+Client-\/\texorpdfstring{$>$}{>}request(\textquotesingle{}GET\textquotesingle{}, \textquotesingle{}/foo\textquotesingle{}); yield \$http\+Client-\/\texorpdfstring{$>$}{>}request(\textquotesingle{}DELETE\textquotesingle{}, /foo\textquotesingle{}); yield \$http\+Client-\/\texorpdfstring{$>$}{>}request(\textquotesingle{}PUT\textquotesingle{}, \textquotesingle{}/foo\textquotesingle{}); \} catch(\textbackslash{}\+Throwable \$reason) \{ echo "{}\+Failed because\+: \$reason\textbackslash{}n"{}; \}
+
+\});
+
+\begin{DoxyReturn}{Renvoie}
+\textbackslash{}\+Sabre\textbackslash{}\+Event\textbackslash{}\+Promise
+\end{DoxyReturn}
+@psalm-\/template TReturn @psalm-\/param \doxylink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{callable()}\+:\textbackslash{}\+Generator\texorpdfstring{$<$}{<}mixed, mixed, mixed, TReturn\texorpdfstring{$>$}{>} \$gen @psalm-\/return Promise$<$\+TReturn$>$
+
+\begin{DoxyCopyright}{Copyright}
+Copyright (C) fruux GmbH (\href{https://fruux.com/}{\texttt{ https\+://fruux.\+com/}}) 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Auteur}
+Evert Pot (\href{http://evertpot.com/}{\texttt{ http\+://evertpot.\+com/}}) @license \href{http://sabre.io/license/}{\texttt{ http\+://sabre.\+io/license/}} Modified BSD License 
+\end{DoxyAuthor}
+So tempted to use the mythical y-\/combinator here, but it\textquotesingle{}s not needed in PHP.
+
+\doxysubsection{Documentation des variables}
+\Hypertarget{namespace_sabre_1_1_event_a7f50fdbb0aa77709d05cc98aaa338d18}\label{namespace_sabre_1_1_event_a7f50fdbb0aa77709d05cc98aaa338d18} 
+\index{Sabre\textbackslash{}Event@{Sabre\textbackslash{}Event}!\$listenerIndex@{\$listenerIndex}}
+\index{\$listenerIndex@{\$listenerIndex}!Sabre\textbackslash{}Event@{Sabre\textbackslash{}Event}}
+\doxysubsubsection{\texorpdfstring{\$listenerIndex}{\$listenerIndex}}
+{\footnotesize\ttfamily \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{listener\+Index}} = \mbox{[}$\,$\mbox{]}\hspace{0.3cm}{\ttfamily [protected]}}
+
+An index of listeners for a specific event name. This helps speeding up emitting events after all listeners have been set.
+
+If the list of listeners changes though, the index clears. \Hypertarget{namespace_sabre_1_1_event_ab57017be1396c7b2958ff337732845d4}\label{namespace_sabre_1_1_event_ab57017be1396c7b2958ff337732845d4} 
+\index{Sabre\textbackslash{}Event@{Sabre\textbackslash{}Event}!\$wildcardListeners@{\$wildcardListeners}}
+\index{\$wildcardListeners@{\$wildcardListeners}!Sabre\textbackslash{}Event@{Sabre\textbackslash{}Event}}
+\doxysubsubsection{\texorpdfstring{\$wildcardListeners}{\$wildcardListeners}}
+{\footnotesize\ttfamily \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{wildcard\+Listeners}} = \mbox{[}$\,$\mbox{]}\hspace{0.3cm}{\ttfamily [protected]}}
+
+The list of "{}wildcard listeners"{}. \Hypertarget{namespace_sabre_1_1_event_a7732f775b37087effa9b3b0e6b1197da}\label{namespace_sabre_1_1_event_a7732f775b37087effa9b3b0e6b1197da} 
+\index{Sabre\textbackslash{}Event@{Sabre\textbackslash{}Event}!EmitterTrait@{EmitterTrait}}
+\index{EmitterTrait@{EmitterTrait}!Sabre\textbackslash{}Event@{Sabre\textbackslash{}Event}}
+\doxysubsubsection{\texorpdfstring{EmitterTrait}{EmitterTrait}}
+{\footnotesize\ttfamily \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{trait}} Emitter\+Trait}
+
+Event Emitter Trait.
+
+This trait contains all the basic functions to implement an Event\+Emitter\+Interface.
+
+Using the trait + interface allows you to add Event\+Emitter capabilities without having to change your base-\/class.
+
+\begin{DoxyCopyright}{Copyright}
+Copyright (C) fruux GmbH (\href{https://fruux.com/}{\texttt{ https\+://fruux.\+com/}}) 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Auteur}
+Evert Pot (\href{http://evertpot.com/}{\texttt{ http\+://evertpot.\+com/}}) @license \href{http://sabre.io/license/}{\texttt{ http\+://sabre.\+io/license/}} Modified BSD License 
+\end{DoxyAuthor}
+\Hypertarget{namespace_sabre_1_1_event_a76ec333002e4917bb1e7a259ba19a388}\label{namespace_sabre_1_1_event_a76ec333002e4917bb1e7a259ba19a388} 
+\index{Sabre\textbackslash{}Event@{Sabre\textbackslash{}Event}!WildcardEmitterTrait@{WildcardEmitterTrait}}
+\index{WildcardEmitterTrait@{WildcardEmitterTrait}!Sabre\textbackslash{}Event@{Sabre\textbackslash{}Event}}
+\doxysubsubsection{\texorpdfstring{WildcardEmitterTrait}{WildcardEmitterTrait}}
+{\footnotesize\ttfamily \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{trait}} Wildcard\+Emitter\+Trait}
+
+Wildcard Emitter Trait.
+
+This trait provides the implementation for Wild\+Card\+Emitter Refer to that class for the full documentation about this trait.
+
+Normally you can just instantiate that class, but if you want to add emitter functionality to existing classes, using the trait might be a better way to do this.
+
+\begin{DoxyCopyright}{Copyright}
+Copyright (C) fruux GmbH (\href{https://fruux.com/}{\texttt{ https\+://fruux.\+com/}}) 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Auteur}
+Evert Pot (\href{http://evertpot.com/}{\texttt{ http\+://evertpot.\+com/}}) @license \href{http://sabre.io/license/}{\texttt{ http\+://sabre.\+io/license/}} Modified BSD License 
+\end{DoxyAuthor}

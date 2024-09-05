@@ -1,0 +1,278 @@
+\chapter{Sodium Compat}
+\hypertarget{md_public_2glpi_2vendor_2paragonie_2sodium__compat_2_r_e_a_d_m_e}{}\label{md_public_2glpi_2vendor_2paragonie_2sodium__compat_2_r_e_a_d_m_e}\index{Sodium Compat@{Sodium Compat}}
+\label{md_public_2glpi_2vendor_2paragonie_2sodium__compat_2_r_e_a_d_m_e_autotoc_md6871}%
+\Hypertarget{md_public_2glpi_2vendor_2paragonie_2sodium__compat_2_r_e_a_d_m_e_autotoc_md6871}%
+ \href{https://github.com/paragonie/sodium_compat/actions}{\texttt{ }} \href{https://github.com/paragonie/sodium_compat/actions}{\texttt{ }} \href{https://ci.appveyor.com/project/paragonie-scott/sodium-compat}{\texttt{ }} \href{https://packagist.org/packages/paragonie/sodium_compat}{\texttt{ }} \href{https://packagist.org/packages/paragonie/sodium_compat}{\texttt{ }} \href{https://packagist.org/packages/paragonie/sodium_compat}{\texttt{ }} \href{https://packagist.org/packages/paragonie/sodium_compat}{\texttt{ }}
+
+\doxylink{namespace_sodium}{Sodium} Compat is a pure PHP polyfill for the \doxylink{namespace_sodium}{Sodium} cryptography library (libsodium), a core extension in PHP 7.\+2.\+0+ and otherwise \href{https://pecl.php.net/package/libsodium}{\texttt{ available in PECL}}.
+
+This library tentativeley supports PHP 5.\+2.\+4 -\/ 8.\+x (latest), but officially only supports \href{https://secure.php.net/supported-versions.php}{\texttt{ non-\/\+EOL\textquotesingle{}d versions of PHP}}.
+
+If you have the PHP extension installed, \doxylink{namespace_sodium}{Sodium} Compat will opportunistically and transparently use the PHP extension instead of our implementation.\hypertarget{md_public_2glpi_2vendor_2paragonie_2sodium__compat_2_r_e_a_d_m_e_autotoc_md6872}{}\doxysection{\texorpdfstring{IMPORTANT!}{IMPORTANT!}}\label{md_public_2glpi_2vendor_2paragonie_2sodium__compat_2_r_e_a_d_m_e_autotoc_md6872}
+This cryptography library has not been formally audited by an independent third party that specializes in cryptography or cryptanalysis.
+
+If you require such an audit before you can use sodium\+\_\+compat in your projects and have the funds for such an audit, please open an issue or contact {\ttfamily security at paragonie dot com} so we can help get the ball rolling.
+
+However, sodium\+\_\+compat has been adopted by high profile open source projects, such as \href{https://github.com/joomla/joomla-cms/blob/459d74686d2a638ec51149d7c44ddab8075852be/composer.json\#L40}{\texttt{ Joomla!}} and \href{https://github.com/magento/magento2/blob/8fd89cfdf52c561ac0ca7bc20fd38ef688e201b0/composer.json\#L44}{\texttt{ Magento}}. Furthermore, sodium\+\_\+compat was developed by Paragon Initiative Enterprises, a company that {\itshape specializes} in secure PHP development and PHP cryptography, and has been informally reviewed by many other security experts who also specialize in PHP.
+
+If you\textquotesingle{}d like to learn more about the defensive security measures we\textquotesingle{}ve taken to prevent sodium\+\_\+compat from being a source of vulnerability in your systems, please read \href{https://paragonie.com/blog/2017/02/cryptographically-secure-php-development}{\texttt{ {\itshape Cryptographically Secure PHP Development}}}.\hypertarget{md_public_2glpi_2vendor_2paragonie_2sodium__compat_2_r_e_a_d_m_e_autotoc_md6873}{}\doxysection{\texorpdfstring{Installing Sodium Compat}{Installing Sodium Compat}}\label{md_public_2glpi_2vendor_2paragonie_2sodium__compat_2_r_e_a_d_m_e_autotoc_md6873}
+If you\textquotesingle{}re using \doxylink{namespace_composer}{Composer}\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{composer\ require\ paragonie/sodium\_compat}
+
+\end{DoxyCode}
+\hypertarget{md_public_2glpi_2vendor_2paragonie_2sodium__compat_2_r_e_a_d_m_e_autotoc_md6874}{}\doxysubsubsection{\texorpdfstring{Install From Source}{Install From Source}}\label{md_public_2glpi_2vendor_2paragonie_2sodium__compat_2_r_e_a_d_m_e_autotoc_md6874}
+If you\textquotesingle{}re not using \doxylink{namespace_composer}{Composer}, download a \href{https://github.com/paragonie/sodium_compat/releases}{\texttt{ release tarball}} (which should be signed with \href{https://paragonie.com/static/gpg-public-key.txt}{\texttt{ our Gnu\+PG public key}}), extract its contents, then include our {\ttfamily autoload.\+php} script in your project.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{<?\mbox{\hyperlink{namespacephp}{php}}}
+\DoxyCodeLine{\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{require\_once}}\ \textcolor{stringliteral}{"{}/path/to/sodium\_compat/autoload.php"{}};}
+
+\end{DoxyCode}
+\hypertarget{md_public_2glpi_2vendor_2paragonie_2sodium__compat_2_r_e_a_d_m_e_autotoc_md6875}{}\doxysubsubsection{\texorpdfstring{PHP Archives (Phar) Releases}{PHP Archives (Phar) Releases}}\label{md_public_2glpi_2vendor_2paragonie_2sodium__compat_2_r_e_a_d_m_e_autotoc_md6875}
+Since version 1.\+3.\+0, \href{https://github.com/paragonie/sodium_compat/releases}{\texttt{ sodium\+\_\+compat releases}} include a PHP Archive (.phar file) and associated GPG signature. First, download both files and verify them with our GPG public key, like so\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\#\ Getting\ our\ public\ key\ from\ the\ keyserver:}
+\DoxyCodeLine{gpg\ -\/-\/fingerprint\ 7F52D5C61D1255C731362E826B97A1C2826404DA}
+\DoxyCodeLine{if\ [\ \$?\ -\/ne\ 0\ ];\ then}
+\DoxyCodeLine{\ \ \ \ echo\ -\/e\ "{}\(\backslash\)033[33mDownloading\ PGP\ Public\ Key...\(\backslash\)033[0m"{}}
+\DoxyCodeLine{\ \ \ \ gpg\ \ -\/-\/keyserver\ pgp.mit.edu\ -\/-\/recv-\/keys\ 7F52D5C61D1255C731362E826B97A1C2826404DA}
+\DoxyCodeLine{\ \ \ \ \#\ Security\ <security@paragonie.com>}
+\DoxyCodeLine{\ \ \ \ gpg\ -\/-\/fingerprint\ 7F52D5C61D1255C731362E826B97A1C2826404DA}
+\DoxyCodeLine{\ \ \ \ if\ [\ \$?\ -\/ne\ 0\ ];\ then}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ echo\ -\/e\ "{}\(\backslash\)033[31mCould\ not\ download\ PGP\ public\ key\ for\ verification\(\backslash\)033[0m"{}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ exit\ 1}
+\DoxyCodeLine{\ \ \ \ fi}
+\DoxyCodeLine{fi}
+\DoxyCodeLine{}
+\DoxyCodeLine{\#\ Verifying\ the\ PHP\ Archive}
+\DoxyCodeLine{gpg\ -\/-\/verify\ sodium-\/compat.phar.sig\ sodium-\/compat.phar}
+
+\end{DoxyCode}
+
+
+Now, simply include this .phar file in your application.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{<?\mbox{\hyperlink{namespacephp}{php}}}
+\DoxyCodeLine{\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{require\_once}}\ \textcolor{stringliteral}{"{}/path/to/sodium-\/compat.phar"{}};}
+
+\end{DoxyCode}
+\hypertarget{md_public_2glpi_2vendor_2paragonie_2sodium__compat_2_r_e_a_d_m_e_autotoc_md6876}{}\doxysection{\texorpdfstring{Support}{Support}}\label{md_public_2glpi_2vendor_2paragonie_2sodium__compat_2_r_e_a_d_m_e_autotoc_md6876}
+\href{https://download.libsodium.org/doc/commercial_support/}{\texttt{ Commercial support for libsodium}} is available from multiple vendors. If you need help using sodium\+\_\+compat in one of your projects, \href{https://paragonie.com/contact}{\texttt{ contact Paragon Initiative Enterprises}}.
+
+Non-\/commercial report will be facilitated through \href{https://github.com/paragonie/sodium_compat/issues}{\texttt{ Github issues}}. We offer no guarantees of our availability to resolve questions about integrating sodium\+\_\+compat into third-\/party software for free, but will strive to fix any bugs (security-\/related or otherwise) in our library.\hypertarget{md_public_2glpi_2vendor_2paragonie_2sodium__compat_2_r_e_a_d_m_e_autotoc_md6877}{}\doxysubsection{\texorpdfstring{Support Contracts}{Support Contracts}}\label{md_public_2glpi_2vendor_2paragonie_2sodium__compat_2_r_e_a_d_m_e_autotoc_md6877}
+If your company uses this library in their products or services, you may be interested in \href{https://paragonie.com/enterprise}{\texttt{ purchasing a support contract from Paragon Initiative Enterprises}}.\hypertarget{md_public_2glpi_2vendor_2paragonie_2sodium__compat_2_r_e_a_d_m_e_autotoc_md6878}{}\doxysection{\texorpdfstring{Using Sodium Compat}{Using Sodium Compat}}\label{md_public_2glpi_2vendor_2paragonie_2sodium__compat_2_r_e_a_d_m_e_autotoc_md6878}
+\hypertarget{md_public_2glpi_2vendor_2paragonie_2sodium__compat_2_r_e_a_d_m_e_autotoc_md6879}{}\doxysubsection{\texorpdfstring{True Polyfill}{True Polyfill}}\label{md_public_2glpi_2vendor_2paragonie_2sodium__compat_2_r_e_a_d_m_e_autotoc_md6879}
+If you\textquotesingle{}re using PHP 5.\+3.\+0 or newer and do not have the PECL extension installed, you can just use the \href{https://paragonie.com/book/pecl-libsodium}{\texttt{ standard ext/sodium API features as-\/is}} and the polyfill will work its magic.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{<?\mbox{\hyperlink{namespacephp}{php}}}
+\DoxyCodeLine{\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{require\_once}}\ \textcolor{stringliteral}{"{}/path/to/sodium\_compat/autoload.php"{}};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\$alice\_kp}}\ =\ \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\(\backslash\)Sodium\(\backslash\)crypto\_sign\_keypair}}();}
+\DoxyCodeLine{\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\$alice\_sk}}\ =\ \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\(\backslash\)Sodium\(\backslash\)crypto\_sign\_secretkey}}(\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\$alice\_kp}});}
+\DoxyCodeLine{\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\$alice\_pk}}\ =\ \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\(\backslash\)Sodium\(\backslash\)crypto\_sign\_publickey}}(\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\$alice\_kp}});}
+\DoxyCodeLine{}
+\DoxyCodeLine{\$message\ =\ \textcolor{stringliteral}{'This\ is\ a\ test\ message.'};}
+\DoxyCodeLine{\$signature\ =\ \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\(\backslash\)Sodium\(\backslash\)crypto\_sign\_detached}}(\$message,\ \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\$alice\_sk}});}
+\DoxyCodeLine{\textcolor{keywordflow}{if}\ (\(\backslash\)\mbox{\hyperlink{namespace_sodium}{Sodium}}\(\backslash\)crypto\_sign\_verify\_detached(\$signature,\ \$message,\ \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\$alice\_pk}}))\ \{}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{echo}}\ \textcolor{stringliteral}{'OK'},\ PHP\_EOL;}
+\DoxyCodeLine{\}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{throw}\ \textcolor{keyword}{new}\ Exception(\textcolor{stringliteral}{'Invalid\ signature'});}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+The polyfill does not expose this API on PHP \texorpdfstring{$<$}{<} 5.\+3, or if you have the PHP extension installed already.\hypertarget{md_public_2glpi_2vendor_2paragonie_2sodium__compat_2_r_e_a_d_m_e_autotoc_md6880}{}\doxysubsection{\texorpdfstring{General-\/\+Use Polyfill}{General-\/\+Use Polyfill}}\label{md_public_2glpi_2vendor_2paragonie_2sodium__compat_2_r_e_a_d_m_e_autotoc_md6880}
+If your users are on PHP \texorpdfstring{$<$}{<} 5.\+3, or you want to write code that will work whether or not the PECL extension is available, you\textquotesingle{}ll want to use the \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}{\ttfamily \doxylink{class_paragon_i_e___sodium___compat}{Paragon\+IE\+\_\+\+Sodium\+\_\+\+Compat}}\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*} class for most of your libsodium needs.
+
+The above example, written for general use\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{<?\mbox{\hyperlink{namespacephp}{php}}}
+\DoxyCodeLine{\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{require\_once}}\ \textcolor{stringliteral}{"{}/path/to/sodium\_compat/autoload.php"{}};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\$alice\_kp}}\ =\ \mbox{\hyperlink{class_paragon_i_e___sodium___compat_ad6085e807160d20da0215a82eb664eb4}{ParagonIE\_Sodium\_Compat::crypto\_sign\_keypair}}();}
+\DoxyCodeLine{\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\$alice\_sk}}\ =\ \mbox{\hyperlink{class_paragon_i_e___sodium___compat_afe8fb4f1a43a2b5968957cef936d7c0e}{ParagonIE\_Sodium\_Compat::crypto\_sign\_secretkey}}(\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\$alice\_kp}});}
+\DoxyCodeLine{\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\$alice\_pk}}\ =\ \mbox{\hyperlink{class_paragon_i_e___sodium___compat_a3ff2dca8e6e1fb0d4e1da4c2d0e756cb}{ParagonIE\_Sodium\_Compat::crypto\_sign\_publickey}}(\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\$alice\_kp}});}
+\DoxyCodeLine{}
+\DoxyCodeLine{\$message\ =\ \textcolor{stringliteral}{'This\ is\ a\ test\ message.'};}
+\DoxyCodeLine{\$signature\ =\ \mbox{\hyperlink{class_paragon_i_e___sodium___compat_a426141204337093d633b8d0e22e8307e}{ParagonIE\_Sodium\_Compat::crypto\_sign\_detached}}(\$message,\ \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\$alice\_sk}});}
+\DoxyCodeLine{\textcolor{keywordflow}{if}\ (ParagonIE\_Sodium\_Compat::crypto\_sign\_verify\_detached(\$signature,\ \$message,\ \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\$alice\_pk}}))\ \{}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{echo}}\ \textcolor{stringliteral}{'OK'},\ PHP\_EOL;}
+\DoxyCodeLine{\}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{throw}\ \textcolor{keyword}{new}\ Exception(\textcolor{stringliteral}{'Invalid\ signature'});}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+Generally\+: If you replace {\ttfamily \textbackslash{}\doxylink{namespace_sodium}{Sodium}\textbackslash{}} with {\ttfamily \doxylink{class_paragon_i_e___sodium___compat}{Paragon\+IE\+\_\+\+Sodium\+\_\+\+Compat}\+:\+:}, any code already written for the libsodium PHP extension should work with our polyfill without additional code changes.
+
+Since this doesn\textquotesingle{}t require a namespace, this API {\itshape is} exposed on PHP 5.\+2.
+
+Since version 0.\+7.\+0, we have our own namespaced API ({\ttfamily Paragon\+IE\textbackslash{}\doxylink{namespace_sodium}{Sodium}\textbackslash{}\texorpdfstring{$\ast$}{*}}) to allow brevity in software that uses PHP 5.\+3+. This is useful if you want to use our file cryptography features without writing {\ttfamily \doxylink{class_paragon_i_e___sodium___file}{Paragon\+IE\+\_\+\+Sodium\+\_\+\+File}} every time. This is not exposed on PHP \texorpdfstring{$<$}{<} 5.\+3, so if your project supports PHP \texorpdfstring{$<$}{<} 5.\+3, use the underscore method instead.
+
+To learn how to use Libsodium, read \href{https://paragonie.com/book/pecl-libsodium}{\texttt{ {\itshape Using Libsodium in PHP Projects}}}.\hypertarget{md_public_2glpi_2vendor_2paragonie_2sodium__compat_2_r_e_a_d_m_e_autotoc_md6881}{}\doxysubsection{\texorpdfstring{PHP 7.\+2 Polyfill}{PHP 7.\+2 Polyfill}}\label{md_public_2glpi_2vendor_2paragonie_2sodium__compat_2_r_e_a_d_m_e_autotoc_md6881}
+As per the \href{https://wiki.php.net/rfc/libsodium\#proposed_voting_choices}{\texttt{ second vote on the libsodium RFC}}, PHP 7.\+2 uses {\ttfamily sodium\+\_\+\texorpdfstring{$\ast$}{*}} instead of {\ttfamily \textbackslash{}\doxylink{namespace_sodium}{Sodium}\textbackslash{}\texorpdfstring{$\ast$}{*}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{<?\mbox{\hyperlink{namespacephp}{php}}}
+\DoxyCodeLine{\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{require\_once}}\ \textcolor{stringliteral}{"{}/path/to/sodium\_compat/autoload.php"{}};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\$alice\_kp}}\ =\ \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{sodium\_crypto\_sign\_keypair}}();}
+\DoxyCodeLine{\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\$alice\_sk}}\ =\ \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{sodium\_crypto\_sign\_secretkey}}(\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\$alice\_kp}});}
+\DoxyCodeLine{\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\$alice\_pk}}\ =\ \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{sodium\_crypto\_sign\_publickey}}(\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\$alice\_kp}});}
+\DoxyCodeLine{}
+\DoxyCodeLine{\$message\ =\ \textcolor{stringliteral}{'This\ is\ a\ test\ message.'};}
+\DoxyCodeLine{\$signature\ =\ \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{sodium\_crypto\_sign\_detached}}(\$message,\ \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\$alice\_sk}});}
+\DoxyCodeLine{\textcolor{keywordflow}{if}\ (\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{sodium\_crypto\_sign\_verify\_detached}}(\$signature,\ \$message,\ \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\$alice\_pk}}))\ \{}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{echo}}\ \textcolor{stringliteral}{'OK'},\ PHP\_EOL;}
+\DoxyCodeLine{\}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{throw}\ \textcolor{keyword}{new}\ Exception(\textcolor{stringliteral}{'Invalid\ signature'});}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\hypertarget{md_public_2glpi_2vendor_2paragonie_2sodium__compat_2_r_e_a_d_m_e_autotoc_md6882}{}\doxysubsection{\texorpdfstring{Help, Sodium\+\_\+\+Compat is Slow! How can I make it fast?}{Help, Sodium\+\_\+\+Compat is Slow! How can I make it fast?}}\label{md_public_2glpi_2vendor_2paragonie_2sodium__compat_2_r_e_a_d_m_e_autotoc_md6882}
+There are three ways to make it fast\+:
+
+
+\begin{DoxyEnumerate}
+\item Use PHP 7.\+2.
+\item \href{https://paragonie.com/book/pecl-libsodium/read/00-intro.md\#installing-libsodium}{\texttt{ Install the libsodium PHP extension from PECL}}.
+\item Only if the previous two options are not available for you\+:
+\begin{DoxyEnumerate}
+\item Verify that \href{https://bearssl.org/ctmul.html}{\texttt{ the processor you\textquotesingle{}re using actually implements constant-\/time multiplication}}. Sodium\+\_\+compat does, but it must trade some speed in order to attain cross-\/platform security.
+\item Only if you are 100\% certain that your processor is safe, you can set {\ttfamily \doxylink{class_paragon_i_e___sodium___compat}{Paragon\+IE\+\_\+\+Sodium\+\_\+\+Compat}\+:\+:\$fast\+Mult = true;} without harming the security of your cryptography keys. If your processor {\itshape isn\textquotesingle{}t} safe, then decide whether you want speed or security because you can\textquotesingle{}t have both.
+\end{DoxyEnumerate}
+\end{DoxyEnumerate}\hypertarget{md_public_2glpi_2vendor_2paragonie_2sodium__compat_2_r_e_a_d_m_e_autotoc_md6883}{}\doxysubsubsection{\texorpdfstring{How can I tell if sodium\+\_\+compat will be slow, at runtime?}{How can I tell if sodium\+\_\+compat will be slow, at runtime?}}\label{md_public_2glpi_2vendor_2paragonie_2sodium__compat_2_r_e_a_d_m_e_autotoc_md6883}
+Since version 1.\+8, you can use the {\ttfamily polyfill\+\_\+is\+\_\+fast()} static method to determine if sodium\+\_\+compat will be slow at runtime.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{<?\mbox{\hyperlink{namespacephp}{php}}}
+\DoxyCodeLine{\textcolor{keywordflow}{if}\ (ParagonIE\_Sodium\_Compat::polyfill\_is\_fast())\ \{}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ Use\ libsodium\ now}}
+\DoxyCodeLine{\ \ \ \ \$process-\/>execute();}
+\DoxyCodeLine{\}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ Defer\ to\ a\ cron\ job\ or\ other\ sort\ of\ asynchronous\ process}}
+\DoxyCodeLine{\ \ \ \ \$process-\/>enqueue();}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\hypertarget{md_public_2glpi_2vendor_2paragonie_2sodium__compat_2_r_e_a_d_m_e_autotoc_md6884}{}\doxysubsubsection{\texorpdfstring{Help, my PHP only has 32-\/Bit Integers! It\textquotesingle{}s super slow!}{Help, my PHP only has 32-\/Bit Integers! It\textquotesingle{}s super slow!}}\label{md_public_2glpi_2vendor_2paragonie_2sodium__compat_2_r_e_a_d_m_e_autotoc_md6884}
+Some features of sodium\+\_\+compat are \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}incredibly slow\texorpdfstring{$\ast$}{*} with PHP 5 on Windows\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*} (in particular\+: public-\/key cryptography (encryption and signatures) is affected), and there is nothing we can do about that, due to platform restrictions on integers.
+
+For acceptable performance, we highly recommend Windows users to version 1.\+0.\+6 of the libsodium extension from PECL or, alternatively, simply upgrade to PHP 7 and the slowdown will be greatly reduced.
+
+This is also true of non-\/\+Windows 32-\/bit operating systems, or if somehow PHP was compiled where {\ttfamily PHP\+\_\+\+INT\+\_\+\+SIZE} equals {\ttfamily 4} instead of {\ttfamily 8} (i.\+e. Linux on i386).\hypertarget{md_public_2glpi_2vendor_2paragonie_2sodium__compat_2_r_e_a_d_m_e_autotoc_md6885}{}\doxysubsection{\texorpdfstring{Documentation}{Documentation}}\label{md_public_2glpi_2vendor_2paragonie_2sodium__compat_2_r_e_a_d_m_e_autotoc_md6885}
+First, you\textquotesingle{}ll want to read the \href{https://paragonie.com/blog/2017/06/libsodium-quick-reference-quick-comparison-similar-functions-and-which-one-use}{\texttt{ Libsodium Quick Reference}}. It aims to answer, "{}\+Which function should I use for \mbox{[}common problem\mbox{]}?"{}.
+
+If you don\textquotesingle{}t find the answers in the Quick Reference page, check out \href{https://paragonie.com/book/pecl-libsodium}{\texttt{ {\itshape Using Libsodium in PHP Projects}}}.
+
+Finally, the \href{https://download.libsodium.org/doc/}{\texttt{ official libsodium documentation}} (which was written for the C library, not the PHP library) also contains a lot of insightful technical information you may find helpful.\hypertarget{md_public_2glpi_2vendor_2paragonie_2sodium__compat_2_r_e_a_d_m_e_autotoc_md6886}{}\doxysubsection{\texorpdfstring{API Coverage}{API Coverage}}\label{md_public_2glpi_2vendor_2paragonie_2sodium__compat_2_r_e_a_d_m_e_autotoc_md6886}
+{\bfseries{Recommended reading\+:}} \href{https://paragonie.com/blog/2017/06/libsodium-quick-reference-quick-comparison-similar-functions-and-which-one-use}{\texttt{ Libsodium Quick Reference}}
+
+
+\begin{DoxyItemize}
+\item Mainline Na\+Cl Features
+\begin{DoxyItemize}
+\item {\ttfamily crypto\+\_\+auth()}
+\item {\ttfamily crypto\+\_\+auth\+\_\+verify()}
+\item {\ttfamily crypto\+\_\+box()}
+\item {\ttfamily crypto\+\_\+box\+\_\+open()}
+\item {\ttfamily crypto\+\_\+scalarmult()}
+\item {\ttfamily crypto\+\_\+secretbox()}
+\item {\ttfamily crypto\+\_\+secretbox\+\_\+open()}
+\item {\ttfamily crypto\+\_\+sign()}
+\item {\ttfamily crypto\+\_\+sign\+\_\+open()}
+\end{DoxyItemize}
+\item PECL Libsodium Features
+\begin{DoxyItemize}
+\item {\ttfamily crypto\+\_\+aead\+\_\+aes256gcm\+\_\+encrypt()}
+\item {\ttfamily \doxylink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{crypto\+\_\+aead\+\_\+aes256gcm\+\_\+decrypt()}}
+\item {\ttfamily crypto\+\_\+aead\+\_\+chacha20poly1305\+\_\+encrypt()}
+\item {\ttfamily crypto\+\_\+aead\+\_\+chacha20poly1305\+\_\+decrypt()}
+\item {\ttfamily crypto\+\_\+aead\+\_\+chacha20poly1305\+\_\+ietf\+\_\+encrypt()}
+\item {\ttfamily crypto\+\_\+aead\+\_\+chacha20poly1305\+\_\+ietf\+\_\+decrypt()}
+\item {\ttfamily crypto\+\_\+aead\+\_\+xchacha20poly1305\+\_\+ietf\+\_\+encrypt()}
+\item {\ttfamily crypto\+\_\+aead\+\_\+xchacha20poly1305\+\_\+ietf\+\_\+decrypt()}
+\item {\ttfamily \doxylink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{crypto\+\_\+box\+\_\+xchacha20poly1305()}}
+\item {\ttfamily \doxylink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{crypto\+\_\+box\+\_\+xchacha20poly1305\+\_\+open()}}
+\item {\ttfamily crypto\+\_\+box\+\_\+seal()}
+\item {\ttfamily crypto\+\_\+box\+\_\+seal\+\_\+open()}
+\item {\ttfamily crypto\+\_\+generichash()}
+\item {\ttfamily crypto\+\_\+generichash\+\_\+init()}
+\item {\ttfamily crypto\+\_\+generichash\+\_\+update()}
+\item {\ttfamily crypto\+\_\+generichash\+\_\+final()}
+\item {\ttfamily crypto\+\_\+kx()}
+\item {\ttfamily crypto\+\_\+secretbox\+\_\+xchacha20poly1305()}
+\item {\ttfamily crypto\+\_\+secretbox\+\_\+xchacha20poly1305\+\_\+open()}
+\item {\ttfamily crypto\+\_\+shorthash()}
+\item {\ttfamily crypto\+\_\+sign\+\_\+detached()}
+\item {\ttfamily crypto\+\_\+sign\+\_\+ed25519\+\_\+pk\+\_\+to\+\_\+curve25519()}
+\item {\ttfamily crypto\+\_\+sign\+\_\+ed25519\+\_\+sk\+\_\+to\+\_\+curve25519()}
+\item {\ttfamily crypto\+\_\+sign\+\_\+verify\+\_\+detached()}
+\item For advanced users only\+:
+\begin{DoxyItemize}
+\item {\ttfamily crypto\+\_\+stream()}
+\item {\ttfamily crypto\+\_\+stream\+\_\+xor()}
+\end{DoxyItemize}
+\item Other utilities (e.\+g. {\ttfamily crypto\+\_\+\texorpdfstring{$\ast$}{*}\+\_\+keypair()})
+\begin{DoxyItemize}
+\item {\ttfamily add()}
+\item {\ttfamily \doxylink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{base642bin()}}
+\item {\ttfamily \doxylink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{bin2base64()}}
+\item {\ttfamily bin2hex()}
+\item {\ttfamily hex2bin()}
+\item {\ttfamily crypto\+\_\+kdf\+\_\+derive\+\_\+from\+\_\+key()}
+\item {\ttfamily crypto\+\_\+kx\+\_\+client\+\_\+session\+\_\+keys()}
+\item {\ttfamily crypto\+\_\+kx\+\_\+server\+\_\+session\+\_\+keys()}
+\item {\ttfamily crypto\+\_\+secretstream\+\_\+xchacha20poly1305\+\_\+init\+\_\+push()}
+\item {\ttfamily crypto\+\_\+secretstream\+\_\+xchacha20poly1305\+\_\+push()}
+\item {\ttfamily crypto\+\_\+secretstream\+\_\+xchacha20poly1305\+\_\+init\+\_\+pull()}
+\item {\ttfamily crypto\+\_\+secretstream\+\_\+xchacha20poly1305\+\_\+pull()}
+\item {\ttfamily crypto\+\_\+secretstream\+\_\+xchacha20poly1305\+\_\+rekey()}
+\item {\ttfamily pad()}
+\item {\ttfamily unpad()}
+\end{DoxyItemize}
+\end{DoxyItemize}
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2paragonie_2sodium__compat_2_r_e_a_d_m_e_autotoc_md6887}{}\doxysubsubsection{\texorpdfstring{Cryptography Primitives Provided}{Cryptography Primitives Provided}}\label{md_public_2glpi_2vendor_2paragonie_2sodium__compat_2_r_e_a_d_m_e_autotoc_md6887}
+
+\begin{DoxyItemize}
+\item {\bfseries{X25519}} -\/ Elliptic Curve Diffie Hellman over Curve25519
+\item {\bfseries{Ed25519}} -\/ Edwards curve Digital Signature Algorithm over Curve25519
+\item {\bfseries{Xsalsa20}} -\/ Extended-\/nonce Salsa20 stream cipher
+\item {\bfseries{Cha\+Cha20}} -\/ Stream cipher
+\item {\bfseries{Xchacha20}} -\/ Extended-\/nonce Cha\+Cha20 stream cipher
+\item {\bfseries{Poly1305}} -\/ Polynomial Evaluation Message Authentication Code modulo 2\texorpdfstring{$^\wedge$}{\string^}130 -\/ 5
+\item {\bfseries{BLAKE2b}} -\/ Cryptographic Hash Function
+\item {\bfseries{Sip\+Hash-\/2-\/4}} -\/ Fast hash, but not collision-\/resistant; ideal for hash tables.
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2paragonie_2sodium__compat_2_r_e_a_d_m_e_autotoc_md6888}{}\doxysubsubsection{\texorpdfstring{Features Excluded from this Polyfill}{Features Excluded from this Polyfill}}\label{md_public_2glpi_2vendor_2paragonie_2sodium__compat_2_r_e_a_d_m_e_autotoc_md6888}
+
+\begin{DoxyItemize}
+\item {\ttfamily \textbackslash{}\doxylink{namespace_sodium}{Sodium}\textbackslash{}memzero()} -\/ Although we expose this API endpoint, we can\textquotesingle{}t reliably zero buffers from PHP.
+
+If you have the PHP extension installed, sodium\+\_\+compat will use the native implementation to zero out the string provided. Otherwise it will throw a {\ttfamily Sodium\+Exception}.
+\item {\ttfamily \textbackslash{}\doxylink{namespace_sodium}{Sodium}\textbackslash{}crypto\+\_\+pwhash()} -\/ It\textquotesingle{}s not feasible to polyfill scrypt or Argon2 into PHP and get reasonable performance. Users would feel motivated to select parameters that downgrade security to avoid denial of service (DoS) attacks.
+
+The only winning move is not to play.
+
+If ext/sodium or ext/libsodium is installed, these API methods will fallthrough to the extension. Otherwise, our polyfill library will throw a {\ttfamily Sodium\+Exception}.
+
+To detect support for Argon2i at runtime, use {\ttfamily Paragon\+IE\+\_\+\+Sodium\+\_\+\+Compat\+::crypto\+\_\+pwhash\+\_\+is\+\_\+available()}, which returns a boolean value ({\ttfamily TRUE} or {\ttfamily FALSE}).
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2paragonie_2sodium__compat_2_r_e_a_d_m_e_autotoc_md6889}{}\doxysubsubsection{\texorpdfstring{PHPCompatibility Ruleset}{PHPCompatibility Ruleset}}\label{md_public_2glpi_2vendor_2paragonie_2sodium__compat_2_r_e_a_d_m_e_autotoc_md6889}
+For sodium\+\_\+compat users and that utilize \href{https://github.com/PHPCompatibility/PHPCompatibility}{\texttt{ {\ttfamily PHPCompatibility}}} in their CI process, there is now a custom ruleset available which can be used to prevent false positives being thrown by {\ttfamily PHPCompatibility} for the native PHP functionality being polyfilled by this repo.
+
+You can find the repo for the {\ttfamily PHPCompatibility\+Paragonie\+Sodium\+Compat} ruleset here \href{https://github.com/PHPCompatibility/PHPCompatibilityParagonie}{\texttt{ on Github}} and \href{https://packagist.org/packages/phpcompatibility/phpcompatibility-paragonie}{\texttt{ on Packagist}}. 

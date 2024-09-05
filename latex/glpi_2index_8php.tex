@@ -1,0 +1,86 @@
+\doxysection{Référence du fichier public/glpi/index.php}
+\hypertarget{glpi_2index_8php}{}\label{glpi_2index_8php}\index{public/glpi/index.php@{public/glpi/index.php}}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const \mbox{\hyperlink{glpi_2index_8php_af6315dcee605fda09b6c3109c1b739b1}{GLPI\+\_\+\+ROOT}} \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\+\_\+\+\_\+\+DIR\+\_\+\+\_\+}}
+\item 
+\mbox{\hyperlink{dropdown_location_8php_a52332c22f84432520971794825a5a8e7}{if}}(!file\+\_\+exists(\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{GLPI\+\_\+\+CONFIG\+\_\+\+DIR}} . "{}/config\+\_\+db.\+php"{})) \mbox{\hyperlink{glpi_2index_8php_a3400bc7540a37c4577b9e265cf5bffce}{else}}
+\item 
+\mbox{\hyperlink{glpi_2index_8php_a694930441c1996acbeec8ace6c1eb002}{\$\+\_\+\+SESSION}} \mbox{[}"{}glpicookietest"{}\mbox{]} = \textquotesingle{}\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{testcookie}}\textquotesingle{}
+\item 
+\mbox{\hyperlink{glpi_2index_8php_ac4cca2bd2aedb4df2f308ffef7819da7}{\$rawdata}} = file\+\_\+get\+\_\+contents("{}php\+://\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{input"{}}})
+\item 
+\mbox{\hyperlink{dropdown_location_8php_a52332c22f84432520971794825a5a8e7}{if}}(!\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{empty}}(\$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{rawdata}}) \&\& \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\+\_\+\+SERVER}}\mbox{[}\textquotesingle{}\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{REQUEST\+\_\+\+METHOD}}\textquotesingle{}\mbox{]}==\textquotesingle{}\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{POST}}\textquotesingle{}) \mbox{\hyperlink{dropdown_location_8php_a52332c22f84432520971794825a5a8e7}{if}}(\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{isset}}( \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\+\_\+\+GET}}\mbox{[}"{}no\+CAS"{}\mbox{]})) \mbox{\hyperlink{dropdown_location_8php_a52332c22f84432520971794825a5a8e7}{if}}(!\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{isset}}(\$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\+\_\+\+GET}}\mbox{[}"{}no\+AUTO"{}\mbox{]})) \mbox{\hyperlink{glpi_2index_8php_a373f860fefcd5fd392b59fe0eac9415a}{\$redirect}} = array\+\_\+key\+\_\+exists(\textquotesingle{}redirect\textquotesingle{}, \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\+\_\+\+GET}}) ? Sanitizer\+::unsanitize(\$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\+\_\+\+GET}}\mbox{[}\textquotesingle{}redirect\textquotesingle{}\mbox{]}) \+: \textquotesingle{}\textquotesingle{}
+\item 
+\mbox{\hyperlink{glpi_2index_8php_a1ae541f7fe1c5e21cb4535f88ec9e9dc}{\$theme}} = \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\+\_\+\+SESSION}}\mbox{[}\textquotesingle{}\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{glpipalette}}\textquotesingle{}\mbox{]} ?? \textquotesingle{}\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{auror}}\textquotesingle{}
+\item 
+\mbox{\hyperlink{glpi_2index_8php_ab24faf4aa647cdcee494fc48524ad4ff}{\$errors}} = "{}"{}
+\item 
+\mbox{\hyperlink{dropdown_location_8php_a52332c22f84432520971794825a5a8e7}{if}}(\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{isset}}( \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\+\_\+\+GET}}\mbox{[} \textquotesingle{}error\textquotesingle{}\mbox{]}) \&\&\$redirect !==\textquotesingle{}\textquotesingle{}) \mbox{\hyperlink{dropdown_location_8php_a52332c22f84432520971794825a5a8e7}{if}}(\$redirect !==\textquotesingle{}\textquotesingle{}) \mbox{\hyperlink{glpi_2index_8php_a332db3b62cc2e8eb7c68c44a59511843}{\$rand}} = \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{mt\+\_\+rand}}()
+\item 
+\mbox{\hyperlink{glpi_2index_8php_aedfb253ea291b10527068a6b9dbb8648}{if}} (!\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{GLPI\+\_\+\+DEMO\+\_\+\+MODE}})
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Documentation des variables}
+\Hypertarget{glpi_2index_8php_a694930441c1996acbeec8ace6c1eb002}\label{glpi_2index_8php_a694930441c1996acbeec8ace6c1eb002} 
+\index{index.php@{index.php}!\$\_SESSION@{\$\_SESSION}}
+\index{\$\_SESSION@{\$\_SESSION}!index.php@{index.php}}
+\doxysubsubsection{\texorpdfstring{\$\_SESSION}{\$\_SESSION}}
+{\footnotesize\ttfamily \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\+\_\+\+SESSION}}\mbox{[}"{}glpicookietest"{}\mbox{]} = \textquotesingle{}\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{testcookie}}\textquotesingle{}}
+
+\Hypertarget{glpi_2index_8php_ab24faf4aa647cdcee494fc48524ad4ff}\label{glpi_2index_8php_ab24faf4aa647cdcee494fc48524ad4ff} 
+\index{index.php@{index.php}!\$errors@{\$errors}}
+\index{\$errors@{\$errors}!index.php@{index.php}}
+\doxysubsubsection{\texorpdfstring{\$errors}{\$errors}}
+{\footnotesize\ttfamily \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{errors}} = "{}"{}}
+
+\Hypertarget{glpi_2index_8php_a332db3b62cc2e8eb7c68c44a59511843}\label{glpi_2index_8php_a332db3b62cc2e8eb7c68c44a59511843} 
+\index{index.php@{index.php}!\$rand@{\$rand}}
+\index{\$rand@{\$rand}!index.php@{index.php}}
+\doxysubsubsection{\texorpdfstring{\$rand}{\$rand}}
+{\footnotesize\ttfamily \mbox{\hyperlink{dropdown_location_8php_a52332c22f84432520971794825a5a8e7}{if}}(\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{isset}}(\$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\+\_\+\+GET}}\mbox{[}\textquotesingle{}error\textquotesingle{}\mbox{]}) \&\& \$redirect !==\textquotesingle{}\textquotesingle{}) \mbox{\hyperlink{dropdown_location_8php_a52332c22f84432520971794825a5a8e7}{if}} ( \$redirect !==\textquotesingle{}\textquotesingle{}) \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{rand}} = \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{mt\+\_\+rand}}()}
+
+\Hypertarget{glpi_2index_8php_ac4cca2bd2aedb4df2f308ffef7819da7}\label{glpi_2index_8php_ac4cca2bd2aedb4df2f308ffef7819da7} 
+\index{index.php@{index.php}!\$rawdata@{\$rawdata}}
+\index{\$rawdata@{\$rawdata}!index.php@{index.php}}
+\doxysubsubsection{\texorpdfstring{\$rawdata}{\$rawdata}}
+{\footnotesize\ttfamily \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{rawdata}} = file\+\_\+get\+\_\+contents("{}php\+://\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{input"{}}})}
+
+\Hypertarget{glpi_2index_8php_a373f860fefcd5fd392b59fe0eac9415a}\label{glpi_2index_8php_a373f860fefcd5fd392b59fe0eac9415a} 
+\index{index.php@{index.php}!\$redirect@{\$redirect}}
+\index{\$redirect@{\$redirect}!index.php@{index.php}}
+\doxysubsubsection{\texorpdfstring{\$redirect}{\$redirect}}
+{\footnotesize\ttfamily \mbox{\hyperlink{dropdown_location_8php_a52332c22f84432520971794825a5a8e7}{if}}(!\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{empty}}( \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{rawdata}}) \&\&\$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\+\_\+\+SERVER}}\mbox{[} \textquotesingle{}\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{REQUEST\+\_\+\+METHOD}}\textquotesingle{}\mbox{]}==\textquotesingle{}\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{POST}}\textquotesingle{}) \mbox{\hyperlink{dropdown_location_8php_a52332c22f84432520971794825a5a8e7}{if}}(\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{isset}}(\$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\+\_\+\+GET}}\mbox{[}"{}no\+CAS"{}\mbox{]})) \mbox{\hyperlink{dropdown_location_8php_a52332c22f84432520971794825a5a8e7}{if}} (!\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{isset}}( \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\+\_\+\+GET}}\mbox{[}"{}no\+AUTO"{}\mbox{]})) \$redirect = array\+\_\+key\+\_\+exists(\textquotesingle{}redirect\textquotesingle{}, \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\+\_\+\+GET}}) ? Sanitizer\+::unsanitize(\$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\+\_\+\+GET}}\mbox{[}\textquotesingle{}redirect\textquotesingle{}\mbox{]}) \+: \textquotesingle{}\textquotesingle{}}
+
+\Hypertarget{glpi_2index_8php_a1ae541f7fe1c5e21cb4535f88ec9e9dc}\label{glpi_2index_8php_a1ae541f7fe1c5e21cb4535f88ec9e9dc} 
+\index{index.php@{index.php}!\$theme@{\$theme}}
+\index{\$theme@{\$theme}!index.php@{index.php}}
+\doxysubsubsection{\texorpdfstring{\$theme}{\$theme}}
+{\footnotesize\ttfamily \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{theme}} = \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\+\_\+\+SESSION}}\mbox{[}\textquotesingle{}\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{glpipalette}}\textquotesingle{}\mbox{]} ?? \textquotesingle{}\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{auror}}\textquotesingle{}}
+
+\Hypertarget{glpi_2index_8php_a3400bc7540a37c4577b9e265cf5bffce}\label{glpi_2index_8php_a3400bc7540a37c4577b9e265cf5bffce} 
+\index{index.php@{index.php}!else@{else}}
+\index{else@{else}!index.php@{index.php}}
+\doxysubsubsection{\texorpdfstring{else}{else}}
+{\footnotesize\ttfamily \mbox{\hyperlink{dropdown_location_8php_a52332c22f84432520971794825a5a8e7}{if}} (!file\+\_\+exists(\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{GLPI\+\_\+\+CONFIG\+\_\+\+DIR}} . "{}/config\+\_\+db.\+php"{})) else}
+
+{\bfseries Valeur initiale \+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{include}}(\mbox{\hyperlink{glpi_2index_8php_af6315dcee605fda09b6c3109c1b739b1}{GLPI\_ROOT}}\ .\ \textcolor{stringliteral}{"{}/inc/includes.php"{}})}
+
+\end{DoxyCode}
+\Hypertarget{glpi_2index_8php_af6315dcee605fda09b6c3109c1b739b1}\label{glpi_2index_8php_af6315dcee605fda09b6c3109c1b739b1} 
+\index{index.php@{index.php}!GLPI\_ROOT@{GLPI\_ROOT}}
+\index{GLPI\_ROOT@{GLPI\_ROOT}!index.php@{index.php}}
+\doxysubsubsection{\texorpdfstring{GLPI\_ROOT}{GLPI\_ROOT}}
+{\footnotesize\ttfamily const GLPI\+\_\+\+ROOT \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\+\_\+\+\_\+\+DIR\+\_\+\+\_\+}}}
+
+\Hypertarget{glpi_2index_8php_aedfb253ea291b10527068a6b9dbb8648}\label{glpi_2index_8php_aedfb253ea291b10527068a6b9dbb8648} 
+\index{index.php@{index.php}!if@{if}}
+\index{if@{if}!index.php@{index.php}}
+\doxysubsubsection{\texorpdfstring{if}{if}}
+{\footnotesize\ttfamily if(!\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{GLPI\+\_\+\+DEMO\+\_\+\+MODE}}) (\begin{DoxyParamCaption}\item[{!}]{GLPI\+\_\+\+DEMO\+\_\+\+MODE }\end{DoxyParamCaption})}
+

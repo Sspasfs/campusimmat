@@ -1,0 +1,254 @@
+\doxysection{Référence de l\textquotesingle{}interface Backend\+Interface}
+\hypertarget{interface_sabre_1_1_d_a_v_a_c_l_1_1_principal_backend_1_1_backend_interface}{}\label{interface_sabre_1_1_d_a_v_a_c_l_1_1_principal_backend_1_1_backend_interface}\index{BackendInterface@{BackendInterface}}
+
+
+Graphe d\textquotesingle{}héritage de Backend\+Interface\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{interface_sabre_1_1_d_a_v_a_c_l_1_1_principal_backend_1_1_backend_interface__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Graphe de collaboration de Backend\+Interface\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=204pt]{interface_sabre_1_1_d_a_v_a_c_l_1_1_principal_backend_1_1_backend_interface__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{interface_sabre_1_1_d_a_v_a_c_l_1_1_principal_backend_1_1_backend_interface_aeaa01a78eb9f07db1a0e905ccf363247}{get\+Principals\+By\+Prefix}} (\$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{prefix\+Path}})
+\item 
+\mbox{\hyperlink{interface_sabre_1_1_d_a_v_a_c_l_1_1_principal_backend_1_1_backend_interface_a33e21a40542c0b02b25e0627b56399f3}{get\+Principal\+By\+Path}} (\$path)
+\item 
+\mbox{\hyperlink{interface_sabre_1_1_d_a_v_a_c_l_1_1_principal_backend_1_1_backend_interface_a9331362320416fbc3c7c0c482bee45d2}{update\+Principal}} (\$path, \textbackslash{}\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_prop_patch}{Sabre\textbackslash{}\+DAV\textbackslash{}\+Prop\+Patch}} \$prop\+Patch)
+\item 
+\mbox{\hyperlink{interface_sabre_1_1_d_a_v_a_c_l_1_1_principal_backend_1_1_backend_interface_a9214a8d66b1f61d26460521cb8f8bd21}{search\+Principals}} (\$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{prefix\+Path}}, array \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{search\+Properties}}, \$test=\textquotesingle{}\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{allof}}\textquotesingle{})
+\item 
+\mbox{\hyperlink{interface_sabre_1_1_d_a_v_a_c_l_1_1_principal_backend_1_1_backend_interface_a6b2b1b47d5f5f922a5b36bb425668829}{find\+By\+Uri}} (\$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{uri}}, \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{principal\+Prefix}})
+\item 
+\mbox{\hyperlink{interface_sabre_1_1_d_a_v_a_c_l_1_1_principal_backend_1_1_backend_interface_aa9c3436c9fabd745063454d85478ebbf}{get\+Group\+Member\+Set}} (\$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{principal}})
+\item 
+\mbox{\hyperlink{interface_sabre_1_1_d_a_v_a_c_l_1_1_principal_backend_1_1_backend_interface_a2ffeb9f75a4aef425109d1df3ab19a82}{get\+Group\+Membership}} (\$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{principal}})
+\item 
+\mbox{\hyperlink{interface_sabre_1_1_d_a_v_a_c_l_1_1_principal_backend_1_1_backend_interface_a60f529046d87acf43efd383fcb1ffaad}{set\+Group\+Member\+Set}} (\$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{principal}}, array \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{members}})
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Implement this interface to create your own principal backends.
+
+Creating backends for principals is entirely optional. You can also implement Sabre\textbackslash{}\+DAVACL\textbackslash{}\+IPrincipal directly. This interface is used solely by Sabre\textbackslash{}\+DAVACL\textbackslash{}\+Abstract\+Principal\+Collection.
+
+\begin{DoxyCopyright}{Copyright}
+Copyright (C) fruux GmbH (\href{https://fruux.com/}{\texttt{ https\+://fruux.\+com/}}) 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Auteur}
+Evert Pot (\href{http://evertpot.com/}{\texttt{ http\+://evertpot.\+com/}}) @license \href{http://sabre.io/license/}{\texttt{ http\+://sabre.\+io/license/}} Modified BSD License 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Documentation des fonctions membres}
+\Hypertarget{interface_sabre_1_1_d_a_v_a_c_l_1_1_principal_backend_1_1_backend_interface_a6b2b1b47d5f5f922a5b36bb425668829}\label{interface_sabre_1_1_d_a_v_a_c_l_1_1_principal_backend_1_1_backend_interface_a6b2b1b47d5f5f922a5b36bb425668829} 
+\index{BackendInterface@{BackendInterface}!findByUri@{findByUri}}
+\index{findByUri@{findByUri}!BackendInterface@{BackendInterface}}
+\doxysubsubsection{\texorpdfstring{findByUri()}{findByUri()}}
+{\footnotesize\ttfamily find\+By\+Uri (\begin{DoxyParamCaption}\item[{}]{\$uri,  }\item[{}]{\$principal\+Prefix }\end{DoxyParamCaption})}
+
+Finds a principal by its URI.
+
+This method may receive any type of uri, but mailto\+: addresses will be the most common.
+
+Implementation of this API is optional. It is currently used by the Cal\+DAV system to find principals based on their email addresses. If this API is not implemented, some features may not work correctly.
+
+This method must return a relative principal path, or null, if the principal was not found or you refuse to find it.
+
+
+\begin{DoxyParams}[1]{Paramètres}
+string & {\em \$uri} & \\
+\hline
+string & {\em \$principal\+Prefix} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+string\texorpdfstring{$\vert$}{|}null 
+\end{DoxyReturn}
+
+
+Implémenté dans \mbox{\hyperlink{class_sabre_1_1_d_a_v_a_c_l_1_1_principal_backend_1_1_abstract_backend_a6b2b1b47d5f5f922a5b36bb425668829}{Abstract\+Backend}}, et \mbox{\hyperlink{class_sabre_1_1_d_a_v_a_c_l_1_1_principal_backend_1_1_p_d_o_a6b2b1b47d5f5f922a5b36bb425668829}{PDO}}.
+
+\Hypertarget{interface_sabre_1_1_d_a_v_a_c_l_1_1_principal_backend_1_1_backend_interface_aa9c3436c9fabd745063454d85478ebbf}\label{interface_sabre_1_1_d_a_v_a_c_l_1_1_principal_backend_1_1_backend_interface_aa9c3436c9fabd745063454d85478ebbf} 
+\index{BackendInterface@{BackendInterface}!getGroupMemberSet@{getGroupMemberSet}}
+\index{getGroupMemberSet@{getGroupMemberSet}!BackendInterface@{BackendInterface}}
+\doxysubsubsection{\texorpdfstring{getGroupMemberSet()}{getGroupMemberSet()}}
+{\footnotesize\ttfamily get\+Group\+Member\+Set (\begin{DoxyParamCaption}\item[{}]{\$principal }\end{DoxyParamCaption})}
+
+Returns the list of members for a group-\/principal.
+
+
+\begin{DoxyParams}[1]{Paramètres}
+string & {\em \$principal} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+array 
+\end{DoxyReturn}
+
+
+Implémenté dans \mbox{\hyperlink{class_sabre_1_1_d_a_v_a_c_l_1_1_principal_backend_1_1_p_d_o_aa9c3436c9fabd745063454d85478ebbf}{PDO}}.
+
+\Hypertarget{interface_sabre_1_1_d_a_v_a_c_l_1_1_principal_backend_1_1_backend_interface_a2ffeb9f75a4aef425109d1df3ab19a82}\label{interface_sabre_1_1_d_a_v_a_c_l_1_1_principal_backend_1_1_backend_interface_a2ffeb9f75a4aef425109d1df3ab19a82} 
+\index{BackendInterface@{BackendInterface}!getGroupMembership@{getGroupMembership}}
+\index{getGroupMembership@{getGroupMembership}!BackendInterface@{BackendInterface}}
+\doxysubsubsection{\texorpdfstring{getGroupMembership()}{getGroupMembership()}}
+{\footnotesize\ttfamily get\+Group\+Membership (\begin{DoxyParamCaption}\item[{}]{\$principal }\end{DoxyParamCaption})}
+
+Returns the list of groups a principal is a member of.
+
+
+\begin{DoxyParams}[1]{Paramètres}
+string & {\em \$principal} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+array 
+\end{DoxyReturn}
+
+
+Implémenté dans \mbox{\hyperlink{class_sabre_1_1_d_a_v_a_c_l_1_1_principal_backend_1_1_p_d_o_a2ffeb9f75a4aef425109d1df3ab19a82}{PDO}}.
+
+\Hypertarget{interface_sabre_1_1_d_a_v_a_c_l_1_1_principal_backend_1_1_backend_interface_a33e21a40542c0b02b25e0627b56399f3}\label{interface_sabre_1_1_d_a_v_a_c_l_1_1_principal_backend_1_1_backend_interface_a33e21a40542c0b02b25e0627b56399f3} 
+\index{BackendInterface@{BackendInterface}!getPrincipalByPath@{getPrincipalByPath}}
+\index{getPrincipalByPath@{getPrincipalByPath}!BackendInterface@{BackendInterface}}
+\doxysubsubsection{\texorpdfstring{getPrincipalByPath()}{getPrincipalByPath()}}
+{\footnotesize\ttfamily get\+Principal\+By\+Path (\begin{DoxyParamCaption}\item[{}]{\$path }\end{DoxyParamCaption})}
+
+Returns a specific principal, specified by it\textquotesingle{}s path. The returned structure should be the exact same as from get\+Principals\+By\+Prefix.
+
+
+\begin{DoxyParams}[1]{Paramètres}
+string & {\em \$path} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+array 
+\end{DoxyReturn}
+
+
+Implémenté dans \mbox{\hyperlink{class_sabre_1_1_d_a_v_a_c_l_1_1_principal_backend_1_1_p_d_o_a33e21a40542c0b02b25e0627b56399f3}{PDO}}.
+
+\Hypertarget{interface_sabre_1_1_d_a_v_a_c_l_1_1_principal_backend_1_1_backend_interface_aeaa01a78eb9f07db1a0e905ccf363247}\label{interface_sabre_1_1_d_a_v_a_c_l_1_1_principal_backend_1_1_backend_interface_aeaa01a78eb9f07db1a0e905ccf363247} 
+\index{BackendInterface@{BackendInterface}!getPrincipalsByPrefix@{getPrincipalsByPrefix}}
+\index{getPrincipalsByPrefix@{getPrincipalsByPrefix}!BackendInterface@{BackendInterface}}
+\doxysubsubsection{\texorpdfstring{getPrincipalsByPrefix()}{getPrincipalsByPrefix()}}
+{\footnotesize\ttfamily get\+Principals\+By\+Prefix (\begin{DoxyParamCaption}\item[{}]{\$prefix\+Path }\end{DoxyParamCaption})}
+
+Returns a list of principals based on a prefix.
+
+This prefix will often contain something like \textquotesingle{}principals\textquotesingle{}. You are only expected to return principals that are in this base path.
+
+You are expected to return at least a \textquotesingle{}uri\textquotesingle{} for every user, you can return any additional properties if you wish so. Common properties are\+: \{DAV\+:\}displayname \{\href{http://sabredav.org/ns}{\texttt{ http\+://sabredav.\+org/ns}}\}email-\/address -\/ This is a custom Sabre\+DAV field that\textquotesingle{}s actually injected in a number of other properties. If you have an email address, use this property.
+
+
+\begin{DoxyParams}[1]{Paramètres}
+string & {\em \$prefix\+Path} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+array 
+\end{DoxyReturn}
+
+
+Implémenté dans \mbox{\hyperlink{class_sabre_1_1_d_a_v_a_c_l_1_1_principal_backend_1_1_p_d_o_aeaa01a78eb9f07db1a0e905ccf363247}{PDO}}.
+
+\Hypertarget{interface_sabre_1_1_d_a_v_a_c_l_1_1_principal_backend_1_1_backend_interface_a9214a8d66b1f61d26460521cb8f8bd21}\label{interface_sabre_1_1_d_a_v_a_c_l_1_1_principal_backend_1_1_backend_interface_a9214a8d66b1f61d26460521cb8f8bd21} 
+\index{BackendInterface@{BackendInterface}!searchPrincipals@{searchPrincipals}}
+\index{searchPrincipals@{searchPrincipals}!BackendInterface@{BackendInterface}}
+\doxysubsubsection{\texorpdfstring{searchPrincipals()}{searchPrincipals()}}
+{\footnotesize\ttfamily search\+Principals (\begin{DoxyParamCaption}\item[{}]{\$prefix\+Path,  }\item[{array}]{\$search\+Properties,  }\item[{}]{\$test = {\ttfamily \textquotesingle{}\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{allof}}\textquotesingle{}} }\end{DoxyParamCaption})}
+
+This method is used to search for principals matching a set of properties.
+
+This search is specifically used by RFC3744\textquotesingle{}s principal-\/property-\/search REPORT.
+
+The actual search should be a unicode-\/non-\/case-\/sensitive search. The keys in search\+Properties are the Web\+DAV property names, while the values are the property values to search on.
+
+By default, if multiple properties are submitted to this method, the various properties should be combined with \textquotesingle{}AND\textquotesingle{}. If \$test is set to \textquotesingle{}anyof\textquotesingle{}, it should be combined using \textquotesingle{}OR\textquotesingle{}.
+
+This method should simply return an array with full principal uri\textquotesingle{}s.
+
+If somebody attempted to search on a property the backend does not support, you should simply return 0 results.
+
+You can also just return 0 results if you choose to not support searching at all, but keep in mind that this may stop certain features from working.
+
+
+\begin{DoxyParams}[1]{Paramètres}
+string & {\em \$prefix\+Path} & \\
+\hline
+string & {\em \$test} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+array 
+\end{DoxyReturn}
+
+
+Implémenté dans \mbox{\hyperlink{class_sabre_1_1_d_a_v_a_c_l_1_1_principal_backend_1_1_p_d_o_a9214a8d66b1f61d26460521cb8f8bd21}{PDO}}.
+
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{interface_sabre_1_1_d_a_v_a_c_l_1_1_principal_backend_1_1_backend_interface_a9214a8d66b1f61d26460521cb8f8bd21_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{interface_sabre_1_1_d_a_v_a_c_l_1_1_principal_backend_1_1_backend_interface_a60f529046d87acf43efd383fcb1ffaad}\label{interface_sabre_1_1_d_a_v_a_c_l_1_1_principal_backend_1_1_backend_interface_a60f529046d87acf43efd383fcb1ffaad} 
+\index{BackendInterface@{BackendInterface}!setGroupMemberSet@{setGroupMemberSet}}
+\index{setGroupMemberSet@{setGroupMemberSet}!BackendInterface@{BackendInterface}}
+\doxysubsubsection{\texorpdfstring{setGroupMemberSet()}{setGroupMemberSet()}}
+{\footnotesize\ttfamily set\+Group\+Member\+Set (\begin{DoxyParamCaption}\item[{}]{\$principal,  }\item[{array}]{\$members }\end{DoxyParamCaption})}
+
+Updates the list of group members for a group principal.
+
+The principals should be passed as a list of uri\textquotesingle{}s.
+
+
+\begin{DoxyParams}[1]{Paramètres}
+string & {\em \$principal} & \\
+\hline
+\end{DoxyParams}
+
+
+Implémenté dans \mbox{\hyperlink{class_sabre_1_1_d_a_v_a_c_l_1_1_principal_backend_1_1_p_d_o_a60f529046d87acf43efd383fcb1ffaad}{PDO}}.
+
+\Hypertarget{interface_sabre_1_1_d_a_v_a_c_l_1_1_principal_backend_1_1_backend_interface_a9331362320416fbc3c7c0c482bee45d2}\label{interface_sabre_1_1_d_a_v_a_c_l_1_1_principal_backend_1_1_backend_interface_a9331362320416fbc3c7c0c482bee45d2} 
+\index{BackendInterface@{BackendInterface}!updatePrincipal@{updatePrincipal}}
+\index{updatePrincipal@{updatePrincipal}!BackendInterface@{BackendInterface}}
+\doxysubsubsection{\texorpdfstring{updatePrincipal()}{updatePrincipal()}}
+{\footnotesize\ttfamily update\+Principal (\begin{DoxyParamCaption}\item[{}]{\$path,  }\item[{\textbackslash{}\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_prop_patch}{Sabre\textbackslash{}\+DAV\textbackslash{}\+Prop\+Patch}}}]{\$prop\+Patch }\end{DoxyParamCaption})}
+
+Updates one ore more webdav properties on a principal.
+
+The list of mutations is stored in a Sabre\textbackslash{}\+DAV\textbackslash{}\+Prop\+Patch object. To do the actual updates, you must tell this object which properties you\textquotesingle{}re going to process with the handle() method.
+
+Calling the handle method is like telling the Prop\+Patch object "{}\+I promise I can handle updating this property"{}.
+
+Read the Prop\+Patch documentation for more info and examples.
+
+
+\begin{DoxyParams}[1]{Paramètres}
+string & {\em \$path} & \\
+\hline
+\end{DoxyParams}
+
+
+La documentation de cette interface a été générée à partir du fichier suivant \+:\begin{DoxyCompactItemize}
+\item 
+public/glpi/vendor/sabre/dav/lib/\+DAVACL/\+Principal\+Backend/\mbox{\hyperlink{_d_a_v_a_c_l_2_principal_backend_2_backend_interface_8php}{Backend\+Interface.\+php}}\end{DoxyCompactItemize}

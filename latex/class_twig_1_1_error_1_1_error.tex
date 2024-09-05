@@ -1,0 +1,159 @@
+\doxysection{Référence de la classe Error}
+\hypertarget{class_twig_1_1_error_1_1_error}{}\label{class_twig_1_1_error_1_1_error}\index{Error@{Error}}
+
+
+Graphe d\textquotesingle{}héritage de Error\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_twig_1_1_error_1_1_error__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Graphe de collaboration de Error\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=236pt]{class_twig_1_1_error_1_1_error__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_twig_1_1_error_1_1_error_a836ac4ca3bbe7e51427b7467497564c7}{\+\_\+\+\_\+construct}} (string \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{message}}, int \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{lineno}}=-\/1, \mbox{\hyperlink{class_twig_1_1_source}{Source}} \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{source}}=null, \textbackslash{}Throwable \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{previous}}=null)
+\item 
+\mbox{\hyperlink{class_twig_1_1_error_1_1_error_ae10360028f8c467cf5855bcaf76b091f}{get\+Raw\+Message}} ()
+\item 
+\mbox{\hyperlink{class_twig_1_1_error_1_1_error_abe0a6ba69feb4cba19f4a408462a976e}{get\+Template\+Line}} ()
+\item 
+\mbox{\hyperlink{class_twig_1_1_error_1_1_error_afe8d2dac59a362916c5271c17db9f632}{set\+Template\+Line}} (int \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{lineno}})
+\item 
+\mbox{\hyperlink{class_twig_1_1_error_1_1_error_a38152512ea69c5f598112d1e1064e4b5}{get\+Source\+Context}} ()
+\item 
+\mbox{\hyperlink{class_twig_1_1_error_1_1_error_a2edcf352ec13de5e1721c21cffa80ef8}{set\+Source\+Context}} (\mbox{\hyperlink{class_twig_1_1_source}{Source}} \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{source}}=null)
+\item 
+\mbox{\hyperlink{class_twig_1_1_error_1_1_error_a16664471dad3413d0fb0370b4068d634}{guess}} ()
+\item 
+\mbox{\hyperlink{class_twig_1_1_error_1_1_error_aea80188b878e626c939e71fa4213d0ac}{append\+Message}} (\$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{raw\+Message}})
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+\doxylink{namespace_twig}{Twig} base exception.
+
+This exception class and its children must only be used when an error occurs during the loading of a template, when a syntax error is detected in a template, or when rendering a template. Other errors must use regular PHP exception classes (like when the template cache directory is not writable for instance).
+
+To help debugging template issues, this class tracks the original template name and line where the error occurred.
+
+Whenever possible, you must set these information (original template name and line number) yourself by passing them to the constructor. If some or all these information are not available from where you throw the exception, then this class will guess them automatically (when the line number is set to -\/1 and/or the name is set to null). As this is a costly operation, this can be disabled by passing false for both the name and the line number when creating a new instance of this class.
+
+\begin{DoxyAuthor}{Auteur}
+Fabien Potencier \href{mailto:fabien@symfony.com}{\texttt{ fabien@symfony.\+com}} 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Documentation des constructeurs et destructeur}
+\Hypertarget{class_twig_1_1_error_1_1_error_a836ac4ca3bbe7e51427b7467497564c7}\label{class_twig_1_1_error_1_1_error_a836ac4ca3bbe7e51427b7467497564c7} 
+\index{Error@{Error}!\_\_construct@{\_\_construct}}
+\index{\_\_construct@{\_\_construct}!Error@{Error}}
+\doxysubsubsection{\texorpdfstring{\_\_construct()}{\_\_construct()}}
+{\footnotesize\ttfamily \+\_\+\+\_\+construct (\begin{DoxyParamCaption}\item[{string}]{\$message,  }\item[{int}]{\$lineno = {\ttfamily -\/1},  }\item[{\mbox{\hyperlink{class_twig_1_1_source}{Source}}}]{\$source = {\ttfamily null},  }\item[{\textbackslash{}Throwable}]{\$previous = {\ttfamily null} }\end{DoxyParamCaption})}
+
+Constructor.
+
+By default, automatic guessing is enabled.
+
+
+\begin{DoxyParams}[1]{Paramètres}
+string & {\em \$message} & The error message \\
+\hline
+int & {\em \$lineno} & The template line where the error occurred \\
+\hline
+Source | null & {\em \$source} & The source context where the error occurred \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Documentation des fonctions membres}
+\Hypertarget{class_twig_1_1_error_1_1_error_aea80188b878e626c939e71fa4213d0ac}\label{class_twig_1_1_error_1_1_error_aea80188b878e626c939e71fa4213d0ac} 
+\index{Error@{Error}!appendMessage@{appendMessage}}
+\index{appendMessage@{appendMessage}!Error@{Error}}
+\doxysubsubsection{\texorpdfstring{appendMessage()}{appendMessage()}}
+{\footnotesize\ttfamily append\+Message (\begin{DoxyParamCaption}\item[{}]{\$raw\+Message }\end{DoxyParamCaption})}
+
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=318pt]{class_twig_1_1_error_1_1_error_aea80188b878e626c939e71fa4213d0ac_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_twig_1_1_error_1_1_error_ae10360028f8c467cf5855bcaf76b091f}\label{class_twig_1_1_error_1_1_error_ae10360028f8c467cf5855bcaf76b091f} 
+\index{Error@{Error}!getRawMessage@{getRawMessage}}
+\index{getRawMessage@{getRawMessage}!Error@{Error}}
+\doxysubsubsection{\texorpdfstring{getRawMessage()}{getRawMessage()}}
+{\footnotesize\ttfamily get\+Raw\+Message (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=348pt]{class_twig_1_1_error_1_1_error_ae10360028f8c467cf5855bcaf76b091f_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_twig_1_1_error_1_1_error_a38152512ea69c5f598112d1e1064e4b5}\label{class_twig_1_1_error_1_1_error_a38152512ea69c5f598112d1e1064e4b5} 
+\index{Error@{Error}!getSourceContext@{getSourceContext}}
+\index{getSourceContext@{getSourceContext}!Error@{Error}}
+\doxysubsubsection{\texorpdfstring{getSourceContext()}{getSourceContext()}}
+{\footnotesize\ttfamily get\+Source\+Context (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_twig_1_1_error_1_1_error_a38152512ea69c5f598112d1e1064e4b5_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_twig_1_1_error_1_1_error_abe0a6ba69feb4cba19f4a408462a976e}\label{class_twig_1_1_error_1_1_error_abe0a6ba69feb4cba19f4a408462a976e} 
+\index{Error@{Error}!getTemplateLine@{getTemplateLine}}
+\index{getTemplateLine@{getTemplateLine}!Error@{Error}}
+\doxysubsubsection{\texorpdfstring{getTemplateLine()}{getTemplateLine()}}
+{\footnotesize\ttfamily get\+Template\+Line (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=345pt]{class_twig_1_1_error_1_1_error_abe0a6ba69feb4cba19f4a408462a976e_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_twig_1_1_error_1_1_error_a16664471dad3413d0fb0370b4068d634}\label{class_twig_1_1_error_1_1_error_a16664471dad3413d0fb0370b4068d634} 
+\index{Error@{Error}!guess@{guess}}
+\index{guess@{guess}!Error@{Error}}
+\doxysubsubsection{\texorpdfstring{guess()}{guess()}}
+{\footnotesize\ttfamily guess (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\Hypertarget{class_twig_1_1_error_1_1_error_a2edcf352ec13de5e1721c21cffa80ef8}\label{class_twig_1_1_error_1_1_error_a2edcf352ec13de5e1721c21cffa80ef8} 
+\index{Error@{Error}!setSourceContext@{setSourceContext}}
+\index{setSourceContext@{setSourceContext}!Error@{Error}}
+\doxysubsubsection{\texorpdfstring{setSourceContext()}{setSourceContext()}}
+{\footnotesize\ttfamily set\+Source\+Context (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_twig_1_1_source}{Source}}}]{\$source = {\ttfamily null} }\end{DoxyParamCaption})}
+
+\Hypertarget{class_twig_1_1_error_1_1_error_afe8d2dac59a362916c5271c17db9f632}\label{class_twig_1_1_error_1_1_error_afe8d2dac59a362916c5271c17db9f632} 
+\index{Error@{Error}!setTemplateLine@{setTemplateLine}}
+\index{setTemplateLine@{setTemplateLine}!Error@{Error}}
+\doxysubsubsection{\texorpdfstring{setTemplateLine()}{setTemplateLine()}}
+{\footnotesize\ttfamily set\+Template\+Line (\begin{DoxyParamCaption}\item[{int}]{\$lineno }\end{DoxyParamCaption})}
+
+
+
+La documentation de cette classe a été générée à partir du fichier suivant \+:\begin{DoxyCompactItemize}
+\item 
+public/glpi/vendor/twig/twig/src/\+Error/\mbox{\hyperlink{twig_2twig_2src_2_error_2_error_8php}{Error.\+php}}\end{DoxyCompactItemize}

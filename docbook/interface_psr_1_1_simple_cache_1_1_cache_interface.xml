@@ -1,0 +1,498 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_interface_psr_1_1_simple_cache_1_1_cache_interface" xml:lang="fr">
+<title>Référence de l&apos;interface CacheInterface</title>
+<indexterm><primary>CacheInterface</primary></indexterm>
+Graphe d&apos;héritage de CacheInterface:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="interface_psr_1_1_simple_cache_1_1_cache_interface__inherit__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Graphe de collaboration de CacheInterface:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="interface_psr_1_1_simple_cache_1_1_cache_interface__coll__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Fonctions membres publiques    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_interface_psr_1_1_simple_cache_1_1_cache_interface_1a499d39d1876a05b20e1ca8e8a1c2b466">get</link> ($key, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">default</link>=null)</para>
+</listitem>
+            <listitem><para><link linkend="_interface_psr_1_1_simple_cache_1_1_cache_interface_1ae972783bbd380976dc0cb87fc985d84e">set</link> ($key, $value, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">ttl</link>=null)</para>
+</listitem>
+            <listitem><para><link linkend="_interface_psr_1_1_simple_cache_1_1_cache_interface_1aa74a2edd6f3cbb5c5353f7faa97b6d70">delete</link> ($key)</para>
+</listitem>
+            <listitem><para><link linkend="_interface_psr_1_1_simple_cache_1_1_cache_interface_1aa821bec12eaa7e0f649397c9675ff505">clear</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_interface_psr_1_1_simple_cache_1_1_cache_interface_1a9f113f21f478daebfafe7f573b23dce3">getMultiple</link> ($keys, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">default</link>=null)</para>
+</listitem>
+            <listitem><para><link linkend="_interface_psr_1_1_simple_cache_1_1_cache_interface_1a0cddff25fce3972ec25ced86f1715780">setMultiple</link> ($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">values</link>, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">ttl</link>=null)</para>
+</listitem>
+            <listitem><para><link linkend="_interface_psr_1_1_simple_cache_1_1_cache_interface_1a5950974b7aa126f3c1864539b722cbbd">deleteMultiple</link> ($keys)</para>
+</listitem>
+            <listitem><para><link linkend="_interface_psr_1_1_simple_cache_1_1_cache_interface_1a8b23dbb48f0c3c94725695191d06981a">has</link> ($key)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Documentation des fonctions membres</title>
+<anchor xml:id="_interface_psr_1_1_simple_cache_1_1_cache_interface_1aa821bec12eaa7e0f649397c9675ff505"/><section>
+    <title>clear()</title>
+<indexterm><primary>clear</primary><secondary>CacheInterface</secondary></indexterm>
+<indexterm><primary>CacheInterface</primary><secondary>clear</secondary></indexterm>
+<para><computeroutput>clear ( )</computeroutput></para>
+<para>Wipes clean the entire cache&apos;s keys.</para>
+
+<para><formalpara><title>Renvoie</title>
+
+<para>bool True on success and false on failure. </para>
+</formalpara>
+</para>
+<para>
+Implémenté dans <link linkend="_class_symfony_1_1_component_1_1_cache_1_1_psr16_cache_1aa821bec12eaa7e0f649397c9675ff505">Psr16Cache</link>.</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="interface_psr_1_1_simple_cache_1_1_cache_interface_aa821bec12eaa7e0f649397c9675ff505_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_interface_psr_1_1_simple_cache_1_1_cache_interface_1aa74a2edd6f3cbb5c5353f7faa97b6d70"/><section>
+    <title>delete()</title>
+<indexterm><primary>delete</primary><secondary>CacheInterface</secondary></indexterm>
+<indexterm><primary>CacheInterface</primary><secondary>delete</secondary></indexterm>
+<para><computeroutput>delete ( $key)</computeroutput></para>
+<para>Delete an item from the cache by its unique key.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$key</entry><entry>
+<para>The unique cache key of the item to delete.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>bool True if the item was successfully removed. False if there was an error.</para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry></entry>
+<entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                Psr\SimpleCache\InvalidArgumentException MUST be thrown if the $key string is not a legal value. </para>
+<para>
+Implémenté dans <link linkend="_class_glpi_1_1_cache_1_1_simple_cache_1aa74a2edd6f3cbb5c5353f7faa97b6d70">SimpleCache</link>, et <link linkend="_class_symfony_1_1_component_1_1_cache_1_1_psr16_cache_1aa74a2edd6f3cbb5c5353f7faa97b6d70">Psr16Cache</link>.</para>
+</section>
+<anchor xml:id="_interface_psr_1_1_simple_cache_1_1_cache_interface_1a5950974b7aa126f3c1864539b722cbbd"/><section>
+    <title>deleteMultiple()</title>
+<indexterm><primary>deleteMultiple</primary><secondary>CacheInterface</secondary></indexterm>
+<indexterm><primary>CacheInterface</primary><secondary>deleteMultiple</secondary></indexterm>
+<para><computeroutput>deleteMultiple ( $keys)</computeroutput></para>
+<para>Deletes multiple cache items in a single operation.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>iterable</entry><entry>$keys</entry><entry>
+<para>A list of string-based keys to be deleted.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>bool True if the items were successfully removed. False if there was an error.</para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry></entry>
+<entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                Psr\SimpleCache\InvalidArgumentException MUST be thrown if $keys is neither an array nor a Traversable, or if any of the $keys are not a legal value. </para>
+<para>
+Implémenté dans <link linkend="_class_glpi_1_1_cache_1_1_simple_cache_1a5950974b7aa126f3c1864539b722cbbd">SimpleCache</link>, et <link linkend="_class_symfony_1_1_component_1_1_cache_1_1_psr16_cache_1a5950974b7aa126f3c1864539b722cbbd">Psr16Cache</link>.</para>
+</section>
+<anchor xml:id="_interface_psr_1_1_simple_cache_1_1_cache_interface_1a499d39d1876a05b20e1ca8e8a1c2b466"/><section>
+    <title>get()</title>
+<indexterm><primary>get</primary><secondary>CacheInterface</secondary></indexterm>
+<indexterm><primary>CacheInterface</primary><secondary>get</secondary></indexterm>
+<para><computeroutput>get ( $key,  $default = <computeroutput>null</computeroutput>
+)</computeroutput></para>
+<para>Fetches a value from the cache.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$key</entry><entry>
+<para>The unique key of this item in the cache. </para>
+</entry>
+                            </row>
+                            <row>
+<entry>mixed</entry><entry>$default</entry><entry>
+<para>Default value to return if the key does not exist.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>mixed The value of the item from the cache, or $default in case of cache miss.</para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry></entry>
+<entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                Psr\SimpleCache\InvalidArgumentException MUST be thrown if the $key string is not a legal value. </para>
+<para>
+Implémenté dans <link linkend="_class_glpi_1_1_cache_1_1_simple_cache_1a499d39d1876a05b20e1ca8e8a1c2b466">SimpleCache</link>, et <link linkend="_class_symfony_1_1_component_1_1_cache_1_1_psr16_cache_1a499d39d1876a05b20e1ca8e8a1c2b466">Psr16Cache</link>.</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="interface_psr_1_1_simple_cache_1_1_cache_interface_a499d39d1876a05b20e1ca8e8a1c2b466_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_interface_psr_1_1_simple_cache_1_1_cache_interface_1a9f113f21f478daebfafe7f573b23dce3"/><section>
+    <title>getMultiple()</title>
+<indexterm><primary>getMultiple</primary><secondary>CacheInterface</secondary></indexterm>
+<indexterm><primary>CacheInterface</primary><secondary>getMultiple</secondary></indexterm>
+<para><computeroutput>getMultiple ( $keys,  $default = <computeroutput>null</computeroutput>
+)</computeroutput></para>
+<para>Obtains multiple cache items by their unique keys.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>iterable</entry><entry>$keys</entry><entry>
+<para>A list of keys that can obtained in a single operation. </para>
+</entry>
+                            </row>
+                            <row>
+<entry>mixed</entry><entry>$default</entry><entry>
+<para>Default value to return for keys that do not exist.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>iterable A list of key =&gt; value pairs. Cache keys that do not exist or are stale will have $default as value.</para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry></entry>
+<entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                Psr\SimpleCache\InvalidArgumentException MUST be thrown if $keys is neither an array nor a Traversable, or if any of the $keys are not a legal value. </para>
+<para>
+Implémenté dans <link linkend="_class_glpi_1_1_cache_1_1_simple_cache_1a9f113f21f478daebfafe7f573b23dce3">SimpleCache</link>, et <link linkend="_class_symfony_1_1_component_1_1_cache_1_1_psr16_cache_1a9f113f21f478daebfafe7f573b23dce3">Psr16Cache</link>.</para>
+</section>
+<anchor xml:id="_interface_psr_1_1_simple_cache_1_1_cache_interface_1a8b23dbb48f0c3c94725695191d06981a"/><section>
+    <title>has()</title>
+<indexterm><primary>has</primary><secondary>CacheInterface</secondary></indexterm>
+<indexterm><primary>CacheInterface</primary><secondary>has</secondary></indexterm>
+<para><computeroutput>has ( $key)</computeroutput></para>
+<para>Determines whether an item is present in the cache.</para>
+
+<para>NOTE: It is recommended that has() is only to be used for cache warming type purposes and not to be used within your live applications operations for get/set, as this method is subject to a race condition where your has() will return true and immediately after, another script can remove it making the state of your app out of date.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$key</entry><entry>
+<para>The cache item key.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>bool</para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry></entry>
+<entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                Psr\SimpleCache\InvalidArgumentException MUST be thrown if the $key string is not a legal value. </para>
+<para>
+Implémenté dans <link linkend="_class_glpi_1_1_cache_1_1_simple_cache_1a8b23dbb48f0c3c94725695191d06981a">SimpleCache</link>, et <link linkend="_class_symfony_1_1_component_1_1_cache_1_1_psr16_cache_1a8b23dbb48f0c3c94725695191d06981a">Psr16Cache</link>.</para>
+</section>
+<anchor xml:id="_interface_psr_1_1_simple_cache_1_1_cache_interface_1ae972783bbd380976dc0cb87fc985d84e"/><section>
+    <title>set()</title>
+<indexterm><primary>set</primary><secondary>CacheInterface</secondary></indexterm>
+<indexterm><primary>CacheInterface</primary><secondary>set</secondary></indexterm>
+<para><computeroutput>set ( $key,  $value,  $ttl = <computeroutput>null</computeroutput>
+)</computeroutput></para>
+<para>Persists data in the cache, uniquely referenced by a key with an optional expiration TTL time.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$key</entry><entry>
+<para>The key of the item to store. </para>
+</entry>
+                            </row>
+                            <row>
+<entry>mixed</entry><entry>$value</entry><entry>
+<para>The value of the item to store, must be serializable. </para>
+</entry>
+                            </row>
+                            <row>
+<entry>null | int | \DateInterval</entry><entry>$ttl</entry><entry>
+<para>Optional. The TTL value of this item. If no value is sent and the driver supports TTL then the library may set a default value for it or let the driver take care of that.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>bool True on success and false on failure.</para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry></entry>
+<entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                Psr\SimpleCache\InvalidArgumentException MUST be thrown if the $key string is not a legal value. </para>
+<para>
+Implémenté dans <link linkend="_class_glpi_1_1_cache_1_1_simple_cache_1ae972783bbd380976dc0cb87fc985d84e">SimpleCache</link>, et <link linkend="_class_symfony_1_1_component_1_1_cache_1_1_psr16_cache_1ae972783bbd380976dc0cb87fc985d84e">Psr16Cache</link>.</para>
+</section>
+<anchor xml:id="_interface_psr_1_1_simple_cache_1_1_cache_interface_1a0cddff25fce3972ec25ced86f1715780"/><section>
+    <title>setMultiple()</title>
+<indexterm><primary>setMultiple</primary><secondary>CacheInterface</secondary></indexterm>
+<indexterm><primary>CacheInterface</primary><secondary>setMultiple</secondary></indexterm>
+<para><computeroutput>setMultiple ( $values,  $ttl = <computeroutput>null</computeroutput>
+)</computeroutput></para>
+<para>Persists a set of key =&gt; value pairs in the cache, with an optional TTL.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>iterable</entry><entry>$values</entry><entry>
+<para>A list of key =&gt; value pairs for a multiple-set operation. </para>
+</entry>
+                            </row>
+                            <row>
+<entry>null | int | \DateInterval</entry><entry>$ttl</entry><entry>
+<para>Optional. The TTL value of this item. If no value is sent and the driver supports TTL then the library may set a default value for it or let the driver take care of that.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>bool True on success and false on failure.</para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry></entry>
+<entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                Psr\SimpleCache\InvalidArgumentException MUST be thrown if $values is neither an array nor a Traversable, or if any of the $values are not a legal value. </para>
+<para>
+Implémenté dans <link linkend="_class_glpi_1_1_cache_1_1_simple_cache_1a0cddff25fce3972ec25ced86f1715780">SimpleCache</link>, et <link linkend="_class_symfony_1_1_component_1_1_cache_1_1_psr16_cache_1a0cddff25fce3972ec25ced86f1715780">Psr16Cache</link>.</para>
+</section>
+<para>
+La documentation de cette interface a été générée à partir du fichier suivant :</para>
+public/glpi/vendor/psr/simple-cache/src/<link linkend="_psr_2simple-cache_2src_2_cache_interface_8php">CacheInterface.php</link></section>
+</section>

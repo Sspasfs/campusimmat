@@ -1,0 +1,301 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_sabre_1_1_d_a_v_1_1_collection" xml:lang="fr">
+<title>Référence de la classe Collection</title>
+<indexterm><primary>Collection</primary></indexterm>
+Graphe d&apos;héritage de Collection:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_sabre_1_1_d_a_v_1_1_collection__inherit__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Graphe de collaboration de Collection:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_sabre_1_1_d_a_v_1_1_collection__coll__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Fonctions membres publiques    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_sabre_1_1_d_a_v_1_1_collection_1a1cfdba129d25b04b73af8290f58ba7c1">getChild</link> ($name)</para>
+</listitem>
+            <listitem><para><link linkend="_class_sabre_1_1_d_a_v_1_1_collection_1a9c5c664f8f1e4a514235a31837de9988">childExists</link> ($name)</para>
+</listitem>
+            <listitem><para><link linkend="_class_sabre_1_1_d_a_v_1_1_collection_1a4135c8ffb4787bd20d7409ad699d8e0d">createFile</link> ($name, $data=null)</para>
+</listitem>
+            <listitem><para><link linkend="_class_sabre_1_1_d_a_v_1_1_collection_1ad2c87f2e1012d1860d1d343a9ee54fa1">createDirectory</link> ($name)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+Fonctions membres publiques hérités de <link linkend="_class_sabre_1_1_d_a_v_1_1_node">Node</link>        <itemizedlist>
+            <listitem><para><link linkend="_class_sabre_1_1_d_a_v_1_1_node_1aa388e2fda4fe702e8953c1a731868f18">getLastModified</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_class_sabre_1_1_d_a_v_1_1_node_1a13bdffdd926f26b825ea57066334ff01">delete</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_class_sabre_1_1_d_a_v_1_1_node_1a2fe666694997d047711d7653eca2f132">setName</link> ($name)</para>
+</listitem>
+        </itemizedlist>
+Fonctions membres publiques hérités de <link linkend="_interface_sabre_1_1_d_a_v_1_1_i_node">INode</link>        <itemizedlist>
+            <listitem><para><link linkend="_interface_sabre_1_1_d_a_v_1_1_i_node_1a3d0963e68bb313b163a73f2803c64600">getName</link> ()</para>
+</listitem>
+        </itemizedlist>
+Fonctions membres publiques hérités de <link linkend="_interface_sabre_1_1_d_a_v_1_1_i_collection">ICollection</link>        <itemizedlist>
+            <listitem><para><link linkend="_interface_sabre_1_1_d_a_v_1_1_i_collection_1a8650a4f6150ed357d88fa043f1685ac5">getChildren</link> ()</para>
+</listitem>
+        </itemizedlist>
+<section>
+<title>Description détaillée</title>
+
+<para>Collection class.</para>
+
+<para>This is a helper class, that should aid in getting collections classes setup. Most of its methods are implemented, and throw permission denied exceptions</para>
+
+<para><formalpara><title>Copyright</title>
+
+<para>Copyright (C) fruux GmbH (<link xlink:href="https://fruux.com/">https://fruux.com/</link>) </para>
+</formalpara>
+<formalpara><title>Auteur</title>
+
+<para>Evert Pot (<link xlink:href="http://evertpot.com/">http://evertpot.com/</link>) @license <link xlink:href="http://sabre.io/license/">http://sabre.io/license/</link> Modified BSD License </para>
+</formalpara>
+</para>
+</section>
+<section>
+<title>Documentation des fonctions membres</title>
+<anchor xml:id="_class_sabre_1_1_d_a_v_1_1_collection_1a9c5c664f8f1e4a514235a31837de9988"/><section>
+    <title>childExists()</title>
+<indexterm><primary>childExists</primary><secondary>Collection</secondary></indexterm>
+<indexterm><primary>Collection</primary><secondary>childExists</secondary></indexterm>
+<para><computeroutput>childExists ( $name)</computeroutput></para>
+<para>Checks is a child-node exists.</para>
+
+<para>It is generally a good idea to try and override this. Usually it can be optimized.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$name</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>bool </para>
+</formalpara>
+</para>
+<para>
+Implémente <link linkend="_interface_sabre_1_1_d_a_v_1_1_i_collection_1a9c5c664f8f1e4a514235a31837de9988">ICollection</link>.</para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_sabre_1_1_d_a_v_1_1_collection_a9c5c664f8f1e4a514235a31837de9988_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_sabre_1_1_d_a_v_1_1_collection_1ad2c87f2e1012d1860d1d343a9ee54fa1"/><section>
+    <title>createDirectory()</title>
+<indexterm><primary>createDirectory</primary><secondary>Collection</secondary></indexterm>
+<indexterm><primary>Collection</primary><secondary>createDirectory</secondary></indexterm>
+<para><computeroutput>createDirectory ( $name)</computeroutput></para>
+<para>Creates a new subdirectory.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$name</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>Exception</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                Forbidden </para>
+<para>
+Implémente <link linkend="_interface_sabre_1_1_d_a_v_1_1_i_collection_1ad2c87f2e1012d1860d1d343a9ee54fa1">ICollection</link>.</para>
+<para>
+Réimplémentée dans <link linkend="_class_sabre_1_1_card_d_a_v_1_1_address_book_home_1a621000673f22ad33c7de91dcd2346159">AddressBookHome</link>, et <link linkend="_class_sabre_1_1_card_d_a_v_1_1_address_book_1ad2c87f2e1012d1860d1d343a9ee54fa1">AddressBook</link>.</para>
+</section>
+<anchor xml:id="_class_sabre_1_1_d_a_v_1_1_collection_1a4135c8ffb4787bd20d7409ad699d8e0d"/><section>
+    <title>createFile()</title>
+<indexterm><primary>createFile</primary><secondary>Collection</secondary></indexterm>
+<indexterm><primary>Collection</primary><secondary>createFile</secondary></indexterm>
+<para><computeroutput>createFile ( $name,  $data = <computeroutput>null</computeroutput>
+)</computeroutput></para>
+<para>Creates a new file in the directory.</para>
+
+<para>Data will either be supplied as a stream resource, or in certain cases as a string. Keep in mind that you may have to support either.</para>
+
+<para>After successful creation of the file, you may choose to return the ETag of the new file here.</para>
+
+<para>The returned ETag must be surrounded by double-quotes (The quotes should be part of the actual string).</para>
+
+<para>If you cannot accurately determine the ETag, you should not return it. If you don&apos;t store the file exactly as-is (you&apos;re transforming it somehow) you should also not return an ETag.</para>
+
+<para>This means that if a subsequent GET to this new file does not exactly return the same contents of what was submitted here, you are strongly recommended to omit the ETag.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$name</entry><entry>
+<para>Name of the file </para>
+</entry>
+                            </row>
+                            <row>
+<entry>resource | string</entry><entry>$data</entry><entry>
+<para>Initial payload</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>string|null </para>
+</formalpara>
+</para>
+<para>
+Implémente <link linkend="_interface_sabre_1_1_d_a_v_1_1_i_collection_1a4135c8ffb4787bd20d7409ad699d8e0d">ICollection</link>.</para>
+<para>
+Réimplémentée dans <link linkend="_class_sabre_1_1_card_d_a_v_1_1_address_book_home_1a4c4a5ef7bd92d9d3daa4fe80b90df9f8">AddressBookHome</link>, <link linkend="_class_sabre_1_1_cal_d_a_v_1_1_schedule_1_1_inbox_1a4135c8ffb4787bd20d7409ad699d8e0d">Inbox</link>, et <link linkend="_class_sabre_1_1_card_d_a_v_1_1_address_book_1a130073f09f3f5316f8784b610bda0382">AddressBook</link>.</para>
+</section>
+<anchor xml:id="_class_sabre_1_1_d_a_v_1_1_collection_1a1cfdba129d25b04b73af8290f58ba7c1"/><section>
+    <title>getChild()</title>
+<indexterm><primary>getChild</primary><secondary>Collection</secondary></indexterm>
+<indexterm><primary>Collection</primary><secondary>getChild</secondary></indexterm>
+<para><computeroutput>getChild ( $name)</computeroutput></para>
+<para>Returns a child object, by its name.</para>
+
+<para>This method makes use of the getChildren method to grab all the child nodes, and compares the name. Generally its wise to override this, as this can usually be optimized</para>
+
+<para>This method must throw Sabre\DAV\Exception\NotFound if the node does not exist.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$name</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>Exception</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                NotFound</para>
+
+<para><formalpara><title>Renvoie</title>
+
+<para>INode </para>
+</formalpara>
+</para>
+<para>
+Implémente <link linkend="_interface_sabre_1_1_d_a_v_1_1_i_collection_1a1cfdba129d25b04b73af8290f58ba7c1">ICollection</link>.</para>
+<para>
+Réimplémentée dans <link linkend="_class_sabre_1_1_card_d_a_v_1_1_address_book_1a1cfdba129d25b04b73af8290f58ba7c1">AddressBook</link>, <link linkend="_class_sabre_1_1_card_d_a_v_1_1_address_book_home_1a1cfdba129d25b04b73af8290f58ba7c1">AddressBookHome</link>, <link linkend="_class_sabre_1_1_d_a_v_1_1_simple_collection_1a1cfdba129d25b04b73af8290f58ba7c1">SimpleCollection</link>, et <link linkend="_class_sabre_1_1_d_a_v_a_c_l_1_1_abstract_principal_collection_1a1cfdba129d25b04b73af8290f58ba7c1">AbstractPrincipalCollection</link>.</para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_sabre_1_1_d_a_v_1_1_collection_a1cfdba129d25b04b73af8290f58ba7c1_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_sabre_1_1_d_a_v_1_1_collection_a1cfdba129d25b04b73af8290f58ba7c1_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<para>
+La documentation de cette classe a été générée à partir du fichier suivant :</para>
+public/glpi/vendor/sabre/dav/lib/DAV/<link linkend="_sabre_2dav_2lib_2_d_a_v_2_collection_8php">Collection.php</link></section>
+</section>

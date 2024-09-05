@@ -1,0 +1,188 @@
+\doxysection{Référence de la classe Multi\+Status}
+\hypertarget{class_sabre_1_1_d_a_v_1_1_xml_1_1_response_1_1_multi_status}{}\label{class_sabre_1_1_d_a_v_1_1_xml_1_1_response_1_1_multi_status}\index{MultiStatus@{MultiStatus}}
+
+
+Graphe d\textquotesingle{}héritage de Multi\+Status\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=306pt]{class_sabre_1_1_d_a_v_1_1_xml_1_1_response_1_1_multi_status__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Graphe de collaboration de Multi\+Status\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=306pt]{class_sabre_1_1_d_a_v_1_1_xml_1_1_response_1_1_multi_status__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_xml_1_1_response_1_1_multi_status_a8124ca8d4554db733d6402cbcb3ec2e9}{\+\_\+\+\_\+construct}} (array \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{responses}}, \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{sync\+Token}}=null)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_xml_1_1_response_1_1_multi_status_a23b5694091fd594edd4b7e2d9ea7ab08}{get\+Responses}} ()
+\item 
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_xml_1_1_response_1_1_multi_status_a88cf40715fea416e00bc445278bc704b}{get\+Sync\+Token}} ()
+\item 
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_xml_1_1_response_1_1_multi_status_a6f00760b1f920df7bb8ecf88455eb143}{xml\+Serialize}} (\mbox{\hyperlink{class_sabre_1_1_xml_1_1_writer}{Writer}} \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{writer}})
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Fonctions membres publiques statiques}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_xml_1_1_response_1_1_multi_status_ab84ab21637e9a2aabd4659e15d9c6804}{xml\+Deserialize}} (\mbox{\hyperlink{class_sabre_1_1_xml_1_1_reader}{Reader}} \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{reader}})
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Attributs protégés}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_xml_1_1_response_1_1_multi_status_aa8987136fed3960c6c78dedb68a3b061}{\$responses}}
+\item 
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_xml_1_1_response_1_1_multi_status_a9a83756c49779547e8d86f12221d6e1b}{\$sync\+Token}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Web\+DAV Multi\+Status parser.
+
+This class parses the \{DAV\+:\}multistatus response, as defined in\+: \href{https://tools.ietf.org/html/rfc4918\#section-14.16}{\texttt{ https\+://tools.\+ietf.\+org/html/rfc4918\#section-\/14.\+16}}
+
+And it also adds the \{DAV\+:\}synctoken change from\+: \href{http://tools.ietf.org/html/rfc6578\#section-6.4}{\texttt{ http\+://tools.\+ietf.\+org/html/rfc6578\#section-\/6.\+4}}
+
+\begin{DoxyCopyright}{Copyright}
+Copyright (C) fruux GmbH (\href{https://fruux.com/}{\texttt{ https\+://fruux.\+com/}}) 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Auteur}
+Evert Pot (\href{http://evertpot.com/}{\texttt{ http\+://evertpot.\+com/}}) @license \href{http://sabre.io/license/}{\texttt{ http\+://sabre.\+io/license/}} Modified BSD License 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Documentation des constructeurs et destructeur}
+\Hypertarget{class_sabre_1_1_d_a_v_1_1_xml_1_1_response_1_1_multi_status_a8124ca8d4554db733d6402cbcb3ec2e9}\label{class_sabre_1_1_d_a_v_1_1_xml_1_1_response_1_1_multi_status_a8124ca8d4554db733d6402cbcb3ec2e9} 
+\index{MultiStatus@{MultiStatus}!\_\_construct@{\_\_construct}}
+\index{\_\_construct@{\_\_construct}!MultiStatus@{MultiStatus}}
+\doxysubsubsection{\texorpdfstring{\_\_construct()}{\_\_construct()}}
+{\footnotesize\ttfamily \+\_\+\+\_\+construct (\begin{DoxyParamCaption}\item[{array}]{\$responses,  }\item[{}]{\$sync\+Token = {\ttfamily null} }\end{DoxyParamCaption})}
+
+Constructor.
+
+
+\begin{DoxyParams}[1]{Paramètres}
+\textbackslash{}\+Sabre\textbackslash{}\+DAV\textbackslash{}\+Xml\textbackslash{}\+Element\textbackslash{}\+Response\mbox{[}$\,$\mbox{]} & {\em \$responses} & \\
+\hline
+string & {\em \$sync\+Token} & \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Documentation des fonctions membres}
+\Hypertarget{class_sabre_1_1_d_a_v_1_1_xml_1_1_response_1_1_multi_status_a23b5694091fd594edd4b7e2d9ea7ab08}\label{class_sabre_1_1_d_a_v_1_1_xml_1_1_response_1_1_multi_status_a23b5694091fd594edd4b7e2d9ea7ab08} 
+\index{MultiStatus@{MultiStatus}!getResponses@{getResponses}}
+\index{getResponses@{getResponses}!MultiStatus@{MultiStatus}}
+\doxysubsubsection{\texorpdfstring{getResponses()}{getResponses()}}
+{\footnotesize\ttfamily get\+Responses (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Returns the response list.
+
+\begin{DoxyReturn}{Renvoie}
+\textbackslash{}\+Sabre\textbackslash{}\+DAV\textbackslash{}\+Xml\textbackslash{}\+Element\textbackslash{}\+Response\mbox{[}\mbox{]} 
+\end{DoxyReturn}
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=264pt]{class_sabre_1_1_d_a_v_1_1_xml_1_1_response_1_1_multi_status_a23b5694091fd594edd4b7e2d9ea7ab08_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_sabre_1_1_d_a_v_1_1_xml_1_1_response_1_1_multi_status_a88cf40715fea416e00bc445278bc704b}\label{class_sabre_1_1_d_a_v_1_1_xml_1_1_response_1_1_multi_status_a88cf40715fea416e00bc445278bc704b} 
+\index{MultiStatus@{MultiStatus}!getSyncToken@{getSyncToken}}
+\index{getSyncToken@{getSyncToken}!MultiStatus@{MultiStatus}}
+\doxysubsubsection{\texorpdfstring{getSyncToken()}{getSyncToken()}}
+{\footnotesize\ttfamily get\+Sync\+Token (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Returns the sync-\/token, if available.
+
+\begin{DoxyReturn}{Renvoie}
+string\texorpdfstring{$\vert$}{|}null 
+\end{DoxyReturn}
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=264pt]{class_sabre_1_1_d_a_v_1_1_xml_1_1_response_1_1_multi_status_a88cf40715fea416e00bc445278bc704b_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_sabre_1_1_d_a_v_1_1_xml_1_1_response_1_1_multi_status_ab84ab21637e9a2aabd4659e15d9c6804}\label{class_sabre_1_1_d_a_v_1_1_xml_1_1_response_1_1_multi_status_ab84ab21637e9a2aabd4659e15d9c6804} 
+\index{MultiStatus@{MultiStatus}!xmlDeserialize@{xmlDeserialize}}
+\index{xmlDeserialize@{xmlDeserialize}!MultiStatus@{MultiStatus}}
+\doxysubsubsection{\texorpdfstring{xmlDeserialize()}{xmlDeserialize()}}
+{\footnotesize\ttfamily static xml\+Deserialize (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_sabre_1_1_xml_1_1_reader}{Reader}}}]{\$reader }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+The deserialize method is called during xml parsing.
+
+This method is called statically, this is because in theory this method may be used as a type of constructor, or factory method.
+
+Often you want to return an instance of the current class, but you are free to return other data as well.
+
+You are responsible for advancing the reader to the next element. Not doing anything will result in a never-\/ending loop.
+
+If you just want to skip parsing for this element altogether, you can just call \$reader-\/\texorpdfstring{$>$}{>}next();
+
+\$reader-\/\texorpdfstring{$>$}{>}parse\+Inner\+Tree() will parse the entire sub-\/tree, and advance to the next element.
+
+\begin{DoxyReturn}{Renvoie}
+mixed 
+\end{DoxyReturn}
+
+
+Implémente \mbox{\hyperlink{interface_sabre_1_1_xml_1_1_xml_deserializable_ab84ab21637e9a2aabd4659e15d9c6804}{Xml\+Deserializable}}.
+
+\Hypertarget{class_sabre_1_1_d_a_v_1_1_xml_1_1_response_1_1_multi_status_a6f00760b1f920df7bb8ecf88455eb143}\label{class_sabre_1_1_d_a_v_1_1_xml_1_1_response_1_1_multi_status_a6f00760b1f920df7bb8ecf88455eb143} 
+\index{MultiStatus@{MultiStatus}!xmlSerialize@{xmlSerialize}}
+\index{xmlSerialize@{xmlSerialize}!MultiStatus@{MultiStatus}}
+\doxysubsubsection{\texorpdfstring{xmlSerialize()}{xmlSerialize()}}
+{\footnotesize\ttfamily xml\+Serialize (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_sabre_1_1_xml_1_1_writer}{Writer}}}]{\$writer }\end{DoxyParamCaption})}
+
+The serialize method is called during xml writing.
+
+It should use the \$writer argument to encode this object into \doxylink{class_x_m_l}{XML}.
+
+Important note\+: it is not needed to create the parent element. The parent element is already created, and we only have to worry about attributes, child elements and text (if any).
+
+Important note 2\+: If you are writing any new elements, you are also responsible for closing them. 
+
+Implémente \mbox{\hyperlink{interface_sabre_1_1_xml_1_1_xml_serializable_a6f00760b1f920df7bb8ecf88455eb143}{Xml\+Serializable}}.
+
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_sabre_1_1_d_a_v_1_1_xml_1_1_response_1_1_multi_status_a6f00760b1f920df7bb8ecf88455eb143_cgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Documentation des champs}
+\Hypertarget{class_sabre_1_1_d_a_v_1_1_xml_1_1_response_1_1_multi_status_aa8987136fed3960c6c78dedb68a3b061}\label{class_sabre_1_1_d_a_v_1_1_xml_1_1_response_1_1_multi_status_aa8987136fed3960c6c78dedb68a3b061} 
+\index{MultiStatus@{MultiStatus}!\$responses@{\$responses}}
+\index{\$responses@{\$responses}!MultiStatus@{MultiStatus}}
+\doxysubsubsection{\texorpdfstring{\$responses}{\$responses}}
+{\footnotesize\ttfamily \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{responses}}\hspace{0.3cm}{\ttfamily [protected]}}
+
+\Hypertarget{class_sabre_1_1_d_a_v_1_1_xml_1_1_response_1_1_multi_status_a9a83756c49779547e8d86f12221d6e1b}\label{class_sabre_1_1_d_a_v_1_1_xml_1_1_response_1_1_multi_status_a9a83756c49779547e8d86f12221d6e1b} 
+\index{MultiStatus@{MultiStatus}!\$syncToken@{\$syncToken}}
+\index{\$syncToken@{\$syncToken}!MultiStatus@{MultiStatus}}
+\doxysubsubsection{\texorpdfstring{\$syncToken}{\$syncToken}}
+{\footnotesize\ttfamily \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{sync\+Token}}\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+La documentation de cette classe a été générée à partir du fichier suivant \+:\begin{DoxyCompactItemize}
+\item 
+public/glpi/vendor/sabre/dav/lib/\+DAV/\+Xml/\+Response/\mbox{\hyperlink{_multi_status_8php}{Multi\+Status.\+php}}\end{DoxyCompactItemize}

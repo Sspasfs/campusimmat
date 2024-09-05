@@ -1,0 +1,350 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_md_public_2glpi_2vendor_2webmozart_2assert_2_r_e_a_d_m_e" xml:lang="fr">
+<title>Webmozart Assert</title>
+<indexterm><primary>Webmozart Assert</primary></indexterm>
+
+<para><link xlink:href="https://packagist.org/packages/webmozart/assert"></link> <link xlink:href="https://packagist.org/packages/webmozart/assert"></link></para>
+
+<para>This library contains efficient assertions to test the input and output of your methods. With these assertions, you can greatly reduce the amount of coding needed to write a safe implementation.</para>
+
+<para>All assertions in the <link xlink:href="src/Assert.php"><computeroutput>Assert</computeroutput></link> class throw an <computeroutput>Webmozart\Assert\InvalidArgumentException</computeroutput> if they fail.</para>
+<section xml:id="_md_public_2glpi_2vendor_2webmozart_2assert_2_r_e_a_d_m_e_1autotoc_md7551">
+<title><title>FAQ</title></title>
+
+<para><emphasis role="bold">What&apos;s the difference to <link xlink:href="https://github.com/beberlei/assert">beberlei/assert</link>?</emphasis></para>
+
+<para>This library is heavily inspired by Benjamin Eberlei&apos;s wonderful <link xlink:href="https://github.com/beberlei/assert">assert package</link>, but fixes a usability issue with error messages that can&apos;t be fixed there without breaking backwards compatibility.</para>
+
+<para>This package features usable error messages by default. However, you can also easily write custom error messages:</para>
+
+<para><literallayout><computeroutput>Assert::string($path,&#32;&apos;The&#32;path&#32;is&#32;expected&#32;to&#32;be&#32;a&#32;string.&#32;Got:&#32;%s&apos;);
+</computeroutput></literallayout></para>
+
+<para>In <link xlink:href="https://github.com/beberlei/assert">beberlei/assert</link>, the ordering of the <computeroutput>s</computeroutput> placeholders is different for every assertion. This package, on the contrary, provides consistent placeholder ordering for all assertions:</para>
+
+<para><itemizedlist>
+<listitem>
+<para><computeroutput>s</computeroutput>: The tested value as string, e.g. <computeroutput>&quot;/foo/bar&quot;</computeroutput>.</para>
+</listitem><listitem>
+<para><computeroutput>%2$s</computeroutput>, <computeroutput>%3$s</computeroutput>, ...: Additional assertion-specific values, e.g. the minimum/maximum length, allowed values, etc.</para>
+</listitem></itemizedlist>
+</para>
+
+<para>Check the source code of the assertions to find out details about the additional available placeholders.</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2webmozart_2assert_2_r_e_a_d_m_e_1autotoc_md7552">
+<title><title>Installation</title></title>
+
+<para>Use <link xlink:href="https://getcomposer.org">Composer</link> to install the package:</para>
+
+<para><literallayout><computeroutput>$&#32;composer&#32;require&#32;webmozart/assert
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2webmozart_2assert_2_r_e_a_d_m_e_1autotoc_md7553">
+<title><title>Example</title></title>
+
+<para><literallayout><computeroutput>use&#32;Webmozart\Assert\Assert;
+
+class&#32;Employee
+{
+&#32;&#32;&#32;&#32;public&#32;function&#32;__construct($id)
+&#32;&#32;&#32;&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;Assert::integer($id,&#32;&apos;The&#32;employee&#32;ID&#32;must&#32;be&#32;an&#32;integer.&#32;Got:&#32;%s&apos;);
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;Assert::greaterThan($id,&#32;0,&#32;&apos;The&#32;employee&#32;ID&#32;must&#32;be&#32;a&#32;positive&#32;integer.&#32;Got:&#32;%s&apos;);
+&#32;&#32;&#32;&#32;}
+}
+</computeroutput></literallayout></para>
+
+<para>If you create an employee with an invalid ID, an exception is thrown:</para>
+
+<para><literallayout><computeroutput>new&#32;Employee(&apos;foobar&apos;);
+//&#32;=&gt;&#32;Webmozart\Assert\InvalidArgumentException:
+//&#32;&#32;&#32;&#32;The&#32;employee&#32;ID&#32;must&#32;be&#32;an&#32;integer.&#32;Got:&#32;string
+
+new&#32;Employee(-10);
+//&#32;=&gt;&#32;Webmozart\Assert\InvalidArgumentException:
+//&#32;&#32;&#32;&#32;The&#32;employee&#32;ID&#32;must&#32;be&#32;a&#32;positive&#32;integer.&#32;Got:&#32;-10
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2webmozart_2assert_2_r_e_a_d_m_e_1autotoc_md7554">
+<title><title>Assertions</title></title>
+
+<para>The <link xlink:href="src/Assert.php"><computeroutput>Assert</computeroutput></link> class provides the following assertions:</para>
+<section xml:id="_md_public_2glpi_2vendor_2webmozart_2assert_2_r_e_a_d_m_e_1autotoc_md7555">
+<title><title>Type Assertions</title></title>
+
+<para><informaltable frame="all">
+    <tgroup cols="2" align="left" colsep="1" rowsep="1">
+      <colspec colname='c1'/>
+      <colspec colname='c2'/>
+<thead>
+      <row  class='markdownTableHead'>
+<entry>
+<para>Method   </para>
+</entry><entry>
+<para>Description    </para>
+</entry></row>
+</thead><tbody>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para>&#8216;string($value, $message = &#8217;&apos;)<computeroutput>\ilinebr &lt;/td&gt; &lt;td class=&quot;markdownTableBodyNone&quot;&gt; Check that a value is a string \ilinebr &lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;markdownTableRowEven&quot;&gt; &lt;td class=&quot;markdownTableBodyNone&quot;&gt;</computeroutput>stringNotEmpty($value, $message = &apos;&apos;)<computeroutput>\ilinebr &lt;/td&gt; &lt;td class=&quot;markdownTableBodyNone&quot;&gt; Check that a value is a non-empty string \ilinebr &lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;markdownTableRowOdd&quot;&gt; &lt;td class=&quot;markdownTableBodyNone&quot;&gt;</computeroutput>integer($value, $message = &apos;&apos;)<computeroutput>\ilinebr &lt;/td&gt; &lt;td class=&quot;markdownTableBodyNone&quot;&gt; Check that a value is an integer \ilinebr &lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;markdownTableRowEven&quot;&gt; &lt;td class=&quot;markdownTableBodyNone&quot;&gt;</computeroutput>integerish($value, $message = &apos;&apos;)<computeroutput>\ilinebr &lt;/td&gt; &lt;td class=&quot;markdownTableBodyNone&quot;&gt; Check that a value casts to an integer \ilinebr &lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;markdownTableRowOdd&quot;&gt; &lt;td class=&quot;markdownTableBodyNone&quot;&gt;</computeroutput>positiveInteger($value, $message = &apos;&apos;)<computeroutput>\ilinebr &lt;/td&gt; &lt;td class=&quot;markdownTableBodyNone&quot;&gt; Check that a value is a positive (non-zero) integer \ilinebr &lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;markdownTableRowEven&quot;&gt; &lt;td class=&quot;markdownTableBodyNone&quot;&gt;</computeroutput>float($value, $message = &apos;&apos;)<computeroutput>\ilinebr &lt;/td&gt; &lt;td class=&quot;markdownTableBodyNone&quot;&gt; Check that a value is a float \ilinebr &lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;markdownTableRowOdd&quot;&gt; &lt;td class=&quot;markdownTableBodyNone&quot;&gt;</computeroutput>numeric($value, $message = &apos;&apos;)<computeroutput>\ilinebr &lt;/td&gt; &lt;td class=&quot;markdownTableBodyNone&quot;&gt; Check that a value is numeric \ilinebr &lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;markdownTableRowEven&quot;&gt; &lt;td class=&quot;markdownTableBodyNone&quot;&gt;</computeroutput>natural($value, $message= &apos;&apos;&apos;)<computeroutput>\ilinebr &lt;/td&gt; &lt;td class=&quot;markdownTableBodyNone&quot;&gt; Check that a value is a non-negative integer \ilinebr &lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;markdownTableRowOdd&quot;&gt; &lt;td class=&quot;markdownTableBodyNone&quot;&gt;</computeroutput>boolean($value, $message = &apos;&apos;)<computeroutput>\ilinebr &lt;/td&gt; &lt;td class=&quot;markdownTableBodyNone&quot;&gt; Check that a value is a boolean \ilinebr &lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;markdownTableRowEven&quot;&gt; &lt;td class=&quot;markdownTableBodyNone&quot;&gt;</computeroutput>scalar($value, $message = &apos;&apos;)<computeroutput>\ilinebr &lt;/td&gt; &lt;td class=&quot;markdownTableBodyNone&quot;&gt; Check that a value is a scalar \ilinebr &lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;markdownTableRowOdd&quot;&gt; &lt;td class=&quot;markdownTableBodyNone&quot;&gt;</computeroutput>object($value, $message = &apos;&apos;)<computeroutput>\ilinebr &lt;/td&gt; &lt;td class=&quot;markdownTableBodyNone&quot;&gt; Check that a value is an object \ilinebr &lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;markdownTableRowEven&quot;&gt; &lt;td class=&quot;markdownTableBodyNone&quot;&gt;</computeroutput>resource($value, $type = null, $message = &apos;&apos;)<computeroutput>\ilinebr &lt;/td&gt; &lt;td class=&quot;markdownTableBodyNone&quot;&gt; Check that a value is a resource \ilinebr &lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;markdownTableRowOdd&quot;&gt; &lt;td class=&quot;markdownTableBodyNone&quot;&gt;</computeroutput>isCallable($value, $message = &apos;&apos;)<computeroutput>\ilinebr &lt;/td&gt; &lt;td class=&quot;markdownTableBodyNone&quot;&gt; Check that a value is a callable \ilinebr &lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;markdownTableRowEven&quot;&gt; &lt;td class=&quot;markdownTableBodyNone&quot;&gt;</computeroutput>isArray($value, $message = &apos;&apos;)<computeroutput>\ilinebr &lt;/td&gt; &lt;td class=&quot;markdownTableBodyNone&quot;&gt; Check that a value is an array \ilinebr &lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;markdownTableRowOdd&quot;&gt; &lt;td class=&quot;markdownTableBodyNone&quot;&gt;</computeroutput>isTraversable($value, $message = &apos;&apos;)<computeroutput>(deprecated) \ilinebr &lt;/td&gt; &lt;td class=&quot;markdownTableBodyNone&quot;&gt; Check that a value is an array or a</computeroutput>\Traversable<computeroutput>\ilinebr &lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;markdownTableRowEven&quot;&gt; &lt;td class=&quot;markdownTableBodyNone&quot;&gt;</computeroutput>isIterable($value, $message = &apos;&apos;)<computeroutput>\ilinebr &lt;/td&gt; &lt;td class=&quot;markdownTableBodyNone&quot;&gt; Check that a value is an array or a</computeroutput>\Traversable<computeroutput>\ilinebr &lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;markdownTableRowOdd&quot;&gt; &lt;td class=&quot;markdownTableBodyNone&quot;&gt;</computeroutput>isCountable($value, $message = &apos;&apos;)<computeroutput>\ilinebr &lt;/td&gt; &lt;td class=&quot;markdownTableBodyNone&quot;&gt; Check that a value is an array or a</computeroutput>\Countable<computeroutput>\ilinebr &lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;markdownTableRowEven&quot;&gt; &lt;td class=&quot;markdownTableBodyNone&quot;&gt;</computeroutput>isInstanceOf($value, $class, $message = &apos;&apos;)<computeroutput>\ilinebr &lt;/td&gt; &lt;td class=&quot;markdownTableBodyNone&quot;&gt; Check that a value is an</computeroutput>instanceof<computeroutput>a class \ilinebr &lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;markdownTableRowOdd&quot;&gt; &lt;td class=&quot;markdownTableBodyNone&quot;&gt;</computeroutput>isInstanceOfAny($value, array $classes, $message = &apos;&apos;)<computeroutput>\ilinebr &lt;/td&gt; &lt;td class=&quot;markdownTableBodyNone&quot;&gt; Check that a value is an</computeroutput>instanceof<computeroutput>at least one class on the array of classes \ilinebr &lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;markdownTableRowEven&quot;&gt; &lt;td class=&quot;markdownTableBodyNone&quot;&gt;</computeroutput>notInstanceOf($value, $class, $message = &apos;&apos;)<computeroutput>\ilinebr &lt;/td&gt; &lt;td class=&quot;markdownTableBodyNone&quot;&gt; Check that a value is not an</computeroutput>instanceof<computeroutput>a class \ilinebr &lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;markdownTableRowOdd&quot;&gt; &lt;td class=&quot;markdownTableBodyNone&quot;&gt;</computeroutput>isAOf($value, $class, $message = &apos;&apos;)<computeroutput>\ilinebr &lt;/td&gt; &lt;td class=&quot;markdownTableBodyNone&quot;&gt; Check that a value is of the class or has one of its parents \ilinebr &lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;markdownTableRowEven&quot;&gt; &lt;td class=&quot;markdownTableBodyNone&quot;&gt;</computeroutput>isAnyOf($value, array $classes, $message = &apos;&apos;)<computeroutput>\ilinebr &lt;/td&gt; &lt;td class=&quot;markdownTableBodyNone&quot;&gt; Check that a value is of at least one of the classes or has one of its parents \ilinebr &lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;markdownTableRowOdd&quot;&gt; &lt;td class=&quot;markdownTableBodyNone&quot;&gt;</computeroutput>isNotA($value, $class, $message = &apos;&apos;)<computeroutput>\ilinebr &lt;/td&gt; &lt;td class=&quot;markdownTableBodyNone&quot;&gt; Check that a value is not of the class or has not one of its parents \ilinebr &lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;markdownTableRowEven&quot;&gt; &lt;td class=&quot;markdownTableBodyNone&quot;&gt;</computeroutput>isArrayAccessible($value, $message = &apos;&apos;)<computeroutput>\ilinebr &lt;/td&gt; &lt;td class=&quot;markdownTableBodyNone&quot;&gt; Check that a value can be accessed as an array \ilinebr &lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;markdownTableRowOdd&quot;&gt; &lt;td class=&quot;markdownTableBodyNone&quot;&gt;</computeroutput>uniqueValues($values, $message = &apos;&apos;)`   </para>
+</entry><entry>
+<para>Check that the given array contains unique values   </para>
+</entry></row>
+    </tbody>
+    </tgroup>
+</informaltable>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2webmozart_2assert_2_r_e_a_d_m_e_1autotoc_md7556">
+<title><title>Comparison Assertions</title></title>
+
+<para><informaltable frame="all">
+    <tgroup cols="2" align="left" colsep="1" rowsep="1">
+      <colspec colname='c1'/>
+      <colspec colname='c2'/>
+<thead>
+      <row  class='markdownTableHead'>
+<entry>
+<para>Method   </para>
+</entry><entry>
+<para>Description    </para>
+</entry></row>
+</thead><tbody>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para>&#8216;true($value, $message = &#8217;&apos;)<computeroutput>\ilinebr &lt;/td&gt; &lt;td class=&quot;markdownTableBodyNone&quot;&gt; Check that a value is</computeroutput>true<computeroutput>\ilinebr &lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;markdownTableRowEven&quot;&gt; &lt;td class=&quot;markdownTableBodyNone&quot;&gt;</computeroutput>false($value, $message = &apos;&apos;)<computeroutput>\ilinebr &lt;/td&gt; &lt;td class=&quot;markdownTableBodyNone&quot;&gt; Check that a value is</computeroutput>false<computeroutput>\ilinebr &lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;markdownTableRowOdd&quot;&gt; &lt;td class=&quot;markdownTableBodyNone&quot;&gt;</computeroutput>notFalse($value, $message = &apos;&apos;)<computeroutput>\ilinebr &lt;/td&gt; &lt;td class=&quot;markdownTableBodyNone&quot;&gt; Check that a value is not</computeroutput>false<computeroutput>\ilinebr &lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;markdownTableRowEven&quot;&gt; &lt;td class=&quot;markdownTableBodyNone&quot;&gt;</computeroutput>null($value, $message = &apos;&apos;)<computeroutput>\ilinebr &lt;/td&gt; &lt;td class=&quot;markdownTableBodyNone&quot;&gt; Check that a value is</computeroutput>null<computeroutput>\ilinebr &lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;markdownTableRowOdd&quot;&gt; &lt;td class=&quot;markdownTableBodyNone&quot;&gt;</computeroutput>notNull($value, $message = &apos;&apos;)<computeroutput>\ilinebr &lt;/td&gt; &lt;td class=&quot;markdownTableBodyNone&quot;&gt; Check that a value is not</computeroutput>null<computeroutput>\ilinebr &lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;markdownTableRowEven&quot;&gt; &lt;td class=&quot;markdownTableBodyNone&quot;&gt;</computeroutput>isEmpty($value, $message = &apos;&apos;)<computeroutput>\ilinebr &lt;/td&gt; &lt;td class=&quot;markdownTableBodyNone&quot;&gt; Check that a value is</computeroutput><link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">empty()</link><computeroutput>\ilinebr &lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;markdownTableRowOdd&quot;&gt; &lt;td class=&quot;markdownTableBodyNone&quot;&gt;</computeroutput>notEmpty($value, $message = &apos;&apos;)<computeroutput>\ilinebr &lt;/td&gt; &lt;td class=&quot;markdownTableBodyNone&quot;&gt; Check that a value is not</computeroutput><link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">empty()</link><computeroutput>\ilinebr &lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;markdownTableRowEven&quot;&gt; &lt;td class=&quot;markdownTableBodyNone&quot;&gt;</computeroutput>eq($value, $value2, $message = &apos;&apos;)<computeroutput>\ilinebr &lt;/td&gt; &lt;td class=&quot;markdownTableBodyNone&quot;&gt; Check that a value equals another (</computeroutput>==<computeroutput>) \ilinebr &lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;markdownTableRowOdd&quot;&gt; &lt;td class=&quot;markdownTableBodyNone&quot;&gt;</computeroutput>notEq($value, $value2, $message = &apos;&apos;)<computeroutput>\ilinebr &lt;/td&gt; &lt;td class=&quot;markdownTableBodyNone&quot;&gt; Check that a value does not equal another (</computeroutput>!=<computeroutput>) \ilinebr &lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;markdownTableRowEven&quot;&gt; &lt;td class=&quot;markdownTableBodyNone&quot;&gt;</computeroutput>same($value, $value2, $message = &apos;&apos;)<computeroutput>\ilinebr &lt;/td&gt; &lt;td class=&quot;markdownTableBodyNone&quot;&gt; Check that a value is identical to another (</computeroutput>===<computeroutput>) \ilinebr &lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;markdownTableRowOdd&quot;&gt; &lt;td class=&quot;markdownTableBodyNone&quot;&gt;</computeroutput>notSame($value, $value2, $message = &apos;&apos;)<computeroutput>\ilinebr &lt;/td&gt; &lt;td class=&quot;markdownTableBodyNone&quot;&gt; Check that a value is not identical to another (</computeroutput>!==<computeroutput>) \ilinebr &lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;markdownTableRowEven&quot;&gt; &lt;td class=&quot;markdownTableBodyNone&quot;&gt;</computeroutput>greaterThan($value, $value2, $message = &apos;&apos;)<computeroutput>\ilinebr &lt;/td&gt; &lt;td class=&quot;markdownTableBodyNone&quot;&gt; Check that a value is greater than another \ilinebr &lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;markdownTableRowOdd&quot;&gt; &lt;td class=&quot;markdownTableBodyNone&quot;&gt;</computeroutput>greaterThanEq($value, $value2, $message = &apos;&apos;)<computeroutput>\ilinebr &lt;/td&gt; &lt;td class=&quot;markdownTableBodyNone&quot;&gt; Check that a value is greater than or equal to another \ilinebr &lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;markdownTableRowEven&quot;&gt; &lt;td class=&quot;markdownTableBodyNone&quot;&gt;</computeroutput>lessThan($value, $value2, $message = &apos;&apos;)<computeroutput>\ilinebr &lt;/td&gt; &lt;td class=&quot;markdownTableBodyNone&quot;&gt; Check that a value is less than another \ilinebr &lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;markdownTableRowOdd&quot;&gt; &lt;td class=&quot;markdownTableBodyNone&quot;&gt;</computeroutput>lessThanEq($value, $value2, $message = &apos;&apos;)<computeroutput>\ilinebr &lt;/td&gt; &lt;td class=&quot;markdownTableBodyNone&quot;&gt; Check that a value is less than or equal to another \ilinebr &lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;markdownTableRowEven&quot;&gt; &lt;td class=&quot;markdownTableBodyNone&quot;&gt;</computeroutput>range($value, $min, $max, $message = &apos;&apos;)<computeroutput>\ilinebr &lt;/td&gt; &lt;td class=&quot;markdownTableBodyNone&quot;&gt; Check that a value is within a range \ilinebr &lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;markdownTableRowOdd&quot;&gt; &lt;td class=&quot;markdownTableBodyNone&quot;&gt;</computeroutput>inArray($value, array $values, $message = &apos;&apos;)<computeroutput>\ilinebr &lt;/td&gt; &lt;td class=&quot;markdownTableBodyNone&quot;&gt; Check that a value is one of a list of values \ilinebr &lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;markdownTableRowEven&quot;&gt; &lt;td class=&quot;markdownTableBodyNone&quot;&gt;</computeroutput>oneOf($value, array $values, $message = &apos;&apos;)<computeroutput>\ilinebr &lt;/td&gt; &lt;td class=&quot;markdownTableBodyNone&quot;&gt; Check that a value is one of a list of values (alias of</computeroutput>inArray`)   </para>
+</entry></row>
+    </tbody>
+    </tgroup>
+</informaltable>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2webmozart_2assert_2_r_e_a_d_m_e_1autotoc_md7557">
+<title><title>String Assertions</title></title>
+
+<para>You should check that a value is a string with <computeroutput>Assert::string()</computeroutput> before making any of the following assertions.</para>
+
+<para><informaltable frame="all">
+    <tgroup cols="2" align="left" colsep="1" rowsep="1">
+      <colspec colname='c1'/>
+      <colspec colname='c2'/>
+<thead>
+      <row  class='markdownTableHead'>
+<entry>
+<para>Method   </para>
+</entry><entry>
+<para>Description    </para>
+</entry></row>
+</thead><tbody>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para>&#8216;contains($value, $subString, $message = &#8217;&apos;)<computeroutput>\ilinebr &lt;/td&gt; &lt;td class=&quot;markdownTableBodyNone&quot;&gt; Check that a string contains a substring \ilinebr &lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;markdownTableRowEven&quot;&gt; &lt;td class=&quot;markdownTableBodyNone&quot;&gt;</computeroutput>notContains($value, $subString, $message = &apos;&apos;)<computeroutput>\ilinebr &lt;/td&gt; &lt;td class=&quot;markdownTableBodyNone&quot;&gt; Check that a string does not contain a substring \ilinebr &lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;markdownTableRowOdd&quot;&gt; &lt;td class=&quot;markdownTableBodyNone&quot;&gt;</computeroutput>startsWith($value, $prefix, $message = &apos;&apos;)<computeroutput>\ilinebr &lt;/td&gt; &lt;td class=&quot;markdownTableBodyNone&quot;&gt; Check that a string has a prefix \ilinebr &lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;markdownTableRowEven&quot;&gt; &lt;td class=&quot;markdownTableBodyNone&quot;&gt;</computeroutput>notStartsWith($value, $prefix, $message = &apos;&apos;)<computeroutput>\ilinebr &lt;/td&gt; &lt;td class=&quot;markdownTableBodyNone&quot;&gt; Check that a string does not have a prefix \ilinebr &lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;markdownTableRowOdd&quot;&gt; &lt;td class=&quot;markdownTableBodyNone&quot;&gt;</computeroutput>startsWithLetter($value, $message = &apos;&apos;)<computeroutput>\ilinebr &lt;/td&gt; &lt;td class=&quot;markdownTableBodyNone&quot;&gt; Check that a string starts with a letter \ilinebr &lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;markdownTableRowEven&quot;&gt; &lt;td class=&quot;markdownTableBodyNone&quot;&gt;</computeroutput>endsWith($value, $suffix, $message = &apos;&apos;)<computeroutput>\ilinebr &lt;/td&gt; &lt;td class=&quot;markdownTableBodyNone&quot;&gt; Check that a string has a suffix \ilinebr &lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;markdownTableRowOdd&quot;&gt; &lt;td class=&quot;markdownTableBodyNone&quot;&gt;</computeroutput>notEndsWith($value, $suffix, $message = &apos;&apos;)<computeroutput>\ilinebr &lt;/td&gt; &lt;td class=&quot;markdownTableBodyNone&quot;&gt; Check that a string does not have a suffix \ilinebr &lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;markdownTableRowEven&quot;&gt; &lt;td class=&quot;markdownTableBodyNone&quot;&gt;</computeroutput>regex($value, $pattern, $message = &apos;&apos;)<computeroutput>\ilinebr &lt;/td&gt; &lt;td class=&quot;markdownTableBodyNone&quot;&gt; Check that a string matches a regular expression \ilinebr &lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;markdownTableRowOdd&quot;&gt; &lt;td class=&quot;markdownTableBodyNone&quot;&gt;</computeroutput>notRegex($value, $pattern, $message = &apos;&apos;)<computeroutput>\ilinebr &lt;/td&gt; &lt;td class=&quot;markdownTableBodyNone&quot;&gt; Check that a string does not match a regular expression \ilinebr &lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;markdownTableRowEven&quot;&gt; &lt;td class=&quot;markdownTableBodyNone&quot;&gt;</computeroutput>unicodeLetters($value, $message = &apos;&apos;)<computeroutput>\ilinebr &lt;/td&gt; &lt;td class=&quot;markdownTableBodyNone&quot;&gt; Check that a string contains Unicode letters only \ilinebr &lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;markdownTableRowOdd&quot;&gt; &lt;td class=&quot;markdownTableBodyNone&quot;&gt;</computeroutput>alpha($value, $message = &apos;&apos;)<computeroutput>\ilinebr &lt;/td&gt; &lt;td class=&quot;markdownTableBodyNone&quot;&gt; Check that a string contains letters only \ilinebr &lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;markdownTableRowEven&quot;&gt; &lt;td class=&quot;markdownTableBodyNone&quot;&gt;</computeroutput>digits($value, $message = &apos;&apos;)<computeroutput>\ilinebr &lt;/td&gt; &lt;td class=&quot;markdownTableBodyNone&quot;&gt; Check that a string contains digits only \ilinebr &lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;markdownTableRowOdd&quot;&gt; &lt;td class=&quot;markdownTableBodyNone&quot;&gt;</computeroutput>alnum($value, $message = &apos;&apos;)<computeroutput>\ilinebr &lt;/td&gt; &lt;td class=&quot;markdownTableBodyNone&quot;&gt; Check that a string contains letters and digits only \ilinebr &lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;markdownTableRowEven&quot;&gt; &lt;td class=&quot;markdownTableBodyNone&quot;&gt;</computeroutput>lower($value, $message = &apos;&apos;)<computeroutput>\ilinebr &lt;/td&gt; &lt;td class=&quot;markdownTableBodyNone&quot;&gt; Check that a string contains lowercase characters only \ilinebr &lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;markdownTableRowOdd&quot;&gt; &lt;td class=&quot;markdownTableBodyNone&quot;&gt;</computeroutput>upper($value, $message = &apos;&apos;)<computeroutput>\ilinebr &lt;/td&gt; &lt;td class=&quot;markdownTableBodyNone&quot;&gt; Check that a string contains uppercase characters only \ilinebr &lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;markdownTableRowEven&quot;&gt; &lt;td class=&quot;markdownTableBodyNone&quot;&gt;</computeroutput>length($value, $length, $message = &apos;&apos;)<computeroutput>\ilinebr &lt;/td&gt; &lt;td class=&quot;markdownTableBodyNone&quot;&gt; Check that a string has a certain number of characters \ilinebr &lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;markdownTableRowOdd&quot;&gt; &lt;td class=&quot;markdownTableBodyNone&quot;&gt;</computeroutput>minLength($value, $min, $message = &apos;&apos;)<computeroutput>\ilinebr &lt;/td&gt; &lt;td class=&quot;markdownTableBodyNone&quot;&gt; Check that a string has at least a certain number of characters \ilinebr &lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;markdownTableRowEven&quot;&gt; &lt;td class=&quot;markdownTableBodyNone&quot;&gt;</computeroutput>maxLength($value, $max, $message = &apos;&apos;)<computeroutput>\ilinebr &lt;/td&gt; &lt;td class=&quot;markdownTableBodyNone&quot;&gt; Check that a string has at most a certain number of characters \ilinebr &lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;markdownTableRowOdd&quot;&gt; &lt;td class=&quot;markdownTableBodyNone&quot;&gt;</computeroutput>lengthBetween($value, $min, $max, $message = &apos;&apos;)<computeroutput>\ilinebr &lt;/td&gt; &lt;td class=&quot;markdownTableBodyNone&quot;&gt; Check that a string has a length in the given range \ilinebr &lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;markdownTableRowEven&quot;&gt; &lt;td class=&quot;markdownTableBodyNone&quot;&gt;</computeroutput>uuid($value, $message = &apos;&apos;)<computeroutput>\ilinebr &lt;/td&gt; &lt;td class=&quot;markdownTableBodyNone&quot;&gt; Check that a string is a valid UUID \ilinebr &lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;markdownTableRowOdd&quot;&gt; &lt;td class=&quot;markdownTableBodyNone&quot;&gt;</computeroutput>ip($value, $message = &apos;&apos;)<computeroutput>\ilinebr &lt;/td&gt; &lt;td class=&quot;markdownTableBodyNone&quot;&gt; Check that a string is a valid IP (either IPv4 or IPv6) \ilinebr &lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;markdownTableRowEven&quot;&gt; &lt;td class=&quot;markdownTableBodyNone&quot;&gt;</computeroutput>ipv4($value, $message = &apos;&apos;)<computeroutput>\ilinebr &lt;/td&gt; &lt;td class=&quot;markdownTableBodyNone&quot;&gt; Check that a string is a valid IPv4 \ilinebr &lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;markdownTableRowOdd&quot;&gt; &lt;td class=&quot;markdownTableBodyNone&quot;&gt;</computeroutput>ipv6($value, $message = &apos;&apos;)<computeroutput>\ilinebr &lt;/td&gt; &lt;td class=&quot;markdownTableBodyNone&quot;&gt; Check that a string is a valid IPv6 \ilinebr &lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;markdownTableRowEven&quot;&gt; &lt;td class=&quot;markdownTableBodyNone&quot;&gt;</computeroutput>email($value, $message = &apos;&apos;)<computeroutput>\ilinebr &lt;/td&gt; &lt;td class=&quot;markdownTableBodyNone&quot;&gt; Check that a string is a valid e-mail address \ilinebr &lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;markdownTableRowOdd&quot;&gt; &lt;td class=&quot;markdownTableBodyNone&quot;&gt;</computeroutput>notWhitespaceOnly($value, $message = &apos;&apos;)`   </para>
+</entry><entry>
+<para>Check that a string contains at least one non-whitespace character   </para>
+</entry></row>
+    </tbody>
+    </tgroup>
+</informaltable>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2webmozart_2assert_2_r_e_a_d_m_e_1autotoc_md7558">
+<title><title>File Assertions</title></title>
+
+<para><informaltable frame="all">
+    <tgroup cols="2" align="left" colsep="1" rowsep="1">
+      <colspec colname='c1'/>
+      <colspec colname='c2'/>
+<thead>
+      <row  class='markdownTableHead'>
+<entry>
+<para>Method   </para>
+</entry><entry>
+<para>Description    </para>
+</entry></row>
+</thead><tbody>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para>&#8216;fileExists($value, $message = &#8217;&apos;)<computeroutput>\ilinebr &lt;/td&gt; &lt;td class=&quot;markdownTableBodyNone&quot;&gt; Check that a value is an existing path \ilinebr &lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;markdownTableRowEven&quot;&gt; &lt;td class=&quot;markdownTableBodyNone&quot;&gt;</computeroutput>file($value, $message = &apos;&apos;)<computeroutput>\ilinebr &lt;/td&gt; &lt;td class=&quot;markdownTableBodyNone&quot;&gt; Check that a value is an existing file \ilinebr &lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;markdownTableRowOdd&quot;&gt; &lt;td class=&quot;markdownTableBodyNone&quot;&gt;</computeroutput>directory($value, $message = &apos;&apos;)<computeroutput>\ilinebr &lt;/td&gt; &lt;td class=&quot;markdownTableBodyNone&quot;&gt; Check that a value is an existing directory \ilinebr &lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;markdownTableRowEven&quot;&gt; &lt;td class=&quot;markdownTableBodyNone&quot;&gt;</computeroutput>readable($value, $message = &apos;&apos;)<computeroutput>\ilinebr &lt;/td&gt; &lt;td class=&quot;markdownTableBodyNone&quot;&gt; Check that a value is a readable path \ilinebr &lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;markdownTableRowOdd&quot;&gt; &lt;td class=&quot;markdownTableBodyNone&quot;&gt;</computeroutput>writable($value, $message = &apos;&apos;)`   </para>
+</entry><entry>
+<para>Check that a value is a writable path   </para>
+</entry></row>
+    </tbody>
+    </tgroup>
+</informaltable>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2webmozart_2assert_2_r_e_a_d_m_e_1autotoc_md7559">
+<title><title>Object Assertions</title></title>
+
+<para><informaltable frame="all">
+    <tgroup cols="2" align="left" colsep="1" rowsep="1">
+      <colspec colname='c1'/>
+      <colspec colname='c2'/>
+<thead>
+      <row  class='markdownTableHead'>
+<entry>
+<para>Method   </para>
+</entry><entry>
+<para>Description    </para>
+</entry></row>
+</thead><tbody>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para>&#8216;classExists($value, $message = &#8217;&apos;)<computeroutput>\ilinebr &lt;/td&gt; &lt;td class=&quot;markdownTableBodyNone&quot;&gt; Check that a value is an existing class name \ilinebr &lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;markdownTableRowEven&quot;&gt; &lt;td class=&quot;markdownTableBodyNone&quot;&gt;</computeroutput>subclassOf($value, $class, $message = &apos;&apos;)<computeroutput>\ilinebr &lt;/td&gt; &lt;td class=&quot;markdownTableBodyNone&quot;&gt; Check that a class is a subclass of another \ilinebr &lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;markdownTableRowOdd&quot;&gt; &lt;td class=&quot;markdownTableBodyNone&quot;&gt;</computeroutput>interfaceExists($value, $message = &apos;&apos;)<computeroutput>\ilinebr &lt;/td&gt; &lt;td class=&quot;markdownTableBodyNone&quot;&gt; Check that a value is an existing interface name \ilinebr &lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;markdownTableRowEven&quot;&gt; &lt;td class=&quot;markdownTableBodyNone&quot;&gt;</computeroutput>implementsInterface($value, $class, $message = &apos;&apos;)<computeroutput>\ilinebr &lt;/td&gt; &lt;td class=&quot;markdownTableBodyNone&quot;&gt; Check that a class implements an interface \ilinebr &lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;markdownTableRowOdd&quot;&gt; &lt;td class=&quot;markdownTableBodyNone&quot;&gt;</computeroutput>propertyExists($value, $property, $message = &apos;&apos;)<computeroutput>\ilinebr &lt;/td&gt; &lt;td class=&quot;markdownTableBodyNone&quot;&gt; Check that a property exists in a class/object \ilinebr &lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;markdownTableRowEven&quot;&gt; &lt;td class=&quot;markdownTableBodyNone&quot;&gt;</computeroutput>propertyNotExists($value, $property, $message = &apos;&apos;)<computeroutput>\ilinebr &lt;/td&gt; &lt;td class=&quot;markdownTableBodyNone&quot;&gt; Check that a property does not exist in a class/object \ilinebr &lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;markdownTableRowOdd&quot;&gt; &lt;td class=&quot;markdownTableBodyNone&quot;&gt;</computeroutput>methodExists($value, $method, $message = &apos;&apos;)<computeroutput>\ilinebr &lt;/td&gt; &lt;td class=&quot;markdownTableBodyNone&quot;&gt; Check that a method exists in a class/object \ilinebr &lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;markdownTableRowEven&quot;&gt; &lt;td class=&quot;markdownTableBodyNone&quot;&gt;</computeroutput>methodNotExists($value, $method, $message = &apos;&apos;)`   </para>
+</entry><entry>
+<para>Check that a method does not exist in a class/object   </para>
+</entry></row>
+    </tbody>
+    </tgroup>
+</informaltable>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2webmozart_2assert_2_r_e_a_d_m_e_1autotoc_md7560">
+<title><title>Array Assertions</title></title>
+
+<para><informaltable frame="all">
+    <tgroup cols="2" align="left" colsep="1" rowsep="1">
+      <colspec colname='c1'/>
+      <colspec colname='c2'/>
+<thead>
+      <row  class='markdownTableHead'>
+<entry>
+<para>Method   </para>
+</entry><entry>
+<para>Description    </para>
+</entry></row>
+</thead><tbody>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para>&#8216;keyExists($array, $key, $message = &#8217;&apos;)<computeroutput>\ilinebr &lt;/td&gt; &lt;td class=&quot;markdownTableBodyNone&quot;&gt; Check that a key exists in an array \ilinebr &lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;markdownTableRowEven&quot;&gt; &lt;td class=&quot;markdownTableBodyNone&quot;&gt;</computeroutput>keyNotExists($array, $key, $message = &apos;&apos;)<computeroutput>\ilinebr &lt;/td&gt; &lt;td class=&quot;markdownTableBodyNone&quot;&gt; Check that a key does not exist in an array \ilinebr &lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;markdownTableRowOdd&quot;&gt; &lt;td class=&quot;markdownTableBodyNone&quot;&gt;</computeroutput>validArrayKey($key, $message = &apos;&apos;)<computeroutput>\ilinebr &lt;/td&gt; &lt;td class=&quot;markdownTableBodyNone&quot;&gt; Check that a value is a valid array key (int or string) \ilinebr &lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;markdownTableRowEven&quot;&gt; &lt;td class=&quot;markdownTableBodyNone&quot;&gt;</computeroutput>count($array, $number, $message = &apos;&apos;)<computeroutput>\ilinebr &lt;/td&gt; &lt;td class=&quot;markdownTableBodyNone&quot;&gt; Check that an array contains a specific number of elements \ilinebr &lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;markdownTableRowOdd&quot;&gt; &lt;td class=&quot;markdownTableBodyNone&quot;&gt;</computeroutput>minCount($array, $min, $message = &apos;&apos;)<computeroutput>\ilinebr &lt;/td&gt; &lt;td class=&quot;markdownTableBodyNone&quot;&gt; Check that an array contains at least a certain number of elements \ilinebr &lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;markdownTableRowEven&quot;&gt; &lt;td class=&quot;markdownTableBodyNone&quot;&gt;</computeroutput>maxCount($array, $max, $message = &apos;&apos;)<computeroutput>\ilinebr &lt;/td&gt; &lt;td class=&quot;markdownTableBodyNone&quot;&gt; Check that an array contains at most a certain number of elements \ilinebr &lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;markdownTableRowOdd&quot;&gt; &lt;td class=&quot;markdownTableBodyNone&quot;&gt;</computeroutput>countBetween($array, $min, $max, $message = &apos;&apos;)<computeroutput>\ilinebr &lt;/td&gt; &lt;td class=&quot;markdownTableBodyNone&quot;&gt; Check that an array has a count in the given range \ilinebr &lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;markdownTableRowEven&quot;&gt; &lt;td class=&quot;markdownTableBodyNone&quot;&gt;</computeroutput>isList($array, $message = &apos;&apos;)<computeroutput>\ilinebr &lt;/td&gt; &lt;td class=&quot;markdownTableBodyNone&quot;&gt; Check that an array is a non-associative list \ilinebr &lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;markdownTableRowOdd&quot;&gt; &lt;td class=&quot;markdownTableBodyNone&quot;&gt;</computeroutput>isNonEmptyList($array, $message = &apos;&apos;)<computeroutput>\ilinebr &lt;/td&gt; &lt;td class=&quot;markdownTableBodyNone&quot;&gt; Check that an array is a non-associative list, and not empty \ilinebr &lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;markdownTableRowEven&quot;&gt; &lt;td class=&quot;markdownTableBodyNone&quot;&gt;</computeroutput>isMap($array, $message = &apos;&apos;)<computeroutput>\ilinebr &lt;/td&gt; &lt;td class=&quot;markdownTableBodyNone&quot;&gt; Check that an array is associative and has strings as keys \ilinebr &lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;markdownTableRowOdd&quot;&gt; &lt;td class=&quot;markdownTableBodyNone&quot;&gt;</computeroutput>isNonEmptyMap($array, $message = &apos;&apos;)`   </para>
+</entry><entry>
+<para>Check that an array is associative and has strings as keys, and is not empty   </para>
+</entry></row>
+    </tbody>
+    </tgroup>
+</informaltable>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2webmozart_2assert_2_r_e_a_d_m_e_1autotoc_md7561">
+<title><title>Function Assertions</title></title>
+
+<para><informaltable frame="all">
+    <tgroup cols="2" align="left" colsep="1" rowsep="1">
+      <colspec colname='c1'/>
+      <colspec colname='c2'/>
+<thead>
+      <row  class='markdownTableHead'>
+<entry>
+<para>Method   </para>
+</entry><entry>
+<para>Description    </para>
+</entry></row>
+</thead><tbody>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para>&#8216;throws($closure, $class, $message = &#8217;&apos;)`   </para>
+</entry><entry>
+<para>Check that a function throws a certain exception. Subclasses of the exception class will be accepted.   </para>
+</entry></row>
+    </tbody>
+    </tgroup>
+</informaltable>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2webmozart_2assert_2_r_e_a_d_m_e_1autotoc_md7562">
+<title><title>Collection Assertions</title></title>
+
+<para>All of the above assertions can be prefixed with <computeroutput>all*()</computeroutput> to test the contents of an array or a <computeroutput>\Traversable</computeroutput>:</para>
+
+<para><literallayout><computeroutput>Assert::allIsInstanceOf($employees,&#32;&apos;Acme\Employee&apos;);
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2webmozart_2assert_2_r_e_a_d_m_e_1autotoc_md7563">
+<title><title>Nullable Assertions</title></title>
+
+<para>All of the above assertions can be prefixed with <computeroutput>nullOr*()</computeroutput> to run the assertion only if it the value is not <computeroutput>null</computeroutput>:</para>
+
+<para><literallayout><computeroutput>Assert::nullOrString($middleName,&#32;&apos;The&#32;middle&#32;name&#32;must&#32;be&#32;a&#32;string&#32;or&#32;null.&#32;Got:&#32;%s&apos;);
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2webmozart_2assert_2_r_e_a_d_m_e_1autotoc_md7564">
+<title><title>Extending Assert</title></title>
+
+<para>The <computeroutput>Assert</computeroutput> class comes with a few methods, which can be overridden to change the class behaviour. You can also extend it to add your own assertions.</para>
+<section xml:id="_md_public_2glpi_2vendor_2webmozart_2assert_2_r_e_a_d_m_e_1autotoc_md7565">
+<title><title>Overriding methods</title></title>
+
+<para>Overriding the following methods in your assertion class allows you to change the behaviour of the assertions:</para>
+
+<para><itemizedlist>
+<listitem>
+<para><computeroutput>public static function __callStatic($name, $arguments)</computeroutput><itemizedlist>
+<listitem>
+<para>This method is used to &apos;create&apos; the <computeroutput>nullOr</computeroutput> and <computeroutput>all</computeroutput> versions of the assertions.</para>
+</listitem></itemizedlist>
+</para>
+</listitem><listitem>
+<para><computeroutput>protected static function valueToString($value)</computeroutput><itemizedlist>
+<listitem>
+<para>This method is used for error messages, to convert the value to a string value for displaying. You could use this for representing a value object with a <computeroutput>__toString</computeroutput> method for example.</para>
+</listitem></itemizedlist>
+</para>
+</listitem><listitem>
+<para><computeroutput>protected static function typeToString($value)</computeroutput><itemizedlist>
+<listitem>
+<para>This method is used for error messages, to convert the a value to a string representing its type.</para>
+</listitem></itemizedlist>
+</para>
+</listitem><listitem>
+<para><computeroutput>protected static function strlen($value)</computeroutput><itemizedlist>
+<listitem>
+<para>This method is used to calculate string length for relevant methods, using the <computeroutput>mb_strlen</computeroutput> if available and useful.</para>
+</listitem></itemizedlist>
+</para>
+</listitem><listitem>
+<para><computeroutput>protected static function reportInvalidArgument($message)</computeroutput><itemizedlist>
+<listitem>
+<para>This method is called when an assertion fails, with the specified error message. Here you can throw your own exception, or log something.</para>
+</listitem></itemizedlist>
+</para>
+</listitem></itemizedlist>
+</para>
+</section>
+</section>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2webmozart_2assert_2_r_e_a_d_m_e_1autotoc_md7566">
+<title><title>Static analysis support</title></title>
+
+<para>Where applicable, assertion functions are annotated to support Psalm&apos;s <link xlink:href="https://psalm.dev/docs/annotating_code/assertion_syntax/">Assertion syntax</link>. A dedicated <link xlink:href="https://github.com/phpstan/phpstan-webmozart-assert">PHPStan Plugin</link> is required for proper type support.</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2webmozart_2assert_2_r_e_a_d_m_e_1autotoc_md7567">
+<title><title>Authors</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para><link xlink:href="https://webmozarts.com">Bernhard Schussek</link> a.k.a. <link xlink:href="https://twitter.com/webmozart">@webmozart</link></para>
+</listitem><listitem>
+<para><link xlink:href="https://github.com/webmozart/assert/graphs/contributors">The Community Contributors</link></para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2webmozart_2assert_2_r_e_a_d_m_e_1autotoc_md7568">
+<title><title>Contribute</title></title>
+
+<para>Contributions to the package are always welcome!</para>
+
+<para><itemizedlist>
+<listitem>
+<para><link linkend="_class_report">Report</link> any bugs or issues you find on the <link xlink:href="https://github.com/webmozart/assert/issues">issue tracker</link>.</para>
+</listitem><listitem>
+<para>You can grab the source code at the package&apos;s <link xlink:href="https://github.com/webmozart/assert">Git repository</link>.</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2webmozart_2assert_2_r_e_a_d_m_e_1autotoc_md7569">
+<title><title>License</title></title>
+
+<para>All contents of this package are licensed under the [MIT license]. </para>
+</section>
+</section>

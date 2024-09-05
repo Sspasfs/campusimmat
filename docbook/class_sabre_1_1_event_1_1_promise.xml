@@ -1,0 +1,251 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_sabre_1_1_event_1_1_promise" xml:lang="fr">
+<title>Référence de la classe Promise</title>
+<indexterm><primary>Promise</primary></indexterm>
+Graphe de collaboration de Promise:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_sabre_1_1_event_1_1_promise__coll__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Fonctions membres publiques    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_sabre_1_1_event_1_1_promise_1af2c31cea1745ba58610803bef2912b6f">__construct</link> (<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">callable</link> $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">executor</link>=null)</para>
+</listitem>
+            <listitem><para><link linkend="_class_sabre_1_1_event_1_1_promise_1a4feb652e6c84c7767347fb21cf496c73">then</link> (<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">callable</link> $onFulfilled=null, <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">callable</link> $onRejected=null)</para>
+</listitem>
+            <listitem><para><link linkend="_class_sabre_1_1_event_1_1_promise_1a688fdb804610bab573256b55a8b55e7f">otherwise</link> (<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">callable</link> $onRejected)</para>
+</listitem>
+            <listitem><para><link linkend="_class_sabre_1_1_event_1_1_promise_1ab1360c4ffda67058a7999cce5e9646ee">fulfill</link> ($value=null)</para>
+</listitem>
+            <listitem><para><link linkend="_class_sabre_1_1_event_1_1_promise_1affabab07ec5afa282006ca70b768b957">reject</link> (Throwable $reason)</para>
+</listitem>
+            <listitem><para><link linkend="_class_sabre_1_1_event_1_1_promise_1a918ab4827f83fa4abb9c445acc36f533">wait</link> ()</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Champs de données    </title>
+        <itemizedlist>
+            <listitem><para>const <link linkend="_class_sabre_1_1_event_1_1_promise_1abaf4facc752f618f7d88aa7e2886c812">PENDING</link> = 0</para>
+</listitem>
+            <listitem><para>const <link linkend="_class_sabre_1_1_event_1_1_promise_1a73fff0d9d3144518678b1df2ff181934">FULFILLED</link> = 1</para>
+</listitem>
+            <listitem><para>const <link linkend="_class_sabre_1_1_event_1_1_promise_1a25be17e5b990d3b083f7ec154287da3d">REJECTED</link> = 2</para>
+</listitem>
+            <listitem><para><link linkend="_class_sabre_1_1_event_1_1_promise_1ae82306c4f2d17d8dd5c7d8d916b33bed">$state</link> = self::PENDING</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Attributs protégés    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_sabre_1_1_event_1_1_promise_1ac086ff8a41a6f5d58aa0fa798591a4f1">$subscribers</link> = []</para>
+</listitem>
+            <listitem><para><link linkend="_class_sabre_1_1_event_1_1_promise_1a0f298096f322952a72a50f98a74c7b60">$value</link> = null</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Description détaillée</title>
+
+<para>An implementation of the Promise pattern.</para>
+
+<para>A promise represents the result of an asynchronous operation. At any given point a promise can be in one of three states:</para>
+
+<para><orderedlist>
+<listitem>
+<para>Pending (the promise does not have a result yet).</para>
+</listitem><listitem>
+<para>Fulfilled (the asynchronous operation has completed with a result).</para>
+</listitem><listitem>
+<para>Rejected (the asynchronous operation has completed with an error).</para>
+</listitem></orderedlist>
+</para>
+
+<para>To get a callback when the operation has finished, use the <computeroutput>then</computeroutput> method.</para>
+
+<para><formalpara><title>Copyright</title>
+
+<para>Copyright (C) fruux GmbH (<link xlink:href="https://fruux.com/">https://fruux.com/</link>) </para>
+</formalpara>
+<formalpara><title>Auteur</title>
+
+<para>Evert Pot (<link xlink:href="http://evertpot.com/">http://evertpot.com/</link>) @license <link xlink:href="http://sabre.io/license/">http://sabre.io/license/</link> Modified BSD License</para>
+</formalpara>
+@psalm-template TReturn </para>
+</section>
+<section>
+<title>Documentation des constructeurs et destructeur</title>
+<anchor xml:id="_class_sabre_1_1_event_1_1_promise_1af2c31cea1745ba58610803bef2912b6f"/><section>
+    <title>__construct()</title>
+<indexterm><primary>__construct</primary><secondary>Promise</secondary></indexterm>
+<indexterm><primary>Promise</primary><secondary>__construct</secondary></indexterm>
+<para><computeroutput>__construct (<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">callable</link> $executor = <computeroutput>null</computeroutput>
+)</computeroutput></para>
+<para>Creates the promise.</para>
+
+<para>The passed argument is the executor. The executor is automatically called with two arguments.</para>
+
+<para>Each are callbacks that map to $this-&gt;fulfill and $this-&gt;reject. Using the executor is optional. </para>
+</section>
+</section>
+<section>
+<title>Documentation des fonctions membres</title>
+<anchor xml:id="_class_sabre_1_1_event_1_1_promise_1ab1360c4ffda67058a7999cce5e9646ee"/><section>
+    <title>fulfill()</title>
+<indexterm><primary>fulfill</primary><secondary>Promise</secondary></indexterm>
+<indexterm><primary>Promise</primary><secondary>fulfill</secondary></indexterm>
+<para><computeroutput>fulfill ( $value = <computeroutput>null</computeroutput>
+)</computeroutput></para>
+<para>Marks this promise as fulfilled and sets its return value.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>mixed</entry><entry>$value</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
+<anchor xml:id="_class_sabre_1_1_event_1_1_promise_1a688fdb804610bab573256b55a8b55e7f"/><section>
+    <title>otherwise()</title>
+<indexterm><primary>otherwise</primary><secondary>Promise</secondary></indexterm>
+<indexterm><primary>Promise</primary><secondary>otherwise</secondary></indexterm>
+<para><computeroutput>otherwise (<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">callable</link> $onRejected)</computeroutput></para>
+<para>Add a callback for when this promise is rejected.</para>
+
+<para>Its usage is identical to then(). However, the otherwise() function is preferred. </para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_sabre_1_1_event_1_1_promise_a688fdb804610bab573256b55a8b55e7f_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_sabre_1_1_event_1_1_promise_1affabab07ec5afa282006ca70b768b957"/><section>
+    <title>reject()</title>
+<indexterm><primary>reject</primary><secondary>Promise</secondary></indexterm>
+<indexterm><primary>Promise</primary><secondary>reject</secondary></indexterm>
+<para><computeroutput>reject (Throwable $reason)</computeroutput></para>
+<para>Marks this promise as rejected, and set its rejection reason. </para>
+</section>
+<anchor xml:id="_class_sabre_1_1_event_1_1_promise_1a4feb652e6c84c7767347fb21cf496c73"/><section>
+    <title>then()</title>
+<indexterm><primary>then</primary><secondary>Promise</secondary></indexterm>
+<indexterm><primary>Promise</primary><secondary>then</secondary></indexterm>
+<para><computeroutput>then (<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">callable</link> $onFulfilled = <computeroutput>null</computeroutput>
+, <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">callable</link> $onRejected = <computeroutput>null</computeroutput>
+)</computeroutput></para>
+<para>This method allows you to specify the callback that will be called after the promise has been fulfilled or rejected.</para>
+
+<para>Both arguments are optional.</para>
+
+<para>This method returns a new promise, which can be used for chaining. If either the onFulfilled or onRejected callback is called, you may return a result from this callback.</para>
+
+<para>If the result of this callback is yet another promise, the result of <emphasis>that</emphasis> promise will be used to set the result of the returned promise.</para>
+
+<para>If either of the callbacks return any other value, the returned promise is automatically fulfilled with that value.</para>
+
+<para>If either of the callbacks throw an exception, the returned promise will be rejected and the exception will be passed back. </para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_sabre_1_1_event_1_1_promise_a4feb652e6c84c7767347fb21cf496c73_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_sabre_1_1_event_1_1_promise_1a918ab4827f83fa4abb9c445acc36f533"/><section>
+    <title>wait()</title>
+<indexterm><primary>wait</primary><secondary>Promise</secondary></indexterm>
+<indexterm><primary>Promise</primary><secondary>wait</secondary></indexterm>
+<para><computeroutput>wait ( )</computeroutput></para>
+<para>Stops execution until this promise is resolved.</para>
+
+<para>This method stops execution completely. If the promise is successful with a value, this method will return this value. If the promise was rejected, this method will throw an exception.</para>
+
+<para>This effectively turns the asynchronous operation into a synchronous one. In PHP it might be useful to call this on the last promise in a chain.</para>
+
+<para><formalpara><title>Renvoie</title>
+
+<para>mixed @psalm-return TReturn </para>
+</formalpara>
+</para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_sabre_1_1_event_1_1_promise_a918ab4827f83fa4abb9c445acc36f533_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+</section>
+<section>
+<title>Documentation des champs</title>
+<anchor xml:id="_class_sabre_1_1_event_1_1_promise_1ae82306c4f2d17d8dd5c7d8d916b33bed"/><section>
+    <title>$state</title>
+<indexterm><primary>$state</primary><secondary>Promise</secondary></indexterm>
+<indexterm><primary>Promise</primary><secondary>$state</secondary></indexterm>
+<para><computeroutput>$state = self::PENDING</computeroutput></para></section>
+<anchor xml:id="_class_sabre_1_1_event_1_1_promise_1ac086ff8a41a6f5d58aa0fa798591a4f1"/><section>
+    <title>$subscribers</title>
+<indexterm><primary>$subscribers</primary><secondary>Promise</secondary></indexterm>
+<indexterm><primary>Promise</primary><secondary>$subscribers</secondary></indexterm>
+<para><computeroutput>$<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">subscribers</link> = []<computeroutput>[protected]</computeroutput></computeroutput></para></section>
+<anchor xml:id="_class_sabre_1_1_event_1_1_promise_1a0f298096f322952a72a50f98a74c7b60"/><section>
+    <title>$value</title>
+<indexterm><primary>$value</primary><secondary>Promise</secondary></indexterm>
+<indexterm><primary>Promise</primary><secondary>$value</secondary></indexterm>
+<para><computeroutput>$value = null<computeroutput>[protected]</computeroutput></computeroutput></para></section>
+<anchor xml:id="_class_sabre_1_1_event_1_1_promise_1a73fff0d9d3144518678b1df2ff181934"/><section>
+    <title>FULFILLED</title>
+<indexterm><primary>FULFILLED</primary><secondary>Promise</secondary></indexterm>
+<indexterm><primary>Promise</primary><secondary>FULFILLED</secondary></indexterm>
+<para><computeroutput>const FULFILLED = 1</computeroutput></para>
+<para>The asynchronous operation has completed, and has a result. </para>
+</section>
+<anchor xml:id="_class_sabre_1_1_event_1_1_promise_1abaf4facc752f618f7d88aa7e2886c812"/><section>
+    <title>PENDING</title>
+<indexterm><primary>PENDING</primary><secondary>Promise</secondary></indexterm>
+<indexterm><primary>Promise</primary><secondary>PENDING</secondary></indexterm>
+<para><computeroutput>const PENDING = 0</computeroutput></para>
+<para>The asynchronous operation is pending. </para>
+</section>
+<anchor xml:id="_class_sabre_1_1_event_1_1_promise_1a25be17e5b990d3b083f7ec154287da3d"/><section>
+    <title>REJECTED</title>
+<indexterm><primary>REJECTED</primary><secondary>Promise</secondary></indexterm>
+<indexterm><primary>Promise</primary><secondary>REJECTED</secondary></indexterm>
+<para><computeroutput>const REJECTED = 2</computeroutput></para>
+<para>The asynchronous operation has completed with an error. </para>
+</section>
+<para>
+La documentation de cette classe a été générée à partir du fichier suivant :</para>
+public/glpi/vendor/sabre/event/lib/<link linkend="_sabre_2event_2lib_2_promise_8php">Promise.php</link></section>
+</section>

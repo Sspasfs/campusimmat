@@ -1,0 +1,84 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_interface_symfony_1_1_contracts_1_1_service_1_1_service_subscriber_interface" xml:lang="fr">
+<title>Référence de l&apos;interface ServiceSubscriberInterface</title>
+<indexterm><primary>ServiceSubscriberInterface</primary></indexterm>
+Graphe de collaboration de ServiceSubscriberInterface:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="interface_symfony_1_1_contracts_1_1_service_1_1_service_subscriber_interface__coll__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Fonctions membres publiques statiques    </title>
+        <itemizedlist>
+            <listitem><para>static <link linkend="_interface_symfony_1_1_contracts_1_1_service_1_1_service_subscriber_interface_1a79a5dd5fd391e7911dcca6252fa921c1">getSubscribedServices</link> ()</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Description détaillée</title>
+
+<para>A ServiceSubscriber exposes its dependencies via the static <computeroutput><link linkend="_">getSubscribedServices</link></computeroutput> method.</para>
+
+<para>The getSubscribedServices method returns an array of service types required by such instances, optionally keyed by the service names used internally. Service types that start with an interrogation mark &quot;?&quot; are optional, while the other ones are mandatory service dependencies.</para>
+
+<para>The injected service locators SHOULD NOT allow access to any other services not specified by the method.</para>
+
+<para>It is expected that ServiceSubscriber instances consume PSR-11-based service locators internally. This interface does not dictate any injection method for these service locators, although constructor injection is recommended.</para>
+
+<para><formalpara><title>Auteur</title>
+
+<para>Nicolas Grekas <link xlink:href="mailto:p@tchwork.com">p@tchwork.com</link> </para>
+</formalpara>
+</para>
+</section>
+<section>
+<title>Documentation des fonctions membres</title>
+<anchor xml:id="_interface_symfony_1_1_contracts_1_1_service_1_1_service_subscriber_interface_1a79a5dd5fd391e7911dcca6252fa921c1"/><section>
+    <title>getSubscribedServices()</title>
+<indexterm><primary>getSubscribedServices</primary><secondary>ServiceSubscriberInterface</secondary></indexterm>
+<indexterm><primary>ServiceSubscriberInterface</primary><secondary>getSubscribedServices</secondary></indexterm>
+<para><computeroutput>static getSubscribedServices ( )<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>Returns an array of service types required by such instances, optionally keyed by the service names used internally.</para>
+
+<para>For mandatory dependencies:</para>
+
+<para><itemizedlist>
+<listitem>
+<para>[&apos;logger&apos; =&gt; &apos;Psr\Log\LoggerInterface&apos;] means the objects use the &quot;logger&quot; name internally to fetch a service which must implement Psr\Log\LoggerInterface.</para>
+</listitem><listitem>
+<para>[&apos;loggers&apos; =&gt; &apos;Psr\Log\LoggerInterface[]&apos;] means the objects use the &quot;loggers&quot; name internally to fetch an iterable of Psr\Log\LoggerInterface instances.</para>
+</listitem><listitem>
+<para>[&apos;Psr\Log\LoggerInterface&apos;] is a shortcut for</para>
+</listitem><listitem>
+<para>[&apos;Psr\Log\LoggerInterface&apos; =&gt; &apos;Psr\Log\LoggerInterface&apos;]</para>
+</listitem></itemizedlist>
+</para>
+
+<para>otherwise:</para>
+
+<para><itemizedlist>
+<listitem>
+<para>[&apos;logger&apos; =&gt; &apos;?Psr\Log\LoggerInterface&apos;] denotes an optional dependency</para>
+</listitem><listitem>
+<para>[&apos;loggers&apos; =&gt; &apos;?Psr\Log\LoggerInterface[]&apos;] denotes an optional iterable dependency</para>
+</listitem><listitem>
+<para>[&apos;?Psr\Log\LoggerInterface&apos;] is a shortcut for</para>
+</listitem><listitem>
+<para>[&apos;Psr\Log\LoggerInterface&apos; =&gt; &apos;?Psr\Log\LoggerInterface&apos;]</para>
+</listitem></itemizedlist>
+</para>
+
+<para><formalpara><title>Renvoie</title>
+
+<para>string[] The required service types, optionally keyed by service names </para>
+</formalpara>
+</para>
+</section>
+<para>
+La documentation de cette interface a été générée à partir du fichier suivant :</para>
+public/glpi/vendor/symfony/service-contracts/<link linkend="__service_subscriber_interface_8php">ServiceSubscriberInterface.php</link></section>
+</section>

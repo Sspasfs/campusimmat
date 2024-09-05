@@ -1,0 +1,112 @@
+\doxysection{Référence de la classe Message\+Formatter}
+\hypertarget{class_guzzle_http_1_1_message_formatter}{}\label{class_guzzle_http_1_1_message_formatter}\index{MessageFormatter@{MessageFormatter}}
+
+
+Graphe d\textquotesingle{}héritage de Message\+Formatter\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=232pt]{class_guzzle_http_1_1_message_formatter__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Graphe de collaboration de Message\+Formatter\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=284pt]{class_guzzle_http_1_1_message_formatter__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_guzzle_http_1_1_message_formatter_a08192a89461bec6147eea83eeb1d23ba}{\+\_\+\+\_\+construct}} (?string \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{template}}=self\+::\+CLF)
+\end{DoxyCompactItemize}
+\doxysubsection*{Fonctions membres publiques hérités de \mbox{\hyperlink{interface_guzzle_http_1_1_message_formatter_interface}{Message\+Formatter\+Interface}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{interface_guzzle_http_1_1_message_formatter_interface_a43c4c440ae549c8f341f9eaf1b4e4a7c}{format}} (\mbox{\hyperlink{interface_psr_1_1_http_1_1_message_1_1_request_interface}{Request\+Interface}} \$request, ?\mbox{\hyperlink{interface_psr_1_1_http_1_1_message_1_1_response_interface}{Response\+Interface}} \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{response}}=null, ?\textbackslash{}Throwable \$error=null)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Champs de données}
+\begin{DoxyCompactItemize}
+\item 
+const \mbox{\hyperlink{class_guzzle_http_1_1_message_formatter_a60ac1427723e34beabc9427fd6929bed}{CLF}} = "{}\{hostname\} \{\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{req\+\_\+header\+\_\+\+User}}-\/\mbox{\hyperlink{class_agent}{Agent}}\} -\/ \mbox{[}\{\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{date\+\_\+common\+\_\+log}}\}\mbox{]} \textbackslash{}"{}\{\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{method}}\} \{\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{target}}\} HTTP/\{\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{version}}\}\textbackslash{}"{} \{code\} \{\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{res\+\_\+header\+\_\+\+Content}}-\/\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{Length}}\}"{}
+\item 
+const \mbox{\hyperlink{class_guzzle_http_1_1_message_formatter_a758c150b67e476ecf77478f16b387c61}{DEBUG}} = "{}$>$$>$$>$$>$$>$$>$$>$$>$\textbackslash{}n\{request\}\textbackslash{}\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{n}}$<$$<$$<$$<$$<$$<$$<$$<$\textbackslash{}\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{n}}\{\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{response}}\}\textbackslash{}\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{n}}-\/-\/-\/-\/-\/-\/-\/-\/\textbackslash{}\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{n}}\{error\}"{}
+\item 
+const \mbox{\hyperlink{class_guzzle_http_1_1_message_formatter_a7c5b0c14382692b4f858ae0e29abc6be}{SHORT}} = \textquotesingle{}\mbox{[}\{\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{ts}}\}\mbox{]} "{}\{method\} \{\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{target}}\} HTTP/\{\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{version}}\}"{} \{code\}\textquotesingle{}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Formats log messages using variable substitutions for requests, responses, and other transactional data.
+
+The following variable substitutions are supported\+:
+
+
+\begin{DoxyItemize}
+\item \{request\}\+: Full HTTP request message
+\item \{response\}\+: Full HTTP response message
+\item \{ts\}\+: ISO 8601 date in GMT
+\item \{date\+\_\+iso\+\_\+8601\} ISO 8601 date in GMT
+\item \{date\+\_\+common\+\_\+log\} Apache common log date using the configured timezone.
+\item \{host\}\+: Host of the request
+\item \{method\}\+: Method of the request
+\item \{uri\}\+: URI of the request
+\item \{version\}\+: Protocol version
+\item \{target\}\+: Request target of the request (path + query + fragment)
+\item \{hostname\}\+: Hostname of the machine that sent the request
+\item \{code\}\+: Status code of the response (if available)
+\item \{phrase\}\+: Reason phrase of the response (if available)
+\item \{error\}\+: Any error messages (if available)
+\item \{req\+\_\+header\+\_\+\texorpdfstring{$\ast$}{*}\}\+: Replace {\ttfamily \texorpdfstring{$\ast$}{*}} with the lowercased name of a request header to add to the message
+\item \{res\+\_\+header\+\_\+\texorpdfstring{$\ast$}{*}\}\+: Replace {\ttfamily \texorpdfstring{$\ast$}{*}} with the lowercased name of a response header to add to the message
+\item \{req\+\_\+headers\}\+: Request headers
+\item \{res\+\_\+headers\}\+: Response headers
+\item \{req\+\_\+body\}\+: Request body
+\item \{res\+\_\+body\}\+: Response body
+\end{DoxyItemize}
+
+@final 
+
+\doxysubsection{Documentation des constructeurs et destructeur}
+\Hypertarget{class_guzzle_http_1_1_message_formatter_a08192a89461bec6147eea83eeb1d23ba}\label{class_guzzle_http_1_1_message_formatter_a08192a89461bec6147eea83eeb1d23ba} 
+\index{MessageFormatter@{MessageFormatter}!\_\_construct@{\_\_construct}}
+\index{\_\_construct@{\_\_construct}!MessageFormatter@{MessageFormatter}}
+\doxysubsubsection{\texorpdfstring{\_\_construct()}{\_\_construct()}}
+{\footnotesize\ttfamily \+\_\+\+\_\+construct (\begin{DoxyParamCaption}\item[{?string}]{\$template = {\ttfamily self\+:\+:CLF} }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}[1]{Paramètres}
+string & {\em \$template} & \doxylink{class_log}{Log} message template \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Documentation des champs}
+\Hypertarget{class_guzzle_http_1_1_message_formatter_a60ac1427723e34beabc9427fd6929bed}\label{class_guzzle_http_1_1_message_formatter_a60ac1427723e34beabc9427fd6929bed} 
+\index{MessageFormatter@{MessageFormatter}!CLF@{CLF}}
+\index{CLF@{CLF}!MessageFormatter@{MessageFormatter}}
+\doxysubsubsection{\texorpdfstring{CLF}{CLF}}
+{\footnotesize\ttfamily const CLF = "{}\{hostname\} \{\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{req\+\_\+header\+\_\+\+User}}-\/\mbox{\hyperlink{class_agent}{Agent}}\} -\/ \mbox{[}\{\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{date\+\_\+common\+\_\+log}}\}\mbox{]} \textbackslash{}"{}\{\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{method}}\} \{\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{target}}\} HTTP/\{\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{version}}\}\textbackslash{}"{} \{code\} \{\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{res\+\_\+header\+\_\+\+Content}}-\/\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{Length}}\}"{}}
+
+\Hypertarget{class_guzzle_http_1_1_message_formatter_a758c150b67e476ecf77478f16b387c61}\label{class_guzzle_http_1_1_message_formatter_a758c150b67e476ecf77478f16b387c61} 
+\index{MessageFormatter@{MessageFormatter}!DEBUG@{DEBUG}}
+\index{DEBUG@{DEBUG}!MessageFormatter@{MessageFormatter}}
+\doxysubsubsection{\texorpdfstring{DEBUG}{DEBUG}}
+{\footnotesize\ttfamily const DEBUG = "{}$>$$>$$>$$>$$>$$>$$>$$>$\textbackslash{}n\{request\}\textbackslash{}\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{n}}$<$$<$$<$$<$$<$$<$$<$$<$\textbackslash{}\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{n}}\{\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{response}}\}\textbackslash{}\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{n}}-\/-\/-\/-\/-\/-\/-\/-\/\textbackslash{}\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{n}}\{error\}"{}}
+
+\Hypertarget{class_guzzle_http_1_1_message_formatter_a7c5b0c14382692b4f858ae0e29abc6be}\label{class_guzzle_http_1_1_message_formatter_a7c5b0c14382692b4f858ae0e29abc6be} 
+\index{MessageFormatter@{MessageFormatter}!SHORT@{SHORT}}
+\index{SHORT@{SHORT}!MessageFormatter@{MessageFormatter}}
+\doxysubsubsection{\texorpdfstring{SHORT}{SHORT}}
+{\footnotesize\ttfamily const SHORT = \textquotesingle{}\mbox{[}\{\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{ts}}\}\mbox{]} "{}\{method\} \{\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{target}}\} HTTP/\{\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{version}}\}"{} \{code\}\textquotesingle{}}
+
+
+
+La documentation de cette classe a été générée à partir du fichier suivant \+:\begin{DoxyCompactItemize}
+\item 
+public/glpi/vendor/guzzlehttp/guzzle/src/\mbox{\hyperlink{_message_formatter_8php}{Message\+Formatter.\+php}}\end{DoxyCompactItemize}

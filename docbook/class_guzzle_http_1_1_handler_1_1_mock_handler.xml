@@ -1,0 +1,248 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_guzzle_http_1_1_handler_1_1_mock_handler" xml:lang="fr">
+<title>Référence de la classe MockHandler</title>
+<indexterm><primary>MockHandler</primary></indexterm>
+Graphe d&apos;héritage de MockHandler:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_guzzle_http_1_1_handler_1_1_mock_handler__inherit__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Graphe de collaboration de MockHandler:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_guzzle_http_1_1_handler_1_1_mock_handler__coll__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Fonctions membres publiques    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_guzzle_http_1_1_handler_1_1_mock_handler_1aa3d410709af9e4cb942042a5cf7a5af3">__construct</link> (array $queue=null, <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">callable</link> $onFulfilled=null, <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">callable</link> $onRejected=null)</para>
+</listitem>
+            <listitem><para><link linkend="_class_guzzle_http_1_1_handler_1_1_mock_handler_1a8b41a62c59d4d0d86e7525197f2904f5">__invoke</link> (<link linkend="_interface_psr_1_1_http_1_1_message_1_1_request_interface">RequestInterface</link> $request, array $options)</para>
+</listitem>
+            <listitem><para><link linkend="_class_guzzle_http_1_1_handler_1_1_mock_handler_1a35faed8cafd9b375f140d80385c59751">append</link> (... $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">values</link>)</para>
+</listitem>
+            <listitem><para><link linkend="_class_guzzle_http_1_1_handler_1_1_mock_handler_1a0e2d8660fa4c6770655f936d3abbe6f4">getLastRequest</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_class_guzzle_http_1_1_handler_1_1_mock_handler_1ae75434d425ecb5c7f55cf4dc0a5ac9bf">getLastOptions</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_class_guzzle_http_1_1_handler_1_1_mock_handler_1ac751e87b3d4c4bf2feb03bee8b092755">count</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_class_guzzle_http_1_1_handler_1_1_mock_handler_1a4a20559544fdf4dcb457e258dc976cf8">reset</link> ()</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Fonctions membres publiques statiques    </title>
+        <itemizedlist>
+            <listitem><para>static <link linkend="_class_guzzle_http_1_1_handler_1_1_mock_handler_1a4a41c208da1bd7c23e8743993de931e8">createWithMiddleware</link> (array $queue=null, <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">callable</link> $onFulfilled=null, <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">callable</link> $onRejected=null)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Description détaillée</title>
+
+<para>Handler that returns responses or throw exceptions from a queue.</para>
+
+<para>@final </para>
+</section>
+<section>
+<title>Documentation des constructeurs et destructeur</title>
+<anchor xml:id="_class_guzzle_http_1_1_handler_1_1_mock_handler_1aa3d410709af9e4cb942042a5cf7a5af3"/><section>
+    <title>__construct()</title>
+<indexterm><primary>__construct</primary><secondary>MockHandler</secondary></indexterm>
+<indexterm><primary>MockHandler</primary><secondary>__construct</secondary></indexterm>
+<para><computeroutput>__construct (array $queue = <computeroutput>null</computeroutput>
+, <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">callable</link> $onFulfilled = <computeroutput>null</computeroutput>
+, <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">callable</link> $onRejected = <computeroutput>null</computeroutput>
+)</computeroutput></para>
+<para>The passed in value must be an array of {<formalpara><title>Voir également</title>
+
+<para>\Psr\Http\Message\ResponseInterface} <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">objects</link>, Exceptions, <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">callables</link>, or <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">Promises</link>.</para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry></entry><entry>array&lt;int, mixed&gt;|null</entry><entry>
+<para>$queue The parameters to be passed to the append function, as an indexed array. </para>
+</entry>
+                            </row>
+                            <row>
+<entry>callable | null</entry><entry>$onFulfilled</entry><entry>
+<para>Callback to invoke when the return value is fulfilled. </para>
+</entry>
+                            </row>
+                            <row>
+<entry>callable | null</entry><entry>$onRejected</entry><entry>
+<para>Callback to invoke when the return value is rejected. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_guzzle_http_1_1_handler_1_1_mock_handler_aa3d410709af9e4cb942042a5cf7a5af3_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+</section>
+<section>
+<title>Documentation des fonctions membres</title>
+<anchor xml:id="_class_guzzle_http_1_1_handler_1_1_mock_handler_1a8b41a62c59d4d0d86e7525197f2904f5"/><section>
+    <title>__invoke()</title>
+<indexterm><primary>__invoke</primary><secondary>MockHandler</secondary></indexterm>
+<indexterm><primary>MockHandler</primary><secondary>__invoke</secondary></indexterm>
+<para><computeroutput>__invoke (<link linkend="_interface_psr_1_1_http_1_1_message_1_1_request_interface">RequestInterface</link> $request, array $options)</computeroutput></para>Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_guzzle_http_1_1_handler_1_1_mock_handler_a8b41a62c59d4d0d86e7525197f2904f5_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_guzzle_http_1_1_handler_1_1_mock_handler_1a35faed8cafd9b375f140d80385c59751"/><section>
+    <title>append()</title>
+<indexterm><primary>append</primary><secondary>MockHandler</secondary></indexterm>
+<indexterm><primary>MockHandler</primary><secondary>append</secondary></indexterm>
+<para><computeroutput>append ( $values)</computeroutput></para>
+<para>Adds one or more variadic requests, exceptions, callables, or promises to the queue.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>mixed</entry><entry>
+<para>...$values </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_guzzle_http_1_1_handler_1_1_mock_handler_a35faed8cafd9b375f140d80385c59751_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_guzzle_http_1_1_handler_1_1_mock_handler_1ac751e87b3d4c4bf2feb03bee8b092755"/><section>
+    <title>count()</title>
+<indexterm><primary>count</primary><secondary>MockHandler</secondary></indexterm>
+<indexterm><primary>MockHandler</primary><secondary>count</secondary></indexterm>
+<para><computeroutput>count ( )</computeroutput></para>
+<para>Returns the number of remaining items in the queue. </para>
+</section>
+<anchor xml:id="_class_guzzle_http_1_1_handler_1_1_mock_handler_1a4a41c208da1bd7c23e8743993de931e8"/><section>
+    <title>createWithMiddleware()</title>
+<indexterm><primary>createWithMiddleware</primary><secondary>MockHandler</secondary></indexterm>
+<indexterm><primary>MockHandler</primary><secondary>createWithMiddleware</secondary></indexterm>
+<para><computeroutput>static createWithMiddleware (array $queue = <computeroutput>null</computeroutput>
+, <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">callable</link> $onFulfilled = <computeroutput>null</computeroutput>
+, <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">callable</link> $onRejected = <computeroutput>null</computeroutput>
+)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>Creates a new MockHandler that uses the default handler stack list of middlewares.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>array | null</entry><entry>$queue</entry><entry>
+<para>Array of responses, callables, or exceptions. </para>
+</entry>
+                            </row>
+                            <row>
+<entry>callable | null</entry><entry>$onFulfilled</entry><entry>
+<para>Callback to invoke when the return value is fulfilled. </para>
+</entry>
+                            </row>
+                            <row>
+<entry>callable | null</entry><entry>$onRejected</entry><entry>
+<para>Callback to invoke when the return value is rejected. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_guzzle_http_1_1_handler_1_1_mock_handler_a4a41c208da1bd7c23e8743993de931e8_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_guzzle_http_1_1_handler_1_1_mock_handler_1ae75434d425ecb5c7f55cf4dc0a5ac9bf"/><section>
+    <title>getLastOptions()</title>
+<indexterm><primary>getLastOptions</primary><secondary>MockHandler</secondary></indexterm>
+<indexterm><primary>MockHandler</primary><secondary>getLastOptions</secondary></indexterm>
+<para><computeroutput>getLastOptions ( )</computeroutput></para>
+<para>Get the last received request options. </para>
+</section>
+<anchor xml:id="_class_guzzle_http_1_1_handler_1_1_mock_handler_1a0e2d8660fa4c6770655f936d3abbe6f4"/><section>
+    <title>getLastRequest()</title>
+<indexterm><primary>getLastRequest</primary><secondary>MockHandler</secondary></indexterm>
+<indexterm><primary>MockHandler</primary><secondary>getLastRequest</secondary></indexterm>
+<para><computeroutput>getLastRequest ( )</computeroutput></para>
+<para>Get the last received request. </para>
+</section>
+<anchor xml:id="_class_guzzle_http_1_1_handler_1_1_mock_handler_1a4a20559544fdf4dcb457e258dc976cf8"/><section>
+    <title>reset()</title>
+<indexterm><primary>reset</primary><secondary>MockHandler</secondary></indexterm>
+<indexterm><primary>MockHandler</primary><secondary>reset</secondary></indexterm>
+<para><computeroutput>reset ( )</computeroutput></para></section>
+<para>
+La documentation de cette classe a été générée à partir du fichier suivant :</para>
+public/glpi/vendor/guzzlehttp/guzzle/src/Handler/<link linkend="__mock_handler_8php">MockHandler.php</link></section>
+</section>

@@ -1,0 +1,68 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_includes_8php" xml:lang="fr">
+<title>Référence du fichier public/glpi/inc/includes.php</title>
+<indexterm><primary>public/glpi/inc/includes.php</primary></indexterm>
+<simplesect>
+    <title>Variables    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">global</link> <link linkend="_includes_8php_1a2e00a61703ee4673cdfb5eb376a9b295">$CFG_GLPI</link></para>
+</listitem>
+            <listitem><para><link linkend="_includes_8php_1a903d70c262a4e644cb5af1f114d1f58e">if</link> (!defined( &apos;<link linkend="_apirest_8php_1af6315dcee605fda09b6c3109c1b739b1">GLPI_ROOT</link>&apos;))</para>
+</listitem>
+            <listitem><para><link linkend="_includes_8php_1a7fedbacd636eb034121fd1dfda3d80b3">$TIMER_DEBUG</link> = <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">new</link> <link linkend="_class_timer">Timer</link>()</para>
+</listitem>
+            <listitem><para><link linkend="_includes_8php_1ae4cb516593d277dd3ad071d6955da24e">$_SERVER</link> [&apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">PHP_SELF</link>&apos;] = Html::cleanParametersURL($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">_SERVER</link>[&apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">PHP_SELF</link>&apos;])</para>
+
+<para>TODO try to remove them if possible. </para>
+</listitem>
+            <listitem><para><link linkend="_dropdown_location_8php_1a52332c22f84432520971794825a5a8e7">if</link>(<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">isset</link>($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">_SESSION</link>[&apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">glpi_use_mode</link>&apos;]) &amp;&amp;($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">_SESSION</link>[&apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">glpi_use_mode</link>&apos;]==Session::DEBUG_MODE)) <link linkend="_includes_8php_1a7fa7f84c0de0e1f0c78729560e817982">$HEADER_LOADED</link> = false</para>
+</listitem>
+            <listitem><para><link linkend="_includes_8php_1a3bbd3f6edd7fae7e9f1809c905086674">$FOOTER_LOADED</link> = false</para>
+</listitem>
+            <listitem><para><link linkend="_dropdown_location_8php_1a52332c22f84432520971794825a5a8e7">if</link>(!<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">isset</link>($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">_SESSION</link>[&quot;MESSAGE_AFTER_REDIRECT&quot;])) <link linkend="_dropdown_location_8php_1a52332c22f84432520971794825a5a8e7">if</link>(<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">isset</link>( $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">_REQUEST</link>[ &apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">forcetab</link>&apos;])) <link linkend="_dropdown_location_8php_1a52332c22f84432520971794825a5a8e7">if</link>(<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">isset</link>($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">_REQUEST</link>[&apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">glpi_tab</link>&apos;]) &amp;&amp;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">isset</link>($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">_REQUEST</link>[&apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">itemtype</link>&apos;])) <link linkend="_dropdown_location_8php_1a52332c22f84432520971794825a5a8e7">if</link>(<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">isset</link>( $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">_REQUEST</link>[ &apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">glpilist_limit</link>&apos;])) <link linkend="_dropdown_location_8php_1a52332c22f84432520971794825a5a8e7">if</link>(<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">GLPI_USE_CSRF_CHECK</link> &amp;&amp;!<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">isAPI</link>() &amp;&amp;count($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">_POST</link>) &gt; 0 <link linkend="_includes_8php_1ab787e3d8e79b17ee2f3a1cb5ae3144e7">$CURRENTCSRFTOKEN</link> ) = &apos;&apos;</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Documentation des variables</title>
+<anchor xml:id="_includes_8php_1ae4cb516593d277dd3ad071d6955da24e"/><section>
+    <title>$_SERVER</title>
+<indexterm><primary>$_SERVER</primary><secondary>includes.php</secondary></indexterm>
+<indexterm><primary>includes.php</primary><secondary>$_SERVER</secondary></indexterm>
+<para><computeroutput>$<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">_SERVER</link>[ &apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">PHP_SELF</link>&apos;] = Html::cleanParametersURL($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">_SERVER</link>[&apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">PHP_SELF</link>&apos;])</computeroutput></para><para>
+
+<para>TODO try to remove them if possible. </para>
+</para>
+</section>
+<anchor xml:id="_includes_8php_1a2e00a61703ee4673cdfb5eb376a9b295"/><section>
+    <title>$CFG_GLPI</title>
+<indexterm><primary>$CFG_GLPI</primary><secondary>includes.php</secondary></indexterm>
+<indexterm><primary>includes.php</primary><secondary>$CFG_GLPI</secondary></indexterm>
+<para><computeroutput><link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">global</link> $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">CFG_GLPI</link></computeroutput></para></section>
+<anchor xml:id="_includes_8php_1ab787e3d8e79b17ee2f3a1cb5ae3144e7"/><section>
+    <title>$CURRENTCSRFTOKEN</title>
+<indexterm><primary>$CURRENTCSRFTOKEN</primary><secondary>includes.php</secondary></indexterm>
+<indexterm><primary>includes.php</primary><secondary>$CURRENTCSRFTOKEN</secondary></indexterm>
+<para><computeroutput><link linkend="_dropdown_location_8php_1a52332c22f84432520971794825a5a8e7">if</link>(!<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">isset</link>( $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">_SESSION</link>[&quot;MESSAGE_AFTER_REDIRECT&quot;])) <link linkend="_dropdown_location_8php_1a52332c22f84432520971794825a5a8e7">if</link>(<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">isset</link>($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">_REQUEST</link>[&apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">forcetab</link>&apos;])) <link linkend="_dropdown_location_8php_1a52332c22f84432520971794825a5a8e7">if</link>(<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">isset</link>( $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">_REQUEST</link>[ &apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">glpi_tab</link>&apos;]) &amp;&amp;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">isset</link>( $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">_REQUEST</link>[ &apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">itemtype</link>&apos;])) <link linkend="_dropdown_location_8php_1a52332c22f84432520971794825a5a8e7">if</link>(<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">isset</link>($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">_REQUEST</link>[&apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">glpilist_limit</link>&apos;])) <link linkend="_dropdown_location_8php_1a52332c22f84432520971794825a5a8e7">if</link> (<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">GLPI_USE_CSRF_CHECK</link> &amp;&amp;!<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">isAPI</link>() &amp;&amp;count( $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">_POST</link>) &gt; 0 $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">CURRENTCSRFTOKEN</link>)  = &apos;&apos;</computeroutput></para></section>
+<anchor xml:id="_includes_8php_1a3bbd3f6edd7fae7e9f1809c905086674"/><section>
+    <title>$FOOTER_LOADED</title>
+<indexterm><primary>$FOOTER_LOADED</primary><secondary>includes.php</secondary></indexterm>
+<indexterm><primary>includes.php</primary><secondary>$FOOTER_LOADED</secondary></indexterm>
+<para><computeroutput>bool $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">FOOTER_LOADED</link> = false</computeroutput></para></section>
+<anchor xml:id="_includes_8php_1a7fa7f84c0de0e1f0c78729560e817982"/><section>
+    <title>$HEADER_LOADED</title>
+<indexterm><primary>$HEADER_LOADED</primary><secondary>includes.php</secondary></indexterm>
+<indexterm><primary>includes.php</primary><secondary>$HEADER_LOADED</secondary></indexterm>
+<para><computeroutput>bool $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">HEADER_LOADED</link> = false</computeroutput></para></section>
+<anchor xml:id="_includes_8php_1a7fedbacd636eb034121fd1dfda3d80b3"/><section>
+    <title>$TIMER_DEBUG</title>
+<indexterm><primary>$TIMER_DEBUG</primary><secondary>includes.php</secondary></indexterm>
+<indexterm><primary>includes.php</primary><secondary>$TIMER_DEBUG</secondary></indexterm>
+<para><computeroutput>$<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">TIMER_DEBUG</link> = <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">new</link> <link linkend="_class_timer">Timer</link>()</computeroutput></para></section>
+<anchor xml:id="_includes_8php_1a903d70c262a4e644cb5af1f114d1f58e"/><section>
+    <title>if</title>
+<indexterm><primary>if</primary><secondary>includes.php</secondary></indexterm>
+<indexterm><primary>includes.php</primary><secondary>if</secondary></indexterm>
+<para><computeroutput>if(!defined(&apos;<link linkend="_apirest_8php_1af6315dcee605fda09b6c3109c1b739b1">GLPI_ROOT</link>&apos;)) (! defined &apos;GLPI_ROOT&apos;)</computeroutput></para></section>
+</section>
+</section>

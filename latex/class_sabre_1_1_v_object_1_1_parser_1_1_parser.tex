@@ -1,0 +1,170 @@
+\doxysection{Référence de la classe Parser}
+\hypertarget{class_sabre_1_1_v_object_1_1_parser_1_1_parser}{}\label{class_sabre_1_1_v_object_1_1_parser_1_1_parser}\index{Parser@{Parser}}
+
+
+Graphe d\textquotesingle{}héritage de Parser\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_sabre_1_1_v_object_1_1_parser_1_1_parser__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Graphe de collaboration de Parser\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=262pt]{class_sabre_1_1_v_object_1_1_parser_1_1_parser__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_sabre_1_1_v_object_1_1_parser_1_1_parser_af32289316bdb68b71940bdee3508a792}{\+\_\+\+\_\+construct}} (\$input=null, \$options=0)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_v_object_1_1_parser_1_1_parser_a297ca4bfee24023fcfd05fe058d5a854}{parse}} (\$input=null, \$options=0)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_v_object_1_1_parser_1_1_parser_acdbd2280cbfbe555eafd0f1109afa753}{set\+Input}} (\$input)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Champs de données}
+\begin{DoxyCompactItemize}
+\item 
+const \mbox{\hyperlink{class_sabre_1_1_v_object_1_1_parser_1_1_parser_a0d11025a1d489ea365f66812cefdae6f}{OPTION\+\_\+\+FORGIVING}} = 1
+\item 
+const \mbox{\hyperlink{class_sabre_1_1_v_object_1_1_parser_1_1_parser_a0ae099cb7c7529ae9cb1a5da4284fb69}{OPTION\+\_\+\+IGNORE\+\_\+\+INVALID\+\_\+\+LINES}} = 2
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Attributs protégés}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_sabre_1_1_v_object_1_1_parser_1_1_parser_a011800c63ece4cbbfa77136a20607023}{\$options}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Abstract parser.
+
+This class serves as a base-\/class for the different parsers.
+
+\begin{DoxyCopyright}{Copyright}
+Copyright (C) fruux GmbH (\href{https://fruux.com/}{\texttt{ https\+://fruux.\+com/}}) 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Auteur}
+Evert Pot (\href{http://evertpot.com/}{\texttt{ http\+://evertpot.\+com/}}) @license \href{http://sabre.io/license/}{\texttt{ http\+://sabre.\+io/license/}} Modified BSD License 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Documentation des constructeurs et destructeur}
+\Hypertarget{class_sabre_1_1_v_object_1_1_parser_1_1_parser_af32289316bdb68b71940bdee3508a792}\label{class_sabre_1_1_v_object_1_1_parser_1_1_parser_af32289316bdb68b71940bdee3508a792} 
+\index{Parser@{Parser}!\_\_construct@{\_\_construct}}
+\index{\_\_construct@{\_\_construct}!Parser@{Parser}}
+\doxysubsubsection{\texorpdfstring{\_\_construct()}{\_\_construct()}}
+{\footnotesize\ttfamily \+\_\+\+\_\+construct (\begin{DoxyParamCaption}\item[{}]{\$input = {\ttfamily null},  }\item[{}]{\$options = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+Creates the parser.
+
+Optionally, it\textquotesingle{}s possible to parse the input stream here.
+
+
+\begin{DoxyParams}[1]{Paramètres}
+mixed & {\em \$input} & \\
+\hline
+int & {\em \$options} & any parser options (OPTION constants) \\
+\hline
+\end{DoxyParams}
+
+
+Réimplémentée dans \mbox{\hyperlink{class_sabre_1_1_v_object_1_1_parser_1_1_x_m_l_af32289316bdb68b71940bdee3508a792}{XML}}.
+
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=234pt]{class_sabre_1_1_v_object_1_1_parser_1_1_parser_af32289316bdb68b71940bdee3508a792_cgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Documentation des fonctions membres}
+\Hypertarget{class_sabre_1_1_v_object_1_1_parser_1_1_parser_a297ca4bfee24023fcfd05fe058d5a854}\label{class_sabre_1_1_v_object_1_1_parser_1_1_parser_a297ca4bfee24023fcfd05fe058d5a854} 
+\index{Parser@{Parser}!parse@{parse}}
+\index{parse@{parse}!Parser@{Parser}}
+\doxysubsubsection{\texorpdfstring{parse()}{parse()}}
+{\footnotesize\ttfamily parse (\begin{DoxyParamCaption}\item[{}]{\$input = {\ttfamily null},  }\item[{}]{\$options = {\ttfamily 0} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [abstract]}}
+
+This method starts the parsing process.
+
+If the input was not supplied during construction, it\textquotesingle{}s possible to pass it here instead.
+
+If either input or options are not supplied, the defaults will be used.
+
+
+\begin{DoxyParams}[1]{Paramètres}
+mixed & {\em \$input} & \\
+\hline
+int & {\em \$options} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+array 
+\end{DoxyReturn}
+
+
+Réimplémentée dans \mbox{\hyperlink{class_sabre_1_1_v_object_1_1_parser_1_1_json_a297ca4bfee24023fcfd05fe058d5a854}{Json}}, \mbox{\hyperlink{class_sabre_1_1_v_object_1_1_parser_1_1_mime_dir_a297ca4bfee24023fcfd05fe058d5a854}{Mime\+Dir}}, et \mbox{\hyperlink{class_sabre_1_1_v_object_1_1_parser_1_1_x_m_l_a297ca4bfee24023fcfd05fe058d5a854}{XML}}.
+
+\Hypertarget{class_sabre_1_1_v_object_1_1_parser_1_1_parser_acdbd2280cbfbe555eafd0f1109afa753}\label{class_sabre_1_1_v_object_1_1_parser_1_1_parser_acdbd2280cbfbe555eafd0f1109afa753} 
+\index{Parser@{Parser}!setInput@{setInput}}
+\index{setInput@{setInput}!Parser@{Parser}}
+\doxysubsubsection{\texorpdfstring{setInput()}{setInput()}}
+{\footnotesize\ttfamily set\+Input (\begin{DoxyParamCaption}\item[{}]{\$input }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [abstract]}}
+
+Sets the input data.
+
+
+\begin{DoxyParams}[1]{Paramètres}
+mixed & {\em \$input} & \\
+\hline
+\end{DoxyParams}
+
+
+Réimplémentée dans \mbox{\hyperlink{class_sabre_1_1_v_object_1_1_parser_1_1_json_acdbd2280cbfbe555eafd0f1109afa753}{Json}}, \mbox{\hyperlink{class_sabre_1_1_v_object_1_1_parser_1_1_mime_dir_acdbd2280cbfbe555eafd0f1109afa753}{Mime\+Dir}}, et \mbox{\hyperlink{class_sabre_1_1_v_object_1_1_parser_1_1_x_m_l_acdbd2280cbfbe555eafd0f1109afa753}{XML}}.
+
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=234pt]{class_sabre_1_1_v_object_1_1_parser_1_1_parser_acdbd2280cbfbe555eafd0f1109afa753_icgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Documentation des champs}
+\Hypertarget{class_sabre_1_1_v_object_1_1_parser_1_1_parser_a011800c63ece4cbbfa77136a20607023}\label{class_sabre_1_1_v_object_1_1_parser_1_1_parser_a011800c63ece4cbbfa77136a20607023} 
+\index{Parser@{Parser}!\$options@{\$options}}
+\index{\$options@{\$options}!Parser@{Parser}}
+\doxysubsubsection{\texorpdfstring{\$options}{\$options}}
+{\footnotesize\ttfamily \$options\hspace{0.3cm}{\ttfamily [protected]}}
+
+\Hypertarget{class_sabre_1_1_v_object_1_1_parser_1_1_parser_a0d11025a1d489ea365f66812cefdae6f}\label{class_sabre_1_1_v_object_1_1_parser_1_1_parser_a0d11025a1d489ea365f66812cefdae6f} 
+\index{Parser@{Parser}!OPTION\_FORGIVING@{OPTION\_FORGIVING}}
+\index{OPTION\_FORGIVING@{OPTION\_FORGIVING}!Parser@{Parser}}
+\doxysubsubsection{\texorpdfstring{OPTION\_FORGIVING}{OPTION\_FORGIVING}}
+{\footnotesize\ttfamily const OPTION\+\_\+\+FORGIVING = 1}
+
+Turning on this option makes the parser more forgiving.
+
+In the case of the Mime\+Dir parser, this means that the parser will accept slashes and underscores in property names, and it will also attempt to fix Microsoft v\+Card 2.\+1\textquotesingle{}s broken line folding. \Hypertarget{class_sabre_1_1_v_object_1_1_parser_1_1_parser_a0ae099cb7c7529ae9cb1a5da4284fb69}\label{class_sabre_1_1_v_object_1_1_parser_1_1_parser_a0ae099cb7c7529ae9cb1a5da4284fb69} 
+\index{Parser@{Parser}!OPTION\_IGNORE\_INVALID\_LINES@{OPTION\_IGNORE\_INVALID\_LINES}}
+\index{OPTION\_IGNORE\_INVALID\_LINES@{OPTION\_IGNORE\_INVALID\_LINES}!Parser@{Parser}}
+\doxysubsubsection{\texorpdfstring{OPTION\_IGNORE\_INVALID\_LINES}{OPTION\_IGNORE\_INVALID\_LINES}}
+{\footnotesize\ttfamily const OPTION\+\_\+\+IGNORE\+\_\+\+INVALID\+\_\+\+LINES = 2}
+
+If this option is turned on, any lines we cannot parse will be ignored by the reader. 
+
+La documentation de cette classe a été générée à partir du fichier suivant \+:\begin{DoxyCompactItemize}
+\item 
+public/glpi/vendor/sabre/vobject/lib/\+Parser/\mbox{\hyperlink{sabre_2vobject_2lib_2_parser_2_parser_8php}{Parser.\+php}}\end{DoxyCompactItemize}

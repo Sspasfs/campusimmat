@@ -1,0 +1,972 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_md_public_2glpi_2vendor_2guzzlehttp_2psr7_2_r_e_a_d_m_e" xml:lang="fr">
+<title>PSR-7 Message Implementation</title>
+<indexterm><primary>PSR-7 Message Implementation</primary></indexterm>
+
+<para><anchor xml:id="_md_public_2glpi_2vendor_2guzzlehttp_2psr7_2_r_e_a_d_m_e_1autotoc_md6204"/> This repository contains a full <link xlink:href="https://www.php-fig.org/psr/psr-7/">PSR-7</link> message implementation, several stream decorators, and some helpful functionality like query string parsing.</para>
+
+<para> </para>
+<section xml:id="_md_public_2glpi_2vendor_2guzzlehttp_2psr7_2_r_e_a_d_m_e_1autotoc_md6205">
+<title><title>Installation</title></title>
+
+<para><literallayout><computeroutput>composer&#32;require&#32;guzzlehttp/psr7
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2guzzlehttp_2psr7_2_r_e_a_d_m_e_1autotoc_md6206">
+<title><title>Stream implementation</title></title>
+
+<para>This package comes with a number of stream implementations and stream decorators.</para>
+<section xml:id="_md_public_2glpi_2vendor_2guzzlehttp_2psr7_2_r_e_a_d_m_e_1autotoc_md6207">
+<title><title>AppendStream</title></title>
+
+<para><computeroutput><link linkend="_namespace_guzzle_http">GuzzleHttp</link>\Psr7\AppendStream</computeroutput></para>
+
+<para>Reads from multiple streams, one after the other.</para>
+
+<para><literallayout><computeroutput>use&#32;GuzzleHttp\Psr7;
+
+$a&#32;=&#32;Psr7\Utils::streamFor(&apos;abc,&#32;&apos;);
+$b&#32;=&#32;Psr7\Utils::streamFor(&apos;123.&apos;);
+$composed&#32;=&#32;new&#32;Psr7\AppendStream([$a,&#32;$b]);
+
+$composed-&gt;addStream(Psr7\Utils::streamFor(&apos;&#32;Above&#32;all&#32;listen&#32;to&#32;me&apos;));
+
+echo&#32;$composed;&#32;//&#32;abc,&#32;123.&#32;Above&#32;all&#32;listen&#32;to&#32;me.
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2guzzlehttp_2psr7_2_r_e_a_d_m_e_1autotoc_md6208">
+<title><title>BufferStream</title></title>
+
+<para><computeroutput><link linkend="_namespace_guzzle_http">GuzzleHttp</link>\Psr7\BufferStream</computeroutput></para>
+
+<para>Provides a buffer stream that can be written to fill a buffer, and read from to remove bytes from the buffer.</para>
+
+<para>This stream returns a &quot;hwm&quot; metadata value that tells upstream consumers what the configured high water mark of the stream is, or the maximum preferred size of the buffer.</para>
+
+<para><literallayout><computeroutput>use&#32;GuzzleHttp\Psr7;
+
+//&#32;When&#32;more&#32;than&#32;1024&#32;bytes&#32;are&#32;in&#32;the&#32;buffer,&#32;it&#32;will&#32;begin&#32;returning
+//&#32;false&#32;to&#32;writes.&#32;This&#32;is&#32;an&#32;indication&#32;that&#32;writers&#32;should&#32;slow&#32;down.
+$buffer&#32;=&#32;new&#32;Psr7\BufferStream(1024);
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2guzzlehttp_2psr7_2_r_e_a_d_m_e_1autotoc_md6209">
+<title><title>CachingStream</title></title>
+
+<para>The CachingStream is used to allow seeking over previously read bytes on non-seekable streams. This can be useful when transferring a non-seekable entity body fails due to needing to rewind the stream (for example, resulting from a redirect). Data that is read from the remote stream will be buffered in a PHP temp stream so that previously read bytes are cached first in memory, then on disk.</para>
+
+<para><literallayout><computeroutput>use&#32;GuzzleHttp\Psr7;
+
+$original&#32;=&#32;Psr7\Utils::streamFor(fopen(&apos;http://www.google.com&apos;,&#32;&apos;r&apos;));
+$stream&#32;=&#32;new&#32;Psr7\CachingStream($original);
+
+$stream-&gt;read(1024);
+echo&#32;$stream-&gt;tell();
+//&#32;1024
+
+$stream-&gt;seek(0);
+echo&#32;$stream-&gt;tell();
+//&#32;0
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2guzzlehttp_2psr7_2_r_e_a_d_m_e_1autotoc_md6210">
+<title><title>DroppingStream</title></title>
+
+<para><computeroutput><link linkend="_namespace_guzzle_http">GuzzleHttp</link>\Psr7\DroppingStream</computeroutput></para>
+
+<para>Stream decorator that begins dropping data once the size of the underlying stream becomes too full.</para>
+
+<para><literallayout><computeroutput>use&#32;GuzzleHttp\Psr7;
+
+//&#32;Create&#32;an&#32;empty&#32;stream
+$stream&#32;=&#32;Psr7\Utils::streamFor();
+
+//&#32;Start&#32;dropping&#32;data&#32;when&#32;the&#32;stream&#32;has&#32;more&#32;than&#32;10&#32;bytes
+$dropping&#32;=&#32;new&#32;Psr7\DroppingStream($stream,&#32;10);
+
+$dropping-&gt;write(&apos;01234567890123456789&apos;);
+echo&#32;$stream;&#32;//&#32;0123456789
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2guzzlehttp_2psr7_2_r_e_a_d_m_e_1autotoc_md6211">
+<title><title>FnStream</title></title>
+
+<para><computeroutput><link linkend="_namespace_guzzle_http">GuzzleHttp</link>\Psr7\FnStream</computeroutput></para>
+
+<para>Compose stream implementations based on a hash of functions.</para>
+
+<para>Allows for easy testing and extension of a provided stream without needing to create a concrete class for a simple extension point.</para>
+
+<para><literallayout><computeroutput>use&#32;GuzzleHttp\Psr7;
+
+$stream&#32;=&#32;Psr7\Utils::streamFor(&apos;hi&apos;);
+$fnStream&#32;=&#32;Psr7\FnStream::decorate($stream,&#32;[
+&#32;&#32;&#32;&#32;&apos;rewind&apos;&#32;=&gt;&#32;function&#32;()&#32;use&#32;($stream)&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;echo&#32;&apos;About&#32;to&#32;rewind&#32;-&#32;&apos;;
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;$stream-&gt;rewind();
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;echo&#32;&apos;rewound!&apos;;
+&#32;&#32;&#32;&#32;}
+]);
+
+$fnStream-&gt;rewind();
+//&#32;Outputs:&#32;About&#32;to&#32;rewind&#32;-&#32;rewound!
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2guzzlehttp_2psr7_2_r_e_a_d_m_e_1autotoc_md6212">
+<title><title>InflateStream</title></title>
+
+<para><computeroutput><link linkend="_namespace_guzzle_http">GuzzleHttp</link>\Psr7\InflateStream</computeroutput></para>
+
+<para>Uses PHP&apos;s zlib.inflate filter to inflate zlib (HTTP deflate, RFC1950) or gzipped (RFC1952) content.</para>
+
+<para>This stream decorator converts the provided stream to a PHP stream resource, then appends the zlib.inflate filter. The stream is then converted back to a Guzzle stream resource to be used as a Guzzle stream.</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2guzzlehttp_2psr7_2_r_e_a_d_m_e_1autotoc_md6213">
+<title><title>LazyOpenStream</title></title>
+
+<para><computeroutput><link linkend="_namespace_guzzle_http">GuzzleHttp</link>\Psr7\LazyOpenStream</computeroutput></para>
+
+<para>Lazily reads or writes to a file that is opened only after an IO operation take place on the stream.</para>
+
+<para><literallayout><computeroutput>use&#32;GuzzleHttp\Psr7;
+
+$stream&#32;=&#32;new&#32;Psr7\LazyOpenStream(&apos;/path/to/file&apos;,&#32;&apos;r&apos;);
+//&#32;The&#32;file&#32;has&#32;not&#32;yet&#32;been&#32;opened...
+
+echo&#32;$stream-&gt;read(10);
+//&#32;The&#32;file&#32;is&#32;opened&#32;and&#32;read&#32;from&#32;only&#32;when&#32;needed.
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2guzzlehttp_2psr7_2_r_e_a_d_m_e_1autotoc_md6214">
+<title><title>LimitStream</title></title>
+
+<para><computeroutput><link linkend="_namespace_guzzle_http">GuzzleHttp</link>\Psr7\LimitStream</computeroutput></para>
+
+<para>LimitStream can be used to read a subset or slice of an existing stream object. This can be useful for breaking a large file into smaller pieces to be sent in chunks (e.g. Amazon S3&apos;s multipart upload API).</para>
+
+<para><literallayout><computeroutput>use&#32;GuzzleHttp\Psr7;
+
+$original&#32;=&#32;Psr7\Utils::streamFor(fopen(&apos;/tmp/test.txt&apos;,&#32;&apos;r+&apos;));
+echo&#32;$original-&gt;getSize();
+//&#32;&gt;&gt;&gt;&#32;1048576
+
+//&#32;Limit&#32;the&#32;size&#32;of&#32;the&#32;body&#32;to&#32;1024&#32;bytes&#32;and&#32;start&#32;reading&#32;from&#32;byte&#32;2048
+$stream&#32;=&#32;new&#32;Psr7\LimitStream($original,&#32;1024,&#32;2048);
+echo&#32;$stream-&gt;getSize();
+//&#32;&gt;&gt;&gt;&#32;1024
+echo&#32;$stream-&gt;tell();
+//&#32;&gt;&gt;&gt;&#32;0
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2guzzlehttp_2psr7_2_r_e_a_d_m_e_1autotoc_md6215">
+<title><title>MultipartStream</title></title>
+
+<para><computeroutput><link linkend="_namespace_guzzle_http">GuzzleHttp</link>\Psr7\MultipartStream</computeroutput></para>
+
+<para>Stream that when read returns bytes for a streaming multipart or multipart/form-data stream.</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2guzzlehttp_2psr7_2_r_e_a_d_m_e_1autotoc_md6216">
+<title><title>NoSeekStream</title></title>
+
+<para><computeroutput><link linkend="_namespace_guzzle_http">GuzzleHttp</link>\Psr7\NoSeekStream</computeroutput></para>
+
+<para>NoSeekStream wraps a stream and does not allow seeking.</para>
+
+<para><literallayout><computeroutput>use&#32;GuzzleHttp\Psr7;
+
+$original&#32;=&#32;Psr7\Utils::streamFor(&apos;foo&apos;);
+$noSeek&#32;=&#32;new&#32;Psr7\NoSeekStream($original);
+
+echo&#32;$noSeek-&gt;read(3);
+//&#32;foo
+var_export($noSeek-&gt;isSeekable());
+//&#32;false
+$noSeek-&gt;seek(0);
+var_export($noSeek-&gt;read(3));
+//&#32;NULL
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2guzzlehttp_2psr7_2_r_e_a_d_m_e_1autotoc_md6217">
+<title><title>PumpStream</title></title>
+
+<para><computeroutput><link linkend="_namespace_guzzle_http">GuzzleHttp</link>\Psr7\PumpStream</computeroutput></para>
+
+<para>Provides a read only stream that pumps data from a PHP callable.</para>
+
+<para>When invoking the provided callable, the PumpStream will pass the amount of data requested to read to the callable. The callable can choose to ignore this value and return fewer or more bytes than requested. Any extra data returned by the provided callable is buffered internally until drained using the read() function of the PumpStream. The provided callable MUST return false when there is no more data to read.</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2guzzlehttp_2psr7_2_r_e_a_d_m_e_1autotoc_md6218">
+<title><title>Implementing stream decorators</title></title>
+
+<para>Creating a stream decorator is very easy thanks to the <computeroutput><link linkend="_namespace_guzzle_http">GuzzleHttp</link>\Psr7\StreamDecoratorTrait</computeroutput>. This trait provides methods that implement <computeroutput>Psr\Http\Message\StreamInterface</computeroutput> by proxying to an underlying stream. Just <computeroutput>use</computeroutput> the <computeroutput>StreamDecoratorTrait</computeroutput> and implement your custom methods.</para>
+
+<para>For example, let&apos;s say we wanted to call a specific function each time the last byte is read from a stream. This could be implemented by overriding the <computeroutput>read()</computeroutput> method.</para>
+
+<para><literallayout><computeroutput>use&#32;Psr\Http\Message\StreamInterface;
+use&#32;GuzzleHttp\Psr7\StreamDecoratorTrait;
+
+class&#32;EofCallbackStream&#32;implements&#32;StreamInterface
+{
+&#32;&#32;&#32;&#32;use&#32;StreamDecoratorTrait;
+
+&#32;&#32;&#32;&#32;private&#32;$callback;
+
+&#32;&#32;&#32;&#32;private&#32;$stream;
+
+&#32;&#32;&#32;&#32;public&#32;function&#32;__construct(StreamInterface&#32;$stream,&#32;callable&#32;$cb)
+&#32;&#32;&#32;&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;$this-&gt;stream&#32;=&#32;$stream;
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;$this-&gt;callback&#32;=&#32;$cb;
+&#32;&#32;&#32;&#32;}
+
+&#32;&#32;&#32;&#32;public&#32;function&#32;read($length)
+&#32;&#32;&#32;&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;$result&#32;=&#32;$this-&gt;stream-&gt;read($length);
+
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;//&#32;Invoke&#32;the&#32;callback&#32;when&#32;EOF&#32;is&#32;hit.
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;if&#32;($this-&gt;eof())&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;call_user_func($this-&gt;callback);
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;return&#32;$result;
+&#32;&#32;&#32;&#32;}
+}
+</computeroutput></literallayout></para>
+
+<para>This decorator could be added to any existing stream and used like so:</para>
+
+<para><literallayout><computeroutput>use&#32;GuzzleHttp\Psr7;
+
+$original&#32;=&#32;Psr7\Utils::streamFor(&apos;foo&apos;);
+
+$eofStream&#32;=&#32;new&#32;EofCallbackStream($original,&#32;function&#32;()&#32;{
+&#32;&#32;&#32;&#32;echo&#32;&apos;EOF!&apos;;
+});
+
+$eofStream-&gt;read(2);
+$eofStream-&gt;read(1);
+//&#32;echoes&#32;&quot;EOF!&quot;
+$eofStream-&gt;seek(0);
+$eofStream-&gt;read(3);
+//&#32;echoes&#32;&quot;EOF!&quot;
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2guzzlehttp_2psr7_2_r_e_a_d_m_e_1autotoc_md6219">
+<title><title>PHP StreamWrapper</title></title>
+
+<para>You can use the <computeroutput><link linkend="_namespace_guzzle_http">GuzzleHttp</link>\Psr7\StreamWrapper</computeroutput> class if you need to use a PSR-7 stream as a PHP stream resource.</para>
+
+<para>Use the <computeroutput><link linkend="_namespace_guzzle_http">GuzzleHttp</link>\Psr7\StreamWrapper::getResource()</computeroutput> method to create a PHP stream from a PSR-7 stream.</para>
+
+<para><literallayout><computeroutput>use&#32;GuzzleHttp\Psr7\StreamWrapper;
+
+$stream&#32;=&#32;GuzzleHttp\Psr7\Utils::streamFor(&apos;hello!&apos;);
+$resource&#32;=&#32;StreamWrapper::getResource($stream);
+echo&#32;fread($resource,&#32;6);&#32;//&#32;outputs&#32;hello!
+</computeroutput></literallayout></para>
+</section>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2guzzlehttp_2psr7_2_r_e_a_d_m_e_1autotoc_md6220">
+<title><title>Static API</title></title>
+
+<para>There are various static methods available under the <computeroutput><link linkend="_namespace_guzzle_http">GuzzleHttp</link>\Psr7</computeroutput> namespace.</para>
+<section xml:id="_md_public_2glpi_2vendor_2guzzlehttp_2psr7_2_r_e_a_d_m_e_1autotoc_md6221">
+<title><title><computeroutput>GuzzleHttp\Psr7\Message::toString</computeroutput></title></title>
+
+<para><computeroutput>public static function toString(MessageInterface $message): string</computeroutput></para>
+
+<para>Returns the string representation of an HTTP message.</para>
+
+<para><literallayout><computeroutput>$request&#32;=&#32;new&#32;GuzzleHttp\Psr7\Request(&apos;GET&apos;,&#32;&apos;http://example.com&apos;);
+echo&#32;GuzzleHttp\Psr7\Message::toString($request);
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2guzzlehttp_2psr7_2_r_e_a_d_m_e_1autotoc_md6222">
+<title><title><computeroutput>GuzzleHttp\Psr7\Message::bodySummary</computeroutput></title></title>
+
+<para><computeroutput>public static function bodySummary(MessageInterface $message, int $truncateAt = 120): string|null</computeroutput></para>
+
+<para>Get a short summary of the message body.</para>
+
+<para>Will return <computeroutput>null</computeroutput> if the response is not printable.</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2guzzlehttp_2psr7_2_r_e_a_d_m_e_1autotoc_md6223">
+<title><title><computeroutput>GuzzleHttp\Psr7\Message::rewindBody</computeroutput></title></title>
+
+<para><computeroutput>public static function rewindBody(MessageInterface $message): void</computeroutput></para>
+
+<para>Attempts to rewind a message body and throws an exception on failure.</para>
+
+<para>The body of the message will only be rewound if a call to <computeroutput>tell()</computeroutput> returns a value other than <computeroutput>0</computeroutput>.</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2guzzlehttp_2psr7_2_r_e_a_d_m_e_1autotoc_md6224">
+<title><title><computeroutput>GuzzleHttp\Psr7\Message::parseMessage</computeroutput></title></title>
+
+<para><computeroutput>public static function parseMessage(string $message): array</computeroutput></para>
+
+<para>Parses an HTTP message into an associative array.</para>
+
+<para>The array contains the &quot;start-line&quot; key containing the start line of the message, &quot;headers&quot; key containing an associative array of header array values, and a &quot;body&quot; key containing the body of the message.</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2guzzlehttp_2psr7_2_r_e_a_d_m_e_1autotoc_md6225">
+<title><title><computeroutput>GuzzleHttp\Psr7\Message::parseRequestUri</computeroutput></title></title>
+
+<para><computeroutput>public static function parseRequestUri(string $path, array $headers): string</computeroutput></para>
+
+<para>Constructs a URI for an HTTP request message.</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2guzzlehttp_2psr7_2_r_e_a_d_m_e_1autotoc_md6226">
+<title><title><computeroutput>GuzzleHttp\Psr7\Message::parseRequest</computeroutput></title></title>
+
+<para><computeroutput>public static function parseRequest(string $message): Request</computeroutput></para>
+
+<para>Parses a request message string into a request object.</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2guzzlehttp_2psr7_2_r_e_a_d_m_e_1autotoc_md6227">
+<title><title><computeroutput>GuzzleHttp\Psr7\Message::parseResponse</computeroutput></title></title>
+
+<para><computeroutput>public static function parseResponse(string $message): Response</computeroutput></para>
+
+<para>Parses a response message string into a response object.</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2guzzlehttp_2psr7_2_r_e_a_d_m_e_1autotoc_md6228">
+<title><title><computeroutput>GuzzleHttp\Psr7\Header::parse</computeroutput></title></title>
+
+<para><computeroutput>public static function parse(string|array $header): array</computeroutput></para>
+
+<para>Parse an array of header values containing &quot;;&quot; separated data into an array of associative arrays representing the header key value pair data of the header. When a parameter does not contain a value, but just contains a key, this function will inject a key with a &apos;&apos; string value.</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2guzzlehttp_2psr7_2_r_e_a_d_m_e_1autotoc_md6229">
+<title><title><computeroutput>GuzzleHttp\Psr7\Header::splitList</computeroutput></title></title>
+
+<para><computeroutput>public static function splitList(string|string[] $header): string[]</computeroutput></para>
+
+<para>Splits a HTTP header defined to contain a comma-separated list into each individual value:</para>
+
+<para><literallayout><computeroutput>$knownEtags&#32;=&#32;Header::splitList($request-&gt;getHeader(&apos;if-none-match&apos;));
+</computeroutput></literallayout></para>
+
+<para>Example headers include <computeroutput>accept</computeroutput>, <computeroutput>cache-control</computeroutput> and <computeroutput>if-none-match</computeroutput>.</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2guzzlehttp_2psr7_2_r_e_a_d_m_e_1autotoc_md6230">
+<title><title><computeroutput>GuzzleHttp\Psr7\Header::normalize</computeroutput> (deprecated)</title></title>
+
+<para><computeroutput>public static function normalize(string|array $header): array</computeroutput></para>
+
+<para><computeroutput>Header::normalize()</computeroutput> is deprecated in favor of <link xlink:href="README.md#guzzlehttppsr7headersplitlist"><computeroutput>Header::splitList()</computeroutput></link> which performs the same operation with a cleaned up API and improved documentation.</para>
+
+<para>Converts an array of header values that may contain comma separated headers into an array of headers with no comma separated values.</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2guzzlehttp_2psr7_2_r_e_a_d_m_e_1autotoc_md6231">
+<title><title><computeroutput>GuzzleHttp\Psr7\Query::parse</computeroutput></title></title>
+
+<para><computeroutput>public static function parse(string $str, int|bool $urlEncoding = true): array</computeroutput></para>
+
+<para>Parse a query string into an associative array.</para>
+
+<para>If multiple values are found for the same key, the value of that key value pair will become an array. This function does not parse nested PHP style arrays into an associative array (e.g., <computeroutput>foo[a]=1&amp;foo[b]=2</computeroutput> will be parsed into &#8216;[&apos;foo[a]&#8217; =&gt; &apos;1&apos;, &apos;foo[b]&apos; =&gt; &apos;2&apos;])`.</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2guzzlehttp_2psr7_2_r_e_a_d_m_e_1autotoc_md6232">
+<title><title><computeroutput>GuzzleHttp\Psr7\Query::build</computeroutput></title></title>
+
+<para><computeroutput>public static function build(array $params, int|false $encoding = PHP_QUERY_RFC3986): string</computeroutput></para>
+
+<para>Build a query string from an array of key value pairs.</para>
+
+<para>This function can use the return value of <computeroutput>parse()</computeroutput> to build a query string. This function does not modify the provided keys when an array is encountered (like <computeroutput>http_build_query()</computeroutput> would).</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2guzzlehttp_2psr7_2_r_e_a_d_m_e_1autotoc_md6233">
+<title><title><computeroutput>GuzzleHttp\Psr7\Utils::caselessRemove</computeroutput></title></title>
+
+<para><computeroutput>public static function caselessRemove(iterable&lt;string&gt; $keys, $keys, array $data): array</computeroutput></para>
+
+<para>Remove the items given by the keys, case insensitively from the data.</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2guzzlehttp_2psr7_2_r_e_a_d_m_e_1autotoc_md6234">
+<title><title><computeroutput>GuzzleHttp\Psr7\Utils::copyToStream</computeroutput></title></title>
+
+<para><computeroutput>public static function copyToStream(StreamInterface $source, StreamInterface $dest, int $maxLen = -1): void</computeroutput></para>
+
+<para>Copy the contents of a stream into another stream until the given number of bytes have been read.</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2guzzlehttp_2psr7_2_r_e_a_d_m_e_1autotoc_md6235">
+<title><title><computeroutput>GuzzleHttp\Psr7\Utils::copyToString</computeroutput></title></title>
+
+<para><computeroutput>public static function copyToString(StreamInterface $stream, int $maxLen = -1): string</computeroutput></para>
+
+<para>Copy the contents of a stream into a string until the given number of bytes have been read.</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2guzzlehttp_2psr7_2_r_e_a_d_m_e_1autotoc_md6236">
+<title><title><computeroutput>GuzzleHttp\Psr7\Utils::hash</computeroutput></title></title>
+
+<para><computeroutput>public static function hash(StreamInterface $stream, string $algo, bool $rawOutput = false): string</computeroutput></para>
+
+<para>Calculate a hash of a stream.</para>
+
+<para>This method reads the entire stream to calculate a rolling hash, based on PHP&apos;s <computeroutput>hash_init</computeroutput> functions.</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2guzzlehttp_2psr7_2_r_e_a_d_m_e_1autotoc_md6237">
+<title><title><computeroutput>GuzzleHttp\Psr7\Utils::modifyRequest</computeroutput></title></title>
+
+<para><computeroutput>public static function modifyRequest(RequestInterface $request, array $changes): RequestInterface</computeroutput></para>
+
+<para>Clone and modify a request with the given changes.</para>
+
+<para>This method is useful for reducing the number of clones needed to mutate a message.</para>
+
+<para><itemizedlist>
+<listitem>
+<para>method: (string) Changes the HTTP method.</para>
+</listitem><listitem>
+<para>set_headers: (array) Sets the given headers.</para>
+</listitem><listitem>
+<para>remove_headers: (array) Remove the given headers.</para>
+</listitem><listitem>
+<para>body: (mixed) Sets the given body.</para>
+</listitem><listitem>
+<para>uri: (UriInterface) Set the URI.</para>
+</listitem><listitem>
+<para>query: (string) Set the query string value of the URI.</para>
+</listitem><listitem>
+<para>version: (string) Set the protocol version.</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2guzzlehttp_2psr7_2_r_e_a_d_m_e_1autotoc_md6238">
+<title><title><computeroutput>GuzzleHttp\Psr7\Utils::readLine</computeroutput></title></title>
+
+<para><computeroutput>public static function readLine(StreamInterface $stream, int $maxLength = null): string</computeroutput></para>
+
+<para>Read a line from the stream up to the maximum allowed buffer length.</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2guzzlehttp_2psr7_2_r_e_a_d_m_e_1autotoc_md6239">
+<title><title><computeroutput>GuzzleHttp\Psr7\Utils::streamFor</computeroutput></title></title>
+
+<para>&#8216;public static function streamFor(resource|string|null|int|float|bool|StreamInterface|callable|\Iterator $resource = &#8217;&apos;, array $options = []): StreamInterface`</para>
+
+<para>Create a new stream based on the input type.</para>
+
+<para>Options is an associative array that can contain the following keys:</para>
+
+<para><itemizedlist>
+<listitem>
+<para>metadata: Array of custom metadata.</para>
+</listitem><listitem>
+<para>size: Size of the stream.</para>
+</listitem></itemizedlist>
+</para>
+
+<para>This method accepts the following <computeroutput>$resource</computeroutput> types:</para>
+
+<para><itemizedlist>
+<listitem>
+<para><computeroutput>Psr\Http\Message\StreamInterface</computeroutput>: Returns the value as-is.</para>
+</listitem><listitem>
+<para><computeroutput>string</computeroutput>: Creates a stream object that uses the given string as the contents.</para>
+</listitem><listitem>
+<para><computeroutput>resource</computeroutput>: Creates a stream object that wraps the given PHP stream resource.</para>
+</listitem><listitem>
+<para><computeroutput>Iterator</computeroutput>: If the provided value implements <computeroutput>Iterator</computeroutput>, then a read-only stream object will be created that wraps the given iterable. Each time the stream is read from, data from the iterator will fill a buffer and will be continuously called until the buffer is equal to the requested read size. Subsequent read calls will first read from the buffer and then call <computeroutput>next</computeroutput> on the underlying iterator until it is exhausted.</para>
+</listitem><listitem>
+<para><computeroutput>object</computeroutput> with <computeroutput>__toString()</computeroutput>: If the object has the <computeroutput>__toString()</computeroutput> method, the object will be cast to a string and then a stream will be returned that uses the string value.</para>
+</listitem><listitem>
+<para><computeroutput>NULL</computeroutput>: When <computeroutput>null</computeroutput> is passed, an empty stream object is returned.</para>
+</listitem><listitem>
+<para><computeroutput>callable</computeroutput> When a callable is passed, a read-only stream object will be created that invokes the given callable. The callable is invoked with the number of suggested bytes to read. The callable can return any number of bytes, but MUST return <computeroutput>false</computeroutput> when there is no more data to return. The stream object that wraps the callable will invoke the callable until the number of requested bytes are available. Any additional bytes will be buffered and used in subsequent reads.</para>
+</listitem></itemizedlist>
+</para>
+
+<para><literallayout><computeroutput>$stream&#32;=&#32;GuzzleHttp\Psr7\Utils::streamFor(&apos;foo&apos;);
+$stream&#32;=&#32;GuzzleHttp\Psr7\Utils::streamFor(fopen(&apos;/path/to/file&apos;,&#32;&apos;r&apos;));
+
+$generator&#32;=&#32;function&#32;($bytes)&#32;{
+&#32;&#32;&#32;&#32;for&#32;($i&#32;=&#32;0;&#32;$i&#32;&lt;&#32;$bytes;&#32;$i++)&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;yield&#32;&apos;&#32;&apos;;
+&#32;&#32;&#32;&#32;}
+}
+
+$stream&#32;=&#32;GuzzleHttp\Psr7\Utils::streamFor($generator(100));
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2guzzlehttp_2psr7_2_r_e_a_d_m_e_1autotoc_md6240">
+<title><title><computeroutput>GuzzleHttp\Psr7\Utils::tryFopen</computeroutput></title></title>
+
+<para><computeroutput>public static function tryFopen(string $filename, string $mode): resource</computeroutput></para>
+
+<para>Safely opens a PHP stream resource using a filename.</para>
+
+<para>When fopen fails, PHP normally raises a warning. This function adds an error handler that checks for errors and throws an exception instead.</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2guzzlehttp_2psr7_2_r_e_a_d_m_e_1autotoc_md6241">
+<title><title><computeroutput>GuzzleHttp\Psr7\Utils::tryGetContents</computeroutput></title></title>
+
+<para><computeroutput>public static function tryGetContents(resource $stream): string</computeroutput></para>
+
+<para>Safely gets the contents of a given stream.</para>
+
+<para>When stream_get_contents fails, PHP normally raises a warning. This function adds an error handler that checks for errors and throws an exception instead.</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2guzzlehttp_2psr7_2_r_e_a_d_m_e_1autotoc_md6242">
+<title><title><computeroutput>GuzzleHttp\Psr7\Utils::uriFor</computeroutput></title></title>
+
+<para><computeroutput>public static function uriFor(string|UriInterface $uri): UriInterface</computeroutput></para>
+
+<para>Returns a UriInterface for the given value.</para>
+
+<para>This function accepts a string or UriInterface and returns a UriInterface for the given value. If the value is already a UriInterface, it is returned as-is.</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2guzzlehttp_2psr7_2_r_e_a_d_m_e_1autotoc_md6243">
+<title><title><computeroutput>GuzzleHttp\Psr7\MimeType::fromFilename</computeroutput></title></title>
+
+<para><computeroutput>public static function fromFilename(string $filename): string|null</computeroutput></para>
+
+<para>Determines the mimetype of a file by looking at its extension.</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2guzzlehttp_2psr7_2_r_e_a_d_m_e_1autotoc_md6244">
+<title><title><computeroutput>GuzzleHttp\Psr7\MimeType::fromExtension</computeroutput></title></title>
+
+<para><computeroutput>public static function fromExtension(string $extension): string|null</computeroutput></para>
+
+<para>Maps a file extensions to a mimetype.</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2guzzlehttp_2psr7_2_r_e_a_d_m_e_1autotoc_md6245">
+<title><title>Upgrading from Function API</title></title>
+
+<para>The static API was first introduced in 1.7.0, in order to mitigate problems with functions conflicting between global and local copies of the package. The function API was removed in 2.0.0. A migration table has been provided here for your convenience:</para>
+
+<para><informaltable frame="all">
+    <tgroup cols="2" align="left" colsep="1" rowsep="1">
+      <colspec colname='c1'/>
+      <colspec colname='c2'/>
+<thead>
+      <row  class='markdownTableHead'>
+<entry>
+<para>Original Function   </para>
+</entry><entry>
+<para>Replacement Method    </para>
+</entry></row>
+</thead><tbody>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>str</computeroutput>   </para>
+</entry><entry>
+<para><computeroutput>Message::toString</computeroutput>    </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para><computeroutput>uri_for</computeroutput>   </para>
+</entry><entry>
+<para><computeroutput>Utils::uriFor</computeroutput>    </para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>stream_for</computeroutput>   </para>
+</entry><entry>
+<para><computeroutput>Utils::streamFor</computeroutput>    </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para><computeroutput>parse_header</computeroutput>   </para>
+</entry><entry>
+<para><computeroutput>Header::parse</computeroutput>    </para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>normalize_header</computeroutput>   </para>
+</entry><entry>
+<para><computeroutput>Header::normalize</computeroutput>    </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para><computeroutput>modify_request</computeroutput>   </para>
+</entry><entry>
+<para><computeroutput>Utils::modifyRequest</computeroutput>    </para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>rewind_body</computeroutput>   </para>
+</entry><entry>
+<para><computeroutput>Message::rewindBody</computeroutput>    </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para><computeroutput>try_fopen</computeroutput>   </para>
+</entry><entry>
+<para><computeroutput>Utils::tryFopen</computeroutput>    </para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>copy_to_string</computeroutput>   </para>
+</entry><entry>
+<para><computeroutput>Utils::copyToString</computeroutput>    </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para><computeroutput>copy_to_stream</computeroutput>   </para>
+</entry><entry>
+<para><computeroutput>Utils::copyToStream</computeroutput>    </para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>hash</computeroutput>   </para>
+</entry><entry>
+<para><computeroutput>Utils::hash</computeroutput>    </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para><computeroutput>readline</computeroutput>   </para>
+</entry><entry>
+<para><computeroutput>Utils::readLine</computeroutput>    </para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>parse_request</computeroutput>   </para>
+</entry><entry>
+<para><computeroutput>Message::parseRequest</computeroutput>    </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para><computeroutput>parse_response</computeroutput>   </para>
+</entry><entry>
+<para><computeroutput>Message::parseResponse</computeroutput>    </para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>parse_query</computeroutput>   </para>
+</entry><entry>
+<para><computeroutput>Query::parse</computeroutput>    </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para><computeroutput>build_query</computeroutput>   </para>
+</entry><entry>
+<para><computeroutput>Query::build</computeroutput>    </para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>mimetype_from_filename</computeroutput>   </para>
+</entry><entry>
+<para><computeroutput>MimeType::fromFilename</computeroutput>    </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para><computeroutput>mimetype_from_extension</computeroutput>   </para>
+</entry><entry>
+<para><computeroutput>MimeType::fromExtension</computeroutput>    </para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>_parse_message</computeroutput>   </para>
+</entry><entry>
+<para><computeroutput>Message::parseMessage</computeroutput>    </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para><computeroutput>_parse_request_uri</computeroutput>   </para>
+</entry><entry>
+<para><computeroutput>Message::parseRequestUri</computeroutput>    </para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>get_message_body_summary</computeroutput>   </para>
+</entry><entry>
+<para><computeroutput>Message::bodySummary</computeroutput>    </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para><computeroutput>_caseless_remove</computeroutput>   </para>
+</entry><entry>
+<para><computeroutput>Utils::caselessRemove</computeroutput>   </para>
+</entry></row>
+    </tbody>
+    </tgroup>
+</informaltable>
+</para>
+</section>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2guzzlehttp_2psr7_2_r_e_a_d_m_e_1autotoc_md6246">
+<title><title>Additional URI Methods</title></title>
+
+<para>Aside from the standard <computeroutput>Psr\Http\Message\UriInterface</computeroutput> implementation in form of the <computeroutput><link linkend="_namespace_guzzle_http">GuzzleHttp</link>\Psr7\Uri</computeroutput> class, this library also provides additional functionality when working with URIs as static methods.</para>
+<section xml:id="_md_public_2glpi_2vendor_2guzzlehttp_2psr7_2_r_e_a_d_m_e_1autotoc_md6247">
+<title><title>URI Types</title></title>
+
+<para>An instance of <computeroutput>Psr\Http\Message\UriInterface</computeroutput> can either be an absolute URI or a relative reference. An absolute URI has a scheme. A relative reference is used to express a URI relative to another URI, the base URI. Relative references can be divided into several forms according to <link xlink:href="https://tools.ietf.org/html/rfc3986#section-4.2">RFC 3986 Section 4.2</link>:</para>
+
+<para><itemizedlist>
+<listitem>
+<para>network-path references, e.g. <computeroutput>//example.com/path</computeroutput></para>
+</listitem><listitem>
+<para>absolute-path references, e.g. <computeroutput>/path</computeroutput></para>
+</listitem><listitem>
+<para>relative-path references, e.g. <computeroutput>subpath</computeroutput></para>
+</listitem></itemizedlist>
+</para>
+
+<para>The following methods can be used to identify the type of the URI.</para>
+<section xml:id="_md_public_2glpi_2vendor_2guzzlehttp_2psr7_2_r_e_a_d_m_e_1autotoc_md6248">
+<title><title><computeroutput>GuzzleHttp\Psr7\Uri::isAbsolute</computeroutput></title></title>
+
+<para><computeroutput>public static function isAbsolute(UriInterface $uri): bool</computeroutput></para>
+
+<para>Whether the URI is absolute, i.e. it has a scheme.</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2guzzlehttp_2psr7_2_r_e_a_d_m_e_1autotoc_md6249">
+<title><title><computeroutput>GuzzleHttp\Psr7\Uri::isNetworkPathReference</computeroutput></title></title>
+
+<para><computeroutput>public static function isNetworkPathReference(UriInterface $uri): bool</computeroutput></para>
+
+<para>Whether the URI is a network-path reference. A relative reference that begins with two slash characters is termed an network-path reference.</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2guzzlehttp_2psr7_2_r_e_a_d_m_e_1autotoc_md6250">
+<title><title><computeroutput>GuzzleHttp\Psr7\Uri::isAbsolutePathReference</computeroutput></title></title>
+
+<para><computeroutput>public static function isAbsolutePathReference(UriInterface $uri): bool</computeroutput></para>
+
+<para>Whether the URI is a absolute-path reference. A relative reference that begins with a single slash character is termed an absolute-path reference.</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2guzzlehttp_2psr7_2_r_e_a_d_m_e_1autotoc_md6251">
+<title><title><computeroutput>GuzzleHttp\Psr7\Uri::isRelativePathReference</computeroutput></title></title>
+
+<para><computeroutput>public static function isRelativePathReference(UriInterface $uri): bool</computeroutput></para>
+
+<para>Whether the URI is a relative-path reference. A relative reference that does not begin with a slash character is termed a relative-path reference.</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2guzzlehttp_2psr7_2_r_e_a_d_m_e_1autotoc_md6252">
+<title><title><computeroutput>GuzzleHttp\Psr7\Uri::isSameDocumentReference</computeroutput></title></title>
+
+<para><computeroutput>public static function isSameDocumentReference(UriInterface $uri, UriInterface $base = null): bool</computeroutput></para>
+
+<para>Whether the URI is a same-document reference. A same-document reference refers to a URI that is, aside from its fragment component, identical to the base URI. When no base URI is given, only an empty URI reference (apart from its fragment) is considered a same-document reference.</para>
+</section>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2guzzlehttp_2psr7_2_r_e_a_d_m_e_1autotoc_md6253">
+<title><title>URI Components</title></title>
+
+<para>Additional methods to work with URI components.</para>
+<section xml:id="_md_public_2glpi_2vendor_2guzzlehttp_2psr7_2_r_e_a_d_m_e_1autotoc_md6254">
+<title><title><computeroutput>GuzzleHttp\Psr7\Uri::isDefaultPort</computeroutput></title></title>
+
+<para><computeroutput>public static function isDefaultPort(UriInterface $uri): bool</computeroutput></para>
+
+<para>Whether the URI has the default port of the current scheme. <computeroutput>Psr\Http\Message\UriInterface::getPort</computeroutput> may return null or the standard port. This method can be used independently of the implementation.</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2guzzlehttp_2psr7_2_r_e_a_d_m_e_1autotoc_md6255">
+<title><title><computeroutput>GuzzleHttp\Psr7\Uri::composeComponents</computeroutput></title></title>
+
+<para><computeroutput>public static function composeComponents($scheme, $authority, $path, $query, $fragment): string</computeroutput></para>
+
+<para>Composes a URI reference string from its various components according to <link xlink:href="https://tools.ietf.org/html/rfc3986#section-5.3">RFC 3986 Section 5.3</link>. Usually this method does not need to be called manually but instead is used indirectly via <computeroutput>Psr\Http\Message\UriInterface::__toString</computeroutput>.</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2guzzlehttp_2psr7_2_r_e_a_d_m_e_1autotoc_md6256">
+<title><title><computeroutput>GuzzleHttp\Psr7\Uri::fromParts</computeroutput></title></title>
+
+<para><computeroutput>public static function fromParts(array $parts): UriInterface</computeroutput></para>
+
+<para>Creates a URI from a hash of <link xlink:href="https://www.php.net/manual/en/function.parse-url.php"><computeroutput>parse_url</computeroutput></link> components.</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2guzzlehttp_2psr7_2_r_e_a_d_m_e_1autotoc_md6257">
+<title><title><computeroutput>GuzzleHttp\Psr7\Uri::withQueryValue</computeroutput></title></title>
+
+<para><computeroutput>public static function withQueryValue(UriInterface $uri, $key, $value): UriInterface</computeroutput></para>
+
+<para>Creates a new URI with a specific query string value. Any existing query string values that exactly match the provided key are removed and replaced with the given key value pair. A value of null will set the query string key without a value, e.g. &quot;key&quot; instead of &quot;key=value&quot;.</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2guzzlehttp_2psr7_2_r_e_a_d_m_e_1autotoc_md6258">
+<title><title><computeroutput>GuzzleHttp\Psr7\Uri::withQueryValues</computeroutput></title></title>
+
+<para><computeroutput>public static function withQueryValues(UriInterface $uri, array $keyValueArray): UriInterface</computeroutput></para>
+
+<para>Creates a new URI with multiple query string values. It has the same behavior as <computeroutput>withQueryValue()</computeroutput> but for an associative array of key =&gt; value.</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2guzzlehttp_2psr7_2_r_e_a_d_m_e_1autotoc_md6259">
+<title><title><computeroutput>GuzzleHttp\Psr7\Uri::withoutQueryValue</computeroutput></title></title>
+
+<para><computeroutput>public static function withoutQueryValue(UriInterface $uri, $key): UriInterface</computeroutput></para>
+
+<para>Creates a new URI with a specific query string value removed. Any existing query string values that exactly match the provided key are removed.</para>
+</section>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2guzzlehttp_2psr7_2_r_e_a_d_m_e_1autotoc_md6260">
+<title><title>Cross-Origin Detection</title></title>
+
+<para><computeroutput><link linkend="_namespace_guzzle_http">GuzzleHttp</link>\Psr7\UriComparator</computeroutput> provides methods to determine if a modified URL should be considered cross-origin.</para>
+<section xml:id="_md_public_2glpi_2vendor_2guzzlehttp_2psr7_2_r_e_a_d_m_e_1autotoc_md6261">
+<title><title><computeroutput>GuzzleHttp\Psr7\UriComparator::isCrossOrigin</computeroutput></title></title>
+
+<para><computeroutput>public static function isCrossOrigin(UriInterface $original, UriInterface $modified): bool</computeroutput></para>
+
+<para>Determines if a modified URL should be considered cross-origin with respect to an original URL.</para>
+</section>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2guzzlehttp_2psr7_2_r_e_a_d_m_e_1autotoc_md6262">
+<title><title>Reference Resolution</title></title>
+
+<para><computeroutput><link linkend="_namespace_guzzle_http">GuzzleHttp</link>\Psr7\UriResolver</computeroutput> provides methods to resolve a URI reference in the context of a base URI according to <link xlink:href="https://tools.ietf.org/html/rfc3986#section-5">RFC 3986 Section 5</link>. This is for example also what web browsers do when resolving a link in a website based on the current request URI.</para>
+<section xml:id="_md_public_2glpi_2vendor_2guzzlehttp_2psr7_2_r_e_a_d_m_e_1autotoc_md6263">
+<title><title><computeroutput>GuzzleHttp\Psr7\UriResolver::resolve</computeroutput></title></title>
+
+<para><computeroutput>public static function resolve(UriInterface $base, UriInterface $rel): UriInterface</computeroutput></para>
+
+<para>Converts the relative URI into a new URI that is resolved against the base URI.</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2guzzlehttp_2psr7_2_r_e_a_d_m_e_1autotoc_md6264">
+<title><title><computeroutput>GuzzleHttp\Psr7\UriResolver::removeDotSegments</computeroutput></title></title>
+
+<para><computeroutput>public static function removeDotSegments(string $path): string</computeroutput></para>
+
+<para>Removes dot segments from a path and returns the new path according to <link xlink:href="https://tools.ietf.org/html/rfc3986#section-5.2.4">RFC 3986 Section 5.2.4</link>.</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2guzzlehttp_2psr7_2_r_e_a_d_m_e_1autotoc_md6265">
+<title><title><computeroutput>GuzzleHttp\Psr7\UriResolver::relativize</computeroutput></title></title>
+
+<para><computeroutput>public static function relativize(UriInterface $base, UriInterface $target): UriInterface</computeroutput></para>
+
+<para>Returns the target URI as a relative reference from the base URI. This method is the counterpart to resolve():</para>
+
+<para><literallayout><computeroutput>(string)&#32;$target&#32;===&#32;(string)&#32;UriResolver::resolve($base,&#32;UriResolver::relativize($base,&#32;$target))
+</computeroutput></literallayout></para>
+
+<para>One use-case is to use the current request URI as base URI and then generate relative links in your documents to reduce the document size or offer self-contained downloadable document archives.</para>
+
+<para><literallayout><computeroutput>$base&#32;=&#32;new&#32;Uri(&apos;http://example.com/a/b/&apos;);
+echo&#32;UriResolver::relativize($base,&#32;new&#32;Uri(&apos;http://example.com/a/b/c&apos;));&#32;&#32;//&#32;prints&#32;&apos;c&apos;.
+echo&#32;UriResolver::relativize($base,&#32;new&#32;Uri(&apos;http://example.com/a/x/y&apos;));&#32;&#32;//&#32;prints&#32;&apos;../x/y&apos;.
+echo&#32;UriResolver::relativize($base,&#32;new&#32;Uri(&apos;http://example.com/a/b/?q&apos;));&#32;//&#32;prints&#32;&apos;?q&apos;.
+echo&#32;UriResolver::relativize($base,&#32;new&#32;Uri(&apos;http://example.org/a/b/&apos;));&#32;&#32;&#32;//&#32;prints&#32;&apos;//example.org/a/b/&apos;.
+</computeroutput></literallayout></para>
+</section>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2guzzlehttp_2psr7_2_r_e_a_d_m_e_1autotoc_md6266">
+<title><title>Normalization and Comparison</title></title>
+
+<para><computeroutput><link linkend="_namespace_guzzle_http">GuzzleHttp</link>\Psr7\UriNormalizer</computeroutput> provides methods to normalize and compare URIs according to <link xlink:href="https://tools.ietf.org/html/rfc3986#section-6">RFC 3986 Section 6</link>.</para>
+<section xml:id="_md_public_2glpi_2vendor_2guzzlehttp_2psr7_2_r_e_a_d_m_e_1autotoc_md6267">
+<title><title><computeroutput>GuzzleHttp\Psr7\UriNormalizer::normalize</computeroutput></title></title>
+
+<para><computeroutput>public static function normalize(UriInterface $uri, $flags = self::PRESERVING_NORMALIZATIONS): UriInterface</computeroutput></para>
+
+<para>Returns a normalized URI. The scheme and host component are already normalized to lowercase per PSR-7 UriInterface. This methods adds additional normalizations that can be configured with the <computeroutput>$flags</computeroutput> parameter which is a bitmask of normalizations to apply. The following normalizations are available:</para>
+
+<para><itemizedlist>
+<listitem>
+<para><computeroutput>UriNormalizer::PRESERVING_NORMALIZATIONS</computeroutput></para>
+
+<para>Default normalizations which only include the ones that preserve semantics.</para>
+</listitem><listitem>
+<para><computeroutput>UriNormalizer::CAPITALIZE_PERCENT_ENCODING</computeroutput></para>
+
+<para>All letters within a percent-encoding triplet (e.g., &quot;%3A&quot;) are case-insensitive, and should be capitalized.</para>
+
+<para>Example: <computeroutput><link xlink:href="http://example.org/a%c2%b1b">http://example.org/a%c2%b1b</link></computeroutput> → <computeroutput><link xlink:href="http://example.org/a%C2%B1b">http://example.org/a%C2%B1b</link></computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>UriNormalizer::DECODE_UNRESERVED_CHARACTERS</computeroutput></para>
+
+<para>Decodes percent-encoded octets of unreserved characters. For consistency, percent-encoded octets in the ranges of ALPHA (%41–%5A and %61–%7A), DIGIT (%30–%39), hyphen (%2D), period (%2E), underscore (%5F), or tilde (%7E) should not be created by URI producers and, when found in a URI, should be decoded to their corresponding unreserved characters by URI normalizers.</para>
+
+<para>Example: <computeroutput><link xlink:href="http://example.org/%7Eusern%61me/">http://example.org/%7Eusern%61me/</link></computeroutput> → <computeroutput><link xlink:href="http://example.org/~username/">http://example.org/~username/</link></computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>UriNormalizer::CONVERT_EMPTY_PATH</computeroutput></para>
+
+<para>Converts the empty path to &quot;/&quot; for http and https URIs.</para>
+
+<para>Example: <computeroutput><link xlink:href="http://example.org">http://example.org</link></computeroutput> → <computeroutput><link xlink:href="http://example.org/">http://example.org/</link></computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>UriNormalizer::REMOVE_DEFAULT_HOST</computeroutput></para>
+
+<para>Removes the default host of the given URI scheme from the URI. Only the &quot;file&quot; scheme defines the default host &quot;localhost&quot;. All of <computeroutput><link xlink:href="file:/myfile">file:/myfile</link></computeroutput>, <computeroutput><link xlink:href="file:///myfile">file:///myfile</link></computeroutput>, and <computeroutput><link xlink:href="file://localhost/myfile">file://localhost/myfile</link></computeroutput> are equivalent according to RFC 3986.</para>
+
+<para>Example: <computeroutput><link xlink:href="file://localhost/myfile">file://localhost/myfile</link></computeroutput> → <computeroutput><link xlink:href="file:///myfile">file:///myfile</link></computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>UriNormalizer::REMOVE_DEFAULT_PORT</computeroutput></para>
+
+<para>Removes the default port of the given URI scheme from the URI.</para>
+
+<para>Example: <computeroutput><link xlink:href="http://example.org:80/">http://example.org:80/</link></computeroutput> → <computeroutput><link xlink:href="http://example.org/">http://example.org/</link></computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>UriNormalizer::REMOVE_DOT_SEGMENTS</computeroutput></para>
+
+<para>Removes unnecessary dot-segments. Dot-segments in relative-path references are not removed as it would change the semantics of the URI reference.</para>
+
+<para>Example: <computeroutput><link xlink:href="http://example.org/../a/b/../c/./d.html">http://example.org/../a/b/../c/./d.html</link></computeroutput> → <computeroutput><link xlink:href="http://example.org/a/c/d.html">http://example.org/a/c/d.html</link></computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>UriNormalizer::REMOVE_DUPLICATE_SLASHES</computeroutput></para>
+
+<para>Paths which include two or more adjacent slashes are converted to one. Webservers usually ignore duplicate slashes and treat those URIs equivalent. But in theory those URIs do not need to be equivalent. So this normalization may change the semantics. Encoded slashes (%2F) are not removed.</para>
+
+<para>Example: <computeroutput><link xlink:href="http://example.org//foo///bar.html">http://example.org//foo///bar.html</link></computeroutput> → <computeroutput><link xlink:href="http://example.org/foo/bar.html">http://example.org/foo/bar.html</link></computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>UriNormalizer::SORT_QUERY_PARAMETERS</computeroutput></para>
+
+<para>Sort query parameters with their values in alphabetical order. However, the order of parameters in a URI may be significant (this is not defined by the standard). So this normalization is not safe and may change the semantics of the URI.</para>
+
+<para>Example: <computeroutput>?lang=en&amp;article=fred</computeroutput> → <computeroutput>?article=fred&amp;lang=en</computeroutput></para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2guzzlehttp_2psr7_2_r_e_a_d_m_e_1autotoc_md6268">
+<title><title><computeroutput>GuzzleHttp\Psr7\UriNormalizer::isEquivalent</computeroutput></title></title>
+
+<para><computeroutput>public static function isEquivalent(UriInterface $uri1, UriInterface $uri2, $normalizations = self::PRESERVING_NORMALIZATIONS): bool</computeroutput></para>
+
+<para>Whether two URIs can be considered equivalent. Both URIs are normalized automatically before comparison with the given <computeroutput>$normalizations</computeroutput> bitmask. The method also accepts relative URI references and returns true when they are equivalent. This of course assumes they will be resolved against the same base URI. If this is not the case, determination of equivalence or difference of relative references does not mean anything.</para>
+</section>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2guzzlehttp_2psr7_2_r_e_a_d_m_e_1autotoc_md6269">
+<title><title>Version Guidance</title></title>
+
+<para><informaltable frame="all">
+    <tgroup cols="3" align="left" colsep="1" rowsep="1">
+      <colspec colname='c1'/>
+      <colspec colname='c2'/>
+      <colspec colname='c3'/>
+<thead>
+      <row  class='markdownTableHead'>
+<entry>
+<para>Version   </para>
+</entry><entry>
+<para>Status   </para>
+</entry><entry>
+<para>PHP Version    </para>
+</entry></row>
+</thead><tbody>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para>1.x   </para>
+</entry><entry>
+<para>Security fixes   </para>
+</entry><entry>
+<para>&gt;=5.4,&lt;8.1    </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para>2.x   </para>
+</entry><entry>
+<para>Latest   </para>
+</entry><entry>
+<para>^7.2.5 || ^8.0   </para>
+</entry></row>
+    </tbody>
+    </tgroup>
+</informaltable>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2guzzlehttp_2psr7_2_r_e_a_d_m_e_1autotoc_md6270">
+<title><title>Security</title></title>
+
+<para>If you discover a security vulnerability within this package, please send an email to <link xlink:href="mailto:security@tidelift.com">security@tidelift.com</link>. All security vulnerabilities will be promptly addressed. Please do not disclose security-related issues publicly until a fix has been announced. Please see <link xlink:href="https://github.com/guzzle/psr7/security/policy">Security Policy</link> for more information.</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2guzzlehttp_2psr7_2_r_e_a_d_m_e_1autotoc_md6271">
+<title><title>License</title></title>
+
+<para>Guzzle is made available under the MIT License (MIT). Please see [License File](LICENSE) for more information.</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2guzzlehttp_2psr7_2_r_e_a_d_m_e_1autotoc_md6272">
+<title><title>For Enterprise</title></title>
+
+<para>Available as part of the Tidelift Subscription</para>
+
+<para>The maintainers of Guzzle and thousands of other packages are working with Tidelift to deliver commercial support and maintenance for the open source dependencies you use to build your applications. Save time, reduce risk, and improve code health, while paying the maintainers of the exact dependencies you use. <link xlink:href="https://tidelift.com/subscription/pkg/packagist-guzzlehttp-psr7?utm_source=packagist-guzzlehttp-psr7&amp;utm_medium=referral&amp;utm_campaign=enterprise&amp;utm_term=repo">Learn more.</link> </para>
+</section>
+</section>
+</section>

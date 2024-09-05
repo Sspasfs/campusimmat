@@ -1,0 +1,351 @@
+\doxysection{Référence de l\textquotesingle{}interface Message\+Interface}
+\hypertarget{interface_sabre_1_1_h_t_t_p_1_1_message_interface}{}\label{interface_sabre_1_1_h_t_t_p_1_1_message_interface}\index{MessageInterface@{MessageInterface}}
+
+
+Graphe d\textquotesingle{}héritage de Message\+Interface\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{interface_sabre_1_1_h_t_t_p_1_1_message_interface__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Graphe de collaboration de Message\+Interface\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=205pt]{interface_sabre_1_1_h_t_t_p_1_1_message_interface__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{interface_sabre_1_1_h_t_t_p_1_1_message_interface_afb864b6a972dcfe3cdd645b663fd99e1}{get\+Body\+As\+Stream}} ()
+\item 
+\mbox{\hyperlink{interface_sabre_1_1_h_t_t_p_1_1_message_interface_a6043c5ae19735e84fd175f1fcd6c1af4}{get\+Body\+As\+String}} ()
+\item 
+\mbox{\hyperlink{interface_sabre_1_1_h_t_t_p_1_1_message_interface_ad7bab1db052fb9fcc8bd0b4f3eac29ac}{get\+Body}} ()
+\item 
+\mbox{\hyperlink{interface_sabre_1_1_h_t_t_p_1_1_message_interface_a043c9fa5f271098eb80d5949ba1d6a11}{set\+Body}} (\$body)
+\item 
+\mbox{\hyperlink{interface_sabre_1_1_h_t_t_p_1_1_message_interface_a157e0005d82edaa21cbea07fdc5c62da}{get\+Headers}} ()
+\item 
+\mbox{\hyperlink{interface_sabre_1_1_h_t_t_p_1_1_message_interface_adab88ffd7ef2e5dae162ab869470b5ad}{has\+Header}} (string \$name)
+\item 
+\mbox{\hyperlink{interface_sabre_1_1_h_t_t_p_1_1_message_interface_acb98664b303c189cc4bca69025ab598c}{get\+Header}} (string \$name)
+\item 
+\mbox{\hyperlink{interface_sabre_1_1_h_t_t_p_1_1_message_interface_a3bd74e7149d88b76967372864eb871f2}{get\+Header\+As\+Array}} (string \$name)
+\item 
+\mbox{\hyperlink{interface_sabre_1_1_h_t_t_p_1_1_message_interface_a1b393ab5237dc8fbcafa9e35bcdab54a}{set\+Header}} (string \$name, \$value)
+\item 
+\mbox{\hyperlink{interface_sabre_1_1_h_t_t_p_1_1_message_interface_ad62c7c9cad0e3ccfdbff9144c914090b}{set\+Headers}} (array \$headers)
+\item 
+\mbox{\hyperlink{interface_sabre_1_1_h_t_t_p_1_1_message_interface_acbb69f9b3215914de824c10b97b3d787}{add\+Header}} (string \$name, \$value)
+\item 
+\mbox{\hyperlink{interface_sabre_1_1_h_t_t_p_1_1_message_interface_a85a6d5f51105c2bca707cb4d05ceaa86}{add\+Headers}} (array \$headers)
+\item 
+\mbox{\hyperlink{interface_sabre_1_1_h_t_t_p_1_1_message_interface_a2253d802ee1fbf8d9a8beaffa2301d67}{remove\+Header}} (string \$name)
+\item 
+\mbox{\hyperlink{interface_sabre_1_1_h_t_t_p_1_1_message_interface_ad77e4dfb8ec738fd61dc6abaa6cc7ffa}{set\+Http\+Version}} (string \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{version}})
+\item 
+\mbox{\hyperlink{interface_sabre_1_1_h_t_t_p_1_1_message_interface_ae1ac6caa3c50c032c5003a6e189443cf}{get\+Http\+Version}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+The Message\+Interface is the base interface that\textquotesingle{}s used by both the Request\+Interface and Response\+Interface.
+
+\begin{DoxyCopyright}{Copyright}
+Copyright (C) fruux GmbH (\href{https://fruux.com/}{\texttt{ https\+://fruux.\+com/}}) 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Auteur}
+Evert Pot (\href{http://evertpot.com/}{\texttt{ http\+://evertpot.\+com/}}) @license \href{http://sabre.io/license/}{\texttt{ http\+://sabre.\+io/license/}} Modified BSD License 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Documentation des fonctions membres}
+\Hypertarget{interface_sabre_1_1_h_t_t_p_1_1_message_interface_acbb69f9b3215914de824c10b97b3d787}\label{interface_sabre_1_1_h_t_t_p_1_1_message_interface_acbb69f9b3215914de824c10b97b3d787} 
+\index{MessageInterface@{MessageInterface}!addHeader@{addHeader}}
+\index{addHeader@{addHeader}!MessageInterface@{MessageInterface}}
+\doxysubsubsection{\texorpdfstring{addHeader()}{addHeader()}}
+{\footnotesize\ttfamily add\+Header (\begin{DoxyParamCaption}\item[{string}]{\$name,  }\item[{}]{\$value }\end{DoxyParamCaption})}
+
+Adds a HTTP header.
+
+This method will not overwrite any existing HTTP header, but instead add another value. Individual values can be retrieved with get\+Headers\+As\+Array.
+
+
+\begin{DoxyParams}[1]{Paramètres}
+string | string\mbox{[}$\,$\mbox{]} & {\em \$value} & \\
+\hline
+\end{DoxyParams}
+
+
+Implémenté dans \mbox{\hyperlink{class_sabre_1_1_h_t_t_p_1_1_message_acbb69f9b3215914de824c10b97b3d787}{Message}}.
+
+\Hypertarget{interface_sabre_1_1_h_t_t_p_1_1_message_interface_a85a6d5f51105c2bca707cb4d05ceaa86}\label{interface_sabre_1_1_h_t_t_p_1_1_message_interface_a85a6d5f51105c2bca707cb4d05ceaa86} 
+\index{MessageInterface@{MessageInterface}!addHeaders@{addHeaders}}
+\index{addHeaders@{addHeaders}!MessageInterface@{MessageInterface}}
+\doxysubsubsection{\texorpdfstring{addHeaders()}{addHeaders()}}
+{\footnotesize\ttfamily add\+Headers (\begin{DoxyParamCaption}\item[{array}]{\$headers }\end{DoxyParamCaption})}
+
+Adds a new set of HTTP headers.
+
+Any existing headers will not be overwritten. 
+
+Implémenté dans \mbox{\hyperlink{class_sabre_1_1_h_t_t_p_1_1_message_a85a6d5f51105c2bca707cb4d05ceaa86}{Message}}.
+
+\Hypertarget{interface_sabre_1_1_h_t_t_p_1_1_message_interface_ad7bab1db052fb9fcc8bd0b4f3eac29ac}\label{interface_sabre_1_1_h_t_t_p_1_1_message_interface_ad7bab1db052fb9fcc8bd0b4f3eac29ac} 
+\index{MessageInterface@{MessageInterface}!getBody@{getBody}}
+\index{getBody@{getBody}!MessageInterface@{MessageInterface}}
+\doxysubsubsection{\texorpdfstring{getBody()}{getBody()}}
+{\footnotesize\ttfamily get\+Body (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Returns the message body, as its internal representation.
+
+This could be either a string, a stream or a callback writing the body to php\+://output
+
+\begin{DoxyReturn}{Renvoie}
+resource\texorpdfstring{$\vert$}{|}string\texorpdfstring{$\vert$}{|}callable 
+\end{DoxyReturn}
+
+
+Implémenté dans \mbox{\hyperlink{class_sabre_1_1_h_t_t_p_1_1_message_ad7bab1db052fb9fcc8bd0b4f3eac29ac}{Message}}.
+
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{interface_sabre_1_1_h_t_t_p_1_1_message_interface_ad7bab1db052fb9fcc8bd0b4f3eac29ac_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{interface_sabre_1_1_h_t_t_p_1_1_message_interface_afb864b6a972dcfe3cdd645b663fd99e1}\label{interface_sabre_1_1_h_t_t_p_1_1_message_interface_afb864b6a972dcfe3cdd645b663fd99e1} 
+\index{MessageInterface@{MessageInterface}!getBodyAsStream@{getBodyAsStream}}
+\index{getBodyAsStream@{getBodyAsStream}!MessageInterface@{MessageInterface}}
+\doxysubsubsection{\texorpdfstring{getBodyAsStream()}{getBodyAsStream()}}
+{\footnotesize\ttfamily get\+Body\+As\+Stream (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Returns the body as a readable stream resource.
+
+Note that the stream may not be rewindable, and therefore may only be read once.
+
+\begin{DoxyReturn}{Renvoie}
+resource 
+\end{DoxyReturn}
+
+
+Implémenté dans \mbox{\hyperlink{class_sabre_1_1_h_t_t_p_1_1_message_afb864b6a972dcfe3cdd645b663fd99e1}{Message}}.
+
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=327pt]{interface_sabre_1_1_h_t_t_p_1_1_message_interface_afb864b6a972dcfe3cdd645b663fd99e1_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{interface_sabre_1_1_h_t_t_p_1_1_message_interface_a6043c5ae19735e84fd175f1fcd6c1af4}\label{interface_sabre_1_1_h_t_t_p_1_1_message_interface_a6043c5ae19735e84fd175f1fcd6c1af4} 
+\index{MessageInterface@{MessageInterface}!getBodyAsString@{getBodyAsString}}
+\index{getBodyAsString@{getBodyAsString}!MessageInterface@{MessageInterface}}
+\doxysubsubsection{\texorpdfstring{getBodyAsString()}{getBodyAsString()}}
+{\footnotesize\ttfamily get\+Body\+As\+String (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Returns the body as a string.
+
+Note that because the underlying data may be based on a stream, this method could only work correctly the first time. Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=348pt]{interface_sabre_1_1_h_t_t_p_1_1_message_interface_a6043c5ae19735e84fd175f1fcd6c1af4_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{interface_sabre_1_1_h_t_t_p_1_1_message_interface_acb98664b303c189cc4bca69025ab598c}\label{interface_sabre_1_1_h_t_t_p_1_1_message_interface_acb98664b303c189cc4bca69025ab598c} 
+\index{MessageInterface@{MessageInterface}!getHeader@{getHeader}}
+\index{getHeader@{getHeader}!MessageInterface@{MessageInterface}}
+\doxysubsubsection{\texorpdfstring{getHeader()}{getHeader()}}
+{\footnotesize\ttfamily get\+Header (\begin{DoxyParamCaption}\item[{string}]{\$name }\end{DoxyParamCaption})}
+
+Returns a specific HTTP header, based on its name.
+
+The name must be treated as case-\/insensitive. If the header does not exist, this method must return null.
+
+If a header appeared more than once in a HTTP request, this method will concatenate all the values with a comma.
+
+Note that this not make sense for all headers. Some, such as {\ttfamily Set-\/\+Cookie} cannot be logically combined with a comma. In those cases you {\itshape should} use get\+Header\+As\+Array().
+
+\begin{DoxyReturn}{Renvoie}
+string\texorpdfstring{$\vert$}{|}null 
+\end{DoxyReturn}
+
+
+Implémenté dans \mbox{\hyperlink{class_sabre_1_1_h_t_t_p_1_1_message_acb98664b303c189cc4bca69025ab598c}{Message}}.
+
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{interface_sabre_1_1_h_t_t_p_1_1_message_interface_acb98664b303c189cc4bca69025ab598c_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{interface_sabre_1_1_h_t_t_p_1_1_message_interface_a3bd74e7149d88b76967372864eb871f2}\label{interface_sabre_1_1_h_t_t_p_1_1_message_interface_a3bd74e7149d88b76967372864eb871f2} 
+\index{MessageInterface@{MessageInterface}!getHeaderAsArray@{getHeaderAsArray}}
+\index{getHeaderAsArray@{getHeaderAsArray}!MessageInterface@{MessageInterface}}
+\doxysubsubsection{\texorpdfstring{getHeaderAsArray()}{getHeaderAsArray()}}
+{\footnotesize\ttfamily get\+Header\+As\+Array (\begin{DoxyParamCaption}\item[{string}]{\$name }\end{DoxyParamCaption})}
+
+Returns a HTTP header as an array.
+
+For every time the HTTP header appeared in the request or response, an item will appear in the array.
+
+If the header did not exist, this method will return an empty array.
+
+\begin{DoxyReturn}{Renvoie}
+string\mbox{[}\mbox{]} 
+\end{DoxyReturn}
+
+
+Implémenté dans \mbox{\hyperlink{class_sabre_1_1_h_t_t_p_1_1_message_a3bd74e7149d88b76967372864eb871f2}{Message}}.
+
+\Hypertarget{interface_sabre_1_1_h_t_t_p_1_1_message_interface_a157e0005d82edaa21cbea07fdc5c62da}\label{interface_sabre_1_1_h_t_t_p_1_1_message_interface_a157e0005d82edaa21cbea07fdc5c62da} 
+\index{MessageInterface@{MessageInterface}!getHeaders@{getHeaders}}
+\index{getHeaders@{getHeaders}!MessageInterface@{MessageInterface}}
+\doxysubsubsection{\texorpdfstring{getHeaders()}{getHeaders()}}
+{\footnotesize\ttfamily get\+Headers (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Returns all the HTTP headers as an array.
+
+Every header is returned as an array, with one or more values. 
+
+Implémenté dans \mbox{\hyperlink{class_sabre_1_1_h_t_t_p_1_1_message_a157e0005d82edaa21cbea07fdc5c62da}{Message}}.
+
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{interface_sabre_1_1_h_t_t_p_1_1_message_interface_a157e0005d82edaa21cbea07fdc5c62da_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{interface_sabre_1_1_h_t_t_p_1_1_message_interface_ae1ac6caa3c50c032c5003a6e189443cf}\label{interface_sabre_1_1_h_t_t_p_1_1_message_interface_ae1ac6caa3c50c032c5003a6e189443cf} 
+\index{MessageInterface@{MessageInterface}!getHttpVersion@{getHttpVersion}}
+\index{getHttpVersion@{getHttpVersion}!MessageInterface@{MessageInterface}}
+\doxysubsubsection{\texorpdfstring{getHttpVersion()}{getHttpVersion()}}
+{\footnotesize\ttfamily get\+Http\+Version (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Returns the HTTP version. 
+
+Implémenté dans \mbox{\hyperlink{class_sabre_1_1_h_t_t_p_1_1_message_ae1ac6caa3c50c032c5003a6e189443cf}{Message}}.
+
+\Hypertarget{interface_sabre_1_1_h_t_t_p_1_1_message_interface_adab88ffd7ef2e5dae162ab869470b5ad}\label{interface_sabre_1_1_h_t_t_p_1_1_message_interface_adab88ffd7ef2e5dae162ab869470b5ad} 
+\index{MessageInterface@{MessageInterface}!hasHeader@{hasHeader}}
+\index{hasHeader@{hasHeader}!MessageInterface@{MessageInterface}}
+\doxysubsubsection{\texorpdfstring{hasHeader()}{hasHeader()}}
+{\footnotesize\ttfamily has\+Header (\begin{DoxyParamCaption}\item[{string}]{\$name }\end{DoxyParamCaption})}
+
+Will return true or false, depending on if a HTTP header exists. 
+
+Implémenté dans \mbox{\hyperlink{class_sabre_1_1_h_t_t_p_1_1_message_adab88ffd7ef2e5dae162ab869470b5ad}{Message}}.
+
+\Hypertarget{interface_sabre_1_1_h_t_t_p_1_1_message_interface_a2253d802ee1fbf8d9a8beaffa2301d67}\label{interface_sabre_1_1_h_t_t_p_1_1_message_interface_a2253d802ee1fbf8d9a8beaffa2301d67} 
+\index{MessageInterface@{MessageInterface}!removeHeader@{removeHeader}}
+\index{removeHeader@{removeHeader}!MessageInterface@{MessageInterface}}
+\doxysubsubsection{\texorpdfstring{removeHeader()}{removeHeader()}}
+{\footnotesize\ttfamily remove\+Header (\begin{DoxyParamCaption}\item[{string}]{\$name }\end{DoxyParamCaption})}
+
+Removes a HTTP header.
+
+The specified header name must be treated as case-\/insensitive. This method should return true if the header was successfully deleted, and false if the header did not exist. 
+
+Implémenté dans \mbox{\hyperlink{class_sabre_1_1_h_t_t_p_1_1_message_a2253d802ee1fbf8d9a8beaffa2301d67}{Message}}.
+
+\Hypertarget{interface_sabre_1_1_h_t_t_p_1_1_message_interface_a043c9fa5f271098eb80d5949ba1d6a11}\label{interface_sabre_1_1_h_t_t_p_1_1_message_interface_a043c9fa5f271098eb80d5949ba1d6a11} 
+\index{MessageInterface@{MessageInterface}!setBody@{setBody}}
+\index{setBody@{setBody}!MessageInterface@{MessageInterface}}
+\doxysubsubsection{\texorpdfstring{setBody()}{setBody()}}
+{\footnotesize\ttfamily set\+Body (\begin{DoxyParamCaption}\item[{}]{\$body }\end{DoxyParamCaption})}
+
+Updates the body resource with a new stream.
+
+
+\begin{DoxyParams}[1]{Paramètres}
+resource | string | callable & {\em \$body} & \\
+\hline
+\end{DoxyParams}
+
+
+Implémenté dans \mbox{\hyperlink{class_sabre_1_1_h_t_t_p_1_1_message_a043c9fa5f271098eb80d5949ba1d6a11}{Message}}.
+
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=310pt]{interface_sabre_1_1_h_t_t_p_1_1_message_interface_a043c9fa5f271098eb80d5949ba1d6a11_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{interface_sabre_1_1_h_t_t_p_1_1_message_interface_a1b393ab5237dc8fbcafa9e35bcdab54a}\label{interface_sabre_1_1_h_t_t_p_1_1_message_interface_a1b393ab5237dc8fbcafa9e35bcdab54a} 
+\index{MessageInterface@{MessageInterface}!setHeader@{setHeader}}
+\index{setHeader@{setHeader}!MessageInterface@{MessageInterface}}
+\doxysubsubsection{\texorpdfstring{setHeader()}{setHeader()}}
+{\footnotesize\ttfamily set\+Header (\begin{DoxyParamCaption}\item[{string}]{\$name,  }\item[{}]{\$value }\end{DoxyParamCaption})}
+
+Updates a HTTP header.
+
+The case-\/sensitivity of the name value must be retained as-\/is.
+
+If the header already existed, it will be overwritten.
+
+
+\begin{DoxyParams}[1]{Paramètres}
+string | string\mbox{[}$\,$\mbox{]} & {\em \$value} & \\
+\hline
+\end{DoxyParams}
+
+
+Implémenté dans \mbox{\hyperlink{class_sabre_1_1_h_t_t_p_1_1_message_a1b393ab5237dc8fbcafa9e35bcdab54a}{Message}}.
+
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=292pt]{interface_sabre_1_1_h_t_t_p_1_1_message_interface_a1b393ab5237dc8fbcafa9e35bcdab54a_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{interface_sabre_1_1_h_t_t_p_1_1_message_interface_ad62c7c9cad0e3ccfdbff9144c914090b}\label{interface_sabre_1_1_h_t_t_p_1_1_message_interface_ad62c7c9cad0e3ccfdbff9144c914090b} 
+\index{MessageInterface@{MessageInterface}!setHeaders@{setHeaders}}
+\index{setHeaders@{setHeaders}!MessageInterface@{MessageInterface}}
+\doxysubsubsection{\texorpdfstring{setHeaders()}{setHeaders()}}
+{\footnotesize\ttfamily set\+Headers (\begin{DoxyParamCaption}\item[{array}]{\$headers }\end{DoxyParamCaption})}
+
+Sets a new set of HTTP headers.
+
+The headers array should contain headernames for keys, and their value should be specified as either a string or an array.
+
+Any header that already existed will be overwritten. 
+
+Implémenté dans \mbox{\hyperlink{class_sabre_1_1_h_t_t_p_1_1_message_ad62c7c9cad0e3ccfdbff9144c914090b}{Message}}.
+
+\Hypertarget{interface_sabre_1_1_h_t_t_p_1_1_message_interface_ad77e4dfb8ec738fd61dc6abaa6cc7ffa}\label{interface_sabre_1_1_h_t_t_p_1_1_message_interface_ad77e4dfb8ec738fd61dc6abaa6cc7ffa} 
+\index{MessageInterface@{MessageInterface}!setHttpVersion@{setHttpVersion}}
+\index{setHttpVersion@{setHttpVersion}!MessageInterface@{MessageInterface}}
+\doxysubsubsection{\texorpdfstring{setHttpVersion()}{setHttpVersion()}}
+{\footnotesize\ttfamily set\+Http\+Version (\begin{DoxyParamCaption}\item[{string}]{\$version }\end{DoxyParamCaption})}
+
+Sets the HTTP version.
+
+Should be 1.\+0, 1.\+1 or 2.\+0. 
+
+Implémenté dans \mbox{\hyperlink{class_sabre_1_1_h_t_t_p_1_1_message_ad77e4dfb8ec738fd61dc6abaa6cc7ffa}{Message}}.
+
+
+
+La documentation de cette interface a été générée à partir du fichier suivant \+:\begin{DoxyCompactItemize}
+\item 
+public/glpi/vendor/sabre/http/lib/\mbox{\hyperlink{sabre_2http_2lib_2_message_interface_8php}{Message\+Interface.\+php}}\end{DoxyCompactItemize}

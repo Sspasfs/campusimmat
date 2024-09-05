@@ -1,0 +1,253 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.10.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>CampusImmat: Google Provider for OAuth 2.0 Client</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">CampusImmat
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.10.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+</div><!-- top -->
+<div><div class="header">
+  <div class="headertitle"><div class="title">Google Provider for OAuth 2.0 Client</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><p><a class="anchor" id="autotoc_md6745"></a> <a href="https://gitter.im/thephpleague/oauth2-google"><img src="https://img.shields.io/badge/gitter-join-1DCE73.svg" alt="Join the chat" style="pointer-events: none;" class="inline"/></a> <a href="https://travis-ci.org/thephpleague/oauth2-google"><img src="https://img.shields.io/travis/thephpleague/oauth2-google.svg" alt="Build Status" style="pointer-events: none;" class="inline"/></a> <a href="https://coveralls.io/r/thephpleague/oauth2-google"><img src="https://img.shields.io/coveralls/thephpleague/oauth2-google.svg" alt="Code Coverage" style="pointer-events: none;" class="inline"/></a> <a href="https://scrutinizer-ci.com/g/thephpleague/oauth2-google/"><img src="https://img.shields.io/scrutinizer/g/thephpleague/oauth2-google.svg" alt="Code Quality" style="pointer-events: none;" class="inline"/></a> <a href="https://github.com/thephpleague/oauth2-google/blob/master/LICENSE"><img src="https://img.shields.io/packagist/l/league/oauth2-google.svg" alt="License" style="pointer-events: none;" class="inline"/></a> <a href="https://packagist.org/packages/league/oauth2-google"><img src="https://img.shields.io/packagist/v/league/oauth2-google.svg" alt="Latest Stable Version" style="pointer-events: none;" class="inline"/></a></p>
+<p>This package provides Google OAuth 2.0 support for the PHP League's <a href="https://github.com/thephpleague/oauth2-client">OAuth 2.0 Client</a>.</p>
+<p>This package is compliant with <a href="https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-1-basic-coding-standard.md">PSR-1</a>, <a href="https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-2-coding-style-guide.md">PSR-2</a> and <a href="https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-4-autoloader.md">PSR-4</a>. If you notice compliance oversights, please send a patch via pull request.</p>
+<h1><a class="anchor" id="autotoc_md6746"></a>
+Requirements</h1>
+<p>The following versions of PHP are supported.</p>
+<ul>
+<li>PHP 7.2</li>
+<li>PHP 7.3</li>
+<li>PHP 7.4</li>
+<li>PHP 8.0</li>
+</ul>
+<p>This package uses <a href="https://developers.google.com/identity/protocols/OpenIDConnect">OpenID Connect</a> to authenticate users with Google accounts.</p>
+<p>To use this package, it will be necessary to have a Google client ID and client secret. These are referred to as <code>{google-client-id}</code> and <code>{google-client-secret}</code> in the documentation.</p>
+<p>Please follow the <a href="https://developers.google.com/identity/protocols/OpenIDConnect#registeringyourapp">Google instructions</a> to create the required credentials.</p>
+<h1><a class="anchor" id="autotoc_md6747"></a>
+Installation</h1>
+<p>To install, use composer:</p>
+<div class="fragment"><div class="line">composer require league/oauth2-google</div>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md6748"></a>
+Usage</h1>
+<h2><a class="anchor" id="autotoc_md6749"></a>
+Authorization Code Flow</h2>
+<div class="fragment"><div class="line"><a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">require</a> <a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">__DIR__</a> . <span class="stringliteral">&#39;/vendor/autoload.php&#39;</span>;</div>
+<div class="line"> </div>
+<div class="line"><a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">use</a> <a class="code hl_class" href="class_league_1_1_o_auth2_1_1_client_1_1_provider_1_1_google.html">League\OAuth2\Client\Provider\Google</a>;</div>
+<div class="line"> </div>
+<div class="line"><a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">session_start</a>(); <span class="comment">// Remove if session.auto_start=1 in php.ini</span></div>
+<div class="line"> </div>
+<div class="line">$provider = <span class="keyword">new</span> Google([</div>
+<div class="line">    <span class="stringliteral">&#39;clientId&#39;</span>     =&gt; <span class="stringliteral">&#39;{google-client-id}&#39;</span>,</div>
+<div class="line">    <span class="stringliteral">&#39;clientSecret&#39;</span> =&gt; <span class="stringliteral">&#39;{google-client-secret}&#39;</span>,</div>
+<div class="line">    <span class="stringliteral">&#39;redirectUri&#39;</span>  =&gt; <span class="stringliteral">&#39;https://example.com/callback-url&#39;</span>,</div>
+<div class="line">    <span class="stringliteral">&#39;hostedDomain&#39;</span> =&gt; <span class="stringliteral">&#39;example.com&#39;</span>, <span class="comment">// optional; used to restrict access to users on your G Suite/Google Apps for Business accounts</span></div>
+<div class="line">]);</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordflow">if</span> (!<a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">empty</a>(<a class="code hl_variable" href="common_8tabs_8php.html#a7b2772071c2b50e11742306f5abe68e3">$_GET</a>[<span class="stringliteral">&#39;error&#39;</span>])) {</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// Got an error, probably user denied access</span></div>
+<div class="line">    <a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">exit</a>(<span class="stringliteral">&#39;Got error: &#39;</span> . <a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">htmlspecialchars</a>(<a class="code hl_variable" href="common_8tabs_8php.html#a7b2772071c2b50e11742306f5abe68e3">$_GET</a>[<span class="stringliteral">&#39;error&#39;</span>], <a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">ENT_QUOTES</a>, <span class="stringliteral">&#39;UTF-8&#39;</span>));</div>
+<div class="line"> </div>
+<div class="line">} <a class="code hl_variable" href="paragonie_2sodium__compat_2autoload_8php.html#a996627e786133d369a87f2710aab5bcf">elseif</a> (<a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">empty</a>(<a class="code hl_variable" href="common_8tabs_8php.html#a7b2772071c2b50e11742306f5abe68e3">$_GET</a>[<span class="stringliteral">&#39;code&#39;</span>])) {</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// If we don&#39;t have an authorization code then get one</span></div>
+<div class="line">    <a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">$authUrl</a> = $provider-&gt;getAuthorizationUrl();</div>
+<div class="line">    <a class="code hl_variable" href="ajax_2knowbase_8php.html#a8d51972dab0856e7ed5db52b906de613">$_SESSION</a>[<span class="stringliteral">&#39;oauth2state&#39;</span>] = $provider-&gt;getState();</div>
+<div class="line">    header(<span class="stringliteral">&#39;Location: &#39;</span> . <a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">$authUrl</a>);</div>
+<div class="line">    <a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">exit</a>;</div>
+<div class="line"> </div>
+<div class="line">} <a class="code hl_variable" href="paragonie_2sodium__compat_2autoload_8php.html#a996627e786133d369a87f2710aab5bcf">elseif</a> (<a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">empty</a>(<a class="code hl_variable" href="common_8tabs_8php.html#a7b2772071c2b50e11742306f5abe68e3">$_GET</a>[<span class="stringliteral">&#39;state&#39;</span>]) || (<a class="code hl_variable" href="common_8tabs_8php.html#a7b2772071c2b50e11742306f5abe68e3">$_GET</a>[<span class="stringliteral">&#39;state&#39;</span>] !== <a class="code hl_variable" href="ajax_2knowbase_8php.html#a8d51972dab0856e7ed5db52b906de613">$_SESSION</a>[<span class="stringliteral">&#39;oauth2state&#39;</span>])) {</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// State is invalid, possible CSRF attack in progress</span></div>
+<div class="line">    unset(<a class="code hl_variable" href="ajax_2knowbase_8php.html#a8d51972dab0856e7ed5db52b906de613">$_SESSION</a>[<span class="stringliteral">&#39;oauth2state&#39;</span>]);</div>
+<div class="line">    <a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">exit</a>(<span class="stringliteral">&#39;Invalid state&#39;</span>);</div>
+<div class="line"> </div>
+<div class="line">} <span class="keywordflow">else</span> {</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// Try to get an access token (using the authorization code grant)</span></div>
+<div class="line">    $token = $provider-&gt;getAccessToken(<span class="stringliteral">&#39;authorization_code&#39;</span>, [</div>
+<div class="line">        <span class="stringliteral">&#39;code&#39;</span> =&gt; <a class="code hl_variable" href="common_8tabs_8php.html#a7b2772071c2b50e11742306f5abe68e3">$_GET</a>[<span class="stringliteral">&#39;code&#39;</span>]</div>
+<div class="line">    ]);</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// Optional: Now you have a token you can look up a users profile data</span></div>
+<div class="line">    <span class="keywordflow">try</span> {</div>
+<div class="line"> </div>
+<div class="line">        <span class="comment">// We got an access token, let&#39;s now get the owner details</span></div>
+<div class="line">        <a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">$ownerDetails</a> = $provider-&gt;getResourceOwner($token);</div>
+<div class="line"> </div>
+<div class="line">        <span class="comment">// Use these details to create a new profile</span></div>
+<div class="line">        <a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">printf</a>(<span class="stringliteral">&#39;Hello %s!&#39;</span>, <a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">$ownerDetails</a>-&gt;getFirstName());</div>
+<div class="line"> </div>
+<div class="line">    } <span class="keywordflow">catch</span> (Exception <a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">$e</a>) {</div>
+<div class="line"> </div>
+<div class="line">        <span class="comment">// Failed to get user details</span></div>
+<div class="line">        <a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">exit</a>(<span class="stringliteral">&#39;Something went wrong: &#39;</span> . <a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">$e</a>-&gt;getMessage());</div>
+<div class="line"> </div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// Use this to interact with an API on the users behalf</span></div>
+<div class="line">    <a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">echo</a> $token-&gt;getToken();</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// Use this to get a new access token if the old one expires</span></div>
+<div class="line">    <a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">echo</a> $token-&gt;getRefreshToken();</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// Unix timestamp at which the access token expires</span></div>
+<div class="line">    <a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">echo</a> $token-&gt;getExpires();</div>
+<div class="line">}</div>
+<div class="ttc" id="aajax_2knowbase_8php_html_a8d51972dab0856e7ed5db52b906de613"><div class="ttname"><a href="ajax_2knowbase_8php.html#a8d51972dab0856e7ed5db52b906de613">$_SESSION</a></div><div class="ttdeci">$_SESSION['kb_cat_id']</div><div class="ttdef"><b>Definition</b> knowbase.php:41</div></div>
+<div class="ttc" id="aclass_league_1_1_o_auth2_1_1_client_1_1_provider_1_1_google_html"><div class="ttname"><a href="class_league_1_1_o_auth2_1_1_client_1_1_provider_1_1_google.html">League\OAuth2\Client\Provider\Google</a></div><div class="ttdef"><b>Definition</b> Google.php:12</div></div>
+<div class="ttc" id="acommon_8tabs_8php_html_a7b2772071c2b50e11742306f5abe68e3"><div class="ttname"><a href="common_8tabs_8php.html#a7b2772071c2b50e11742306f5abe68e3">$_GET</a></div><div class="ttdeci">if(!( $CFG_GLPI $_GET[&quot;use_public_faq&quot;] &amp;&amp;str_ends_with( $_GET[&quot;_target&quot;], '/front/helpdesk.faq.php'))) if(!isset($_GET['_glpi_tab']))['_glpi_tab']</div><div class="ttdef"><b>Definition</b> common.tabs.php:63</div></div>
+<div class="ttc" id="aparagonie_2sodium__compat_2autoload_8php_html_a996627e786133d369a87f2710aab5bcf"><div class="ttname"><a href="paragonie_2sodium__compat_2autoload_8php.html#a996627e786133d369a87f2710aab5bcf">elseif</a></div><div class="ttdeci">if(PHP_VERSION_ID&lt; 70200||!extension_loaded( 'sodium')) elseif(!function_exists( 'sodium_crypto_stream_xchacha20_xor'))</div><div class="ttdef"><b>Definition</b> autoload.php:68</div></div>
+<div class="ttc" id="areport_8contract_8php_html_a77b973d137fb33212e018b042df6e3e7"><div class="ttname"><a href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">$y</a></div><div class="ttdeci">$y</div><div class="ttdef"><b>Definition</b> report.contract.php:71</div></div>
+</div><!-- fragment --><h3><a class="anchor" id="autotoc_md6750"></a>
+Available Options</h3>
+<p>The <code>Google</code> provider has the following <a href="https://developers.google.com/identity/protocols/OpenIDConnect#authenticationuriparameters">options</a>:</p>
+<ul>
+<li><code>accessType</code> to use online or offline access</li>
+<li><code>hostedDomain</code> to authenticate G Suite users</li>
+<li><code>prompt</code> to modify the prompt that the user will see</li>
+<li><code>scopes</code> to request access to additional user information</li>
+</ul>
+<h3><a class="anchor" id="autotoc_md6751"></a>
+Accessing Token JWT</h3>
+<p>Google provides a <a href="https://jwt.io/">JSON Web Token</a> (JWT) with all access tokens. This token <a href="https://developers.google.com/identity/protocols/OpenIDConnect#obtainuserinfo">contains basic information</a> about the authenticated user. The JWT can be accessed from the <code>id_token</code> value of the access token:</p>
+<div class="fragment"><div class="line"> </div>
+<div class="line"><a class="code hl_variable" href="report_8contract_8php.html#affc45c6ace2eeb3f300b054dbf9592b6">$values</a> = $token-&gt;getValues();</div>
+<div class="line"> </div>
+<div class="line"><a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">$jwt</a> = <a class="code hl_variable" href="report_8contract_8php.html#affc45c6ace2eeb3f300b054dbf9592b6">$values</a>[<span class="stringliteral">&#39;id_token&#39;</span>];</div>
+<div class="ttc" id="areport_8contract_8php_html_affc45c6ace2eeb3f300b054dbf9592b6"><div class="ttname"><a href="report_8contract_8php.html#affc45c6ace2eeb3f300b054dbf9592b6">$values</a></div><div class="ttdeci">$values</div><div class="ttdef"><b>Definition</b> report.contract.php:58</div></div>
+</div><!-- fragment --><p>Parsing the JWT will require a <a href="https://packagist.org/search/?q=jwt">JWT parser</a>. Refer to parser documentation for instructions.</p>
+<h2><a class="anchor" id="autotoc_md6752"></a>
+Refreshing a Token</h2>
+<p>Refresh tokens are only provided to applications which request offline access. You can specify offline access by setting the <code>accessType</code> option in your provider:</p>
+<div class="fragment"><div class="line"><a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">use</a> <a class="code hl_class" href="class_league_1_1_o_auth2_1_1_client_1_1_provider_1_1_google.html">League\OAuth2\Client\Provider\Google</a>;</div>
+<div class="line"> </div>
+<div class="line">$provider = <span class="keyword">new</span> Google([</div>
+<div class="line">    <span class="stringliteral">&#39;clientId&#39;</span>     =&gt; <span class="stringliteral">&#39;{google-client-id}&#39;</span>,</div>
+<div class="line">    <span class="stringliteral">&#39;clientSecret&#39;</span> =&gt; <span class="stringliteral">&#39;{google-client-secret}&#39;</span>,</div>
+<div class="line">    <span class="stringliteral">&#39;redirectUri&#39;</span>  =&gt; <span class="stringliteral">&#39;https://example.com/callback-url&#39;</span>,</div>
+<div class="line">    <span class="stringliteral">&#39;accessType&#39;</span>   =&gt; <span class="stringliteral">&#39;offline&#39;</span>,</div>
+<div class="line">]);</div>
+</div><!-- fragment --><p>It is important to note that the refresh token is only returned on the first request after this it will be <code>null</code>. You should securely store the refresh token when it is returned:</p>
+<div class="fragment"><div class="line">$token = $provider-&gt;getAccessToken(<span class="stringliteral">&#39;authorization_code&#39;</span>, [</div>
+<div class="line">    <span class="stringliteral">&#39;code&#39;</span> =&gt; $code</div>
+<div class="line">]);</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// persist the token in a database</span></div>
+<div class="line">$refreshToken = $token-&gt;getRefreshToken();</div>
+</div><!-- fragment --><p>If you ever need to get a new refresh token you can request one by forcing the consent prompt:</p>
+<div class="fragment"><div class="line"><a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">$authUrl</a> = $provider-&gt;getAuthorizationUrl([<span class="stringliteral">&#39;prompt&#39;</span> =&gt; <span class="stringliteral">&#39;consent&#39;</span>]);</div>
+</div><!-- fragment --><p>Now you have everything you need to refresh an access token using a refresh token:</p>
+<div class="fragment"><div class="line"><a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">use</a> <a class="code hl_class" href="class_league_1_1_o_auth2_1_1_client_1_1_provider_1_1_google.html">League\OAuth2\Client\Provider\Google</a>;</div>
+<div class="line"><a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">use</a> <a class="code hl_class" href="class_league_1_1_o_auth2_1_1_client_1_1_grant_1_1_refresh_token.html">League\OAuth2\Client\Grant\RefreshToken</a>;</div>
+<div class="line"> </div>
+<div class="line">$provider = <span class="keyword">new</span> Google([</div>
+<div class="line">    <span class="stringliteral">&#39;clientId&#39;</span>     =&gt; <span class="stringliteral">&#39;{google-client-id}&#39;</span>,</div>
+<div class="line">    <span class="stringliteral">&#39;clientSecret&#39;</span> =&gt; <span class="stringliteral">&#39;{google-client-secret}&#39;</span>,</div>
+<div class="line">    <span class="stringliteral">&#39;redirectUri&#39;</span>  =&gt; <span class="stringliteral">&#39;https://example.com/callback-url&#39;</span>,</div>
+<div class="line">]);</div>
+<div class="line"> </div>
+<div class="line"><a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">$grant</a> = <span class="keyword">new</span> RefreshToken();</div>
+<div class="line">$token = $provider-&gt;getAccessToken(<a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">$grant</a>, [<span class="stringliteral">&#39;refresh_token&#39;</span> =&gt; $refreshToken]);</div>
+<div class="ttc" id="aclass_league_1_1_o_auth2_1_1_client_1_1_grant_1_1_refresh_token_html"><div class="ttname"><a href="class_league_1_1_o_auth2_1_1_client_1_1_grant_1_1_refresh_token.html">League\OAuth2\Client\Grant\RefreshToken</a></div><div class="ttdef"><b>Definition</b> RefreshToken.php:23</div></div>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md6753"></a>
+Scopes</h1>
+<p>Additional <a href="https://developers.google.com/identity/protocols/googlescopes">scopes</a> can be set by using the <code>scope</code> parameter when generating the authorization URL:</p>
+<div class="fragment"><div class="line"><a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">$authorizationUrl</a> = $provider-&gt;getAuthorizationUrl([</div>
+<div class="line">    <span class="stringliteral">&#39;scope&#39;</span> =&gt; [</div>
+<div class="line">        <span class="stringliteral">&#39;scope-url-here&#39;</span></div>
+<div class="line">    ],</div>
+<div class="line">]);</div>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md6754"></a>
+Testing</h1>
+<p><a class="el" href="namespace_tests.html">Tests</a> can be run with:</p>
+<div class="fragment"><div class="line">composer test</div>
+</div><!-- fragment --><p>Style checks can be run with:</p>
+<div class="fragment"><div class="line">composer check</div>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md6755"></a>
+Contributing</h1>
+<p>Please see <a href="https://github.com/thephpleague/oauth2-google/blob/master/CONTRIBUTING.md">CONTRIBUTING</a> for details.</p>
+<h1><a class="anchor" id="autotoc_md6756"></a>
+Credits</h1>
+<ul>
+<li><a href="https://github.com/shadowhand">Woody Gilk</a></li>
+<li><a href="https://github.com/thephpleague/oauth2-google/contributors">All Contributors</a></li>
+</ul>
+<h1><a class="anchor" id="autotoc_md6757"></a>
+License</h1>
+<p>The MIT License (MIT). Please see <a href="https://github.com/thephpleague/oauth2-google/blob/master/LICENSE">License File</a> for more information. </p>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0
+</small></address>
+</body>
+</html>

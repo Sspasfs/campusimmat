@@ -1,0 +1,172 @@
+\doxysection{Référence de la classe Decode}
+\hypertarget{class_laminas_1_1_mime_1_1_decode}{}\label{class_laminas_1_1_mime_1_1_decode}\index{Decode@{Decode}}
+
+
+Graphe de collaboration de Decode\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=246pt]{class_laminas_1_1_mime_1_1_decode__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Fonctions membres publiques statiques}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_laminas_1_1_mime_1_1_decode_abfbc91fea2dd39b9281c7cc2b0eb72d3}{split\+Mime}} (\$body, \$boundary)
+\item 
+static \mbox{\hyperlink{class_laminas_1_1_mime_1_1_decode_a270fe9b0b30352f0f65deda23c0c63fe}{split\+Message\+Struct}} (\$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{message}}, \$boundary, \$EOL=\mbox{\hyperlink{class_laminas_1_1_mime_1_1_mime_a04b8f3b5de38ea0d80fe91d321fae1c2}{Mime\+::\+LINEEND}})
+\item 
+static \mbox{\hyperlink{class_laminas_1_1_mime_1_1_decode_a79a871773f24ae19e3bd294454bf5c3f}{split\+Message}} (\$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{message}}, \&\$headers, \&\$body, \$EOL=\mbox{\hyperlink{class_laminas_1_1_mime_1_1_mime_a04b8f3b5de38ea0d80fe91d321fae1c2}{Mime\+::\+LINEEND}}, \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{strict}}=false)
+\item 
+static \mbox{\hyperlink{class_laminas_1_1_mime_1_1_decode_af463c14cd3067dc3782bd5cbd22311a9}{split\+Content\+Type}} (\$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{type}}, \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{wanted\+Part}}=null)
+\item 
+static \mbox{\hyperlink{class_laminas_1_1_mime_1_1_decode_ab6fe6ed7cb8f684a04d5a6f370673ddc}{split\+Header\+Field}} (\$field, \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{wanted\+Part}}=null, \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{first\+Name}}=\textquotesingle{}0\textquotesingle{})
+\item 
+static \mbox{\hyperlink{class_laminas_1_1_mime_1_1_decode_afcf80ac046a725f225d748fbe97cf21a}{decode\+Quoted\+Printable}} (\$string)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Documentation des fonctions membres}
+\Hypertarget{class_laminas_1_1_mime_1_1_decode_afcf80ac046a725f225d748fbe97cf21a}\label{class_laminas_1_1_mime_1_1_decode_afcf80ac046a725f225d748fbe97cf21a} 
+\index{Decode@{Decode}!decodeQuotedPrintable@{decodeQuotedPrintable}}
+\index{decodeQuotedPrintable@{decodeQuotedPrintable}!Decode@{Decode}}
+\doxysubsubsection{\texorpdfstring{decodeQuotedPrintable()}{decodeQuotedPrintable()}}
+{\footnotesize\ttfamily static decode\+Quoted\+Printable (\begin{DoxyParamCaption}\item[{}]{\$string }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+decode a quoted printable encoded string
+
+The charset of the returned string depends on your iconv settings.
+
+
+\begin{DoxyParams}[1]{Paramètres}
+string & {\em \$string} & encoded string \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+string decoded string 
+\end{DoxyReturn}
+\Hypertarget{class_laminas_1_1_mime_1_1_decode_af463c14cd3067dc3782bd5cbd22311a9}\label{class_laminas_1_1_mime_1_1_decode_af463c14cd3067dc3782bd5cbd22311a9} 
+\index{Decode@{Decode}!splitContentType@{splitContentType}}
+\index{splitContentType@{splitContentType}!Decode@{Decode}}
+\doxysubsubsection{\texorpdfstring{splitContentType()}{splitContentType()}}
+{\footnotesize\ttfamily static split\+Content\+Type (\begin{DoxyParamCaption}\item[{}]{\$type,  }\item[{}]{\$wanted\+Part = {\ttfamily null} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+split a content type in its different parts
+
+
+\begin{DoxyParams}[1]{Paramètres}
+string & {\em \$type} & content-\/type \\
+\hline
+string & {\em \$wanted\+Part} & the wanted part, else an array with all parts is returned \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+string\texorpdfstring{$\vert$}{|}array wanted part or all parts as array(\textquotesingle{}type\textquotesingle{} =\texorpdfstring{$>$}{>} content-\/type, partname =\texorpdfstring{$>$}{>} value) 
+\end{DoxyReturn}
+\Hypertarget{class_laminas_1_1_mime_1_1_decode_ab6fe6ed7cb8f684a04d5a6f370673ddc}\label{class_laminas_1_1_mime_1_1_decode_ab6fe6ed7cb8f684a04d5a6f370673ddc} 
+\index{Decode@{Decode}!splitHeaderField@{splitHeaderField}}
+\index{splitHeaderField@{splitHeaderField}!Decode@{Decode}}
+\doxysubsubsection{\texorpdfstring{splitHeaderField()}{splitHeaderField()}}
+{\footnotesize\ttfamily static split\+Header\+Field (\begin{DoxyParamCaption}\item[{}]{\$field,  }\item[{}]{\$wanted\+Part = {\ttfamily null},  }\item[{}]{\$first\+Name = {\ttfamily \textquotesingle{}0\textquotesingle{}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+split a header field like content type in its different parts
+
+
+\begin{DoxyParams}[1]{Paramètres}
+string & {\em \$field} & header field \\
+\hline
+string & {\em \$wanted\+Part} & the wanted part, else an array with all parts is returned \\
+\hline
+string & {\em \$first\+Name} & key name for the first part \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+string\texorpdfstring{$\vert$}{|}array wanted part or all parts as array(\$first\+Name =\texorpdfstring{$>$}{>} first\+Part, partname =\texorpdfstring{$>$}{>} value) 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Exception} & \\
+\hline
+\end{DoxyExceptions}
+Runtime\+Exception \Hypertarget{class_laminas_1_1_mime_1_1_decode_a79a871773f24ae19e3bd294454bf5c3f}\label{class_laminas_1_1_mime_1_1_decode_a79a871773f24ae19e3bd294454bf5c3f} 
+\index{Decode@{Decode}!splitMessage@{splitMessage}}
+\index{splitMessage@{splitMessage}!Decode@{Decode}}
+\doxysubsubsection{\texorpdfstring{splitMessage()}{splitMessage()}}
+{\footnotesize\ttfamily static split\+Message (\begin{DoxyParamCaption}\item[{}]{\$message,  }\item[{\&}]{\$headers,  }\item[{\&}]{\$body,  }\item[{}]{\$\+EOL = {\ttfamily \mbox{\hyperlink{class_laminas_1_1_mime_1_1_mime_a04b8f3b5de38ea0d80fe91d321fae1c2}{Mime\+::\+LINEEND}}},  }\item[{}]{\$strict = {\ttfamily false} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+split a message in header and body part, if no header or an invalid header is found \$headers is empty
+
+The charset of the returned headers depend on your iconv settings.
+
+
+\begin{DoxyParams}[1]{Paramètres}
+string | Headers & {\em \$message} & raw message with header and optional content \\
+\hline
+Headers & {\em \$headers} & output param, headers container \\
+\hline
+string & {\em \$body} & output param, content of message \\
+\hline
+string & {\em \$\+EOL} & EOL string; defaults to {\ttfamily \doxylink{}{Laminas\textbackslash{}\+Mime\textbackslash{}\+Mime\+::\+LINEEND}} \\
+\hline
+bool & {\em \$strict} & enable strict mode for parsing message \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+null 
+\end{DoxyReturn}
+\Hypertarget{class_laminas_1_1_mime_1_1_decode_a270fe9b0b30352f0f65deda23c0c63fe}\label{class_laminas_1_1_mime_1_1_decode_a270fe9b0b30352f0f65deda23c0c63fe} 
+\index{Decode@{Decode}!splitMessageStruct@{splitMessageStruct}}
+\index{splitMessageStruct@{splitMessageStruct}!Decode@{Decode}}
+\doxysubsubsection{\texorpdfstring{splitMessageStruct()}{splitMessageStruct()}}
+{\footnotesize\ttfamily static split\+Message\+Struct (\begin{DoxyParamCaption}\item[{}]{\$message,  }\item[{}]{\$boundary,  }\item[{}]{\$\+EOL = {\ttfamily \mbox{\hyperlink{class_laminas_1_1_mime_1_1_mime_a04b8f3b5de38ea0d80fe91d321fae1c2}{Mime\+::\+LINEEND}}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+decodes a mime encoded String and returns a struct of parts with header and body
+
+
+\begin{DoxyParams}[1]{Paramètres}
+string & {\em \$message} & raw message content \\
+\hline
+string & {\em \$boundary} & boundary as found in content-\/type \\
+\hline
+string & {\em \$\+EOL} & EOL string; defaults to {\ttfamily \doxylink{}{Laminas\textbackslash{}\+Mime\textbackslash{}\+Mime\+::\+LINEEND}} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+array\texorpdfstring{$\vert$}{|}null parts as array(\textquotesingle{}header\textquotesingle{} =\texorpdfstring{$>$}{>} array(name =\texorpdfstring{$>$}{>} value), \textquotesingle{}body\textquotesingle{} =\texorpdfstring{$>$}{>} content), null if no parts found 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Exception} & \\
+\hline
+\end{DoxyExceptions}
+Runtime\+Exception \Hypertarget{class_laminas_1_1_mime_1_1_decode_abfbc91fea2dd39b9281c7cc2b0eb72d3}\label{class_laminas_1_1_mime_1_1_decode_abfbc91fea2dd39b9281c7cc2b0eb72d3} 
+\index{Decode@{Decode}!splitMime@{splitMime}}
+\index{splitMime@{splitMime}!Decode@{Decode}}
+\doxysubsubsection{\texorpdfstring{splitMime()}{splitMime()}}
+{\footnotesize\ttfamily static split\+Mime (\begin{DoxyParamCaption}\item[{}]{\$body,  }\item[{}]{\$boundary }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Explode MIME multipart string into separate parts
+
+Parts consist of the header and the body of each MIME part.
+
+
+\begin{DoxyParams}[1]{Paramètres}
+string & {\em \$body} & raw body of message \\
+\hline
+string & {\em \$boundary} & boundary as found in content-\/type \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+array parts with content of each part, empty if no parts found 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Exception} & \\
+\hline
+\end{DoxyExceptions}
+Runtime\+Exception 
+
+La documentation de cette classe a été générée à partir du fichier suivant \+:\begin{DoxyCompactItemize}
+\item 
+public/glpi/vendor/laminas/laminas-\/mime/src/\mbox{\hyperlink{_decode_8php}{Decode.\+php}}\end{DoxyCompactItemize}

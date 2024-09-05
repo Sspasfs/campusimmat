@@ -1,0 +1,220 @@
+\chapter{JSON diff/rearrange/patch/pointer library for PHP}
+\hypertarget{md_public_2glpi_2vendor_2swaggest_2json-diff_2_r_e_a_d_m_e}{}\label{md_public_2glpi_2vendor_2swaggest_2json-diff_2_r_e_a_d_m_e}\index{JSON diff/rearrange/patch/pointer library for PHP@{JSON diff/rearrange/patch/pointer library for PHP}}
+\label{md_public_2glpi_2vendor_2swaggest_2json-diff_2_r_e_a_d_m_e_autotoc_md7238}%
+\Hypertarget{md_public_2glpi_2vendor_2swaggest_2json-diff_2_r_e_a_d_m_e_autotoc_md7238}%
+ A PHP implementation for finding unordered diff between two {\ttfamily JSON} documents.
+
+\href{https://travis-ci.org/swaggest/json-diff}{\texttt{ }} \href{https://scrutinizer-ci.com/g/swaggest/json-diff/?branch=master}{\texttt{ }} \href{https://codeclimate.com/github/swaggest/json-diff}{\texttt{ }} \href{https://scrutinizer-ci.com/g/swaggest/json-diff/code-structure/master/code-coverage}{\texttt{ }} \href{https://wakatime.com/badge/github/swaggest/json-diff}{\texttt{ }}\hypertarget{md_public_2glpi_2vendor_2swaggest_2json-diff_2_r_e_a_d_m_e_autotoc_md7239}{}\doxysection{\texorpdfstring{Purpose}{Purpose}}\label{md_public_2glpi_2vendor_2swaggest_2json-diff_2_r_e_a_d_m_e_autotoc_md7239}
+
+\begin{DoxyItemize}
+\item To simplify changes review between two {\ttfamily JSON} files you can use a standard {\ttfamily diff} tool on rearranged pretty-\/printed {\ttfamily JSON}.
+\item To detect breaking changes by analyzing removals and changes from original {\ttfamily JSON}.
+\item To keep original order of object sets (for example {\ttfamily swagger.\+json} \href{https://swagger.io/docs/specification/describing-parameters/}{\texttt{ parameters}} list).
+\item To \doxylink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{make} and \doxylink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{apply} JSON Patches, specified in \href{https://datatracker.ietf.org/doc/html/rfc6902}{\texttt{ RFC 6902}} from the IETF.
+\item To \doxylink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{make} and \doxylink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{apply} JSON Merge Patches, specified in \href{https://datatracker.ietf.org/doc/html/rfc7386}{\texttt{ RFC 7386}} from the IETF.
+\item To retrieve and modify data by \href{https://datatracker.ietf.org/doc/html/rfc6901}{\texttt{ JSON Pointer}}.
+\item To recursively replace by JSON value.
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2swaggest_2json-diff_2_r_e_a_d_m_e_autotoc_md7240}{}\doxysection{\texorpdfstring{Installation}{Installation}}\label{md_public_2glpi_2vendor_2swaggest_2json-diff_2_r_e_a_d_m_e_autotoc_md7240}
+\hypertarget{md_public_2glpi_2vendor_2swaggest_2json-diff_2_r_e_a_d_m_e_autotoc_md7241}{}\doxysubsection{\texorpdfstring{Library}{Library}}\label{md_public_2glpi_2vendor_2swaggest_2json-diff_2_r_e_a_d_m_e_autotoc_md7241}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{git\ clone\ https://github.com/swaggest/json-\/diff.git}
+
+\end{DoxyCode}
+\hypertarget{md_public_2glpi_2vendor_2swaggest_2json-diff_2_r_e_a_d_m_e_autotoc_md7242}{}\doxysubsection{\texorpdfstring{Composer}{Composer}}\label{md_public_2glpi_2vendor_2swaggest_2json-diff_2_r_e_a_d_m_e_autotoc_md7242}
+\href{https://getcomposer.org/doc/00-intro.md}{\texttt{ Install PHP Composer}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{composer\ require\ swaggest/json-\/diff}
+
+\end{DoxyCode}
+\hypertarget{md_public_2glpi_2vendor_2swaggest_2json-diff_2_r_e_a_d_m_e_autotoc_md7243}{}\doxysection{\texorpdfstring{Library usage}{Library usage}}\label{md_public_2glpi_2vendor_2swaggest_2json-diff_2_r_e_a_d_m_e_autotoc_md7243}
+\hypertarget{md_public_2glpi_2vendor_2swaggest_2json-diff_2_r_e_a_d_m_e_autotoc_md7244}{}\doxysubsection{\texorpdfstring{{\ttfamily Json\+Diff}}{{\ttfamily Json\+Diff}}}\label{md_public_2glpi_2vendor_2swaggest_2json-diff_2_r_e_a_d_m_e_autotoc_md7244}
+Create {\ttfamily Json\+Diff} object from two values ({\ttfamily original} and {\ttfamily new}).
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\$r\ =\ \textcolor{keyword}{new}\ JsonDiff(json\_decode(\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\$originalJson}}),\ json\_decode(\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\$newJson}}));}
+
+\end{DoxyCode}
+
+
+On construction {\ttfamily Json\+Diff} will build {\ttfamily rearranged} value of {\ttfamily new} recursively keeping {\ttfamily original} keys order where possible. Keys that are missing in {\ttfamily original} will be appended to the end of {\ttfamily rearranged} value in same order they had in {\ttfamily new} value.
+
+If two values are arrays of objects, {\ttfamily Json\+Diff} will try to find a common unique field in those objects and use it as criteria for rearranging. You can enable this behaviour with {\ttfamily Json\+Diff\+::\+REARRANGE\+\_\+\+ARRAYS} option\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\$r\ =\ \textcolor{keyword}{new}\ JsonDiff(}
+\DoxyCodeLine{\ \ \ \ json\_decode(\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\$originalJson}}),\ }
+\DoxyCodeLine{\ \ \ \ json\_decode(\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\$newJson}}),}
+\DoxyCodeLine{\ \ \ \ JsonDiff::REARRANGE\_ARRAYS}
+\DoxyCodeLine{);}
+
+\end{DoxyCode}
+
+
+Available options\+:
+\begin{DoxyItemize}
+\item {\ttfamily REARRANGE\+\_\+\+ARRAYS} is an option to enable \doxylink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{arrays rearrangement} to minimize the difference.
+\item {\ttfamily STOP\+\_\+\+ON\+\_\+\+DIFF} is an option to improve performance by stopping comparison when a difference is found.
+\item {\ttfamily JSON\+\_\+\+URI\+\_\+\+FRAGMENT\+\_\+\+ID} is an option to use URI Fragment Identifier Representation (example\+: "{}\#/c\%25d"{}). If not set default JSON String Representation (example\+: "{}/c\%d"{}).
+\item {\ttfamily SKIP\+\_\+\+JSON\+\_\+\+PATCH} is an option to improve performance by not building Json\+Patch for this diff.
+\item {\ttfamily SKIP\+\_\+\+JSON\+\_\+\+MERGE\+\_\+\+PATCH} is an option to improve performance by not building JSON Merge Patch value for this diff.
+\item {\ttfamily TOLERATE\+\_\+\+ASSOCIATIVE\+\_\+\+ARRAYS} is an option to allow associative arrays to mimic JSON objects (not recommended).
+\item {\ttfamily COLLECT\+\_\+\+MODIFIED\+\_\+\+DIFF} is an option to enable \doxylink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{get\+Modified\+Diff}.
+\end{DoxyItemize}
+
+Options can be combined, e.\+g. {\ttfamily Json\+Diff\+::\+REARRANGE\+\_\+\+ARRAYS + Json\+Diff\+::\+STOP\+\_\+\+ON\+\_\+\+DIFF}.\hypertarget{md_public_2glpi_2vendor_2swaggest_2json-diff_2_r_e_a_d_m_e_autotoc_md7245}{}\doxysubsubsection{\texorpdfstring{{\ttfamily get\+Diff\+Cnt}}{{\ttfamily get\+Diff\+Cnt}}}\label{md_public_2glpi_2vendor_2swaggest_2json-diff_2_r_e_a_d_m_e_autotoc_md7245}
+Returns total number of differences\hypertarget{md_public_2glpi_2vendor_2swaggest_2json-diff_2_r_e_a_d_m_e_autotoc_md7246}{}\doxysubsubsection{\texorpdfstring{{\ttfamily get\+Patch}}{{\ttfamily get\+Patch}}}\label{md_public_2glpi_2vendor_2swaggest_2json-diff_2_r_e_a_d_m_e_autotoc_md7246}
+Returns \doxylink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\`{}\+Json\+Patch\`{}} of difference\hypertarget{md_public_2glpi_2vendor_2swaggest_2json-diff_2_r_e_a_d_m_e_autotoc_md7247}{}\doxysubsubsection{\texorpdfstring{{\ttfamily get\+Merge\+Patch}}{{\ttfamily get\+Merge\+Patch}}}\label{md_public_2glpi_2vendor_2swaggest_2json-diff_2_r_e_a_d_m_e_autotoc_md7247}
+Returns \href{https://datatracker.ietf.org/doc/html/rfc7386}{\texttt{ JSON Merge Patch}} value of difference\hypertarget{md_public_2glpi_2vendor_2swaggest_2json-diff_2_r_e_a_d_m_e_autotoc_md7248}{}\doxysubsubsection{\texorpdfstring{{\ttfamily get\+Rearranged}}{{\ttfamily get\+Rearranged}}}\label{md_public_2glpi_2vendor_2swaggest_2json-diff_2_r_e_a_d_m_e_autotoc_md7248}
+Returns new value, rearranged with original order.\hypertarget{md_public_2glpi_2vendor_2swaggest_2json-diff_2_r_e_a_d_m_e_autotoc_md7249}{}\doxysubsubsection{\texorpdfstring{{\ttfamily get\+Removed}}{{\ttfamily get\+Removed}}}\label{md_public_2glpi_2vendor_2swaggest_2json-diff_2_r_e_a_d_m_e_autotoc_md7249}
+Returns removals as partial value of original.\hypertarget{md_public_2glpi_2vendor_2swaggest_2json-diff_2_r_e_a_d_m_e_autotoc_md7250}{}\doxysubsubsection{\texorpdfstring{{\ttfamily get\+Removed\+Paths}}{{\ttfamily get\+Removed\+Paths}}}\label{md_public_2glpi_2vendor_2swaggest_2json-diff_2_r_e_a_d_m_e_autotoc_md7250}
+Returns list of {\ttfamily JSON} paths that were removed from original.\hypertarget{md_public_2glpi_2vendor_2swaggest_2json-diff_2_r_e_a_d_m_e_autotoc_md7251}{}\doxysubsubsection{\texorpdfstring{{\ttfamily get\+Removed\+Cnt}}{{\ttfamily get\+Removed\+Cnt}}}\label{md_public_2glpi_2vendor_2swaggest_2json-diff_2_r_e_a_d_m_e_autotoc_md7251}
+Returns number of removals.\hypertarget{md_public_2glpi_2vendor_2swaggest_2json-diff_2_r_e_a_d_m_e_autotoc_md7252}{}\doxysubsubsection{\texorpdfstring{{\ttfamily get\+Added}}{{\ttfamily get\+Added}}}\label{md_public_2glpi_2vendor_2swaggest_2json-diff_2_r_e_a_d_m_e_autotoc_md7252}
+Returns additions as partial value of new.\hypertarget{md_public_2glpi_2vendor_2swaggest_2json-diff_2_r_e_a_d_m_e_autotoc_md7253}{}\doxysubsubsection{\texorpdfstring{{\ttfamily get\+Added\+Paths}}{{\ttfamily get\+Added\+Paths}}}\label{md_public_2glpi_2vendor_2swaggest_2json-diff_2_r_e_a_d_m_e_autotoc_md7253}
+Returns list of {\ttfamily JSON} paths that were added to new.\hypertarget{md_public_2glpi_2vendor_2swaggest_2json-diff_2_r_e_a_d_m_e_autotoc_md7254}{}\doxysubsubsection{\texorpdfstring{{\ttfamily get\+Added\+Cnt}}{{\ttfamily get\+Added\+Cnt}}}\label{md_public_2glpi_2vendor_2swaggest_2json-diff_2_r_e_a_d_m_e_autotoc_md7254}
+Returns number of additions.\hypertarget{md_public_2glpi_2vendor_2swaggest_2json-diff_2_r_e_a_d_m_e_autotoc_md7255}{}\doxysubsubsection{\texorpdfstring{{\ttfamily get\+Modified\+Original}}{{\ttfamily get\+Modified\+Original}}}\label{md_public_2glpi_2vendor_2swaggest_2json-diff_2_r_e_a_d_m_e_autotoc_md7255}
+Returns modifications as partial value of original.\hypertarget{md_public_2glpi_2vendor_2swaggest_2json-diff_2_r_e_a_d_m_e_autotoc_md7256}{}\doxysubsubsection{\texorpdfstring{{\ttfamily get\+Modified\+New}}{{\ttfamily get\+Modified\+New}}}\label{md_public_2glpi_2vendor_2swaggest_2json-diff_2_r_e_a_d_m_e_autotoc_md7256}
+Returns modifications as partial value of new.\hypertarget{md_public_2glpi_2vendor_2swaggest_2json-diff_2_r_e_a_d_m_e_autotoc_md7257}{}\doxysubsubsection{\texorpdfstring{{\ttfamily get\+Modified\+Diff}}{{\ttfamily get\+Modified\+Diff}}}\label{md_public_2glpi_2vendor_2swaggest_2json-diff_2_r_e_a_d_m_e_autotoc_md7257}
+Returns list of \href{src/ModifiedPathDiff.php}{\texttt{ {\ttfamily Modified\+Path\+Diff}}} containing paths with original and new values.
+
+Not collected by default, requires {\ttfamily Json\+Diff\+::\+COLLECT\+\_\+\+MODIFIED\+\_\+\+DIFF} option.\hypertarget{md_public_2glpi_2vendor_2swaggest_2json-diff_2_r_e_a_d_m_e_autotoc_md7258}{}\doxysubsubsection{\texorpdfstring{{\ttfamily get\+Modified\+Paths}}{{\ttfamily get\+Modified\+Paths}}}\label{md_public_2glpi_2vendor_2swaggest_2json-diff_2_r_e_a_d_m_e_autotoc_md7258}
+Returns list of {\ttfamily JSON} paths that were modified from original to new.\hypertarget{md_public_2glpi_2vendor_2swaggest_2json-diff_2_r_e_a_d_m_e_autotoc_md7259}{}\doxysubsubsection{\texorpdfstring{{\ttfamily get\+Modified\+Cnt}}{{\ttfamily get\+Modified\+Cnt}}}\label{md_public_2glpi_2vendor_2swaggest_2json-diff_2_r_e_a_d_m_e_autotoc_md7259}
+Returns number of modifications.\hypertarget{md_public_2glpi_2vendor_2swaggest_2json-diff_2_r_e_a_d_m_e_autotoc_md7260}{}\doxysubsection{\texorpdfstring{{\ttfamily Json\+Patch}}{{\ttfamily Json\+Patch}}}\label{md_public_2glpi_2vendor_2swaggest_2json-diff_2_r_e_a_d_m_e_autotoc_md7260}
+\hypertarget{md_public_2glpi_2vendor_2swaggest_2json-diff_2_r_e_a_d_m_e_autotoc_md7261}{}\doxysubsubsection{\texorpdfstring{{\ttfamily import}}{{\ttfamily import}}}\label{md_public_2glpi_2vendor_2swaggest_2json-diff_2_r_e_a_d_m_e_autotoc_md7261}
+Creates {\ttfamily Json\+Patch} instance from {\ttfamily JSON}-\/decoded data.\hypertarget{md_public_2glpi_2vendor_2swaggest_2json-diff_2_r_e_a_d_m_e_autotoc_md7262}{}\doxysubsubsection{\texorpdfstring{{\ttfamily export}}{{\ttfamily export}}}\label{md_public_2glpi_2vendor_2swaggest_2json-diff_2_r_e_a_d_m_e_autotoc_md7262}
+Creates patch data from {\ttfamily Json\+Patch} object.\hypertarget{md_public_2glpi_2vendor_2swaggest_2json-diff_2_r_e_a_d_m_e_autotoc_md7263}{}\doxysubsubsection{\texorpdfstring{{\ttfamily op}}{{\ttfamily op}}}\label{md_public_2glpi_2vendor_2swaggest_2json-diff_2_r_e_a_d_m_e_autotoc_md7263}
+Adds operation to {\ttfamily Json\+Patch}.\hypertarget{md_public_2glpi_2vendor_2swaggest_2json-diff_2_r_e_a_d_m_e_autotoc_md7264}{}\doxysubsubsection{\texorpdfstring{{\ttfamily apply}}{{\ttfamily apply}}}\label{md_public_2glpi_2vendor_2swaggest_2json-diff_2_r_e_a_d_m_e_autotoc_md7264}
+Applies patch to {\ttfamily JSON}-\/decoded data.\hypertarget{md_public_2glpi_2vendor_2swaggest_2json-diff_2_r_e_a_d_m_e_autotoc_md7265}{}\doxysubsubsection{\texorpdfstring{{\ttfamily set\+Flags}}{{\ttfamily set\+Flags}}}\label{md_public_2glpi_2vendor_2swaggest_2json-diff_2_r_e_a_d_m_e_autotoc_md7265}
+Alters default behavior.
+
+Available flags\+:
+
+
+\begin{DoxyItemize}
+\item {\ttfamily Json\+Patch\+::\+STRICT\+\_\+\+MODE} Disallow converting empty array to object for key creation.
+\item {\ttfamily Json\+Patch\+::\+TOLERATE\+\_\+\+ASSOCIATIVE\+\_\+\+ARRAYS} Allow associative arrays to mimic JSON objects (not recommended).
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2swaggest_2json-diff_2_r_e_a_d_m_e_autotoc_md7266}{}\doxysubsection{\texorpdfstring{{\ttfamily Json\+Pointer}}{{\ttfamily Json\+Pointer}}}\label{md_public_2glpi_2vendor_2swaggest_2json-diff_2_r_e_a_d_m_e_autotoc_md7266}
+\hypertarget{md_public_2glpi_2vendor_2swaggest_2json-diff_2_r_e_a_d_m_e_autotoc_md7267}{}\doxysubsubsection{\texorpdfstring{{\ttfamily escape\+Segment}}{{\ttfamily escape\+Segment}}}\label{md_public_2glpi_2vendor_2swaggest_2json-diff_2_r_e_a_d_m_e_autotoc_md7267}
+Escapes path segment.\hypertarget{md_public_2glpi_2vendor_2swaggest_2json-diff_2_r_e_a_d_m_e_autotoc_md7268}{}\doxysubsubsection{\texorpdfstring{{\ttfamily split\+Path}}{{\ttfamily split\+Path}}}\label{md_public_2glpi_2vendor_2swaggest_2json-diff_2_r_e_a_d_m_e_autotoc_md7268}
+Creates array of unescaped segments from {\ttfamily JSON Pointer} string.\hypertarget{md_public_2glpi_2vendor_2swaggest_2json-diff_2_r_e_a_d_m_e_autotoc_md7269}{}\doxysubsubsection{\texorpdfstring{{\ttfamily build\+Path}}{{\ttfamily build\+Path}}}\label{md_public_2glpi_2vendor_2swaggest_2json-diff_2_r_e_a_d_m_e_autotoc_md7269}
+Creates {\ttfamily JSON Pointer} string from array of unescaped segments.\hypertarget{md_public_2glpi_2vendor_2swaggest_2json-diff_2_r_e_a_d_m_e_autotoc_md7270}{}\doxysubsubsection{\texorpdfstring{{\ttfamily add}}{{\ttfamily add}}}\label{md_public_2glpi_2vendor_2swaggest_2json-diff_2_r_e_a_d_m_e_autotoc_md7270}
+Adds value to data at path specified by segments.\hypertarget{md_public_2glpi_2vendor_2swaggest_2json-diff_2_r_e_a_d_m_e_autotoc_md7271}{}\doxysubsubsection{\texorpdfstring{{\ttfamily get}}{{\ttfamily get}}}\label{md_public_2glpi_2vendor_2swaggest_2json-diff_2_r_e_a_d_m_e_autotoc_md7271}
+Gets value from data at path specified by segments.\hypertarget{md_public_2glpi_2vendor_2swaggest_2json-diff_2_r_e_a_d_m_e_autotoc_md7272}{}\doxysubsubsection{\texorpdfstring{{\ttfamily get\+By\+Pointer}}{{\ttfamily get\+By\+Pointer}}}\label{md_public_2glpi_2vendor_2swaggest_2json-diff_2_r_e_a_d_m_e_autotoc_md7272}
+Gets value from data at path specified {\ttfamily JSON Pointer} string.\hypertarget{md_public_2glpi_2vendor_2swaggest_2json-diff_2_r_e_a_d_m_e_autotoc_md7273}{}\doxysubsubsection{\texorpdfstring{{\ttfamily remove}}{{\ttfamily remove}}}\label{md_public_2glpi_2vendor_2swaggest_2json-diff_2_r_e_a_d_m_e_autotoc_md7273}
+Removes value from data at path specified by segments.\hypertarget{md_public_2glpi_2vendor_2swaggest_2json-diff_2_r_e_a_d_m_e_autotoc_md7274}{}\doxysubsection{\texorpdfstring{{\ttfamily Json\+Merge\+Patch}}{{\ttfamily Json\+Merge\+Patch}}}\label{md_public_2glpi_2vendor_2swaggest_2json-diff_2_r_e_a_d_m_e_autotoc_md7274}
+\hypertarget{md_public_2glpi_2vendor_2swaggest_2json-diff_2_r_e_a_d_m_e_autotoc_md7275}{}\doxysubsubsection{\texorpdfstring{{\ttfamily apply}}{{\ttfamily apply}}}\label{md_public_2glpi_2vendor_2swaggest_2json-diff_2_r_e_a_d_m_e_autotoc_md7275}
+Applies patch to {\ttfamily JSON}-\/decoded data.\hypertarget{md_public_2glpi_2vendor_2swaggest_2json-diff_2_r_e_a_d_m_e_autotoc_md7276}{}\doxysubsection{\texorpdfstring{{\ttfamily Json\+Value\+Replace}}{{\ttfamily Json\+Value\+Replace}}}\label{md_public_2glpi_2vendor_2swaggest_2json-diff_2_r_e_a_d_m_e_autotoc_md7276}
+\hypertarget{md_public_2glpi_2vendor_2swaggest_2json-diff_2_r_e_a_d_m_e_autotoc_md7277}{}\doxysubsubsection{\texorpdfstring{{\ttfamily process}}{{\ttfamily process}}}\label{md_public_2glpi_2vendor_2swaggest_2json-diff_2_r_e_a_d_m_e_autotoc_md7277}
+Recursively replaces all nodes equal to {\ttfamily search} value with {\ttfamily replace} value.\hypertarget{md_public_2glpi_2vendor_2swaggest_2json-diff_2_r_e_a_d_m_e_autotoc_md7278}{}\doxysection{\texorpdfstring{Example}{Example}}\label{md_public_2glpi_2vendor_2swaggest_2json-diff_2_r_e_a_d_m_e_autotoc_md7278}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\$originalJson}}\ =\ <<<\textcolor{stringliteral}{'JSON'}}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{"{}key1"{}}:\ [4,\ 1,\ 2,\ 3],}
+\DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{"{}key2"{}}:\ 2,}
+\DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{"{}key3"{}}:\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}sub0"{}}:\ 0,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}sub1"{}}:\ \textcolor{stringliteral}{"{}a"{}},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}sub2"{}}:\ \textcolor{stringliteral}{"{}b"{}}}
+\DoxyCodeLine{\ \ \ \ \},}
+\DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{"{}key4"{}}:\ [}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{\textcolor{stringliteral}{"{}a"{}}:1,\ \textcolor{stringliteral}{"{}b"{}}:\textcolor{keyword}{true},\ \textcolor{stringliteral}{"{}subs"{}}:\ [\{\textcolor{stringliteral}{"{}s"{}}:1\},\ \{\textcolor{stringliteral}{"{}s"{}}:2\},\ \{\textcolor{stringliteral}{"{}s"{}}:3\}]\},\ \{\textcolor{stringliteral}{"{}a"{}}:2,\ \textcolor{stringliteral}{"{}b"{}}:\textcolor{keyword}{false}\},\ \{\textcolor{stringliteral}{"{}a"{}}:3\}}
+\DoxyCodeLine{\ \ \ \ ]}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{JSON;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\$newJson}}\ =\ <<<\textcolor{stringliteral}{'JSON'}}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{"{}key5"{}}:\ \textcolor{stringliteral}{"{}wat"{}},}
+\DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{"{}key1"{}}:\ [5,\ 1,\ 2,\ 3],}
+\DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{"{}key4"{}}:\ [}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{\textcolor{stringliteral}{"{}c"{}}:\textcolor{keyword}{false},\ \textcolor{stringliteral}{"{}a"{}}:2\},\ \{\textcolor{stringliteral}{"{}a"{}}:1,\ \textcolor{stringliteral}{"{}b"{}}:\textcolor{keyword}{true},\ \textcolor{stringliteral}{"{}subs"{}}:\ [\{\textcolor{stringliteral}{"{}s"{}}:3,\ \textcolor{stringliteral}{"{}add"{}}:\ \textcolor{keyword}{true}\},\ \{\textcolor{stringliteral}{"{}s"{}}:2\},\ \{\textcolor{stringliteral}{"{}s"{}}:1\}]\},\ \{\textcolor{stringliteral}{"{}c"{}}:1,\ \textcolor{stringliteral}{"{}a"{}}:3\}}
+\DoxyCodeLine{\ \ \ \ ],}
+\DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{"{}key3"{}}:\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}sub3"{}}:\ 0,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}sub2"{}}:\ \textcolor{keyword}{false},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}sub1"{}}:\ \textcolor{stringliteral}{"{}c"{}}}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{JSON;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\$patchJson}}\ =\ <<<\textcolor{stringliteral}{'JSON'}}
+\DoxyCodeLine{[}
+\DoxyCodeLine{\ \ \ \ \{\textcolor{stringliteral}{"{}value"{}}:4,\textcolor{stringliteral}{"{}op"{}}:\textcolor{stringliteral}{"{}test"{}},\textcolor{stringliteral}{"{}path"{}}:\textcolor{stringliteral}{"{}/key1/0"{}}\},}
+\DoxyCodeLine{\ \ \ \ \{\textcolor{stringliteral}{"{}value"{}}:5,\textcolor{stringliteral}{"{}op"{}}:\textcolor{stringliteral}{"{}replace"{}},\textcolor{stringliteral}{"{}path"{}}:\textcolor{stringliteral}{"{}/key1/0"{}}\},}
+\DoxyCodeLine{\ \ \ \ }
+\DoxyCodeLine{\ \ \ \ \{\textcolor{stringliteral}{"{}op"{}}:\textcolor{stringliteral}{"{}remove"{}},\textcolor{stringliteral}{"{}path"{}}:\textcolor{stringliteral}{"{}/key2"{}}\},}
+\DoxyCodeLine{\ \ \ \ }
+\DoxyCodeLine{\ \ \ \ \{\textcolor{stringliteral}{"{}op"{}}:\textcolor{stringliteral}{"{}remove"{}},\textcolor{stringliteral}{"{}path"{}}:\textcolor{stringliteral}{"{}/key3/sub0"{}}\},}
+\DoxyCodeLine{\ \ \ \ }
+\DoxyCodeLine{\ \ \ \ \{\textcolor{stringliteral}{"{}value"{}}:\textcolor{stringliteral}{"{}a"{}},\textcolor{stringliteral}{"{}op"{}}:\textcolor{stringliteral}{"{}test"{}},\textcolor{stringliteral}{"{}path"{}}:\textcolor{stringliteral}{"{}/key3/sub1"{}}\},}
+\DoxyCodeLine{\ \ \ \ \{\textcolor{stringliteral}{"{}value"{}}:\textcolor{stringliteral}{"{}c"{}},\textcolor{stringliteral}{"{}op"{}}:\textcolor{stringliteral}{"{}replace"{}},\textcolor{stringliteral}{"{}path"{}}:\textcolor{stringliteral}{"{}/key3/sub1"{}}\},}
+\DoxyCodeLine{\ \ \ \ }
+\DoxyCodeLine{\ \ \ \ \{\textcolor{stringliteral}{"{}value"{}}:\textcolor{stringliteral}{"{}b"{}},\textcolor{stringliteral}{"{}op"{}}:\textcolor{stringliteral}{"{}test"{}},\textcolor{stringliteral}{"{}path"{}}:\textcolor{stringliteral}{"{}/key3/sub2"{}}\},}
+\DoxyCodeLine{\ \ \ \ \{\textcolor{stringliteral}{"{}value"{}}:\textcolor{keyword}{false},\textcolor{stringliteral}{"{}op"{}}:\textcolor{stringliteral}{"{}replace"{}},\textcolor{stringliteral}{"{}path"{}}:\textcolor{stringliteral}{"{}/key3/sub2"{}}\},}
+\DoxyCodeLine{\ \ \ \ }
+\DoxyCodeLine{\ \ \ \ \{\textcolor{stringliteral}{"{}value"{}}:0,\textcolor{stringliteral}{"{}op"{}}:\textcolor{stringliteral}{"{}add"{}},\textcolor{stringliteral}{"{}path"{}}:\textcolor{stringliteral}{"{}/key3/sub3"{}}\},}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \{\textcolor{stringliteral}{"{}value"{}}:\textcolor{keyword}{true},\textcolor{stringliteral}{"{}op"{}}:\textcolor{stringliteral}{"{}add"{}},\textcolor{stringliteral}{"{}path"{}}:\textcolor{stringliteral}{"{}/key4/0/subs/2/add"{}}\},}
+\DoxyCodeLine{\ \ \ \ }
+\DoxyCodeLine{\ \ \ \ \{\textcolor{stringliteral}{"{}op"{}}:\textcolor{stringliteral}{"{}remove"{}},\textcolor{stringliteral}{"{}path"{}}:\textcolor{stringliteral}{"{}/key4/1/b"{}}\},}
+\DoxyCodeLine{\ \ \ \ }
+\DoxyCodeLine{\ \ \ \ \{\textcolor{stringliteral}{"{}value"{}}:\textcolor{keyword}{false},\textcolor{stringliteral}{"{}op"{}}:\textcolor{stringliteral}{"{}add"{}},\textcolor{stringliteral}{"{}path"{}}:\textcolor{stringliteral}{"{}/key4/1/c"{}}\},}
+\DoxyCodeLine{\ \ \ \ }
+\DoxyCodeLine{\ \ \ \ \{\textcolor{stringliteral}{"{}value"{}}:1,\textcolor{stringliteral}{"{}op"{}}:\textcolor{stringliteral}{"{}add"{}},\textcolor{stringliteral}{"{}path"{}}:\textcolor{stringliteral}{"{}/key4/2/c"{}}\},}
+\DoxyCodeLine{\ \ \ \ }
+\DoxyCodeLine{\ \ \ \ \{\textcolor{stringliteral}{"{}value"{}}:\textcolor{stringliteral}{"{}wat"{}},\textcolor{stringliteral}{"{}op"{}}:\textcolor{stringliteral}{"{}add"{}},\textcolor{stringliteral}{"{}path"{}}:\textcolor{stringliteral}{"{}/key5"{}}\}}
+\DoxyCodeLine{]}
+\DoxyCodeLine{JSON;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\mbox{\hyperlink{compare_kb_revisions_8php_a054557295caacf1b6e4a2b8809418221}{\$diff}}\ =\ \textcolor{keyword}{new}\ JsonDiff(json\_decode(\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\$originalJson}}),\ json\_decode(\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\$newJson}}),\ JsonDiff::REARRANGE\_ARRAYS);}
+\DoxyCodeLine{\$this-\/>\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{assertEquals}}(json\_decode(\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\$patchJson}}),\ \mbox{\hyperlink{compare_kb_revisions_8php_a054557295caacf1b6e4a2b8809418221}{\$diff}}-\/>getPatch()-\/>jsonSerialize());}
+\DoxyCodeLine{}
+\DoxyCodeLine{\$original\ =\ json\_decode(\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\$originalJson}});}
+\DoxyCodeLine{\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\$patch}}\ =\ JsonPatch::import(json\_decode(\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\$patchJson}}));}
+\DoxyCodeLine{\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\$patch}}-\/>apply(\$original);}
+\DoxyCodeLine{\$this-\/>\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{assertEquals}}(\mbox{\hyperlink{compare_kb_revisions_8php_a054557295caacf1b6e4a2b8809418221}{\$diff}}-\/>getRearranged(),\ \$original);}
+
+\end{DoxyCode}
+\hypertarget{md_public_2glpi_2vendor_2swaggest_2json-diff_2_r_e_a_d_m_e_autotoc_md7279}{}\doxysection{\texorpdfstring{PHP Classes as JSON objects}{PHP Classes as JSON objects}}\label{md_public_2glpi_2vendor_2swaggest_2json-diff_2_r_e_a_d_m_e_autotoc_md7279}
+Due to magical methods and other restrictions PHP classes can not be reliably mapped to/from JSON objects. There is support for objects of PHP classes in {\ttfamily Json\+Pointer} with limitations\+:
+\begin{DoxyItemize}
+\item {\ttfamily null} is equal to non-\/existent
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2swaggest_2json-diff_2_r_e_a_d_m_e_autotoc_md7280}{}\doxysection{\texorpdfstring{Arrays Rearrangement}{Arrays Rearrangement}}\label{md_public_2glpi_2vendor_2swaggest_2json-diff_2_r_e_a_d_m_e_autotoc_md7280}
+When {\ttfamily Json\+Diff\+::\+REARRANGE\+\_\+\+ARRAYS} option is enabled, array items are ordered to match the original array.
+
+If arrays contain homogenous objects, and those objects have a common property with unique values, array is ordered to match placement of items with same value of such property in the original array.
+
+Example\+: original 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{[\{"{}name"{}:\ "{}Alex"{},\ "{}height"{}:\ 180\},\{"{}name"{}:\ "{}Joe"{},\ "{}height"{}:\ 179\},\{"{}name"{}:\ "{}Jane"{},\ "{}height"{}:\ 165\}]}
+
+\end{DoxyCode}
+ vs new 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{[\{"{}name"{}:\ "{}Joe"{},\ "{}height"{}:\ 179\},\{"{}name"{}:\ "{}Jane"{},\ "{}height"{}:\ 168\},\{"{}name"{}:\ "{}Alex"{},\ "{}height"{}:\ 180\}]}
+
+\end{DoxyCode}
+ would produce a patch\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{[\{"{}value"{}:165,"{}op"{}:"{}test"{},"{}path"{}:"{}/2/height"{}\},\{"{}value"{}:168,"{}op"{}:"{}replace"{},"{}path"{}:"{}/2/height"{}\}]}
+
+\end{DoxyCode}
+
+
+If qualifying indexing property is not found, rearrangement is done based on items equality.
+
+Example\+: original 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\{"{}data"{}:\ [\{"{}A"{}:\ 1,\ "{}C"{}:\ [1,\ 2,\ 3]\},\ \{"{}B"{}:\ 2\}]\}}
+
+\end{DoxyCode}
+ vs new 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\{"{}data"{}:\ [\{"{}B"{}:\ 2\},\ \{"{}A"{}:\ 1,\ "{}C"{}:\ [3,\ 2,\ 1]\}]\}}
+
+\end{DoxyCode}
+ would produce no difference.\hypertarget{md_public_2glpi_2vendor_2swaggest_2json-diff_2_r_e_a_d_m_e_autotoc_md7281}{}\doxysection{\texorpdfstring{CLI tool}{CLI tool}}\label{md_public_2glpi_2vendor_2swaggest_2json-diff_2_r_e_a_d_m_e_autotoc_md7281}
+Moved to \href{https://github.com/swaggest/json-cli}{\texttt{ {\ttfamily swaggest/json-\/cli}}} 

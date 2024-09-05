@@ -1,0 +1,647 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_glpi_1_1_toolbox_1_1_sanitizer" xml:lang="fr">
+<title>Référence de la classe Sanitizer</title>
+<indexterm><primary>Sanitizer</primary></indexterm>
+Graphe de collaboration de Sanitizer:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_glpi_1_1_toolbox_1_1_sanitizer__coll__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Fonctions membres publiques statiques    </title>
+        <itemizedlist>
+            <listitem><para>static <link linkend="_class_glpi_1_1_toolbox_1_1_sanitizer_1a21b13d4d0c089fa924e0524d48681ed0">sanitize</link> ($value, bool $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">db_escape</link>=true)</para>
+</listitem>
+            <listitem><para>static <link linkend="_class_glpi_1_1_toolbox_1_1_sanitizer_1a39fadab34ea17a5499c0fa1812e4efa5">unsanitize</link> ($value, bool $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">db_unescape</link>=true)</para>
+</listitem>
+            <listitem><para>static <link linkend="_class_glpi_1_1_toolbox_1_1_sanitizer_1afe35e27f9875d2765988b66c1836073e">isHtmlEncoded</link> (string $value)</para>
+</listitem>
+            <listitem><para>static <link linkend="_class_glpi_1_1_toolbox_1_1_sanitizer_1a6f6e98e8a89e395a6b6b526962a8eb7b">isDbEscaped</link> (string $value)</para>
+</listitem>
+            <listitem><para>static <link linkend="_class_glpi_1_1_toolbox_1_1_sanitizer_1aaa527e118c3feaa5e74b52ecc323f774">isNsClassOrCallableIdentifier</link> (string $value)</para>
+</listitem>
+            <listitem><para>static <link linkend="_class_glpi_1_1_toolbox_1_1_sanitizer_1a4ec65683933435fb928c5dae14038ee3">getVerbatimValue</link> (string $value)</para>
+</listitem>
+            <listitem><para>static <link linkend="_class_glpi_1_1_toolbox_1_1_sanitizer_1a2ae69a79bb2cfe252ecb5bfbb68db5f4">encodeHtmlSpecialChars</link> (string $value)</para>
+</listitem>
+            <listitem><para>static <link linkend="_class_glpi_1_1_toolbox_1_1_sanitizer_1ac9115bcc7819294936ac9deacdb53406">encodeHtmlSpecialCharsRecursive</link> (array $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">values</link>)</para>
+</listitem>
+            <listitem><para>static <link linkend="_class_glpi_1_1_toolbox_1_1_sanitizer_1a56568155edee9b4228c55c8793e5e2ec">decodeHtmlSpecialChars</link> (string $value)</para>
+</listitem>
+            <listitem><para>static <link linkend="_class_glpi_1_1_toolbox_1_1_sanitizer_1aa630b3eabd54c6f9af60a8e8777390c6">decodeHtmlSpecialCharsRecursive</link> (array $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">values</link>)</para>
+</listitem>
+            <listitem><para>static <link linkend="_class_glpi_1_1_toolbox_1_1_sanitizer_1a182189006db7e27cd4fe9d12cc2effcf">dbEscapeRecursive</link> (array $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">values</link>)</para>
+</listitem>
+            <listitem><para>static <link linkend="_class_glpi_1_1_toolbox_1_1_sanitizer_1a68a6e227e754f2b8ccfb33407badc950">dbUnescape</link> (string $value)</para>
+</listitem>
+            <listitem><para>static <link linkend="_class_glpi_1_1_toolbox_1_1_sanitizer_1a5a9f196e3d3936d0b69605f11bcf80e1">dbUnescapeRecursive</link> (array $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">values</link>)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Documentation des fonctions membres</title>
+<anchor xml:id="_class_glpi_1_1_toolbox_1_1_sanitizer_1a182189006db7e27cd4fe9d12cc2effcf"/><section>
+    <title>dbEscapeRecursive()</title>
+<indexterm><primary>dbEscapeRecursive</primary><secondary>Sanitizer</secondary></indexterm>
+<indexterm><primary>Sanitizer</primary><secondary>dbEscapeRecursive</secondary></indexterm>
+<para><computeroutput>static dbEscapeRecursive (array $values)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>Recursively escape <link linkend="_class_d_b">DB</link> special chars.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>array</entry><entry>$values</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>array</para>
+</formalpara>
+<formalpara><title>Voir également</title>
+
+<para>self::dbEscape </para>
+</formalpara>
+</para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_glpi_1_1_toolbox_1_1_sanitizer_a182189006db7e27cd4fe9d12cc2effcf_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_glpi_1_1_toolbox_1_1_sanitizer_a182189006db7e27cd4fe9d12cc2effcf_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_glpi_1_1_toolbox_1_1_sanitizer_1a68a6e227e754f2b8ccfb33407badc950"/><section>
+    <title>dbUnescape()</title>
+<indexterm><primary>dbUnescape</primary><secondary>Sanitizer</secondary></indexterm>
+<indexterm><primary>Sanitizer</primary><secondary>dbUnescape</secondary></indexterm>
+<para><computeroutput>static dbUnescape (string $value)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>Revert <computeroutput>mysqli::real_escape_string()</computeroutput> transformation. Inspired by <link xlink:href="https://stackoverflow.com/a/38769977">https://stackoverflow.com/a/38769977</link></para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$value</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>string </para>
+</formalpara>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_glpi_1_1_toolbox_1_1_sanitizer_a68a6e227e754f2b8ccfb33407badc950_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_glpi_1_1_toolbox_1_1_sanitizer_1a5a9f196e3d3936d0b69605f11bcf80e1"/><section>
+    <title>dbUnescapeRecursive()</title>
+<indexterm><primary>dbUnescapeRecursive</primary><secondary>Sanitizer</secondary></indexterm>
+<indexterm><primary>Sanitizer</primary><secondary>dbUnescapeRecursive</secondary></indexterm>
+<para><computeroutput>static dbUnescapeRecursive (array $values)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>Recursively revert <computeroutput>mysqli::real_escape_string()</computeroutput> transformation.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>array</entry><entry>$values</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>array</para>
+</formalpara>
+<formalpara><title>Voir également</title>
+
+<para>self::dbUnescape </para>
+</formalpara>
+</para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_glpi_1_1_toolbox_1_1_sanitizer_a5a9f196e3d3936d0b69605f11bcf80e1_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_glpi_1_1_toolbox_1_1_sanitizer_a5a9f196e3d3936d0b69605f11bcf80e1_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_glpi_1_1_toolbox_1_1_sanitizer_1a56568155edee9b4228c55c8793e5e2ec"/><section>
+    <title>decodeHtmlSpecialChars()</title>
+<indexterm><primary>decodeHtmlSpecialChars</primary><secondary>Sanitizer</secondary></indexterm>
+<indexterm><primary>Sanitizer</primary><secondary>decodeHtmlSpecialChars</secondary></indexterm>
+<para><computeroutput>static decodeHtmlSpecialChars (string $value)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>Decode HTML special chars.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$value</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>string </para>
+</formalpara>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_glpi_1_1_toolbox_1_1_sanitizer_a56568155edee9b4228c55c8793e5e2ec_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_glpi_1_1_toolbox_1_1_sanitizer_1aa630b3eabd54c6f9af60a8e8777390c6"/><section>
+    <title>decodeHtmlSpecialCharsRecursive()</title>
+<indexterm><primary>decodeHtmlSpecialCharsRecursive</primary><secondary>Sanitizer</secondary></indexterm>
+<indexterm><primary>Sanitizer</primary><secondary>decodeHtmlSpecialCharsRecursive</secondary></indexterm>
+<para><computeroutput>static decodeHtmlSpecialCharsRecursive (array $values)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>Recursively decode HTML special chars on an array.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>array</entry><entry>$values</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>array</para>
+</formalpara>
+<formalpara><title>Voir également</title>
+
+<para>self::decodeHtmlSpecialChars </para>
+</formalpara>
+</para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_glpi_1_1_toolbox_1_1_sanitizer_aa630b3eabd54c6f9af60a8e8777390c6_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_glpi_1_1_toolbox_1_1_sanitizer_aa630b3eabd54c6f9af60a8e8777390c6_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_glpi_1_1_toolbox_1_1_sanitizer_1a2ae69a79bb2cfe252ecb5bfbb68db5f4"/><section>
+    <title>encodeHtmlSpecialChars()</title>
+<indexterm><primary>encodeHtmlSpecialChars</primary><secondary>Sanitizer</secondary></indexterm>
+<indexterm><primary>Sanitizer</primary><secondary>encodeHtmlSpecialChars</secondary></indexterm>
+<para><computeroutput>static encodeHtmlSpecialChars (string $value)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>Encode HTML special chars, to prevent XSS when value is printed without using any filter.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$value</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>string </para>
+</formalpara>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_glpi_1_1_toolbox_1_1_sanitizer_a2ae69a79bb2cfe252ecb5bfbb68db5f4_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_glpi_1_1_toolbox_1_1_sanitizer_1ac9115bcc7819294936ac9deacdb53406"/><section>
+    <title>encodeHtmlSpecialCharsRecursive()</title>
+<indexterm><primary>encodeHtmlSpecialCharsRecursive</primary><secondary>Sanitizer</secondary></indexterm>
+<indexterm><primary>Sanitizer</primary><secondary>encodeHtmlSpecialCharsRecursive</secondary></indexterm>
+<para><computeroutput>static encodeHtmlSpecialCharsRecursive (array $values)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>Recursively encode HTML special chars on an array.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>array</entry><entry>$values</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>array</para>
+</formalpara>
+<formalpara><title>Voir également</title>
+
+<para>self::encodeHtmlSpecialChars </para>
+</formalpara>
+</para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_glpi_1_1_toolbox_1_1_sanitizer_ac9115bcc7819294936ac9deacdb53406_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_glpi_1_1_toolbox_1_1_sanitizer_ac9115bcc7819294936ac9deacdb53406_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_glpi_1_1_toolbox_1_1_sanitizer_1a4ec65683933435fb928c5dae14038ee3"/><section>
+    <title>getVerbatimValue()</title>
+<indexterm><primary>getVerbatimValue</primary><secondary>Sanitizer</secondary></indexterm>
+<indexterm><primary>Sanitizer</primary><secondary>getVerbatimValue</secondary></indexterm>
+<para><computeroutput>static getVerbatimValue (string $value)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>Return verbatim value for an itemtype field. Returned value will be unsanitized if it has been transformed by <link linkend="_class_g_l_p_i">GLPI</link> sanitizing process.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$value</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>string </para>
+</formalpara>
+</para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_glpi_1_1_toolbox_1_1_sanitizer_a4ec65683933435fb928c5dae14038ee3_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_glpi_1_1_toolbox_1_1_sanitizer_a4ec65683933435fb928c5dae14038ee3_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_glpi_1_1_toolbox_1_1_sanitizer_1a6f6e98e8a89e395a6b6b526962a8eb7b"/><section>
+    <title>isDbEscaped()</title>
+<indexterm><primary>isDbEscaped</primary><secondary>Sanitizer</secondary></indexterm>
+<indexterm><primary>Sanitizer</primary><secondary>isDbEscaped</secondary></indexterm>
+<para><computeroutput>static isDbEscaped (string $value)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>Check if value is escaped for <link linkend="_class_d_b">DB</link> usage. A value is considered as escaped if it special char (NULL, <?linebreak?>, \r, \, &apos;, &quot; and EOF) that has been escaped.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$value</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>bool </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_class_glpi_1_1_toolbox_1_1_sanitizer_1afe35e27f9875d2765988b66c1836073e"/><section>
+    <title>isHtmlEncoded()</title>
+<indexterm><primary>isHtmlEncoded</primary><secondary>Sanitizer</secondary></indexterm>
+<indexterm><primary>Sanitizer</primary><secondary>isHtmlEncoded</secondary></indexterm>
+<para><computeroutput>static isHtmlEncoded (string $value)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>Check if value is sanitized.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$value</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>bool </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_class_glpi_1_1_toolbox_1_1_sanitizer_1aaa527e118c3feaa5e74b52ecc323f774"/><section>
+    <title>isNsClassOrCallableIdentifier()</title>
+<indexterm><primary>isNsClassOrCallableIdentifier</primary><secondary>Sanitizer</secondary></indexterm>
+<indexterm><primary>Sanitizer</primary><secondary>isNsClassOrCallableIdentifier</secondary></indexterm>
+<para><computeroutput>static isNsClassOrCallableIdentifier (string $value)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>Check wether the value correspond to a valid namespaced class (or a callable identifier related to a valid class). Note: also support the {namespace}${tab number} format used for tab identifications</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$value</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>bool </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_class_glpi_1_1_toolbox_1_1_sanitizer_1a21b13d4d0c089fa924e0524d48681ed0"/><section>
+    <title>sanitize()</title>
+<indexterm><primary>sanitize</primary><secondary>Sanitizer</secondary></indexterm>
+<indexterm><primary>Sanitizer</primary><secondary>sanitize</secondary></indexterm>
+<para><computeroutput>static sanitize ( $value, bool $db_escape = <computeroutput>true</computeroutput>
+)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>Sanitize a value. Resulting value will have its HTML special chars converted into entities and would be printable in a HTML document without having to be escaped. Also, <link linkend="_class_d_b">DB</link> special chars can be escaped to prevent SQL injections.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>mixed</entry><entry>$value</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>bool</entry><entry>$db_escape</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>mixed </para>
+</formalpara>
+</para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_glpi_1_1_toolbox_1_1_sanitizer_a21b13d4d0c089fa924e0524d48681ed0_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_glpi_1_1_toolbox_1_1_sanitizer_a21b13d4d0c089fa924e0524d48681ed0_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_glpi_1_1_toolbox_1_1_sanitizer_1a39fadab34ea17a5499c0fa1812e4efa5"/><section>
+    <title>unsanitize()</title>
+<indexterm><primary>unsanitize</primary><secondary>Sanitizer</secondary></indexterm>
+<indexterm><primary>Sanitizer</primary><secondary>unsanitize</secondary></indexterm>
+<para><computeroutput>static unsanitize ( $value, bool $db_unescape = <computeroutput>true</computeroutput>
+)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>Unsanitize a value. Reverts self::sanitize() transformation.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>mixed</entry><entry>$value</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>bool</entry><entry>$db_unescape</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>mixed </para>
+</formalpara>
+</para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_glpi_1_1_toolbox_1_1_sanitizer_a39fadab34ea17a5499c0fa1812e4efa5_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_glpi_1_1_toolbox_1_1_sanitizer_a39fadab34ea17a5499c0fa1812e4efa5_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<para>
+La documentation de cette classe a été générée à partir du fichier suivant :</para>
+public/glpi/src/Toolbox/<link linkend="__sanitizer_8php">Sanitizer.php</link></section>
+</section>

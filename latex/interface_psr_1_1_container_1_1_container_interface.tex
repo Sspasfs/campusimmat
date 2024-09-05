@@ -1,0 +1,81 @@
+\doxysection{Référence de l\textquotesingle{}interface Container\+Interface}
+\hypertarget{interface_psr_1_1_container_1_1_container_interface}{}\label{interface_psr_1_1_container_1_1_container_interface}\index{ContainerInterface@{ContainerInterface}}
+
+
+Graphe d\textquotesingle{}héritage de Container\+Interface\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=197pt]{interface_psr_1_1_container_1_1_container_interface__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Graphe de collaboration de Container\+Interface\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=170pt]{interface_psr_1_1_container_1_1_container_interface__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{interface_psr_1_1_container_1_1_container_interface_a5ac35cd9b27eb36bb68f58f665b440e5}{get}} (string \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{id}})
+\item 
+\mbox{\hyperlink{interface_psr_1_1_container_1_1_container_interface_a967ac33cd3aaf062fd84b40592c9fc3c}{has}} (string \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{id}})
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Describes the interface of a container that exposes methods to read its entries. 
+
+\doxysubsection{Documentation des fonctions membres}
+\Hypertarget{interface_psr_1_1_container_1_1_container_interface_a5ac35cd9b27eb36bb68f58f665b440e5}\label{interface_psr_1_1_container_1_1_container_interface_a5ac35cd9b27eb36bb68f58f665b440e5} 
+\index{ContainerInterface@{ContainerInterface}!get@{get}}
+\index{get@{get}!ContainerInterface@{ContainerInterface}}
+\doxysubsubsection{\texorpdfstring{get()}{get()}}
+{\footnotesize\ttfamily get (\begin{DoxyParamCaption}\item[{string}]{\$id }\end{DoxyParamCaption})}
+
+Finds an entry of the container by its identifier and returns it.
+
+
+\begin{DoxyParams}[1]{Paramètres}
+string & {\em \$id} & Identifier of the entry to look for.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Not\+Found\+Exception\+Interface} & No entry was found for {\bfseries{this}} identifier. \\
+\hline
+{\em Container\+Exception\+Interface} & Error while retrieving the entry.\\
+\hline
+\end{DoxyExceptions}
+\begin{DoxyReturn}{Renvoie}
+mixed Entry. 
+\end{DoxyReturn}
+\Hypertarget{interface_psr_1_1_container_1_1_container_interface_a967ac33cd3aaf062fd84b40592c9fc3c}\label{interface_psr_1_1_container_1_1_container_interface_a967ac33cd3aaf062fd84b40592c9fc3c} 
+\index{ContainerInterface@{ContainerInterface}!has@{has}}
+\index{has@{has}!ContainerInterface@{ContainerInterface}}
+\doxysubsubsection{\texorpdfstring{has()}{has()}}
+{\footnotesize\ttfamily has (\begin{DoxyParamCaption}\item[{string}]{\$id }\end{DoxyParamCaption})}
+
+Returns true if the container can return an entry for the given identifier. Returns false otherwise.
+
+{\ttfamily has(\$id)} returning true does not mean that {\ttfamily get(\$id)} will not throw an exception. It does however mean that {\ttfamily get(\$id)} will not throw a {\ttfamily Not\+Found\+Exception\+Interface}.
+
+
+\begin{DoxyParams}[1]{Paramètres}
+string & {\em \$id} & Identifier of the entry to look for.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+bool 
+\end{DoxyReturn}
+
+
+La documentation de cette interface a été générée à partir du fichier suivant \+:\begin{DoxyCompactItemize}
+\item 
+public/glpi/vendor/psr/container/src/\mbox{\hyperlink{psr_2container_2src_2_container_interface_8php}{Container\+Interface.\+php}}\end{DoxyCompactItemize}

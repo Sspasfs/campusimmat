@@ -1,0 +1,792 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_interface_psr_1_1_http_1_1_message_1_1_uri_interface" xml:lang="fr">
+<title>Référence de l&apos;interface UriInterface</title>
+<indexterm><primary>UriInterface</primary></indexterm>
+Graphe d&apos;héritage de UriInterface:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="interface_psr_1_1_http_1_1_message_1_1_uri_interface__inherit__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Graphe de collaboration de UriInterface:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="interface_psr_1_1_http_1_1_message_1_1_uri_interface__coll__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Fonctions membres publiques    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_interface_psr_1_1_http_1_1_message_1_1_uri_interface_1a812bc167005f6f5852c53693fb0156bb">getScheme</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_interface_psr_1_1_http_1_1_message_1_1_uri_interface_1a1f73860dd14340c5bad9094f0b5b97c2">getAuthority</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_interface_psr_1_1_http_1_1_message_1_1_uri_interface_1a7e7999c3a04f08ffcc5e237fd28a6bc7">getUserInfo</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_interface_psr_1_1_http_1_1_message_1_1_uri_interface_1a39895a44b52bdced039e698588aaf18e">getHost</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_interface_psr_1_1_http_1_1_message_1_1_uri_interface_1afd4db46d3c12f47f0bee19cd2101be64">getPort</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_interface_psr_1_1_http_1_1_message_1_1_uri_interface_1a30c5c67b2bf8e2e2ccc7e361faa20afe">getPath</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_interface_psr_1_1_http_1_1_message_1_1_uri_interface_1a55f162785567258fe5138af282e588c2">getQuery</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_interface_psr_1_1_http_1_1_message_1_1_uri_interface_1a8e9be93affbfde43840cbaf4b6712ea9">getFragment</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_interface_psr_1_1_http_1_1_message_1_1_uri_interface_1a7fc3c5aa5ec0e5d81d113a73a3c7e4a6">withScheme</link> (string $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">scheme</link>)</para>
+</listitem>
+            <listitem><para><link linkend="_interface_psr_1_1_http_1_1_message_1_1_uri_interface_1a51ebe2978727d8ed0228651ee9b20509">withUserInfo</link> (string $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">user</link>, ?string $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">password</link>=null)</para>
+</listitem>
+            <listitem><para><link linkend="_interface_psr_1_1_http_1_1_message_1_1_uri_interface_1abc585bcccc3a214abce09df5d6bd0211">withHost</link> (string $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">host</link>)</para>
+</listitem>
+            <listitem><para><link linkend="_interface_psr_1_1_http_1_1_message_1_1_uri_interface_1ae57f099b526755aae718915e744eae3f">withPort</link> (?int $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">port</link>)</para>
+</listitem>
+            <listitem><para><link linkend="_interface_psr_1_1_http_1_1_message_1_1_uri_interface_1ad3e0f328ff337497b066210ef83bd59f">withPath</link> (string $path)</para>
+</listitem>
+            <listitem><para><link linkend="_interface_psr_1_1_http_1_1_message_1_1_uri_interface_1a805891899be20752ab3256c951b9a9cf">withQuery</link> (string $query)</para>
+</listitem>
+            <listitem><para><link linkend="_interface_psr_1_1_http_1_1_message_1_1_uri_interface_1a2eca290d5eea2ebffedc304a29110da2">withFragment</link> (string $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">fragment</link>)</para>
+</listitem>
+            <listitem><para><link linkend="_interface_psr_1_1_http_1_1_message_1_1_uri_interface_1a7516ca30af0db3cdbf9a7739b48ce91d">__toString</link> ()</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Description détaillée</title>
+
+<para>Value object representing a URI.</para>
+
+<para>This interface is meant to represent URIs according to RFC 3986 and to provide methods for most common operations. Additional functionality for working with URIs can be provided on top of the interface or externally. Its primary use is for HTTP requests, but may also be used in other contexts.</para>
+
+<para>Instances of this interface are considered immutable; all methods that might change state MUST be implemented such that they retain the internal state of the current instance and return an instance that contains the changed state.</para>
+
+<para>Typically the Host header will be also be present in the request message. For server-side requests, the scheme will typically be discoverable in the server parameters.</para>
+
+<para><link linkend="_">(the URI specification) </link></para>
+</section>
+<section>
+<title>Documentation des fonctions membres</title>
+<anchor xml:id="_interface_psr_1_1_http_1_1_message_1_1_uri_interface_1a7516ca30af0db3cdbf9a7739b48ce91d"/><section>
+    <title>__toString()</title>
+<indexterm><primary>__toString</primary><secondary>UriInterface</secondary></indexterm>
+<indexterm><primary>UriInterface</primary><secondary>__toString</secondary></indexterm>
+<para><computeroutput>__toString ( )</computeroutput></para>
+<para>Return the string representation as a URI reference.</para>
+
+<para>Depending on which components of the URI are present, the resulting string is either a full URI or relative reference according to RFC 3986, Section 4.1. The method concatenates the various components of the URI, using the appropriate delimiters:</para>
+
+<para><itemizedlist>
+<listitem>
+<para>If a scheme is present, it MUST be suffixed by &quot;:&quot;.</para>
+</listitem><listitem>
+<para>If an authority is present, it MUST be prefixed by &quot;//&quot;.</para>
+</listitem><listitem>
+<para>The path can be concatenated without delimiters. But there are two cases where the path has to be adjusted to make the URI reference valid as PHP does not allow to throw an exception in __toString():<itemizedlist>
+<listitem>
+<para>If the path is rootless and an authority is present, the path MUST be prefixed by &quot;/&quot;.</para>
+</listitem><listitem>
+<para>If the path is starting with more than one &quot;/&quot; and no authority is present, the starting slashes MUST be reduced to one.</para>
+</listitem></itemizedlist>
+</para>
+</listitem><listitem>
+<para>If a query is present, it MUST be prefixed by &quot;?&quot;.</para>
+</listitem><listitem>
+<para>If a fragment is present, it MUST be prefixed by &quot;#&quot;.</para>
+</listitem></itemizedlist>
+</para>
+
+<para><formalpara><title>Voir également</title>
+
+<para><link xlink:href="http://tools.ietf.org/html/rfc3986#section-4.1">http://tools.ietf.org/html/rfc3986#section-4.1</link> </para>
+</formalpara>
+<formalpara><title>Renvoie</title>
+
+<para>string </para>
+</formalpara>
+</para>
+<para>
+Implémenté dans <link linkend="_class_guzzle_http_1_1_psr7_1_1_uri_1a7516ca30af0db3cdbf9a7739b48ce91d">Uri</link>.</para>
+</section>
+<anchor xml:id="_interface_psr_1_1_http_1_1_message_1_1_uri_interface_1a1f73860dd14340c5bad9094f0b5b97c2"/><section>
+    <title>getAuthority()</title>
+<indexterm><primary>getAuthority</primary><secondary>UriInterface</secondary></indexterm>
+<indexterm><primary>UriInterface</primary><secondary>getAuthority</secondary></indexterm>
+<para><computeroutput>getAuthority ( )</computeroutput></para>
+<para>Retrieve the authority component of the URI.</para>
+
+<para>If no authority information is present, this method MUST return an empty string.</para>
+
+<para>The authority syntax of the URI is:</para>
+
+<para><literallayout>
+[user-info@]host[:port]
+</literallayout></para>
+
+<para>If the port component is not set or is the standard port for the current scheme, it SHOULD NOT be included.</para>
+
+<para><formalpara><title>Voir également</title>
+
+<para><link xlink:href="https://tools.ietf.org/html/rfc3986#section-3.2">https://tools.ietf.org/html/rfc3986#section-3.2</link> </para>
+</formalpara>
+<formalpara><title>Renvoie</title>
+
+<para>string The URI authority, in &quot;[user-info@]host[:port]&quot; format. </para>
+</formalpara>
+</para>
+<para>
+Implémenté dans <link linkend="_class_guzzle_http_1_1_psr7_1_1_uri_1a1f73860dd14340c5bad9094f0b5b97c2">Uri</link>.</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="interface_psr_1_1_http_1_1_message_1_1_uri_interface_a1f73860dd14340c5bad9094f0b5b97c2_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_interface_psr_1_1_http_1_1_message_1_1_uri_interface_1a8e9be93affbfde43840cbaf4b6712ea9"/><section>
+    <title>getFragment()</title>
+<indexterm><primary>getFragment</primary><secondary>UriInterface</secondary></indexterm>
+<indexterm><primary>UriInterface</primary><secondary>getFragment</secondary></indexterm>
+<para><computeroutput>getFragment ( )</computeroutput></para>
+<para>Retrieve the fragment component of the URI.</para>
+
+<para>If no fragment is present, this method MUST return an empty string.</para>
+
+<para>The leading &quot;#&quot; character is not part of the fragment and MUST NOT be added.</para>
+
+<para>The value returned MUST be percent-encoded, but MUST NOT double-encode any characters. To determine what characters to encode, please refer to RFC 3986, Sections 2 and 3.5.</para>
+
+<para><formalpara><title>Voir également</title>
+
+<para><link xlink:href="https://tools.ietf.org/html/rfc3986#section-2">https://tools.ietf.org/html/rfc3986#section-2</link> </para>
+
+<para><link xlink:href="https://tools.ietf.org/html/rfc3986#section-3.5">https://tools.ietf.org/html/rfc3986#section-3.5</link> </para>
+</formalpara>
+<formalpara><title>Renvoie</title>
+
+<para>string The URI fragment. </para>
+</formalpara>
+</para>
+<para>
+Implémenté dans <link linkend="_class_guzzle_http_1_1_psr7_1_1_uri_1a8e9be93affbfde43840cbaf4b6712ea9">Uri</link>.</para>
+</section>
+<anchor xml:id="_interface_psr_1_1_http_1_1_message_1_1_uri_interface_1a39895a44b52bdced039e698588aaf18e"/><section>
+    <title>getHost()</title>
+<indexterm><primary>getHost</primary><secondary>UriInterface</secondary></indexterm>
+<indexterm><primary>UriInterface</primary><secondary>getHost</secondary></indexterm>
+<para><computeroutput>getHost ( )</computeroutput></para>
+<para>Retrieve the host component of the URI.</para>
+
+<para>If no host is present, this method MUST return an empty string.</para>
+
+<para>The value returned MUST be normalized to lowercase, per RFC 3986 Section 3.2.2.</para>
+
+<para><formalpara><title>Voir également</title>
+
+<para><link xlink:href="http://tools.ietf.org/html/rfc3986#section-3.2.2">http://tools.ietf.org/html/rfc3986#section-3.2.2</link> </para>
+</formalpara>
+<formalpara><title>Renvoie</title>
+
+<para>string The URI host. </para>
+</formalpara>
+</para>
+<para>
+Implémenté dans <link linkend="_class_guzzle_http_1_1_psr7_1_1_uri_1a39895a44b52bdced039e698588aaf18e">Uri</link>.</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="interface_psr_1_1_http_1_1_message_1_1_uri_interface_a39895a44b52bdced039e698588aaf18e_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_interface_psr_1_1_http_1_1_message_1_1_uri_interface_1a30c5c67b2bf8e2e2ccc7e361faa20afe"/><section>
+    <title>getPath()</title>
+<indexterm><primary>getPath</primary><secondary>UriInterface</secondary></indexterm>
+<indexterm><primary>UriInterface</primary><secondary>getPath</secondary></indexterm>
+<para><computeroutput>getPath ( )</computeroutput></para>
+<para>Retrieve the path component of the URI.</para>
+
+<para>The path can either be empty or absolute (starting with a slash) or rootless (not starting with a slash). Implementations MUST support all three syntaxes.</para>
+
+<para>Normally, the empty path &quot;&quot; and absolute path &quot;/&quot; are considered equal as defined in RFC 7230 Section 2.7.3. But this method MUST NOT automatically do this normalization because in contexts with a trimmed base path, e.g. the front controller, this difference becomes significant. It&apos;s the task of the user to handle both &quot;&quot; and &quot;/&quot;.</para>
+
+<para>The value returned MUST be percent-encoded, but MUST NOT double-encode any characters. To determine what characters to encode, please refer to RFC 3986, Sections 2 and 3.3.</para>
+
+<para>As an example, if the value should include a slash (&quot;/&quot;) not intended as delimiter between path segments, that value MUST be passed in encoded form (e.g., &quot;%2F&quot;) to the instance.</para>
+
+<para><formalpara><title>Voir également</title>
+
+<para><link xlink:href="https://tools.ietf.org/html/rfc3986#section-2">https://tools.ietf.org/html/rfc3986#section-2</link> </para>
+
+<para><link xlink:href="https://tools.ietf.org/html/rfc3986#section-3.3">https://tools.ietf.org/html/rfc3986#section-3.3</link> </para>
+</formalpara>
+<formalpara><title>Renvoie</title>
+
+<para>string The URI path. </para>
+</formalpara>
+</para>
+<para>
+Implémenté dans <link linkend="_class_guzzle_http_1_1_psr7_1_1_uri_1a30c5c67b2bf8e2e2ccc7e361faa20afe">Uri</link>.</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="interface_psr_1_1_http_1_1_message_1_1_uri_interface_a30c5c67b2bf8e2e2ccc7e361faa20afe_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_interface_psr_1_1_http_1_1_message_1_1_uri_interface_1afd4db46d3c12f47f0bee19cd2101be64"/><section>
+    <title>getPort()</title>
+<indexterm><primary>getPort</primary><secondary>UriInterface</secondary></indexterm>
+<indexterm><primary>UriInterface</primary><secondary>getPort</secondary></indexterm>
+<para><computeroutput>getPort ( )</computeroutput></para>
+<para>Retrieve the port component of the URI.</para>
+
+<para>If a port is present, and it is non-standard for the current scheme, this method MUST return it as an integer. If the port is the standard port used with the current scheme, this method SHOULD return null.</para>
+
+<para>If no port is present, and no scheme is present, this method MUST return a null value.</para>
+
+<para>If no port is present, but a scheme is present, this method MAY return the standard port for that scheme, but SHOULD return null.</para>
+
+<para><formalpara><title>Renvoie</title>
+
+<para>null|int The URI port. </para>
+</formalpara>
+</para>
+<para>
+Implémenté dans <link linkend="_class_guzzle_http_1_1_psr7_1_1_uri_1afd4db46d3c12f47f0bee19cd2101be64">Uri</link>.</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="interface_psr_1_1_http_1_1_message_1_1_uri_interface_afd4db46d3c12f47f0bee19cd2101be64_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_interface_psr_1_1_http_1_1_message_1_1_uri_interface_1a55f162785567258fe5138af282e588c2"/><section>
+    <title>getQuery()</title>
+<indexterm><primary>getQuery</primary><secondary>UriInterface</secondary></indexterm>
+<indexterm><primary>UriInterface</primary><secondary>getQuery</secondary></indexterm>
+<para><computeroutput>getQuery ( )</computeroutput></para>
+<para>Retrieve the query string of the URI.</para>
+
+<para>If no query string is present, this method MUST return an empty string.</para>
+
+<para>The leading &quot;?&quot; character is not part of the query and MUST NOT be added.</para>
+
+<para>The value returned MUST be percent-encoded, but MUST NOT double-encode any characters. To determine what characters to encode, please refer to RFC 3986, Sections 2 and 3.4.</para>
+
+<para>As an example, if a value in a key/value pair of the query string should include an ampersand (&quot;&amp;&quot;) not intended as a delimiter between values, that value MUST be passed in encoded form (e.g., &quot;%26&quot;) to the instance.</para>
+
+<para><formalpara><title>Voir également</title>
+
+<para><link xlink:href="https://tools.ietf.org/html/rfc3986#section-2">https://tools.ietf.org/html/rfc3986#section-2</link> </para>
+
+<para><link xlink:href="https://tools.ietf.org/html/rfc3986#section-3.4">https://tools.ietf.org/html/rfc3986#section-3.4</link> </para>
+</formalpara>
+<formalpara><title>Renvoie</title>
+
+<para>string The URI query string. </para>
+</formalpara>
+</para>
+<para>
+Implémenté dans <link linkend="_class_guzzle_http_1_1_psr7_1_1_uri_1a55f162785567258fe5138af282e588c2">Uri</link>.</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="interface_psr_1_1_http_1_1_message_1_1_uri_interface_a55f162785567258fe5138af282e588c2_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_interface_psr_1_1_http_1_1_message_1_1_uri_interface_1a812bc167005f6f5852c53693fb0156bb"/><section>
+    <title>getScheme()</title>
+<indexterm><primary>getScheme</primary><secondary>UriInterface</secondary></indexterm>
+<indexterm><primary>UriInterface</primary><secondary>getScheme</secondary></indexterm>
+<para><computeroutput>getScheme ( )</computeroutput></para>
+<para>Retrieve the scheme component of the URI.</para>
+
+<para>If no scheme is present, this method MUST return an empty string.</para>
+
+<para>The value returned MUST be normalized to lowercase, per RFC 3986 Section 3.1.</para>
+
+<para>The trailing &quot;:&quot; character is not part of the scheme and MUST NOT be added.</para>
+
+<para><formalpara><title>Voir également</title>
+
+<para><link xlink:href="https://tools.ietf.org/html/rfc3986#section-3.1">https://tools.ietf.org/html/rfc3986#section-3.1</link> </para>
+</formalpara>
+<formalpara><title>Renvoie</title>
+
+<para>string The URI scheme. </para>
+</formalpara>
+</para>
+<para>
+Implémenté dans <link linkend="_class_guzzle_http_1_1_psr7_1_1_uri_1a812bc167005f6f5852c53693fb0156bb">Uri</link>.</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="interface_psr_1_1_http_1_1_message_1_1_uri_interface_a812bc167005f6f5852c53693fb0156bb_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_interface_psr_1_1_http_1_1_message_1_1_uri_interface_1a7e7999c3a04f08ffcc5e237fd28a6bc7"/><section>
+    <title>getUserInfo()</title>
+<indexterm><primary>getUserInfo</primary><secondary>UriInterface</secondary></indexterm>
+<indexterm><primary>UriInterface</primary><secondary>getUserInfo</secondary></indexterm>
+<para><computeroutput>getUserInfo ( )</computeroutput></para>
+<para>Retrieve the user information component of the URI.</para>
+
+<para>If no user information is present, this method MUST return an empty string.</para>
+
+<para>If a user is present in the URI, this will return that value; additionally, if the password is also present, it will be appended to the user value, with a colon (&quot;:&quot;) separating the values.</para>
+
+<para>The trailing &quot;@&quot; character is not part of the user information and MUST NOT be added.</para>
+
+<para><formalpara><title>Renvoie</title>
+
+<para>string The URI user information, in &quot;username[:password]&quot; format. </para>
+</formalpara>
+</para>
+<para>
+Implémenté dans <link linkend="_class_guzzle_http_1_1_psr7_1_1_uri_1a7e7999c3a04f08ffcc5e237fd28a6bc7">Uri</link>.</para>
+</section>
+<anchor xml:id="_interface_psr_1_1_http_1_1_message_1_1_uri_interface_1a2eca290d5eea2ebffedc304a29110da2"/><section>
+    <title>withFragment()</title>
+<indexterm><primary>withFragment</primary><secondary>UriInterface</secondary></indexterm>
+<indexterm><primary>UriInterface</primary><secondary>withFragment</secondary></indexterm>
+<para><computeroutput>withFragment (string $fragment)</computeroutput></para>
+<para>Return an instance with the specified URI fragment.</para>
+
+<para>This method MUST retain the state of the current instance, and return an instance that contains the specified URI fragment.</para>
+
+<para>Users can provide both encoded and decoded fragment characters. Implementations ensure the correct encoding as outlined in getFragment().</para>
+
+<para>An empty fragment value is equivalent to removing the fragment.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$fragment</entry><entry>
+<para>The fragment to use with the new instance. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>static A new instance with the specified fragment. </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_interface_psr_1_1_http_1_1_message_1_1_uri_interface_1abc585bcccc3a214abce09df5d6bd0211"/><section>
+    <title>withHost()</title>
+<indexterm><primary>withHost</primary><secondary>UriInterface</secondary></indexterm>
+<indexterm><primary>UriInterface</primary><secondary>withHost</secondary></indexterm>
+<para><computeroutput>withHost (string $host)</computeroutput></para>
+<para>Return an instance with the specified host.</para>
+
+<para>This method MUST retain the state of the current instance, and return an instance that contains the specified host.</para>
+
+<para>An empty host value is equivalent to removing the host.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$host</entry><entry>
+<para>The hostname to use with the new instance. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>static A new instance with the specified host. </para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry></entry>
+<entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                InvalidArgumentException for invalid hostnames. </para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="interface_psr_1_1_http_1_1_message_1_1_uri_interface_abc585bcccc3a214abce09df5d6bd0211_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_interface_psr_1_1_http_1_1_message_1_1_uri_interface_1ad3e0f328ff337497b066210ef83bd59f"/><section>
+    <title>withPath()</title>
+<indexterm><primary>withPath</primary><secondary>UriInterface</secondary></indexterm>
+<indexterm><primary>UriInterface</primary><secondary>withPath</secondary></indexterm>
+<para><computeroutput>withPath (string $path)</computeroutput></para>
+<para>Return an instance with the specified path.</para>
+
+<para>This method MUST retain the state of the current instance, and return an instance that contains the specified path.</para>
+
+<para>The path can either be empty or absolute (starting with a slash) or rootless (not starting with a slash). Implementations MUST support all three syntaxes.</para>
+
+<para>If the path is intended to be domain-relative rather than path relative then it must begin with a slash (&quot;/&quot;). Paths not starting with a slash (&quot;/&quot;) are assumed to be relative to some base path known to the application or consumer.</para>
+
+<para>Users can provide both encoded and decoded path characters. Implementations ensure the correct encoding as outlined in getPath().</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$path</entry><entry>
+<para>The path to use with the new instance. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>static A new instance with the specified path. </para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry></entry>
+<entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                InvalidArgumentException for invalid paths. </para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="interface_psr_1_1_http_1_1_message_1_1_uri_interface_ad3e0f328ff337497b066210ef83bd59f_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_interface_psr_1_1_http_1_1_message_1_1_uri_interface_1ae57f099b526755aae718915e744eae3f"/><section>
+    <title>withPort()</title>
+<indexterm><primary>withPort</primary><secondary>UriInterface</secondary></indexterm>
+<indexterm><primary>UriInterface</primary><secondary>withPort</secondary></indexterm>
+<para><computeroutput>withPort (?int $port)</computeroutput></para>
+<para>Return an instance with the specified port.</para>
+
+<para>This method MUST retain the state of the current instance, and return an instance that contains the specified port.</para>
+
+<para>Implementations MUST raise an exception for ports outside the established TCP and UDP port ranges.</para>
+
+<para>A null value provided for the port is equivalent to removing the port information.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>null | int</entry><entry>$port</entry><entry>
+<para>The port to use with the new instance; a null value removes the port information. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>static A new instance with the specified port. </para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry></entry>
+<entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                InvalidArgumentException for invalid ports. </para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="interface_psr_1_1_http_1_1_message_1_1_uri_interface_ae57f099b526755aae718915e744eae3f_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_interface_psr_1_1_http_1_1_message_1_1_uri_interface_1a805891899be20752ab3256c951b9a9cf"/><section>
+    <title>withQuery()</title>
+<indexterm><primary>withQuery</primary><secondary>UriInterface</secondary></indexterm>
+<indexterm><primary>UriInterface</primary><secondary>withQuery</secondary></indexterm>
+<para><computeroutput>withQuery (string $query)</computeroutput></para>
+<para>Return an instance with the specified query string.</para>
+
+<para>This method MUST retain the state of the current instance, and return an instance that contains the specified query string.</para>
+
+<para>Users can provide both encoded and decoded query characters. Implementations ensure the correct encoding as outlined in getQuery().</para>
+
+<para>An empty query string value is equivalent to removing the query string.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$query</entry><entry>
+<para>The query string to use with the new instance. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>static A new instance with the specified query string. </para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry></entry>
+<entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                InvalidArgumentException for invalid query strings. </para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="interface_psr_1_1_http_1_1_message_1_1_uri_interface_a805891899be20752ab3256c951b9a9cf_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_interface_psr_1_1_http_1_1_message_1_1_uri_interface_1a7fc3c5aa5ec0e5d81d113a73a3c7e4a6"/><section>
+    <title>withScheme()</title>
+<indexterm><primary>withScheme</primary><secondary>UriInterface</secondary></indexterm>
+<indexterm><primary>UriInterface</primary><secondary>withScheme</secondary></indexterm>
+<para><computeroutput>withScheme (string $scheme)</computeroutput></para>
+<para>Return an instance with the specified scheme.</para>
+
+<para>This method MUST retain the state of the current instance, and return an instance that contains the specified scheme.</para>
+
+<para>Implementations MUST support the schemes &quot;http&quot; and &quot;https&quot; case insensitively, and MAY accommodate other schemes if required.</para>
+
+<para>An empty scheme is equivalent to removing the scheme.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$scheme</entry><entry>
+<para>The scheme to use with the new instance. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>static A new instance with the specified scheme. </para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry></entry>
+<entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                InvalidArgumentException for invalid or unsupported schemes. </para>
+</section>
+<anchor xml:id="_interface_psr_1_1_http_1_1_message_1_1_uri_interface_1a51ebe2978727d8ed0228651ee9b20509"/><section>
+    <title>withUserInfo()</title>
+<indexterm><primary>withUserInfo</primary><secondary>UriInterface</secondary></indexterm>
+<indexterm><primary>UriInterface</primary><secondary>withUserInfo</secondary></indexterm>
+<para><computeroutput>withUserInfo (string $user, ?string $password = <computeroutput>null</computeroutput>
+)</computeroutput></para>
+<para>Return an instance with the specified user information.</para>
+
+<para>This method MUST retain the state of the current instance, and return an instance that contains the specified user information.</para>
+
+<para>Password is optional, but the user information MUST include the user; an empty string for the user is equivalent to removing user information.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$user</entry><entry>
+<para>The user name to use for authority. </para>
+</entry>
+                            </row>
+                            <row>
+<entry>null | string</entry><entry>$password</entry><entry>
+<para>The password associated with $user. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>static A new instance with the specified user information. </para>
+</formalpara>
+</para>
+</section>
+<para>
+La documentation de cette interface a été générée à partir du fichier suivant :</para>
+public/glpi/vendor/psr/http-message/src/<link linkend="__uri_interface_8php">UriInterface.php</link></section>
+</section>

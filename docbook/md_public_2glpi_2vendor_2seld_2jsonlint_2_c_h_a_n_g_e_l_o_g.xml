@@ -1,0 +1,174 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_md_public_2glpi_2vendor_2seld_2jsonlint_2_c_h_a_n_g_e_l_o_g" xml:lang="fr">
+<title>CHANGELOG</title>
+<indexterm><primary>CHANGELOG</primary></indexterm>
+
+<para>You can find newer changelog entries in <link xlink:href="https://github.com/Seldaek/jsonlint/releases">GitHub releases</link></para>
+<section xml:id="_md_public_2glpi_2vendor_2seld_2jsonlint_2_c_h_a_n_g_e_l_o_g_1autotoc_md7148">
+<title><title>1.10.0 (2023-05-11)</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Added ALLOW_COMMENTS flag to parse while allowing (and ignoring) inline <computeroutput>//</computeroutput> and multiline <computeroutput>/* */</computeroutput> comments in the JSON document (#81)</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2seld_2jsonlint_2_c_h_a_n_g_e_l_o_g_1autotoc_md7149">
+<title><title>1.9.0 (2022-04-01)</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Internal cleanups and type fixes</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2seld_2jsonlint_2_c_h_a_n_g_e_l_o_g_1autotoc_md7150">
+<title><title>1.8.1 (2020-08-13)</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Added type annotations</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2seld_2jsonlint_2_c_h_a_n_g_e_l_o_g_1autotoc_md7151">
+<title><title>1.8.0 (2020-04-30)</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Improved lexer performance</para>
+</listitem><listitem>
+<para>Added (tentative) support for PHP 8</para>
+</listitem><listitem>
+<para>Fixed wording of error reporting for invalid strings when the error happened after the 20th character</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2seld_2jsonlint_2_c_h_a_n_g_e_l_o_g_1autotoc_md7152">
+<title><title>1.7.2 (2019-10-24)</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Fixed issue decoding some unicode escaped characters (for &quot; and &apos;)
+
+@subsubsection autotoc_md7153 1.7.1 (2018-01-24)
+
+  * Fixed PHP 5.3 compatibility in bin/jsonlint
+
+@subsubsection autotoc_md7154 1.7.0 (2018-01-03)
+
+  * Added ability to lint multiple files at once using the jsonlint binary
+
+@subsubsection autotoc_md7155 1.6.2 (2017-11-30)
+
+  * No meaningful public changes
+
+@subsubsection autotoc_md7156 1.6.1 (2017-06-18)
+
+  * Fixed parsing of &lt;tt&gt;0&lt;/tt&gt; as invalid
+
+@subsubsection autotoc_md7157 1.6.0 (2017-03-06)
+
+  * Added $flags arg to JsonParser::lint() to take the same flag as parse() did
+  * Fixed backtracking performance issues on long strings with a lot of escaped characters
+
+@subsubsection autotoc_md7158 1.5.0 (2016-11-14)
+
+  * Added support for PHP 7.1 (which converts &lt;tt&gt;{&quot;&quot;:&quot;&quot;}&lt;/tt&gt; to an object property called &lt;tt&gt;&quot;&quot;&lt;/tt&gt; and not &lt;tt&gt;&quot;_empty_&quot; like 7.0 and below).</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2seld_2jsonlint_2_c_h_a_n_g_e_l_o_g_1autotoc_md7159">
+<title><title>1.4.0 (2015-11-21)</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Added a DuplicateKeyException allowing for more specific error detection and handling</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2seld_2jsonlint_2_c_h_a_n_g_e_l_o_g_1autotoc_md7160">
+<title><title>1.3.1 (2015-01-04)</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Fixed segfault when parsing large JSON strings</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2seld_2jsonlint_2_c_h_a_n_g_e_l_o_g_1autotoc_md7161">
+<title><title>1.3.0 (2014-09-05)</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Added parsing to an associative array via JsonParser::PARSE_TO_ASSOC</para>
+</listitem><listitem>
+<para>Fixed a warning when rendering parse errors on empty lines</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2seld_2jsonlint_2_c_h_a_n_g_e_l_o_g_1autotoc_md7162">
+<title><title>1.2.0 (2014-07-20)</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Added support for linting multiple files at once in bin/jsonlint</para>
+</listitem><listitem>
+<para>Added a -q/&#8211;quiet flag to suppress the output</para>
+</listitem><listitem>
+<para>Fixed error output being on STDOUT instead of STDERR</para>
+</listitem><listitem>
+<para>Fixed parameter parsing</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2seld_2jsonlint_2_c_h_a_n_g_e_l_o_g_1autotoc_md7163">
+<title><title>1.1.2 (2013-11-04)</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Fixed handling of Unicode BOMs to give a better failure hint</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2seld_2jsonlint_2_c_h_a_n_g_e_l_o_g_1autotoc_md7164">
+<title><title>1.1.1 (2013-02-12)</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Fixed handling of empty keys in objects in certain cases</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2seld_2jsonlint_2_c_h_a_n_g_e_l_o_g_1autotoc_md7165">
+<title><title>1.1.0 (2012-12-13)</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Added optional parsing of duplicate keys into key.2, key.3, etc via JsonParser::ALLOW_DUPLICATE_KEYS</para>
+</listitem><listitem>
+<para>Improved error reporting for common mistakes</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2seld_2jsonlint_2_c_h_a_n_g_e_l_o_g_1autotoc_md7166">
+<title><title>1.0.1 (2012-04-03)</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Added optional detection and error reporting for duplicate keys via JsonParser::DETECT_KEY_CONFLICTS</para>
+</listitem><listitem>
+<para>Added ability to pipe content through stdin into bin/jsonlint</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2seld_2jsonlint_2_c_h_a_n_g_e_l_o_g_1autotoc_md7167">
+<title><title>1.0.0 (2012-03-12)</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Initial release </para>
+</listitem></itemizedlist>
+</para>
+</section>
+</section>

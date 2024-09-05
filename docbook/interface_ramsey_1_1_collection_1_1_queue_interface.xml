@@ -1,0 +1,356 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_interface_ramsey_1_1_collection_1_1_queue_interface" xml:lang="fr">
+<title>Référence de l&apos;interface QueueInterface</title>
+<indexterm><primary>QueueInterface</primary></indexterm>
+Graphe d&apos;héritage de QueueInterface:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="interface_ramsey_1_1_collection_1_1_queue_interface__inherit__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Graphe de collaboration de QueueInterface:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="interface_ramsey_1_1_collection_1_1_queue_interface__coll__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Fonctions membres publiques    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_interface_ramsey_1_1_collection_1_1_queue_interface_1a5d7ca81b492d2a6861e333c33388edab">add</link> ($<link linkend="_interface_ramsey_1_1_collection_1_1_queue_interface_1aefeef63f01e118b79276a984f1b94aa1">element</link>)</para>
+</listitem>
+            <listitem><para><link linkend="_interface_ramsey_1_1_collection_1_1_queue_interface_1aefeef63f01e118b79276a984f1b94aa1">element</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_interface_ramsey_1_1_collection_1_1_queue_interface_1a688b918871f578c37b1ffebe9a3e1beb">offer</link> ($<link linkend="_interface_ramsey_1_1_collection_1_1_queue_interface_1aefeef63f01e118b79276a984f1b94aa1">element</link>)</para>
+</listitem>
+            <listitem><para><link linkend="_interface_ramsey_1_1_collection_1_1_queue_interface_1af0d2b98b49496eaef856a5b277fa775b">peek</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_interface_ramsey_1_1_collection_1_1_queue_interface_1aabfa6a53da249dcd1b75b6022f163fd7">poll</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_interface_ramsey_1_1_collection_1_1_queue_interface_1aff9a1fb07dca963c2c9a8ffe66b45ded">remove</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_interface_ramsey_1_1_collection_1_1_queue_interface_1a830b5c75df72b32396701bc563fbe3c7">getType</link> ()</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+Fonctions membres publiques hérités de <link linkend="_interface_ramsey_1_1_collection_1_1_array_interface">ArrayInterface</link>        <itemizedlist>
+            <listitem><para><link linkend="_interface_ramsey_1_1_collection_1_1_array_interface_1aa821bec12eaa7e0f649397c9675ff505">clear</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_interface_ramsey_1_1_collection_1_1_array_interface_1a658defb34762c8f40085aec87e16ba1a">toArray</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_interface_ramsey_1_1_collection_1_1_array_interface_1aedcc52b3673b8df9425e52f13accb2a1">isEmpty</link> ()</para>
+</listitem>
+        </itemizedlist>
+<section>
+<title>Description détaillée</title>
+
+<para>A queue is a collection in which the entities in the collection are kept in order.</para>
+
+<para>The principal operations on the queue are the addition of entities to the end (tail), also known as <emphasis>enqueue</emphasis>, and removal of entities from the front (head), also known as <emphasis>dequeue</emphasis>. This makes the queue a first-in-first-out (FIFO) data structure.</para>
+
+<para>Besides basic array operations, queues provide additional insertion, extraction, and inspection operations. Each of these methods exists in two forms: one throws an exception if the operation fails, the other returns a special value (either <computeroutput>null</computeroutput> or <computeroutput>false</computeroutput>, depending on the operation). The latter form of the insert operation is designed specifically for use with capacity-restricted <computeroutput>QueueInterface</computeroutput> implementations; in most implementations, insert operations cannot fail.</para>
+
+<para><informaltable frame="all">
+    <tgroup cols="3" align="left" colsep="1" rowsep="1">
+      <colspec colname='c1'/>
+      <colspec colname='c2'/>
+      <colspec colname='c3'/>
+<caption>Summary of QueueInterface methods</caption>
+<tbody>
+      <row >
+<entry>
+<para></para>
+</entry><entry>
+<para><emphasis>Throws exception</emphasis> </para>
+</entry><entry>
+<para><emphasis>Returns special value</emphasis>    </para>
+</entry></row>
+      <row >
+<entry>
+<para>Insert </para>
+</entry><entry>
+<para><computeroutput>add()</computeroutput> </para>
+</entry><entry>
+<para><computeroutput>offer()</computeroutput>  </para>
+</entry></row>
+      <row >
+<entry>
+<para>Remove </para>
+</entry><entry>
+<para><computeroutput>remove()</computeroutput> </para>
+</entry><entry>
+<para><computeroutput>poll()</computeroutput>  </para>
+</entry></row>
+      <row >
+<entry>
+<para>Examine </para>
+</entry><entry>
+<para><computeroutput>element()</computeroutput> </para>
+</entry><entry>
+<para><computeroutput>peek()</computeroutput>   </para>
+</entry></row>
+    </tbody>
+    </tgroup>
+</informaltable>
+</para>
+
+<para>Queues typically, but do not necessarily, order elements in a FIFO (first-in-first-out) manner. Among the exceptions are priority queues, which order elements according to a supplied comparator, or the elements&apos; natural ordering, and LIFO queues (or stacks) which order the elements LIFO (last-in-first-out). Whatever the ordering used, the head of the queue is that element which would be removed by a call to remove() or poll(). In a FIFO queue, all new elements are inserted at the tail of the queue. Other kinds of queues may use different placement rules. Every <computeroutput>QueueInterface</computeroutput> implementation must specify its ordering properties.</para>
+
+<para>The <computeroutput>offer()</computeroutput> method inserts an element if possible, otherwise returning <computeroutput>false</computeroutput>. This differs from the <computeroutput>add()</computeroutput> method, which can fail to add an element only by throwing an unchecked exception. The <computeroutput>offer()</computeroutput> method is designed for use when failure is a normal, rather than exceptional occurrence, for example, in fixed-capacity (or &quot;bounded&quot;) queues.</para>
+
+<para>The <computeroutput>remove()</computeroutput> and <computeroutput>poll()</computeroutput> methods remove and return the head of the queue. Exactly which element is removed from the queue is a function of the queue&apos;s ordering policy, which differs from implementation to implementation. The <computeroutput>remove()</computeroutput> and <computeroutput>poll()</computeroutput> methods differ only in their behavior when the queue is empty: the <computeroutput>remove()</computeroutput> method throws an exception, while the <computeroutput>poll()</computeroutput> method returns <computeroutput>null</computeroutput>.</para>
+
+<para>The <computeroutput>element()</computeroutput> and <computeroutput>peek()</computeroutput> methods return, but do not remove, the head of the queue.</para>
+
+<para><computeroutput>QueueInterface</computeroutput> implementations generally do not allow insertion of <computeroutput>null</computeroutput> elements, although some implementations do not prohibit insertion of <computeroutput>null</computeroutput>. Even in the implementations that permit it, <computeroutput>null</computeroutput> should not be inserted into a queue, as <computeroutput>null</computeroutput> is also used as a special return value by the <computeroutput>poll()</computeroutput> method to indicate that the queue contains no elements.</para>
+
+<para>@template T &lt;T&gt; </para>
+</section>
+<section>
+<title>Documentation des fonctions membres</title>
+<anchor xml:id="_interface_ramsey_1_1_collection_1_1_queue_interface_1a5d7ca81b492d2a6861e333c33388edab"/><section>
+    <title>add()</title>
+<indexterm><primary>add</primary><secondary>QueueInterface</secondary></indexterm>
+<indexterm><primary>QueueInterface</primary><secondary>add</secondary></indexterm>
+<para><computeroutput>add ( $element)</computeroutput></para>
+<para>Ensures that this queue contains the specified element (optional operation).</para>
+
+<para>Returns <computeroutput>true</computeroutput> if this queue changed as a result of the call. (Returns <computeroutput>false</computeroutput> if this queue does not permit duplicates and already contains the specified element.)</para>
+
+<para>Queues that support this operation may place limitations on what elements may be added to this queue. In particular, some queues will refuse to add <computeroutput>null</computeroutput> elements, and others will impose restrictions on the type of elements that may be added. Queue classes should clearly specify in their documentation any restrictions on what elements may be added.</para>
+
+<para>If a queue refuses to add a particular element for any reason other than that it already contains the element, it must throw an exception (rather than returning <computeroutput>false</computeroutput>). This preserves the invariant that a queue always contains the specified element after this call returns.</para>
+
+<para><formalpara><title>Voir également</title>
+
+<para>self::offer()</para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>T</entry><entry>$element</entry><entry>
+<para>The element to add to this queue.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>bool <computeroutput>true</computeroutput> if this queue changed as a result of the call.</para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry></entry>
+<entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                RuntimeException if a queue refuses to add a particular element for any reason other than that it already contains the element. Implementations should use a more-specific exception that extends <computeroutput>\RuntimeException</computeroutput>. </para>
+<para>
+Implémenté dans <link linkend="_class_ramsey_1_1_collection_1_1_queue_1a5d7ca81b492d2a6861e333c33388edab">Queue</link>.</para>
+</section>
+<anchor xml:id="_interface_ramsey_1_1_collection_1_1_queue_interface_1aefeef63f01e118b79276a984f1b94aa1"/><section>
+    <title>element()</title>
+<indexterm><primary>element</primary><secondary>QueueInterface</secondary></indexterm>
+<indexterm><primary>QueueInterface</primary><secondary>element</secondary></indexterm>
+<para><computeroutput>element ( )</computeroutput></para>
+<para>Retrieves, but does not remove, the head of this queue.</para>
+
+<para>This method differs from <computeroutput>peek()</computeroutput> only in that it throws an exception if this queue is empty.</para>
+
+<para><formalpara><title>Voir également</title>
+
+<para>self::peek()</para>
+</formalpara>
+<formalpara><title>Renvoie</title>
+
+<para>T the head of this queue.</para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>NoSuchElementException</entry><entry>
+<para>if this queue is empty. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Implémenté dans <link linkend="_class_ramsey_1_1_collection_1_1_queue_1aefeef63f01e118b79276a984f1b94aa1">Queue</link>.</para>
+</section>
+<anchor xml:id="_interface_ramsey_1_1_collection_1_1_queue_interface_1a830b5c75df72b32396701bc563fbe3c7"/><section>
+    <title>getType()</title>
+<indexterm><primary>getType</primary><secondary>QueueInterface</secondary></indexterm>
+<indexterm><primary>QueueInterface</primary><secondary>getType</secondary></indexterm>
+<para><computeroutput>getType ( )</computeroutput></para>
+<para>Returns the type associated with this queue. </para>
+<para>
+Implémenté dans <link linkend="_class_ramsey_1_1_collection_1_1_queue_1a830b5c75df72b32396701bc563fbe3c7">Queue</link>.</para>
+</section>
+<anchor xml:id="_interface_ramsey_1_1_collection_1_1_queue_interface_1a688b918871f578c37b1ffebe9a3e1beb"/><section>
+    <title>offer()</title>
+<indexterm><primary>offer</primary><secondary>QueueInterface</secondary></indexterm>
+<indexterm><primary>QueueInterface</primary><secondary>offer</secondary></indexterm>
+<para><computeroutput>offer ( $element)</computeroutput></para>
+<para>Inserts the specified element into this queue if it is possible to do so immediately without violating capacity restrictions.</para>
+
+<para>When using a capacity-restricted queue, this method is generally preferable to <computeroutput>add()</computeroutput>, which can fail to insert an element only by throwing an exception.</para>
+
+<para><formalpara><title>Voir également</title>
+
+<para>self::add()</para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>T</entry><entry>$element</entry><entry>
+<para>The element to add to this queue.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>bool <computeroutput>true</computeroutput> if the element was added to this queue, else <computeroutput>false</computeroutput>. </para>
+</formalpara>
+</para>
+<para>
+Implémenté dans <link linkend="_class_ramsey_1_1_collection_1_1_queue_1a688b918871f578c37b1ffebe9a3e1beb">Queue</link>.</para>
+</section>
+<anchor xml:id="_interface_ramsey_1_1_collection_1_1_queue_interface_1af0d2b98b49496eaef856a5b277fa775b"/><section>
+    <title>peek()</title>
+<indexterm><primary>peek</primary><secondary>QueueInterface</secondary></indexterm>
+<indexterm><primary>QueueInterface</primary><secondary>peek</secondary></indexterm>
+<para><computeroutput>peek ( )</computeroutput></para>
+<para>Retrieves, but does not remove, the head of this queue, or returns <computeroutput>null</computeroutput> if this queue is empty.</para>
+
+<para><formalpara><title>Voir également</title>
+
+<para>self::element()</para>
+</formalpara>
+<formalpara><title>Renvoie</title>
+
+<para>T|null the head of this queue, or <computeroutput>null</computeroutput> if this queue is empty. </para>
+</formalpara>
+</para>
+<para>
+Implémenté dans <link linkend="_class_ramsey_1_1_collection_1_1_queue_1af0d2b98b49496eaef856a5b277fa775b">Queue</link>.</para>
+</section>
+<anchor xml:id="_interface_ramsey_1_1_collection_1_1_queue_interface_1aabfa6a53da249dcd1b75b6022f163fd7"/><section>
+    <title>poll()</title>
+<indexterm><primary>poll</primary><secondary>QueueInterface</secondary></indexterm>
+<indexterm><primary>QueueInterface</primary><secondary>poll</secondary></indexterm>
+<para><computeroutput>poll ( )</computeroutput></para>
+<para>Retrieves and removes the head of this queue, or returns <computeroutput>null</computeroutput> if this queue is empty.</para>
+
+<para><formalpara><title>Voir également</title>
+
+<para>self::remove()</para>
+</formalpara>
+<formalpara><title>Renvoie</title>
+
+<para>T|null the head of this queue, or <computeroutput>null</computeroutput> if this queue is empty. </para>
+</formalpara>
+</para>
+<para>
+Implémenté dans <link linkend="_class_ramsey_1_1_collection_1_1_queue_1aabfa6a53da249dcd1b75b6022f163fd7">Queue</link>.</para>
+</section>
+<anchor xml:id="_interface_ramsey_1_1_collection_1_1_queue_interface_1aff9a1fb07dca963c2c9a8ffe66b45ded"/><section>
+    <title>remove()</title>
+<indexterm><primary>remove</primary><secondary>QueueInterface</secondary></indexterm>
+<indexterm><primary>QueueInterface</primary><secondary>remove</secondary></indexterm>
+<para><computeroutput>remove ( )</computeroutput></para>
+<para>Retrieves and removes the head of this queue.</para>
+
+<para>This method differs from <computeroutput>poll()</computeroutput> only in that it throws an exception if this queue is empty.</para>
+
+<para><formalpara><title>Voir également</title>
+
+<para>self::poll()</para>
+</formalpara>
+<formalpara><title>Renvoie</title>
+
+<para>T the head of this queue.</para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>NoSuchElementException</entry><entry>
+<para>if this queue is empty. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Implémenté dans <link linkend="_class_ramsey_1_1_collection_1_1_queue_1aff9a1fb07dca963c2c9a8ffe66b45ded">Queue</link>.</para>
+</section>
+<para>
+La documentation de cette interface a été générée à partir du fichier suivant :</para>
+public/glpi/vendor/ramsey/collection/src/<link linkend="__queue_interface_8php">QueueInterface.php</link></section>
+</section>

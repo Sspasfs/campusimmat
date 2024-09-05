@@ -1,0 +1,192 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_interface_ramsey_1_1_uuid_1_1_codec_1_1_codec_interface" xml:lang="fr">
+<title>Référence de l&apos;interface CodecInterface</title>
+<indexterm><primary>CodecInterface</primary></indexterm>
+Graphe d&apos;héritage de CodecInterface:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="interface_ramsey_1_1_uuid_1_1_codec_1_1_codec_interface__inherit__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Graphe de collaboration de CodecInterface:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="interface_ramsey_1_1_uuid_1_1_codec_1_1_codec_interface__coll__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Fonctions membres publiques    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_interface_ramsey_1_1_uuid_1_1_codec_1_1_codec_interface_1a2b51c9f6a06e2cfa3b855676fa3b3fd7">encode</link> (<link linkend="_interface_ramsey_1_1_uuid_1_1_uuid_interface">UuidInterface</link> $uuid)</para>
+</listitem>
+            <listitem><para><link linkend="_interface_ramsey_1_1_uuid_1_1_codec_1_1_codec_interface_1a3c78fb7e30c430ec86edd907d580541a">encodeBinary</link> (<link linkend="_interface_ramsey_1_1_uuid_1_1_uuid_interface">UuidInterface</link> $uuid)</para>
+</listitem>
+            <listitem><para><link linkend="_interface_ramsey_1_1_uuid_1_1_codec_1_1_codec_interface_1ab4189bfc952c2c92c053a789aa62ef38">decode</link> (string $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">encodedUuid</link>)</para>
+</listitem>
+            <listitem><para><link linkend="_interface_ramsey_1_1_uuid_1_1_codec_1_1_codec_interface_1ad7dad29f1dbff24b63f686b1af1ba2f3">decodeBytes</link> (string $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">bytes</link>)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Description détaillée</title>
+
+<para>A codec encodes and decodes a UUID according to defined rules</para>
+
+<para>@psalm-immutable </para>
+</section>
+<section>
+<title>Documentation des fonctions membres</title>
+<anchor xml:id="_interface_ramsey_1_1_uuid_1_1_codec_1_1_codec_interface_1ab4189bfc952c2c92c053a789aa62ef38"/><section>
+    <title>decode()</title>
+<indexterm><primary>decode</primary><secondary>CodecInterface</secondary></indexterm>
+<indexterm><primary>CodecInterface</primary><secondary>decode</secondary></indexterm>
+<para><computeroutput>decode (string $encodedUuid)</computeroutput></para>
+<para>Returns a UuidInterface derived from a hexadecimal string representation</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$encodedUuid</entry><entry>
+<para>The hexadecimal string representation to convert into a UuidInterface instance</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>UuidInterface An instance of a UUID decoded from a hexadecimal string representation </para>
+</formalpara>
+</para>
+<para>
+Implémenté dans <link linkend="_class_ramsey_1_1_uuid_1_1_codec_1_1_guid_string_codec_1ab4189bfc952c2c92c053a789aa62ef38">GuidStringCodec</link>, <link linkend="_class_ramsey_1_1_uuid_1_1_codec_1_1_string_codec_1ab4189bfc952c2c92c053a789aa62ef38">StringCodec</link>, et <link linkend="_class_ramsey_1_1_uuid_1_1_codec_1_1_timestamp_first_comb_codec_1ab4189bfc952c2c92c053a789aa62ef38">TimestampFirstCombCodec</link>.</para>
+</section>
+<anchor xml:id="_interface_ramsey_1_1_uuid_1_1_codec_1_1_codec_interface_1ad7dad29f1dbff24b63f686b1af1ba2f3"/><section>
+    <title>decodeBytes()</title>
+<indexterm><primary>decodeBytes</primary><secondary>CodecInterface</secondary></indexterm>
+<indexterm><primary>CodecInterface</primary><secondary>decodeBytes</secondary></indexterm>
+<para><computeroutput>decodeBytes (string $bytes)</computeroutput></para>
+<para>Returns a UuidInterface derived from a binary string representation</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$bytes</entry><entry>
+<para>The binary string representation to convert into a UuidInterface instance</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>UuidInterface An instance of a UUID decoded from a binary string representation </para>
+</formalpara>
+</para>
+<para>
+Implémenté dans <link linkend="_class_ramsey_1_1_uuid_1_1_codec_1_1_guid_string_codec_1ad7dad29f1dbff24b63f686b1af1ba2f3">GuidStringCodec</link>, <link linkend="_class_ramsey_1_1_uuid_1_1_codec_1_1_ordered_time_codec_1ad7dad29f1dbff24b63f686b1af1ba2f3">OrderedTimeCodec</link>, <link linkend="_class_ramsey_1_1_uuid_1_1_codec_1_1_string_codec_1ad7dad29f1dbff24b63f686b1af1ba2f3">StringCodec</link>, et <link linkend="_class_ramsey_1_1_uuid_1_1_codec_1_1_timestamp_first_comb_codec_1ad7dad29f1dbff24b63f686b1af1ba2f3">TimestampFirstCombCodec</link>.</para>
+</section>
+<anchor xml:id="_interface_ramsey_1_1_uuid_1_1_codec_1_1_codec_interface_1a2b51c9f6a06e2cfa3b855676fa3b3fd7"/><section>
+    <title>encode()</title>
+<indexterm><primary>encode</primary><secondary>CodecInterface</secondary></indexterm>
+<indexterm><primary>CodecInterface</primary><secondary>encode</secondary></indexterm>
+<para><computeroutput>encode (<link linkend="_interface_ramsey_1_1_uuid_1_1_uuid_interface">UuidInterface</link> $uuid)</computeroutput></para>
+<para>Returns a hexadecimal string representation of a UuidInterface</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>UuidInterface</entry><entry>$uuid</entry><entry>
+<para>The UUID for which to create a hexadecimal string representation</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>string Hexadecimal string representation of a UUID</para>
+</formalpara>
+@psalm-return non-empty-string </para>
+<para>
+Implémenté dans <link linkend="_class_ramsey_1_1_uuid_1_1_codec_1_1_timestamp_first_comb_codec_1a2b51c9f6a06e2cfa3b855676fa3b3fd7">TimestampFirstCombCodec</link>.</para>
+</section>
+<anchor xml:id="_interface_ramsey_1_1_uuid_1_1_codec_1_1_codec_interface_1a3c78fb7e30c430ec86edd907d580541a"/><section>
+    <title>encodeBinary()</title>
+<indexterm><primary>encodeBinary</primary><secondary>CodecInterface</secondary></indexterm>
+<indexterm><primary>CodecInterface</primary><secondary>encodeBinary</secondary></indexterm>
+<para><computeroutput>encodeBinary (<link linkend="_interface_ramsey_1_1_uuid_1_1_uuid_interface">UuidInterface</link> $uuid)</computeroutput></para>
+<para>Returns a binary string representation of a UuidInterface</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>UuidInterface</entry><entry>$uuid</entry><entry>
+<para>The UUID for which to create a binary string representation</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>string Binary string representation of a UUID</para>
+</formalpara>
+@psalm-return non-empty-string </para>
+<para>
+Implémenté dans <link linkend="_class_ramsey_1_1_uuid_1_1_codec_1_1_ordered_time_codec_1a3c78fb7e30c430ec86edd907d580541a">OrderedTimeCodec</link>, <link linkend="_class_ramsey_1_1_uuid_1_1_codec_1_1_string_codec_1a3c78fb7e30c430ec86edd907d580541a">StringCodec</link>, et <link linkend="_class_ramsey_1_1_uuid_1_1_codec_1_1_timestamp_first_comb_codec_1a3c78fb7e30c430ec86edd907d580541a">TimestampFirstCombCodec</link>.</para>
+</section>
+<para>
+La documentation de cette interface a été générée à partir du fichier suivant :</para>
+public/glpi/vendor/ramsey/uuid/src/Codec/<link linkend="__codec_interface_8php">CodecInterface.php</link></section>
+</section>

@@ -1,0 +1,328 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_scss_php_1_1_scss_php_1_1_cache" xml:lang="fr">
+<title>Référence de la classe Cache</title>
+<indexterm><primary>Cache</primary></indexterm>
+Graphe de collaboration de Cache:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_scss_php_1_1_scss_php_1_1_cache__coll__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Fonctions membres publiques    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_scss_php_1_1_scss_php_1_1_cache_1ae8b8e1144b807ac13f20a916fd073b32">__construct</link> ($options)</para>
+</listitem>
+            <listitem><para><link linkend="_class_scss_php_1_1_scss_php_1_1_cache_1a2d1cdac5bcd4312b4ce0d9feccd9ba9c">getCache</link> ($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">operation</link>, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">what</link>, $options=[], $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">lastModified</link>=null)</para>
+</listitem>
+            <listitem><para><link linkend="_class_scss_php_1_1_scss_php_1_1_cache_1aa5b3f33708d8e4a42e122c69990e0f31">setCache</link> ($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">operation</link>, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">what</link>, $value, $options=[])</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Fonctions membres publiques statiques    </title>
+        <itemizedlist>
+            <listitem><para>static <link linkend="_class_scss_php_1_1_scss_php_1_1_cache_1a11cac991406e523fa5f01d493682cfe7">checkCacheDir</link> ()</para>
+</listitem>
+            <listitem><para>static <link linkend="_class_scss_php_1_1_scss_php_1_1_cache_1a2688b2976706c496105a7eba7a881c7a">cleanCache</link> ()</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Champs de données    </title>
+        <itemizedlist>
+            <listitem><para>const <link linkend="_class_scss_php_1_1_scss_php_1_1_cache_1aab0504a16f6a1ae27927e47374049868">CACHE_VERSION</link> = 1</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Attributs publics statiques    </title>
+        <itemizedlist>
+            <listitem><para>static <link linkend="_class_scss_php_1_1_scss_php_1_1_cache_1ac9d27ec635bd451cdecc1d20135f0698">$cacheDir</link> = false</para>
+</listitem>
+            <listitem><para>static <link linkend="_class_scss_php_1_1_scss_php_1_1_cache_1a09e8cf95b9d29955a0bfabca9b420edc">$prefix</link> = &apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">scssphp_</link>&apos;</para>
+</listitem>
+            <listitem><para>static <link linkend="_class_scss_php_1_1_scss_php_1_1_cache_1a5cc56a305f5d642e82cecdad5efbfa73">$forceRefresh</link> = false</para>
+</listitem>
+            <listitem><para>static <link linkend="_class_scss_php_1_1_scss_php_1_1_cache_1a2a6ff1eabac41c65c007f467398093e8">$gcLifetime</link> = 604800</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Attributs protégés statiques    </title>
+        <itemizedlist>
+            <listitem><para>static <link linkend="_class_scss_php_1_1_scss_php_1_1_cache_1a636e6ea2b8987acb55f2112425cb6161">$refreshed</link> = []</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Description détaillée</title>
+
+<para>The scss cache manager.</para>
+
+<para>In short:</para>
+
+<para>allow to put in cache/get from cache a generic result from a known operation on a generic dataset, taking in account options that affects the result</para>
+
+<para>The cache manager is agnostic about data format and only the operation is expected to be described by string SCSS cache</para>
+
+<para><formalpara><title>Auteur</title>
+
+<para>Cedric Morin <link xlink:href="mailto:cedric@yterium.com">cedric@yterium.com</link> </para>
+</formalpara>
+</para>
+</section>
+<section>
+<title>Documentation des constructeurs et destructeur</title>
+<anchor xml:id="_class_scss_php_1_1_scss_php_1_1_cache_1ae8b8e1144b807ac13f20a916fd073b32"/><section>
+    <title>__construct()</title>
+<indexterm><primary>__construct</primary><secondary>Cache</secondary></indexterm>
+<indexterm><primary>Cache</primary><secondary>__construct</secondary></indexterm>
+<para><computeroutput>__construct ( $options)</computeroutput></para>
+<para>Constructor</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>array</entry><entry>$options</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                @phpstan-param array{cacheDir?: string, prefix?: string, forceRefresh?: string} $options </para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_scss_php_1_1_scss_php_1_1_cache_ae8b8e1144b807ac13f20a916fd073b32_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+</section>
+<section>
+<title>Documentation des fonctions membres</title>
+<anchor xml:id="_class_scss_php_1_1_scss_php_1_1_cache_1a11cac991406e523fa5f01d493682cfe7"/><section>
+    <title>checkCacheDir()</title>
+<indexterm><primary>checkCacheDir</primary><secondary>Cache</secondary></indexterm>
+<indexterm><primary>Cache</primary><secondary>checkCacheDir</secondary></indexterm>
+<para><computeroutput>static checkCacheDir ( )<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>Check that the cache dir exists and is writeable</para>
+
+<para><formalpara><title>Renvoie</title>
+
+<para>void</para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry></entry>
+<entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                Exception </para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_scss_php_1_1_scss_php_1_1_cache_a11cac991406e523fa5f01d493682cfe7_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_scss_php_1_1_scss_php_1_1_cache_1a2688b2976706c496105a7eba7a881c7a"/><section>
+    <title>cleanCache()</title>
+<indexterm><primary>cleanCache</primary><secondary>Cache</secondary></indexterm>
+<indexterm><primary>Cache</primary><secondary>cleanCache</secondary></indexterm>
+<para><computeroutput>static cleanCache ( )<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>Delete unused cached files</para>
+
+<para><formalpara><title>Renvoie</title>
+
+<para>void </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_class_scss_php_1_1_scss_php_1_1_cache_1a2d1cdac5bcd4312b4ce0d9feccd9ba9c"/><section>
+    <title>getCache()</title>
+<indexterm><primary>getCache</primary><secondary>Cache</secondary></indexterm>
+<indexterm><primary>Cache</primary><secondary>getCache</secondary></indexterm>
+<para><computeroutput>getCache ( $operation,  $what,  $options = <computeroutput>[]</computeroutput>
+,  $lastModified = <computeroutput>null</computeroutput>
+)</computeroutput></para>
+<para>Get the cached result of $operation on $what, which is known as dependant from the content of $options</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$operation</entry><entry>
+<para>parse, compile... </para>
+</entry>
+                            </row>
+                            <row>
+<entry>mixed</entry><entry>$what</entry><entry>
+<para>content key (e.g., filename to be treated) </para>
+</entry>
+                            </row>
+                            <row>
+<entry>array</entry><entry>$options</entry><entry>
+<para>any option that affect the operation result on the content </para>
+</entry>
+                            </row>
+                            <row>
+<entry>int | null</entry><entry>$lastModified</entry><entry>
+<para>last modified timestamp</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>mixed</para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry></entry>
+<entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                Exception </para>
+</section>
+<anchor xml:id="_class_scss_php_1_1_scss_php_1_1_cache_1aa5b3f33708d8e4a42e122c69990e0f31"/><section>
+    <title>setCache()</title>
+<indexterm><primary>setCache</primary><secondary>Cache</secondary></indexterm>
+<indexterm><primary>Cache</primary><secondary>setCache</secondary></indexterm>
+<para><computeroutput>setCache ( $operation,  $what,  $value,  $options = <computeroutput>[]</computeroutput>
+)</computeroutput></para>
+<para>Put in cache the result of $operation on $what, which is known as dependant from the content of $options</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$operation</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>mixed</entry><entry>$what</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>mixed</entry><entry>$value</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>array</entry><entry>$options</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>void </para>
+</formalpara>
+</para>
+</section>
+</section>
+<section>
+<title>Documentation des champs</title>
+<anchor xml:id="_class_scss_php_1_1_scss_php_1_1_cache_1ac9d27ec635bd451cdecc1d20135f0698"/><section>
+    <title>$cacheDir</title>
+<indexterm><primary>$cacheDir</primary><secondary>Cache</secondary></indexterm>
+<indexterm><primary>Cache</primary><secondary>$cacheDir</secondary></indexterm>
+<para><computeroutput>$<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">cacheDir</link> = false<computeroutput>[static]</computeroutput></computeroutput></para></section>
+<anchor xml:id="_class_scss_php_1_1_scss_php_1_1_cache_1a5cc56a305f5d642e82cecdad5efbfa73"/><section>
+    <title>$forceRefresh</title>
+<indexterm><primary>$forceRefresh</primary><secondary>Cache</secondary></indexterm>
+<indexterm><primary>Cache</primary><secondary>$forceRefresh</secondary></indexterm>
+<para><computeroutput>$<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">forceRefresh</link> = false<computeroutput>[static]</computeroutput></computeroutput></para></section>
+<anchor xml:id="_class_scss_php_1_1_scss_php_1_1_cache_1a2a6ff1eabac41c65c007f467398093e8"/><section>
+    <title>$gcLifetime</title>
+<indexterm><primary>$gcLifetime</primary><secondary>Cache</secondary></indexterm>
+<indexterm><primary>Cache</primary><secondary>$gcLifetime</secondary></indexterm>
+<para><computeroutput>$<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">gcLifetime</link> = 604800<computeroutput>[static]</computeroutput></computeroutput></para></section>
+<anchor xml:id="_class_scss_php_1_1_scss_php_1_1_cache_1a09e8cf95b9d29955a0bfabca9b420edc"/><section>
+    <title>$prefix</title>
+<indexterm><primary>$prefix</primary><secondary>Cache</secondary></indexterm>
+<indexterm><primary>Cache</primary><secondary>$prefix</secondary></indexterm>
+<para><computeroutput>$<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">prefix</link> = &apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">scssphp_</link>&apos;<computeroutput>[static]</computeroutput></computeroutput></para></section>
+<anchor xml:id="_class_scss_php_1_1_scss_php_1_1_cache_1a636e6ea2b8987acb55f2112425cb6161"/><section>
+    <title>$refreshed</title>
+<indexterm><primary>$refreshed</primary><secondary>Cache</secondary></indexterm>
+<indexterm><primary>Cache</primary><secondary>$refreshed</secondary></indexterm>
+<para><computeroutput>$<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">refreshed</link> = []<computeroutput>[static]</computeroutput>, <computeroutput>[protected]</computeroutput></computeroutput></para></section>
+<anchor xml:id="_class_scss_php_1_1_scss_php_1_1_cache_1aab0504a16f6a1ae27927e47374049868"/><section>
+    <title>CACHE_VERSION</title>
+<indexterm><primary>CACHE_VERSION</primary><secondary>Cache</secondary></indexterm>
+<indexterm><primary>Cache</primary><secondary>CACHE_VERSION</secondary></indexterm>
+<para><computeroutput>const CACHE_VERSION = 1</computeroutput></para></section>
+<para>
+La documentation de cette classe a été générée à partir du fichier suivant :</para>
+public/glpi/vendor/scssphp/scssphp/src/<link linkend="_vendor_2scssphp_2scssphp_2src_2cache_8php">Cache.php</link></section>
+</section>

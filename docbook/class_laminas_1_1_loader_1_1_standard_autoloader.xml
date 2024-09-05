@@ -1,0 +1,822 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_laminas_1_1_loader_1_1_standard_autoloader" xml:lang="fr">
+<title>Référence de la classe StandardAutoloader</title>
+<indexterm><primary>StandardAutoloader</primary></indexterm>
+Graphe d&apos;héritage de StandardAutoloader:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_laminas_1_1_loader_1_1_standard_autoloader__inherit__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Graphe de collaboration de StandardAutoloader:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_laminas_1_1_loader_1_1_standard_autoloader__coll__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Fonctions membres publiques    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_laminas_1_1_loader_1_1_standard_autoloader_1ae8cda3b1eced24bb5ffaab1fcb107cf7">__construct</link> ($options=null)</para>
+</listitem>
+            <listitem><para><link linkend="_class_laminas_1_1_loader_1_1_standard_autoloader_1a8213e4c39213f7d6250f72ff6f2699f2">setOptions</link> ($options)</para>
+</listitem>
+            <listitem><para><link linkend="_class_laminas_1_1_loader_1_1_standard_autoloader_1a5ee0ae91cb10c74a8a8e923529039e68">setFallbackAutoloader</link> ($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">flag</link>)</para>
+</listitem>
+            <listitem><para><link linkend="_class_laminas_1_1_loader_1_1_standard_autoloader_1a96c011471f69dcc65a9623e56dc16391">isFallbackAutoloader</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_class_laminas_1_1_loader_1_1_standard_autoloader_1a30f66b5f6f0e56b12d001d578278bb6f">registerNamespace</link> ($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">namespace</link>, $directory)</para>
+</listitem>
+            <listitem><para><link linkend="_class_laminas_1_1_loader_1_1_standard_autoloader_1a891914b6524b9950f0e58d4cb7c741f5">registerNamespaces</link> ($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">namespaces</link>)</para>
+</listitem>
+            <listitem><para><link linkend="_class_laminas_1_1_loader_1_1_standard_autoloader_1ac45297e6b3615ca2efa43bd1b241f777">registerPrefix</link> ($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">prefix</link>, $directory)</para>
+</listitem>
+            <listitem><para><link linkend="_class_laminas_1_1_loader_1_1_standard_autoloader_1a47455cf01e2470471690e2dc630b0e65">registerPrefixes</link> ($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">prefixes</link>)</para>
+</listitem>
+            <listitem><para><link linkend="_class_laminas_1_1_loader_1_1_standard_autoloader_1aad6cfb5484c7eda55731134910c7a280">autoload</link> ($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">class</link>)</para>
+</listitem>
+            <listitem><para><link linkend="_class_laminas_1_1_loader_1_1_standard_autoloader_1acc294a6cc8e69743746820e3d15e3f78">register</link> ()</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Champs de données    </title>
+        <itemizedlist>
+            <listitem><para>const <link linkend="_class_laminas_1_1_loader_1_1_standard_autoloader_1a8a6c46e1da4b9f7332c2c9194ad5d76e">NS_SEPARATOR</link> = &apos;\\&apos;</para>
+</listitem>
+            <listitem><para>const <link linkend="_class_laminas_1_1_loader_1_1_standard_autoloader_1a4b435a34a02de76dc224ffd10c33fb76">PREFIX_SEPARATOR</link> = &apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">_</link>&apos;</para>
+</listitem>
+            <listitem><para>const <link linkend="_class_laminas_1_1_loader_1_1_standard_autoloader_1ac4c5c44e324083b4bf2474ed3a531d73">LOAD_NS</link> = &apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">namespaces</link>&apos;</para>
+</listitem>
+            <listitem><para>const <link linkend="_class_laminas_1_1_loader_1_1_standard_autoloader_1a68ae9a7b4cd87d600dc506bacc691b86">LOAD_PREFIX</link> = &apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">prefixes</link>&apos;</para>
+</listitem>
+            <listitem><para>const <link linkend="_class_laminas_1_1_loader_1_1_standard_autoloader_1a91a82e160536b246faf77271eb6ce8b4">ACT_AS_FALLBACK</link> = &apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">fallback_autoloader</link>&apos;</para>
+</listitem>
+            <listitem><para>const <link linkend="_class_laminas_1_1_loader_1_1_standard_autoloader_1a033db0b14fbd54a353da72355b03dec1">AUTOREGISTER_ZF</link> = &apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">autoregister_laminas</link>&apos;</para>
+</listitem>
+            <listitem><para>const <link linkend="_class_laminas_1_1_loader_1_1_standard_autoloader_1a75eb218e25771f4dbb40f2040c1ed5f2">AUTOREGISTER_LAMINAS</link> = &apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">autoregister_laminas</link>&apos;</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Fonctions membres protégées    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_laminas_1_1_loader_1_1_standard_autoloader_1aa8d3b459ac669f6de87cfe6164669037">transformClassNameToFilename</link> ($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">class</link>, $directory)</para>
+</listitem>
+            <listitem><para><link linkend="_class_laminas_1_1_loader_1_1_standard_autoloader_1aeb0aae15561db913be813296f4521992">loadClass</link> ($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">class</link>, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">type</link>)</para>
+</listitem>
+            <listitem><para><link linkend="_class_laminas_1_1_loader_1_1_standard_autoloader_1a1e1c1bb6fbcf4e4c604df1ed2dee4809">normalizeDirectory</link> ($directory)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Attributs protégés    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_laminas_1_1_loader_1_1_standard_autoloader_1a5a7d9500de9f7c938443d65cef9a074e">$namespaces</link> = []</para>
+</listitem>
+            <listitem><para><link linkend="_class_laminas_1_1_loader_1_1_standard_autoloader_1a8dd2685d77e3731afd50eaa21c4f2055">$prefixes</link> = []</para>
+</listitem>
+            <listitem><para><link linkend="_class_laminas_1_1_loader_1_1_standard_autoloader_1a557a28813685d7411d1d39e2de47e68f">$fallbackAutoloaderFlag</link> = false</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Description détaillée</title>
+
+<para>PSR-0 compliant autoloader</para>
+
+<para>Allows autoloading both namespaced and vendor-prefixed classes. Class lookups are performed on the filesystem. If a class file for the referenced class is not found, a PHP warning will be raised by <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">include()</link>. </para>
+</section>
+<section>
+<title>Documentation des constructeurs et destructeur</title>
+<anchor xml:id="_class_laminas_1_1_loader_1_1_standard_autoloader_1ae8cda3b1eced24bb5ffaab1fcb107cf7"/><section>
+    <title>__construct()</title>
+<indexterm><primary>__construct</primary><secondary>StandardAutoloader</secondary></indexterm>
+<indexterm><primary>StandardAutoloader</primary><secondary>__construct</secondary></indexterm>
+<para><computeroutput>__construct ( $options = <computeroutput>null</computeroutput>
+)</computeroutput></para>
+<para>Constructor</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>null | array | Traversable</entry><entry>$options</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Implémente <link linkend="_interface_laminas_1_1_loader_1_1_spl_autoloader_1ae8cda3b1eced24bb5ffaab1fcb107cf7">SplAutoloader</link>.</para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_laminas_1_1_loader_1_1_standard_autoloader_ae8cda3b1eced24bb5ffaab1fcb107cf7_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+</section>
+<section>
+<title>Documentation des fonctions membres</title>
+<anchor xml:id="_class_laminas_1_1_loader_1_1_standard_autoloader_1aad6cfb5484c7eda55731134910c7a280"/><section>
+    <title>autoload()</title>
+<indexterm><primary>autoload</primary><secondary>StandardAutoloader</secondary></indexterm>
+<indexterm><primary>StandardAutoloader</primary><secondary>autoload</secondary></indexterm>
+<para><computeroutput>autoload ( $class)</computeroutput></para>
+<para>Defined by Autoloadable; autoload a class</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$class</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>false|string </para>
+</formalpara>
+</para>
+<para>
+Implémente <link linkend="_interface_laminas_1_1_loader_1_1_spl_autoloader_1aad6cfb5484c7eda55731134910c7a280">SplAutoloader</link>.</para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_laminas_1_1_loader_1_1_standard_autoloader_aad6cfb5484c7eda55731134910c7a280_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_laminas_1_1_loader_1_1_standard_autoloader_1a96c011471f69dcc65a9623e56dc16391"/><section>
+    <title>isFallbackAutoloader()</title>
+<indexterm><primary>isFallbackAutoloader</primary><secondary>StandardAutoloader</secondary></indexterm>
+<indexterm><primary>StandardAutoloader</primary><secondary>isFallbackAutoloader</secondary></indexterm>
+<para><computeroutput>isFallbackAutoloader ( )</computeroutput></para>
+<para>Is this autoloader acting as a fallback autoloader?</para>
+
+<para><formalpara><title>Renvoie</title>
+
+<para>bool </para>
+</formalpara>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_laminas_1_1_loader_1_1_standard_autoloader_a96c011471f69dcc65a9623e56dc16391_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_laminas_1_1_loader_1_1_standard_autoloader_1aeb0aae15561db913be813296f4521992"/><section>
+    <title>loadClass()</title>
+<indexterm><primary>loadClass</primary><secondary>StandardAutoloader</secondary></indexterm>
+<indexterm><primary>StandardAutoloader</primary><secondary>loadClass</secondary></indexterm>
+<para><computeroutput>loadClass ( $class,  $type)<computeroutput>[protected]</computeroutput></computeroutput></para>
+<para>Load a class, based on its type (namespaced or prefixed)</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$class</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>string</entry><entry>$type</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>bool|string </para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>Exception</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                InvalidArgumentException </para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_laminas_1_1_loader_1_1_standard_autoloader_aeb0aae15561db913be813296f4521992_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_laminas_1_1_loader_1_1_standard_autoloader_aeb0aae15561db913be813296f4521992_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_laminas_1_1_loader_1_1_standard_autoloader_1a1e1c1bb6fbcf4e4c604df1ed2dee4809"/><section>
+    <title>normalizeDirectory()</title>
+<indexterm><primary>normalizeDirectory</primary><secondary>StandardAutoloader</secondary></indexterm>
+<indexterm><primary>StandardAutoloader</primary><secondary>normalizeDirectory</secondary></indexterm>
+<para><computeroutput>normalizeDirectory ( $directory)<computeroutput>[protected]</computeroutput></computeroutput></para>
+<para>Normalize the directory to include a trailing directory separator</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$directory</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>string </para>
+</formalpara>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_laminas_1_1_loader_1_1_standard_autoloader_a1e1c1bb6fbcf4e4c604df1ed2dee4809_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_laminas_1_1_loader_1_1_standard_autoloader_1acc294a6cc8e69743746820e3d15e3f78"/><section>
+    <title>register()</title>
+<indexterm><primary>register</primary><secondary>StandardAutoloader</secondary></indexterm>
+<indexterm><primary>StandardAutoloader</primary><secondary>register</secondary></indexterm>
+<para><computeroutput>register ( )</computeroutput></para>
+<para>Register the autoloader with spl_autoload</para>
+
+<para><formalpara><title>Renvoie</title>
+
+<para>void </para>
+</formalpara>
+</para>
+<para>
+Implémente <link linkend="_interface_laminas_1_1_loader_1_1_spl_autoloader_1acc294a6cc8e69743746820e3d15e3f78">SplAutoloader</link>.</para>
+</section>
+<anchor xml:id="_class_laminas_1_1_loader_1_1_standard_autoloader_1a30f66b5f6f0e56b12d001d578278bb6f"/><section>
+    <title>registerNamespace()</title>
+<indexterm><primary>registerNamespace</primary><secondary>StandardAutoloader</secondary></indexterm>
+<indexterm><primary>StandardAutoloader</primary><secondary>registerNamespace</secondary></indexterm>
+<para><computeroutput>registerNamespace ( $namespace,  $directory)</computeroutput></para>
+<para>Register a namespace/directory pair</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$namespace</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>string</entry><entry>$directory</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>StandardAutoloader </para>
+</formalpara>
+</para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_laminas_1_1_loader_1_1_standard_autoloader_a30f66b5f6f0e56b12d001d578278bb6f_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_laminas_1_1_loader_1_1_standard_autoloader_a30f66b5f6f0e56b12d001d578278bb6f_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_laminas_1_1_loader_1_1_standard_autoloader_1a891914b6524b9950f0e58d4cb7c741f5"/><section>
+    <title>registerNamespaces()</title>
+<indexterm><primary>registerNamespaces</primary><secondary>StandardAutoloader</secondary></indexterm>
+<indexterm><primary>StandardAutoloader</primary><secondary>registerNamespaces</secondary></indexterm>
+<para><computeroutput>registerNamespaces ( $namespaces)</computeroutput></para>
+<para>Register many namespace/directory pairs at once</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>array</entry><entry>$namespaces</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>Exception</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                InvalidArgumentException <formalpara><title>Renvoie</title>
+
+<para>StandardAutoloader </para>
+</formalpara>
+</para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_laminas_1_1_loader_1_1_standard_autoloader_a891914b6524b9950f0e58d4cb7c741f5_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_laminas_1_1_loader_1_1_standard_autoloader_a891914b6524b9950f0e58d4cb7c741f5_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_laminas_1_1_loader_1_1_standard_autoloader_1ac45297e6b3615ca2efa43bd1b241f777"/><section>
+    <title>registerPrefix()</title>
+<indexterm><primary>registerPrefix</primary><secondary>StandardAutoloader</secondary></indexterm>
+<indexterm><primary>StandardAutoloader</primary><secondary>registerPrefix</secondary></indexterm>
+<para><computeroutput>registerPrefix ( $prefix,  $directory)</computeroutput></para>
+<para>Register a prefix/directory pair</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$prefix</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>string</entry><entry>$directory</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>StandardAutoloader </para>
+</formalpara>
+</para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_laminas_1_1_loader_1_1_standard_autoloader_ac45297e6b3615ca2efa43bd1b241f777_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_laminas_1_1_loader_1_1_standard_autoloader_ac45297e6b3615ca2efa43bd1b241f777_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_laminas_1_1_loader_1_1_standard_autoloader_1a47455cf01e2470471690e2dc630b0e65"/><section>
+    <title>registerPrefixes()</title>
+<indexterm><primary>registerPrefixes</primary><secondary>StandardAutoloader</secondary></indexterm>
+<indexterm><primary>StandardAutoloader</primary><secondary>registerPrefixes</secondary></indexterm>
+<para><computeroutput>registerPrefixes ( $prefixes)</computeroutput></para>
+<para>Register many namespace/directory pairs at once</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>array</entry><entry>$prefixes</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>Exception</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                InvalidArgumentException <formalpara><title>Renvoie</title>
+
+<para>StandardAutoloader </para>
+</formalpara>
+</para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_laminas_1_1_loader_1_1_standard_autoloader_a47455cf01e2470471690e2dc630b0e65_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_laminas_1_1_loader_1_1_standard_autoloader_a47455cf01e2470471690e2dc630b0e65_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_laminas_1_1_loader_1_1_standard_autoloader_1a5ee0ae91cb10c74a8a8e923529039e68"/><section>
+    <title>setFallbackAutoloader()</title>
+<indexterm><primary>setFallbackAutoloader</primary><secondary>StandardAutoloader</secondary></indexterm>
+<indexterm><primary>StandardAutoloader</primary><secondary>setFallbackAutoloader</secondary></indexterm>
+<para><computeroutput>setFallbackAutoloader ( $flag)</computeroutput></para>
+<para>Set flag indicating fallback autoloader status</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>bool</entry><entry>$flag</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>StandardAutoloader </para>
+</formalpara>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_laminas_1_1_loader_1_1_standard_autoloader_a5ee0ae91cb10c74a8a8e923529039e68_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_laminas_1_1_loader_1_1_standard_autoloader_1a8213e4c39213f7d6250f72ff6f2699f2"/><section>
+    <title>setOptions()</title>
+<indexterm><primary>setOptions</primary><secondary>StandardAutoloader</secondary></indexterm>
+<indexterm><primary>StandardAutoloader</primary><secondary>setOptions</secondary></indexterm>
+<para><computeroutput>setOptions ( $options)</computeroutput></para>
+<para>Configure autoloader</para>
+
+<para>Allows specifying both &quot;namespace&quot; and &quot;prefix&quot; pairs, using the following structure: <computeroutput> array( &apos;namespaces&apos; =&gt; array( &apos;Laminas&apos; =&gt; &apos;/path/to/Laminas/library&apos;, &apos;Doctrine&apos; =&gt; &apos;/path/to/Doctrine/library&apos;, ), &apos;prefixes&apos; =&gt; array( &apos;Phly_&apos; =&gt; &apos;/path/to/Phly/library&apos;, ), &apos;fallback_autoloader&apos; =&gt; true, ) </computeroutput></para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>array | Traversable</entry><entry>$options</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>Exception</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                InvalidArgumentException <formalpara><title>Renvoie</title>
+
+<para>StandardAutoloader </para>
+</formalpara>
+</para>
+<para>
+Implémente <link linkend="_interface_laminas_1_1_loader_1_1_spl_autoloader_1a8213e4c39213f7d6250f72ff6f2699f2">SplAutoloader</link>.</para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_laminas_1_1_loader_1_1_standard_autoloader_a8213e4c39213f7d6250f72ff6f2699f2_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_laminas_1_1_loader_1_1_standard_autoloader_a8213e4c39213f7d6250f72ff6f2699f2_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_laminas_1_1_loader_1_1_standard_autoloader_1aa8d3b459ac669f6de87cfe6164669037"/><section>
+    <title>transformClassNameToFilename()</title>
+<indexterm><primary>transformClassNameToFilename</primary><secondary>StandardAutoloader</secondary></indexterm>
+<indexterm><primary>StandardAutoloader</primary><secondary>transformClassNameToFilename</secondary></indexterm>
+<para><computeroutput>transformClassNameToFilename ( $class,  $directory)<computeroutput>[protected]</computeroutput></computeroutput></para>
+<para>Transform the class name to a filename</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$class</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>string</entry><entry>$directory</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>string </para>
+</formalpara>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_laminas_1_1_loader_1_1_standard_autoloader_aa8d3b459ac669f6de87cfe6164669037_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+</section>
+<section>
+<title>Documentation des champs</title>
+<anchor xml:id="_class_laminas_1_1_loader_1_1_standard_autoloader_1a557a28813685d7411d1d39e2de47e68f"/><section>
+    <title>$fallbackAutoloaderFlag</title>
+<indexterm><primary>$fallbackAutoloaderFlag</primary><secondary>StandardAutoloader</secondary></indexterm>
+<indexterm><primary>StandardAutoloader</primary><secondary>$fallbackAutoloaderFlag</secondary></indexterm>
+<para><computeroutput>$<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">fallbackAutoloaderFlag</link> = false<computeroutput>[protected]</computeroutput></computeroutput></para></section>
+<anchor xml:id="_class_laminas_1_1_loader_1_1_standard_autoloader_1a5a7d9500de9f7c938443d65cef9a074e"/><section>
+    <title>$namespaces</title>
+<indexterm><primary>$namespaces</primary><secondary>StandardAutoloader</secondary></indexterm>
+<indexterm><primary>StandardAutoloader</primary><secondary>$namespaces</secondary></indexterm>
+<para><computeroutput>$<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">namespaces</link> = []<computeroutput>[protected]</computeroutput></computeroutput></para></section>
+<anchor xml:id="_class_laminas_1_1_loader_1_1_standard_autoloader_1a8dd2685d77e3731afd50eaa21c4f2055"/><section>
+    <title>$prefixes</title>
+<indexterm><primary>$prefixes</primary><secondary>StandardAutoloader</secondary></indexterm>
+<indexterm><primary>StandardAutoloader</primary><secondary>$prefixes</secondary></indexterm>
+<para><computeroutput>$<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">prefixes</link> = []<computeroutput>[protected]</computeroutput></computeroutput></para></section>
+<anchor xml:id="_class_laminas_1_1_loader_1_1_standard_autoloader_1a91a82e160536b246faf77271eb6ce8b4"/><section>
+    <title>ACT_AS_FALLBACK</title>
+<indexterm><primary>ACT_AS_FALLBACK</primary><secondary>StandardAutoloader</secondary></indexterm>
+<indexterm><primary>StandardAutoloader</primary><secondary>ACT_AS_FALLBACK</secondary></indexterm>
+<para><computeroutput>const ACT_AS_FALLBACK = &apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">fallback_autoloader</link>&apos;</computeroutput></para></section>
+<anchor xml:id="_class_laminas_1_1_loader_1_1_standard_autoloader_1a75eb218e25771f4dbb40f2040c1ed5f2"/><section>
+    <title>AUTOREGISTER_LAMINAS</title>
+<indexterm><primary>AUTOREGISTER_LAMINAS</primary><secondary>StandardAutoloader</secondary></indexterm>
+<indexterm><primary>StandardAutoloader</primary><secondary>AUTOREGISTER_LAMINAS</secondary></indexterm>
+<para><computeroutput>const AUTOREGISTER_LAMINAS = &apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">autoregister_laminas</link>&apos;</computeroutput></para></section>
+<anchor xml:id="_class_laminas_1_1_loader_1_1_standard_autoloader_1a033db0b14fbd54a353da72355b03dec1"/><section>
+    <title>AUTOREGISTER_ZF</title>
+<indexterm><primary>AUTOREGISTER_ZF</primary><secondary>StandardAutoloader</secondary></indexterm>
+<indexterm><primary>StandardAutoloader</primary><secondary>AUTOREGISTER_ZF</secondary></indexterm>
+<para><computeroutput>const AUTOREGISTER_ZF = &apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">autoregister_laminas</link>&apos;</computeroutput></para>
+<para><para><link linkend="_deprecated_1_deprecated000070">Obsolète</link> 
+<para>Use AUTOREGISTER_LAMINAS instead </para>
+</para></para>
+</section>
+<anchor xml:id="_class_laminas_1_1_loader_1_1_standard_autoloader_1ac4c5c44e324083b4bf2474ed3a531d73"/><section>
+    <title>LOAD_NS</title>
+<indexterm><primary>LOAD_NS</primary><secondary>StandardAutoloader</secondary></indexterm>
+<indexterm><primary>StandardAutoloader</primary><secondary>LOAD_NS</secondary></indexterm>
+<para><computeroutput>const LOAD_NS = &apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">namespaces</link>&apos;</computeroutput></para></section>
+<anchor xml:id="_class_laminas_1_1_loader_1_1_standard_autoloader_1a68ae9a7b4cd87d600dc506bacc691b86"/><section>
+    <title>LOAD_PREFIX</title>
+<indexterm><primary>LOAD_PREFIX</primary><secondary>StandardAutoloader</secondary></indexterm>
+<indexterm><primary>StandardAutoloader</primary><secondary>LOAD_PREFIX</secondary></indexterm>
+<para><computeroutput>const LOAD_PREFIX = &apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">prefixes</link>&apos;</computeroutput></para></section>
+<anchor xml:id="_class_laminas_1_1_loader_1_1_standard_autoloader_1a8a6c46e1da4b9f7332c2c9194ad5d76e"/><section>
+    <title>NS_SEPARATOR</title>
+<indexterm><primary>NS_SEPARATOR</primary><secondary>StandardAutoloader</secondary></indexterm>
+<indexterm><primary>StandardAutoloader</primary><secondary>NS_SEPARATOR</secondary></indexterm>
+<para><computeroutput>const NS_SEPARATOR = &apos;\\&apos;</computeroutput></para></section>
+<anchor xml:id="_class_laminas_1_1_loader_1_1_standard_autoloader_1a4b435a34a02de76dc224ffd10c33fb76"/><section>
+    <title>PREFIX_SEPARATOR</title>
+<indexterm><primary>PREFIX_SEPARATOR</primary><secondary>StandardAutoloader</secondary></indexterm>
+<indexterm><primary>StandardAutoloader</primary><secondary>PREFIX_SEPARATOR</secondary></indexterm>
+<para><computeroutput>const PREFIX_SEPARATOR = &apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">_</link>&apos;</computeroutput></para></section>
+<para>
+La documentation de cette classe a été générée à partir du fichier suivant :</para>
+public/glpi/vendor/laminas/laminas-loader/src/<link linkend="__standard_autoloader_8php">StandardAutoloader.php</link></section>
+</section>

@@ -1,0 +1,133 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_interface_sabre_1_1_d_a_v_1_1_partial_update_1_1_i_patch_support" xml:lang="fr">
+<title>Référence de l&apos;interface IPatchSupport</title>
+<indexterm><primary>IPatchSupport</primary></indexterm>
+Graphe d&apos;héritage de IPatchSupport:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="interface_sabre_1_1_d_a_v_1_1_partial_update_1_1_i_patch_support__inherit__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Graphe de collaboration de IPatchSupport:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="interface_sabre_1_1_d_a_v_1_1_partial_update_1_1_i_patch_support__coll__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Fonctions membres publiques    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_interface_sabre_1_1_d_a_v_1_1_partial_update_1_1_i_patch_support_1a77b2187ff90af24279fc5dc68d660a5b">patch</link> ($data, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">rangeType</link>, $offset=null)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+Fonctions membres publiques hérités de <link linkend="_interface_sabre_1_1_d_a_v_1_1_i_file">IFile</link>        <itemizedlist>
+            <listitem><para><link linkend="_interface_sabre_1_1_d_a_v_1_1_i_file_1a82183cc8e91f136d7b0a91692277ce65">put</link> ($data)</para>
+</listitem>
+            <listitem><para><link linkend="_interface_sabre_1_1_d_a_v_1_1_i_file_1ac33ee765f5ad9f134540bac393721cfe">get</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_interface_sabre_1_1_d_a_v_1_1_i_file_1aa843137beb02bc2516fe0551c00ff7d7">getContentType</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_interface_sabre_1_1_d_a_v_1_1_i_file_1a255fe68769f6bd6681c2a7e9168c1c98">getETag</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_interface_sabre_1_1_d_a_v_1_1_i_file_1a75cce10cdf81be6dc84881c28b3379b7">getSize</link> ()</para>
+</listitem>
+        </itemizedlist>
+Fonctions membres publiques hérités de <link linkend="_interface_sabre_1_1_d_a_v_1_1_i_node">INode</link>        <itemizedlist>
+            <listitem><para><link linkend="_interface_sabre_1_1_d_a_v_1_1_i_node_1a13bdffdd926f26b825ea57066334ff01">delete</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_interface_sabre_1_1_d_a_v_1_1_i_node_1a3d0963e68bb313b163a73f2803c64600">getName</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_interface_sabre_1_1_d_a_v_1_1_i_node_1a2fe666694997d047711d7653eca2f132">setName</link> ($name)</para>
+</listitem>
+            <listitem><para><link linkend="_interface_sabre_1_1_d_a_v_1_1_i_node_1aa388e2fda4fe702e8953c1a731868f18">getLastModified</link> ()</para>
+</listitem>
+        </itemizedlist>
+<section>
+<title>Description détaillée</title>
+
+<para>This interface provides a way to modify only part of a target resource It may be used to update a file chunk, upload big a file into smaller chunks or resume an upload.</para>
+
+<para><formalpara><title>Copyright</title>
+
+<para>Copyright (C) fruux GmbH (<link xlink:href="https://fruux.com/">https://fruux.com/</link>) </para>
+</formalpara>
+<formalpara><title>Auteur</title>
+
+<para>Jean-Tiare LE BIGOT (<link xlink:href="http://www.jtlebi.fr/">http://www.jtlebi.fr/</link>) @license <link xlink:href="http://sabre.io/license/">http://sabre.io/license/</link> Modified BSD License </para>
+</formalpara>
+</para>
+</section>
+<section>
+<title>Documentation des fonctions membres</title>
+<anchor xml:id="_interface_sabre_1_1_d_a_v_1_1_partial_update_1_1_i_patch_support_1a77b2187ff90af24279fc5dc68d660a5b"/><section>
+    <title>patch()</title>
+<indexterm><primary>patch</primary><secondary>IPatchSupport</secondary></indexterm>
+<indexterm><primary>IPatchSupport</primary><secondary>patch</secondary></indexterm>
+<para><computeroutput>patch ( $data,  $rangeType,  $offset = <computeroutput>null</computeroutput>
+)</computeroutput></para>
+<para>Updates the file based on a range specification.</para>
+
+<para>The first argument is the data, which is either a readable stream resource or a string.</para>
+
+<para>The second argument is the type of update we&apos;re doing. This is either:<itemizedlist>
+<listitem>
+<para>1. append</para>
+</listitem><listitem>
+<para>2. update based on a start byte</para>
+</listitem><listitem>
+<para>3. update based on an end byte ; The third argument is the start or end byte.</para>
+</listitem></itemizedlist>
+</para>
+
+<para>After a successful put operation, you may choose to return an ETag. The etag must always be surrounded by double-quotes. These quotes must appear in the actual string you&apos;re returning.</para>
+
+<para>Clients may use the ETag from a PUT request to later on make sure that when they update the file, the contents haven&apos;t changed in the mean time.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>resource | string</entry><entry>$data</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>int</entry><entry>$rangeType</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>int</entry><entry>$offset</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>string|null </para>
+</formalpara>
+</para>
+<para>
+Implémenté dans <link linkend="_class_sabre_1_1_d_a_v_1_1_f_s_ext_1_1_file_1a77b2187ff90af24279fc5dc68d660a5b">File</link>.</para>
+</section>
+<para>
+La documentation de cette interface a été générée à partir du fichier suivant :</para>
+public/glpi/vendor/sabre/dav/lib/DAV/PartialUpdate/<link linkend="__i_patch_support_8php">IPatchSupport.php</link></section>
+</section>

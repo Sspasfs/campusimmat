@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_md_public_2glpi_2vendor_2iamcal_2lib__autolink_2_r_e_a_d_m_e" xml:lang="fr">
+<title>lib_autolink - PHP HTML link formatting library</title>
+<indexterm><primary>lib_autolink - PHP HTML link formatting library</primary></indexterm>
+
+<para><anchor xml:id="_md_public_2glpi_2vendor_2iamcal_2lib__autolink_2_r_e_a_d_m_e_1autotoc_md6277"/> <link xlink:href="http://travis-ci.org/iamcal/lib_autolink"></link></para>
+
+<para>Find URLs in HTML that are not already links, and make them into links.</para>
+<section xml:id="_md_public_2glpi_2vendor_2iamcal_2lib__autolink_2_r_e_a_d_m_e_1autotoc_md6278">
+<title><title>Usage</title></title>
+
+<para><literallayout><computeroutput>include(&apos;lib_autolink.php&apos;);
+
+
+# simple mode
+$html = autolink($html);
+
+# truncate URLs longer than 20 characters
+$html = autolink($html, 20);
+
+# insert some magic into the &lt;a&gt; tags
+$html = autolink($html, 30, &apos; class=&quot;mylink&quot;&apos;);
+
+# By default if the display url is truncated, a title attribute is added to the link, if you don&apos;t want this, add a 4th parameter of false
+$html = autolink($html, 30, &apos; class=&quot;mylink&quot;&apos;, false);
+
+# link up email address
+$html = autolink_email($html);
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2iamcal_2lib__autolink_2_r_e_a_d_m_e_1autotoc_md6279">
+<title><title>Testing</title></title>
+
+<para>If you have perl&apos;s <link xlink:href="http://search.cpan.org/dist/Test-Harness/">Test::Harness</link> installed (you almost certainly do), you can run the tests using: <literallayout><computeroutput>prove --exec &apos;php&apos; t/*.t
+</computeroutput></literallayout> </para>
+</section>
+</section>

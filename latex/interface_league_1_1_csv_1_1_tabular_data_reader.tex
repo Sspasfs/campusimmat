@@ -1,0 +1,215 @@
+\doxysection{Référence de l\textquotesingle{}interface Tabular\+Data\+Reader}
+\hypertarget{interface_league_1_1_csv_1_1_tabular_data_reader}{}\label{interface_league_1_1_csv_1_1_tabular_data_reader}\index{TabularDataReader@{TabularDataReader}}
+
+
+Graphe d\textquotesingle{}héritage de Tabular\+Data\+Reader\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{interface_league_1_1_csv_1_1_tabular_data_reader__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Graphe de collaboration de Tabular\+Data\+Reader\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=238pt]{interface_league_1_1_csv_1_1_tabular_data_reader__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{interface_league_1_1_csv_1_1_tabular_data_reader_ac751e87b3d4c4bf2feb03bee8b092755}{count}} ()
+\item 
+\mbox{\hyperlink{interface_league_1_1_csv_1_1_tabular_data_reader_a7a9f937c2958e6f4dd7b030f86fb70b7}{get\+Iterator}} ()
+\item 
+\mbox{\hyperlink{interface_league_1_1_csv_1_1_tabular_data_reader_a614834f1605e407376028e8c82298c82}{get\+Header}} ()
+\item 
+\mbox{\hyperlink{interface_league_1_1_csv_1_1_tabular_data_reader_a67c23ae63c7e988bfe82445d71287e03}{get\+Records}} (array \$header=\mbox{[}$\,$\mbox{]})
+\item 
+\mbox{\hyperlink{interface_league_1_1_csv_1_1_tabular_data_reader_a6229707f88a53279db6bffe0cb9be82c}{fetch\+One}} (int \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{nth\+\_\+record}}=0)
+\item 
+\mbox{\hyperlink{interface_league_1_1_csv_1_1_tabular_data_reader_a84c59a2a7697c620ae89461e822f3792}{fetch\+Column}} (\$index=0)
+\item 
+\mbox{\hyperlink{interface_league_1_1_csv_1_1_tabular_data_reader_a7ced5e6818f2f2f763fdc93d63894388}{fetch\+Pairs}} (\$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{offset\+\_\+index}}=0, \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{value\+\_\+index}}=1)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Represents a Tabular data.
+
+@method Iterator fetch\+Column\+By\+Name(string \$name) returns a column from its name @method Iterator fetch\+Column\+By\+Offset(int \$offset) returns a column from its offset 
+
+\doxysubsection{Documentation des fonctions membres}
+\Hypertarget{interface_league_1_1_csv_1_1_tabular_data_reader_ac751e87b3d4c4bf2feb03bee8b092755}\label{interface_league_1_1_csv_1_1_tabular_data_reader_ac751e87b3d4c4bf2feb03bee8b092755} 
+\index{TabularDataReader@{TabularDataReader}!count@{count}}
+\index{count@{count}!TabularDataReader@{TabularDataReader}}
+\doxysubsubsection{\texorpdfstring{count()}{count()}}
+{\footnotesize\ttfamily count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Returns the number of records contained in the tabular data structure excluding the header record. 
+
+Implémenté dans \mbox{\hyperlink{class_league_1_1_csv_1_1_reader_ac751e87b3d4c4bf2feb03bee8b092755}{Reader}}, et \mbox{\hyperlink{class_league_1_1_csv_1_1_result_set_ac751e87b3d4c4bf2feb03bee8b092755}{Result\+Set}}.
+
+\Hypertarget{interface_league_1_1_csv_1_1_tabular_data_reader_a84c59a2a7697c620ae89461e822f3792}\label{interface_league_1_1_csv_1_1_tabular_data_reader_a84c59a2a7697c620ae89461e822f3792} 
+\index{TabularDataReader@{TabularDataReader}!fetchColumn@{fetchColumn}}
+\index{fetchColumn@{fetchColumn}!TabularDataReader@{TabularDataReader}}
+\doxysubsubsection{\texorpdfstring{fetchColumn()}{fetchColumn()}}
+{\footnotesize\ttfamily fetch\+Column (\begin{DoxyParamCaption}\item[{}]{\$index = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+DEPRECATION WARNING! This class will be removed in the next major point release.
+
+\begin{DoxyRefDesc}{Obsolète}
+\item[\mbox{\hyperlink{deprecated__deprecated000095}{Obsolète}}]since version 9.\+8.\+0\end{DoxyRefDesc}
+
+
+\begin{DoxySeeAlso}{Voir également}
+\+::fetch\+Column\+By\+Name 
+
+\+::fetch\+Column\+By\+Offset
+\end{DoxySeeAlso}
+Returns a single column from the next record of the tabular data.
+
+By default if no value is supplied the first column is fetch
+
+
+\begin{DoxyParams}[1]{Paramètres}
+string | int & {\em \$index} & CSV column index\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Unable\+To\+Process\+Csv} & if the column index is invalid or not found \\
+\hline
+\end{DoxyExceptions}
+
+
+Implémenté dans \mbox{\hyperlink{class_league_1_1_csv_1_1_reader_a84c59a2a7697c620ae89461e822f3792}{Reader}}, et \mbox{\hyperlink{class_league_1_1_csv_1_1_result_set_a84c59a2a7697c620ae89461e822f3792}{Result\+Set}}.
+
+\Hypertarget{interface_league_1_1_csv_1_1_tabular_data_reader_a6229707f88a53279db6bffe0cb9be82c}\label{interface_league_1_1_csv_1_1_tabular_data_reader_a6229707f88a53279db6bffe0cb9be82c} 
+\index{TabularDataReader@{TabularDataReader}!fetchOne@{fetchOne}}
+\index{fetchOne@{fetchOne}!TabularDataReader@{TabularDataReader}}
+\doxysubsubsection{\texorpdfstring{fetchOne()}{fetchOne()}}
+{\footnotesize\ttfamily fetch\+One (\begin{DoxyParamCaption}\item[{int}]{\$nth\+\_\+record = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+Returns the nth record from the tabular data.
+
+By default if no index is provided the first record of the tabular data is returned
+
+
+\begin{DoxyParams}[1]{Paramètres}
+int & {\em \$nth\+\_\+record} & the tabular data record offset\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Unable\+To\+Process\+Csv} & if argument is lesser than 0 \\
+\hline
+\end{DoxyExceptions}
+
+
+Implémenté dans \mbox{\hyperlink{class_league_1_1_csv_1_1_reader_a6229707f88a53279db6bffe0cb9be82c}{Reader}}, et \mbox{\hyperlink{class_league_1_1_csv_1_1_result_set_a6229707f88a53279db6bffe0cb9be82c}{Result\+Set}}.
+
+\Hypertarget{interface_league_1_1_csv_1_1_tabular_data_reader_a7ced5e6818f2f2f763fdc93d63894388}\label{interface_league_1_1_csv_1_1_tabular_data_reader_a7ced5e6818f2f2f763fdc93d63894388} 
+\index{TabularDataReader@{TabularDataReader}!fetchPairs@{fetchPairs}}
+\index{fetchPairs@{fetchPairs}!TabularDataReader@{TabularDataReader}}
+\doxysubsubsection{\texorpdfstring{fetchPairs()}{fetchPairs()}}
+{\footnotesize\ttfamily fetch\+Pairs (\begin{DoxyParamCaption}\item[{}]{\$offset\+\_\+index = {\ttfamily 0},  }\item[{}]{\$value\+\_\+index = {\ttfamily 1} }\end{DoxyParamCaption})}
+
+Returns the next key-\/value pairs from the tabular data (first column is the key, second column is the value).
+
+By default if no column index is provided\+:
+\begin{DoxyItemize}
+\item the first column is used to provide the keys
+\item the second column is used to provide the value
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}[1]{Paramètres}
+string | int & {\em \$offset\+\_\+index} & The column index to serve as offset \\
+\hline
+string | int & {\em \$value\+\_\+index} & The column index to serve as value\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Unable\+To\+Process\+Csv} & if the column index is invalid or not found \\
+\hline
+\end{DoxyExceptions}
+
+
+Implémenté dans \mbox{\hyperlink{class_league_1_1_csv_1_1_reader_a7ced5e6818f2f2f763fdc93d63894388}{Reader}}.
+
+\Hypertarget{interface_league_1_1_csv_1_1_tabular_data_reader_a614834f1605e407376028e8c82298c82}\label{interface_league_1_1_csv_1_1_tabular_data_reader_a614834f1605e407376028e8c82298c82} 
+\index{TabularDataReader@{TabularDataReader}!getHeader@{getHeader}}
+\index{getHeader@{getHeader}!TabularDataReader@{TabularDataReader}}
+\doxysubsubsection{\texorpdfstring{getHeader()}{getHeader()}}
+{\footnotesize\ttfamily get\+Header (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Returns the header associated with the tabular data.
+
+The header must contains unique string or is an empty array if no header was specified.
+
+\begin{DoxyReturn}{Renvoie}
+array$<$string$>$ 
+\end{DoxyReturn}
+
+
+Implémenté dans \mbox{\hyperlink{class_league_1_1_csv_1_1_reader_a614834f1605e407376028e8c82298c82}{Reader}}, et \mbox{\hyperlink{class_league_1_1_csv_1_1_result_set_a614834f1605e407376028e8c82298c82}{Result\+Set}}.
+
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=294pt]{interface_league_1_1_csv_1_1_tabular_data_reader_a614834f1605e407376028e8c82298c82_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{interface_league_1_1_csv_1_1_tabular_data_reader_a7a9f937c2958e6f4dd7b030f86fb70b7}\label{interface_league_1_1_csv_1_1_tabular_data_reader_a7a9f937c2958e6f4dd7b030f86fb70b7} 
+\index{TabularDataReader@{TabularDataReader}!getIterator@{getIterator}}
+\index{getIterator@{getIterator}!TabularDataReader@{TabularDataReader}}
+\doxysubsubsection{\texorpdfstring{getIterator()}{getIterator()}}
+{\footnotesize\ttfamily get\+Iterator (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Returns the tabular data records as an iterator object.
+
+Each record is represented as a simple array containing strings or null values.
+
+If the CSV document has a header record then each record is combined to the header record and the header record is removed from the iterator.
+
+If the CSV document is inconsistent. Missing record fields are filled with null values while extra record fields are strip from the returned object. 
+
+Implémenté dans \mbox{\hyperlink{class_league_1_1_csv_1_1_reader_a7a9f937c2958e6f4dd7b030f86fb70b7}{Reader}}, et \mbox{\hyperlink{class_league_1_1_csv_1_1_result_set_a7a9f937c2958e6f4dd7b030f86fb70b7}{Result\+Set}}.
+
+\Hypertarget{interface_league_1_1_csv_1_1_tabular_data_reader_a67c23ae63c7e988bfe82445d71287e03}\label{interface_league_1_1_csv_1_1_tabular_data_reader_a67c23ae63c7e988bfe82445d71287e03} 
+\index{TabularDataReader@{TabularDataReader}!getRecords@{getRecords}}
+\index{getRecords@{getRecords}!TabularDataReader@{TabularDataReader}}
+\doxysubsubsection{\texorpdfstring{getRecords()}{getRecords()}}
+{\footnotesize\ttfamily get\+Records (\begin{DoxyParamCaption}\item[{array}]{\$header = {\ttfamily \mbox{[}\mbox{]}} }\end{DoxyParamCaption})}
+
+Returns the tabular data records as an iterator object.
+
+Each record is represented as a simple array containing strings or null values.
+
+If the tabular data has a header record then each record is combined to the header record and the header record is removed from the iterator.
+
+If the tabular data is inconsistent. Missing record fields are filled with null values while extra record fields are strip from the returned object.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em array$<$string$>$} & \$header an optional header to use instead of the CSV document header \\
+\hline
+\end{DoxyParams}
+
+
+Implémenté dans \mbox{\hyperlink{class_league_1_1_csv_1_1_reader_a67c23ae63c7e988bfe82445d71287e03}{Reader}}, et \mbox{\hyperlink{class_league_1_1_csv_1_1_result_set_a67c23ae63c7e988bfe82445d71287e03}{Result\+Set}}.
+
+
+
+La documentation de cette interface a été générée à partir du fichier suivant \+:\begin{DoxyCompactItemize}
+\item 
+public/glpi/vendor/league/csv/src/\mbox{\hyperlink{_tabular_data_reader_8php}{Tabular\+Data\+Reader.\+php}}\end{DoxyCompactItemize}

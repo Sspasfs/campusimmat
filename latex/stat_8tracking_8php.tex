@@ -1,0 +1,176 @@
+\doxysection{Référence du fichier public/glpi/front/stat.tracking.\+php}
+\hypertarget{stat_8tracking_8php}{}\label{stat_8tracking_8php}\index{public/glpi/front/stat.tracking.php@{public/glpi/front/stat.tracking.php}}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{global}} \mbox{\hyperlink{stat_8tracking_8php_a2e00a61703ee4673cdfb5eb376a9b295}{\$\+CFG\+\_\+\+GLPI}}
+\item 
+\mbox{\hyperlink{dropdown_location_8php_a52332c22f84432520971794825a5a8e7}{if}}(! \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{item}}=\mbox{\hyperlink{db_8function_8php_a5bb7668a0ab5705035e0608178fabcba}{get\+Item\+For\+Itemtype}}( \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\+\_\+\+GET}}\mbox{[} \textquotesingle{}\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{itemtype}}\textquotesingle{}\mbox{]})) \mbox{\hyperlink{dropdown_location_8php_a52332c22f84432520971794825a5a8e7}{if}}(\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{empty}}(\$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\+\_\+\+GET}}\mbox{[}"{}type"{}\mbox{]})) \mbox{\hyperlink{stat_8tracking_8php_a0e013355a19cbc6efc95480844d251a0}{else}}
+\item 
+\mbox{\hyperlink{stat_8tracking_8php_af30efc7bba1c5f2377b960d4532c04d9}{\$stat}} = \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{new}} \mbox{\hyperlink{class_stat}{Stat}}()
+\item 
+\mbox{\hyperlink{stat_8tracking_8php_ae3fbe538393375a3e05c1eccf0141d3c}{\$requester}}
+\item 
+\mbox{\hyperlink{stat_8tracking_8php_aa01e206a8e759cec4a7f799f700fd737}{\$caract}}
+\item 
+\mbox{\hyperlink{dropdown_location_8php_a52332c22f84432520971794825a5a8e7}{if}}(\$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\+\_\+\+GET}}\mbox{[}\textquotesingle{}\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{itemtype}}\textquotesingle{}\mbox{]}==\textquotesingle{}\mbox{\hyperlink{class_ticket}{Ticket}}\textquotesingle{}) \mbox{\hyperlink{stat_8tracking_8php_ab48f9df067da8ca98ace7d949eae6ebd}{\$items}}
+\item 
+\mbox{\hyperlink{stat_8tracking_8php_affc45c6ace2eeb3f300b054dbf9592b6}{\$values}} = \mbox{[}$\,$\mbox{]}
+\item 
+\mbox{\hyperlink{stat_8tracking_8php_afc9465cf4a7b9bbca31e3d9a6f6d9c1c}{foreach}} ( \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{items}} \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{as}} \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{label}}=$>$ \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{tab}})
+\item 
+\mbox{\hyperlink{stat_8tracking_8php_aac81a74a7b30767af29bfd9a695636df}{\$val}}
+\item 
+\mbox{\hyperlink{stat_8tracking_8php_afe68e6fbe7acfbffc0af0c84a1996466}{\$params}}
+\item 
+\mbox{\hyperlink{stat_8tracking_8php_a87f6f708eb390120f3b042e531f72f04}{\$data\+\_\+params}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Documentation des variables}
+\Hypertarget{stat_8tracking_8php_aa01e206a8e759cec4a7f799f700fd737}\label{stat_8tracking_8php_aa01e206a8e759cec4a7f799f700fd737} 
+\index{stat.tracking.php@{stat.tracking.php}!\$caract@{\$caract}}
+\index{\$caract@{\$caract}!stat.tracking.php@{stat.tracking.php}}
+\doxysubsubsection{\texorpdfstring{\$caract}{\$caract}}
+{\footnotesize\ttfamily \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{caract}}}
+
+{\bfseries Valeur initiale \+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ [\textcolor{stringliteral}{'itilcategories\_id'}\ \ \ =>\ [\textcolor{stringliteral}{'title'}\ =>\ \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\_n}}(\textcolor{stringliteral}{'Category'},\ \textcolor{stringliteral}{'Categories'},\ 1)],}
+\DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{'itilcategories\_tree'}\ =>\ [\textcolor{stringliteral}{'title'}\ =>\ \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\_\_}}(\textcolor{stringliteral}{'Category\ tree'})],}
+\DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{'urgency'}\ \ \ \ \ \ \ \ \ \ \ \ \ =>\ [\textcolor{stringliteral}{'title'}\ =>\ \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\_\_}}(\textcolor{stringliteral}{'Urgency'})],}
+\DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{'impact'}\ \ \ \ \ \ \ \ \ \ \ \ \ \ =>\ [\textcolor{stringliteral}{'title'}\ =>\ \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\_\_}}(\textcolor{stringliteral}{'Impact'})],}
+\DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{'priority'}\ \ \ \ \ \ \ \ \ \ \ \ =>\ [\textcolor{stringliteral}{'title'}\ =>\ \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\_\_}}(\textcolor{stringliteral}{'Priority'})],}
+\DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{'solutiontypes\_id'}\ \ \ \ =>\ [\textcolor{stringliteral}{'title'}\ =>\ \mbox{\hyperlink{class_solution_type_ad85cd59496993b8ba622266fe36807ef}{SolutionType::getTypeName}}(1)]}
+\DoxyCodeLine{]}
+
+\end{DoxyCode}
+\Hypertarget{stat_8tracking_8php_a2e00a61703ee4673cdfb5eb376a9b295}\label{stat_8tracking_8php_a2e00a61703ee4673cdfb5eb376a9b295} 
+\index{stat.tracking.php@{stat.tracking.php}!\$CFG\_GLPI@{\$CFG\_GLPI}}
+\index{\$CFG\_GLPI@{\$CFG\_GLPI}!stat.tracking.php@{stat.tracking.php}}
+\doxysubsubsection{\texorpdfstring{\$CFG\_GLPI}{\$CFG\_GLPI}}
+{\footnotesize\ttfamily \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{global}} \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{CFG\+\_\+\+GLPI}}}
+
+\Hypertarget{stat_8tracking_8php_a87f6f708eb390120f3b042e531f72f04}\label{stat_8tracking_8php_a87f6f708eb390120f3b042e531f72f04} 
+\index{stat.tracking.php@{stat.tracking.php}!\$data\_params@{\$data\_params}}
+\index{\$data\_params@{\$data\_params}!stat.tracking.php@{stat.tracking.php}}
+\doxysubsubsection{\texorpdfstring{\$data\_params}{\$data\_params}}
+{\footnotesize\ttfamily \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{data\+\_\+params}}}
+
+{\bfseries Valeur initiale \+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ [}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{'itemtype'}\ =>\ \mbox{\hyperlink{common_8tabs_8php_a7b2772071c2b50e11742306f5abe68e3}{\$\_GET}}[\textcolor{stringliteral}{'itemtype'}],}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{'type'}\ \ \ \ \ =>\ \mbox{\hyperlink{common_8tabs_8php_a7b2772071c2b50e11742306f5abe68e3}{\$\_GET}}[\textcolor{stringliteral}{"{}type"{}}],}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{'date1'}\ \ \ \ =>\ \mbox{\hyperlink{common_8tabs_8php_a7b2772071c2b50e11742306f5abe68e3}{\$\_GET}}[\textcolor{stringliteral}{'date1'}],}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{'date2'}\ \ \ \ =>\ \mbox{\hyperlink{common_8tabs_8php_a7b2772071c2b50e11742306f5abe68e3}{\$\_GET}}[\textcolor{stringliteral}{'date2'}],}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{'start'}\ \ \ \ =>\ \mbox{\hyperlink{common_8tabs_8php_a7b2772071c2b50e11742306f5abe68e3}{\$\_GET}}[\textcolor{stringliteral}{'start'}],}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{'val'}\ \ \ \ \ \ =>\ \mbox{\hyperlink{stat_8tracking_8php_aac81a74a7b30767af29bfd9a695636df}{\$val}},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{'value2'}\ \ \ =>\ \mbox{\hyperlink{common_8tabs_8php_a7b2772071c2b50e11742306f5abe68e3}{\$\_GET}}[\textcolor{stringliteral}{'value2'}],}
+\DoxyCodeLine{\ \ \ \ ]}
+
+\end{DoxyCode}
+\Hypertarget{stat_8tracking_8php_ab48f9df067da8ca98ace7d949eae6ebd}\label{stat_8tracking_8php_ab48f9df067da8ca98ace7d949eae6ebd} 
+\index{stat.tracking.php@{stat.tracking.php}!\$items@{\$items}}
+\index{\$items@{\$items}!stat.tracking.php@{stat.tracking.php}}
+\doxysubsubsection{\texorpdfstring{\$items}{\$items}}
+{\footnotesize\ttfamily \mbox{\hyperlink{dropdown_location_8php_a52332c22f84432520971794825a5a8e7}{if}} ( \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\+\_\+\+GET}}\mbox{[} \textquotesingle{}\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{itemtype}}\textquotesingle{}\mbox{]}==\textquotesingle{}\mbox{\hyperlink{class_ticket}{Ticket}}\textquotesingle{}) \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{items}}}
+
+{\bfseries Valeur initiale \+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ [\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\_n}}(\textcolor{stringliteral}{'Requester'},\ \textcolor{stringliteral}{'Requesters'},\ 1)\ \ \ \ \ \ \ =>\ \mbox{\hyperlink{stat_8tracking_8php_ae3fbe538393375a3e05c1eccf0141d3c}{\$requester}},}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\_\_}}(\textcolor{stringliteral}{'Characteristics'})\ =>\ \mbox{\hyperlink{stat_8tracking_8php_aa01e206a8e759cec4a7f799f700fd737}{\$caract}},}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\_\_}}(\textcolor{stringliteral}{'Assigned\ to'})\ \ \ \ \ =>\ [\textcolor{stringliteral}{'technicien'}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ =>\ [\textcolor{stringliteral}{'title'}\ =>\ \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\_\_}}(\textcolor{stringliteral}{'Technician\ as\ assigned'})],}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{'technicien\_followup'}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ =>\ [\textcolor{stringliteral}{'title'}\ =>\ \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\_\_}}(\textcolor{stringliteral}{'Technician\ in\ tasks'})],}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{'groups\_id\_assign'}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ =>\ [\textcolor{stringliteral}{'title'}\ =>\ Group::getTypeName(1)],}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{'groups\_tree\_assign'}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ =>\ [\textcolor{stringliteral}{'title'}\ =>\ \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\_\_}}(\textcolor{stringliteral}{'Group\ tree'})],}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{'suppliers\_id\_assign'}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ =>\ [\textcolor{stringliteral}{'title'}\ =>\ Supplier::getTypeName(1)]}
+\DoxyCodeLine{\ \ \ \ ]}
+\DoxyCodeLine{]}
+
+\end{DoxyCode}
+\Hypertarget{stat_8tracking_8php_afe68e6fbe7acfbffc0af0c84a1996466}\label{stat_8tracking_8php_afe68e6fbe7acfbffc0af0c84a1996466} 
+\index{stat.tracking.php@{stat.tracking.php}!\$params@{\$params}}
+\index{\$params@{\$params}!stat.tracking.php@{stat.tracking.php}}
+\doxysubsubsection{\texorpdfstring{\$params}{\$params}}
+{\footnotesize\ttfamily \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{params}}}
+
+{\bfseries Valeur initiale \+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ [\textcolor{stringliteral}{'type'}\ \ \ =>\ \mbox{\hyperlink{common_8tabs_8php_a7b2772071c2b50e11742306f5abe68e3}{\$\_GET}}[\textcolor{stringliteral}{"{}type"{}}],}
+\DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{'date1'}\ \ =>\ \mbox{\hyperlink{common_8tabs_8php_a7b2772071c2b50e11742306f5abe68e3}{\$\_GET}}[\textcolor{stringliteral}{"{}date1"{}}],}
+\DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{'date2'}\ \ =>\ \mbox{\hyperlink{common_8tabs_8php_a7b2772071c2b50e11742306f5abe68e3}{\$\_GET}}[\textcolor{stringliteral}{"{}date2"{}}],}
+\DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{'value2'}\ =>\ \mbox{\hyperlink{common_8tabs_8php_a7b2772071c2b50e11742306f5abe68e3}{\$\_GET}}[\textcolor{stringliteral}{"{}value2"{}}],}
+\DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{'start'}\ \ =>\ \mbox{\hyperlink{common_8tabs_8php_a7b2772071c2b50e11742306f5abe68e3}{\$\_GET}}[\textcolor{stringliteral}{"{}start"{}}]}
+\DoxyCodeLine{]}
+
+\end{DoxyCode}
+\Hypertarget{stat_8tracking_8php_ae3fbe538393375a3e05c1eccf0141d3c}\label{stat_8tracking_8php_ae3fbe538393375a3e05c1eccf0141d3c} 
+\index{stat.tracking.php@{stat.tracking.php}!\$requester@{\$requester}}
+\index{\$requester@{\$requester}!stat.tracking.php@{stat.tracking.php}}
+\doxysubsubsection{\texorpdfstring{\$requester}{\$requester}}
+{\footnotesize\ttfamily \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{requester}}}
+
+{\bfseries Valeur initiale \+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ [\textcolor{stringliteral}{'user'}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ =>\ [\textcolor{stringliteral}{'title'}\ =>\ \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\_n}}(\textcolor{stringliteral}{'Requester'},\ \textcolor{stringliteral}{'Requesters'},\ 1)],}
+\DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{'users\_id\_recipient'}\ =>\ [\textcolor{stringliteral}{'title'}\ =>\ \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\_\_}}(\textcolor{stringliteral}{'Writer'})],}
+\DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{'group'}\ \ \ \ \ \ \ \ \ \ \ \ \ \ =>\ [\textcolor{stringliteral}{'title'}\ =>\ Group::getTypeName(1)],}
+\DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{'group\_tree'}\ \ \ \ \ \ \ \ \ =>\ [\textcolor{stringliteral}{'title'}\ =>\ \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\_\_}}(\textcolor{stringliteral}{'Group\ tree'})],}
+\DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{'usertitles\_id'}\ \ \ \ \ \ =>\ [\textcolor{stringliteral}{'title'}\ =>\ \mbox{\hyperlink{autoload_8function_8php_a2111ba1b23d22b49aee91462961bda8a}{\_x}}(\textcolor{stringliteral}{'person'},\ \textcolor{stringliteral}{'Title'})],}
+\DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{'usercategories\_id'}\ \ =>\ [\textcolor{stringliteral}{'title'}\ =>\ \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\_n}}(\textcolor{stringliteral}{'Category'},\ \textcolor{stringliteral}{'Categories'},\ 1)]}
+\DoxyCodeLine{]}
+
+\end{DoxyCode}
+\Hypertarget{stat_8tracking_8php_af30efc7bba1c5f2377b960d4532c04d9}\label{stat_8tracking_8php_af30efc7bba1c5f2377b960d4532c04d9} 
+\index{stat.tracking.php@{stat.tracking.php}!\$stat@{\$stat}}
+\index{\$stat@{\$stat}!stat.tracking.php@{stat.tracking.php}}
+\doxysubsubsection{\texorpdfstring{\$stat}{\$stat}}
+{\footnotesize\ttfamily \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{stat}} = \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{new}} \mbox{\hyperlink{class_stat}{Stat}}()}
+
+\Hypertarget{stat_8tracking_8php_aac81a74a7b30767af29bfd9a695636df}\label{stat_8tracking_8php_aac81a74a7b30767af29bfd9a695636df} 
+\index{stat.tracking.php@{stat.tracking.php}!\$val@{\$val}}
+\index{\$val@{\$val}!stat.tracking.php@{stat.tracking.php}}
+\doxysubsubsection{\texorpdfstring{\$val}{\$val}}
+{\footnotesize\ttfamily \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{val}}}
+
+{\bfseries Valeur initiale \+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ Stat::getItems(}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{common_8tabs_8php_a7b2772071c2b50e11742306f5abe68e3}{\$\_GET}}[\textcolor{stringliteral}{"{}itemtype"{}}],}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{common_8tabs_8php_a7b2772071c2b50e11742306f5abe68e3}{\$\_GET}}[\textcolor{stringliteral}{"{}date1"{}}],}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{common_8tabs_8php_a7b2772071c2b50e11742306f5abe68e3}{\$\_GET}}[\textcolor{stringliteral}{"{}date2"{}}],}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{common_8tabs_8php_a7b2772071c2b50e11742306f5abe68e3}{\$\_GET}}[\textcolor{stringliteral}{"{}type"{}}],}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{common_8tabs_8php_a7b2772071c2b50e11742306f5abe68e3}{\$\_GET}}[\textcolor{stringliteral}{"{}value2"{}}]}
+\DoxyCodeLine{)}
+
+\end{DoxyCode}
+\Hypertarget{stat_8tracking_8php_affc45c6ace2eeb3f300b054dbf9592b6}\label{stat_8tracking_8php_affc45c6ace2eeb3f300b054dbf9592b6} 
+\index{stat.tracking.php@{stat.tracking.php}!\$values@{\$values}}
+\index{\$values@{\$values}!stat.tracking.php@{stat.tracking.php}}
+\doxysubsubsection{\texorpdfstring{\$values}{\$values}}
+{\footnotesize\ttfamily \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{values}} = \mbox{[}$\,$\mbox{]}}
+
+\Hypertarget{stat_8tracking_8php_a0e013355a19cbc6efc95480844d251a0}\label{stat_8tracking_8php_a0e013355a19cbc6efc95480844d251a0} 
+\index{stat.tracking.php@{stat.tracking.php}!else@{else}}
+\index{else@{else}!stat.tracking.php@{stat.tracking.php}}
+\doxysubsubsection{\texorpdfstring{else}{else}}
+{\footnotesize\ttfamily \mbox{\hyperlink{dropdown_location_8php_a52332c22f84432520971794825a5a8e7}{if}} (! \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\+\_\+\+GET}}\mbox{[} \textquotesingle{}\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{showgraph}}\textquotesingle{}\mbox{]}) else}
+
+{\bfseries Valeur initiale \+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{common_8tabs_8php_a7b2772071c2b50e11742306f5abe68e3}{\$\_GET}}[\textcolor{stringliteral}{"{}type"{}}]\ =\ (string)\mbox{\hyperlink{common_8tabs_8php_a7b2772071c2b50e11742306f5abe68e3}{\$\_GET}}[\textcolor{stringliteral}{"{}type"{}}]}
+
+\end{DoxyCode}
+\Hypertarget{stat_8tracking_8php_afc9465cf4a7b9bbca31e3d9a6f6d9c1c}\label{stat_8tracking_8php_afc9465cf4a7b9bbca31e3d9a6f6d9c1c} 
+\index{stat.tracking.php@{stat.tracking.php}!foreach@{foreach}}
+\index{foreach@{foreach}!stat.tracking.php@{stat.tracking.php}}
+\doxysubsubsection{\texorpdfstring{foreach}{foreach}}
+{\footnotesize\ttfamily foreach(\$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{items}} \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{as}} \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{label}}=$>$ \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{tab}}) (\begin{DoxyParamCaption}\item[{}]{\$items as,  }\item[{}]{\$tab }\end{DoxyParamCaption})}
+

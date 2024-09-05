@@ -1,0 +1,170 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_md_public_2glpi_2vendor_2psr_2http-message_2docs_2_p_s_r7-_usage" xml:lang="fr">
+<title>PSR-7 Usage</title>
+<indexterm><primary>PSR-7 Usage</primary></indexterm>
+
+<para><anchor xml:id="_md_public_2glpi_2vendor_2psr_2http-message_2docs_2_p_s_r7-_usage_1autotoc_md6938"/> All PSR-7 applications comply with these interfaces They were created to establish a standard between middleware implementations.</para>
+
+<para><blockquote>
+<para>&#8205;<computeroutput>RequestInterface</computeroutput>, <computeroutput>ServerRequestInterface</computeroutput>, <computeroutput>ResponseInterface</computeroutput> extend <computeroutput>MessageInterface</computeroutput> because the <computeroutput>Request</computeroutput> and the <computeroutput>Response</computeroutput> are <computeroutput>HTTP Messages</computeroutput>. When using <computeroutput>ServerRequestInterface</computeroutput>, both <computeroutput>RequestInterface</computeroutput> and <computeroutput>Psr\Http\Message\MessageInterface</computeroutput> methods are considered. </para>
+</blockquote></para>
+
+<para>The following examples will illustrate how basic operations are done in PSR-7.</para>
+<section xml:id="_md_public_2glpi_2vendor_2psr_2http-message_2docs_2_p_s_r7-_usage_1autotoc_md6939">
+<title><title>Examples</title></title>
+
+<para>For this examples to work (at least) a PSR-7 implementation package is required. (eg: zendframework/zend-diactoros, guzzlehttp/psr7, slim/slim, etc) All PSR-7 implementations should have the same behaviour.</para>
+
+<para>The following will be assumed: <computeroutput>$request</computeroutput> is an object of <computeroutput>Psr\Http\Message\RequestInterface</computeroutput> and</para>
+
+<para><computeroutput>$response</computeroutput> is an object implementing <computeroutput>Psr\Http\Message\RequestInterface</computeroutput></para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2psr_2http-message_2docs_2_p_s_r7-_usage_1autotoc_md6940">
+<title><title>Working with HTTP Headers</title></title>
+<section xml:id="_md_public_2glpi_2vendor_2psr_2http-message_2docs_2_p_s_r7-_usage_1autotoc_md6941">
+<title><title>Adding headers to response:</title></title>
+
+<para><literallayout><computeroutput>$response-&gt;withHeader(&apos;My-Custom-Header&apos;,&#32;&apos;My&#32;Custom&#32;Message&apos;);
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2psr_2http-message_2docs_2_p_s_r7-_usage_1autotoc_md6942">
+<title><title>Appending values to headers</title></title>
+
+<para><literallayout><computeroutput>$response-&gt;withAddedHeader(&apos;My-Custom-Header&apos;,&#32;&apos;The&#32;second&#32;message&apos;);
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2psr_2http-message_2docs_2_p_s_r7-_usage_1autotoc_md6943">
+<title><title>Checking if header exists:</title></title>
+
+<para><literallayout><computeroutput>$request-&gt;hasHeader(&apos;My-Custom-Header&apos;);&#32;//&#32;will&#32;return&#32;false
+$response-&gt;hasHeader(&apos;My-Custom-Header&apos;);&#32;//&#32;will&#32;return&#32;true
+</computeroutput></literallayout></para>
+
+<para><blockquote>
+<para>&#8205;Note: My-Custom-Header was only added in the Response </para>
+</blockquote></para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2psr_2http-message_2docs_2_p_s_r7-_usage_1autotoc_md6944">
+<title><title>Getting comma-separated values from a header (also applies to request)</title></title>
+
+<para><literallayout><computeroutput>//&#32;getting&#32;value&#32;from&#32;request&#32;headers
+$request-&gt;getHeaderLine(&apos;Content-Type&apos;);&#32;//&#32;will&#32;return:&#32;&quot;text/html;&#32;charset=UTF-8&quot;
+//&#32;getting&#32;value&#32;from&#32;response&#32;headers
+$response-&gt;getHeaderLine(&apos;My-Custom-Header&apos;);&#32;//&#32;will&#32;return:&#32;&#32;&quot;My&#32;Custom&#32;Message;&#32;The&#32;second&#32;message&quot;
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2psr_2http-message_2docs_2_p_s_r7-_usage_1autotoc_md6945">
+<title><title>Getting array of value from a header (also applies to request)</title></title>
+
+<para><literallayout><computeroutput>//&#32;getting&#32;value&#32;from&#32;request&#32;headers
+$request-&gt;getHeader(&apos;Content-Type&apos;);&#32;//&#32;will&#32;return:&#32;[&quot;text/html&quot;,&#32;&quot;charset=UTF-8&quot;]
+//&#32;getting&#32;value&#32;from&#32;response&#32;headers
+$response-&gt;getHeader(&apos;My-Custom-Header&apos;);&#32;//&#32;will&#32;return:&#32;&#32;[&quot;My&#32;Custom&#32;Message&quot;,&#32;&#32;&quot;The&#32;second&#32;message&quot;]
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2psr_2http-message_2docs_2_p_s_r7-_usage_1autotoc_md6946">
+<title><title>Removing headers from HTTP Messages</title></title>
+
+<para><literallayout><computeroutput>//&#32;removing&#32;a&#32;header&#32;from&#32;Request,&#32;removing&#32;deprecated&#32;&quot;Content-MD5&quot;&#32;header
+$request-&gt;withoutHeader(&apos;Content-MD5&apos;);&#32;
+
+//&#32;removing&#32;a&#32;header&#32;from&#32;Response
+//&#32;effect:&#32;the&#32;browser&#32;won&apos;t&#32;know&#32;the&#32;size&#32;of&#32;the&#32;stream
+//&#32;the&#32;browser&#32;will&#32;download&#32;the&#32;stream&#32;till&#32;it&#32;ends
+$response-&gt;withoutHeader(&apos;Content-Length&apos;);
+</computeroutput></literallayout></para>
+</section>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2psr_2http-message_2docs_2_p_s_r7-_usage_1autotoc_md6947">
+<title><title>Working with HTTP Message Body</title></title>
+
+<para>When working with the PSR-7 there are two methods of implementation: </para>
+<section xml:id="_md_public_2glpi_2vendor_2psr_2http-message_2docs_2_p_s_r7-_usage_1autotoc_md6948">
+<title><title>1. Getting the body separately</title></title>
+
+<para><blockquote>
+<para>&#8205;This method makes the body handling easier to understand and is useful when repeatedly calling body methods. (You only call <computeroutput>getBody()</computeroutput> once). Using this method mistakes like <computeroutput>$response-&gt;write()</computeroutput> are also prevented. </para>
+</blockquote><literallayout><computeroutput>$body&#32;=&#32;$response-&gt;getBody();
+//&#32;operations&#32;on&#32;body,&#32;eg.&#32;read,&#32;write,&#32;seek
+//&#32;...
+//&#32;replacing&#32;the&#32;old&#32;body
+$response-&gt;withBody($body);&#32;
+//&#32;this&#32;last&#32;statement&#32;is&#32;optional&#32;as&#32;we&#32;working&#32;with&#32;objects
+//&#32;in&#32;this&#32;case&#32;the&#32;&quot;new&quot;&#32;body&#32;is&#32;same&#32;with&#32;the&#32;&quot;old&quot;&#32;one
+//&#32;the&#32;$body&#32;variable&#32;has&#32;the&#32;same&#32;value&#32;as&#32;the&#32;one&#32;in&#32;$request,&#32;only&#32;the&#32;reference&#32;is&#32;passed
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2psr_2http-message_2docs_2_p_s_r7-_usage_1autotoc_md6949">
+<title><title>2. Working directly on response</title></title>
+
+<para><blockquote>
+<para>&#8205;This method is useful when only performing few operations as the <computeroutput>$request-&gt;getBody()</computeroutput> statement fragment is required </para>
+</blockquote><literallayout><computeroutput>$response-&gt;getBody()-&gt;write(&apos;hello&apos;);
+</computeroutput></literallayout></para>
+</section>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2psr_2http-message_2docs_2_p_s_r7-_usage_1autotoc_md6950">
+<title><title>Getting the body contents</title></title>
+
+<para>The following snippet gets the contents of a stream contents. <blockquote>
+<para>&#8205;Note: Streams must be rewinded, if content was written into streams, it will be ignored when calling <computeroutput>getContents()</computeroutput> because the stream pointer is set to the last character, which is <computeroutput>\0</computeroutput> - meaning end of stream. </para>
+</blockquote><literallayout><computeroutput>$body&#32;=&#32;$response-&gt;getBody();
+$body-&gt;rewind();&#32;//&#32;or&#32;$body-&gt;seek(0);
+$bodyText&#32;=&#32;$body-&gt;getContents();
+</computeroutput></literallayout> <?linebreak?> <blockquote>
+<para>&#8205;Note: If <computeroutput>$body-&gt;seek(1)</computeroutput> is called before <computeroutput>$body-&gt;getContents()</computeroutput>, the first character will be ommited as the starting pointer is set to <computeroutput>1</computeroutput>, not <computeroutput>0</computeroutput>. This is why using <computeroutput>$body-&gt;rewind()</computeroutput> is recommended. </para>
+</blockquote></para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2psr_2http-message_2docs_2_p_s_r7-_usage_1autotoc_md6951">
+<title><title>Append to body</title></title>
+
+<para><literallayout><computeroutput>$response-&gt;getBody()-&gt;write(&apos;Hello&apos;);&#32;//&#32;writing&#32;directly
+$body&#32;=&#32;$request-&gt;getBody();&#32;//&#32;which&#32;is&#32;a&#32;`StreamInterface`
+$body-&gt;write(&apos;xxxxx&apos;);
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2psr_2http-message_2docs_2_p_s_r7-_usage_1autotoc_md6952">
+<title><title>Prepend to body</title></title>
+
+<para>Prepending is different when it comes to streams. The content must be copied before writing the content to be prepended. The following example will explain the behaviour of streams.</para>
+
+<para><literallayout><computeroutput>//&#32;assuming&#32;our&#32;response&#32;is&#32;initially&#32;empty
+$body&#32;=&#32;$repsonse-&gt;getBody();
+//&#32;writing&#32;the&#32;string&#32;&quot;abcd&quot;
+$body-&gt;write(&apos;abcd&apos;);
+
+//&#32;seeking&#32;to&#32;start&#32;of&#32;stream
+$body-&gt;seek(0);
+//&#32;writing&#32;&apos;ef&apos;
+$body-&gt;write(&apos;ef&apos;);&#32;//&#32;at&#32;this&#32;point&#32;the&#32;stream&#32;contains&#32;&quot;efcd&quot;
+</computeroutput></literallayout></para>
+<section xml:id="_md_public_2glpi_2vendor_2psr_2http-message_2docs_2_p_s_r7-_usage_1autotoc_md6953">
+<title><title>Prepending by rewriting separately</title></title>
+
+<para><literallayout><computeroutput>//&#32;assuming&#32;our&#32;response&#32;body&#32;stream&#32;only&#32;contains:&#32;&quot;abcd&quot;
+$body&#32;=&#32;$response-&gt;getBody();
+$body-&gt;rewind();
+$contents&#32;=&#32;$body-&gt;getContents();&#32;//&#32;abcd
+//&#32;seeking&#32;the&#32;stream&#32;to&#32;beginning
+$body-&gt;rewind();
+$body-&gt;write(&apos;ef&apos;);&#32;//&#32;stream&#32;contains&#32;&quot;efcd&quot;
+$body-&gt;write($contents);&#32;//&#32;stream&#32;contains&#32;&quot;efabcd&quot;
+</computeroutput></literallayout></para>
+
+<para><blockquote>
+<para>&#8205;Note: <computeroutput>getContents()</computeroutput> seeks the stream while reading it, therefore if the second <computeroutput>rewind()</computeroutput> method call was not present the stream would have resulted in <computeroutput>abcdefabcd</computeroutput> because the <computeroutput>write()</computeroutput> method appends to stream if not preceeded by <computeroutput>rewind()</computeroutput> or <computeroutput>seek(0)</computeroutput>. </para>
+</blockquote></para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2psr_2http-message_2docs_2_p_s_r7-_usage_1autotoc_md6954">
+<title><title>Prepending by using contents as a string</title></title>
+
+<para><literallayout><computeroutput>$body&#32;=&#32;$response-&gt;getBody();
+$body-&gt;rewind();
+$contents&#32;=&#32;$body-&gt;getContents();&#32;//&#32;efabcd
+$contents&#32;=&#32;&apos;ef&apos;.$contents;
+$body-&gt;rewind();
+$body-&gt;write($contents);
+</computeroutput></literallayout> </para>
+</section>
+</section>
+</section>

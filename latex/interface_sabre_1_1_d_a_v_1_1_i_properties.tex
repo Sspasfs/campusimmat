@@ -1,0 +1,101 @@
+\doxysection{Référence de l\textquotesingle{}interface IProperties}
+\hypertarget{interface_sabre_1_1_d_a_v_1_1_i_properties}{}\label{interface_sabre_1_1_d_a_v_1_1_i_properties}\index{IProperties@{IProperties}}
+
+
+Graphe d\textquotesingle{}héritage de IProperties\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{interface_sabre_1_1_d_a_v_1_1_i_properties__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Graphe de collaboration de IProperties\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=209pt]{interface_sabre_1_1_d_a_v_1_1_i_properties__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_i_properties_aaa1ed377aaa9f4d644fda86f01afab25}{prop\+Patch}} (\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_prop_patch}{Prop\+Patch}} \$prop\+Patch)
+\item 
+\mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_i_properties_a0df78341cffeace459efcae44dde3d48}{get\+Properties}} (\$properties)
+\end{DoxyCompactItemize}
+\doxysubsection*{Fonctions membres publiques hérités de \mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_i_node}{INode}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_i_node_a13bdffdd926f26b825ea57066334ff01}{delete}} ()
+\item 
+\mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_i_node_a3d0963e68bb313b163a73f2803c64600}{get\+Name}} ()
+\item 
+\mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_i_node_a2fe666694997d047711d7653eca2f132}{set\+Name}} (\$name)
+\item 
+\mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_i_node_aa388e2fda4fe702e8953c1a731868f18}{get\+Last\+Modified}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+IProperties interface.
+
+Implement this interface to support custom Web\+DAV properties requested and sent from clients.
+
+\begin{DoxyCopyright}{Copyright}
+Copyright (C) fruux GmbH (\href{https://fruux.com/}{\texttt{ https\+://fruux.\+com/}}) 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Auteur}
+Evert Pot (\href{http://evertpot.com/}{\texttt{ http\+://evertpot.\+com/}}) @license \href{http://sabre.io/license/}{\texttt{ http\+://sabre.\+io/license/}} Modified BSD License 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Documentation des fonctions membres}
+\Hypertarget{interface_sabre_1_1_d_a_v_1_1_i_properties_a0df78341cffeace459efcae44dde3d48}\label{interface_sabre_1_1_d_a_v_1_1_i_properties_a0df78341cffeace459efcae44dde3d48} 
+\index{IProperties@{IProperties}!getProperties@{getProperties}}
+\index{getProperties@{getProperties}!IProperties@{IProperties}}
+\doxysubsubsection{\texorpdfstring{getProperties()}{getProperties()}}
+{\footnotesize\ttfamily get\+Properties (\begin{DoxyParamCaption}\item[{}]{\$properties }\end{DoxyParamCaption})}
+
+Returns a list of properties for this nodes.
+
+The properties list is a list of propertynames the client requested, encoded in clark-\/notation \{xmlnamespace\}tagname
+
+If the array is empty, it means \textquotesingle{}all properties\textquotesingle{} were requested.
+
+Note that it\textquotesingle{}s fine to liberally give properties back, instead of conforming to the list of requested properties. The Server class will filter out the extra.
+
+
+\begin{DoxyParams}[1]{Paramètres}
+array & {\em \$properties} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+array 
+\end{DoxyReturn}
+
+
+Implémenté dans \mbox{\hyperlink{class_sabre_1_1_cal_d_a_v_1_1_subscriptions_1_1_subscription_a0df78341cffeace459efcae44dde3d48}{Subscription}}, \mbox{\hyperlink{class_sabre_1_1_card_d_a_v_1_1_address_book_a0df78341cffeace459efcae44dde3d48}{Address\+Book}}, \mbox{\hyperlink{class_sabre_1_1_cal_d_a_v_1_1_calendar_a1a83345db5971b7ca0f7e8c9bcf62e37}{Calendar}}, et \mbox{\hyperlink{class_sabre_1_1_d_a_v_a_c_l_1_1_principal_a1a83345db5971b7ca0f7e8c9bcf62e37}{Principal}}.
+
+\Hypertarget{interface_sabre_1_1_d_a_v_1_1_i_properties_aaa1ed377aaa9f4d644fda86f01afab25}\label{interface_sabre_1_1_d_a_v_1_1_i_properties_aaa1ed377aaa9f4d644fda86f01afab25} 
+\index{IProperties@{IProperties}!propPatch@{propPatch}}
+\index{propPatch@{propPatch}!IProperties@{IProperties}}
+\doxysubsubsection{\texorpdfstring{propPatch()}{propPatch()}}
+{\footnotesize\ttfamily prop\+Patch (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_prop_patch}{Prop\+Patch}}}]{\$prop\+Patch }\end{DoxyParamCaption})}
+
+Updates properties on this node.
+
+This method received a Prop\+Patch object, which contains all the information about the update.
+
+To update specific properties, call the \textquotesingle{}handle\textquotesingle{} method on this object. Read the Prop\+Patch documentation for more information. 
+
+Implémenté dans \mbox{\hyperlink{class_sabre_1_1_cal_d_a_v_1_1_calendar_aaa1ed377aaa9f4d644fda86f01afab25}{Calendar}}, et \mbox{\hyperlink{class_sabre_1_1_cal_d_a_v_1_1_subscriptions_1_1_subscription_aaa1ed377aaa9f4d644fda86f01afab25}{Subscription}}.
+
+
+
+La documentation de cette interface a été générée à partir du fichier suivant \+:\begin{DoxyCompactItemize}
+\item 
+public/glpi/vendor/sabre/dav/lib/\+DAV/\mbox{\hyperlink{_i_properties_8php}{IProperties.\+php}}\end{DoxyCompactItemize}

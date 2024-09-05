@@ -1,0 +1,71 @@
+\doxysection{Référence de l\textquotesingle{}interface Factory\+Interface}
+\hypertarget{interface_laminas_1_1_service_manager_1_1_factory_1_1_factory_interface}{}\label{interface_laminas_1_1_service_manager_1_1_factory_1_1_factory_interface}\index{FactoryInterface@{FactoryInterface}}
+
+
+Graphe d\textquotesingle{}héritage de Factory\+Interface\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{interface_laminas_1_1_service_manager_1_1_factory_1_1_factory_interface__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Graphe de collaboration de Factory\+Interface\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=228pt]{interface_laminas_1_1_service_manager_1_1_factory_1_1_factory_interface__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{interface_laminas_1_1_service_manager_1_1_factory_1_1_factory_interface_ab386f3c76f2a4819824f98962352df18}{\+\_\+\+\_\+invoke}} (\mbox{\hyperlink{interface_interop_1_1_container_1_1_container_interface}{Container\+Interface}} \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{container}}, \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{requested\+Name}}, ?array \$options=null)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Interface for a factory
+
+A factory is an callable object that is able to create an object. It is given the instance of the service locator, the requested name of the class you want to create, and any additional options that could be used to configure the instance state. 
+
+\doxysubsection{Documentation des fonctions membres}
+\Hypertarget{interface_laminas_1_1_service_manager_1_1_factory_1_1_factory_interface_ab386f3c76f2a4819824f98962352df18}\label{interface_laminas_1_1_service_manager_1_1_factory_1_1_factory_interface_ab386f3c76f2a4819824f98962352df18} 
+\index{FactoryInterface@{FactoryInterface}!\_\_invoke@{\_\_invoke}}
+\index{\_\_invoke@{\_\_invoke}!FactoryInterface@{FactoryInterface}}
+\doxysubsubsection{\texorpdfstring{\_\_invoke()}{\_\_invoke()}}
+{\footnotesize\ttfamily \+\_\+\+\_\+invoke (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{interface_interop_1_1_container_1_1_container_interface}{Container\+Interface}}}]{\$container,  }\item[{}]{\$requested\+Name,  }\item[{?array}]{\$options = {\ttfamily null} }\end{DoxyParamCaption})}
+
+Create an object
+
+
+\begin{DoxyParams}[1]{Paramètres}
+string & {\em \$requested\+Name} & \\
+\hline
+ & {\em null\texorpdfstring{$\vert$}{|}array$<$mixed$>$} & \$options \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+object 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Service\+Not\+Found\+Exception} & If unable to resolve the service. \\
+\hline
+{\em Service\+Not\+Created\+Exception} & If an exception is raised when creating a service. \\
+\hline
+{\em Container\+Exception} & If any other error occurs. \\
+\hline
+\end{DoxyExceptions}
+
+
+Implémenté dans \mbox{\hyperlink{class_laminas_1_1_i18n_1_1_translator_1_1_loader_plugin_manager_factory_af96b0a8f3a909f7743e6cc70d8d710ca}{Loader\+Plugin\+Manager\+Factory}}, \mbox{\hyperlink{class_laminas_1_1_validator_1_1_validator_plugin_manager_factory_af96b0a8f3a909f7743e6cc70d8d710ca}{Validator\+Plugin\+Manager\+Factory}}, \mbox{\hyperlink{class_laminas_1_1_i18n_1_1_translator_1_1_translator_service_factory_ab386f3c76f2a4819824f98962352df18}{Translator\+Service\+Factory}}, \mbox{\hyperlink{class_laminas_1_1_service_manager_1_1_abstract_factory_1_1_config_abstract_factory_ab386f3c76f2a4819824f98962352df18}{Config\+Abstract\+Factory}}, \mbox{\hyperlink{class_laminas_1_1_service_manager_1_1_abstract_factory_1_1_reflection_based_abstract_factory_ab386f3c76f2a4819824f98962352df18}{Reflection\+Based\+Abstract\+Factory}}, et \mbox{\hyperlink{class_laminas_1_1_service_manager_1_1_factory_1_1_invokable_factory_ab386f3c76f2a4819824f98962352df18}{Invokable\+Factory}}.
+
+
+
+La documentation de cette interface a été générée à partir du fichier suivant \+:\begin{DoxyCompactItemize}
+\item 
+public/glpi/vendor/laminas/laminas-\/servicemanager/src/\+Factory/\mbox{\hyperlink{_factory_2_factory_interface_8php}{Factory\+Interface.\+php}}\end{DoxyCompactItemize}

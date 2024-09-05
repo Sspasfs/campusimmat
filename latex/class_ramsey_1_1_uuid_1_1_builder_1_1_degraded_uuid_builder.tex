@@ -1,0 +1,83 @@
+\doxysection{Référence de la classe Degraded\+Uuid\+Builder}
+\hypertarget{class_ramsey_1_1_uuid_1_1_builder_1_1_degraded_uuid_builder}{}\label{class_ramsey_1_1_uuid_1_1_builder_1_1_degraded_uuid_builder}\index{DegradedUuidBuilder@{DegradedUuidBuilder}}
+
+
+Graphe d\textquotesingle{}héritage de Degraded\+Uuid\+Builder\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=229pt]{class_ramsey_1_1_uuid_1_1_builder_1_1_degraded_uuid_builder__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Graphe de collaboration de Degraded\+Uuid\+Builder\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=229pt]{class_ramsey_1_1_uuid_1_1_builder_1_1_degraded_uuid_builder__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_ramsey_1_1_uuid_1_1_builder_1_1_degraded_uuid_builder_a376e5c27351da8f560ba92b0b303a55e}{\+\_\+\+\_\+construct}} (\mbox{\hyperlink{interface_ramsey_1_1_uuid_1_1_converter_1_1_number_converter_interface}{Number\+Converter\+Interface}} \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{number\+Converter}}, ?\mbox{\hyperlink{interface_ramsey_1_1_uuid_1_1_converter_1_1_time_converter_interface}{Time\+Converter\+Interface}} \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{time\+Converter}}=null)
+\item 
+\mbox{\hyperlink{class_ramsey_1_1_uuid_1_1_builder_1_1_degraded_uuid_builder_aab7875342cc7d002ca408ce8e43448dc}{build}} (\mbox{\hyperlink{interface_ramsey_1_1_uuid_1_1_codec_1_1_codec_interface}{Codec\+Interface}} \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{codec}}, string \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{bytes}})
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+\begin{DoxyRefDesc}{Obsolète}
+\item[\mbox{\hyperlink{deprecated__deprecated000107}{Obsolète}}]Degraded\+Uuid instances are no longer necessary to support 32-\/bit systems. Transition to \{\end{DoxyRefDesc}
+\begin{DoxySeeAlso}{Voir également}
+Default\+Uuid\+Builder\}.
+\end{DoxySeeAlso}
+@psalm-\/immutable 
+
+\doxysubsection{Documentation des constructeurs et destructeur}
+\Hypertarget{class_ramsey_1_1_uuid_1_1_builder_1_1_degraded_uuid_builder_a376e5c27351da8f560ba92b0b303a55e}\label{class_ramsey_1_1_uuid_1_1_builder_1_1_degraded_uuid_builder_a376e5c27351da8f560ba92b0b303a55e} 
+\index{DegradedUuidBuilder@{DegradedUuidBuilder}!\_\_construct@{\_\_construct}}
+\index{\_\_construct@{\_\_construct}!DegradedUuidBuilder@{DegradedUuidBuilder}}
+\doxysubsubsection{\texorpdfstring{\_\_construct()}{\_\_construct()}}
+{\footnotesize\ttfamily \+\_\+\+\_\+construct (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{interface_ramsey_1_1_uuid_1_1_converter_1_1_number_converter_interface}{Number\+Converter\+Interface}}}]{\$number\+Converter,  }\item[{?\mbox{\hyperlink{interface_ramsey_1_1_uuid_1_1_converter_1_1_time_converter_interface}{Time\+Converter\+Interface}}}]{\$time\+Converter = {\ttfamily null} }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}[1]{Paramètres}
+Number\+Converter\+Interface & {\em \$number\+Converter} & The number converter to use when constructing the Degraded\+Uuid \\
+\hline
+Time\+Converter\+Interface | null & {\em \$time\+Converter} & The time converter to use for converting timestamps extracted from a UUID to Unix timestamps \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Documentation des fonctions membres}
+\Hypertarget{class_ramsey_1_1_uuid_1_1_builder_1_1_degraded_uuid_builder_aab7875342cc7d002ca408ce8e43448dc}\label{class_ramsey_1_1_uuid_1_1_builder_1_1_degraded_uuid_builder_aab7875342cc7d002ca408ce8e43448dc} 
+\index{DegradedUuidBuilder@{DegradedUuidBuilder}!build@{build}}
+\index{build@{build}!DegradedUuidBuilder@{DegradedUuidBuilder}}
+\doxysubsubsection{\texorpdfstring{build()}{build()}}
+{\footnotesize\ttfamily build (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{interface_ramsey_1_1_uuid_1_1_codec_1_1_codec_interface}{Codec\+Interface}}}]{\$codec,  }\item[{string}]{\$bytes }\end{DoxyParamCaption})}
+
+Builds and returns a Degraded\+Uuid
+
+
+\begin{DoxyParams}[1]{Paramètres}
+Codec\+Interface & {\em \$codec} & The codec to use for building this Degraded\+Uuid instance \\
+\hline
+string & {\em \$bytes} & The byte string from which to construct a UUID\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+Degraded\+Uuid The Degraded\+Uuid\+Build returns an instance of Ramsey\textbackslash{}\+Uuid\textbackslash{}\+Degraded\+Uuid
+\end{DoxyReturn}
+@psalm-\/pure 
+
+Implémente \mbox{\hyperlink{interface_ramsey_1_1_uuid_1_1_builder_1_1_uuid_builder_interface_aab7875342cc7d002ca408ce8e43448dc}{Uuid\+Builder\+Interface}}.
+
+
+
+La documentation de cette classe a été générée à partir du fichier suivant \+:\begin{DoxyCompactItemize}
+\item 
+public/glpi/vendor/ramsey/uuid/src/\+Builder/\mbox{\hyperlink{_degraded_uuid_builder_8php}{Degraded\+Uuid\+Builder.\+php}}\end{DoxyCompactItemize}

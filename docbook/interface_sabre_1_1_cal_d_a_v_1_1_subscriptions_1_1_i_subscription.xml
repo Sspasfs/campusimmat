@@ -1,0 +1,99 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_interface_sabre_1_1_cal_d_a_v_1_1_subscriptions_1_1_i_subscription" xml:lang="fr">
+<title>Référence de l&apos;interface ISubscription</title>
+<indexterm><primary>ISubscription</primary></indexterm>
+Graphe d&apos;héritage de ISubscription:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="interface_sabre_1_1_cal_d_a_v_1_1_subscriptions_1_1_i_subscription__inherit__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Graphe de collaboration de ISubscription:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="interface_sabre_1_1_cal_d_a_v_1_1_subscriptions_1_1_i_subscription__coll__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Membres hérités additionnels    </title>
+Fonctions membres publiques hérités de <link linkend="_interface_sabre_1_1_d_a_v_1_1_i_collection">ICollection</link>        <itemizedlist>
+            <listitem><para><link linkend="_interface_sabre_1_1_d_a_v_1_1_i_collection_1a4135c8ffb4787bd20d7409ad699d8e0d">createFile</link> ($name, $data=null)</para>
+</listitem>
+            <listitem><para><link linkend="_interface_sabre_1_1_d_a_v_1_1_i_collection_1ad2c87f2e1012d1860d1d343a9ee54fa1">createDirectory</link> ($name)</para>
+</listitem>
+            <listitem><para><link linkend="_interface_sabre_1_1_d_a_v_1_1_i_collection_1a1cfdba129d25b04b73af8290f58ba7c1">getChild</link> ($name)</para>
+</listitem>
+            <listitem><para><link linkend="_interface_sabre_1_1_d_a_v_1_1_i_collection_1a8650a4f6150ed357d88fa043f1685ac5">getChildren</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_interface_sabre_1_1_d_a_v_1_1_i_collection_1a9c5c664f8f1e4a514235a31837de9988">childExists</link> ($name)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+Fonctions membres publiques hérités de <link linkend="_interface_sabre_1_1_d_a_v_1_1_i_node">INode</link>        <itemizedlist>
+            <listitem><para><link linkend="_interface_sabre_1_1_d_a_v_1_1_i_node_1a13bdffdd926f26b825ea57066334ff01">delete</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_interface_sabre_1_1_d_a_v_1_1_i_node_1a3d0963e68bb313b163a73f2803c64600">getName</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_interface_sabre_1_1_d_a_v_1_1_i_node_1a2fe666694997d047711d7653eca2f132">setName</link> ($name)</para>
+</listitem>
+            <listitem><para><link linkend="_interface_sabre_1_1_d_a_v_1_1_i_node_1aa388e2fda4fe702e8953c1a731868f18">getLastModified</link> ()</para>
+</listitem>
+        </itemizedlist>
+Fonctions membres publiques hérités de <link linkend="_interface_sabre_1_1_d_a_v_1_1_i_properties">IProperties</link>        <itemizedlist>
+            <listitem><para><link linkend="_interface_sabre_1_1_d_a_v_1_1_i_properties_1aaa1ed377aaa9f4d644fda86f01afab25">propPatch</link> (<link linkend="_class_sabre_1_1_d_a_v_1_1_prop_patch">PropPatch</link> $propPatch)</para>
+</listitem>
+            <listitem><para><link linkend="_interface_sabre_1_1_d_a_v_1_1_i_properties_1a0df78341cffeace459efcae44dde3d48">getProperties</link> ($properties)</para>
+</listitem>
+        </itemizedlist>
+<section>
+<title>Description détaillée</title>
+
+<para>ISubscription.</para>
+
+<para>Nodes implementing this interface represent calendar subscriptions.</para>
+
+<para>The subscription node doesn&apos;t do much, other than returning and updating subscription-related properties.</para>
+
+<para>The following properties should be supported:</para>
+
+<para><orderedlist>
+<listitem>
+<para>{DAV:}displayname</para>
+</listitem><listitem>
+<para>{<link xlink:href="http://apple.com/ns/ical/">http://apple.com/ns/ical/</link>}refreshrate</para>
+</listitem><listitem>
+<para>{<link xlink:href="http://calendarserver.org/ns/">http://calendarserver.org/ns/</link>}subscribed-strip-todos (omit if todos should not be stripped).</para>
+</listitem><listitem>
+<para>{<link xlink:href="http://calendarserver.org/ns/">http://calendarserver.org/ns/</link>}subscribed-strip-alarms (omit if alarms should not be stripped).</para>
+</listitem><listitem>
+<para>{<link xlink:href="http://calendarserver.org/ns/">http://calendarserver.org/ns/</link>}subscribed-strip-attachments (omit if attachments should not be stripped).</para>
+</listitem><listitem>
+<para>{<link xlink:href="http://calendarserver.org/ns/">http://calendarserver.org/ns/</link>}source (Must be a Sabre\DAV\Property\Href).</para>
+</listitem><listitem>
+<para>{<link xlink:href="http://apple.com/ns/ical/">http://apple.com/ns/ical/</link>}calendar-color</para>
+</listitem><listitem>
+<para>{<link xlink:href="http://apple.com/ns/ical/">http://apple.com/ns/ical/</link>}calendar-order</para>
+</listitem></orderedlist>
+</para>
+
+<para>It is recommended to support every property.</para>
+
+<para><formalpara><title>Copyright</title>
+
+<para>Copyright (C) fruux GmbH (<link xlink:href="https://fruux.com/">https://fruux.com/</link>) </para>
+</formalpara>
+<formalpara><title>Auteur</title>
+
+<para>Evert Pot (<link xlink:href="http://evertpot.com/">http://evertpot.com/</link>) @license <link xlink:href="http://sabre.io/license/">http://sabre.io/license/</link> Modified BSD License </para>
+</formalpara>
+</para>
+<para>
+La documentation de cette interface a été générée à partir du fichier suivant :</para>
+public/glpi/vendor/sabre/dav/lib/CalDAV/Subscriptions/<link linkend="__i_subscription_8php">ISubscription.php</link></section>
+</section>

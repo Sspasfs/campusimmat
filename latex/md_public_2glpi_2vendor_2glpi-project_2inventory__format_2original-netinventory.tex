@@ -1,0 +1,250 @@
+\chapter{Original XML specification (network inventory)}
+\hypertarget{md_public_2glpi_2vendor_2glpi-project_2inventory__format_2original-netinventory}{}\label{md_public_2glpi_2vendor_2glpi-project_2inventory__format_2original-netinventory}\index{Original XML specification (network inventory)@{Original XML specification (network inventory)}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{<!ELEMENT\ REQUEST\ (CONTENT+,\ DEVICEID,\ QUERY)>}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ <!ELEMENT\ CONTENT\ (DEVICE*,\ MODULEVERSION,\ PROCESSNUMBER)>}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ <!-\/-\/\ a\ device\ -\/-\/>}
+\DoxyCodeLine{\ \ \ \ <!ELEMENT\ DEVICE\ (INFO,\ PORTS,\ MODEMS+,\ FIRMWARES+,\ SIMCARDS+,}
+\DoxyCodeLine{\ \ \ \ PAGECOUNTERS?,\ CARTRIDGES?)>}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ <!-\/-\/\ generic\ information\ -\/-\/>}
+\DoxyCodeLine{\ \ \ \ \ \ <!ELEMENT\ INFO\ (COMMENTS,\ CPU,\ FIRMWARE,\ ID,\ IPS,\ LOCATION,\ MAC,\ MEMORY,}
+\DoxyCodeLine{\ \ \ \ \ \ MODEL,\ NAME,\ RAM,\ SERIAL,\ TYPE,\ UPTIME,\ MANUFACTURER,\ CONTACT)>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <!-\/-\/\ sysdescr\ (string)\ -\/-\/>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <!ELEMENT\ DESCRIPTION\ (\#PCDATA)>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <!-\/-\/\ CPU\ load\ in\ \%\ (integer)\ -\/-\/>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <!ELEMENT\ CPU\ (\#PCDATA)>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <!-\/-\/\ firmware\ (string)\ -\/-\/>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <!ELEMENT\ FIRMWARE\ (\#PCDATA)>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <!-\/-\/\ device\ ID\ in\ GLPI\ (integer)\ -\/-\/>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <!ELEMENT\ ID\ (\#PCDATA)>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <!-\/-\/\ IP\ addresses\ list\ -\/-\/>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <!ELEMENT\ IPS\ (IP+)>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <!-\/-\/\ an\ IP\ address,\ either\ IPv4\ or\ IPv6\ (string)\ -\/-\/>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <!ELEMENT\ IP\ (\#PCDATA)>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <!-\/-\/\ location\ (string)\ -\/-\/>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <!ELEMENT\ LOCATION\ (\#PCDATA)>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <!-\/-\/\ mac\ address\ (string)\ -\/-\/>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <!ELEMENT\ MAC\ (\#PCDATA)>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <!-\/-\/\ storage\ in\ Mio\ (integer)\ -\/-\/>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <!ELEMENT\ MEMORY\ (\#PCDATA)>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <!-\/-\/\ device\ model\ (string)\ -\/-\/>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <!ELEMENT\ MODEL\ (\#PCDATA)>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <!-\/-\/\ device\ name\ (string)\ -\/-\/>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <!ELEMENT\ NAME\ (\#PCDATA)>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <!-\/-\/\ volatile\ memory\ in\ Mio\ (integer)\ -\/-\/>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <!ELEMENT\ RAM\ (\#PCDATA)>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <!-\/-\/\ serial\ number\ (string)\ -\/-\/>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <!ELEMENT\ SERIAL\ (\#PCDATA)>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <!-\/-\/\ type}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ (COMPUTER|NETWORKING|PRINTER|STORAGE|POWER|PHONE|VIDEO|KVM)\ -\/-\/>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <!ELEMENT\ TYPE\ (\#PCDATA)>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <!-\/-\/\ uptime\ ("{}X\ days,\ HH:MM::SS"{}\ format)\ -\/-\/>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <!ELEMENT\ UPTIME\ (\#PCDATA)>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <!-\/-\/\ device\ manufacturer\ -\/-\/>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <!ELEMENT\ MANUFACTURER\ (\#PCDATA)>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <!-\/-\/\ admin\ contact\ -\/-\/>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <!ELEMENT\ CONTACT\ (\#PCDATA)>}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ <!-\/-\/\ ports\ list\ -\/-\/>}
+\DoxyCodeLine{\ \ \ \ \ \ <!ELEMENT\ PORTS\ (PORT*)>}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <!-\/-\/\ a\ port\ -\/-\/>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <!ELEMENT\ PORT\ (CONNECTIONS?,\ AGGREGATE?,\ IFDESCR,\ IFINERRORS,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ IFINOCTETS,\ IFINTERNALSTATUS,\ IFLASTCHANGE,\ IFMTU,\ IFNAME,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ IFNUMBER,\ IFOUTERRORS,\ IFOUTOCTETS,\ IFSPEED,\ IFPORTDUPLEX,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ IFSTATUS,\ IFTYPE,\ MAC,\ TRUNK,\ VLANS?)>}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <!-\/-\/\ connections\ list\ -\/-\/>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <!ELEMENT\ CONNECTIONS\ (CDP?,\ CONNECTION*)>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ <!-\/-\/\ LLDP/CDP\ connection?\ (0|1)\ -\/-\/>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ <!ELEMENT\ CDP\ (\#PCDATA)>}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ <!-\/-\/\ a\ remote\ device\ connection,\ either\ as\ a\ list\ of\ known\ mac}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ addresses,\ either\ as\ a\ CDP/LLDP/EDP\ information\ block\ -\/-\/>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ <!ELEMENT\ CONNECTION\ (MAC+\ |\ (IFNUMBER,\ SYSMAC,\ IFDESCR,\ IP,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ SYSDESCR,\ SYSNAME))>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ <!-\/-\/\ remote\ device\ mac\ address\ (string)\ -\/-\/>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ <!ELEMENT\ MAC\ (\#PCDATA)>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ <!-\/-\/\ remote\ device\ ifindex,\ from\ CDP/LLDP\ (integer)\ -\/-\/>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ <!ELEMENT\ IFNUMBER\ (\#PCDATA)>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ <!-\/-\/\ remote\ device\ mac\ address,\ from\ CDP/LLDP\ (string)\ -\/-\/>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ <!ELEMENT\ SYSMAC\ (\#PCDATA)>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ <!-\/-\/\ remote\ device\ port\ description,\ from\ CDP/LLDP\ (string)\ -\/-\/>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ <!ELEMENT\ IFDESCR\ (\#PCDATA)>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ <!-\/-\/\ remote\ device\ IP\ address,\ from\ CDP/LLDP\ (string)\ -\/-\/>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ <!ELEMENT\ IP\ (\#PCDATA)>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ <!-\/-\/\ remote\ device\ system\ description,\ from\ CDP/LLDP\ (string)\ -\/-\/>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ <!ELEMENT\ SYSDESCR\ (\#PCDATA)>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ <!-\/-\/\ remote\ device\ name,\ from\ CDP/LLDP\ (string)\ -\/-\/>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ <!ELEMENT\ SYSNAME\ (\#PCDATA)>}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <!-\/-\/\ aggregated\ ports\ list\ -\/-\/>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <!ELEMENT\ AGGREGATE\ (PORT+)>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ <!-\/-\/\ aggregated\ port\ ifindex\ (integer)\ -\/-\/>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ <!ELEMENT\ PORT\ (\#PCDATA)>}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <!-\/-\/\ description\ (string)\ -\/-\/>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <!ELEMENT\ IFDESCR\ (\#PCDATA)>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <!-\/-\/\ input\ errors\ number\ (integer)\ -\/-\/>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <!ELEMENT\ IFINERRORS\ (\#PCDATA)>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <!-\/-\/\ input\ bytes\ number\ (integer)\ -\/-\/>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <!ELEMENT\ IFINOCTETS\ (\#PCDATA)>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <!-\/-\/\ internal\ status\ (1|2|3)\ -\/-\/>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <!ELEMENT\ IFINTERNALSTATUS\ (\#PCDATA)>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <!-\/-\/\ time\ since\ last\ status\ change\ ("{}X\ days,\ HH:MM::SS"{}\ format)\ -\/-\/>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <!ELEMENT\ IFLASTCHANGE\ (\#PCDATA)>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <!-\/-\/\ MTU\ (integer)\ -\/-\/>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <!ELEMENT\ IFMTU\ (\#PCDATA)>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <!-\/-\/\ name\ (string)\ -\/-\/>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <!ELEMENT\ IFNAME\ (\#PCDATA)>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <!-\/-\/\ ifindex\ (integer)\ -\/-\/>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <!ELEMENT\ IFNUMBER\ (\#PCDATA)>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <!-\/-\/\ output\ errors\ number\ (integer)\ -\/-\/>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <!ELEMENT\ IFOUTERRORS\ (\#PCDATA)>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <!-\/-\/\ output\ bytes\ number\ (integer)\ -\/-\/>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <!ELEMENT\ IFOUTOCTETS\ (\#PCDATA)>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <!-\/-\/\ speed\ in\ bytes\ (integer)\ -\/-\/>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <!ELEMENT\ IFSPEED\ (\#PCDATA)>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <!-\/-\/\ duplex\ status\ (1|2|3))\ -\/-\/>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <!ELEMENT\ IFPORTDUPLEX\ (\#PCDATA)>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <!-\/-\/\ port\ status\ (1|2)\ -\/-\/>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <!ELEMENT\ IFSTATUS\ (\#PCDATA)>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <!-\/-\/\ port\ type\ (integer)\ -\/-\/>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <!ELEMENT\ IFTYPE\ (\#PCDATA)>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <!-\/-\/\ mac\ address\ (string)\ -\/-\/>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <!ELEMENT\ MAC\ (\#PCDATA)>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <!-\/-\/\ trunk\ port\ flag\ (0|1)\ -\/-\/>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <!ELEMENT\ TRUNK\ (\#PCDATA)>}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <!-\/-\/\ VLANs\ list\ -\/-\/>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <!ELEMENT\ VLANS\ (VLAN+)>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ <!-\/-\/\ a\ VLAN\ -\/-\/>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ <!ELEMENT\ VLAN\ (NAME,\ NUMBER)>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ <!-\/-\/\ VLAN\ name\ (string)\ -\/-\/>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ <!ELEMENT\ NAME\ (\#PCDATA)>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ <!-\/-\/\ VLAN\ ID\ (integer)\ -\/-\/>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ <!ELEMENT\ NUMBER\ (\#PCDATA)>}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ <!ELEMENT\ MODEMS\ (NAME,\ DESCRIPTION,\ TYPE,\ MODEL,\ MANUFACTURER,\ SERIAL)>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <!-\/-\/\ modem\ name\ -\/-\/>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <!ELEMENT\ NAME\ (\#PCDATA)>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <!-\/-\/\ modem\ description\ if\ available\ -\/-\/>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <!ELEMENT\ DESCRIPTION\ (\#PCDATA)>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <!-\/-\/\ modem\ type\ -\/-\/>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <!ELEMENT\ TYPE\ (\#PCDATA)>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <!-\/-\/\ modem\ model\ -\/-\/>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <!ELEMENT\ MODEL\ (\#PCDATA)>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <!-\/-\/\ modem\ manufacturer\ -\/-\/>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <!ELEMENT\ MANUFACTURER\ (\#PCDATA)>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <!-\/-\/\ modem\ serial\ -\/-\/>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <!ELEMENT\ SERIAL\ (\#PCDATA)>}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ <!-\/-\/\ component\ firmwares\ -\/-\/>}
+\DoxyCodeLine{\ \ \ \ \ \ <!ELEMENT\ FIRMWARES\ (NAME,\ DESCRIPTION,\ TYPE,\ VERSION,\ DATE,\ MANUFACTURER)>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <!-\/-\/\ component\ name\ using\ the\ firmware\ -\/-\/>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <!ELEMENT\ NAME\ (\#PCDATA)>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <!-\/-\/\ firmware\ description\ if\ available\ -\/-\/>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <!ELEMENT\ DESCRIPTION\ (\#PCDATA)>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <!-\/-\/\ short\ description\ of\ firmware\ type:\ modem,\ bios,\ ...\ -\/-\/>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <!ELEMENT\ TYPE\ (\#PCDATA)>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <!-\/-\/\ full\ firmware\ version\ -\/-\/>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <!ELEMENT\ VERSION\ (\#PCDATA)>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <!-\/-\/\ firmware\ date\ -\/-\/>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <!ELEMENT\ DATE\ (\#PCDATA)>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <!-\/-\/\ firmware\ manufacturer\ -\/-\/>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <!ELEMENT\ MANUFACTURER\ (\#PCDATA)>}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ <!ELEMENT\ SIMCARDS\ (IMSI,\ PHONE\_NUMBER,\ ICCID,\ STATE,\ COUNTRY,\ OPERATOR\_CODE,}
+\DoxyCodeLine{\ \ \ \ \ \ OPERATOR\_NAME)>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <!-\/-\/\ IMSI\ -\/-\/>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <!ELEMENT\ IMSI\ (\#PCDATA)>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <!-\/-\/\ Phone\ number\ -\/-\/>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <!ELEMENT\ PHONE\_NUMBER\ (\#PCDATA)>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <!-\/-\/\ ICCID\ (serial\ number)\ -\/-\/>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <!ELEMENT\ ICCID\ (\#PCDATA)>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <!-\/-\/\ State\ -\/-\/>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <!ELEMENT\ STATE\ (\#PCDATA)>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <!-\/-\/\ Country\ -\/-\/>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <!ELEMENT\ COUNTRY\ (\#PCDATA)>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <!-\/-\/\ Operator\ code\ -\/-\/>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <!ELEMENT\ OPERATOR\_CODE\ (\#PCDATA)>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <!-\/-\/\ Operator\ Name\ -\/-\/>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <!ELEMENT\ OPERATOR\_NAME\ (\#PCDATA)>}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ <!ELEMENT\ PAGECOUNTERS\ (TOTAL?,\ BLACK?,\ COLOR?,\ RECTOVERSO?,\ SCANNED?}
+\DoxyCodeLine{\ \ \ \ \ \ PRINTOTAL?,\ PRINTBLACK?,\ PRINTCOLOR?,\ COPYTOTAL?,\ COPYBLACK?,}
+\DoxyCodeLine{\ \ \ \ \ \ COPYCOLOR?,\ FAXTOTAL?)>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <!ELEMENT\ TOTAL\ (\#PCDATA)>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <!ELEMENT\ BLACK\ (\#PCDATA)>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <!ELEMENT\ COLOR\ (\#PCDATA)>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <!ELEMENT\ RECTOVERSO\ (\#PCDATA)>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <!ELEMENT\ SCANNED\ (\#PCDATA)>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <!ELEMENT\ PRINTOTAL\ (\#PCDATA)>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <!ELEMENT\ PRINTBLACK\ (\#PCDATA)>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <!ELEMENT\ PRINTCOLOR\ (\#PCDATA)>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <!ELEMENT\ COPYTOTAL\ (\#PCDATA)>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <!ELEMENT\ COPYBLACK\ (\#PCDATA)>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <!ELEMENT\ COPYCOLOR\ (\#PCDATA)>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <!ELEMENT\ FAXTOTAL\ (\#PCDATA)>}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ <!-\/-\/\ CARTRIDGES\ node\ can\ content\ any\ meaningful\ printer\ cartridge\ info}
+\DoxyCodeLine{\ \ \ \ \ \ and\ it\ is\ up\ to\ the\ server\ to\ interpret\ given\ keys\ and\ values\ -\/-\/>}
+\DoxyCodeLine{\ \ \ \ \ \ <!-\/-\/\ this\ element\ is\ deprecated,\ CONSUMABLES\ should\ be\ used\ instead\ -\/-\/>}
+\DoxyCodeLine{\ \ \ \ \ \ <!ELEMENT\ CARTRIDGES\ ANY>}
+\DoxyCodeLine{\ \ \ \ \ \ <!-\/-\/\ Following\ lines\ are\ well-\/known\ samples,\ so\ they\ are\ kept\ as\ comment}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <!ELEMENT\ CARTRIDGEBLACK\ (\#PCDATA)>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <!ELEMENT\ CARTRIDGECYAN\ (\#PCDATA)>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <!ELEMENT\ CARTRIDGEMAGENTA\ (\#PCDATA)>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <!ELEMENT\ CARTRIDGEYELLOW\ (\#PCDATA)>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <!ELEMENT\ TONERBLACK\ (\#PCDATA)>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <!ELEMENT\ TONERCYAN\ (\#PCDATA)>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <!ELEMENT\ TONERMAGENTA\ (\#PCDATA)>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <!ELEMENT\ TONERYELLOW\ (\#PCDATA)>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <!ELEMENT\ WASTETONER\ (\#PCDATA)>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <!ELEMENT\ DRUMBLACK\ (\#PCDATA)>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <!ELEMENT\ DRUMCYAN\ (\#PCDATA)>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <!ELEMENT\ DRUMMAGENTA\ (\#PCDATA)>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <!ELEMENT\ DRUMYELLOW\ (\#PCDATA)>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <!ELEMENT\ DEVELOPERBLACK\ (\#PCDATA)>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <!ELEMENT\ DEVELOPERCYAN\ (\#PCDATA)>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <!ELEMENT\ DEVELOPERMAGENTA\ (\#PCDATA)>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <!ELEMENT\ DEVELOPERYELLOW\ (\#PCDATA)>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <!ELEMENT\ MAINTENANCEKIT\ (\#PCDATA)>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <!ELEMENT\ FUSERKIT\ (\#PCDATA)>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <!ELEMENT\ TRANSFERKIT\ (\#PCDATA)>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <!ELEMENT\ CLEANINGKIT\ (\#PCDATA)>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <!ELEMENT\ STAPLES\ (\#PCDATA)>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <!ELEMENT\ CARTRIDGEGRAY\ (\#PCDATA)>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <!ELEMENT\ CARTRIDGEDARKGRAY\ (\#PCDATA)>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <!ELEMENT\ CARTRIDGEMATTEBLACK\ (\#PCDATA)>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <!ELEMENT\ CARTRIDGEPHOTOBLACK\ (\#PCDATA)>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ End\ of\ samples\ -\/-\/>}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ <!-\/-\/\ consumables\ list\ -\/-\/>}
+\DoxyCodeLine{\ \ \ \ \ \ <!ELEMENT\ CONSUMABLES\ (CONSUMABLE)+>}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <!-\/-\/\ a\ single\ consumable\ -\/-\/>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <!ELEMENT\ CONSUMABLE\ (TYPE,\ COLOR,\ VALUE,\ UNIT)>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ <!ELEMENT\ TYPE\ (\#PCDATA)>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ <!ELEMENT\ COLOR\ (\#PCDATA)>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ <!ELEMENT\ VALUE\ (\#PCDATA)>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ <!ELEMENT\ UNIT\ (\#PCDATA)>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ <!-\/-\/\ use\ MAX\ if\ available,\ or\ assume\ it's\ 100\ when\ UNIT\ is\ not\ set\ -\/-\/>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ <!ELEMENT\ MAX\ (\#PCDATA)>}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ <!-\/-\/\ netinventory\ module\ version(string)\ -\/-\/>}
+\DoxyCodeLine{\ \ \ \ <!ELEMENT\ MODULEVERSION\ (\#PCDATA)>}
+\DoxyCodeLine{\ \ \ \ <!-\/-\/\ server\ process\ ID\ (integer)\ -\/-\/>}
+\DoxyCodeLine{\ \ \ \ <!ELEMENT\ PROCESSNUMBER\ (\#PCDATA)>}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ <!-\/-\/\ agent\ ID\ (string)\ -\/-\/>}
+\DoxyCodeLine{\ \ <!ELEMENT\ DEVICEID\ (\#PCDATA)>}
+\DoxyCodeLine{\ \ <!-\/-\/\ message\ type,\ ie\ \ "{}SNMPQUERY"{}\ -\/-\/>}
+\DoxyCodeLine{\ \ <!ELEMENT\ QUERY\ (\#PCDATA)>}
+
+\end{DoxyCode}
+ 

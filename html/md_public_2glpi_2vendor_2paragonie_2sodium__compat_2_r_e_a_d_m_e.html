@@ -1,0 +1,321 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.10.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>CampusImmat: Sodium Compat</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">CampusImmat
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.10.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+</div><!-- top -->
+<div><div class="header">
+  <div class="headertitle"><div class="title">Sodium Compat</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><p><a class="anchor" id="autotoc_md6871"></a> <a href="https://github.com/paragonie/sodium_compat/actions"><img src="https://github.com/paragonie/sodium_compat/actions/workflows/ci.yml/badge.svg" alt="Build Status" style="pointer-events: none;" class="inline"/></a> <a href="https://github.com/paragonie/sodium_compat/actions"><img src="https://github.com/paragonie/sodium_compat/actions/workflows/psalm.yml/badge.svg" alt="Psalm Status" style="pointer-events: none;" class="inline"/></a> <a href="https://ci.appveyor.com/project/paragonie-scott/sodium-compat"><img src="https://ci.appveyor.com/api/projects/status/itcx1vgmfqiawgbe?svg=true" alt="Windows Build Status" class="inline"/></a> <a href="https://packagist.org/packages/paragonie/sodium_compat"><img src="https://poser.pugx.org/paragonie/sodium_compat/v/stable" alt="Latest Stable Version" class="inline"/></a> <a href="https://packagist.org/packages/paragonie/sodium_compat"><img src="https://poser.pugx.org/paragonie/sodium_compat/v/unstable" alt="Latest Unstable Version" class="inline"/></a> <a href="https://packagist.org/packages/paragonie/sodium_compat"><img src="https://poser.pugx.org/paragonie/sodium_compat/license" alt="License" class="inline"/></a> <a href="https://packagist.org/packages/paragonie/sodium_compat"><img src="https://img.shields.io/packagist/dt/paragonie/sodium_compat.svg" alt="Downloads" style="pointer-events: none;" class="inline"/></a></p>
+<p><a class="el" href="namespace_sodium.html">Sodium</a> Compat is a pure PHP polyfill for the <a class="el" href="namespace_sodium.html">Sodium</a> cryptography library (libsodium), a core extension in PHP 7.2.0+ and otherwise <a href="https://pecl.php.net/package/libsodium">available in PECL</a>.</p>
+<p>This library tentativeley supports PHP 5.2.4 - 8.x (latest), but officially only supports <a href="https://secure.php.net/supported-versions.php">non-EOL'd versions of PHP</a>.</p>
+<p>If you have the PHP extension installed, <a class="el" href="namespace_sodium.html">Sodium</a> Compat will opportunistically and transparently use the PHP extension instead of our implementation.</p>
+<h1><a class="anchor" id="autotoc_md6872"></a>
+IMPORTANT!</h1>
+<p>This cryptography library has not been formally audited by an independent third party that specializes in cryptography or cryptanalysis.</p>
+<p>If you require such an audit before you can use sodium_compat in your projects and have the funds for such an audit, please open an issue or contact <code>security at paragonie dot com</code> so we can help get the ball rolling.</p>
+<p>However, sodium_compat has been adopted by high profile open source projects, such as <a href="https://github.com/joomla/joomla-cms/blob/459d74686d2a638ec51149d7c44ddab8075852be/composer.json#L40">Joomla!</a> and <a href="https://github.com/magento/magento2/blob/8fd89cfdf52c561ac0ca7bc20fd38ef688e201b0/composer.json#L44">Magento</a>. Furthermore, sodium_compat was developed by Paragon Initiative Enterprises, a company that <em>specializes</em> in secure PHP development and PHP cryptography, and has been informally reviewed by many other security experts who also specialize in PHP.</p>
+<p>If you'd like to learn more about the defensive security measures we've taken to prevent sodium_compat from being a source of vulnerability in your systems, please read <a href="https://paragonie.com/blog/2017/02/cryptographically-secure-php-development"><em>Cryptographically Secure PHP Development</em></a>.</p>
+<h1><a class="anchor" id="autotoc_md6873"></a>
+Installing Sodium Compat</h1>
+<p>If you're using <a class="el" href="namespace_composer.html">Composer</a>:</p>
+<div class="fragment"><div class="line">composer require paragonie/sodium_compat</div>
+</div><!-- fragment --><h3><a class="anchor" id="autotoc_md6874"></a>
+Install From Source</h3>
+<p>If you're not using <a class="el" href="namespace_composer.html">Composer</a>, download a <a href="https://github.com/paragonie/sodium_compat/releases">release tarball</a> (which should be signed with <a href="https://paragonie.com/static/gpg-public-key.txt">our GnuPG public key</a>), extract its contents, then include our <code>autoload.php</code> script in your project.</p>
+<div class="fragment"><div class="line">&lt;?<a class="code hl_namespace" href="namespacephp.html">php</a></div>
+<div class="line"><a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">require_once</a> <span class="stringliteral">&quot;/path/to/sodium_compat/autoload.php&quot;</span>;</div>
+<div class="ttc" id="anamespacephp_html"><div class="ttname"><a href="namespacephp.html">php</a></div></div>
+<div class="ttc" id="areport_8contract_8php_html_a77b973d137fb33212e018b042df6e3e7"><div class="ttname"><a href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">$y</a></div><div class="ttdeci">$y</div><div class="ttdef"><b>Definition</b> report.contract.php:71</div></div>
+</div><!-- fragment --><h3><a class="anchor" id="autotoc_md6875"></a>
+PHP Archives (Phar) Releases</h3>
+<p>Since version 1.3.0, <a href="https://github.com/paragonie/sodium_compat/releases">sodium_compat releases</a> include a PHP Archive (.phar file) and associated GPG signature. First, download both files and verify them with our GPG public key, like so:</p>
+<div class="fragment"><div class="line"># Getting our public key from the keyserver:</div>
+<div class="line">gpg --fingerprint 7F52D5C61D1255C731362E826B97A1C2826404DA</div>
+<div class="line">if [ $? -ne 0 ]; then</div>
+<div class="line">    echo -e &quot;\033[33mDownloading PGP Public Key...\033[0m&quot;</div>
+<div class="line">    gpg  --keyserver pgp.mit.edu --recv-keys 7F52D5C61D1255C731362E826B97A1C2826404DA</div>
+<div class="line">    # Security &lt;security@paragonie.com&gt;</div>
+<div class="line">    gpg --fingerprint 7F52D5C61D1255C731362E826B97A1C2826404DA</div>
+<div class="line">    if [ $? -ne 0 ]; then</div>
+<div class="line">        echo -e &quot;\033[31mCould not download PGP public key for verification\033[0m&quot;</div>
+<div class="line">        exit 1</div>
+<div class="line">    fi</div>
+<div class="line">fi</div>
+<div class="line"> </div>
+<div class="line"># Verifying the PHP Archive</div>
+<div class="line">gpg --verify sodium-compat.phar.sig sodium-compat.phar</div>
+</div><!-- fragment --><p>Now, simply include this .phar file in your application.</p>
+<div class="fragment"><div class="line">&lt;?<a class="code hl_namespace" href="namespacephp.html">php</a></div>
+<div class="line"><a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">require_once</a> <span class="stringliteral">&quot;/path/to/sodium-compat.phar&quot;</span>;</div>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md6876"></a>
+Support</h1>
+<p><a href="https://download.libsodium.org/doc/commercial_support/">Commercial support for libsodium</a> is available from multiple vendors. If you need help using sodium_compat in one of your projects, <a href="https://paragonie.com/contact">contact Paragon Initiative Enterprises</a>.</p>
+<p>Non-commercial report will be facilitated through <a href="https://github.com/paragonie/sodium_compat/issues">Github issues</a>. We offer no guarantees of our availability to resolve questions about integrating sodium_compat into third-party software for free, but will strive to fix any bugs (security-related or otherwise) in our library.</p>
+<h2><a class="anchor" id="autotoc_md6877"></a>
+Support Contracts</h2>
+<p>If your company uses this library in their products or services, you may be interested in <a href="https://paragonie.com/enterprise">purchasing a support contract from Paragon Initiative Enterprises</a>.</p>
+<h1><a class="anchor" id="autotoc_md6878"></a>
+Using Sodium Compat</h1>
+<h2><a class="anchor" id="autotoc_md6879"></a>
+True Polyfill</h2>
+<p>If you're using PHP 5.3.0 or newer and do not have the PECL extension installed, you can just use the <a href="https://paragonie.com/book/pecl-libsodium">standard ext/sodium API features as-is</a> and the polyfill will work its magic.</p>
+<div class="fragment"><div class="line">&lt;?<a class="code hl_namespace" href="namespacephp.html">php</a></div>
+<div class="line"><a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">require_once</a> <span class="stringliteral">&quot;/path/to/sodium_compat/autoload.php&quot;</span>;</div>
+<div class="line"> </div>
+<div class="line"><a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">$alice_kp</a> = <a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">\Sodium\crypto_sign_keypair</a>();</div>
+<div class="line"><a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">$alice_sk</a> = <a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">\Sodium\crypto_sign_secretkey</a>(<a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">$alice_kp</a>);</div>
+<div class="line"><a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">$alice_pk</a> = <a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">\Sodium\crypto_sign_publickey</a>(<a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">$alice_kp</a>);</div>
+<div class="line"> </div>
+<div class="line">$message = <span class="stringliteral">&#39;This is a test message.&#39;</span>;</div>
+<div class="line">$signature = <a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">\Sodium\crypto_sign_detached</a>($message, <a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">$alice_sk</a>);</div>
+<div class="line"><span class="keywordflow">if</span> (\<a class="code hl_namespace" href="namespace_sodium.html">Sodium</a>\crypto_sign_verify_detached($signature, $message, <a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">$alice_pk</a>)) {</div>
+<div class="line">    <a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">echo</a> <span class="stringliteral">&#39;OK&#39;</span>, PHP_EOL;</div>
+<div class="line">} <span class="keywordflow">else</span> {</div>
+<div class="line">    <span class="keywordflow">throw</span> <span class="keyword">new</span> Exception(<span class="stringliteral">&#39;Invalid signature&#39;</span>);</div>
+<div class="line">}</div>
+<div class="ttc" id="anamespace_sodium_html"><div class="ttname"><a href="namespace_sodium.html">Sodium</a></div><div class="ttdef"><b>Definition</b> constants.php:2</div></div>
+</div><!-- fragment --><p>The polyfill does not expose this API on PHP &lt; 5.3, or if you have the PHP extension installed already.</p>
+<h2><a class="anchor" id="autotoc_md6880"></a>
+General-Use Polyfill</h2>
+<p>If your users are on PHP &lt; 5.3, or you want to write code that will work whether or not the PECL extension is available, you'll want to use the **<code><a class="el" href="class_paragon_i_e___sodium___compat.html">ParagonIE_Sodium_Compat</a></code>** class for most of your libsodium needs.</p>
+<p>The above example, written for general use:</p>
+<div class="fragment"><div class="line">&lt;?<a class="code hl_namespace" href="namespacephp.html">php</a></div>
+<div class="line"><a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">require_once</a> <span class="stringliteral">&quot;/path/to/sodium_compat/autoload.php&quot;</span>;</div>
+<div class="line"> </div>
+<div class="line"><a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">$alice_kp</a> = ParagonIE_Sodium_Compat::crypto_sign_keypair();</div>
+<div class="line"><a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">$alice_sk</a> = ParagonIE_Sodium_Compat::crypto_sign_secretkey(<a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">$alice_kp</a>);</div>
+<div class="line"><a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">$alice_pk</a> = ParagonIE_Sodium_Compat::crypto_sign_publickey(<a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">$alice_kp</a>);</div>
+<div class="line"> </div>
+<div class="line">$message = <span class="stringliteral">&#39;This is a test message.&#39;</span>;</div>
+<div class="line">$signature = ParagonIE_Sodium_Compat::crypto_sign_detached($message, <a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">$alice_sk</a>);</div>
+<div class="line"><span class="keywordflow">if</span> (ParagonIE_Sodium_Compat::crypto_sign_verify_detached($signature, $message, <a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">$alice_pk</a>)) {</div>
+<div class="line">    <a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">echo</a> <span class="stringliteral">&#39;OK&#39;</span>, PHP_EOL;</div>
+<div class="line">} <span class="keywordflow">else</span> {</div>
+<div class="line">    <span class="keywordflow">throw</span> <span class="keyword">new</span> Exception(<span class="stringliteral">&#39;Invalid signature&#39;</span>);</div>
+<div class="line">}</div>
+</div><!-- fragment --><p>Generally: If you replace <code>\<a class="el" href="namespace_sodium.html">Sodium</a>\</code> with <code><a class="el" href="class_paragon_i_e___sodium___compat.html">ParagonIE_Sodium_Compat</a>::</code>, any code already written for the libsodium PHP extension should work with our polyfill without additional code changes.</p>
+<p>Since this doesn't require a namespace, this API <em>is</em> exposed on PHP 5.2.</p>
+<p>Since version 0.7.0, we have our own namespaced API (<code>ParagonIE\<a class="el" href="namespace_sodium.html">Sodium</a>\*</code>) to allow brevity in software that uses PHP 5.3+. This is useful if you want to use our file cryptography features without writing <code><a class="el" href="class_paragon_i_e___sodium___file.html">ParagonIE_Sodium_File</a></code> every time. This is not exposed on PHP &lt; 5.3, so if your project supports PHP &lt; 5.3, use the underscore method instead.</p>
+<p>To learn how to use Libsodium, read <a href="https://paragonie.com/book/pecl-libsodium"><em>Using Libsodium in PHP Projects</em></a>.</p>
+<h2><a class="anchor" id="autotoc_md6881"></a>
+PHP 7.2 Polyfill</h2>
+<p>As per the <a href="https://wiki.php.net/rfc/libsodium#proposed_voting_choices">second vote on the libsodium RFC</a>, PHP 7.2 uses <code>sodium_*</code> instead of <code>\<a class="el" href="namespace_sodium.html">Sodium</a>\*</code>.</p>
+<div class="fragment"><div class="line">&lt;?<a class="code hl_namespace" href="namespacephp.html">php</a></div>
+<div class="line"><a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">require_once</a> <span class="stringliteral">&quot;/path/to/sodium_compat/autoload.php&quot;</span>;</div>
+<div class="line"> </div>
+<div class="line"><a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">$alice_kp</a> = <a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">sodium_crypto_sign_keypair</a>();</div>
+<div class="line"><a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">$alice_sk</a> = <a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">sodium_crypto_sign_secretkey</a>(<a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">$alice_kp</a>);</div>
+<div class="line"><a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">$alice_pk</a> = <a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">sodium_crypto_sign_publickey</a>(<a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">$alice_kp</a>);</div>
+<div class="line"> </div>
+<div class="line">$message = <span class="stringliteral">&#39;This is a test message.&#39;</span>;</div>
+<div class="line">$signature = <a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">sodium_crypto_sign_detached</a>($message, <a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">$alice_sk</a>);</div>
+<div class="line"><span class="keywordflow">if</span> (<a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">sodium_crypto_sign_verify_detached</a>($signature, $message, <a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">$alice_pk</a>)) {</div>
+<div class="line">    <a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">echo</a> <span class="stringliteral">&#39;OK&#39;</span>, PHP_EOL;</div>
+<div class="line">} <span class="keywordflow">else</span> {</div>
+<div class="line">    <span class="keywordflow">throw</span> <span class="keyword">new</span> Exception(<span class="stringliteral">&#39;Invalid signature&#39;</span>);</div>
+<div class="line">}</div>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md6882"></a>
+Help, Sodium_Compat is Slow! How can I make it fast?</h2>
+<p>There are three ways to make it fast:</p>
+<ol type="1">
+<li>Use PHP 7.2.</li>
+<li><a href="https://paragonie.com/book/pecl-libsodium/read/00-intro.md#installing-libsodium">Install the libsodium PHP extension from PECL</a>.</li>
+<li>Only if the previous two options are not available for you:<ol type="a">
+<li>Verify that <a href="https://bearssl.org/ctmul.html">the processor you're using actually implements constant-time multiplication</a>. Sodium_compat does, but it must trade some speed in order to attain cross-platform security.</li>
+<li>Only if you are 100% certain that your processor is safe, you can set <code><a class="el" href="class_paragon_i_e___sodium___compat.html">ParagonIE_Sodium_Compat</a>::$fastMult = true;</code> without harming the security of your cryptography keys. If your processor <em>isn't</em> safe, then decide whether you want speed or security because you can't have both.</li>
+</ol>
+</li>
+</ol>
+<h3><a class="anchor" id="autotoc_md6883"></a>
+How can I tell if sodium_compat will be slow, at runtime?</h3>
+<p>Since version 1.8, you can use the <code>polyfill_is_fast()</code> static method to determine if sodium_compat will be slow at runtime.</p>
+<div class="fragment"><div class="line">&lt;?<a class="code hl_namespace" href="namespacephp.html">php</a></div>
+<div class="line"><span class="keywordflow">if</span> (ParagonIE_Sodium_Compat::polyfill_is_fast()) {</div>
+<div class="line">    <span class="comment">// Use libsodium now</span></div>
+<div class="line">    $process-&gt;execute();</div>
+<div class="line">} <span class="keywordflow">else</span> {</div>
+<div class="line">    <span class="comment">// Defer to a cron job or other sort of asynchronous process</span></div>
+<div class="line">    $process-&gt;enqueue();</div>
+<div class="line">}</div>
+</div><!-- fragment --><h3><a class="anchor" id="autotoc_md6884"></a>
+Help, my PHP only has 32-Bit Integers! It's super slow!</h3>
+<p>Some features of sodium_compat are ***incredibly slow* with PHP 5 on Windows** (in particular: public-key cryptography (encryption and signatures) is affected), and there is nothing we can do about that, due to platform restrictions on integers.</p>
+<p>For acceptable performance, we highly recommend Windows users to version 1.0.6 of the libsodium extension from PECL or, alternatively, simply upgrade to PHP 7 and the slowdown will be greatly reduced.</p>
+<p>This is also true of non-Windows 32-bit operating systems, or if somehow PHP was compiled where <code>PHP_INT_SIZE</code> equals <code>4</code> instead of <code>8</code> (i.e. Linux on i386).</p>
+<h2><a class="anchor" id="autotoc_md6885"></a>
+Documentation</h2>
+<p>First, you'll want to read the <a href="https://paragonie.com/blog/2017/06/libsodium-quick-reference-quick-comparison-similar-functions-and-which-one-use">Libsodium Quick Reference</a>. It aims to answer, "Which function should I use for [common problem]?".</p>
+<p>If you don't find the answers in the Quick Reference page, check out <a href="https://paragonie.com/book/pecl-libsodium"><em>Using Libsodium in PHP Projects</em></a>.</p>
+<p>Finally, the <a href="https://download.libsodium.org/doc/">official libsodium documentation</a> (which was written for the C library, not the PHP library) also contains a lot of insightful technical information you may find helpful.</p>
+<h2><a class="anchor" id="autotoc_md6886"></a>
+API Coverage</h2>
+<p><b>Recommended reading:</b> <a href="https://paragonie.com/blog/2017/06/libsodium-quick-reference-quick-comparison-similar-functions-and-which-one-use">Libsodium Quick Reference</a></p>
+<ul>
+<li>Mainline NaCl Features<ul>
+<li><code>crypto_auth()</code></li>
+<li><code>crypto_auth_verify()</code></li>
+<li><code>crypto_box()</code></li>
+<li><code>crypto_box_open()</code></li>
+<li><code>crypto_scalarmult()</code></li>
+<li><code>crypto_secretbox()</code></li>
+<li><code>crypto_secretbox_open()</code></li>
+<li><code>crypto_sign()</code></li>
+<li><code>crypto_sign_open()</code></li>
+</ul>
+</li>
+<li>PECL Libsodium Features<ul>
+<li><code>crypto_aead_aes256gcm_encrypt()</code></li>
+<li><code><a class="el" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">crypto_aead_aes256gcm_decrypt()</a></code></li>
+<li><code>crypto_aead_chacha20poly1305_encrypt()</code></li>
+<li><code>crypto_aead_chacha20poly1305_decrypt()</code></li>
+<li><code>crypto_aead_chacha20poly1305_ietf_encrypt()</code></li>
+<li><code>crypto_aead_chacha20poly1305_ietf_decrypt()</code></li>
+<li><code>crypto_aead_xchacha20poly1305_ietf_encrypt()</code></li>
+<li><code>crypto_aead_xchacha20poly1305_ietf_decrypt()</code></li>
+<li><code><a class="el" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">crypto_box_xchacha20poly1305()</a></code></li>
+<li><code><a class="el" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">crypto_box_xchacha20poly1305_open()</a></code></li>
+<li><code>crypto_box_seal()</code></li>
+<li><code>crypto_box_seal_open()</code></li>
+<li><code>crypto_generichash()</code></li>
+<li><code>crypto_generichash_init()</code></li>
+<li><code>crypto_generichash_update()</code></li>
+<li><code>crypto_generichash_final()</code></li>
+<li><code>crypto_kx()</code></li>
+<li><code>crypto_secretbox_xchacha20poly1305()</code></li>
+<li><code>crypto_secretbox_xchacha20poly1305_open()</code></li>
+<li><code>crypto_shorthash()</code></li>
+<li><code>crypto_sign_detached()</code></li>
+<li><code>crypto_sign_ed25519_pk_to_curve25519()</code></li>
+<li><code>crypto_sign_ed25519_sk_to_curve25519()</code></li>
+<li><code>crypto_sign_verify_detached()</code></li>
+<li>For advanced users only:<ul>
+<li><code>crypto_stream()</code></li>
+<li><code>crypto_stream_xor()</code></li>
+</ul>
+</li>
+<li>Other utilities (e.g. <code>crypto_*_keypair()</code>)<ul>
+<li><code>add()</code></li>
+<li><code><a class="el" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">base642bin()</a></code></li>
+<li><code><a class="el" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">bin2base64()</a></code></li>
+<li><code>bin2hex()</code></li>
+<li><code>hex2bin()</code></li>
+<li><code>crypto_kdf_derive_from_key()</code></li>
+<li><code>crypto_kx_client_session_keys()</code></li>
+<li><code>crypto_kx_server_session_keys()</code></li>
+<li><code>crypto_secretstream_xchacha20poly1305_init_push()</code></li>
+<li><code>crypto_secretstream_xchacha20poly1305_push()</code></li>
+<li><code>crypto_secretstream_xchacha20poly1305_init_pull()</code></li>
+<li><code>crypto_secretstream_xchacha20poly1305_pull()</code></li>
+<li><code>crypto_secretstream_xchacha20poly1305_rekey()</code></li>
+<li><code>pad()</code></li>
+<li><code>unpad()</code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3><a class="anchor" id="autotoc_md6887"></a>
+Cryptography Primitives Provided</h3>
+<ul>
+<li><b>X25519</b> - Elliptic Curve Diffie Hellman over Curve25519</li>
+<li><b>Ed25519</b> - Edwards curve Digital Signature Algorithm over Curve25519</li>
+<li><b>Xsalsa20</b> - Extended-nonce Salsa20 stream cipher</li>
+<li><b>ChaCha20</b> - Stream cipher</li>
+<li><b>Xchacha20</b> - Extended-nonce ChaCha20 stream cipher</li>
+<li><b>Poly1305</b> - Polynomial Evaluation Message Authentication Code modulo 2^130 - 5</li>
+<li><b>BLAKE2b</b> - Cryptographic Hash Function</li>
+<li><b>SipHash-2-4</b> - Fast hash, but not collision-resistant; ideal for hash tables.</li>
+</ul>
+<h3><a class="anchor" id="autotoc_md6888"></a>
+Features Excluded from this Polyfill</h3>
+<ul>
+<li><p class="startli"><code>\<a class="el" href="namespace_sodium.html">Sodium</a>\memzero()</code> - Although we expose this API endpoint, we can't reliably zero buffers from PHP.</p>
+<p class="startli">If you have the PHP extension installed, sodium_compat will use the native implementation to zero out the string provided. Otherwise it will throw a <code>SodiumException</code>.</p>
+</li>
+<li><p class="startli"><code>\<a class="el" href="namespace_sodium.html">Sodium</a>\crypto_pwhash()</code> - It's not feasible to polyfill scrypt or Argon2 into PHP and get reasonable performance. Users would feel motivated to select parameters that downgrade security to avoid denial of service (DoS) attacks.</p>
+<p class="startli">The only winning move is not to play.</p>
+<p class="startli">If ext/sodium or ext/libsodium is installed, these API methods will fallthrough to the extension. Otherwise, our polyfill library will throw a <code>SodiumException</code>.</p>
+<p class="startli">To detect support for Argon2i at runtime, use <code>ParagonIE_Sodium_Compat::crypto_pwhash_is_available()</code>, which returns a boolean value (<code>TRUE</code> or <code>FALSE</code>).</p>
+</li>
+</ul>
+<h3><a class="anchor" id="autotoc_md6889"></a>
+PHPCompatibility Ruleset</h3>
+<p>For sodium_compat users and that utilize <a href="https://github.com/PHPCompatibility/PHPCompatibility"><code>PHPCompatibility</code></a> in their CI process, there is now a custom ruleset available which can be used to prevent false positives being thrown by <code>PHPCompatibility</code> for the native PHP functionality being polyfilled by this repo.</p>
+<p>You can find the repo for the <code>PHPCompatibilityParagonieSodiumCompat</code> ruleset here <a href="https://github.com/PHPCompatibility/PHPCompatibilityParagonie">on Github</a> and <a href="https://packagist.org/packages/phpcompatibility/phpcompatibility-paragonie">on Packagist</a>. </p>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0
+</small></address>
+</body>
+</html>

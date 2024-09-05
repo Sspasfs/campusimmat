@@ -1,0 +1,511 @@
+\chapter{Swaggest JSON-\/schema implementation for PHP}
+\hypertarget{md_public_2glpi_2vendor_2swaggest_2json-schema_2_r_e_a_d_m_e}{}\label{md_public_2glpi_2vendor_2swaggest_2json-schema_2_r_e_a_d_m_e}\index{Swaggest JSON-\/schema implementation for PHP@{Swaggest JSON-\/schema implementation for PHP}}
+\label{md_public_2glpi_2vendor_2swaggest_2json-schema_2_r_e_a_d_m_e_autotoc_md7329}%
+\Hypertarget{md_public_2glpi_2vendor_2swaggest_2json-schema_2_r_e_a_d_m_e_autotoc_md7329}%
+ \href{https://travis-ci.org/swaggest/php-json-schema}{\texttt{ }} \href{https://codecov.io/gh/swaggest/php-json-schema}{\texttt{ }} \href{https://wakatime.com/badge/github/swaggest/php-json-schema}{\texttt{ }}  
+
+High definition PHP structures with JSON-\/schema based validation.
+
+Supported schemas\+:
+
+
+\begin{DoxyItemize}
+\item \href{http://json-schema.org/specification-links.html\#draft-7}{\texttt{ JSON Schema Draft 7}}
+\item \href{http://json-schema.org/specification-links.html\#draft-6}{\texttt{ JSON Schema Draft 6}}
+\item \href{http://json-schema.org/specification-links.html\#draft-4}{\texttt{ JSON Schema Draft 4}}
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2swaggest_2json-schema_2_r_e_a_d_m_e_autotoc_md7330}{}\doxysection{\texorpdfstring{Installation}{Installation}}\label{md_public_2glpi_2vendor_2swaggest_2json-schema_2_r_e_a_d_m_e_autotoc_md7330}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{composer\ require\ swaggest/json-\/schema}
+
+\end{DoxyCode}
+\hypertarget{md_public_2glpi_2vendor_2swaggest_2json-schema_2_r_e_a_d_m_e_autotoc_md7331}{}\doxysection{\texorpdfstring{Usage}{Usage}}\label{md_public_2glpi_2vendor_2swaggest_2json-schema_2_r_e_a_d_m_e_autotoc_md7331}
+Structure definition can be done either with {\ttfamily json-\/schema} or with {\ttfamily PHP} class extending {\ttfamily \doxylink{namespace_swaggest}{Swaggest}\textbackslash{}Json\+Schema\textbackslash{}Structure\textbackslash{}Class\+Structure}\hypertarget{md_public_2glpi_2vendor_2swaggest_2json-schema_2_r_e_a_d_m_e_autotoc_md7332}{}\doxysubsection{\texorpdfstring{Validating JSON data against given schema}{Validating JSON data against given schema}}\label{md_public_2glpi_2vendor_2swaggest_2json-schema_2_r_e_a_d_m_e_autotoc_md7332}
+Define your json-\/schema
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\$schemaJson}}\ =\ <<<\textcolor{stringliteral}{'JSON'}}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{"{}type"{}}:\ \textcolor{stringliteral}{"{}object"{}},}
+\DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{"{}properties"{}}:\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}id"{}}:\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}type"{}}:\ \textcolor{stringliteral}{"{}integer"{}}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}name"{}}:\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}type"{}}:\ \textcolor{stringliteral}{"{}string"{}}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}orders"{}}:\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}type"{}}:\ \textcolor{stringliteral}{"{}array"{}},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}items"{}}:\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\$ref"{}}:\ \textcolor{stringliteral}{"{}\#/definitions/order"{}}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ \},}
+\DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{"{}required"{}}:[\textcolor{stringliteral}{"{}id"{}}],}
+\DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{"{}definitions"{}}:\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}order"{}}:\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}type"{}}:\ \textcolor{stringliteral}{"{}object"{}},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}properties"{}}:\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}id"{}}:\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}type"{}}:\ \textcolor{stringliteral}{"{}integer"{}}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}price"{}}:\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}type"{}}:\ \textcolor{stringliteral}{"{}number"{}}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}updated"{}}:\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}type"{}}:\ \textcolor{stringliteral}{"{}string"{}},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}format"{}}:\ \textcolor{stringliteral}{"{}date-\/time"{}}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}required"{}}:[\textcolor{stringliteral}{"{}id"{}}]}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{JSON;}
+
+\end{DoxyCode}
+
+
+Load it
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{use}}\ \mbox{\hyperlink{class_swaggest_1_1_json_schema_1_1_schema}{Swaggest\(\backslash\)JsonSchema\(\backslash\)Schema}};}
+\DoxyCodeLine{\$schema\ =\ Schema::import(json\_decode(\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\$schemaJson}}));}
+
+\end{DoxyCode}
+
+
+Validate data
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\$schema-\/>in(json\_decode(<<<\textcolor{stringliteral}{'JSON'}}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{"{}id"{}}:\ 1,}
+\DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{"{}name"{}}:\textcolor{stringliteral}{"{}John\ Doe"{}},}
+\DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{"{}orders"{}}:[}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}id"{}}:1}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}price"{}}:1.0}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ ]}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{JSON}
+\DoxyCodeLine{));\ \textcolor{comment}{//\ Exception:\ Required\ property\ missing:\ id\ at\ \#-\/>properties:orders-\/>items[1]-\/>\#/definitions/order}}
+
+\end{DoxyCode}
+
+
+You can also call {\ttfamily Schema\+::import} on string {\ttfamily uri} to schema json data.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\$schema\ =\ Schema::import(\textcolor{stringliteral}{'http://localhost:1234/my\_schema.json'});}
+
+\end{DoxyCode}
+
+
+Or with boolean argument.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\$schema\ =\ Schema::import(\textcolor{keyword}{true});\ \textcolor{comment}{//\ permissive\ schema,\ always\ validates}}
+\DoxyCodeLine{\$schema\ =\ Schema::import(\textcolor{keyword}{false});\ \textcolor{comment}{//\ restrictive\ schema,\ always\ invalidates}}
+
+\end{DoxyCode}
+\hypertarget{md_public_2glpi_2vendor_2swaggest_2json-schema_2_r_e_a_d_m_e_autotoc_md7333}{}\doxysubsection{\texorpdfstring{Understanding error cause}{Understanding error cause}}\label{md_public_2glpi_2vendor_2swaggest_2json-schema_2_r_e_a_d_m_e_autotoc_md7333}
+With complex schemas it may be hard to find out what\textquotesingle{}s wrong with your data. Exception message can look like\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{No\ valid\ results\ for\ oneOf\ \{}
+\DoxyCodeLine{\ 0:\ Enum\ failed,\ enum:\ ["{}a"{}],\ data:\ "{}f"{}\ at\ \#-\/>properties:root-\/>patternProperties[\string^[a-\/zA-\/Z0-\/9\_]+\$]:zoo-\/>oneOf[0]}
+\DoxyCodeLine{\ 1:\ Enum\ failed,\ enum:\ ["{}b"{}],\ data:\ "{}f"{}\ at\ \#-\/>properties:root-\/>patternProperties[\string^[a-\/zA-\/Z0-\/9\_]+\$]:zoo-\/>oneOf[1]}
+\DoxyCodeLine{\ 2:\ No\ valid\ results\ for\ anyOf\ \{}
+\DoxyCodeLine{\ \ \ 0:\ Enum\ failed,\ enum:\ ["{}c"{}],\ data:\ "{}f"{}\ at\ \#-\/>properties:root-\/>patternProperties[\string^[a-\/zA-\/Z0-\/9\_]+\$]:zoo-\/>oneOf[2]-\/>\$ref[\#/cde]-\/>anyOf[0]}
+\DoxyCodeLine{\ \ \ 1:\ Enum\ failed,\ enum:\ ["{}d"{}],\ data:\ "{}f"{}\ at\ \#-\/>properties:root-\/>patternProperties[\string^[a-\/zA-\/Z0-\/9\_]+\$]:zoo-\/>oneOf[2]-\/>\$ref[\#/cde]-\/>anyOf[1]}
+\DoxyCodeLine{\ \ \ 2:\ Enum\ failed,\ enum:\ ["{}e"{}],\ data:\ "{}f"{}\ at\ \#-\/>properties:root-\/>patternProperties[\string^[a-\/zA-\/Z0-\/9\_]+\$]:zoo-\/>oneOf[2]-\/>\$ref[\#/cde]-\/>anyOf[2]}
+\DoxyCodeLine{\ \}\ at\ \#-\/>properties:root-\/>patternProperties[\string^[a-\/zA-\/Z0-\/9\_]+\$]:zoo-\/>oneOf[2]-\/>\$ref[\#/cde]}
+\DoxyCodeLine{\}\ at\ \#-\/>properties:root-\/>patternProperties[\string^[a-\/zA-\/Z0-\/9\_]+\$]:zoo}
+
+\end{DoxyCode}
+
+
+For ambiguous schemas defined with {\ttfamily one\+Of}/{\ttfamily any\+Of} message is indented multi-\/line string.
+
+Processing path is a combination of schema and data pointers. You can use {\ttfamily Invalid\+Value-\/\texorpdfstring{$>$}{>}get\+Schema\+Pointer()} and {\ttfamily Invalid\+Value-\/\texorpdfstring{$>$}{>}get\+Data\+Pointer()} to extract schema/data pointer.
+
+You can receive {\ttfamily Schema} instance that failed validation with {\ttfamily Invalid\+Value-\/\texorpdfstring{$>$}{>}get\+Failed\+Sub\+Schema}.
+
+You can build error tree using {\ttfamily Invalid\+Value-\/\texorpdfstring{$>$}{>}inspect()}.\hypertarget{md_public_2glpi_2vendor_2swaggest_2json-schema_2_r_e_a_d_m_e_autotoc_md7334}{}\doxysubsection{\texorpdfstring{PHP structured classes with validation}{PHP structured classes with validation}}\label{md_public_2glpi_2vendor_2swaggest_2json-schema_2_r_e_a_d_m_e_autotoc_md7334}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keyword}{class\ }\mbox{\hyperlink{class_user}{User}}\ \textcolor{keyword}{extends}\ ClassStructure}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{/*\ Native\ (public)\ properties\ will\ be\ validated\ only\ on\ import\ and\ export\ of\ structure\ data\ */}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{public}\ \mbox{\hyperlink{dcroom__size_8php_a486874338c68ffaacd31e2ea5d28495f}{\$id}};}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{public}\ \mbox{\hyperlink{aealarabiya_8php_ab2fc40d43824ea3e1ce5d86dee0d763b}{\$name}};}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{public}\ \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\$orders}};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{public}\ \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\$info}};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{static}\ \textcolor{keyword}{function}\ setUpProperties(\$properties,\ Schema\ \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\$ownerSchema}})}
+\DoxyCodeLine{\ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{comment}{//\ You\ can\ add\ custom\ meta\ to\ your\ schema}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\$dbTable}}\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{DbTable}};}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\$dbTable}}-\/>tableName\ =\ \textcolor{stringliteral}{'users'};}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\$ownerSchema}}-\/>addMeta(\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\$dbTable}});}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{comment}{//\ Setup\ property\ schemas}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \$properties-\/>id\ =\ Schema::integer();}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \$properties-\/>id-\/>addMeta(\textcolor{keyword}{new}\ \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{DbId}}(\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\$dbTable}}));\ \textcolor{comment}{//\ You\ can\ add\ meta\ to\ property.}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \$properties-\/>name\ =\ Schema::string();}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{comment}{//\ You\ can\ embed\ structures\ to\ main\ level\ with\ nested\ schemas}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \$properties-\/>info\ =\ UserInfo::schema()-\/>nested();}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{comment}{//\ You\ can\ set\ default\ value\ for\ property}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \$defaultOptions\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{UserOptions}}();}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \$defaultOptions-\/>autoLogin\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \$defaultOptions-\/>groupName\ =\ \textcolor{stringliteral}{'guest'};}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{comment}{//\ UserOptions::schema()\ is\ safe\ to\ change\ as\ it\ is\ protected\ with\ lazy\ cloning}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \$properties-\/>options\ =\ UserOptions::schema()-\/>setDefault(UserOptions::export(\$defaultOptions));}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{comment}{//\ Dynamic\ (phpdoc-\/defined)\ properties\ can\ be\ used\ as\ well}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \$properties-\/>quantity\ =\ Schema::integer();}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \$properties-\/>quantity-\/>minimum\ =\ 0;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{comment}{//\ Property\ can\ be\ any\ complex\ structure}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \$properties-\/>orders\ =\ Schema::create();}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \$properties-\/>orders-\/>items\ =\ Order::schema();}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\$ownerSchema}}-\/>required\ =\ array(self::names()-\/>\textcolor{keywordtype}{id});}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keyword}{class\ }\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{UserInfo}}\ \textcolor{keyword}{extends}\ ClassStructure\ \{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{public}\ \$firstName;}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{public}\ \$lastName;}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{public}\ \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\$birthDay}};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{static}\ \textcolor{keyword}{function}\ setUpProperties(\$properties,\ Schema\ \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\$ownerSchema}})}
+\DoxyCodeLine{\ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \$properties-\/>firstName\ =\ Schema::string();}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \$properties-\/>lastName\ =\ Schema::string();}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \$properties-\/>birthDay\ =\ Schema::string();}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keyword}{class\ }\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{UserOptions}}\ \textcolor{keyword}{extends}\ ClassStructure}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{public}\ \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\$autoLogin}};}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{public}\ \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\$groupName}};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{static}\ \textcolor{keyword}{function}\ setUpProperties(\$properties,\ Schema\ \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\$ownerSchema}})}
+\DoxyCodeLine{\ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \$properties-\/>autoLogin\ =\ Schema::boolean();}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \$properties-\/>groupName\ =\ Schema::string();}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keyword}{class\ }\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{Order}}\ \textcolor{keyword}{implements}\ ClassStructureContract}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{use}}\ \mbox{\hyperlink{namespace_swaggest_1_1_json_schema_1_1_structure_a26b0a120d8dafb2e9de5e6ff06c12de2}{ClassStructureTrait}};\ \textcolor{comment}{//\ You\ can\ use\ trait\ if\ you\ can't/don't\ want\ to\ extend\ ClassStructure}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{FANCY\_MAPPING}}\ =\ \textcolor{stringliteral}{'fAnCy'};\ \textcolor{comment}{//\ You\ can\ create\ additional\ mapping\ namespace}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{public}\ \mbox{\hyperlink{dcroom__size_8php_a486874338c68ffaacd31e2ea5d28495f}{\$id}};}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{public}\ \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\$userId}};}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{public}\ \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\$dateTime}};}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{public}\ \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\$price}};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{static}\ \textcolor{keyword}{function}\ setUpProperties(\$properties,\ Schema\ \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\$ownerSchema}})}
+\DoxyCodeLine{\ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{comment}{//\ Add\ some\ meta\ data\ to\ your\ schema}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\$dbMeta}}\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{DbTable}}();}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\$dbMeta}}-\/>tableName\ =\ \textcolor{stringliteral}{'orders'};}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\$ownerSchema}}-\/>addMeta(\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\$dbMeta}});}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{comment}{//\ Define\ properties}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \$properties-\/>id\ =\ Schema::integer();}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \$properties-\/>userId\ =\ User::properties()-\/>id;\ \textcolor{comment}{//\ referencing\ property\ of\ another\ schema\ keeps\ meta}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \$properties-\/>dateTime\ =\ Schema::string();}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \$properties-\/>dateTime-\/>format\ =\ Format::DATE\_TIME;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \$properties-\/>price\ =\ Schema::number();}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\$ownerSchema}}-\/>setFromRef(\textcolor{stringliteral}{'\#/definitions/order'});}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{comment}{//\ Define\ default\ mapping\ if\ any.}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\$ownerSchema}}-\/>addPropertyMapping(\textcolor{stringliteral}{'date\_time'},\ Order::names()-\/>\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{dateTime}});}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{comment}{//\ Use\ mapped\ name\ references\ after\ the\ default\ mapping\ was\ configured.}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\$names}}\ =\ self::names(\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\$ownerSchema}}-\/>properties);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\$ownerSchema}}-\/>required\ =\ array(}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\$names}}-\/>id,\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\$names}}-\/>dateTime,\ \textcolor{comment}{//\ "{}date\_time"{}}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\$names}}-\/>price\ \ \ \ \ \ \ }
+\DoxyCodeLine{\ \ \ \ \ \ \ \ );}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{comment}{//\ Define\ additional\ mapping}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\$ownerSchema}}-\/>addPropertyMapping(\textcolor{stringliteral}{'DaTe\_TiMe'},\ Order::names()-\/>\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{dateTime}},\ self::FANCY\_MAPPING);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\$ownerSchema}}-\/>addPropertyMapping(\textcolor{stringliteral}{'Id'},\ Order::names()-\/>\textcolor{keywordtype}{id},\ self::FANCY\_MAPPING);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\$ownerSchema}}-\/>addPropertyMapping(\textcolor{stringliteral}{'PrIcE'},\ Order::names()-\/>\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{price}},\ self::FANCY\_MAPPING);}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+Validation of dynamic properties is performed on set, this can help to find source of invalid data at cost of some performance drop
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{get_user_picture_8php_a041135b9d1519f563d0ffbfaae51f522}{\$user}}\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{class_user}{User}}();}
+\DoxyCodeLine{\mbox{\hyperlink{get_user_picture_8php_a041135b9d1519f563d0ffbfaae51f522}{\$user}}-\/>quantity\ =\ -\/1;\ \textcolor{comment}{//\ Exception:\ Value\ more\ than\ 0\ expected,\ -\/1\ received}}
+
+\end{DoxyCode}
+
+
+Validation of native properties is performed only on import/export
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{get_user_picture_8php_a041135b9d1519f563d0ffbfaae51f522}{\$user}}\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{class_user}{User}}();}
+\DoxyCodeLine{\mbox{\hyperlink{get_user_picture_8php_a041135b9d1519f563d0ffbfaae51f522}{\$user}}-\/>quantity\ =\ 10;}
+\DoxyCodeLine{User::export(\mbox{\hyperlink{get_user_picture_8php_a041135b9d1519f563d0ffbfaae51f522}{\$user}});\ \textcolor{comment}{//\ Exception:\ Required\ property\ missing:\ id}}
+
+\end{DoxyCode}
+
+
+Error messages provide a path to invalid data
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{get_user_picture_8php_a041135b9d1519f563d0ffbfaae51f522}{\$user}}\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{class_user}{User}}();}
+\DoxyCodeLine{\mbox{\hyperlink{get_user_picture_8php_a041135b9d1519f563d0ffbfaae51f522}{\$user}}-\/>id\ =\ 1;}
+\DoxyCodeLine{\mbox{\hyperlink{get_user_picture_8php_a041135b9d1519f563d0ffbfaae51f522}{\$user}}-\/>name\ =\ \textcolor{stringliteral}{'John\ Doe'};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\$order}}\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{Order}}();}
+\DoxyCodeLine{\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\$order}}-\/>dateTime\ =\ (\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{new\ \(\backslash\)DateTime}}())-\/>format(\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{DATE\_RFC3339}});}
+\DoxyCodeLine{\mbox{\hyperlink{get_user_picture_8php_a041135b9d1519f563d0ffbfaae51f522}{\$user}}-\/>orders[]\ =\ \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\$order}};}
+\DoxyCodeLine{}
+\DoxyCodeLine{User::export(\mbox{\hyperlink{get_user_picture_8php_a041135b9d1519f563d0ffbfaae51f522}{\$user}});\ \textcolor{comment}{//\ Exception:\ Required\ property\ missing:\ id\ at\ \#-\/>properties:orders-\/>items[0]}}
+
+\end{DoxyCode}
+\hypertarget{md_public_2glpi_2vendor_2swaggest_2json-schema_2_r_e_a_d_m_e_autotoc_md7335}{}\doxysubsubsection{\texorpdfstring{Nested structures}{Nested structures}}\label{md_public_2glpi_2vendor_2swaggest_2json-schema_2_r_e_a_d_m_e_autotoc_md7335}
+Nested structures allow you to make composition\+: flatten several objects in one and separate back.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{get_user_picture_8php_a041135b9d1519f563d0ffbfaae51f522}{\$user}}\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{class_user}{User}}();}
+\DoxyCodeLine{\mbox{\hyperlink{get_user_picture_8php_a041135b9d1519f563d0ffbfaae51f522}{\$user}}-\/>id\ =\ 1;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\$info}}\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{UserInfo}}();}
+\DoxyCodeLine{\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\$info}}-\/>firstName\ =\ \textcolor{stringliteral}{'John'};}
+\DoxyCodeLine{\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\$info}}-\/>lastName\ =\ \textcolor{stringliteral}{'Doe'};}
+\DoxyCodeLine{\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\$info}}-\/>birthDay\ =\ \textcolor{stringliteral}{'1970-\/01-\/01'};}
+\DoxyCodeLine{\mbox{\hyperlink{get_user_picture_8php_a041135b9d1519f563d0ffbfaae51f522}{\$user}}-\/>info\ =\ \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\$info}};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\$json\ =\ <<<JSON}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{"{}id"{}}:\ 1,}
+\DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{"{}firstName"{}}:\ \textcolor{stringliteral}{"{}John"{}},}
+\DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{"{}lastName"{}}:\ \textcolor{stringliteral}{"{}Doe"{}},}
+\DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{"{}birthDay"{}}:\ \textcolor{stringliteral}{"{}1970-\/01-\/01"{}}}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{JSON;}
+\DoxyCodeLine{\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\$exported}}\ =\ User::export(\mbox{\hyperlink{get_user_picture_8php_a041135b9d1519f563d0ffbfaae51f522}{\$user}});}
+\DoxyCodeLine{\$this-\/>\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{assertSame}}(\$json,\ json\_encode(\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\$exported}},\ \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{JSON\_PRETTY\_PRINT}}));}
+\DoxyCodeLine{}
+\DoxyCodeLine{\$imported\ =\ User::import(json\_decode(\$json));}
+\DoxyCodeLine{\$this-\/>\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{assertSame}}(\textcolor{stringliteral}{'John'},\ \$imported-\/>info-\/>firstName);}
+\DoxyCodeLine{\$this-\/>\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{assertSame}}(\textcolor{stringliteral}{'Doe'},\ \$imported-\/>info-\/>lastName);}
+
+\end{DoxyCode}
+
+
+You can also use {\ttfamily \textbackslash{}\doxylink{namespace_swaggest}{Swaggest}\textbackslash{}Json\+Schema\textbackslash{}Structure\textbackslash{}Composition} to dynamically create schema compositions. This can be helpful to deal with results of database query on joined data.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\$schema\ =\ \textcolor{keyword}{new}\ Composition(UserInfo::schema(),\ Order::schema());}
+\DoxyCodeLine{\$json\ =\ <<<JSON}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{"{}id"{}}:\ 1,}
+\DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{"{}firstName"{}}:\ \textcolor{stringliteral}{"{}John"{}},}
+\DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{"{}lastName"{}}:\ \textcolor{stringliteral}{"{}Doe"{}},}
+\DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{"{}price"{}}:\ 2.66}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{JSON;}
+\DoxyCodeLine{\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\$object}}\ =\ \$schema-\/>import(json\_decode(\$json));}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ Get\ particular\ object\ with\ \`{}pick`\ accessor}}
+\DoxyCodeLine{\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\$info}}\ =\ UserInfo::pick(\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\$object}});}
+\DoxyCodeLine{\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\$order}}\ =\ Order::pick(\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\$object}});}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ Data\ is\ imported\ objects\ of\ according\ classes}}
+\DoxyCodeLine{\$this-\/>\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{assertTrue}}(\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\$order}}\ \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{instanceof}}\ \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{Order}});}
+\DoxyCodeLine{\$this-\/>\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{assertTrue}}(\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\$info}}\ \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{instanceof}}\ \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{UserInfo}});}
+\DoxyCodeLine{}
+\DoxyCodeLine{\$this-\/>\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{assertSame}}(1,\ \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\$order}}-\/>id);}
+\DoxyCodeLine{\$this-\/>\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{assertSame}}(\textcolor{stringliteral}{'John'},\ \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\$info}}-\/>firstName);}
+\DoxyCodeLine{\$this-\/>\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{assertSame}}(\textcolor{stringliteral}{'Doe'},\ \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\$info}}-\/>lastName);}
+\DoxyCodeLine{\$this-\/>\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{assertSame}}(2.66,\ \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\$order}}-\/>price);}
+
+\end{DoxyCode}
+\hypertarget{md_public_2glpi_2vendor_2swaggest_2json-schema_2_r_e_a_d_m_e_autotoc_md7336}{}\doxysubsubsection{\texorpdfstring{Keys mapping}{Keys mapping}}\label{md_public_2glpi_2vendor_2swaggest_2json-schema_2_r_e_a_d_m_e_autotoc_md7336}
+If property names of PHP objects should be different from raw data you can call {\ttfamily -\/\texorpdfstring{$>$}{>}add\+Property\+Mapping} on owner schema.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{comment}{//\ Define\ default\ mapping\ if\ any}}
+\DoxyCodeLine{\$ownerSchema-\/>addPropertyMapping(\textcolor{stringliteral}{'date\_time'},\ Order::names()-\/>\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{dateTime}});}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ Define\ additional\ mapping}}
+\DoxyCodeLine{\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\$ownerSchema}}-\/>addPropertyMapping(\textcolor{stringliteral}{'DaTe\_TiMe'},\ Order::names()-\/>\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{dateTime}},\ self::FANCY\_MAPPING);}
+\DoxyCodeLine{\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\$ownerSchema}}-\/>addPropertyMapping(\textcolor{stringliteral}{'Id'},\ Order::names()-\/>\textcolor{keywordtype}{id},\ self::FANCY\_MAPPING);}
+\DoxyCodeLine{\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\$ownerSchema}}-\/>addPropertyMapping(\textcolor{stringliteral}{'PrIcE'},\ Order::names()-\/>\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{price}},\ self::FANCY\_MAPPING);}
+
+\end{DoxyCode}
+
+
+It will affect data mapping\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\$order}}\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{Order}}();}
+\DoxyCodeLine{\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\$order}}-\/>id\ =\ 1;}
+\DoxyCodeLine{\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\$order}}-\/>dateTime\ =\ \textcolor{stringliteral}{'2015-\/10-\/28T07:28:00Z'};}
+\DoxyCodeLine{\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\$order}}-\/>price\ =\ 2.2;}
+\DoxyCodeLine{\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\$exported}}\ =\ Order::export(\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\$order}});}
+\DoxyCodeLine{\$json\ =\ <<<JSON}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{"{}id"{}}:\ 1,}
+\DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{"{}date\_time"{}}:\ \textcolor{stringliteral}{"{}2015-\/10-\/28T07:28:00Z"{}},}
+\DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{"{}price"{}}:\ 2.2}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{JSON;}
+\DoxyCodeLine{\$this-\/>\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{assertSame}}(\$json,\ json\_encode(\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\$exported}},\ \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{JSON\_PRETTY\_PRINT}}));}
+\DoxyCodeLine{}
+\DoxyCodeLine{\$imported\ =\ Order::import(json\_decode(\$json));}
+\DoxyCodeLine{\$this-\/>\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{assertSame}}(\textcolor{stringliteral}{'2015-\/10-\/28T07:28:00Z'},\ \$imported-\/>dateTime);}
+
+\end{DoxyCode}
+
+
+You can have multiple mapping namespaces, controlling with {\ttfamily mapping} property of {\ttfamily Context}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{common_8tabs_8php_a011800c63ece4cbbfa77136a20607023}{\$options}}\ =\ \textcolor{keyword}{new}\ Context();}
+\DoxyCodeLine{\mbox{\hyperlink{common_8tabs_8php_a011800c63ece4cbbfa77136a20607023}{\$options}}-\/>mapping\ =\ Order::FANCY\_MAPPING;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\$exported}}\ =\ Order::export(\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\$order}},\ \mbox{\hyperlink{common_8tabs_8php_a011800c63ece4cbbfa77136a20607023}{\$options}});}
+\DoxyCodeLine{\$json\ =\ <<<JSON}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{"{}Id"{}}:\ 1,}
+\DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{"{}DaTe\_TiMe"{}}:\ \textcolor{stringliteral}{"{}2015-\/10-\/28T07:28:00Z"{}},}
+\DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{"{}PrIcE"{}}:\ 2.2}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{JSON;}
+\DoxyCodeLine{\$this-\/>\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{assertSame}}(\$json,\ json\_encode(\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\$exported}},\ \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{JSON\_PRETTY\_PRINT}}));}
+\DoxyCodeLine{}
+\DoxyCodeLine{\$imported\ =\ Order::import(json\_decode(\$json),\ \mbox{\hyperlink{common_8tabs_8php_a011800c63ece4cbbfa77136a20607023}{\$options}});}
+\DoxyCodeLine{\$this-\/>\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{assertSame}}(\textcolor{stringliteral}{'2015-\/10-\/28T07:28:00Z'},\ \$imported-\/>dateTime);}
+
+\end{DoxyCode}
+
+
+You can create your own pre-\/processor implementing {\ttfamily \doxylink{namespace_swaggest}{Swaggest}\textbackslash{}Json\+Schema\textbackslash{}Data\+Pre\+Processor}.\hypertarget{md_public_2glpi_2vendor_2swaggest_2json-schema_2_r_e_a_d_m_e_autotoc_md7337}{}\doxysubsubsection{\texorpdfstring{Meta}{Meta}}\label{md_public_2glpi_2vendor_2swaggest_2json-schema_2_r_e_a_d_m_e_autotoc_md7337}
+{\ttfamily Meta} is a way to complement {\ttfamily Schema} with your own data. You can keep and retrieve it.
+
+You can store it.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\$dbMeta}}\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{DbTable}}();}
+\DoxyCodeLine{\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\$dbMeta}}-\/>tableName\ =\ \textcolor{stringliteral}{'orders'};}
+\DoxyCodeLine{\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\$ownerSchema}}-\/>addMeta(\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\$dbMeta}});}
+
+\end{DoxyCode}
+
+
+And get back.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{comment}{//\ Retrieving\ meta}}
+\DoxyCodeLine{\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\$dbTable}}\ =\ DbTable::get(Order::schema());}
+\DoxyCodeLine{\$this-\/>\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{assertSame}}(\textcolor{stringliteral}{'orders'},\ \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\$dbTable}}-\/>tableName);}
+
+\end{DoxyCode}
+\hypertarget{md_public_2glpi_2vendor_2swaggest_2json-schema_2_r_e_a_d_m_e_autotoc_md7338}{}\doxysubsubsection{\texorpdfstring{Mapping without validation}{Mapping without validation}}\label{md_public_2glpi_2vendor_2swaggest_2json-schema_2_r_e_a_d_m_e_autotoc_md7338}
+If you want to tolerate invalid data or improve mapping performance you can specify {\ttfamily skip\+Validation} flag in processing {\ttfamily Context}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\$schema\ =\ Schema::object();}
+\DoxyCodeLine{\$schema-\/>setProperty(\textcolor{stringliteral}{'one'},\ Schema::integer());}
+\DoxyCodeLine{\$schema-\/>properties-\/>one-\/>minimum\ =\ 5;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\mbox{\hyperlink{common_8tabs_8php_a011800c63ece4cbbfa77136a20607023}{\$options}}\ =\ \textcolor{keyword}{new}\ Context();}
+\DoxyCodeLine{\mbox{\hyperlink{common_8tabs_8php_a011800c63ece4cbbfa77136a20607023}{\$options}}-\/>skipValidation\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\mbox{\hyperlink{front_2reservationitem_8php_a49a8a4009b02e49717caa88b128affc5}{\$res}}\ =\ \$schema-\/>in(json\_decode(\textcolor{stringliteral}{'\{"{}one"{}:4\}'}),\ \mbox{\hyperlink{common_8tabs_8php_a011800c63ece4cbbfa77136a20607023}{\$options}});}
+\DoxyCodeLine{\$this-\/>\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{assertSame}}(4,\ \mbox{\hyperlink{front_2reservationitem_8php_a49a8a4009b02e49717caa88b128affc5}{\$res}}-\/>one);}
+
+\end{DoxyCode}
+\hypertarget{md_public_2glpi_2vendor_2swaggest_2json-schema_2_r_e_a_d_m_e_autotoc_md7339}{}\doxysubsubsection{\texorpdfstring{Overriding mapping classes}{Overriding mapping classes}}\label{md_public_2glpi_2vendor_2swaggest_2json-schema_2_r_e_a_d_m_e_autotoc_md7339}
+If you want to map data to a different class you can register mapping at top level of your importer structure.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{class\ }\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{CustomSwaggerSchema}}\ \textcolor{keyword}{extends}\ \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{SwaggerSchema}}}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{static}\ \textcolor{keyword}{function}\ \textcolor{keyword}{import}(\mbox{\hyperlink{map_8php_ac4cc485208612884539dda2da7d39024}{\$data}},\ Context\ \mbox{\hyperlink{common_8tabs_8php_a011800c63ece4cbbfa77136a20607023}{\$options}}\ =\ \textcolor{keyword}{null})}
+\DoxyCodeLine{\ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{common_8tabs_8php_a011800c63ece4cbbfa77136a20607023}{\$options}}\ ===\ \textcolor{keyword}{null})\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{common_8tabs_8php_a011800c63ece4cbbfa77136a20607023}{\$options}}\ =\ \textcolor{keyword}{new}\ Context();}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \mbox{\hyperlink{common_8tabs_8php_a011800c63ece4cbbfa77136a20607023}{\$options}}-\/>objectItemClassMapping[Schema::className()]\ =\ CustomSchema::className();}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ parent::import(\mbox{\hyperlink{map_8php_ac4cc485208612884539dda2da7d39024}{\$data}},\ \mbox{\hyperlink{common_8tabs_8php_a011800c63ece4cbbfa77136a20607023}{\$options}});}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+Or specify it in processing context
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{dropdown_tracking_device_type_8php_ae05dedb802ada0155efdece2044fed64}{\$context}}\ =\ \textcolor{keyword}{new}\ Context();}
+\DoxyCodeLine{\mbox{\hyperlink{dropdown_tracking_device_type_8php_ae05dedb802ada0155efdece2044fed64}{\$context}}-\/>objectItemClassMapping[Schema::className()]\ =\ CustomSchema::className();}
+\DoxyCodeLine{\$schema\ =\ SwaggerSchema::schema()-\/>in(json\_decode(}
+\DoxyCodeLine{\ \ \ \ file\_get\_contents(\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\_\_DIR\_\_}}\ .\ \textcolor{stringliteral}{'/../../../../spec/petstore-\/swagger.json'})}
+\DoxyCodeLine{),\ \mbox{\hyperlink{dropdown_tracking_device_type_8php_ae05dedb802ada0155efdece2044fed64}{\$context}});}
+\DoxyCodeLine{\$this-\/>\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{assertInstanceOf}}(CustomSchema::className(),\ \$schema-\/>definitions[\textcolor{stringliteral}{'User'}]);}
+
+\end{DoxyCode}
+\hypertarget{md_public_2glpi_2vendor_2swaggest_2json-schema_2_r_e_a_d_m_e_autotoc_md7340}{}\doxysection{\texorpdfstring{Code quality and test coverage}{Code quality and test coverage}}\label{md_public_2glpi_2vendor_2swaggest_2json-schema_2_r_e_a_d_m_e_autotoc_md7340}
+Some code quality best practices are deliberately violated here ( see \href{https://scrutinizer-ci.com/g/swaggest/php-json-schema/?branch=master}{\texttt{ }} ) to allow best performance at maintenance cost.
+
+Those violations are secured by comprehensive test coverage\+:
+
+
+\begin{DoxyItemize}
+\item draft-\/04, draft-\/06, draft-\/07 of \href{https://github.com/json-schema-org/JSON-Schema-Test-Suite}{\texttt{ JSON-\/\+Schema-\/\+Test-\/\+Suite}}
+\item test cases (excluding {\ttfamily \$data} and few tests) of \href{https://github.com/epoberezkin/ajv/tree/master/spec}{\texttt{ epoberezkin/ajv}} (a mature js implementation)
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2swaggest_2json-schema_2_r_e_a_d_m_e_autotoc_md7341}{}\doxysection{\texorpdfstring{Contributing}{Contributing}}\label{md_public_2glpi_2vendor_2swaggest_2json-schema_2_r_e_a_d_m_e_autotoc_md7341}
+Issues and pull requests are welcome!
+
+\href{https://sourcerer.io/fame/vearutop/swaggest/php-json-schema/links/0}{\texttt{ }}\href{https://sourcerer.io/fame/vearutop/swaggest/php-json-schema/links/1}{\texttt{ }}\href{https://sourcerer.io/fame/vearutop/swaggest/php-json-schema/links/2}{\texttt{ }}\href{https://sourcerer.io/fame/vearutop/swaggest/php-json-schema/links/3}{\texttt{ }}\href{https://sourcerer.io/fame/vearutop/swaggest/php-json-schema/links/4}{\texttt{ }}\href{https://sourcerer.io/fame/vearutop/swaggest/php-json-schema/links/5}{\texttt{ }}\href{https://sourcerer.io/fame/vearutop/swaggest/php-json-schema/links/6}{\texttt{ }}\href{https://sourcerer.io/fame/vearutop/swaggest/php-json-schema/links/7}{\texttt{ }}
+
+Development supported by \href{https://www.jetbrains.com/community/opensource/\#support}{\texttt{ Jet\+Brains}}. 

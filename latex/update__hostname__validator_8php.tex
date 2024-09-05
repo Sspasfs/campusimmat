@@ -1,0 +1,186 @@
+\doxysection{Référence du fichier public/glpi/vendor/laminas/laminas-\/validator/bin/update\+\_\+hostname\+\_\+validator.php}
+\hypertarget{update__hostname__validator_8php}{}\label{update__hostname__validator_8php}\index{public/glpi/vendor/laminas/laminas-\/validator/bin/update\_hostname\_validator.php@{public/glpi/vendor/laminas/laminas-\/validator/bin/update\_hostname\_validator.php}}
+\doxysubsubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{update__hostname__validator_8php_a37fd9141118ee6d704a107f6b3ba9ca4}{get\+Official\+TLDs}} ()
+\item 
+\mbox{\hyperlink{update__hostname__validator_8php_a58387310926c6a1f253edd3b3dd9a17b}{get\+Version\+From\+String}} (\$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{prefix}}, \$string)
+\item 
+\mbox{\hyperlink{update__hostname__validator_8php_abc9f48cdbfd39343fb43af1fd1f09903}{get\+New\+Valid\+Tlds}} (\$string)
+\item 
+\mbox{\hyperlink{update__hostname__validator_8php_ae2939dd5740e5b73235c287b446539f2}{get\+Punycode\+Decoder}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const \mbox{\hyperlink{update__hostname__validator_8php_a4ebe2ca7c01dfcdec1ebd10b528ab9a8}{IANA\+\_\+\+URL}} \textquotesingle{}\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{https\+:}}//\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{data.\+iana.\+org}}/\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{TLD}}/\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{tlds}}-\/alpha-\/\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{by}}-\/\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{domain.\+txt}}\textquotesingle{}
+\item 
+const \mbox{\hyperlink{update__hostname__validator_8php_a56cd7666ad02e32bb3b4829ee61a68ea}{LAMINAS\+\_\+\+HOSTNAME\+\_\+\+VALIDATOR\+\_\+\+FILE}} \+\_\+\+\_\+\+DIR\+\_\+\+\_\+.\textquotesingle{}/../\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{src}}/Hostname.\+php\textquotesingle{}
+\item 
+\mbox{\hyperlink{dropdown_location_8php_a52332c22f84432520971794825a5a8e7}{if}}(! file\+\_\+exists(\mbox{\hyperlink{update__hostname__validator_8php_a56cd7666ad02e32bb3b4829ee61a68ea}{LAMINAS\+\_\+\+HOSTNAME\+\_\+\+VALIDATOR\+\_\+\+FILE}})\texorpdfstring{$\vert$}{|}\texorpdfstring{$\vert$}{|}! is\+\_\+readable(\mbox{\hyperlink{update__hostname__validator_8php_a56cd7666ad02e32bb3b4829ee61a68ea}{LAMINAS\+\_\+\+HOSTNAME\+\_\+\+VALIDATOR\+\_\+\+FILE}})) \mbox{\hyperlink{dropdown_location_8php_a52332c22f84432520971794825a5a8e7}{if}}(! is\+\_\+writable(\mbox{\hyperlink{update__hostname__validator_8php_a56cd7666ad02e32bb3b4829ee61a68ea}{LAMINAS\+\_\+\+HOSTNAME\+\_\+\+VALIDATOR\+\_\+\+FILE}})) \mbox{\hyperlink{update__hostname__validator_8php_a9063faa369184f0a7420e82bc450df95}{\$new\+File\+Content}} = \mbox{[}$\,$\mbox{]}
+\item 
+\mbox{\hyperlink{update__hostname__validator_8php_ac01975b0b04f0e339a137cc7d208e3fe}{\$insert\+Done}} = false
+\item 
+\mbox{\hyperlink{update__hostname__validator_8php_a59b435275d25e764e1b915dce43546ff}{\$insert\+Finish}} = false
+\item 
+\mbox{\hyperlink{update__hostname__validator_8php_aef7bcbcd42a594bddc2b5a4a3d69f787}{\$check\+Only}} = \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{isset}}(\$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{argv}}\mbox{[}1\mbox{]}) ? \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{argv}}\mbox{[}1\mbox{]} === \textquotesingle{}-\/-\/check-\/\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{only}}\textquotesingle{} \+: false
+\item 
+\mbox{\hyperlink{update__hostname__validator_8php_af4b6fb1bbc77ccc05f10da3b16935b99}{\$response}} = \mbox{\hyperlink{update__hostname__validator_8php_a37fd9141118ee6d704a107f6b3ba9ca4}{get\+Official\+TLDs}}()
+\item 
+\mbox{\hyperlink{update__hostname__validator_8php_a1ca28b272565557066f7dcdee18d04b5}{\$iana\+Version}} = \mbox{\hyperlink{update__hostname__validator_8php_a58387310926c6a1f253edd3b3dd9a17b}{get\+Version\+From\+String}}(\textquotesingle{}Version\textquotesingle{}, strtok(\$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{response}}-\/$>$get\+Body(), "{}\textbackslash{}n"{}))
+\item 
+\mbox{\hyperlink{update__hostname__validator_8php_aa9774ae19062aaeec8518743fc05edc8}{\$validator\+Version}} = \mbox{\hyperlink{update__hostname__validator_8php_a58387310926c6a1f253edd3b3dd9a17b}{get\+Version\+From\+String}}(\textquotesingle{}\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{Iana\+Version}}\textquotesingle{}, file\+\_\+get\+\_\+contents(\mbox{\hyperlink{update__hostname__validator_8php_a56cd7666ad02e32bb3b4829ee61a68ea}{LAMINAS\+\_\+\+HOSTNAME\+\_\+\+VALIDATOR\+\_\+\+FILE}}))
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Documentation des fonctions}
+\Hypertarget{update__hostname__validator_8php_abc9f48cdbfd39343fb43af1fd1f09903}\label{update__hostname__validator_8php_abc9f48cdbfd39343fb43af1fd1f09903} 
+\index{update\_hostname\_validator.php@{update\_hostname\_validator.php}!getNewValidTlds@{getNewValidTlds}}
+\index{getNewValidTlds@{getNewValidTlds}!update\_hostname\_validator.php@{update\_hostname\_validator.php}}
+\doxysubsubsection{\texorpdfstring{getNewValidTlds()}{getNewValidTlds()}}
+{\footnotesize\ttfamily get\+New\+Valid\+Tlds (\begin{DoxyParamCaption}\item[{}]{\$string }\end{DoxyParamCaption})}
+
+Extract new Valid TLDs from a string containing one per line.
+
+
+\begin{DoxyParams}[1]{Paramètres}
+string & {\em \$string} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+array 
+\end{DoxyReturn}
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=315pt]{update__hostname__validator_8php_abc9f48cdbfd39343fb43af1fd1f09903_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{update__hostname__validator_8php_a37fd9141118ee6d704a107f6b3ba9ca4}\label{update__hostname__validator_8php_a37fd9141118ee6d704a107f6b3ba9ca4} 
+\index{update\_hostname\_validator.php@{update\_hostname\_validator.php}!getOfficialTLDs@{getOfficialTLDs}}
+\index{getOfficialTLDs@{getOfficialTLDs}!update\_hostname\_validator.php@{update\_hostname\_validator.php}}
+\doxysubsubsection{\texorpdfstring{getOfficialTLDs()}{getOfficialTLDs()}}
+{\footnotesize\ttfamily get\+Official\+TLDs (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Get Official TLDs
+
+\begin{DoxyReturn}{Renvoie}
+\textbackslash{}\+Laminas\textbackslash{}\+Http\textbackslash{}\+Response 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Exception} & \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{update__hostname__validator_8php_ae2939dd5740e5b73235c287b446539f2}\label{update__hostname__validator_8php_ae2939dd5740e5b73235c287b446539f2} 
+\index{update\_hostname\_validator.php@{update\_hostname\_validator.php}!getPunycodeDecoder@{getPunycodeDecoder}}
+\index{getPunycodeDecoder@{getPunycodeDecoder}!update\_hostname\_validator.php@{update\_hostname\_validator.php}}
+\doxysubsubsection{\texorpdfstring{getPunycodeDecoder()}{getPunycodeDecoder()}}
+{\footnotesize\ttfamily get\+Punycode\+Decoder (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Retrieve and return a punycode decoder.
+
+TLDs are puny encoded.
+
+We need a decode\+Punycode function to translate TLDs to UTF-\/8\+:
+
+
+\begin{DoxyItemize}
+\item use idn\+\_\+to\+\_\+utf8 if available
+\item otherwise, use \doxylink{class_laminas_1_1_validator_1_1_hostname_a54d0973455f3117be2ef775c520c3284}{Hostname\+::decode\+Punycode()}
+\end{DoxyItemize}
+
+\begin{DoxyReturn}{Renvoie}
+callable 
+\end{DoxyReturn}
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=315pt]{update__hostname__validator_8php_ae2939dd5740e5b73235c287b446539f2_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{update__hostname__validator_8php_a58387310926c6a1f253edd3b3dd9a17b}\label{update__hostname__validator_8php_a58387310926c6a1f253edd3b3dd9a17b} 
+\index{update\_hostname\_validator.php@{update\_hostname\_validator.php}!getVersionFromString@{getVersionFromString}}
+\index{getVersionFromString@{getVersionFromString}!update\_hostname\_validator.php@{update\_hostname\_validator.php}}
+\doxysubsubsection{\texorpdfstring{getVersionFromString()}{getVersionFromString()}}
+{\footnotesize\ttfamily get\+Version\+From\+String (\begin{DoxyParamCaption}\item[{}]{\$prefix,  }\item[{}]{\$string }\end{DoxyParamCaption})}
+
+Extract the first match of a string like "{}\+Version 2015072300"{} from the given string
+
+
+\begin{DoxyParams}[1]{Paramètres}
+string & {\em \$prefix} & \\
+\hline
+string & {\em \$string} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+string 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Exception} & \\
+\hline
+\end{DoxyExceptions}
+
+
+\doxysubsection{Documentation des variables}
+\Hypertarget{update__hostname__validator_8php_aef7bcbcd42a594bddc2b5a4a3d69f787}\label{update__hostname__validator_8php_aef7bcbcd42a594bddc2b5a4a3d69f787} 
+\index{update\_hostname\_validator.php@{update\_hostname\_validator.php}!\$checkOnly@{\$checkOnly}}
+\index{\$checkOnly@{\$checkOnly}!update\_hostname\_validator.php@{update\_hostname\_validator.php}}
+\doxysubsubsection{\texorpdfstring{\$checkOnly}{\$checkOnly}}
+{\footnotesize\ttfamily \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{check\+Only}} = \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{isset}}(\$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{argv}}\mbox{[}1\mbox{]}) ? \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{argv}}\mbox{[}1\mbox{]} === \textquotesingle{}-\/-\/check-\/\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{only}}\textquotesingle{} \+: false}
+
+\Hypertarget{update__hostname__validator_8php_a1ca28b272565557066f7dcdee18d04b5}\label{update__hostname__validator_8php_a1ca28b272565557066f7dcdee18d04b5} 
+\index{update\_hostname\_validator.php@{update\_hostname\_validator.php}!\$ianaVersion@{\$ianaVersion}}
+\index{\$ianaVersion@{\$ianaVersion}!update\_hostname\_validator.php@{update\_hostname\_validator.php}}
+\doxysubsubsection{\texorpdfstring{\$ianaVersion}{\$ianaVersion}}
+{\footnotesize\ttfamily \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{iana\+Version}} = \mbox{\hyperlink{update__hostname__validator_8php_a58387310926c6a1f253edd3b3dd9a17b}{get\+Version\+From\+String}}(\textquotesingle{}Version\textquotesingle{}, strtok(\$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{response}}-\/$>$get\+Body(), "{}\textbackslash{}n"{}))}
+
+\Hypertarget{update__hostname__validator_8php_ac01975b0b04f0e339a137cc7d208e3fe}\label{update__hostname__validator_8php_ac01975b0b04f0e339a137cc7d208e3fe} 
+\index{update\_hostname\_validator.php@{update\_hostname\_validator.php}!\$insertDone@{\$insertDone}}
+\index{\$insertDone@{\$insertDone}!update\_hostname\_validator.php@{update\_hostname\_validator.php}}
+\doxysubsubsection{\texorpdfstring{\$insertDone}{\$insertDone}}
+{\footnotesize\ttfamily \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{insert\+Done}} = false}
+
+\Hypertarget{update__hostname__validator_8php_a59b435275d25e764e1b915dce43546ff}\label{update__hostname__validator_8php_a59b435275d25e764e1b915dce43546ff} 
+\index{update\_hostname\_validator.php@{update\_hostname\_validator.php}!\$insertFinish@{\$insertFinish}}
+\index{\$insertFinish@{\$insertFinish}!update\_hostname\_validator.php@{update\_hostname\_validator.php}}
+\doxysubsubsection{\texorpdfstring{\$insertFinish}{\$insertFinish}}
+{\footnotesize\ttfamily \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{insert\+Finish}} = false}
+
+\Hypertarget{update__hostname__validator_8php_a9063faa369184f0a7420e82bc450df95}\label{update__hostname__validator_8php_a9063faa369184f0a7420e82bc450df95} 
+\index{update\_hostname\_validator.php@{update\_hostname\_validator.php}!\$newFileContent@{\$newFileContent}}
+\index{\$newFileContent@{\$newFileContent}!update\_hostname\_validator.php@{update\_hostname\_validator.php}}
+\doxysubsubsection{\texorpdfstring{\$newFileContent}{\$newFileContent}}
+{\footnotesize\ttfamily \mbox{\hyperlink{dropdown_location_8php_a52332c22f84432520971794825a5a8e7}{if}}(! file\+\_\+exists(\mbox{\hyperlink{update__hostname__validator_8php_a56cd7666ad02e32bb3b4829ee61a68ea}{LAMINAS\+\_\+\+HOSTNAME\+\_\+\+VALIDATOR\+\_\+\+FILE}})\texorpdfstring{$\vert$}{|}\texorpdfstring{$\vert$}{|}! is\+\_\+readable(\mbox{\hyperlink{update__hostname__validator_8php_a56cd7666ad02e32bb3b4829ee61a68ea}{LAMINAS\+\_\+\+HOSTNAME\+\_\+\+VALIDATOR\+\_\+\+FILE}})) \mbox{\hyperlink{dropdown_location_8php_a52332c22f84432520971794825a5a8e7}{if}} (! is\+\_\+writable(\mbox{\hyperlink{update__hostname__validator_8php_a56cd7666ad02e32bb3b4829ee61a68ea}{LAMINAS\+\_\+\+HOSTNAME\+\_\+\+VALIDATOR\+\_\+\+FILE}})) \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{new\+File\+Content}} = \mbox{[}$\,$\mbox{]}}
+
+\Hypertarget{update__hostname__validator_8php_af4b6fb1bbc77ccc05f10da3b16935b99}\label{update__hostname__validator_8php_af4b6fb1bbc77ccc05f10da3b16935b99} 
+\index{update\_hostname\_validator.php@{update\_hostname\_validator.php}!\$response@{\$response}}
+\index{\$response@{\$response}!update\_hostname\_validator.php@{update\_hostname\_validator.php}}
+\doxysubsubsection{\texorpdfstring{\$response}{\$response}}
+{\footnotesize\ttfamily \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{response}} = \mbox{\hyperlink{update__hostname__validator_8php_a37fd9141118ee6d704a107f6b3ba9ca4}{get\+Official\+TLDs}}()}
+
+\Hypertarget{update__hostname__validator_8php_aa9774ae19062aaeec8518743fc05edc8}\label{update__hostname__validator_8php_aa9774ae19062aaeec8518743fc05edc8} 
+\index{update\_hostname\_validator.php@{update\_hostname\_validator.php}!\$validatorVersion@{\$validatorVersion}}
+\index{\$validatorVersion@{\$validatorVersion}!update\_hostname\_validator.php@{update\_hostname\_validator.php}}
+\doxysubsubsection{\texorpdfstring{\$validatorVersion}{\$validatorVersion}}
+{\footnotesize\ttfamily \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{validator\+Version}} = \mbox{\hyperlink{update__hostname__validator_8php_a58387310926c6a1f253edd3b3dd9a17b}{get\+Version\+From\+String}}(\textquotesingle{}\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{Iana\+Version}}\textquotesingle{}, file\+\_\+get\+\_\+contents(\mbox{\hyperlink{update__hostname__validator_8php_a56cd7666ad02e32bb3b4829ee61a68ea}{LAMINAS\+\_\+\+HOSTNAME\+\_\+\+VALIDATOR\+\_\+\+FILE}}))}
+
+\Hypertarget{update__hostname__validator_8php_a4ebe2ca7c01dfcdec1ebd10b528ab9a8}\label{update__hostname__validator_8php_a4ebe2ca7c01dfcdec1ebd10b528ab9a8} 
+\index{update\_hostname\_validator.php@{update\_hostname\_validator.php}!IANA\_URL@{IANA\_URL}}
+\index{IANA\_URL@{IANA\_URL}!update\_hostname\_validator.php@{update\_hostname\_validator.php}}
+\doxysubsubsection{\texorpdfstring{IANA\_URL}{IANA\_URL}}
+{\footnotesize\ttfamily const IANA\+\_\+\+URL \textquotesingle{}\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{https\+:}}//\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{data.\+iana.\+org}}/\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{TLD}}/\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{tlds}}-\/alpha-\/\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{by}}-\/\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{domain.\+txt}}\textquotesingle{}}
+
+\Hypertarget{update__hostname__validator_8php_a56cd7666ad02e32bb3b4829ee61a68ea}\label{update__hostname__validator_8php_a56cd7666ad02e32bb3b4829ee61a68ea} 
+\index{update\_hostname\_validator.php@{update\_hostname\_validator.php}!LAMINAS\_HOSTNAME\_VALIDATOR\_FILE@{LAMINAS\_HOSTNAME\_VALIDATOR\_FILE}}
+\index{LAMINAS\_HOSTNAME\_VALIDATOR\_FILE@{LAMINAS\_HOSTNAME\_VALIDATOR\_FILE}!update\_hostname\_validator.php@{update\_hostname\_validator.php}}
+\doxysubsubsection{\texorpdfstring{LAMINAS\_HOSTNAME\_VALIDATOR\_FILE}{LAMINAS\_HOSTNAME\_VALIDATOR\_FILE}}
+{\footnotesize\ttfamily const LAMINAS\+\_\+\+HOSTNAME\+\_\+\+VALIDATOR\+\_\+\+FILE \+\_\+\+\_\+\+DIR\+\_\+\+\_\+.\textquotesingle{}/../\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{src}}/Hostname.\+php\textquotesingle{}}
+

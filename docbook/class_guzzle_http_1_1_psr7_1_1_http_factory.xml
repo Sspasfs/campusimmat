@@ -1,0 +1,491 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_guzzle_http_1_1_psr7_1_1_http_factory" xml:lang="fr">
+<title>Référence de la classe HttpFactory</title>
+<indexterm><primary>HttpFactory</primary></indexterm>
+Graphe d&apos;héritage de HttpFactory:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_guzzle_http_1_1_psr7_1_1_http_factory__inherit__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Graphe de collaboration de HttpFactory:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_guzzle_http_1_1_psr7_1_1_http_factory__coll__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Fonctions membres publiques    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_guzzle_http_1_1_psr7_1_1_http_factory_1acbcc538b83b22c57ed28618fdef759fe">createUploadedFile</link> (<link linkend="_interface_psr_1_1_http_1_1_message_1_1_stream_interface">StreamInterface</link> $stream, int $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">size</link>=null, int $error=\UPLOAD_ERR_OK, string $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">clientFilename</link>=null, string $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">clientMediaType</link>=null)</para>
+</listitem>
+            <listitem><para><link linkend="_class_guzzle_http_1_1_psr7_1_1_http_factory_1a96eb3d011c550a6eb1c3702b72f8cc43">createStream</link> (string $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">content</link>=&apos;&apos;)</para>
+</listitem>
+            <listitem><para><link linkend="_class_guzzle_http_1_1_psr7_1_1_http_factory_1a8169c3dc3d14eb93ad2c11f8b8d84b38">createStreamFromFile</link> (string $file, string $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">mode</link>=&apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">r</link>&apos;)</para>
+</listitem>
+            <listitem><para><link linkend="_class_guzzle_http_1_1_psr7_1_1_http_factory_1a524feaa282b3114ac29af270c0552ffa">createStreamFromResource</link> ($resource)</para>
+</listitem>
+            <listitem><para><link linkend="_class_guzzle_http_1_1_psr7_1_1_http_factory_1ae89a6fd219226f845ac9cf5ab9bd74bd">createServerRequest</link> (string $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">method</link>, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">uri</link>, array $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">serverParams</link>=[])</para>
+</listitem>
+            <listitem><para><link linkend="_class_guzzle_http_1_1_psr7_1_1_http_factory_1ac24210fe6cf217f2d6d708eeee3af43a">createResponse</link> (int $code=200, string $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">reasonPhrase</link>=&apos;&apos;)</para>
+</listitem>
+            <listitem><para><link linkend="_class_guzzle_http_1_1_psr7_1_1_http_factory_1a5dda7cb70150d8b6261db3075a00a4d2">createRequest</link> (string $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">method</link>, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">uri</link>)</para>
+</listitem>
+            <listitem><para><link linkend="_class_guzzle_http_1_1_psr7_1_1_http_factory_1aefa5063c00dedaf631111852c86ac373">createUri</link> (string $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">uri</link>=&apos;&apos;)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Description détaillée</title>
+
+<para>Implements all of the PSR-17 interfaces.</para>
+
+<para>Note: in consuming code it is recommended to require the implemented interfaces and inject the instance of this class multiple times. </para>
+</section>
+<section>
+<title>Documentation des fonctions membres</title>
+<anchor xml:id="_class_guzzle_http_1_1_psr7_1_1_http_factory_1a5dda7cb70150d8b6261db3075a00a4d2"/><section>
+    <title>createRequest()</title>
+<indexterm><primary>createRequest</primary><secondary>HttpFactory</secondary></indexterm>
+<indexterm><primary>HttpFactory</primary><secondary>createRequest</secondary></indexterm>
+<para><computeroutput>createRequest (string $method,  $uri)</computeroutput></para>
+<para>Create a new request.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$method</entry><entry>
+<para>The HTTP method associated with the request. </para>
+</entry>
+                            </row>
+                            <row>
+<entry>UriInterface | string</entry><entry>$uri</entry><entry>
+<para>The URI associated with the request. If the value is a string, the factory MUST create a UriInterface instance based on it.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>RequestInterface </para>
+</formalpara>
+</para>
+<para>
+Implémente <link linkend="_interface_psr_1_1_http_1_1_message_1_1_request_factory_interface_1a5dda7cb70150d8b6261db3075a00a4d2">RequestFactoryInterface</link>.</para>
+</section>
+<anchor xml:id="_class_guzzle_http_1_1_psr7_1_1_http_factory_1ac24210fe6cf217f2d6d708eeee3af43a"/><section>
+    <title>createResponse()</title>
+<indexterm><primary>createResponse</primary><secondary>HttpFactory</secondary></indexterm>
+<indexterm><primary>HttpFactory</primary><secondary>createResponse</secondary></indexterm>
+<para><computeroutput>createResponse (int $code = <computeroutput>200</computeroutput>
+, string $reasonPhrase = <computeroutput>&apos;&apos;</computeroutput>
+)</computeroutput></para>
+<para>Create a new response.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>int</entry><entry>$code</entry><entry>
+<para>HTTP status code; defaults to 200 </para>
+</entry>
+                            </row>
+                            <row>
+<entry>string</entry><entry>$reasonPhrase</entry><entry>
+<para>Reason phrase to associate with status code in generated response; if none is provided implementations MAY use the defaults as suggested in the HTTP specification.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>ResponseInterface </para>
+</formalpara>
+</para>
+<para>
+Implémente <link linkend="_interface_psr_1_1_http_1_1_message_1_1_response_factory_interface_1ac24210fe6cf217f2d6d708eeee3af43a">ResponseFactoryInterface</link>.</para>
+</section>
+<anchor xml:id="_class_guzzle_http_1_1_psr7_1_1_http_factory_1ae89a6fd219226f845ac9cf5ab9bd74bd"/><section>
+    <title>createServerRequest()</title>
+<indexterm><primary>createServerRequest</primary><secondary>HttpFactory</secondary></indexterm>
+<indexterm><primary>HttpFactory</primary><secondary>createServerRequest</secondary></indexterm>
+<para><computeroutput>createServerRequest (string $method,  $uri, array $serverParams = <computeroutput>[]</computeroutput>
+)</computeroutput></para>
+<para>Create a new server request.</para>
+
+<para>Note that server-params are taken precisely as given - no parsing/processing of the given values is performed, and, in particular, no attempt is made to determine the HTTP method or URI, which must be provided explicitly.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$method</entry><entry>
+<para>The HTTP method associated with the request. </para>
+</entry>
+                            </row>
+                            <row>
+<entry>UriInterface | string</entry><entry>$uri</entry><entry>
+<para>The URI associated with the request. If the value is a string, the factory MUST create a UriInterface instance based on it. </para>
+</entry>
+                            </row>
+                            <row>
+<entry>array</entry><entry>$serverParams</entry><entry>
+<para>Array of SAPI parameters with which to seed the generated request instance.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>ServerRequestInterface </para>
+</formalpara>
+</para>
+<para>
+Implémente <link linkend="_interface_psr_1_1_http_1_1_message_1_1_server_request_factory_interface_1ae89a6fd219226f845ac9cf5ab9bd74bd">ServerRequestFactoryInterface</link>.</para>
+</section>
+<anchor xml:id="_class_guzzle_http_1_1_psr7_1_1_http_factory_1a96eb3d011c550a6eb1c3702b72f8cc43"/><section>
+    <title>createStream()</title>
+<indexterm><primary>createStream</primary><secondary>HttpFactory</secondary></indexterm>
+<indexterm><primary>HttpFactory</primary><secondary>createStream</secondary></indexterm>
+<para><computeroutput>createStream (string $content = <computeroutput>&apos;&apos;</computeroutput>
+)</computeroutput></para>
+<para>Create a new stream from a string.</para>
+
+<para>The stream SHOULD be created with a temporary resource.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$content</entry><entry>
+<para>String content with which to populate the stream.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>StreamInterface </para>
+</formalpara>
+</para>
+<para>
+Implémente <link linkend="_interface_psr_1_1_http_1_1_message_1_1_stream_factory_interface_1a96eb3d011c550a6eb1c3702b72f8cc43">StreamFactoryInterface</link>.</para>
+</section>
+<anchor xml:id="_class_guzzle_http_1_1_psr7_1_1_http_factory_1a8169c3dc3d14eb93ad2c11f8b8d84b38"/><section>
+    <title>createStreamFromFile()</title>
+<indexterm><primary>createStreamFromFile</primary><secondary>HttpFactory</secondary></indexterm>
+<indexterm><primary>HttpFactory</primary><secondary>createStreamFromFile</secondary></indexterm>
+<para><computeroutput>createStreamFromFile (string $filename, string $mode = <computeroutput>&apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">r</link>&apos;</computeroutput>
+)</computeroutput></para>
+<para>Create a stream from an existing file.</para>
+
+<para>The file MUST be opened using the given mode, which may be any mode supported by the <computeroutput>fopen</computeroutput> function.</para>
+
+<para>The <computeroutput>$filename</computeroutput> MAY be any string supported by <computeroutput>fopen()</computeroutput>.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$filename</entry><entry>
+<para>Filename or stream URI to use as basis of stream. </para>
+</entry>
+                            </row>
+                            <row>
+<entry>string</entry><entry>$mode</entry><entry>
+<para>Mode with which to open the underlying filename/stream.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>StreamInterface </para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry></entry>
+<entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                RuntimeException If the file cannot be opened. 
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry></entry>
+<entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                InvalidArgumentException If the mode is invalid. </para>
+<para>
+Implémente <link linkend="_interface_psr_1_1_http_1_1_message_1_1_stream_factory_interface_1a389252bd40ade85167658660222193b5">StreamFactoryInterface</link>.</para>
+</section>
+<anchor xml:id="_class_guzzle_http_1_1_psr7_1_1_http_factory_1a524feaa282b3114ac29af270c0552ffa"/><section>
+    <title>createStreamFromResource()</title>
+<indexterm><primary>createStreamFromResource</primary><secondary>HttpFactory</secondary></indexterm>
+<indexterm><primary>HttpFactory</primary><secondary>createStreamFromResource</secondary></indexterm>
+<para><computeroutput>createStreamFromResource ( $resource)</computeroutput></para>
+<para>Create a new stream from an existing resource.</para>
+
+<para>The stream MUST be readable and may be writable.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>resource</entry><entry>$resource</entry><entry>
+<para>PHP resource to use as basis of stream.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>StreamInterface </para>
+</formalpara>
+</para>
+<para>
+Implémente <link linkend="_interface_psr_1_1_http_1_1_message_1_1_stream_factory_interface_1a524feaa282b3114ac29af270c0552ffa">StreamFactoryInterface</link>.</para>
+</section>
+<anchor xml:id="_class_guzzle_http_1_1_psr7_1_1_http_factory_1acbcc538b83b22c57ed28618fdef759fe"/><section>
+    <title>createUploadedFile()</title>
+<indexterm><primary>createUploadedFile</primary><secondary>HttpFactory</secondary></indexterm>
+<indexterm><primary>HttpFactory</primary><secondary>createUploadedFile</secondary></indexterm>
+<para><computeroutput>createUploadedFile (<link linkend="_interface_psr_1_1_http_1_1_message_1_1_stream_interface">StreamInterface</link> $stream, int $size = <computeroutput>null</computeroutput>
+, int $error = <computeroutput>\UPLOAD_ERR_OK</computeroutput>
+, string $clientFilename = <computeroutput>null</computeroutput>
+, string $clientMediaType = <computeroutput>null</computeroutput>
+)</computeroutput></para>
+<para>Create a new uploaded file.</para>
+
+<para>If a size is not provided it will be determined by checking the size of the file.</para>
+
+<para><formalpara><title>Voir également</title>
+
+<para><link xlink:href="http://php.net/manual/features.file-upload.post-method.php">http://php.net/manual/features.file-upload.post-method.php</link> </para>
+
+<para><link xlink:href="http://php.net/manual/features.file-upload.errors.php">http://php.net/manual/features.file-upload.errors.php</link></para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>StreamInterface</entry><entry>$stream</entry><entry>
+<para>Underlying stream representing the uploaded file content. </para>
+</entry>
+                            </row>
+                            <row>
+<entry>int</entry><entry>$size</entry><entry>
+<para>in bytes </para>
+</entry>
+                            </row>
+                            <row>
+<entry>int</entry><entry>$error</entry><entry>
+<para>PHP file upload error </para>
+</entry>
+                            </row>
+                            <row>
+<entry>string</entry><entry>$clientFilename</entry><entry>
+<para>Filename as provided by the client, if any. </para>
+</entry>
+                            </row>
+                            <row>
+<entry>string</entry><entry>$clientMediaType</entry><entry>
+<para>Media type as provided by the client, if any.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>UploadedFileInterface</para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry></entry>
+<entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                InvalidArgumentException If the file resource is not readable. </para>
+<para>
+Implémente <link linkend="_interface_psr_1_1_http_1_1_message_1_1_uploaded_file_factory_interface_1acbcc538b83b22c57ed28618fdef759fe">UploadedFileFactoryInterface</link>.</para>
+</section>
+<anchor xml:id="_class_guzzle_http_1_1_psr7_1_1_http_factory_1aefa5063c00dedaf631111852c86ac373"/><section>
+    <title>createUri()</title>
+<indexterm><primary>createUri</primary><secondary>HttpFactory</secondary></indexterm>
+<indexterm><primary>HttpFactory</primary><secondary>createUri</secondary></indexterm>
+<para><computeroutput>createUri (string $uri = <computeroutput>&apos;&apos;</computeroutput>
+)</computeroutput></para>
+<para>Create a new URI.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$uri</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>UriInterface</para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry></entry>
+<entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                InvalidArgumentException If the given URI cannot be parsed. </para>
+<para>
+Implémente <link linkend="_interface_psr_1_1_http_1_1_message_1_1_uri_factory_interface_1aefa5063c00dedaf631111852c86ac373">UriFactoryInterface</link>.</para>
+</section>
+<para>
+La documentation de cette classe a été générée à partir du fichier suivant :</para>
+public/glpi/vendor/guzzlehttp/psr7/src/<link linkend="__http_factory_8php">HttpFactory.php</link></section>
+</section>

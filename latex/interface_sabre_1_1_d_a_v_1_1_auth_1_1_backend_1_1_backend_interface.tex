@@ -1,0 +1,95 @@
+\doxysection{Référence de l\textquotesingle{}interface Backend\+Interface}
+\hypertarget{interface_sabre_1_1_d_a_v_1_1_auth_1_1_backend_1_1_backend_interface}{}\label{interface_sabre_1_1_d_a_v_1_1_auth_1_1_backend_1_1_backend_interface}\index{BackendInterface@{BackendInterface}}
+
+
+Graphe d\textquotesingle{}héritage de Backend\+Interface\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{interface_sabre_1_1_d_a_v_1_1_auth_1_1_backend_1_1_backend_interface__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Graphe de collaboration de Backend\+Interface\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=227pt]{interface_sabre_1_1_d_a_v_1_1_auth_1_1_backend_1_1_backend_interface__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_auth_1_1_backend_1_1_backend_interface_a6842b5de20e46939164e6b51e7b62cfa}{check}} (\mbox{\hyperlink{interface_sabre_1_1_h_t_t_p_1_1_request_interface}{Request\+Interface}} \$request, \mbox{\hyperlink{interface_sabre_1_1_h_t_t_p_1_1_response_interface}{Response\+Interface}} \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{response}})
+\item 
+\mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_auth_1_1_backend_1_1_backend_interface_a5bb4c145c79dd8ad38052f88f866cb2c}{challenge}} (\mbox{\hyperlink{interface_sabre_1_1_h_t_t_p_1_1_request_interface}{Request\+Interface}} \$request, \mbox{\hyperlink{interface_sabre_1_1_h_t_t_p_1_1_response_interface}{Response\+Interface}} \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{response}})
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+This is the base class for any authentication object.
+
+\begin{DoxyCopyright}{Copyright}
+Copyright (C) fruux GmbH (\href{https://fruux.com/}{\texttt{ https\+://fruux.\+com/}}) 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Auteur}
+Evert Pot (\href{http://evertpot.com/}{\texttt{ http\+://evertpot.\+com/}}) @license \href{http://sabre.io/license/}{\texttt{ http\+://sabre.\+io/license/}} Modified BSD License 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Documentation des fonctions membres}
+\Hypertarget{interface_sabre_1_1_d_a_v_1_1_auth_1_1_backend_1_1_backend_interface_a5bb4c145c79dd8ad38052f88f866cb2c}\label{interface_sabre_1_1_d_a_v_1_1_auth_1_1_backend_1_1_backend_interface_a5bb4c145c79dd8ad38052f88f866cb2c} 
+\index{BackendInterface@{BackendInterface}!challenge@{challenge}}
+\index{challenge@{challenge}!BackendInterface@{BackendInterface}}
+\doxysubsubsection{\texorpdfstring{challenge()}{challenge()}}
+{\footnotesize\ttfamily challenge (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{interface_sabre_1_1_h_t_t_p_1_1_request_interface}{Request\+Interface}}}]{\$request,  }\item[{\mbox{\hyperlink{interface_sabre_1_1_h_t_t_p_1_1_response_interface}{Response\+Interface}}}]{\$response }\end{DoxyParamCaption})}
+
+This method is called when a user could not be authenticated, and authentication was required for the current request.
+
+This gives you the opportunity to set authentication headers. The 401 status code will already be set.
+
+In this case of Basic \doxylink{class_auth}{Auth}, this would for example mean that the following header needs to be set\+:
+
+\$response-\/\texorpdfstring{$>$}{>}add\+Header(\textquotesingle{}WWW-\/\+Authenticate\textquotesingle{}, \textquotesingle{}Basic realm=Sabre\+DAV\textquotesingle{});
+
+Keep in mind that in the case of multiple authentication backends, other WWW-\/\+Authenticate headers may already have been set, and you\textquotesingle{}ll want to append your own WWW-\/\+Authenticate header instead of overwriting the existing one. 
+
+Implémenté dans \mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_auth_1_1_backend_1_1_abstract_basic_a5bb4c145c79dd8ad38052f88f866cb2c}{Abstract\+Basic}}, \mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_auth_1_1_backend_1_1_abstract_bearer_a5bb4c145c79dd8ad38052f88f866cb2c}{Abstract\+Bearer}}, \mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_auth_1_1_backend_1_1_abstract_digest_a5bb4c145c79dd8ad38052f88f866cb2c}{Abstract\+Digest}}, et \mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_auth_1_1_backend_1_1_apache_a5bb4c145c79dd8ad38052f88f866cb2c}{Apache}}.
+
+\Hypertarget{interface_sabre_1_1_d_a_v_1_1_auth_1_1_backend_1_1_backend_interface_a6842b5de20e46939164e6b51e7b62cfa}\label{interface_sabre_1_1_d_a_v_1_1_auth_1_1_backend_1_1_backend_interface_a6842b5de20e46939164e6b51e7b62cfa} 
+\index{BackendInterface@{BackendInterface}!check@{check}}
+\index{check@{check}!BackendInterface@{BackendInterface}}
+\doxysubsubsection{\texorpdfstring{check()}{check()}}
+{\footnotesize\ttfamily check (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{interface_sabre_1_1_h_t_t_p_1_1_request_interface}{Request\+Interface}}}]{\$request,  }\item[{\mbox{\hyperlink{interface_sabre_1_1_h_t_t_p_1_1_response_interface}{Response\+Interface}}}]{\$response }\end{DoxyParamCaption})}
+
+When this method is called, the backend must check if authentication was successful.
+
+The returned value must be one of the following
+
+\mbox{[}true, "{}principals/username"{}\mbox{]} \mbox{[}false, "{}reason for failure"{}\mbox{]}
+
+If authentication was successful, it\textquotesingle{}s expected that the authentication backend returns a so-\/called principal url.
+
+Examples of a principal url\+:
+
+principals/admin principals/user1 principals/users/joe principals/uid/123457
+
+If you don\textquotesingle{}t use Web\+DAV ACL (RFC3744) we recommend that you simply return a string such as\+:
+
+principals/users/\mbox{[}username\mbox{]}
+
+\begin{DoxyReturn}{Renvoie}
+array 
+\end{DoxyReturn}
+
+
+Implémenté dans \mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_auth_1_1_backend_1_1_abstract_basic_a6842b5de20e46939164e6b51e7b62cfa}{Abstract\+Basic}}, \mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_auth_1_1_backend_1_1_abstract_bearer_a6842b5de20e46939164e6b51e7b62cfa}{Abstract\+Bearer}}, \mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_auth_1_1_backend_1_1_abstract_digest_a6842b5de20e46939164e6b51e7b62cfa}{Abstract\+Digest}}, et \mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_auth_1_1_backend_1_1_apache_a6842b5de20e46939164e6b51e7b62cfa}{Apache}}.
+
+
+
+La documentation de cette interface a été générée à partir du fichier suivant \+:\begin{DoxyCompactItemize}
+\item 
+public/glpi/vendor/sabre/dav/lib/\+DAV/\+Auth/\+Backend/\mbox{\hyperlink{_d_a_v_2_auth_2_backend_2_backend_interface_8php}{Backend\+Interface.\+php}}\end{DoxyCompactItemize}

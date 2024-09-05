@@ -1,0 +1,432 @@
+\chapter{Change Log}
+\hypertarget{md_public_2glpi_2vendor_2wapmorgan_2unified-archive_2_c_h_a_n_g_e_l_o_g}{}\label{md_public_2glpi_2vendor_2wapmorgan_2unified-archive_2_c_h_a_n_g_e_l_o_g}\index{Change Log@{Change Log}}
+\label{md_public_2glpi_2vendor_2wapmorgan_2unified-archive_2_c_h_a_n_g_e_l_o_g_autotoc_md7459}%
+\Hypertarget{md_public_2glpi_2vendor_2wapmorgan_2unified-archive_2_c_h_a_n_g_e_l_o_g_autotoc_md7459}%
+ \hypertarget{md_public_2glpi_2vendor_2wapmorgan_2unified-archive_2_c_h_a_n_g_e_l_o_g_autotoc_md7460}{}\doxysection{\texorpdfstring{1.\+1.\+8 -\/ Nov 20, 2022}{1.\+1.\+8 -\/ Nov 20, 2022}}\label{md_public_2glpi_2vendor_2wapmorgan_2unified-archive_2_c_h_a_n_g_e_l_o_g_autotoc_md7460}
+Fixed\+:
+\begin{DoxyItemize}
+\item Fixed opening an archive with password (\#37)
+\item Fixed {\ttfamily Unified\+Archive-\/\texorpdfstring{$>$}{>}get\+Comment()} now returns null when comment is not supported by driver (\#39)
+\item Fixed {\ttfamily Unified\+Archive-\/\texorpdfstring{$>$}{>}get\+File\+Data()-\/\texorpdfstring{$>$}{>}modification\+Time} is integer timestamp now in case of Nelexa\+Zip driver instead of Date\+Time\+Immutable (\#38)
+\item Fixed {\ttfamily Phar\+Data\+::create} for zip-\/archives
+\end{DoxyItemize}
+
+Deprecations\+:
+\begin{DoxyItemize}
+\item Renamed methods of {\ttfamily Unified\+Archive}\+:
+\begin{DoxyItemize}
+\item {\ttfamily get\+File\+Names} =\texorpdfstring{$>$}{>} {\ttfamily get\+Files}
+\item {\ttfamily extract\+Files} =\texorpdfstring{$>$}{>} {\ttfamily extract}
+\item {\ttfamily add\+Files} =\texorpdfstring{$>$}{>} {\ttfamily add}
+\item {\ttfamily delete\+Files} =\texorpdfstring{$>$}{>} {\ttfamily delete}
+\item {\ttfamily archive\+Files} =\texorpdfstring{$>$}{>} {\ttfamily archive}
+\item {\ttfamily can\+Open\+Archive} =\texorpdfstring{$>$}{>} {\ttfamily can\+Open}
+\item Old methods are marked as deprecated and will be deleted in future releases.
+\end{DoxyItemize}
+\item Marked as deprecated\+:
+\begin{DoxyItemize}
+\item {\ttfamily Unified\+Archive\+::detect\+Archive\+Type} -\/ use {\ttfamily Formats\+::detect\+Archive\+Format} instead
+\item {\ttfamily Unified\+Archive\+::archive\+Directory}/{\ttfamily archive\+File} -\/ use {\ttfamily Unified\+Archive\+::archive} instead
+\item {\ttfamily Unified\+Archive\+::can\+Create\+Type} -\/ {\ttfamily Formats\+::can\+Create}
+\end{DoxyItemize}
+\end{DoxyItemize}
+
+New functions\+:
+\begin{DoxyItemize}
+\item Added method to get file extension for format\+: {\ttfamily Formats\+::get\+Format\+Extension(\$archive\+Format)}
+\item Added method to get info about ready to archive files\+: {\ttfamily Unified\+Archive-\/\texorpdfstring{$>$}{>}prepare\+For\+Archiving(\$file\+Or\+Files, \$archive\+Name = null)}
+\item Added method to create archive in memory\+: {\ttfamily Unified\+Archive\+::create\+In\+String()} and {\ttfamily Basic\+Driver\+::\+CREATE\+\_\+\+IN\+\_\+\+STRING} ability constant
+\item Added new pure driver for Zip/\+Tar(gz/bz2) -\/ Splitbrain\+Php\+Archive.
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2wapmorgan_2unified-archive_2_c_h_a_n_g_e_l_o_g_autotoc_md7461}{}\doxysection{\texorpdfstring{1.\+1.\+7 -\/ Jul 31, 2022}{1.\+1.\+7 -\/ Jul 31, 2022}}\label{md_public_2glpi_2vendor_2wapmorgan_2unified-archive_2_c_h_a_n_g_e_l_o_g_autotoc_md7461}
+
+\begin{DoxyItemize}
+\item {\ttfamily open} does not throw an Exception, it returns null
+\item returned deleted methods in Unified\+Archive\+: {\ttfamily can\+Open\+Archive}, {\ttfamily can\+Open\+Type}, {\ttfamily can\+Create\+Type}, {\ttfamily get\+Archive\+Type}, {\ttfamily detect\+Archive\+Type}, {\ttfamily get\+File\+Resource}, {\ttfamily get\+Archive\+Format}, {\ttfamily is\+File\+Exists}, {\ttfamily get\+Archive\+Size}, {\ttfamily count\+Compressed\+Files\+Size}, {\ttfamily count\+Uncompressed\+Files\+Size}.
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2wapmorgan_2unified-archive_2_c_h_a_n_g_e_l_o_g_autotoc_md7462}{}\doxysection{\texorpdfstring{1.\+1.\+6 -\/ Jul 31, 2022}{1.\+1.\+6 -\/ Jul 31, 2022}}\label{md_public_2glpi_2vendor_2wapmorgan_2unified-archive_2_c_h_a_n_g_e_l_o_g_autotoc_md7462}
+{\bfseries{BC-\/breaking changes}}\+:
+\begin{DoxyItemize}
+\item Changed signature\+: {\ttfamily Unified\+Archive\+::open(\$filename, string\texorpdfstring{$\vert$}{|}null \$password = null)} =\texorpdfstring{$>$}{>} {\ttfamily Unified\+Archive\+::open(\$filename, array \$abilities = \mbox{[}\mbox{]}, string\texorpdfstring{$\vert$}{|}null \$password = null)}. Right now if second argument is string, it will be treated as password (for BC-\/compatability).
+\item {\ttfamily open} throws an Exception when format is not recognized or there\textquotesingle{}s no driver that support requested abilities.
+\item {\ttfamily add\+Files}/{\ttfamily delete\+Files}/{\ttfamily get\+Comment}/{\ttfamily set\+Comment} throws an Exception when driver does not support this ability.
+\item Deleted methods in Unified\+Archive\+: {\ttfamily can\+Open\+Archive}, {\ttfamily can\+Open\+Type}, {\ttfamily can\+Create\+Type}, {\ttfamily get\+Archive\+Type}, {\ttfamily detect\+Archive\+Type}, {\ttfamily get\+File\+Resource}, {\ttfamily get\+Archive\+Format}, {\ttfamily is\+File\+Exists}, {\ttfamily get\+Archive\+Size}, {\ttfamily count\+Compressed\+Files\+Size}, {\ttfamily count\+Uncompressed\+Files\+Size}.
+\end{DoxyItemize}
+
+{\bfseries{New features}}\+:
+\begin{DoxyItemize}
+\item Added passing needed abilities to {\bfseries{Unified\+Archive\+::open()}} to select a better driver\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{use}}\ \mbox{\hyperlink{classwapmorgan_1_1_unified_archive_1_1_drivers_1_1_basic_1_1_basic_driver}{wapmorgan\(\backslash\)UnifiedArchive\(\backslash\)Drivers\(\backslash\)Basic\(\backslash\)BasicDriver}};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{preprocessor}{\#\ opens\ an\ array\ with\ driver,\ that\ supports\ content\ streaming\ and\ appending}}
+\DoxyCodeLine{\$archive\ =\ \(\backslash\)wapmorgan\(\backslash\)UnifiedArchive\(\backslash\)UnifiedArchive::open(\textcolor{stringliteral}{'archive.7z'},\ [BasicDriver::STREAM\_CONTENT,\ BasicDriver::APPEND]);}
+\DoxyCodeLine{\textcolor{preprocessor}{\#\ if\ not\ specified,\ uses\ OPEN\ or\ OPEN\_ENCRYPTED\ check,\ if\ password\ passed}}
+
+\end{DoxyCode}
+
+\item Added {\ttfamily Unified\+Archive\+::test(\$files = \mbox{[}\mbox{]})} (and {\ttfamily cam files\+:test} command) to test archive contents (compare actual control sum with stored crc32).
+\item More informative output in commands\+: {\ttfamily system\+:drivers}, {\ttfamily system\+:formats}, {\ttfamily system\+:format}, added command {\ttfamily files\+:test}.
+\item Added driver abilities to select better driver.
+\end{DoxyItemize}
+
+{\bfseries{Driver changes\+:}}
+\begin{DoxyItemize}
+\item Added {\ttfamily Nelexa\+Zip} pure-\/\+PHP driver.
+\item Added {\ttfamily Iso} driver extraction ability.
+\item Added commenting-\/ability for {\ttfamily Seven\+Zip} driver (via {\ttfamily descript.\+ion} file in archive).
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2wapmorgan_2unified-archive_2_c_h_a_n_g_e_l_o_g_autotoc_md7463}{}\doxysection{\texorpdfstring{1.\+1.\+5 -\/ Jun 28, 2022}{1.\+1.\+5 -\/ Jun 28, 2022}}\label{md_public_2glpi_2vendor_2wapmorgan_2unified-archive_2_c_h_a_n_g_e_l_o_g_autotoc_md7463}
+{\bfseries{New features}}\+:
+\begin{DoxyItemize}
+\item Reimplemented {\ttfamily cam} (console utility) -\/ now it\textquotesingle{}s on symfony/console and supports all features and more functions (folders, types) of UA.
+\item Added more detailed installation instructions ({\ttfamily ./vendor/bin/cam system\+:drivers}) of specific drivers\+: Alchemy\+Zippy, Cab, Iso, Lzma, Rar, Seven\+Zip, Tar\+By\+Pear.
+\item Added ability to track progress of archive creation -\/ new argument {\ttfamily ?callable \$file\+Progress\+Callable} of {\ttfamily Unified\+Archive\+::archive\+Files()}.
+\item Added ability to {\bfseries{pass few directories to be placed in one in-\/archive directory}} in archiving/appending ({\ttfamily add\+Files()}/{\ttfamily archive\+Files()}) 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{[}
+\DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{''}\ =>\ [\textcolor{stringliteral}{'./folder1'},\ \textcolor{stringliteral}{'./folder2'}],}
+\DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{'README.md'}\ =>\ \textcolor{stringliteral}{'./subfolder/README.md'}}
+\DoxyCodeLine{]\ \#\ Archive\ \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{will}}\ \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{have}}\ \mbox{\hyperlink{namespace_guzzle_http_1_1_promise_ae83348ce57763721fb9bb26e5622e19e}{all}}\ \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{folder1}},\ \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{folder2}}\ \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{contents}}\ in\ \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{the}}\ \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{root}}\ and\ \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{README}}.md}
+
+\end{DoxyCode}
+
+\end{DoxyItemize}
+
+{\bfseries{Fixed}}\+:
+\begin{DoxyItemize}
+\item Fixed {\ttfamily extract()} and {\ttfamily list\+Content()} and their result of {\bfseries{Pcl\+Zip}} interface ({\ttfamily Unified\+Archive\+::get\+Pcl\+Zip\+Interface()}) to correspond to original library (object =\texorpdfstring{$>$}{>} array).
+\item Added tests on archiving, extraction and for Pcl\+Zip-\/interface.
+\end{DoxyItemize}
+
+{\bfseries{Format changes}}\+:
+\begin{DoxyItemize}
+\item Fixed counting of extracted files when extracting the whole archive in {\ttfamily Tar\+By\+Pear, Tar\+By\+Phar, Zip}.
+\item Fixed calculation archive entry compressed size (approximately) and modification time, implemented entry content streaming in {\ttfamily Tar\+By\+Phar}.
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2wapmorgan_2unified-archive_2_c_h_a_n_g_e_l_o_g_autotoc_md7464}{}\doxysection{\texorpdfstring{1.\+1.\+4 -\/ Dec 21, 2021}{1.\+1.\+4 -\/ Dec 21, 2021}}\label{md_public_2glpi_2vendor_2wapmorgan_2unified-archive_2_c_h_a_n_g_e_l_o_g_autotoc_md7464}
+Disabled {\ttfamily rar} for Seven\+Zip driver.\hypertarget{md_public_2glpi_2vendor_2wapmorgan_2unified-archive_2_c_h_a_n_g_e_l_o_g_autotoc_md7465}{}\doxysection{\texorpdfstring{1.\+1.\+3 -\/ May 2, 2021}{1.\+1.\+3 -\/ May 2, 2021}}\label{md_public_2glpi_2vendor_2wapmorgan_2unified-archive_2_c_h_a_n_g_e_l_o_g_autotoc_md7465}
+{\bfseries{Changed format of {\ttfamily \$files} in {\ttfamily archive\+Files()} and {\ttfamily add\+Files()}}} 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{[}
+\DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{'/var/www/log.txt'},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ will\ be\ "{}/var/www/log.txt"{}}}
+\DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{'log2.txt'}\ =>\ \textcolor{stringliteral}{'/var/www/log2.txt'},\ \textcolor{comment}{//\ will\ be\ "{}/log2.txt"{}}}
+\DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{'/var/www/site'},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ will\ be\ "{}/var/www/site"{}}}
+\DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{'site2'}\ =>\ \textcolor{stringliteral}{'/var/www/site2'},\ \ \ \ \ \ \ \textcolor{comment}{//\ will\ be\ "{}/site2"{}}}
+\DoxyCodeLine{]}
+
+\end{DoxyCode}
+
+
+Old format also works, but there can be a bad case. If you have \texorpdfstring{$\ast$}{*}/var/www/log2.txt\texorpdfstring{$\ast$}{*} and {\itshape log2.\+txt} (in current directory) and pass following\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{[}
+\DoxyCodeLine{\textcolor{stringliteral}{'/var/www/log2.txt'}\ =>\ \textcolor{stringliteral}{'log2.txt'},}
+\DoxyCodeLine{]}
+
+\end{DoxyCode}
+ it will archive {\itshape log2.\+txt} as \texorpdfstring{$\ast$}{*}/var/www/log2.txt\texorpdfstring{$\ast$}{*} in an archive (new behaviour).
+
+{\bfseries{New features}}\+:
+\begin{DoxyItemize}
+\item Added {\ttfamily Formats\+::can\+Stream()} to check if an archive files can be streamed.
+\item Added ability to create archives, encrypted with password (only {\itshape zip} ({\ttfamily Zip}, {\ttfamily Seven\+Zip}) and {\itshape 7z} ({\ttfamily Seven\+Zip})) -\/ added nullable {\ttfamily \$password} argument to\+:
+\begin{DoxyItemize}
+\item {\ttfamily Unified\+Archive\+::archive\+Files(\$file\+Or\+Files, \$archive\+Name, \$compression\+Level = Basic\+Driver\+::\+COMPRESSION\+\_\+\+AVERAGE, \$password = null)}
+\item {\ttfamily Unified\+Archive\+::archive\+File(\$file, \$archive\+Name, \$compression\+Level = Basic\+Driver\+::\+COMPRESSION\+\_\+\+AVERAGE, \$password = null)}
+\item {\ttfamily Unified\+Archive\+::archive\+Directory(\$directory, \$archive\+Name, \$compression\+Level = Basic\+Driver\+::\+COMPRESSION\+\_\+\+AVERAGE, \$password = null)}
+\end{DoxyItemize}
+\item Added {\ttfamily Unified\+Archive-\/\texorpdfstring{$>$}{>}get\+Mime\+Type()} to get mime type of archive.
+\item Added {\ttfamily Unified\+Archive-\/\texorpdfstring{$>$}{>}get\+Comment()} to get comment of an archive. Available only in {\ttfamily Zip} and {\ttfamily Rar} drivers, others return {\ttfamily null}.
+\item Added {\ttfamily Unified\+Archive-\/\texorpdfstring{$>$}{>}set\+Comment(?string \$comment)} to set comment. Available only in {\ttfamily Zip}.
+\item Added filter in {\ttfamily Unified\+Arcihve-\/\texorpdfstring{$>$}{>}get\+File\+Names()}. If works as {\ttfamily \doxylink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{fnmatch()}} does.
+\item Added ability to iterate over archive and access files data as array\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\$a\ =\ \(\backslash\)wapmorgan\(\backslash\)UnifiedArchive\(\backslash\)UnifiedArchive::open(\textcolor{stringliteral}{'tests/archives/fixtures.7z'});}
+\DoxyCodeLine{\textcolor{keywordflow}{foreach}\ (\$a\ \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{as}}\ \mbox{\hyperlink{aealarabiya_8php_aa1bfbd27060176201b271918dff57e8f}{\$file}}\ =>\ \mbox{\hyperlink{map_8php_ac4cc485208612884539dda2da7d39024}{\$data}})\ \{}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{echo}}\ \mbox{\hyperlink{aealarabiya_8php_aa1bfbd27060176201b271918dff57e8f}{\$file}}.PHP\_EOL;}
+\DoxyCodeLine{\ \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\$file\_data}}\ =\ \$a[\textcolor{stringliteral}{'filename'}];}
+
+\end{DoxyCode}
+
+\end{DoxyItemize}
+
+{\bfseries{Fixed\+:}}
+\begin{DoxyItemize}
+\item Fixed {\ttfamily Seven\+Zip} driver\+: disabled {\itshape tar.\+gz, tar.\+bzip2} support as it isn\textquotesingle{}t supported properly and described which formats driver can create, append, modify and encrypt.
+\end{DoxyItemize}
+
+{\bfseries{Methods renamed}} (old exist, but marked as deprecated)\+:
+\begin{DoxyItemize}
+\item {\ttfamily Unified\+Archive-\/\texorpdfstring{$>$}{>}get\+Archive\+Format} -\/\texorpdfstring{$>$}{>} {\ttfamily Unified\+Archive-\/\texorpdfstring{$>$}{>}get\+Format}.
+\item {\ttfamily Unified\+Archive-\/\texorpdfstring{$>$}{>}get\+Archive\+Size} -\/\texorpdfstring{$>$}{>} {\ttfamily Unified\+Archive-\/\texorpdfstring{$>$}{>}get\+Size}.
+\item {\ttfamily Unified\+Archive-\/\texorpdfstring{$>$}{>}count\+Compressed\+Files\+Size} -\/\texorpdfstring{$>$}{>} {\ttfamily Unified\+Archive-\/\texorpdfstring{$>$}{>}get\+Compressed\+Size}.
+\item {\ttfamily Unified\+Archive-\/\texorpdfstring{$>$}{>}count\+Uncompressed\+Files\+Size} -\/\texorpdfstring{$>$}{>} {\ttfamily Unified\+Archive-\/\texorpdfstring{$>$}{>}get\+Original\+Size}.
+\item {\ttfamily Unified\+Archive-\/\texorpdfstring{$>$}{>}get\+File\+Resource} -\/\texorpdfstring{$>$}{>} {\ttfamily Unified\+Archive-\/\texorpdfstring{$>$}{>}get\+File\+Stream}.
+\item {\ttfamily Unified\+Archive-\/\texorpdfstring{$>$}{>}is\+File\+Exists} -\/\texorpdfstring{$>$}{>} {\ttfamily Unified\+Archive-\/\texorpdfstring{$>$}{>}has\+File}.
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2wapmorgan_2unified-archive_2_c_h_a_n_g_e_l_o_g_autotoc_md7466}{}\doxysection{\texorpdfstring{1.\+1.\+2 -\/ Mar 1, 2021}{1.\+1.\+2 -\/ Mar 1, 2021}}\label{md_public_2glpi_2vendor_2wapmorgan_2unified-archive_2_c_h_a_n_g_e_l_o_g_autotoc_md7466}
+Fixed calculation of tar\textquotesingle{}s uncompressed size opened via {\ttfamily Tar\+By\+Pear} driver. Fixed working with {\itshape tar.\+xz} archives.\hypertarget{md_public_2glpi_2vendor_2wapmorgan_2unified-archive_2_c_h_a_n_g_e_l_o_g_autotoc_md7467}{}\doxysection{\texorpdfstring{1.\+1.\+1 -\/ Feb 13, 2021}{1.\+1.\+1 -\/ Feb 13, 2021}}\label{md_public_2glpi_2vendor_2wapmorgan_2unified-archive_2_c_h_a_n_g_e_l_o_g_autotoc_md7467}
+Cleaned package.\hypertarget{md_public_2glpi_2vendor_2wapmorgan_2unified-archive_2_c_h_a_n_g_e_l_o_g_autotoc_md7468}{}\doxysection{\texorpdfstring{1.\+1.\+0 -\/ Feb 13, 2021}{1.\+1.\+0 -\/ Feb 13, 2021}}\label{md_public_2glpi_2vendor_2wapmorgan_2unified-archive_2_c_h_a_n_g_e_l_o_g_autotoc_md7468}
+{\bfseries{New features}}\+:
+\begin{DoxyItemize}
+\item Added ability to open archives encrypted with password -\/ added {\ttfamily \$password} argument to {\ttfamily Unified\+Archive\+::open(\$file\+Name, \$password = null)}. Works only with\+: zip, rar, 7z. ~\newline
+
+\item Added ability to adjust compression level for new archives -\/ added {\ttfamily \$compression\+Level} argument (with default {\ttfamily Basic\+Driver\+::\+COMPRESSION\+\_\+\+AVERAGE} level) to\+:
+\begin{DoxyItemize}
+\item {\ttfamily Unified\+Archive\+::archive\+Files(\$file\+Or\+Files, \$archive\+Name, \$compression\+Level = Basic\+Driver\+::\+COMPRESSION\+\_\+\+AVERAGE)}
+\item {\ttfamily Unified\+Archive\+::archive\+File(\$file, \$archive\+Name, \$compression\+Level = Basic\+Driver\+::\+COMPRESSION\+\_\+\+AVERAGE)}
+\item {\ttfamily Unified\+Archive\+::archive\+Directory(\$file, \$archive\+Name, \$compression\+Level = Basic\+Driver\+::\+COMPRESSION\+\_\+\+AVERAGE)} Works only with\+: zip, gzip.
+\end{DoxyItemize}
+\item Added ability to append the archive with a file from string -\/ added {\ttfamily add\+File\+From\+String} method\+: {\ttfamily Unified\+Archive-\/\texorpdfstring{$>$}{>}add\+File\+From\+String(string \$in\+Archive\+Name, string \$content)}.
+\item Added tests for format support\+:
+\begin{DoxyItemize}
+\item {\ttfamily Formats\+::can\+Open()}
+\item {\ttfamily Formats\+::can\+Create()}
+\item {\ttfamily Formats\+::can\+Append()} -\/ check if file can be added to an archive
+\item {\ttfamily Formats\+::can\+Update()} -\/ check if archive member can be removed
+\item {\ttfamily Formats\+::can\+Encrypt()} -\/ check if encrypted archive can be opened
+\end{DoxyItemize}
+\end{DoxyItemize}
+
+{\bfseries{Format changes}}\+:
+\begin{DoxyItemize}
+\item Extended {\itshape Seven\+Zip} driver\+: now it supports a lot of formats (7z, zip, rar, iso, tar and so on).
+\item Added {\itshape Alchemy\+Zippy} driver\+: it works via command-\/line programs for zip, tar, tar.\+gz and tar.\+bz2.
+\end{DoxyItemize}
+
+{\bfseries{Methods renamed\+:}}
+\begin{DoxyItemize}
+\item {\ttfamily Unified\+Archive\+::can\+Open\+Type} -\/\texorpdfstring{$>$}{>} {\ttfamily Formats\+::can\+Open}
+\item {\ttfamily Unified\+Archive\+::can\+Open\+Archive} -\/\texorpdfstring{$>$}{>} {\ttfamily Unified\+Archive\+::can\+Open}
+\item {\ttfamily Unified\+Archive\+::can\+Create\+Type} -\/\texorpdfstring{$>$}{>} {\ttfamily Formats\+::can\+Create}
+\item {\ttfamily Unified\+Archive-\/\texorpdfstring{$>$}{>}get\+Archive\+Type} -\/\texorpdfstring{$>$}{>} {\ttfamily Unified\+Archive-\/\texorpdfstring{$>$}{>}get\+Archive\+Format}
+\item Old methods exist, but marked as deprecated.
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2wapmorgan_2unified-archive_2_c_h_a_n_g_e_l_o_g_autotoc_md7469}{}\doxysection{\texorpdfstring{1.\+0.\+1 -\/ Nov 28, 2020}{1.\+0.\+1 -\/ Nov 28, 2020}}\label{md_public_2glpi_2vendor_2wapmorgan_2unified-archive_2_c_h_a_n_g_e_l_o_g_autotoc_md7469}
+
+\begin{DoxyItemize}
+\item Improved extendable for all classes -\/ used late-\/static binding everywhere.
+\end{DoxyItemize}
+
+Format specific\+:
+\begin{DoxyItemize}
+\item {\bfseries{gzip}}\+: improved detection of archive by content.
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2wapmorgan_2unified-archive_2_c_h_a_n_g_e_l_o_g_autotoc_md7470}{}\doxysection{\texorpdfstring{1.\+0.\+0 -\/ Jun 13, 2020}{1.\+0.\+0 -\/ Jun 13, 2020}}\label{md_public_2glpi_2vendor_2wapmorgan_2unified-archive_2_c_h_a_n_g_e_l_o_g_autotoc_md7470}
+Format specific\+:
+\begin{DoxyItemize}
+\item {\bfseries{tar}}\+:
+\begin{DoxyItemize}
+\item Fixed automatic opening of .tar.\+Z and .tar.\+xz.
+\end{DoxyItemize}
+\item {\bfseries{rar}}\+:
+\begin{DoxyItemize}
+\item Exclude directories from files list.
+\end{DoxyItemize}
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2wapmorgan_2unified-archive_2_c_h_a_n_g_e_l_o_g_autotoc_md7471}{}\doxysection{\texorpdfstring{0.\+2.\+0 -\/ Feb 2, 2020}{0.\+2.\+0 -\/ Feb 2, 2020}}\label{md_public_2glpi_2vendor_2wapmorgan_2unified-archive_2_c_h_a_n_g_e_l_o_g_autotoc_md7471}
+{\bfseries{BC-\/breaking changes}}\+:
+\begin{DoxyItemize}
+\item {\bfseries{Deleted deprecated Unified\+Archive methods}}\+: {\ttfamily extract\+Node}, {\ttfamily archive\+Nodes}.
+\item Functionality of preparing files list for archiving is moved from {\ttfamily archive\+Files()} to {\ttfamily prepare\+For\+Archiving()}.
+\item {\bfseries{All mutable methods throws exceptions on errors now}}\+:
+\begin{DoxyItemize}
+\item {\ttfamily get\+File\+Data}, {\ttfamily get\+File\+Content}, {\ttfamily get\+File\+Resource} throws {\ttfamily Non\+Existent\+Archive\+File\+Exception} when file is not present in archive.
+\item {\ttfamily extract\+Files} throws\+:
+\begin{DoxyItemize}
+\item {\ttfamily Empty\+File\+List\+Exception}
+\item {\ttfamily Archive\+Extraction\+Exception}
+\end{DoxyItemize}
+\item {\ttfamily delete\+Files}, {\ttfamily add\+Files}, {\ttfamily add\+File} and {\ttfamily add\+Directory} throws\+:
+\begin{DoxyItemize}
+\item {\ttfamily Empty\+File\+List\+Exception}
+\item {\ttfamily Unsupported\+Operation\+Exception}
+\item {\ttfamily Archive\+Modification\+Exception}
+\end{DoxyItemize}
+\item {\ttfamily archive\+Files}, {\ttfamily archive\+File} and {\ttfamily archive\+Directory} throws\+:
+\begin{DoxyItemize}
+\item {\ttfamily File\+Already\+Exists\+Exception}
+\item {\ttfamily Empty\+File\+List\+Exception}
+\item {\ttfamily Unsupported\+Operation\+Exception}
+\item {\ttfamily Archive\+Creation\+Exception}
+\end{DoxyItemize}
+\end{DoxyItemize}
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2wapmorgan_2unified-archive_2_c_h_a_n_g_e_l_o_g_autotoc_md7472}{}\doxysection{\texorpdfstring{0.\+1.\+3 -\/ Jan 13, 2020}{0.\+1.\+3 -\/ Jan 13, 2020}}\label{md_public_2glpi_2vendor_2wapmorgan_2unified-archive_2_c_h_a_n_g_e_l_o_g_autotoc_md7472}
+{\bfseries{BC-\/breaking changes}}\+:
+\begin{DoxyItemize}
+\item {\bfseries{Minimal version is 5.\+5.\+0}}.
+\end{DoxyItemize}
+
+Format specific\+:
+\begin{DoxyItemize}
+\item {\bfseries{zip}}\+: Fixed Pcl\+Zip-\/interface
+\item {\bfseries{7zip}}\+: Fixed 7z-\/archiving, when archiving files should be renamed in archive
+\item {\bfseries{lzw}}\+: Fixed check for availability (\#15)
+\end{DoxyItemize}
+
+New features\+:
+\begin{DoxyItemize}
+\item Added {\ttfamily can\+Create\+Type()\+: bool}
+\item Added {\ttfamily \doxylink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{can\+Add\+Files()}\+: bool}
+\item Added {\ttfamily \doxylink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{can\+Delete\+Files()}\+: bool}
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2wapmorgan_2unified-archive_2_c_h_a_n_g_e_l_o_g_autotoc_md7473}{}\doxysection{\texorpdfstring{0.\+1.\+2 -\/ Jan 03, 2019}{0.\+1.\+2 -\/ Jan 03, 2019}}\label{md_public_2glpi_2vendor_2wapmorgan_2unified-archive_2_c_h_a_n_g_e_l_o_g_autotoc_md7473}
+{\bfseries{BC-\/breaking changes}}\+:
+\begin{DoxyItemize}
+\item Pcl\+Zip-\/interface getter renamed to {\ttfamily get\+Pcl\+Zip\+Interface()}.
+\item Make {\ttfamily add\+Files()} return number of {\bfseries{added files}} instead of total files number.
+\end{DoxyItemize}
+
+Other changes\+:
+\begin{DoxyItemize}
+\item Make {\ttfamily add\+Files()} / {\ttfamily delete\+Files()} / {\ttfamily archive\+Files()} throw {\ttfamily \textbackslash{}Exception}s when any error occurred (and even when files list is empty).
+\item Fixed usage of {\ttfamily /} always as directory separator in {\ttfamily add\+Files()} and {\ttfamily archive\+Files()}.
+\end{DoxyItemize}
+
+Format-\/specific changes\+:
+\begin{DoxyItemize}
+\item Divided format-\/specific code into separate components.
+\item {\bfseries{zip}}\+:
+\begin{DoxyItemize}
+\item Excluded directories from files list ({\ttfamily get\+File\+Names()}).
+\item Fixed retrieving new list of files after {\ttfamily add\+Files()} usage.
+\item (\#11) Fixed invalid "{}/"{} archive entry after {\ttfamily archive\+Files()} usage.
+\end{DoxyItemize}
+\item {\bfseries{tar}} ({\ttfamily Tar\+Archive} adapter)\+:
+\begin{DoxyItemize}
+\item Fixed number of added files of {\ttfamily add\+Files()}.
+\item Fixed list of files after {\ttfamily delete\+Files()} usage.
+\item Added checks for compressed tar\textquotesingle{}s support in {\ttfamily can\+Open\+Archive()} and {\ttfamily can\+Open\+Type()}.
+\end{DoxyItemize}
+\item {\bfseries{tar}} ({\ttfamily Phar\+Data} adapter)\+:
+\begin{DoxyItemize}
+\item Fixed list of files after {\ttfamily add\+Files()}/{\ttfamily delete\+Files()} usage and path generation of archive in {\ttfamily archive\+Files()}.
+\item Fixed path of files in {\ttfamily get\+File\+Names()} to use UNIX path separator ("{}/"{}).
+\end{DoxyItemize}
+\item {\bfseries{iso}}\+:
+\begin{DoxyItemize}
+\item Excluded directories from files list ({\ttfamily get\+File\+Names()}).
+\end{DoxyItemize}
+\item {\bfseries{7zip}}\+:
+\begin{DoxyItemize}
+\item Fixed result of {\ttfamily delete\+Files()} and {\ttfamily archive\+Files()} in-\/archive paths.
+\item Fixed calculation of compressed file size in {\ttfamily get\+File\+Data()}.
+\item (\#10) Set infinite timeout of {\ttfamily 7z} system call (useful for big archives).
+\end{DoxyItemize}
+\item {\bfseries{cab}}\+:
+\begin{DoxyItemize}
+\item Fixed {\ttfamily extract\+Files()} functionality.
+\end{DoxyItemize}
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2wapmorgan_2unified-archive_2_c_h_a_n_g_e_l_o_g_autotoc_md7474}{}\doxysection{\texorpdfstring{0.\+1.\+1 -\/ Sep 21, 2018}{0.\+1.\+1 -\/ Sep 21, 2018}}\label{md_public_2glpi_2vendor_2wapmorgan_2unified-archive_2_c_h_a_n_g_e_l_o_g_autotoc_md7474}
+API changes\+:
+\begin{DoxyItemize}
+\item {\bfseries{Changed algorithm of files list generation in {\ttfamily archive\+Files()} and {\ttfamily add\+Files()}}}\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{comment}{//\ 1.\ one\ file}}
+\DoxyCodeLine{\$archive-\/>archiveFiles(\textcolor{stringliteral}{'/var/www/site/abc.log'},\ \textcolor{stringliteral}{'archive.zip'});\ \textcolor{comment}{//\ =>\ stored\ as\ 'abc.log'}}
+\DoxyCodeLine{\textcolor{comment}{//\ 2.\ directory}}
+\DoxyCodeLine{\$archive-\/>archiveFiles(\textcolor{stringliteral}{'/var/www/site/runtime/logs'},\ \textcolor{stringliteral}{'archive.zip'});\ \textcolor{comment}{//\ =>\ directory\ content\ stored\ in\ archive\ root}}
+\DoxyCodeLine{\textcolor{comment}{//\ 3.\ list}}
+\DoxyCodeLine{\$archive-\/>archiveFiles([}
+\DoxyCodeLine{\ \ \ \ \ \ \textcolor{stringliteral}{'/var/www/site/abc.log'}\ =>\ \textcolor{stringliteral}{'abc.log'},\ \textcolor{comment}{//\ stored\ as\ 'abc.log'}}
+\DoxyCodeLine{\ \ \ \ \ \ \textcolor{stringliteral}{'/var/www/site/abc.log'},\ \textcolor{comment}{//\ stored\ as\ '/var/www/site/abc.log'}}
+\DoxyCodeLine{\ \ \ \ \ \ \textcolor{stringliteral}{'/var/www/site/runtime/logs'}\ =>\ \textcolor{stringliteral}{'logs'},\ \textcolor{comment}{//\ directory\ content\ stored\ in\ 'logs'\ dir}}
+\DoxyCodeLine{\ \ \ \ \ \ \textcolor{stringliteral}{'/var/www/site/runtime/logs'},\ \textcolor{comment}{//\ stored\ as\ '/var/www/site/runtime/logs'}}
+\DoxyCodeLine{],\ \textcolor{stringliteral}{'archive.zip'});}
+
+\end{DoxyCode}
+
+\item {\bfseries{Disabled paths expanding in {\ttfamily extract\+Files()} and {\ttfamily delete\+Files()} by default}}.
+
+If you need to expand {\ttfamily src/} path to all files within this directory in archive, set second argument {\ttfamily \$expand\+Files\+List} argument to {\ttfamily true}. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\$archive-\/>extractFiles(\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\_\_DIR\_\_}},\ \textcolor{stringliteral}{'src/'},\ \textcolor{keyword}{true});}
+\DoxyCodeLine{\$archive-\/>deleteFiles(\textcolor{stringliteral}{'tests/'},\ \textcolor{keyword}{true});}
+
+\end{DoxyCode}
+
+\item Added new element in {\ttfamily archive\+Files()} result in emulation mode. Now it returns an archive with 4 elements\+: new {\ttfamily type} element with archive type.
+\end{DoxyItemize}
+
+Fixes\+:
+\begin{DoxyItemize}
+\item Fixed {\bfseries{LZW-\/stream}} (.tar.\+Z) wrapper (before it didn\textquotesingle{}t work).
+\item Fixed {\bfseries{ISO}} archives reading (before archive size could be calculated wrong).
+\item Fixed {\bfseries{CAB}} archives extraction in {\ttfamily get\+File\+Content(\$file)} (before it didn\textquotesingle{}t work).
+\item Improved extraction in {\ttfamily get\+File\+Content(\$file)} for {\bfseries{RAR}} archives by using streams (before it did extract file in temporarily folder, read it and then delete it).
+\end{DoxyItemize}
+
+Improvements\+:
+\begin{DoxyItemize}
+\item Added {\ttfamily is\+File\+Exists(\$file)\+: bool} method for checking if archive has a file with specific name.
+\item Added {\ttfamily get\+File\+Resource(\$file)\+: resource} method for getting a file descriptor for reading all file content without full extraction in memory.
+\item Added {\ttfamily can\+Open\+Archive(\$archive\+File\+Name)\+: bool} and {\ttfamily can\+Open\+Type(\$archive\+Format)\+: bool} static methods to check if specific archive or format can be opened.
+\item Added {\ttfamily detect\+Archive\+Type(\$file\+Name)\+: string\texorpdfstring{$\vert$}{|}false} static method to detect (by filename or content) archive type.
+\item Added {\ttfamily add\+File(\$file, \$in\+Archive\+Name = null)} / {\ttfamily add\+Directory(\$directory, \$in\+Archive\+Path = null)} to add one file or one directory, {\ttfamily archive\+File(\$file, \$archive\+Name)} / {\ttfamily archive\+Directory(\$directory, \$archive\+Name)} to archive one file or directory.
+\end{DoxyItemize}
+
+Miscellaneous\+:
+\begin{DoxyItemize}
+\item Added simple tests.
+\item Added {\ttfamily phar} distribution.
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2wapmorgan_2unified-archive_2_c_h_a_n_g_e_l_o_g_autotoc_md7475}{}\doxysection{\texorpdfstring{0.\+1.\+0 -\/ Apr 11, 2018}{0.\+1.\+0 -\/ Apr 11, 2018}}\label{md_public_2glpi_2vendor_2wapmorgan_2unified-archive_2_c_h_a_n_g_e_l_o_g_autotoc_md7475}
+API changes\+:
+\begin{DoxyItemize}
+\item Renamed methods {\ttfamily \doxylink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{extract\+Node()}} → {\ttfamily extract\+Files()}, {\ttfamily \doxylink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{archive\+Nodes()}} → {\ttfamily archive\+Files()}. Original method are still available with {\ttfamily @deprecated} status.
+\item {\ttfamily get\+File\+Data()} now returns {\ttfamily Archive\+Entry} instance instead of {\ttfamily std\+Class}. Original object fields are still available with {\ttfamily @deprecated} status.
+\item {\ttfamily add\+Files()} and {\ttfamily delete\+Files()} now return false when archive is not editable.
+\end{DoxyItemize}
+
+Improvements\+:
+\begin{DoxyItemize}
+\item Added checks of archive opening status in constructor\+: now an {\ttfamily Exception} will be throwed if archive file is not readable.
+\item Some changes in {\ttfamily \doxylink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{archive\+Nodes()}} about handling directory names.
+\item Fixed archive rescan in {\ttfamily add\+Files()} and {\ttfamily delete\+Files()}.
+\end{DoxyItemize}
+
+Miscellaneous\+:
+\begin{DoxyItemize}
+\item Removed example scripts ({\ttfamily examples/}).
+\item Code changes\+: added comments.
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2wapmorgan_2unified-archive_2_c_h_a_n_g_e_l_o_g_autotoc_md7476}{}\doxysection{\texorpdfstring{0.\+0.\+11 -\/ Mar 21, 2018}{0.\+0.\+11 -\/ Mar 21, 2018}}\label{md_public_2glpi_2vendor_2wapmorgan_2unified-archive_2_c_h_a_n_g_e_l_o_g_autotoc_md7476}
+
+\begin{DoxyItemize}
+\item Cleaned up some old code.
+\item Added {\ttfamily ext-\/phar} adapter for tar archives (if {\ttfamily pear/archive\+\_\+tar} is not installed).
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2wapmorgan_2unified-archive_2_c_h_a_n_g_e_l_o_g_autotoc_md7477}{}\doxysection{\texorpdfstring{0.\+0.\+10 -\/ Aug 7, 2017}{0.\+0.\+10 -\/ Aug 7, 2017}}\label{md_public_2glpi_2vendor_2wapmorgan_2unified-archive_2_c_h_a_n_g_e_l_o_g_autotoc_md7477}
+
+\begin{DoxyItemize}
+\item Remove {\ttfamily docopt} from requirements. Now it\textquotesingle{}s a suggestion.
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2wapmorgan_2unified-archive_2_c_h_a_n_g_e_l_o_g_autotoc_md7478}{}\doxysection{\texorpdfstring{0.\+0.\+9 -\/ Jul 20, 2017}{0.\+0.\+9 -\/ Jul 20, 2017}}\label{md_public_2glpi_2vendor_2wapmorgan_2unified-archive_2_c_h_a_n_g_e_l_o_g_autotoc_md7478}
+
+\begin{DoxyItemize}
+\item Added {\ttfamily cam} (Console Archive Manager) script.
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2wapmorgan_2unified-archive_2_c_h_a_n_g_e_l_o_g_autotoc_md7479}{}\doxysection{\texorpdfstring{0.\+0.\+8 -\/ Jan 24, 2017}{0.\+0.\+8 -\/ Jan 24, 2017}}\label{md_public_2glpi_2vendor_2wapmorgan_2unified-archive_2_c_h_a_n_g_e_l_o_g_autotoc_md7479}
+
+\begin{DoxyItemize}
+\item Added initial support for {\ttfamily CAB} archives without extracting.
+\item Added handling of short names of tar archives (.tgz/.tbz2/...).
+\item Removed external repository declaration.
+\item Removed {\ttfamily \doxylink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{die()}} in source code.
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2wapmorgan_2unified-archive_2_c_h_a_n_g_e_l_o_g_autotoc_md7480}{}\doxysection{\texorpdfstring{0.\+0.\+7 -\/ Jan 14, 2017}{0.\+0.\+7 -\/ Jan 14, 2017}}\label{md_public_2glpi_2vendor_2wapmorgan_2unified-archive_2_c_h_a_n_g_e_l_o_g_autotoc_md7480}
+
+\begin{DoxyItemize}
+\item Fixed usage of {\ttfamily ereg} function for PHP \texorpdfstring{$>$}{>}7.
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2wapmorgan_2unified-archive_2_c_h_a_n_g_e_l_o_g_autotoc_md7481}{}\doxysection{\texorpdfstring{0.\+0.\+6 -\/ Jan 9, 2017}{0.\+0.\+6 -\/ Jan 9, 2017}}\label{md_public_2glpi_2vendor_2wapmorgan_2unified-archive_2_c_h_a_n_g_e_l_o_g_autotoc_md7481}
+
+\begin{DoxyItemize}
+\item Added functionality for adding files in archive.
+\item Added functionality for deleting files from archive.
+\item Fixed discovering {\ttfamily 7z} archive number of files and creating new archive.
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2wapmorgan_2unified-archive_2_c_h_a_n_g_e_l_o_g_autotoc_md7482}{}\doxysection{\texorpdfstring{0.\+0.\+5 -\/ Jan 8, 2017}{0.\+0.\+5 -\/ Jan 8, 2017}}\label{md_public_2glpi_2vendor_2wapmorgan_2unified-archive_2_c_h_a_n_g_e_l_o_g_autotoc_md7482}
+
+\begin{DoxyItemize}
+\item Added support for {\ttfamily 7z} (by 7zip-\/cli) archives.
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2wapmorgan_2unified-archive_2_c_h_a_n_g_e_l_o_g_autotoc_md7483}{}\doxysection{\texorpdfstring{0.\+0.\+4 -\/ Jan 7, 2017}{0.\+0.\+4 -\/ Jan 7, 2017}}\label{md_public_2glpi_2vendor_2wapmorgan_2unified-archive_2_c_h_a_n_g_e_l_o_g_autotoc_md7483}
+
+\begin{DoxyItemize}
+\item Added support for single-\/file {\ttfamily bz2} (bzip2) and {\ttfamily xz} (lzma2) archives.
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2wapmorgan_2unified-archive_2_c_h_a_n_g_e_l_o_g_autotoc_md7484}{}\doxysection{\texorpdfstring{0.\+0.\+3 -\/ Aug 18, 2015}{0.\+0.\+3 -\/ Aug 18, 2015}}\label{md_public_2glpi_2vendor_2wapmorgan_2unified-archive_2_c_h_a_n_g_e_l_o_g_autotoc_md7484}
+
+\begin{DoxyItemize}
+\item Removed {\ttfamily archive\+\_\+tar} from required packages.
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2wapmorgan_2unified-archive_2_c_h_a_n_g_e_l_o_g_autotoc_md7485}{}\doxysection{\texorpdfstring{0.\+0.\+2 -\/ May 27, 2014}{0.\+0.\+2 -\/ May 27, 2014}}\label{md_public_2glpi_2vendor_2wapmorgan_2unified-archive_2_c_h_a_n_g_e_l_o_g_autotoc_md7485}
+
+\begin{DoxyItemize}
+\item Released under the MIT license
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2wapmorgan_2unified-archive_2_c_h_a_n_g_e_l_o_g_autotoc_md7486}{}\doxysection{\texorpdfstring{0.\+0.\+1 -\/ May 26, 2014}{0.\+0.\+1 -\/ May 26, 2014}}\label{md_public_2glpi_2vendor_2wapmorgan_2unified-archive_2_c_h_a_n_g_e_l_o_g_autotoc_md7486}
+First version. 

@@ -1,0 +1,728 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_laminas_1_1_stdlib_1_1_priority_queue" xml:lang="fr">
+<title>Référence de la classe PriorityQueue</title>
+<indexterm><primary>PriorityQueue</primary></indexterm>
+Graphe d&apos;héritage de PriorityQueue:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_laminas_1_1_stdlib_1_1_priority_queue__inherit__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Graphe de collaboration de PriorityQueue:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_laminas_1_1_stdlib_1_1_priority_queue__coll__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Fonctions membres publiques    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_laminas_1_1_stdlib_1_1_priority_queue_1a8076e883c5b481e016983d4c9773486c">insert</link> ($data, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">priority</link>=1)</para>
+</listitem>
+            <listitem><para><link linkend="_class_laminas_1_1_stdlib_1_1_priority_queue_1ae62e61c6cc8d2975e6a63c5d8c5790a7">remove</link> ($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">datum</link>)</para>
+</listitem>
+            <listitem><para><link linkend="_class_laminas_1_1_stdlib_1_1_priority_queue_1aedcc52b3673b8df9425e52f13accb2a1">isEmpty</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_class_laminas_1_1_stdlib_1_1_priority_queue_1ac751e87b3d4c4bf2feb03bee8b092755">count</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_class_laminas_1_1_stdlib_1_1_priority_queue_1abf59e1e8a146d6bfc21db77491924632">top</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_class_laminas_1_1_stdlib_1_1_priority_queue_1a017ef4fbe3e4fedcdffd97fed288016f">extract</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_class_laminas_1_1_stdlib_1_1_priority_queue_1a7a9f937c2958e6f4dd7b030f86fb70b7">getIterator</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_class_laminas_1_1_stdlib_1_1_priority_queue_1a4d9813fea8525b19a1d370eeb8fe41d6">serialize</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_class_laminas_1_1_stdlib_1_1_priority_queue_1ab1d6abfbdcd8c9dd63dfef565bd2cfcf">__serialize</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_class_laminas_1_1_stdlib_1_1_priority_queue_1a91b3cb8a65e42152cacf1cf222bd26f6">unserialize</link> ($data)</para>
+</listitem>
+            <listitem><para><link linkend="_class_laminas_1_1_stdlib_1_1_priority_queue_1aece9561d22d6ba341c36c371e50c2a8a">__unserialize</link> ($data)</para>
+</listitem>
+            <listitem><para><link linkend="_class_laminas_1_1_stdlib_1_1_priority_queue_1a2fbd3ac5550f9072ca6c2c4c147ae836">toArray</link> ($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">flag</link>=self::EXTR_DATA)</para>
+</listitem>
+            <listitem><para><link linkend="_class_laminas_1_1_stdlib_1_1_priority_queue_1a5ea95c21d8b061d6128ab490b5c0abcf">setInternalQueueClass</link> ($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">class</link>)</para>
+</listitem>
+            <listitem><para><link linkend="_class_laminas_1_1_stdlib_1_1_priority_queue_1aec3e93a6dc2255e6e27bd39b8f92599e">contains</link> ($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">datum</link>)</para>
+</listitem>
+            <listitem><para><link linkend="_class_laminas_1_1_stdlib_1_1_priority_queue_1a95eac7c7219e58b399a2845f68fd0cd6">hasPriority</link> ($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">priority</link>)</para>
+</listitem>
+            <listitem><para><link linkend="_class_laminas_1_1_stdlib_1_1_priority_queue_1ad0cb87b388bc74d63dc884accdca8713">__clone</link> ()</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Champs de données    </title>
+        <itemizedlist>
+            <listitem><para>const <link linkend="_class_laminas_1_1_stdlib_1_1_priority_queue_1a5e76d724d9826df2cc1776f00534f929">EXTR_DATA</link> = 0x00000001</para>
+</listitem>
+            <listitem><para>const <link linkend="_class_laminas_1_1_stdlib_1_1_priority_queue_1a92427a8091222f43092ecb4891f84bf5">EXTR_PRIORITY</link> = 0x00000002</para>
+</listitem>
+            <listitem><para>const <link linkend="_class_laminas_1_1_stdlib_1_1_priority_queue_1a57f1a4098288969d033731b62117f62f">EXTR_BOTH</link> = 0x00000003</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Fonctions membres protégées    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_laminas_1_1_stdlib_1_1_priority_queue_1aa7a8055e5ee1eb792f29443ddb79c4d3">getQueue</link> ()</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Attributs protégés    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_laminas_1_1_stdlib_1_1_priority_queue_1a4fc2276011f0d63ff5f877b53f4bacf2">$queueClass</link> = SplPriorityQueue::class</para>
+</listitem>
+            <listitem><para><link linkend="_class_laminas_1_1_stdlib_1_1_priority_queue_1a737abdef83dabb219182c1e88887c6c3">$items</link> = []</para>
+</listitem>
+            <listitem><para><link linkend="_class_laminas_1_1_stdlib_1_1_priority_queue_1a4a0b48f6ae2fcb248a4f0288c7c344a6">$queue</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Description détaillée</title>
+
+<para>Re-usable, serializable priority queue implementation</para>
+
+<para><link linkend="_class_spl_priority_queue">SplPriorityQueue</link> acts as a heap; on iteration, each item is removed from the queue. If you wish to re-use such a queue, you need to clone it first. This makes for some interesting issues if you wish to delete items from the queue, or, as already stated, iterate over it multiple times.</para>
+
+<para>This class aggregates items for the queue itself, but also composes an &quot;inner&quot; iterator in the form of an <link linkend="_class_spl_priority_queue">SplPriorityQueue</link> object for performing the actual iteration. </para>
+</section>
+<section>
+<title>Documentation des fonctions membres</title>
+<anchor xml:id="_class_laminas_1_1_stdlib_1_1_priority_queue_1ad0cb87b388bc74d63dc884accdca8713"/><section>
+    <title>__clone()</title>
+<indexterm><primary>__clone</primary><secondary>PriorityQueue</secondary></indexterm>
+<indexterm><primary>PriorityQueue</primary><secondary>__clone</secondary></indexterm>
+<para><computeroutput>__clone ( )</computeroutput></para>
+<para>Add support for deep cloning</para>
+
+<para><formalpara><title>Renvoie</title>
+
+<para>void </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_class_laminas_1_1_stdlib_1_1_priority_queue_1ab1d6abfbdcd8c9dd63dfef565bd2cfcf"/><section>
+    <title>__serialize()</title>
+<indexterm><primary>__serialize</primary><secondary>PriorityQueue</secondary></indexterm>
+<indexterm><primary>PriorityQueue</primary><secondary>__serialize</secondary></indexterm>
+<para><computeroutput>__serialize ( )</computeroutput></para>
+<para>Magic method used for serializing of an instance.</para>
+
+<para><formalpara><title>Renvoie</title>
+
+<para>array </para>
+</formalpara>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_laminas_1_1_stdlib_1_1_priority_queue_ab1d6abfbdcd8c9dd63dfef565bd2cfcf_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_laminas_1_1_stdlib_1_1_priority_queue_1aece9561d22d6ba341c36c371e50c2a8a"/><section>
+    <title>__unserialize()</title>
+<indexterm><primary>__unserialize</primary><secondary>PriorityQueue</secondary></indexterm>
+<indexterm><primary>PriorityQueue</primary><secondary>__unserialize</secondary></indexterm>
+<para><computeroutput>__unserialize ( $data)</computeroutput></para>
+<para>Magic method used to rebuild an instance.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>array</entry><entry>$data</entry><entry>
+<para>Data array. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>void </para>
+</formalpara>
+</para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_laminas_1_1_stdlib_1_1_priority_queue_aece9561d22d6ba341c36c371e50c2a8a_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_laminas_1_1_stdlib_1_1_priority_queue_aece9561d22d6ba341c36c371e50c2a8a_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_laminas_1_1_stdlib_1_1_priority_queue_1aec3e93a6dc2255e6e27bd39b8f92599e"/><section>
+    <title>contains()</title>
+<indexterm><primary>contains</primary><secondary>PriorityQueue</secondary></indexterm>
+<indexterm><primary>PriorityQueue</primary><secondary>contains</secondary></indexterm>
+<para><computeroutput>contains ( $datum)</computeroutput></para>
+<para>Does the queue contain the given datum?</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>mixed</entry><entry>$datum</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>bool </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_class_laminas_1_1_stdlib_1_1_priority_queue_1ac751e87b3d4c4bf2feb03bee8b092755"/><section>
+    <title>count()</title>
+<indexterm><primary>count</primary><secondary>PriorityQueue</secondary></indexterm>
+<indexterm><primary>PriorityQueue</primary><secondary>count</secondary></indexterm>
+<para><computeroutput>count ( )</computeroutput></para>
+<para>How many items are in the queue?</para>
+
+<para><formalpara><title>Renvoie</title>
+
+<para>int </para>
+</formalpara>
+</para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_laminas_1_1_stdlib_1_1_priority_queue_ac751e87b3d4c4bf2feb03bee8b092755_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_laminas_1_1_stdlib_1_1_priority_queue_ac751e87b3d4c4bf2feb03bee8b092755_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_laminas_1_1_stdlib_1_1_priority_queue_1a017ef4fbe3e4fedcdffd97fed288016f"/><section>
+    <title>extract()</title>
+<indexterm><primary>extract</primary><secondary>PriorityQueue</secondary></indexterm>
+<indexterm><primary>PriorityQueue</primary><secondary>extract</secondary></indexterm>
+<para><computeroutput>extract ( )</computeroutput></para>
+<para>Extract a node from the inner queue and sift up</para>
+
+<para><formalpara><title>Renvoie</title>
+
+<para>mixed </para>
+</formalpara>
+</para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_laminas_1_1_stdlib_1_1_priority_queue_a017ef4fbe3e4fedcdffd97fed288016f_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_laminas_1_1_stdlib_1_1_priority_queue_1a7a9f937c2958e6f4dd7b030f86fb70b7"/><section>
+    <title>getIterator()</title>
+<indexterm><primary>getIterator</primary><secondary>PriorityQueue</secondary></indexterm>
+<indexterm><primary>PriorityQueue</primary><secondary>getIterator</secondary></indexterm>
+<para><computeroutput>getIterator ( )</computeroutput></para>
+<para>Retrieve the inner iterator</para>
+
+<para><link linkend="_class_spl_priority_queue">SplPriorityQueue</link> acts as a heap, which typically implies that as items are iterated, they are also removed. This does not work for situations where the queue may be iterated multiple times. As such, this class aggregates the values, and also injects an <link linkend="_class_spl_priority_queue">SplPriorityQueue</link>. This method retrieves the inner queue object, and clones it for purposes of iteration.</para>
+
+<para><formalpara><title>Renvoie</title>
+
+<para><link linkend="_class_spl_priority_queue">SplPriorityQueue</link> </para>
+</formalpara>
+</para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_laminas_1_1_stdlib_1_1_priority_queue_a7a9f937c2958e6f4dd7b030f86fb70b7_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_laminas_1_1_stdlib_1_1_priority_queue_a7a9f937c2958e6f4dd7b030f86fb70b7_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_laminas_1_1_stdlib_1_1_priority_queue_1aa7a8055e5ee1eb792f29443ddb79c4d3"/><section>
+    <title>getQueue()</title>
+<indexterm><primary>getQueue</primary><secondary>PriorityQueue</secondary></indexterm>
+<indexterm><primary>PriorityQueue</primary><secondary>getQueue</secondary></indexterm>
+<para><computeroutput>getQueue ( )<computeroutput>[protected]</computeroutput></computeroutput></para>
+<para>Get the inner priority queue instance</para>
+
+<para>
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>Exception</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                DomainException <formalpara><title>Renvoie</title>
+
+<para><link linkend="_class_spl_priority_queue">SplPriorityQueue</link> </para>
+</formalpara>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_laminas_1_1_stdlib_1_1_priority_queue_aa7a8055e5ee1eb792f29443ddb79c4d3_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_laminas_1_1_stdlib_1_1_priority_queue_1a95eac7c7219e58b399a2845f68fd0cd6"/><section>
+    <title>hasPriority()</title>
+<indexterm><primary>hasPriority</primary><secondary>PriorityQueue</secondary></indexterm>
+<indexterm><primary>PriorityQueue</primary><secondary>hasPriority</secondary></indexterm>
+<para><computeroutput>hasPriority ( $priority)</computeroutput></para>
+<para>Does the queue have an item with the given priority?</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>int</entry><entry>$priority</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>bool </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_class_laminas_1_1_stdlib_1_1_priority_queue_1a8076e883c5b481e016983d4c9773486c"/><section>
+    <title>insert()</title>
+<indexterm><primary>insert</primary><secondary>PriorityQueue</secondary></indexterm>
+<indexterm><primary>PriorityQueue</primary><secondary>insert</secondary></indexterm>
+<para><computeroutput>insert ( $data,  $priority = <computeroutput>1</computeroutput>
+)</computeroutput></para>
+<para>Insert an item into the queue</para>
+
+<para>Priority defaults to 1 (low priority) if none provided.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>mixed</entry><entry>$data</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>int</entry><entry>$priority</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>PriorityQueue </para>
+</formalpara>
+</para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_laminas_1_1_stdlib_1_1_priority_queue_a8076e883c5b481e016983d4c9773486c_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_laminas_1_1_stdlib_1_1_priority_queue_a8076e883c5b481e016983d4c9773486c_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_laminas_1_1_stdlib_1_1_priority_queue_1aedcc52b3673b8df9425e52f13accb2a1"/><section>
+    <title>isEmpty()</title>
+<indexterm><primary>isEmpty</primary><secondary>PriorityQueue</secondary></indexterm>
+<indexterm><primary>PriorityQueue</primary><secondary>isEmpty</secondary></indexterm>
+<para><computeroutput>isEmpty ( )</computeroutput></para>
+<para>Is the queue empty?</para>
+
+<para><formalpara><title>Renvoie</title>
+
+<para>bool </para>
+</formalpara>
+</para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_laminas_1_1_stdlib_1_1_priority_queue_aedcc52b3673b8df9425e52f13accb2a1_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_laminas_1_1_stdlib_1_1_priority_queue_aedcc52b3673b8df9425e52f13accb2a1_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_laminas_1_1_stdlib_1_1_priority_queue_1ae62e61c6cc8d2975e6a63c5d8c5790a7"/><section>
+    <title>remove()</title>
+<indexterm><primary>remove</primary><secondary>PriorityQueue</secondary></indexterm>
+<indexterm><primary>PriorityQueue</primary><secondary>remove</secondary></indexterm>
+<para><computeroutput>remove ( $datum)</computeroutput></para>
+<para>Remove an item from the queue</para>
+
+<para>This is different than <computeroutput><link linkend="_">extract()</link></computeroutput>; its purpose is to dequeue an item.</para>
+
+<para>This operation is potentially expensive, as it requires re-initialization and re-population of the inner queue.</para>
+
+<para>Note: this removes the first item matching the provided item found. If the same item has been added multiple times, it will not remove other instances.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>mixed</entry><entry>$datum</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>bool False if the item was not found, true otherwise. </para>
+</formalpara>
+</para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_laminas_1_1_stdlib_1_1_priority_queue_ae62e61c6cc8d2975e6a63c5d8c5790a7_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_laminas_1_1_stdlib_1_1_priority_queue_1a4d9813fea8525b19a1d370eeb8fe41d6"/><section>
+    <title>serialize()</title>
+<indexterm><primary>serialize</primary><secondary>PriorityQueue</secondary></indexterm>
+<indexterm><primary>PriorityQueue</primary><secondary>serialize</secondary></indexterm>
+<para><computeroutput>serialize ( )</computeroutput></para>
+<para>Serialize the data structure</para>
+
+<para><formalpara><title>Renvoie</title>
+
+<para>string </para>
+</formalpara>
+</para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_laminas_1_1_stdlib_1_1_priority_queue_a4d9813fea8525b19a1d370eeb8fe41d6_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_laminas_1_1_stdlib_1_1_priority_queue_a4d9813fea8525b19a1d370eeb8fe41d6_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_laminas_1_1_stdlib_1_1_priority_queue_1a5ea95c21d8b061d6128ab490b5c0abcf"/><section>
+    <title>setInternalQueueClass()</title>
+<indexterm><primary>setInternalQueueClass</primary><secondary>PriorityQueue</secondary></indexterm>
+<indexterm><primary>PriorityQueue</primary><secondary>setInternalQueueClass</secondary></indexterm>
+<para><computeroutput>setInternalQueueClass ( $class)</computeroutput></para>
+<para>Specify the internal queue class</para>
+
+<para>Please see <computeroutput><link linkend="_">getIterator()</link></computeroutput> for details on the necessity of an internal queue class. The class provided should extend <link linkend="_class_spl_priority_queue">SplPriorityQueue</link>.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$class</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>PriorityQueue </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_class_laminas_1_1_stdlib_1_1_priority_queue_1a2fbd3ac5550f9072ca6c2c4c147ae836"/><section>
+    <title>toArray()</title>
+<indexterm><primary>toArray</primary><secondary>PriorityQueue</secondary></indexterm>
+<indexterm><primary>PriorityQueue</primary><secondary>toArray</secondary></indexterm>
+<para><computeroutput>toArray ( $flag = <computeroutput>self::EXTR_DATA</computeroutput>
+)</computeroutput></para>
+<para>Serialize to an array</para>
+
+<para>By default, returns only the item data, and in the order registered (not sorted). You may provide one of the EXTR_* flags as an argument, allowing the ability to return priorities or both data and priority.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>int</entry><entry>$flag</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>array </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_class_laminas_1_1_stdlib_1_1_priority_queue_1abf59e1e8a146d6bfc21db77491924632"/><section>
+    <title>top()</title>
+<indexterm><primary>top</primary><secondary>PriorityQueue</secondary></indexterm>
+<indexterm><primary>PriorityQueue</primary><secondary>top</secondary></indexterm>
+<para><computeroutput>top ( )</computeroutput></para>
+<para>Peek at the top node in the queue, based on priority.</para>
+
+<para><formalpara><title>Renvoie</title>
+
+<para>mixed </para>
+</formalpara>
+</para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_laminas_1_1_stdlib_1_1_priority_queue_abf59e1e8a146d6bfc21db77491924632_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_laminas_1_1_stdlib_1_1_priority_queue_1a91b3cb8a65e42152cacf1cf222bd26f6"/><section>
+    <title>unserialize()</title>
+<indexterm><primary>unserialize</primary><secondary>PriorityQueue</secondary></indexterm>
+<indexterm><primary>PriorityQueue</primary><secondary>unserialize</secondary></indexterm>
+<para><computeroutput>unserialize ( $data)</computeroutput></para>
+<para>Unserialize a string into a PriorityQueue object</para>
+
+<para>Serialization format is compatible with <computeroutput><link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">Laminas\Stdlib\SplPriorityQueue</link></computeroutput></para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$data</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>void </para>
+</formalpara>
+</para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_laminas_1_1_stdlib_1_1_priority_queue_a91b3cb8a65e42152cacf1cf222bd26f6_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+</section>
+<section>
+<title>Documentation des champs</title>
+<anchor xml:id="_class_laminas_1_1_stdlib_1_1_priority_queue_1a737abdef83dabb219182c1e88887c6c3"/><section>
+    <title>$items</title>
+<indexterm><primary>$items</primary><secondary>PriorityQueue</secondary></indexterm>
+<indexterm><primary>PriorityQueue</primary><secondary>$items</secondary></indexterm>
+<para><computeroutput>$<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">items</link> = []<computeroutput>[protected]</computeroutput></computeroutput></para></section>
+<anchor xml:id="_class_laminas_1_1_stdlib_1_1_priority_queue_1a4a0b48f6ae2fcb248a4f0288c7c344a6"/><section>
+    <title>$queue</title>
+<indexterm><primary>$queue</primary><secondary>PriorityQueue</secondary></indexterm>
+<indexterm><primary>PriorityQueue</primary><secondary>$queue</secondary></indexterm>
+<para><computeroutput>$queue<computeroutput>[protected]</computeroutput></computeroutput></para></section>
+<anchor xml:id="_class_laminas_1_1_stdlib_1_1_priority_queue_1a4fc2276011f0d63ff5f877b53f4bacf2"/><section>
+    <title>$queueClass</title>
+<indexterm><primary>$queueClass</primary><secondary>PriorityQueue</secondary></indexterm>
+<indexterm><primary>PriorityQueue</primary><secondary>$queueClass</secondary></indexterm>
+<para><computeroutput>$<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">queueClass</link> = SplPriorityQueue::class<computeroutput>[protected]</computeroutput></computeroutput></para></section>
+<anchor xml:id="_class_laminas_1_1_stdlib_1_1_priority_queue_1a57f1a4098288969d033731b62117f62f"/><section>
+    <title>EXTR_BOTH</title>
+<indexterm><primary>EXTR_BOTH</primary><secondary>PriorityQueue</secondary></indexterm>
+<indexterm><primary>PriorityQueue</primary><secondary>EXTR_BOTH</secondary></indexterm>
+<para><computeroutput>const EXTR_BOTH = 0x00000003</computeroutput></para></section>
+<anchor xml:id="_class_laminas_1_1_stdlib_1_1_priority_queue_1a5e76d724d9826df2cc1776f00534f929"/><section>
+    <title>EXTR_DATA</title>
+<indexterm><primary>EXTR_DATA</primary><secondary>PriorityQueue</secondary></indexterm>
+<indexterm><primary>PriorityQueue</primary><secondary>EXTR_DATA</secondary></indexterm>
+<para><computeroutput>const EXTR_DATA = 0x00000001</computeroutput></para></section>
+<anchor xml:id="_class_laminas_1_1_stdlib_1_1_priority_queue_1a92427a8091222f43092ecb4891f84bf5"/><section>
+    <title>EXTR_PRIORITY</title>
+<indexterm><primary>EXTR_PRIORITY</primary><secondary>PriorityQueue</secondary></indexterm>
+<indexterm><primary>PriorityQueue</primary><secondary>EXTR_PRIORITY</secondary></indexterm>
+<para><computeroutput>const EXTR_PRIORITY = 0x00000002</computeroutput></para></section>
+<para>
+La documentation de cette classe a été générée à partir du fichier suivant :</para>
+public/glpi/vendor/laminas/laminas-stdlib/src/<link linkend="__priority_queue_8php">PriorityQueue.php</link></section>
+</section>

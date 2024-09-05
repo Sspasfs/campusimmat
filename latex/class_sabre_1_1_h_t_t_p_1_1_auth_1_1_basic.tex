@@ -1,0 +1,97 @@
+\doxysection{Référence de la classe Basic}
+\hypertarget{class_sabre_1_1_h_t_t_p_1_1_auth_1_1_basic}{}\label{class_sabre_1_1_h_t_t_p_1_1_auth_1_1_basic}\index{Basic@{Basic}}
+
+
+Graphe d\textquotesingle{}héritage de Basic\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=227pt]{class_sabre_1_1_h_t_t_p_1_1_auth_1_1_basic__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Graphe de collaboration de Basic\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=227pt]{class_sabre_1_1_h_t_t_p_1_1_auth_1_1_basic__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_sabre_1_1_h_t_t_p_1_1_auth_1_1_basic_af866f8126bcdf44fe28d92f7dbac4b89}{get\+Credentials}} ()
+\item 
+\mbox{\hyperlink{class_sabre_1_1_h_t_t_p_1_1_auth_1_1_basic_a8279b755615299d23d0989e9330ea638}{require\+Login}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Fonctions membres publiques hérités de \mbox{\hyperlink{class_sabre_1_1_h_t_t_p_1_1_auth_1_1_abstract_auth}{Abstract\+Auth}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_sabre_1_1_h_t_t_p_1_1_auth_1_1_abstract_auth_a00b0a4a2079e7bc711bdd3a79d174a60}{\+\_\+\+\_\+construct}} (string \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{realm}}, \mbox{\hyperlink{interface_sabre_1_1_h_t_t_p_1_1_request_interface}{Request\+Interface}} \$request, \mbox{\hyperlink{interface_sabre_1_1_h_t_t_p_1_1_response_interface}{Response\+Interface}} \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{response}})
+\item 
+\mbox{\hyperlink{class_sabre_1_1_h_t_t_p_1_1_auth_1_1_abstract_auth_a9ca880fe6ef7fb7c4c87b4e3e17b4b88}{get\+Realm}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Membres hérités additionnels}
+\doxysubsection*{Attributs protégés hérités de \mbox{\hyperlink{class_sabre_1_1_h_t_t_p_1_1_auth_1_1_abstract_auth}{Abstract\+Auth}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_sabre_1_1_h_t_t_p_1_1_auth_1_1_abstract_auth_ab83a7b3ae323231c86a7f4367d1e0909}{\$realm}}
+\item 
+\mbox{\hyperlink{class_sabre_1_1_h_t_t_p_1_1_auth_1_1_abstract_auth_abb35c8495a232b510389fa6d7b15d38a}{\$request}}
+\item 
+\mbox{\hyperlink{class_sabre_1_1_h_t_t_p_1_1_auth_1_1_abstract_auth_af4b6fb1bbc77ccc05f10da3b16935b99}{\$response}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+HTTP Basic authentication utility.
+
+This class helps you setup basic auth. The process is fairly simple\+:
+
+
+\begin{DoxyEnumerate}
+\item Instantiate the class.
+\item Call get\+Credentials (this will return null or a user/pass pair)
+\item If you didn\textquotesingle{}t get valid credentials, call \textquotesingle{}require\+Login\textquotesingle{}
+\end{DoxyEnumerate}
+
+\begin{DoxyCopyright}{Copyright}
+Copyright (C) fruux GmbH (\href{https://fruux.com/}{\texttt{ https\+://fruux.\+com/}}) 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Auteur}
+Evert Pot (\href{http://evertpot.com/}{\texttt{ http\+://evertpot.\+com/}}) @license \href{http://sabre.io/license/}{\texttt{ http\+://sabre.\+io/license/}} Modified BSD License 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Documentation des fonctions membres}
+\Hypertarget{class_sabre_1_1_h_t_t_p_1_1_auth_1_1_basic_af866f8126bcdf44fe28d92f7dbac4b89}\label{class_sabre_1_1_h_t_t_p_1_1_auth_1_1_basic_af866f8126bcdf44fe28d92f7dbac4b89} 
+\index{Basic@{Basic}!getCredentials@{getCredentials}}
+\index{getCredentials@{getCredentials}!Basic@{Basic}}
+\doxysubsubsection{\texorpdfstring{getCredentials()}{getCredentials()}}
+{\footnotesize\ttfamily get\+Credentials (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+This method returns a numeric array with a username and password as the only elements.
+
+If no credentials were found, this method returns null.
+
+\begin{DoxyReturn}{Renvoie}
+array\texorpdfstring{$\vert$}{|}null 
+\end{DoxyReturn}
+\Hypertarget{class_sabre_1_1_h_t_t_p_1_1_auth_1_1_basic_a8279b755615299d23d0989e9330ea638}\label{class_sabre_1_1_h_t_t_p_1_1_auth_1_1_basic_a8279b755615299d23d0989e9330ea638} 
+\index{Basic@{Basic}!requireLogin@{requireLogin}}
+\index{requireLogin@{requireLogin}!Basic@{Basic}}
+\doxysubsubsection{\texorpdfstring{requireLogin()}{requireLogin()}}
+{\footnotesize\ttfamily require\+Login (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+This method sends the needed HTTP header and status code (401) to force the user to login. 
+
+Réimplémentée à partir de \mbox{\hyperlink{class_sabre_1_1_h_t_t_p_1_1_auth_1_1_abstract_auth_a8279b755615299d23d0989e9330ea638}{Abstract\+Auth}}.
+
+
+
+La documentation de cette classe a été générée à partir du fichier suivant \+:\begin{DoxyCompactItemize}
+\item 
+public/glpi/vendor/sabre/http/lib/\+Auth/\mbox{\hyperlink{_basic_8php}{Basic.\+php}}\end{DoxyCompactItemize}

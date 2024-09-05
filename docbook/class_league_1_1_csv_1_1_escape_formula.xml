@@ -1,0 +1,331 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_league_1_1_csv_1_1_escape_formula" xml:lang="fr">
+<title>Référence de la classe EscapeFormula</title>
+<indexterm><primary>EscapeFormula</primary></indexterm>
+Graphe de collaboration de EscapeFormula:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_league_1_1_csv_1_1_escape_formula__coll__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Fonctions membres publiques    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_league_1_1_csv_1_1_escape_formula_1a3cc51cd117eb19ecec6b9d634e3e3e03">__construct</link> (string $escape=&quot;&apos;&quot;, array $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">special_chars</link>=[])</para>
+</listitem>
+            <listitem><para><link linkend="_class_league_1_1_csv_1_1_escape_formula_1aa6eec7e007926f316a684671f2901dfc">getSpecialCharacters</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_class_league_1_1_csv_1_1_escape_formula_1a4e7f2b91b486f7ef980ae9f9191d4b05">getEscape</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_class_league_1_1_csv_1_1_escape_formula_1af6bdfd8d87fb85ab75b06b34a3f3c1af">__invoke</link> (array $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">record</link>)</para>
+</listitem>
+            <listitem><para><link linkend="_class_league_1_1_csv_1_1_escape_formula_1ab974b171f7b4dd147e0b441e698823c7">escapeRecord</link> (array $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">record</link>)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Champs de données    </title>
+        <itemizedlist>
+            <listitem><para>const <link linkend="_class_league_1_1_csv_1_1_escape_formula_1a9d8f0a18b156e06453696c14b4e8098b">FORMULA_STARTING_CHARS</link> = [&apos;=&apos;, &apos;-&apos;, &apos;+&apos;, &apos;@&apos;, &quot;\t&quot;, &quot;\r&quot;]</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Fonctions membres protégées    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_league_1_1_csv_1_1_escape_formula_1a2feaa7b18e1d62c03251cd65e8a5f13f">filterSpecialCharacters</link> (string ... $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">characters</link>)</para>
+</listitem>
+            <listitem><para><link linkend="_class_league_1_1_csv_1_1_escape_formula_1a371d0f20a411aef2f85ea0d969f16d6f">escapeField</link> ($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">cell</link>)</para>
+</listitem>
+            <listitem><para><link linkend="_class_league_1_1_csv_1_1_escape_formula_1ab65a5587dee29686b9f279a77defa76a">isStringable</link> ($value)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Attributs protégés    </title>
+        <itemizedlist>
+            <listitem><para>array <link linkend="_class_league_1_1_csv_1_1_escape_formula_1ab3f1b163ff6f863a9e8c6a035f90a40f">$special_chars</link> = []</para>
+</listitem>
+            <listitem><para>string <link linkend="_class_league_1_1_csv_1_1_escape_formula_1a03a26251dbfb5eea5eea04d6ccdecdd6">$escape</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Description détaillée</title>
+
+<para>A Formatter to tackle CSV Formula Injection.</para>
+
+<para><formalpara><title>Voir également</title>
+
+<para><link xlink:href="http://georgemauer.net/2017/10/07/csv-injection.html">http://georgemauer.net/2017/10/07/csv-injection.html</link> </para>
+</formalpara>
+</para>
+</section>
+<section>
+<title>Documentation des constructeurs et destructeur</title>
+<anchor xml:id="_class_league_1_1_csv_1_1_escape_formula_1a3cc51cd117eb19ecec6b9d634e3e3e03"/><section>
+    <title>__construct()</title>
+<indexterm><primary>__construct</primary><secondary>EscapeFormula</secondary></indexterm>
+<indexterm><primary>EscapeFormula</primary><secondary>__construct</secondary></indexterm>
+<para><computeroutput>__construct (string $escape = <computeroutput>&quot;&apos;&quot;</computeroutput>
+, array $special_chars = <computeroutput>[]</computeroutput>
+)</computeroutput></para>
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$escape</entry><entry>
+<para>escape character to escape each CSV formula field </para>
+</entry>
+                            </row>
+                            <row>
+<entry>string[]</entry><entry>$special_chars</entry><entry>
+<para>additional spreadsheet formula starting characters </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_league_1_1_csv_1_1_escape_formula_a3cc51cd117eb19ecec6b9d634e3e3e03_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+</section>
+<section>
+<title>Documentation des fonctions membres</title>
+<anchor xml:id="_class_league_1_1_csv_1_1_escape_formula_1af6bdfd8d87fb85ab75b06b34a3f3c1af"/><section>
+    <title>__invoke()</title>
+<indexterm><primary>__invoke</primary><secondary>EscapeFormula</secondary></indexterm>
+<indexterm><primary>EscapeFormula</primary><secondary>__invoke</secondary></indexterm>
+<para><computeroutput>__invoke (array $record)</computeroutput></para>
+<para>League CSV formatter hook.</para>
+
+<para><formalpara><title>Voir également</title>
+
+<para>escapeRecord </para>
+</formalpara>
+</para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_league_1_1_csv_1_1_escape_formula_af6bdfd8d87fb85ab75b06b34a3f3c1af_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_league_1_1_csv_1_1_escape_formula_1a371d0f20a411aef2f85ea0d969f16d6f"/><section>
+    <title>escapeField()</title>
+<indexterm><primary>escapeField</primary><secondary>EscapeFormula</secondary></indexterm>
+<indexterm><primary>EscapeFormula</primary><secondary>escapeField</secondary></indexterm>
+<para><computeroutput>escapeField ( $cell)<computeroutput>[protected]</computeroutput></computeroutput></para>
+<para>Escape a CSV cell if its content is stringable.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>int | float | string | object | resource | array</entry><entry>$cell</entry><entry>
+<para>the content of the cell</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>mixed the escaped content </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_class_league_1_1_csv_1_1_escape_formula_1ab974b171f7b4dd147e0b441e698823c7"/><section>
+    <title>escapeRecord()</title>
+<indexterm><primary>escapeRecord</primary><secondary>EscapeFormula</secondary></indexterm>
+<indexterm><primary>EscapeFormula</primary><secondary>escapeRecord</secondary></indexterm>
+<para><computeroutput>escapeRecord (array $record)</computeroutput></para>
+<para>Escape a CSV record. </para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_league_1_1_csv_1_1_escape_formula_ab974b171f7b4dd147e0b441e698823c7_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_league_1_1_csv_1_1_escape_formula_1a2feaa7b18e1d62c03251cd65e8a5f13f"/><section>
+    <title>filterSpecialCharacters()</title>
+<indexterm><primary>filterSpecialCharacters</primary><secondary>EscapeFormula</secondary></indexterm>
+<indexterm><primary>EscapeFormula</primary><secondary>filterSpecialCharacters</secondary></indexterm>
+<para><computeroutput>filterSpecialCharacters (string ... $characters)<computeroutput>[protected]</computeroutput></computeroutput></para>
+<para>Filter submitted special characters.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>
+<para>...$characters</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>InvalidArgumentException</entry><entry>
+<para>if the string is not a single character</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>array&lt;string&gt; </para>
+</formalpara>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_league_1_1_csv_1_1_escape_formula_a2feaa7b18e1d62c03251cd65e8a5f13f_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_league_1_1_csv_1_1_escape_formula_1a4e7f2b91b486f7ef980ae9f9191d4b05"/><section>
+    <title>getEscape()</title>
+<indexterm><primary>getEscape</primary><secondary>EscapeFormula</secondary></indexterm>
+<indexterm><primary>EscapeFormula</primary><secondary>getEscape</secondary></indexterm>
+<para><computeroutput>getEscape ( )</computeroutput></para>
+<para>Returns the escape character. </para>
+</section>
+<anchor xml:id="_class_league_1_1_csv_1_1_escape_formula_1aa6eec7e007926f316a684671f2901dfc"/><section>
+    <title>getSpecialCharacters()</title>
+<indexterm><primary>getSpecialCharacters</primary><secondary>EscapeFormula</secondary></indexterm>
+<indexterm><primary>EscapeFormula</primary><secondary>getSpecialCharacters</secondary></indexterm>
+<para><computeroutput>getSpecialCharacters ( )</computeroutput></para>
+<para>Returns the list of character the instance will escape.</para>
+
+<para><formalpara><title>Renvoie</title>
+
+<para>array&lt;string&gt; </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_class_league_1_1_csv_1_1_escape_formula_1ab65a5587dee29686b9f279a77defa76a"/><section>
+    <title>isStringable()</title>
+<indexterm><primary>isStringable</primary><secondary>EscapeFormula</secondary></indexterm>
+<indexterm><primary>EscapeFormula</primary><secondary>isStringable</secondary></indexterm>
+<para><computeroutput>isStringable ( $value)<computeroutput>[protected]</computeroutput></computeroutput></para>
+<para><para><link linkend="_deprecated_1_deprecated000088">Obsolète</link> 
+<para>since 9.7.2 will be removed in the next major release @codeCoverageIgnore</para>
+</para></para>
+
+<para>Tells whether the submitted value is stringable.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>mixed</entry><entry>$value</entry><entry>
+<para>value to check if it is stringable </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
+</section>
+<section>
+<title>Documentation des champs</title>
+<anchor xml:id="_class_league_1_1_csv_1_1_escape_formula_1a03a26251dbfb5eea5eea04d6ccdecdd6"/><section>
+    <title>$escape</title>
+<indexterm><primary>$escape</primary><secondary>EscapeFormula</secondary></indexterm>
+<indexterm><primary>EscapeFormula</primary><secondary>$escape</secondary></indexterm>
+<para><computeroutput>string $escape<computeroutput>[protected]</computeroutput></computeroutput></para>
+<para>Escape character to escape each CSV formula field. </para>
+</section>
+<anchor xml:id="_class_league_1_1_csv_1_1_escape_formula_1ab3f1b163ff6f863a9e8c6a035f90a40f"/><section>
+    <title>$special_chars</title>
+<indexterm><primary>$special_chars</primary><secondary>EscapeFormula</secondary></indexterm>
+<indexterm><primary>EscapeFormula</primary><secondary>$special_chars</secondary></indexterm>
+<para><computeroutput>array $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">special_chars</link> = []<computeroutput>[protected]</computeroutput></computeroutput></para>
+<para>Effective Spreadsheet formula starting characters. </para>
+</section>
+<anchor xml:id="_class_league_1_1_csv_1_1_escape_formula_1a9d8f0a18b156e06453696c14b4e8098b"/><section>
+    <title>FORMULA_STARTING_CHARS</title>
+<indexterm><primary>FORMULA_STARTING_CHARS</primary><secondary>EscapeFormula</secondary></indexterm>
+<indexterm><primary>EscapeFormula</primary><secondary>FORMULA_STARTING_CHARS</secondary></indexterm>
+<para><computeroutput>const FORMULA_STARTING_CHARS = [&apos;=&apos;, &apos;-&apos;, &apos;+&apos;, &apos;@&apos;, &quot;\t&quot;, &quot;\r&quot;]</computeroutput></para>
+<para>Spreadsheet formula starting character. </para>
+</section>
+<para>
+La documentation de cette classe a été générée à partir du fichier suivant :</para>
+public/glpi/vendor/league/csv/src/<link linkend="__escape_formula_8php">EscapeFormula.php</link></section>
+</section>

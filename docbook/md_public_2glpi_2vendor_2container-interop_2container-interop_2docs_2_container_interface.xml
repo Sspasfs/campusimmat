@@ -1,0 +1,148 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_md_public_2glpi_2vendor_2container-interop_2container-interop_2docs_2_container_interface" xml:lang="fr">
+<title>Container interface</title>
+<indexterm><primary>Container interface</primary></indexterm>
+
+<para>This document describes a common interface for dependency injection containers.</para>
+
+<para>The goal set by <computeroutput>ContainerInterface</computeroutput> is to standardize how frameworks and libraries make use of a container to obtain objects and parameters (called <emphasis>entries</emphasis> in the rest of this document).</para>
+
+<para>The key words &quot;MUST&quot;, &quot;MUST NOT&quot;, &quot;REQUIRED&quot;, &quot;SHALL&quot;, &quot;SHALL NOT&quot;, &quot;SHOULD&quot;, &quot;SHOULD NOT&quot;, &quot;RECOMMENDED&quot;, &quot;MAY&quot;, and &quot;OPTIONAL&quot; in this document are to be interpreted as described in <link xlink:href="http://tools.ietf.org/html/rfc2119">RFC 2119</link>.</para>
+
+<para>The word <computeroutput>implementor</computeroutput> in this document is to be interpreted as someone implementing the <computeroutput>ContainerInterface</computeroutput> in a dependency injection-related library or framework. Users of dependency injections containers (DIC) are referred to as <computeroutput>user</computeroutput>.</para>
+<section xml:id="_md_public_2glpi_2vendor_2container-interop_2container-interop_2docs_2_container_interface_1autotoc_md5710">
+<title><title>1. Specification</title></title>
+<section xml:id="_md_public_2glpi_2vendor_2container-interop_2container-interop_2docs_2_container_interface_1autotoc_md5711">
+<title><title>1.1 Basics</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>The <computeroutput>Interop\Container\ContainerInterface</computeroutput> exposes two methods : <computeroutput>get</computeroutput> and <computeroutput>has</computeroutput>.</para>
+</listitem><listitem>
+<para><computeroutput>get</computeroutput> takes one mandatory parameter: an entry identifier. It MUST be a string. A call to <computeroutput>get</computeroutput> can return anything (a <emphasis>mixed</emphasis> value), or throws an exception if the identifier is not known to the container. Two successive calls to <computeroutput>get</computeroutput> with the same identifier SHOULD return the same value. However, depending on the <computeroutput>implementor</computeroutput> design and/or <computeroutput>user</computeroutput> configuration, different values might be returned, so <computeroutput>user</computeroutput> SHOULD NOT rely on getting the same value on 2 successive calls. While <computeroutput>ContainerInterface</computeroutput> only defines one mandatory parameter in <computeroutput>get()</computeroutput>, implementations MAY accept additional optional parameters.</para>
+</listitem><listitem>
+<para><computeroutput>has</computeroutput> takes one unique parameter: an entry identifier. It MUST return <computeroutput>true</computeroutput> if an entry identifier is known to the container and <computeroutput>false</computeroutput> if it is not. <computeroutput>has($id)</computeroutput> returning true does not mean that <computeroutput>get($id)</computeroutput> will not throw an exception. It does however mean that <computeroutput>get($id)</computeroutput> will not throw a <computeroutput>NotFoundException</computeroutput>.</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2container-interop_2container-interop_2docs_2_container_interface_1autotoc_md5712">
+<title><title>1.2 Exceptions</title></title>
+
+<para>Exceptions directly thrown by the container MUST implement the <link xlink:href="../src/Interop/Container/Exception/ContainerException.php"><computeroutput>Interop\Container\Exception\ContainerException</computeroutput></link>.</para>
+
+<para>A call to the <computeroutput>get</computeroutput> method with a non-existing id SHOULD throw a <link xlink:href="../src/Interop/Container/Exception/NotFoundException.php"><computeroutput>Interop\Container\Exception\NotFoundException</computeroutput></link>.</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2container-interop_2container-interop_2docs_2_container_interface_1autotoc_md5713">
+<title><title>1.3 Additional features</title></title>
+
+<para>This section describes additional features that MAY be added to a container. Containers are not required to implement these features to respect the ContainerInterface.</para>
+<section xml:id="_md_public_2glpi_2vendor_2container-interop_2container-interop_2docs_2_container_interface_1autotoc_md5714">
+<title><title>1.3.1 Delegate lookup feature</title></title>
+
+<para>The goal of the <emphasis>delegate lookup</emphasis> feature is to allow several containers to share entries. Containers implementing this feature can perform dependency lookups in other containers.</para>
+
+<para>Containers implementing this feature will offer a greater lever of interoperability with other containers. Implementation of this feature is therefore RECOMMENDED.</para>
+
+<para>A container implementing this feature:</para>
+
+<para><itemizedlist>
+<listitem>
+<para>MUST implement the <computeroutput>ContainerInterface</computeroutput></para>
+</listitem><listitem>
+<para>MUST provide a way to register a delegate container (using a constructor parameter, or a setter, or any possible way). The delegate container MUST implement the <computeroutput>ContainerInterface</computeroutput>.</para>
+</listitem></itemizedlist>
+</para>
+
+<para>When a container is configured to use a delegate container for dependencies:</para>
+
+<para><itemizedlist>
+<listitem>
+<para>Calls to the <computeroutput>get</computeroutput> method should only return an entry if the entry is part of the container. If the entry is not part of the container, an exception should be thrown (as requested by the <computeroutput>ContainerInterface</computeroutput>).</para>
+</listitem><listitem>
+<para>Calls to the <computeroutput>has</computeroutput> method should only return <computeroutput>true</computeroutput> if the entry is part of the container. If the entry is not part of the container, <computeroutput>false</computeroutput> should be returned.</para>
+</listitem><listitem>
+<para>If the fetched entry has dependencies, <emphasis role="bold">instead</emphasis> of performing the dependency lookup in the container, the lookup is performed on the <emphasis>delegate container</emphasis>.</para>
+</listitem></itemizedlist>
+</para>
+
+<para>Important! By default, the lookup SHOULD be performed on the delegate container <emphasis role="bold">only</emphasis>, not on the container itself.</para>
+
+<para>It is however allowed for containers to provide exception cases for special entries, and a way to lookup into the same container (or another container) instead of the delegate container.</para>
+</section>
+</section>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2container-interop_2container-interop_2docs_2_container_interface_1autotoc_md5715">
+<title><title>2. Package</title></title>
+
+<para>The interfaces and classes described as well as relevant exception are provided as part of the <link xlink:href="https://packagist.org/packages/container-interop/container-interop">container-interop/container-interop</link> package.</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2container-interop_2container-interop_2docs_2_container_interface_1autotoc_md5716">
+<title><title>3. <computeroutput>Interop\Container\ContainerInterface</computeroutput></title></title>
+
+<para><literallayout><computeroutput>&lt;?php
+namespace&#32;Interop\Container;
+
+use&#32;Interop\Container\Exception\ContainerException;
+use&#32;Interop\Container\Exception\NotFoundException;
+
+/**
+&#32;*&#32;Describes&#32;the&#32;interface&#32;of&#32;a&#32;container&#32;that&#32;exposes&#32;methods&#32;to&#32;read&#32;its&#32;entries.
+&#32;*/
+interface&#32;ContainerInterface
+{
+&#32;&#32;&#32;&#32;/**
+&#32;&#32;&#32;&#32;&#32;*&#32;Finds&#32;an&#32;entry&#32;of&#32;the&#32;container&#32;by&#32;its&#32;identifier&#32;and&#32;returns&#32;it.
+&#32;&#32;&#32;&#32;&#32;*
+&#32;&#32;&#32;&#32;&#32;*&#32;@param&#32;string&#32;$id&#32;Identifier&#32;of&#32;the&#32;entry&#32;to&#32;look&#32;for.
+&#32;&#32;&#32;&#32;&#32;*
+&#32;&#32;&#32;&#32;&#32;*&#32;@throws&#32;NotFoundException&#32;&#32;No&#32;entry&#32;was&#32;found&#32;for&#32;this&#32;identifier.
+&#32;&#32;&#32;&#32;&#32;*&#32;@throws&#32;ContainerException&#32;Error&#32;while&#32;retrieving&#32;the&#32;entry.
+&#32;&#32;&#32;&#32;&#32;*
+&#32;&#32;&#32;&#32;&#32;*&#32;@return&#32;mixed&#32;Entry.
+&#32;&#32;&#32;&#32;&#32;*/
+&#32;&#32;&#32;&#32;public&#32;function&#32;get($id);
+
+&#32;&#32;&#32;&#32;/**
+&#32;&#32;&#32;&#32;&#32;*&#32;Returns&#32;true&#32;if&#32;the&#32;container&#32;can&#32;return&#32;an&#32;entry&#32;for&#32;the&#32;given&#32;identifier.
+&#32;&#32;&#32;&#32;&#32;*&#32;Returns&#32;false&#32;otherwise.
+&#32;&#32;&#32;&#32;&#32;*
+&#32;&#32;&#32;&#32;&#32;*&#32;`has($id)`&#32;returning&#32;true&#32;does&#32;not&#32;mean&#32;that&#32;`get($id)`&#32;will&#32;not&#32;throw&#32;an&#32;exception.
+&#32;&#32;&#32;&#32;&#32;*&#32;It&#32;does&#32;however&#32;mean&#32;that&#32;`get($id)`&#32;will&#32;not&#32;throw&#32;a&#32;`NotFoundException`.
+&#32;&#32;&#32;&#32;&#32;*
+&#32;&#32;&#32;&#32;&#32;*&#32;@param&#32;string&#32;$id&#32;Identifier&#32;of&#32;the&#32;entry&#32;to&#32;look&#32;for.
+&#32;&#32;&#32;&#32;&#32;*
+&#32;&#32;&#32;&#32;&#32;*&#32;@return&#32;boolean
+&#32;&#32;&#32;&#32;&#32;*/
+&#32;&#32;&#32;&#32;public&#32;function&#32;has($id);
+}
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2container-interop_2container-interop_2docs_2_container_interface_1autotoc_md5717">
+<title><title>4. <computeroutput>Interop\Container\Exception\ContainerException</computeroutput></title></title>
+
+<para><literallayout><computeroutput>&lt;?php
+namespace&#32;Interop\Container\Exception;
+
+/**
+&#32;*&#32;Base&#32;interface&#32;representing&#32;a&#32;generic&#32;exception&#32;in&#32;a&#32;container.
+&#32;*/
+interface&#32;ContainerException
+{
+}
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2container-interop_2container-interop_2docs_2_container_interface_1autotoc_md5718">
+<title><title>5. <computeroutput>Interop\Container\Exception\NotFoundException</computeroutput></title></title>
+
+<para><literallayout><computeroutput>&lt;?php
+namespace&#32;Interop\Container\Exception;
+
+/**
+&#32;*&#32;No&#32;entry&#32;was&#32;found&#32;in&#32;the&#32;container.
+&#32;*/
+interface&#32;NotFoundException&#32;extends&#32;ContainerException
+{
+}
+</computeroutput></literallayout> </para>
+</section>
+</section>

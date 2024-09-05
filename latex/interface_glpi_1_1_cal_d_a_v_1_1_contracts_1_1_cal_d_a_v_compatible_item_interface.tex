@@ -1,0 +1,133 @@
+\doxysection{Référence de l\textquotesingle{}interface Cal\+DAVCompatible\+Item\+Interface}
+\hypertarget{interface_glpi_1_1_cal_d_a_v_1_1_contracts_1_1_cal_d_a_v_compatible_item_interface}{}\label{interface_glpi_1_1_cal_d_a_v_1_1_contracts_1_1_cal_d_a_v_compatible_item_interface}\index{CalDAVCompatibleItemInterface@{CalDAVCompatibleItemInterface}}
+
+
+Graphe d\textquotesingle{}héritage de Cal\+DAVCompatible\+Item\+Interface\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{interface_glpi_1_1_cal_d_a_v_1_1_contracts_1_1_cal_d_a_v_compatible_item_interface__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Graphe de collaboration de Cal\+DAVCompatible\+Item\+Interface\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=252pt]{interface_glpi_1_1_cal_d_a_v_1_1_contracts_1_1_cal_d_a_v_compatible_item_interface__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{interface_glpi_1_1_cal_d_a_v_1_1_contracts_1_1_cal_d_a_v_compatible_item_interface_a63b4506b8b775709817af588373b6990}{get\+As\+VCalendar}} ()
+\item 
+\mbox{\hyperlink{interface_glpi_1_1_cal_d_a_v_1_1_contracts_1_1_cal_d_a_v_compatible_item_interface_a07b3d3504728b3a544a034d1bc88fc35}{get\+Input\+From\+VCalendar}} (\mbox{\hyperlink{class_sabre_1_1_v_object_1_1_component_1_1_v_calendar}{VCalendar}} \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{vcalendar}})
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Fonctions membres publiques statiques}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{interface_glpi_1_1_cal_d_a_v_1_1_contracts_1_1_cal_d_a_v_compatible_item_interface_a9a01cc3dad87f28773cd7d95ff796c06}{get\+Group\+Items\+As\+VCalendars}} (\$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{groups\+\_\+id}})
+\item 
+static \mbox{\hyperlink{interface_glpi_1_1_cal_d_a_v_1_1_contracts_1_1_cal_d_a_v_compatible_item_interface_affe7f5bdca5475429fb3f9bb58a5444f}{get\+User\+Items\+As\+VCalendars}} (\$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{users\+\_\+id}})
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Interface used to define methods that must be implemented by items served by Cal\+DAV server.
+
+\begin{DoxySince}{Depuis}
+9.\+5.\+0 
+\end{DoxySince}
+
+
+\doxysubsection{Documentation des fonctions membres}
+\Hypertarget{interface_glpi_1_1_cal_d_a_v_1_1_contracts_1_1_cal_d_a_v_compatible_item_interface_a63b4506b8b775709817af588373b6990}\label{interface_glpi_1_1_cal_d_a_v_1_1_contracts_1_1_cal_d_a_v_compatible_item_interface_a63b4506b8b775709817af588373b6990} 
+\index{CalDAVCompatibleItemInterface@{CalDAVCompatibleItemInterface}!getAsVCalendar@{getAsVCalendar}}
+\index{getAsVCalendar@{getAsVCalendar}!CalDAVCompatibleItemInterface@{CalDAVCompatibleItemInterface}}
+\doxysubsubsection{\texorpdfstring{getAsVCalendar()}{getAsVCalendar()}}
+{\footnotesize\ttfamily get\+As\+VCalendar (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Get current item as a VCalendar document.
+
+\begin{DoxyReturn}{Renvoie}
+null\texorpdfstring{$\vert$}{|}\+VCalendar
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{Voir également}
+\href{https://tools.ietf.org/html/rfc2445}{\texttt{ https\+://tools.\+ietf.\+org/html/rfc2445}} 
+\end{DoxySeeAlso}
+
+
+Implémenté dans \mbox{\hyperlink{class_planning_external_event_a63b4506b8b775709817af588373b6990}{Planning\+External\+Event}}, et \mbox{\hyperlink{class_reminder_a63b4506b8b775709817af588373b6990}{Reminder}}.
+
+\Hypertarget{interface_glpi_1_1_cal_d_a_v_1_1_contracts_1_1_cal_d_a_v_compatible_item_interface_a9a01cc3dad87f28773cd7d95ff796c06}\label{interface_glpi_1_1_cal_d_a_v_1_1_contracts_1_1_cal_d_a_v_compatible_item_interface_a9a01cc3dad87f28773cd7d95ff796c06} 
+\index{CalDAVCompatibleItemInterface@{CalDAVCompatibleItemInterface}!getGroupItemsAsVCalendars@{getGroupItemsAsVCalendars}}
+\index{getGroupItemsAsVCalendars@{getGroupItemsAsVCalendars}!CalDAVCompatibleItemInterface@{CalDAVCompatibleItemInterface}}
+\doxysubsubsection{\texorpdfstring{getGroupItemsAsVCalendars()}{getGroupItemsAsVCalendars()}}
+{\footnotesize\ttfamily static get\+Group\+Items\+As\+VCalendars (\begin{DoxyParamCaption}\item[{}]{\$groups\+\_\+id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Get group items as VCalendar documents.
+
+
+\begin{DoxyParams}[1]{Paramètres}
+integer & {\em \$groups\+\_\+id} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+VCalendar\mbox{[}\mbox{]} 
+\end{DoxyReturn}
+
+
+Implémenté dans \mbox{\hyperlink{class_common_i_t_i_l_task_a9a01cc3dad87f28773cd7d95ff796c06}{Common\+ITILTask}}, \mbox{\hyperlink{class_planning_external_event_a9a01cc3dad87f28773cd7d95ff796c06}{Planning\+External\+Event}}, \mbox{\hyperlink{class_project_task_a9a01cc3dad87f28773cd7d95ff796c06}{Project\+Task}}, et \mbox{\hyperlink{class_reminder_a9a01cc3dad87f28773cd7d95ff796c06}{Reminder}}.
+
+\Hypertarget{interface_glpi_1_1_cal_d_a_v_1_1_contracts_1_1_cal_d_a_v_compatible_item_interface_a07b3d3504728b3a544a034d1bc88fc35}\label{interface_glpi_1_1_cal_d_a_v_1_1_contracts_1_1_cal_d_a_v_compatible_item_interface_a07b3d3504728b3a544a034d1bc88fc35} 
+\index{CalDAVCompatibleItemInterface@{CalDAVCompatibleItemInterface}!getInputFromVCalendar@{getInputFromVCalendar}}
+\index{getInputFromVCalendar@{getInputFromVCalendar}!CalDAVCompatibleItemInterface@{CalDAVCompatibleItemInterface}}
+\doxysubsubsection{\texorpdfstring{getInputFromVCalendar()}{getInputFromVCalendar()}}
+{\footnotesize\ttfamily get\+Input\+From\+VCalendar (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_sabre_1_1_v_object_1_1_component_1_1_v_calendar}{VCalendar}}}]{\$vcalendar }\end{DoxyParamCaption})}
+
+Get input array from a VCalendar object.
+
+
+\begin{DoxyParams}[1]{Paramètres}
+VCalendar & {\em \$vcalendar} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+array
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{Voir également}
+\href{https://tools.ietf.org/html/rfc2445}{\texttt{ https\+://tools.\+ietf.\+org/html/rfc2445}} 
+\end{DoxySeeAlso}
+
+
+Implémenté dans \mbox{\hyperlink{class_common_i_t_i_l_task_a07b3d3504728b3a544a034d1bc88fc35}{Common\+ITILTask}}, \mbox{\hyperlink{class_planning_external_event_a07b3d3504728b3a544a034d1bc88fc35}{Planning\+External\+Event}}, \mbox{\hyperlink{class_project_task_a07b3d3504728b3a544a034d1bc88fc35}{Project\+Task}}, et \mbox{\hyperlink{class_reminder_a07b3d3504728b3a544a034d1bc88fc35}{Reminder}}.
+
+\Hypertarget{interface_glpi_1_1_cal_d_a_v_1_1_contracts_1_1_cal_d_a_v_compatible_item_interface_affe7f5bdca5475429fb3f9bb58a5444f}\label{interface_glpi_1_1_cal_d_a_v_1_1_contracts_1_1_cal_d_a_v_compatible_item_interface_affe7f5bdca5475429fb3f9bb58a5444f} 
+\index{CalDAVCompatibleItemInterface@{CalDAVCompatibleItemInterface}!getUserItemsAsVCalendars@{getUserItemsAsVCalendars}}
+\index{getUserItemsAsVCalendars@{getUserItemsAsVCalendars}!CalDAVCompatibleItemInterface@{CalDAVCompatibleItemInterface}}
+\doxysubsubsection{\texorpdfstring{getUserItemsAsVCalendars()}{getUserItemsAsVCalendars()}}
+{\footnotesize\ttfamily static get\+User\+Items\+As\+VCalendars (\begin{DoxyParamCaption}\item[{}]{\$users\+\_\+id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Get user items as VCalendar documents.
+
+
+\begin{DoxyParams}[1]{Paramètres}
+integer & {\em \$users\+\_\+id} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+VCalendar\mbox{[}\mbox{]} 
+\end{DoxyReturn}
+
+
+Implémenté dans \mbox{\hyperlink{class_common_i_t_i_l_task_affe7f5bdca5475429fb3f9bb58a5444f}{Common\+ITILTask}}, \mbox{\hyperlink{class_planning_external_event_affe7f5bdca5475429fb3f9bb58a5444f}{Planning\+External\+Event}}, \mbox{\hyperlink{class_project_task_affe7f5bdca5475429fb3f9bb58a5444f}{Project\+Task}}, et \mbox{\hyperlink{class_reminder_affe7f5bdca5475429fb3f9bb58a5444f}{Reminder}}.
+
+
+
+La documentation de cette interface a été générée à partir du fichier suivant \+:\begin{DoxyCompactItemize}
+\item 
+public/glpi/src/\+Cal\+DAV/\+Contracts/\mbox{\hyperlink{_cal_d_a_v_compatible_item_interface_8php}{Cal\+DAVCompatible\+Item\+Interface.\+php}}\end{DoxyCompactItemize}

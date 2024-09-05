@@ -1,0 +1,82 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_sabre_1_1_v_object_1_1_settings" xml:lang="fr">
+<title>Référence de la classe Settings</title>
+<indexterm><primary>Settings</primary></indexterm>
+Graphe de collaboration de Settings:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_sabre_1_1_v_object_1_1_settings__coll__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Attributs publics statiques    </title>
+        <itemizedlist>
+            <listitem><para>static <link linkend="_class_sabre_1_1_v_object_1_1_settings_1a6f055c32d2ef3f21edc47dd3bdf176d6">$minDate</link> = &apos;1900-01-01&apos;</para>
+</listitem>
+            <listitem><para>static <link linkend="_class_sabre_1_1_v_object_1_1_settings_1af023a62d483553e10dd0acb56623f0c9">$maxDate</link> = &apos;2100-01-01&apos;</para>
+</listitem>
+            <listitem><para>static <link linkend="_class_sabre_1_1_v_object_1_1_settings_1ad91bc0788d1d122866aaa5b855ff011d">$maxRecurrences</link> = 3500</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Description détaillée</title>
+
+<para>This class provides a list of global defaults for vobject.</para>
+
+<para>Some of these started to appear in various classes, so it made a bit more sense to centralize them, so it&apos;s easier for user to find and change these.</para>
+
+<para>The global nature of them does mean that changing the settings for one instance has a global influence.</para>
+
+<para><formalpara><title>Copyright</title>
+
+<para>Copyright (C) fruux GmbH (<link xlink:href="https://fruux.com/">https://fruux.com/</link>) </para>
+</formalpara>
+<formalpara><title>Auteur</title>
+
+<para>Evert Pot (<link xlink:href="http://evertpot.com/">http://evertpot.com/</link>) @license <link xlink:href="http://sabre.io/license/">http://sabre.io/license/</link> Modified BSD License </para>
+</formalpara>
+</para>
+</section>
+<section>
+<title>Documentation des champs</title>
+<anchor xml:id="_class_sabre_1_1_v_object_1_1_settings_1af023a62d483553e10dd0acb56623f0c9"/><section>
+    <title>$maxDate</title>
+<indexterm><primary>$maxDate</primary><secondary>Settings</secondary></indexterm>
+<indexterm><primary>Settings</primary><secondary>$maxDate</secondary></indexterm>
+<para><computeroutput>$<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">maxDate</link> = &apos;2100-01-01&apos;<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>The maximum date we accept for various calculations with dates, such as recurrences.</para>
+
+<para>The choice of 2100 is pretty arbitrary, but should cover most appointments made for many years to come. </para>
+</section>
+<anchor xml:id="_class_sabre_1_1_v_object_1_1_settings_1ad91bc0788d1d122866aaa5b855ff011d"/><section>
+    <title>$maxRecurrences</title>
+<indexterm><primary>$maxRecurrences</primary><secondary>Settings</secondary></indexterm>
+<indexterm><primary>Settings</primary><secondary>$maxRecurrences</secondary></indexterm>
+<para><computeroutput>$<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">maxRecurrences</link> = 3500<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>The maximum number of recurrences that will be generated.</para>
+
+<para>This setting limits the maximum of recurring events that this library generates in its recurrence iterators.</para>
+
+<para>This is a security measure. Without this, it would be possible to craft specific events that recur many, many times, potentially DDOSing the server.</para>
+
+<para>The default (3500) allows creation of a daily event that goes on for 10 years, which is hopefully long enough for most.</para>
+
+<para>Set this value to -1 to disable this control altogether. </para>
+</section>
+<anchor xml:id="_class_sabre_1_1_v_object_1_1_settings_1a6f055c32d2ef3f21edc47dd3bdf176d6"/><section>
+    <title>$minDate</title>
+<indexterm><primary>$minDate</primary><secondary>Settings</secondary></indexterm>
+<indexterm><primary>Settings</primary><secondary>$minDate</secondary></indexterm>
+<para><computeroutput>$<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">minDate</link> = &apos;1900-01-01&apos;<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>The minimum date we accept for various calculations with dates, such as recurrences.</para>
+
+<para>The choice of 1900 is pretty arbitrary, but it covers most common use-cases. In particular, it covers birthdates for virtually everyone alive on earth, which is less than 5 people at the time of writing. </para>
+</section>
+<para>
+La documentation de cette classe a été générée à partir du fichier suivant :</para>
+public/glpi/vendor/sabre/vobject/lib/<link linkend="__settings_8php">Settings.php</link></section>
+</section>

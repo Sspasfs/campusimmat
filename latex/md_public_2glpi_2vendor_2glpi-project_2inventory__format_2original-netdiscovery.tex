@@ -1,0 +1,73 @@
+\chapter{Original XML specification (network discovery)}
+\hypertarget{md_public_2glpi_2vendor_2glpi-project_2inventory__format_2original-netdiscovery}{}\label{md_public_2glpi_2vendor_2glpi-project_2inventory__format_2original-netdiscovery}\index{Original XML specification (network discovery)@{Original XML specification (network discovery)}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{<!ELEMENT\ REQUEST\ (CONTENT+,\ DEVICEID,\ QUERY)>}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ <!ELEMENT\ CONTENT\ (DEVICE*,\ MODULEVERSION,\ PROCESSNUMBER)>}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ <!-\/-\/\ a\ device\ -\/-\/>}
+\DoxyCodeLine{\ \ \ \ <!ELEMENT\ DEVICE\ (IP,\ MAC?,\ AUTHSNMP?,\ TYPE?,\ MANUFACTURER?,\ MODEL?,}
+\DoxyCodeLine{\ \ \ \ DESCRIPTION?,\ SNMPHOSTNAME?,\ LOCATION?,\ CONTACT?,\ SERIAL?,\ FIRMWARE?,}
+\DoxyCodeLine{\ \ \ \ UPTIME?,\ IPS?\ DNSHOSTNAME?,\ NETPORTVENDOR?,\ NETBIOSNAME?,\ WORKGROUP?,}
+\DoxyCodeLine{\ \ \ \ USERSESSION?)>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <!-\/-\/\ \ IP\ address\ -\/-\/>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <!ELEMENT\ IP\ (\#PCDATA)>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <!-\/-\/\ \ mac\ address\ -\/-\/>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <!ELEMENT\ MAC\ (\#PCDATA)>}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <!-\/-\/\ Information\ retrieved\ from\ SNMP\ -\/-\/>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <!-\/-\/\ credentials\ ID\ -\/-\/>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <!ELEMENT\ AUTHSNMP\ (\#PCDATA)>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <!-\/-\/\ type}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ (COMPUTER|NETWORKING|PRINTER|STORAGE|POWER|PHONE|VIDEO|KVM)\ -\/-\/>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <!ELEMENT\ TYPE\ (\#PCDATA)>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <!-\/-\/\ manufacturer\ -\/-\/>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <!ELEMENT\ MANUFACTURER\ (\#PCDATA)>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <!-\/-\/\ model\ -\/-\/>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <!ELEMENT\ MODEL\ (\#PCDATA)>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <!-\/-\/\ description\ (sysDescr)\ -\/-\/>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <!ELEMENT\ DESCRIPTION\ (\#PCDATA)>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <!-\/-\/\ \ host\ name\ -\/-\/>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <!ELEMENT\ SNMPHOSTNAME\ (\#PCDATA)>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <!-\/-\/\ \ location\ -\/-\/>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <!ELEMENT\ LOCATION\ (\#PCDATA)>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <!-\/-\/\ \ contact\ -\/-\/>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <!ELEMENT\ CONTACT\ (\#PCDATA)>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <!-\/-\/\ \ serial\ number\ -\/-\/>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <!ELEMENT\ SERIAL\ (\#PCDATA)>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <!-\/-\/\ \ firmware\ version\ -\/-\/>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <!ELEMENT\ FIRMWARE\ (\#PCDATA)>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <!-\/-\/\ \ uptime\ ("{}X\ days,\ HH:MM::SS"{}\ format)\ -\/-\/>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <!ELEMENT\ UPTIME\ (\#PCDATA)>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <!-\/-\/\ \ IP\ addresses\ -\/-\/>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <!ELEMENT\ IPS\ (IP+)>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <!-\/-\/\ \ IP\ address\ -\/-\/>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <!ELEMENT\ IP\ (\#PCDATA)>}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <!-\/-\/\ Information\ retrieved\ from\ Nmap\ -\/-\/>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <!-\/-\/\ host\ name\ -\/-\/>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <!ELEMENT\ DNSHOSTNAME\ (\#PCDATA)>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <!-\/-\/\ vendor\ -\/-\/>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <!ELEMENT\ NETPORTVENDOR\ (\#PCDATA)>}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <!-\/-\/\ Information\ retrieved\ from\ NetBios\ -\/-\/>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <!-\/-\/\ host\ name\ -\/-\/>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <!ELEMENT\ NETBIOSNAME\ (\#PCDATA)>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <!-\/-\/\ user\ name\ -\/-\/>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <!ELEMENT\ USERSESSION\ (\#PCDATA)>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <!-\/-\/\ workgroup\ -\/-\/>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <!ELEMENT\ USERSESSION\ (\#PCDATA)>}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ <!-\/-\/\ netsdiscovery\ module\ version(string)\ -\/-\/>}
+\DoxyCodeLine{\ \ \ \ <!ELEMENT\ MODULEVERSION\ (\#PCDATA)>\ \#\ netdiscovery\ module\ version}
+\DoxyCodeLine{\ \ \ \ <!-\/-\/\ server\ process\ ID\ (integer)\ -\/-\/>}
+\DoxyCodeLine{\ \ \ \ <!ELEMENT\ PROCESSNUMBER\ (\#PCDATA)>}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ <!-\/-\/\ agent\ ID\ (string)\ -\/-\/>}
+\DoxyCodeLine{\ \ \ \ <!ELEMENT\ DEVICEID\ (\#PCDATA)>\ \#\ agent\ ID\ (string)}
+\DoxyCodeLine{\ \ \ \ <!-\/-\/\ message\ type,\ ie\ "{}NETDISCOVERY"{}\ -\/-\/>}
+\DoxyCodeLine{\ \ \ \ <!ELEMENT\ QUERY\ (\#PCDATA)>}
+
+\end{DoxyCode}
+ 

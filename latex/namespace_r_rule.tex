@@ -1,0 +1,116 @@
+\doxysection{Référence de l\textquotesingle{}espace de nommage RRule}
+\hypertarget{namespace_r_rule}{}\label{namespace_r_rule}\index{RRule@{RRule}}
+\doxysubsubsection*{Structures de données}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_r_rule_1_1_rfc_parser}{Rfc\+Parser}}
+\item 
+class \mbox{\hyperlink{class_r_rule_1_1_r_rule}{RRule}}
+\item 
+interface \mbox{\hyperlink{interface_r_rule_1_1_r_rule_interface}{RRule\+Interface}}
+\item 
+class \mbox{\hyperlink{class_r_rule_1_1_r_set}{RSet}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespace_r_rule_ae53f88d10e43bcc0534b32df2035750a}{not\+\_\+empty}} (\$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{var}})
+\item 
+\mbox{\hyperlink{namespace_r_rule_a24433e4d5d0a66b42a70c6deb06b7642}{pymod}} (\$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{a}}, \$b)
+\item 
+\mbox{\hyperlink{namespace_r_rule_a42662bcea21bebc1704b57dcc5908879}{is\+\_\+leap\+\_\+year}} (\$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{year}})
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Licensed under the MIT license.
+
+For the full copyright and license information, please view the LICENSE file.
+
+\begin{DoxyAuthor}{Auteur}
+Rémi Lanvin \href{mailto:remi@cloudconnected.fr}{\texttt{ remi@cloudconnected.\+fr}} \doxylink{}{https\+://github.\+com/rlanvin/php-\/rrule}
+\end{DoxyAuthor}
+
+
+\doxysubsection{Documentation des fonctions}
+\Hypertarget{namespace_r_rule_a42662bcea21bebc1704b57dcc5908879}\label{namespace_r_rule_a42662bcea21bebc1704b57dcc5908879} 
+\index{RRule@{RRule}!is\_leap\_year@{is\_leap\_year}}
+\index{is\_leap\_year@{is\_leap\_year}!RRule@{RRule}}
+\doxysubsubsection{\texorpdfstring{is\_leap\_year()}{is\_leap\_year()}}
+{\footnotesize\ttfamily is\+\_\+leap\+\_\+year (\begin{DoxyParamCaption}\item[{}]{\$year }\end{DoxyParamCaption})}
+
+Check if a year is a leap year.
+
+
+\begin{DoxyParams}[1]{Paramètres}
+int & {\em \$year} & The year to be checked. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+bool 
+\end{DoxyReturn}
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=344pt]{namespace_r_rule_a42662bcea21bebc1704b57dcc5908879_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{namespace_r_rule_ae53f88d10e43bcc0534b32df2035750a}\label{namespace_r_rule_ae53f88d10e43bcc0534b32df2035750a} 
+\index{RRule@{RRule}!not\_empty@{not\_empty}}
+\index{not\_empty@{not\_empty}!RRule@{RRule}}
+\doxysubsubsection{\texorpdfstring{not\_empty()}{not\_empty()}}
+{\footnotesize\ttfamily not\+\_\+empty (\begin{DoxyParamCaption}\item[{}]{\$var }\end{DoxyParamCaption})}
+
+Check that a variable is not empty.
+
+0 and \textquotesingle{}0\textquotesingle{} are considered NOT empty.
+
+
+\begin{DoxyParams}[1]{Paramètres}
+mixed & {\em \$var} & Variable to be checked \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+bool 
+\end{DoxyReturn}
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=326pt]{namespace_r_rule_ae53f88d10e43bcc0534b32df2035750a_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{namespace_r_rule_a24433e4d5d0a66b42a70c6deb06b7642}\label{namespace_r_rule_a24433e4d5d0a66b42a70c6deb06b7642} 
+\index{RRule@{RRule}!pymod@{pymod}}
+\index{pymod@{pymod}!RRule@{RRule}}
+\doxysubsubsection{\texorpdfstring{pymod()}{pymod()}}
+{\footnotesize\ttfamily pymod (\begin{DoxyParamCaption}\item[{}]{\$a,  }\item[{}]{\$b }\end{DoxyParamCaption})}
+
+Python-\/like modulo.
+
+The \% operator in PHP returns the remainder of a / b, but differs from some other languages in that the result will have the same sign as the dividend. For example, -\/1 \% 8 == -\/1, whereas in some other languages (such as Python) the result would be 7. This function emulates the more correct modulo behavior, which is useful for certain applications such as calculating an offset index in a circular list.
+
+
+\begin{DoxyParams}[1]{Paramètres}
+int & {\em \$a} & The dividend. \\
+\hline
+int & {\em \$b} & The divisor.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+int \$a \% \$b where the result is between 0 and \$b (either 0 \texorpdfstring{$<$}{<}= x \texorpdfstring{$<$}{<} \$b or \$b \texorpdfstring{$<$}{<} x \texorpdfstring{$<$}{<}= 0, depending on the sign of \$b).
+\end{DoxyReturn}
+\begin{DoxyCopyright}{Copyright}
+2006 The Closure Library Authors. 
+\end{DoxyCopyright}
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=339pt]{namespace_r_rule_a24433e4d5d0a66b42a70c6deb06b7642_icgraph}
+\end{center}
+\end{figure}

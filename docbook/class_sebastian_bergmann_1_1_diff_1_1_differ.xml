@@ -1,0 +1,234 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_sebastian_bergmann_1_1_diff_1_1_differ" xml:lang="fr">
+<title>Référence de la classe Differ</title>
+<indexterm><primary>Differ</primary></indexterm>
+Graphe de collaboration de Differ:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_sebastian_bergmann_1_1_diff_1_1_differ__coll__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Fonctions membres publiques    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_sebastian_bergmann_1_1_diff_1_1_differ_1ac1067585006ba4cab5db1b1dea0d1d46">__construct</link> ($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">outputBuilder</link>=null)</para>
+</listitem>
+            <listitem><para><link linkend="_class_sebastian_bergmann_1_1_diff_1_1_differ_1a4451bc9cf579c9c127a3d0837f9430a0">diff</link> ($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">from</link>, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">to</link>, <link linkend="_interface_sebastian_bergmann_1_1_diff_1_1_longest_common_subsequence_calculator">LongestCommonSubsequenceCalculator</link> $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">lcs</link>=null)</para>
+</listitem>
+            <listitem><para><link linkend="_class_sebastian_bergmann_1_1_diff_1_1_differ_1abc45e36681a4868a5392ebbadb363354">diffToArray</link> ($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">from</link>, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">to</link>, <link linkend="_interface_sebastian_bergmann_1_1_diff_1_1_longest_common_subsequence_calculator">LongestCommonSubsequenceCalculator</link> $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">lcs</link>=null)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Champs de données    </title>
+        <itemizedlist>
+            <listitem><para>const <link linkend="_class_sebastian_bergmann_1_1_diff_1_1_differ_1aa3c960620355380babe787deab5a9b4e">OLD</link> = 0</para>
+</listitem>
+            <listitem><para>const <link linkend="_class_sebastian_bergmann_1_1_diff_1_1_differ_1a9dcf44632176616f583582396a5d6ec9">ADDED</link> = 1</para>
+</listitem>
+            <listitem><para>const <link linkend="_class_sebastian_bergmann_1_1_diff_1_1_differ_1a407d200e9f16e51a21be57a9fcec09f0">REMOVED</link> = 2</para>
+</listitem>
+            <listitem><para>const <link linkend="_class_sebastian_bergmann_1_1_diff_1_1_differ_1a4644b10fa7b74701c1b9f8254bfa02f0">DIFF_LINE_END_WARNING</link> = 3</para>
+</listitem>
+            <listitem><para>const <link linkend="_class_sebastian_bergmann_1_1_diff_1_1_differ_1a1faced9a630ccdb26581752ba3965368">NO_LINE_END_EOF_WARNING</link> = 4</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Documentation des constructeurs et destructeur</title>
+<anchor xml:id="_class_sebastian_bergmann_1_1_diff_1_1_differ_1ac1067585006ba4cab5db1b1dea0d1d46"/><section>
+    <title>__construct()</title>
+<indexterm><primary>__construct</primary><secondary>Differ</secondary></indexterm>
+<indexterm><primary>Differ</primary><secondary>__construct</secondary></indexterm>
+<para><computeroutput>__construct ( $outputBuilder = <computeroutput>null</computeroutput>
+)</computeroutput></para>
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>DiffOutputBuilderInterface</entry><entry>$outputBuilder</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>InvalidArgumentException</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
+</section>
+<section>
+<title>Documentation des fonctions membres</title>
+<anchor xml:id="_class_sebastian_bergmann_1_1_diff_1_1_differ_1a4451bc9cf579c9c127a3d0837f9430a0"/><section>
+    <title>diff()</title>
+<indexterm><primary>diff</primary><secondary>Differ</secondary></indexterm>
+<indexterm><primary>Differ</primary><secondary>diff</secondary></indexterm>
+<para><computeroutput>diff ( $from,  $to, <link linkend="_interface_sebastian_bergmann_1_1_diff_1_1_longest_common_subsequence_calculator">LongestCommonSubsequenceCalculator</link> $lcs = <computeroutput>null</computeroutput>
+)</computeroutput></para>
+<para>Returns the diff between two arrays or strings as string.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>array | string</entry><entry>$from</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>array | string</entry><entry>$to</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_sebastian_bergmann_1_1_diff_1_1_differ_a4451bc9cf579c9c127a3d0837f9430a0_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_sebastian_bergmann_1_1_diff_1_1_differ_1abc45e36681a4868a5392ebbadb363354"/><section>
+    <title>diffToArray()</title>
+<indexterm><primary>diffToArray</primary><secondary>Differ</secondary></indexterm>
+<indexterm><primary>Differ</primary><secondary>diffToArray</secondary></indexterm>
+<para><computeroutput>diffToArray ( $from,  $to, <link linkend="_interface_sebastian_bergmann_1_1_diff_1_1_longest_common_subsequence_calculator">LongestCommonSubsequenceCalculator</link> $lcs = <computeroutput>null</computeroutput>
+)</computeroutput></para>
+<para>Returns the diff between two arrays or strings as array.</para>
+
+<para>Each array element contains two elements:<itemizedlist>
+<listitem>
+<para>[0] =&gt; mixed $token</para>
+</listitem><listitem>
+<para>[1] =&gt; 2|1|0</para>
+</listitem></itemizedlist>
+</para>
+
+<para>2: REMOVED: $token was removed from $from<itemizedlist>
+<listitem>
+<para>1: ADDED: $token was added to $from</para>
+</listitem><listitem>
+<para>0: OLD: $token is not changed in $to</para>
+</listitem></itemizedlist>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>array | string</entry><entry>$from</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>array | string</entry><entry>$to</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>LongestCommonSubsequenceCalculator</entry><entry>$lcs</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_sebastian_bergmann_1_1_diff_1_1_differ_abc45e36681a4868a5392ebbadb363354_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+</section>
+<section>
+<title>Documentation des champs</title>
+<anchor xml:id="_class_sebastian_bergmann_1_1_diff_1_1_differ_1a9dcf44632176616f583582396a5d6ec9"/><section>
+    <title>ADDED</title>
+<indexterm><primary>ADDED</primary><secondary>Differ</secondary></indexterm>
+<indexterm><primary>Differ</primary><secondary>ADDED</secondary></indexterm>
+<para><computeroutput>const ADDED = 1</computeroutput></para></section>
+<anchor xml:id="_class_sebastian_bergmann_1_1_diff_1_1_differ_1a4644b10fa7b74701c1b9f8254bfa02f0"/><section>
+    <title>DIFF_LINE_END_WARNING</title>
+<indexterm><primary>DIFF_LINE_END_WARNING</primary><secondary>Differ</secondary></indexterm>
+<indexterm><primary>Differ</primary><secondary>DIFF_LINE_END_WARNING</secondary></indexterm>
+<para><computeroutput>const DIFF_LINE_END_WARNING = 3</computeroutput></para></section>
+<anchor xml:id="_class_sebastian_bergmann_1_1_diff_1_1_differ_1a1faced9a630ccdb26581752ba3965368"/><section>
+    <title>NO_LINE_END_EOF_WARNING</title>
+<indexterm><primary>NO_LINE_END_EOF_WARNING</primary><secondary>Differ</secondary></indexterm>
+<indexterm><primary>Differ</primary><secondary>NO_LINE_END_EOF_WARNING</secondary></indexterm>
+<para><computeroutput>const NO_LINE_END_EOF_WARNING = 4</computeroutput></para></section>
+<anchor xml:id="_class_sebastian_bergmann_1_1_diff_1_1_differ_1aa3c960620355380babe787deab5a9b4e"/><section>
+    <title>OLD</title>
+<indexterm><primary>OLD</primary><secondary>Differ</secondary></indexterm>
+<indexterm><primary>Differ</primary><secondary>OLD</secondary></indexterm>
+<para><computeroutput>const OLD = 0</computeroutput></para></section>
+<anchor xml:id="_class_sebastian_bergmann_1_1_diff_1_1_differ_1a407d200e9f16e51a21be57a9fcec09f0"/><section>
+    <title>REMOVED</title>
+<indexterm><primary>REMOVED</primary><secondary>Differ</secondary></indexterm>
+<indexterm><primary>Differ</primary><secondary>REMOVED</secondary></indexterm>
+<para><computeroutput>const REMOVED = 2</computeroutput></para></section>
+<para>
+La documentation de cette classe a été générée à partir du fichier suivant :</para>
+public/glpi/vendor/sebastian/diff/src/<link linkend="__differ_8php">Differ.php</link></section>
+</section>

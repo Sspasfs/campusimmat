@@ -1,0 +1,16 @@
+\doxysection{@var}
+\hypertarget{_0dvar-example}{}\label{_0dvar-example}Helper trait for auto-\/completion of code in modern IDEs.
+
+The trait provides convenience methods for view helpers, defined by the laminas-\/i18n component. It is designed to be used for type-\/hinting \$this variable inside laminas-\/view templates via doc blocks.
+
+The base class is Php\+Renderer, followed by the helper trait from the laminas-\/i18n component. However, multiple helper traits from different Laminas components can be chained afterwards.
+
+\textbackslash{}\+Laminas\textbackslash{}\+View\textbackslash{}\+Renderer\textbackslash{}\+Php\+Renderer\texorpdfstring{$\vert$}{|}\textbackslash{}\+Laminas\textbackslash{}\+I18n\textbackslash{}\+View\textbackslash{}\+Helper\+Trait \$this
+
+@method string currency\+Format(float \$number, string\texorpdfstring{$\vert$}{|}null \$currency\+Code = null, bool\texorpdfstring{$\vert$}{|}null \$show\+Decimals = null, string\texorpdfstring{$\vert$}{|}null \$locale = null, string\texorpdfstring{$\vert$}{|}null \$pattern = null) @method string date\+Format(\textbackslash{}\+Date\+Time\+Interface\texorpdfstring{$\vert$}{|}\textbackslash{}\+Intl\+Calendar\texorpdfstring{$\vert$}{|}int\texorpdfstring{$\vert$}{|}array \$date, int \$date\+Type = Intl\+Date\+Formatter\+::\+NONE, int \$time\+Type = Intl\+Date\+Formatter\+::\+NONE, string\texorpdfstring{$\vert$}{|}null \$locale = null, string\texorpdfstring{$\vert$}{|}null \$pattern = null) @method string number\+Format(int\texorpdfstring{$\vert$}{|}float \$number, int\texorpdfstring{$\vert$}{|}null \$format\+Style = null, int\texorpdfstring{$\vert$}{|}null \$format\+Type = null, string\texorpdfstring{$\vert$}{|}null \$locale = null, int\texorpdfstring{$\vert$}{|}null \$decimals = null, array\texorpdfstring{$\vert$}{|}null \$text\+Attributes = null) @method string plural(array\texorpdfstring{$\vert$}{|}string \$strings, int \$number) @method string translate(string \$message, string\texorpdfstring{$\vert$}{|}null \$text\+Domain = null, string\texorpdfstring{$\vert$}{|}null \$locale = null) @method string translate\+Plural(string \$singular, string \$plural, int \$number, string\texorpdfstring{$\vert$}{|}null \$text\+Domain = null, string\texorpdfstring{$\vert$}{|}null \$locale = null)
+
+
+\begin{DoxyCodeInclude}{0}
+
+\end{DoxyCodeInclude}
+ 

@@ -1,0 +1,61 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_pin__savedsearches_8php" xml:lang="fr">
+<title>Référence du fichier public/glpi/ajax/pin_savedsearches.php</title>
+<indexterm><primary>public/glpi/ajax/pin_savedsearches.php</primary></indexterm>
+<simplesect>
+    <title>Variables    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_dropdown_location_8php_1a52332c22f84432520971794825a5a8e7">if</link>(!is_string($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">_POST</link>[&apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">itemtype</link>&apos;])||<link linkend="_db_8function_8php_1a5bb7668a0ab5705035e0608178fabcba">getItemForItemtype</link>($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">_POST</link>[&apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">itemtype</link>&apos;])===false) <link linkend="_pin__savedsearches_8php_1a191c1ca87426336c32a8a6a0d8907bc7">$all_pinned</link> = <link linkend="_db_8function_8php_1ae5a4014b03338fde633b1efaf8216c56">importArrayFromDB</link>($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">_SESSION</link>[&apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">glpisavedsearches_pinned</link>&apos;])</para>
+</listitem>
+            <listitem><para><link linkend="_pin__savedsearches_8php_1a118bd411de4fe01408290ada7b49232c">$already_pinned</link> = $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">all_pinned</link>[$<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">_POST</link>[&apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">itemtype</link>&apos;]] ?? 0</para>
+</listitem>
+            <listitem><para><link linkend="_pin__savedsearches_8php_1afc9f73b2fb46714a55b00a21ff47beb9">$all_pinned</link> [$<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">_POST</link>[&apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">itemtype</link>&apos;]] = $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">already_pinned</link> ? 0 : 1</para>
+</listitem>
+            <listitem><para><link linkend="_pin__savedsearches_8php_1a73ef2387d743332994e931d57d62947e">$_SESSION</link> [&apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">glpisavedsearches_pinned</link>&apos;] = <link linkend="_db_8function_8php_1a4eee645f37d507cda31107ef2fce80e9">exportArrayToDB</link>($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">all_pinned</link>)</para>
+</listitem>
+            <listitem><para><link linkend="_pin__savedsearches_8php_1a598ca4e71b15a1313ec95f0df1027ca5">$user</link> = <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">new</link> <link linkend="_class_user">User</link>()</para>
+</listitem>
+            <listitem><para><link linkend="_pin__savedsearches_8php_1a944564ee11ad329573548875b62a269e">$success</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Documentation des variables</title>
+<anchor xml:id="_pin__savedsearches_8php_1a73ef2387d743332994e931d57d62947e"/><section>
+    <title>$_SESSION</title>
+<indexterm><primary>$_SESSION</primary><secondary>pin_savedsearches.php</secondary></indexterm>
+<indexterm><primary>pin_savedsearches.php</primary><secondary>$_SESSION</secondary></indexterm>
+<para><computeroutput>$<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">_SESSION</link>[ &apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">glpisavedsearches_pinned</link>&apos;] = <link linkend="_db_8function_8php_1a4eee645f37d507cda31107ef2fce80e9">exportArrayToDB</link>($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">all_pinned</link>)</computeroutput></para></section>
+<anchor xml:id="_pin__savedsearches_8php_1a191c1ca87426336c32a8a6a0d8907bc7"/><section>
+    <title>$all_pinned<computeroutput>[1/2]</computeroutput></title>
+<indexterm><primary>$all_pinned</primary><secondary>pin_savedsearches.php</secondary></indexterm>
+<indexterm><primary>pin_savedsearches.php</primary><secondary>$all_pinned</secondary></indexterm>
+<para><computeroutput><link linkend="_dropdown_location_8php_1a52332c22f84432520971794825a5a8e7">if</link> (!is_string( $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">_POST</link>[ &apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">itemtype</link>&apos;])||<link linkend="_db_8function_8php_1a5bb7668a0ab5705035e0608178fabcba">getItemForItemtype</link>( $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">_POST</link>[ &apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">itemtype</link>&apos;])===false) $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">all_pinned</link> = <link linkend="_db_8function_8php_1ae5a4014b03338fde633b1efaf8216c56">importArrayFromDB</link>($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">_SESSION</link>[&apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">glpisavedsearches_pinned</link>&apos;])</computeroutput></para></section>
+<anchor xml:id="_pin__savedsearches_8php_1afc9f73b2fb46714a55b00a21ff47beb9"/><section>
+    <title>$all_pinned<computeroutput>[2/2]</computeroutput></title>
+<indexterm><primary>$all_pinned</primary><secondary>pin_savedsearches.php</secondary></indexterm>
+<indexterm><primary>pin_savedsearches.php</primary><secondary>$all_pinned</secondary></indexterm>
+<para><computeroutput>$<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">all_pinned</link>[ $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">_POST</link>[ &apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">itemtype</link>&apos;]] = $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">already_pinned</link> ? 0 : 1</computeroutput></para></section>
+<anchor xml:id="_pin__savedsearches_8php_1a118bd411de4fe01408290ada7b49232c"/><section>
+    <title>$already_pinned</title>
+<indexterm><primary>$already_pinned</primary><secondary>pin_savedsearches.php</secondary></indexterm>
+<indexterm><primary>pin_savedsearches.php</primary><secondary>$already_pinned</secondary></indexterm>
+<para><computeroutput>$<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">already_pinned</link> = $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">all_pinned</link>[$<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">_POST</link>[&apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">itemtype</link>&apos;]] ?? 0</computeroutput></para></section>
+<anchor xml:id="_pin__savedsearches_8php_1a944564ee11ad329573548875b62a269e"/><section>
+    <title>$success</title>
+<indexterm><primary>$success</primary><secondary>pin_savedsearches.php</secondary></indexterm>
+<indexterm><primary>pin_savedsearches.php</primary><secondary>$success</secondary></indexterm>
+<para><computeroutput>$success</computeroutput></para><emphasis role="strong">Valeur initiale :</emphasis><programlisting linenumbering="unnumbered">=&#32;<link linkend="_pin__savedsearches_8php_1a598ca4e71b15a1313ec95f0df1027ca5">$user</link>-&gt;update(
+&#32;&#32;&#32;&#32;[
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&apos;id&apos;</emphasis>&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;=&gt;&#32;Session::getLoginUserID(),
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&apos;savedsearches_pinned&apos;</emphasis>&#32;=&gt;&#32;<link linkend="_pin__savedsearches_8php_1a73ef2387d743332994e931d57d62947e">$_SESSION</link>[<emphasis role="stringliteral">&apos;glpisavedsearches_pinned&apos;</emphasis>],
+&#32;&#32;&#32;&#32;]
+)
+</programlisting></section>
+<anchor xml:id="_pin__savedsearches_8php_1a598ca4e71b15a1313ec95f0df1027ca5"/><section>
+    <title>$user</title>
+<indexterm><primary>$user</primary><secondary>pin_savedsearches.php</secondary></indexterm>
+<indexterm><primary>pin_savedsearches.php</primary><secondary>$user</secondary></indexterm>
+<para><computeroutput>$<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">user</link> = <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">new</link> <link linkend="_class_user">User</link>()</computeroutput></para></section>
+</section>
+</section>

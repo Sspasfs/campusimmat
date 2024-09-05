@@ -1,0 +1,139 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.10.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>CampusImmat: RRULE for PHP</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">CampusImmat
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.10.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+</div><!-- top -->
+<div><div class="header">
+  <div class="headertitle"><div class="title">RRULE for PHP</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><p><a class="anchor" id="autotoc_md7035"></a> Lightweight and fast implementation of recurrence rules for PHP (<code>RRULE</code> from RFC 5545), to easily calculate recurring/repeating dates and events (such as in a calendar). This library started as a port of <a href="https://labix.org/python-dateutil">python-dateutil</a>.</p>
+<p><a href="https://github.com/rlanvin/php-rrule/actions"><img src="https://github.com/rlanvin/php-rrule/workflows/Tests/badge.svg" alt="Build status" style="pointer-events: none;" class="inline"/></a> <a href="https://packagist.org/packages/rlanvin/php-rrule"><img src="https://poser.pugx.org/rlanvin/php-rrule/v/stable" alt="Latest Stable Version" class="inline"/></a> <a href="https://packagist.org/packages/rlanvin/php-rrule"><img src="https://poser.pugx.org/rlanvin/php-rrule/downloads" alt="Total Downloads" class="inline"/></a></p>
+<h1><a class="anchor" id="autotoc_md7036"></a>
+Basic example</h1>
+<div class="fragment"><div class="line"><a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">use</a> <a class="code hl_class" href="class_r_rule_1_1_r_rule.html">RRule\RRule</a>;</div>
+<div class="line"> </div>
+<div class="line"><a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">$rrule</a> = <span class="keyword">new</span> <a class="code hl_namespace" href="namespace_r_rule.html">RRule</a>([</div>
+<div class="line">    <span class="stringliteral">&#39;FREQ&#39;</span> =&gt; <span class="stringliteral">&#39;MONTHLY&#39;</span>,</div>
+<div class="line">    <span class="stringliteral">&#39;INTERVAL&#39;</span> =&gt; 1,</div>
+<div class="line">    <span class="stringliteral">&#39;DTSTART&#39;</span> =&gt; <span class="stringliteral">&#39;2015-06-01&#39;</span>,</div>
+<div class="line">    <span class="stringliteral">&#39;COUNT&#39;</span> =&gt; 6</div>
+<div class="line">]);</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordflow">foreach</span> (<a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">$rrule</a> <a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">as</a> <a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">$occurrence</a>) {</div>
+<div class="line">    <a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">echo</a> <a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">$occurrence</a>-&gt;format(<span class="stringliteral">&#39;D d M Y&#39;</span>),<span class="stringliteral">&quot;, &quot;</span>;</div>
+<div class="line">}</div>
+<div class="line"><span class="comment">// Mon 01 Jun 2015, Wed 01 Jul 2015, Sat 01 Aug 2015, Tue 01 Sep 2015, Thu 01 Oct 2015, Sun 01 Nov 2015</span></div>
+<div class="line"> </div>
+<div class="line"><a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">echo</a> <a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">$rrule</a>-&gt;humanReadable(),<span class="stringliteral">&quot;\n&quot;</span>;</div>
+<div class="line"><span class="comment">// monthly on the 1st of the month, starting from 01/06/2015, 6 times</span></div>
+<div class="ttc" id="aclass_r_rule_1_1_r_rule_html"><div class="ttname"><a href="class_r_rule_1_1_r_rule.html">RRule\RRule</a></div><div class="ttdef"><b>Definition</b> RRule.php:93</div></div>
+<div class="ttc" id="anamespace_r_rule_html"><div class="ttname"><a href="namespace_r_rule.html">RRule</a></div><div class="ttdef"><b>Definition</b> RfcParser.php:12</div></div>
+<div class="ttc" id="areport_8contract_8php_html_a77b973d137fb33212e018b042df6e3e7"><div class="ttname"><a href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">$y</a></div><div class="ttdeci">$y</div><div class="ttdef"><b>Definition</b> report.contract.php:71</div></div>
+</div><!-- fragment --><p>Complete documentation and more examples are available in <a href="https://github.com/rlanvin/php-rrule/wiki">the wiki</a>.</p>
+<h1><a class="anchor" id="autotoc_md7037"></a>
+Requirements</h1>
+<ul>
+<li>PHP &gt;= 5.6</li>
+<li><a href="http://php.net/manual/en/book.intl.php">intl extension</a> is recommended for <code>humanReadable()</code> but not strictly required</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md7038"></a>
+Installation</h1>
+<p>The recommended way is to install the lib <a href="http://getcomposer.org/">through Composer</a>.</p>
+<p>Simply run <code>composer require rlanvin/php-rrule</code> for it to be automatically installed and included in your <code>composer.json</code>.</p>
+<p>Now you can use the autoloader, and you will have access to the library:</p>
+<div class="fragment"><div class="line"><a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">require</a> <span class="stringliteral">&#39;vendor/autoload.php&#39;</span>;</div>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md7039"></a>
+Documentation</h1>
+<p>Complete documentation is available in <a href="https://github.com/rlanvin/php-rrule/wiki">the wiki</a>.</p>
+<p>You will also find useful information in the <a href="https://tools.ietf.org/html/rfc5545#section-3.3.10">RFC 5545 section 3.3.10</a>.</p>
+<h1><a class="anchor" id="autotoc_md7040"></a>
+Contribution</h1>
+<p>Feel free to contribute! Just create a new issue or a new pull request.</p>
+<p>The coding style is (mostly) PSR-2, but with tabs.</p>
+<h2><a class="anchor" id="autotoc_md7041"></a>
+Translation</h2>
+<p>Use <code>./bin/review_translations.php --locale &lt;locale&gt;</code> to print a list of examples using the locale specified (default is English). Use <code>./bin/review_translations.php --rule "&lt;rule&gt;"</code> to test a specific rule in all available locales.</p>
+<h1><a class="anchor" id="autotoc_md7042"></a>
+Note</h1>
+<p>I started this library because I wasn't happy with the existing implementations in PHP, so I thought it would be a good learning project to port the python-dateutil rrule implementation into PHP.</p>
+<p>The Python lib was a bit difficult to understand because the algorithms are not commented and the variables are very opaque (I'm looking at you <code>lno1wkst</code>). I tried to comment and explain as much of the algorithm as possible in this PHP port, so feel free to check the code if you're interested.</p>
+<p>The lib differs from the python version in various aspects, notably in the respect of the RFC. This version is a bit strictier and will not accept many non-compliant combinations of rule parts, that the python version otherwise accepts. There are also some additional features in this version.</p>
+<h1><a class="anchor" id="autotoc_md7043"></a>
+License</h1>
+<p>This library is released under the MIT License. </p>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0
+</small></address>
+</body>
+</html>

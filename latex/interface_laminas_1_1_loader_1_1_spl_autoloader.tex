@@ -1,0 +1,125 @@
+\doxysection{Référence de l\textquotesingle{}interface Spl\+Autoloader}
+\hypertarget{interface_laminas_1_1_loader_1_1_spl_autoloader}{}\label{interface_laminas_1_1_loader_1_1_spl_autoloader}\index{SplAutoloader@{SplAutoloader}}
+
+
+Graphe d\textquotesingle{}héritage de Spl\+Autoloader\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{interface_laminas_1_1_loader_1_1_spl_autoloader__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Graphe de collaboration de Spl\+Autoloader\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=188pt]{interface_laminas_1_1_loader_1_1_spl_autoloader__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{interface_laminas_1_1_loader_1_1_spl_autoloader_ae8cda3b1eced24bb5ffaab1fcb107cf7}{\+\_\+\+\_\+construct}} (\$options=null)
+\item 
+\mbox{\hyperlink{interface_laminas_1_1_loader_1_1_spl_autoloader_a8213e4c39213f7d6250f72ff6f2699f2}{set\+Options}} (\$options)
+\item 
+\mbox{\hyperlink{interface_laminas_1_1_loader_1_1_spl_autoloader_aad6cfb5484c7eda55731134910c7a280}{autoload}} (\$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{class}})
+\item 
+\mbox{\hyperlink{interface_laminas_1_1_loader_1_1_spl_autoloader_acc294a6cc8e69743746820e3d15e3f78}{register}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Defines an interface for classes that may register with the spl\+\_\+autoload registry 
+
+\doxysubsection{Documentation des constructeurs et destructeur}
+\Hypertarget{interface_laminas_1_1_loader_1_1_spl_autoloader_ae8cda3b1eced24bb5ffaab1fcb107cf7}\label{interface_laminas_1_1_loader_1_1_spl_autoloader_ae8cda3b1eced24bb5ffaab1fcb107cf7} 
+\index{SplAutoloader@{SplAutoloader}!\_\_construct@{\_\_construct}}
+\index{\_\_construct@{\_\_construct}!SplAutoloader@{SplAutoloader}}
+\doxysubsubsection{\texorpdfstring{\_\_construct()}{\_\_construct()}}
+{\footnotesize\ttfamily \+\_\+\+\_\+construct (\begin{DoxyParamCaption}\item[{}]{\$options = {\ttfamily null} }\end{DoxyParamCaption})}
+
+Constructor
+
+Allow configuration of the autoloader via the constructor.
+
+
+\begin{DoxyParams}[1]{Paramètres}
+null | array | Traversable & {\em \$options} & \\
+\hline
+\end{DoxyParams}
+
+
+Implémenté dans \mbox{\hyperlink{class_laminas_1_1_loader_1_1_class_map_autoloader_ae8cda3b1eced24bb5ffaab1fcb107cf7}{Class\+Map\+Autoloader}}, \mbox{\hyperlink{class_laminas_1_1_loader_1_1_module_autoloader_ae8cda3b1eced24bb5ffaab1fcb107cf7}{Module\+Autoloader}}, et \mbox{\hyperlink{class_laminas_1_1_loader_1_1_standard_autoloader_ae8cda3b1eced24bb5ffaab1fcb107cf7}{Standard\+Autoloader}}.
+
+
+
+\doxysubsection{Documentation des fonctions membres}
+\Hypertarget{interface_laminas_1_1_loader_1_1_spl_autoloader_aad6cfb5484c7eda55731134910c7a280}\label{interface_laminas_1_1_loader_1_1_spl_autoloader_aad6cfb5484c7eda55731134910c7a280} 
+\index{SplAutoloader@{SplAutoloader}!autoload@{autoload}}
+\index{autoload@{autoload}!SplAutoloader@{SplAutoloader}}
+\doxysubsubsection{\texorpdfstring{autoload()}{autoload()}}
+{\footnotesize\ttfamily autoload (\begin{DoxyParamCaption}\item[{}]{\$class }\end{DoxyParamCaption})}
+
+Autoload a class
+
+
+\begin{DoxyParams}[1]{Paramètres}
+string & {\em \$class} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+mixed False \mbox{[}if unable to load \$class\mbox{]} get\+\_\+class(\$class) \mbox{[}if \$class is successfully loaded\mbox{]} 
+\end{DoxyReturn}
+
+
+Implémenté dans \mbox{\hyperlink{class_laminas_1_1_loader_1_1_class_map_autoloader_aad6cfb5484c7eda55731134910c7a280}{Class\+Map\+Autoloader}}, \mbox{\hyperlink{class_laminas_1_1_loader_1_1_module_autoloader_aad6cfb5484c7eda55731134910c7a280}{Module\+Autoloader}}, et \mbox{\hyperlink{class_laminas_1_1_loader_1_1_standard_autoloader_aad6cfb5484c7eda55731134910c7a280}{Standard\+Autoloader}}.
+
+\Hypertarget{interface_laminas_1_1_loader_1_1_spl_autoloader_acc294a6cc8e69743746820e3d15e3f78}\label{interface_laminas_1_1_loader_1_1_spl_autoloader_acc294a6cc8e69743746820e3d15e3f78} 
+\index{SplAutoloader@{SplAutoloader}!register@{register}}
+\index{register@{register}!SplAutoloader@{SplAutoloader}}
+\doxysubsubsection{\texorpdfstring{register()}{register()}}
+{\footnotesize\ttfamily register (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Register the autoloader with spl\+\_\+autoload registry
+
+Typically, the body of this will simply be\+: {\ttfamily  spl\+\_\+autoload\+\_\+register(array(\$this, \textquotesingle{}autoload\textquotesingle{})); }
+
+\begin{DoxyReturn}{Renvoie}
+void 
+\end{DoxyReturn}
+
+
+Implémenté dans \mbox{\hyperlink{class_laminas_1_1_loader_1_1_class_map_autoloader_acc294a6cc8e69743746820e3d15e3f78}{Class\+Map\+Autoloader}}, \mbox{\hyperlink{class_laminas_1_1_loader_1_1_module_autoloader_acc294a6cc8e69743746820e3d15e3f78}{Module\+Autoloader}}, et \mbox{\hyperlink{class_laminas_1_1_loader_1_1_standard_autoloader_acc294a6cc8e69743746820e3d15e3f78}{Standard\+Autoloader}}.
+
+\Hypertarget{interface_laminas_1_1_loader_1_1_spl_autoloader_a8213e4c39213f7d6250f72ff6f2699f2}\label{interface_laminas_1_1_loader_1_1_spl_autoloader_a8213e4c39213f7d6250f72ff6f2699f2} 
+\index{SplAutoloader@{SplAutoloader}!setOptions@{setOptions}}
+\index{setOptions@{setOptions}!SplAutoloader@{SplAutoloader}}
+\doxysubsubsection{\texorpdfstring{setOptions()}{setOptions()}}
+{\footnotesize\ttfamily set\+Options (\begin{DoxyParamCaption}\item[{}]{\$options }\end{DoxyParamCaption})}
+
+Configure the autoloader
+
+In most cases, \$options should be either an associative array or Traversable object.
+
+
+\begin{DoxyParams}[1]{Paramètres}
+array | Traversable & {\em \$options} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+Spl\+Autoloader 
+\end{DoxyReturn}
+
+
+Implémenté dans \mbox{\hyperlink{class_laminas_1_1_loader_1_1_class_map_autoloader_a8213e4c39213f7d6250f72ff6f2699f2}{Class\+Map\+Autoloader}}, \mbox{\hyperlink{class_laminas_1_1_loader_1_1_module_autoloader_a8213e4c39213f7d6250f72ff6f2699f2}{Module\+Autoloader}}, et \mbox{\hyperlink{class_laminas_1_1_loader_1_1_standard_autoloader_a8213e4c39213f7d6250f72ff6f2699f2}{Standard\+Autoloader}}.
+
+
+
+La documentation de cette interface a été générée à partir du fichier suivant \+:\begin{DoxyCompactItemize}
+\item 
+public/glpi/vendor/laminas/laminas-\/loader/src/\mbox{\hyperlink{_spl_autoloader_8php}{Spl\+Autoloader.\+php}}\end{DoxyCompactItemize}

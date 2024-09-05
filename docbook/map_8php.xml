@@ -1,0 +1,78 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_map_8php" xml:lang="fr">
+<title>Référence du fichier public/glpi/ajax/map.php</title>
+<indexterm><primary>public/glpi/ajax/map.php</primary></indexterm>
+<simplesect>
+    <title>Variables    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_map_8php_1a112ef069ddc0454086e3d1e6d8d55d07">$result</link> = []</para>
+</listitem>
+            <listitem><para><link linkend="_dropdown_location_8php_1a52332c22f84432520971794825a5a8e7">if</link>(!<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">isset</link>($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">_POST</link>[&apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">itemtype</link>&apos;])||!<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">isset</link>($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">_POST</link>[&apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">params</link>&apos;])) <link linkend="_map_8php_1a76366d22faf0738200105e993c308730">else</link></para>
+</listitem>
+            <listitem><para><link linkend="_map_8php_1afe68e6fbe7acfbffc0af0c84a1996466">$params</link> = $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">_POST</link>[&apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">params</link>&apos;]</para>
+</listitem>
+            <listitem><para><link linkend="_map_8php_1ac4cc485208612884539dda2da7d39024">$data</link> = <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">Search::prepareDatasForSearch</link>($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">itemtype</link>, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">params</link>)</para>
+</listitem>
+            <listitem><para><link linkend="_map_8php_1a5c1c998dc02abb6dd5433c2bc624b465">$lng_field</link> = $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">itemtype</link> . &apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">_999</link>&apos;</para>
+</listitem>
+            <listitem><para><link linkend="_map_8php_1af615ab13dfb0ad5d8fc2ce805c7f3aad">$name_field</link> = $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">itemtype</link> . &apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">_3</link>&apos;</para>
+</listitem>
+            <listitem><para><link linkend="_dropdown_location_8php_1a52332c22f84432520971794825a5a8e7">if</link>($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">itemtype</link>==&apos;<link linkend="_class_ticket">Ticket</link>&apos;) <link linkend="_map_8php_1a711801a466131f5388ca3b8b520c71d4">$rows</link> = $data[&apos;data&apos;][&apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">rows</link>&apos;]</para>
+</listitem>
+            <listitem><para><link linkend="_map_8php_1a207b6e658e8488d2845a81d5a7c56d7f">$points</link> = []</para>
+</listitem>
+            <listitem><para><link linkend="_get_user_picture_8php_1a0df27c645324b72eaf7093e10f310670">foreach</link>($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">rows</link> <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">as</link> $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">row</link>) <link linkend="_map_8php_1aff36d5b6b129238235e3a88b39dff847">$result</link> [&apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">points</link>&apos;] = $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">points</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Documentation des variables</title>
+<anchor xml:id="_map_8php_1ac4cc485208612884539dda2da7d39024"/><section>
+    <title>$data</title>
+<indexterm><primary>$data</primary><secondary>map.php</secondary></indexterm>
+<indexterm><primary>map.php</primary><secondary>$data</secondary></indexterm>
+<para><computeroutput><link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">ifstring</link> $data = <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">Search::prepareDatasForSearch</link>($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">itemtype</link>, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">params</link>)</computeroutput></para></section>
+<anchor xml:id="_map_8php_1a5c1c998dc02abb6dd5433c2bc624b465"/><section>
+    <title>$lng_field</title>
+<indexterm><primary>$lng_field</primary><secondary>map.php</secondary></indexterm>
+<indexterm><primary>map.php</primary><secondary>$lng_field</secondary></indexterm>
+<para><computeroutput>$<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">lng_field</link> = $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">itemtype</link> . &apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">_999</link>&apos;</computeroutput></para></section>
+<anchor xml:id="_map_8php_1af615ab13dfb0ad5d8fc2ce805c7f3aad"/><section>
+    <title>$name_field</title>
+<indexterm><primary>$name_field</primary><secondary>map.php</secondary></indexterm>
+<indexterm><primary>map.php</primary><secondary>$name_field</secondary></indexterm>
+<para><computeroutput>$<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">name_field</link> = $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">itemtype</link> . &apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">_3</link>&apos;</computeroutput></para></section>
+<anchor xml:id="_map_8php_1afe68e6fbe7acfbffc0af0c84a1996466"/><section>
+    <title>$params</title>
+<indexterm><primary>$params</primary><secondary>map.php</secondary></indexterm>
+<indexterm><primary>map.php</primary><secondary>$params</secondary></indexterm>
+<para><computeroutput>$<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">params</link> = $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">_POST</link>[&apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">params</link>&apos;]</computeroutput></para></section>
+<anchor xml:id="_map_8php_1a207b6e658e8488d2845a81d5a7c56d7f"/><section>
+    <title>$points</title>
+<indexterm><primary>$points</primary><secondary>map.php</secondary></indexterm>
+<indexterm><primary>map.php</primary><secondary>$points</secondary></indexterm>
+<para><computeroutput>$<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">points</link> = []</computeroutput></para></section>
+<anchor xml:id="_map_8php_1a112ef069ddc0454086e3d1e6d8d55d07"/><section>
+    <title>$result<computeroutput>[1/2]</computeroutput></title>
+<indexterm><primary>$result</primary><secondary>map.php</secondary></indexterm>
+<indexterm><primary>map.php</primary><secondary>$result</secondary></indexterm>
+<para><computeroutput>$result = []</computeroutput></para></section>
+<anchor xml:id="_map_8php_1aff36d5b6b129238235e3a88b39dff847"/><section>
+    <title>$result<computeroutput>[2/2]</computeroutput></title>
+<indexterm><primary>$result</primary><secondary>map.php</secondary></indexterm>
+<indexterm><primary>map.php</primary><secondary>$result</secondary></indexterm>
+<para><computeroutput><link linkend="_get_user_picture_8php_1a0df27c645324b72eaf7093e10f310670">foreach</link> ( $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">rows</link> <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">as</link> $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">row</link>) $result[ &apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">points</link>&apos;] = $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">points</link></computeroutput></para></section>
+<anchor xml:id="_map_8php_1a711801a466131f5388ca3b8b520c71d4"/><section>
+    <title>$rows</title>
+<indexterm><primary>$rows</primary><secondary>map.php</secondary></indexterm>
+<indexterm><primary>map.php</primary><secondary>$rows</secondary></indexterm>
+<para><computeroutput><link linkend="_dropdown_location_8php_1a52332c22f84432520971794825a5a8e7">if</link> ( $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">itemtype</link>==&apos;<link linkend="_class_ticket">Ticket</link>&apos;) $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">rows</link> = $data[&apos;data&apos;][&apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">rows</link>&apos;]</computeroutput></para></section>
+<anchor xml:id="_map_8php_1a76366d22faf0738200105e993c308730"/><section>
+    <title>else</title>
+<indexterm><primary>else</primary><secondary>map.php</secondary></indexterm>
+<indexterm><primary>map.php</primary><secondary>else</secondary></indexterm>
+<para><computeroutput><link linkend="_dropdown_location_8php_1a52332c22f84432520971794825a5a8e7">if</link>($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">itemtype</link>==&apos;<link linkend="_class_location">Location</link>&apos;) else <link linkend="_dropdown_location_8php_1a52332c22f84432520971794825a5a8e7">if</link> ( $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">itemtype</link>==&apos;<link linkend="_class_entity">Entity</link>&apos;) else</computeroutput></para><emphasis role="strong">Valeur initiale :</emphasis><programlisting linenumbering="unnumbered">{
+&#32;&#32;&#32;&#32;<link linkend="_ajax_2central_8php_1a90b1adfbee02dce12909b78de2e07bbc">$itemtype</link>&#32;=&#32;<link linkend="_dropdown_delegation_users_8php_1aafd65e1fd3be66763660e541468d9f5d">$_POST</link>[<emphasis role="stringliteral">&apos;itemtype&apos;</emphasis>]
+</programlisting></section>
+</section>
+</section>

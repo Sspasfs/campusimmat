@@ -1,0 +1,691 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__simple_pie_8php" xml:lang="fr">
+<title>Référence du fichier public/glpi/vendor/simplepie/simplepie/library/SimplePie.php</title>
+<indexterm><primary>public/glpi/vendor/simplepie/simplepie/library/SimplePie.php</primary></indexterm>
+<simplesect>
+    <title>Structures de données    </title>
+        <itemizedlist>
+            <listitem><para>class <link linkend="_class_simple_pie">SimplePie</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Espaces de nommage    </title>
+        <itemizedlist>
+            <listitem><para>namespace <link linkend="_namespace_simple_pie">SimplePie</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Variables    </title>
+        <itemizedlist>
+            <listitem><para>const <link linkend="__simple_pie_8php_1ad343f27eb7687289c6a643b591f6420f">SIMPLEPIE_NAME</link> &apos;<link linkend="_class_simple_pie">SimplePie</link>&apos;</para>
+</listitem>
+            <listitem><para>const <link linkend="__simple_pie_8php_1a02a6b6b545973012f91d3736686dc101">SIMPLEPIE_VERSION</link> &apos;1.5.8&apos;</para>
+</listitem>
+            <listitem><para>const <link linkend="__simple_pie_8php_1aa07226af0bfdcb06c21a4464624a08d2">SIMPLEPIE_BUILD</link> <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">gmdate</link>(&apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">YmdHis</link>&apos;, <link linkend="_class_simple_pie___misc_1a49e53c71a10126852fd164a976640c0a">SimplePie_Misc::get_build</link>())</para>
+</listitem>
+            <listitem><para>const <link linkend="__simple_pie_8php_1a90062b76fdd188ca507e7d2a2b296ce2">SIMPLEPIE_URL</link> &apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">http:</link>//<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">simplepie.org</link>&apos;</para>
+</listitem>
+            <listitem><para>const <link linkend="__simple_pie_8php_1aa16b1a92eba4943f883b1f958edba8ef">SIMPLEPIE_USERAGENT</link> <link linkend="__simple_pie_8php_1ad343f27eb7687289c6a643b591f6420f">SIMPLEPIE_NAME</link> . &apos;/&apos; . <link linkend="__simple_pie_8php_1a02a6b6b545973012f91d3736686dc101">SIMPLEPIE_VERSION</link> . &apos; (<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">Feed</link> Parser; &apos; . <link linkend="__simple_pie_8php_1a90062b76fdd188ca507e7d2a2b296ce2">SIMPLEPIE_URL</link> . &apos;; <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">Allow</link> <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">like</link> <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">Gecko</link>) Build/&apos; . <link linkend="__simple_pie_8php_1aa07226af0bfdcb06c21a4464624a08d2">SIMPLEPIE_BUILD</link></para>
+</listitem>
+            <listitem><para>const <link linkend="__simple_pie_8php_1ad70f2fab5f3be1c140f3d42b3229d16a">SIMPLEPIE_LINKBACK</link> &apos;&lt;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">a</link> <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">href</link>=&quot;&apos; . SIMPLEPIE_URL . &apos;&quot; title=&quot;&apos; . SIMPLEPIE_NAME . &apos; &apos; . <link linkend="__simple_pie_8php_1a02a6b6b545973012f91d3736686dc101">SIMPLEPIE_VERSION</link> . &apos;&quot;&gt;&apos; . SIMPLEPIE_NAME . &apos;&lt;/<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">a</link>&gt;&apos;</para>
+</listitem>
+            <listitem><para>const <link linkend="__simple_pie_8php_1a09a383bfb38f1dda61a043e47dfb92a5">SIMPLEPIE_LOCATOR_NONE</link> 0</para>
+</listitem>
+            <listitem><para>const <link linkend="__simple_pie_8php_1a3bf370e1d9a3daecaa1e3da59cff24b8">SIMPLEPIE_LOCATOR_AUTODISCOVERY</link> 1</para>
+</listitem>
+            <listitem><para>const <link linkend="__simple_pie_8php_1a2096bb81875b5132817c0012d281de67">SIMPLEPIE_LOCATOR_LOCAL_EXTENSION</link> 2</para>
+</listitem>
+            <listitem><para>const <link linkend="__simple_pie_8php_1a2300fe90d0b3ea85970ae5b29de7792f">SIMPLEPIE_LOCATOR_LOCAL_BODY</link> 4</para>
+</listitem>
+            <listitem><para>const <link linkend="__simple_pie_8php_1a2ff1da5e6b2da7c22b22e0d1e108d529">SIMPLEPIE_LOCATOR_REMOTE_EXTENSION</link> 8</para>
+</listitem>
+            <listitem><para>const <link linkend="__simple_pie_8php_1a9ef3832108fc772ee0c436aff6a625bf">SIMPLEPIE_LOCATOR_REMOTE_BODY</link> 16</para>
+</listitem>
+            <listitem><para>const <link linkend="__simple_pie_8php_1a77835b708f60cde39bf93958e683a5f1">SIMPLEPIE_LOCATOR_ALL</link> 31</para>
+</listitem>
+            <listitem><para>const <link linkend="__simple_pie_8php_1a2522cf3d1d9e4ff688435bcaaa34afe7">SIMPLEPIE_TYPE_NONE</link> 0</para>
+</listitem>
+            <listitem><para>const <link linkend="__simple_pie_8php_1a10644820ee2d8fb3f1eaeb81283c4ccd">SIMPLEPIE_TYPE_RSS_090</link> 1</para>
+</listitem>
+            <listitem><para>const <link linkend="__simple_pie_8php_1a94d5b6757603b451892f50ba78c2533a">SIMPLEPIE_TYPE_RSS_091_NETSCAPE</link> 2</para>
+</listitem>
+            <listitem><para>const <link linkend="__simple_pie_8php_1a15ce2fe24c88e2e3bc7fc831b4439316">SIMPLEPIE_TYPE_RSS_091_USERLAND</link> 4</para>
+</listitem>
+            <listitem><para>const <link linkend="__simple_pie_8php_1a720edec10788020c5417c2a697903e06">SIMPLEPIE_TYPE_RSS_091</link> 6</para>
+</listitem>
+            <listitem><para>const <link linkend="__simple_pie_8php_1abb6da0ec041150f0dda721f15d4cc30e">SIMPLEPIE_TYPE_RSS_092</link> 8</para>
+</listitem>
+            <listitem><para>const <link linkend="__simple_pie_8php_1a8f547d774ea35d5b07b9b73e27b776ac">SIMPLEPIE_TYPE_RSS_093</link> 16</para>
+</listitem>
+            <listitem><para>const <link linkend="__simple_pie_8php_1a9b44ed65ab248d80bbdc0552cb12b973">SIMPLEPIE_TYPE_RSS_094</link> 32</para>
+</listitem>
+            <listitem><para>const <link linkend="__simple_pie_8php_1aac2c4954a4b922d76f5e2cdcfe27e458">SIMPLEPIE_TYPE_RSS_10</link> 64</para>
+</listitem>
+            <listitem><para>const <link linkend="__simple_pie_8php_1ae39c46f11a574e880fee23fa974699ca">SIMPLEPIE_TYPE_RSS_20</link> 128</para>
+</listitem>
+            <listitem><para>const <link linkend="__simple_pie_8php_1a607f9ad10afe52936b666c49860c76f3">SIMPLEPIE_TYPE_RSS_RDF</link> 65</para>
+</listitem>
+            <listitem><para>const <link linkend="__simple_pie_8php_1adb6c8895db852aef6c77a959cce176fa">SIMPLEPIE_TYPE_RSS_SYNDICATION</link> 190</para>
+</listitem>
+            <listitem><para>const <link linkend="__simple_pie_8php_1a4b9d8b61fafa46566cdaa486b4587c40">SIMPLEPIE_TYPE_RSS_ALL</link> 255</para>
+</listitem>
+            <listitem><para>const <link linkend="__simple_pie_8php_1a7bb49b4c097ff7beb9db034847eda613">SIMPLEPIE_TYPE_ATOM_03</link> 256</para>
+</listitem>
+            <listitem><para>const <link linkend="__simple_pie_8php_1a94ef8488ab54234e60d2ba79485e3f73">SIMPLEPIE_TYPE_ATOM_10</link> 512</para>
+</listitem>
+            <listitem><para>const <link linkend="__simple_pie_8php_1ac317fe94790c4ac5a5a554440d68822e">SIMPLEPIE_TYPE_ATOM_ALL</link> 768</para>
+</listitem>
+            <listitem><para>const <link linkend="__simple_pie_8php_1ac041c53630348f9b4e243f45a6bcc7a4">SIMPLEPIE_TYPE_ALL</link> 1023</para>
+</listitem>
+            <listitem><para>const <link linkend="__simple_pie_8php_1adf772a91641976a8e9b10bc30af98eb2">SIMPLEPIE_CONSTRUCT_NONE</link> 0</para>
+</listitem>
+            <listitem><para>const <link linkend="__simple_pie_8php_1a32f1cee47ad770a8f7e7fa969c2ff9cf">SIMPLEPIE_CONSTRUCT_TEXT</link> 1</para>
+</listitem>
+            <listitem><para>const <link linkend="__simple_pie_8php_1a048873611857d2ea59c6df624f25bba7">SIMPLEPIE_CONSTRUCT_HTML</link> 2</para>
+</listitem>
+            <listitem><para>const <link linkend="__simple_pie_8php_1a356175e32fcf1365abbb8bf48a7e8ff7">SIMPLEPIE_CONSTRUCT_XHTML</link> 4</para>
+</listitem>
+            <listitem><para>const <link linkend="__simple_pie_8php_1a181a215206b345e72b6cfa0be7e8eaab">SIMPLEPIE_CONSTRUCT_BASE64</link> 8</para>
+</listitem>
+            <listitem><para>const <link linkend="__simple_pie_8php_1a27b953d4a1dddffc8f6db2585c2b8fe0">SIMPLEPIE_CONSTRUCT_IRI</link> 16</para>
+</listitem>
+            <listitem><para>const <link linkend="__simple_pie_8php_1aa561f1c03275b8dd5c7ed3ed7621b256">SIMPLEPIE_CONSTRUCT_MAYBE_HTML</link> 32</para>
+</listitem>
+            <listitem><para>const <link linkend="__simple_pie_8php_1a46a4b553855f2bd1aeb110fcbc4ad1ca">SIMPLEPIE_CONSTRUCT_ALL</link> 63</para>
+</listitem>
+            <listitem><para>const <link linkend="__simple_pie_8php_1ad80a8b322741dea8352381f19b50cb59">SIMPLEPIE_SAME_CASE</link> 1</para>
+</listitem>
+            <listitem><para>const <link linkend="__simple_pie_8php_1ac11935cc7850cd942419326db336c822">SIMPLEPIE_LOWERCASE</link> 2</para>
+</listitem>
+            <listitem><para>const <link linkend="__simple_pie_8php_1a62ecba655e871e25658db827450dc75e">SIMPLEPIE_UPPERCASE</link> 4</para>
+</listitem>
+            <listitem><para>const <link linkend="__simple_pie_8php_1ae8d34a93fac87ed8c4090acddfcf9d67">SIMPLEPIE_PCRE_HTML_ATTRIBUTE</link> &apos;((?:[\<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">x09\x0A\x0B\x0C\x0D\x20</link>]+[^\<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">x09\x0A\x0B\x0C\x0D\x20\x2F\x3E</link>][^\<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">x09\x0A\x0B\x0C\x0D\x20\x2F\x3D\x3E</link>]*(?:[\<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">x09\x0A\x0B\x0C\x0D\x20</link>]*=[\<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">x09\x0A\x0B\x0C\x0D\x20</link>]*(?:&quot;(?:[^&quot;]*)&quot;|\&apos;(?:[^\&apos;]*)\&apos;|(?:[^\x09\x0A\x0B\x0C\x0D\x20\x22\x27\x3E][^\<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">x09\x0A\x0B\x0C\x0D\x20\x3E</link>]*)?))?)*)[\<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">x09\x0A\x0B\x0C\x0D\x20</link>]*&apos;</para>
+</listitem>
+            <listitem><para>const <link linkend="__simple_pie_8php_1aef3cca39609e207451efeffc1364a546">SIMPLEPIE_PCRE_XML_ATTRIBUTE</link> &apos;((?:\s+(?:(?:[^\<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">s:</link>]+:)?[^\<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">s:</link>]+)\s*=\s*(?:&quot;(?:[^&quot;]*)&quot;|\&apos;(?:[^\&apos;]*)\&apos;))*)\s*&apos;</para>
+</listitem>
+            <listitem><para>const <link linkend="__simple_pie_8php_1a83ec91d7062bc133dee93483957391da">SIMPLEPIE_NAMESPACE_XML</link> &apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">http:</link>//<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">www.w3.org</link>/<link linkend="_class_x_m_l">XML</link>/1998/<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">namespace</link>&apos;</para>
+</listitem>
+            <listitem><para>const <link linkend="__simple_pie_8php_1a33c3585ac10f95c67ca7e797f5625707">SIMPLEPIE_NAMESPACE_ATOM_10</link> &apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">http:</link>//<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">www.w3.org</link>/2005/<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">Atom</link>&apos;</para>
+</listitem>
+            <listitem><para>const <link linkend="__simple_pie_8php_1a9104e654d49e0eb26fe37583cc20e52f">SIMPLEPIE_NAMESPACE_ATOM_03</link> &apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">http:</link>//<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">purl.org</link>/<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">atom</link>/<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">ns</link>#&apos;</para>
+</listitem>
+            <listitem><para>const <link linkend="__simple_pie_8php_1af3206ab9444e30f971a3b6d03456b8a3">SIMPLEPIE_NAMESPACE_RDF</link> &apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">http:</link>//<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">www.w3.org</link>/1999/02/22-<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">rdf</link>-<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">syntax</link>-<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">ns</link>#&apos;</para>
+</listitem>
+            <listitem><para>const <link linkend="__simple_pie_8php_1a52b603e52d563c0a3cc05018f405e819">SIMPLEPIE_NAMESPACE_RSS_090</link> &apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">http:</link>//my.netscape.com/<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">rdf</link>/<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">simple</link>/0.9/&apos;</para>
+</listitem>
+            <listitem><para>const <link linkend="__simple_pie_8php_1af30963669d3f18d727407a20357f7de5">SIMPLEPIE_NAMESPACE_RSS_10</link> &apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">http:</link>//<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">purl.org</link>/<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">rss</link>/1.0/&apos;</para>
+</listitem>
+            <listitem><para>const <link linkend="__simple_pie_8php_1ac5ae4b6b9f8ea48bfa9d983ba53f9b4d">SIMPLEPIE_NAMESPACE_RSS_10_MODULES_CONTENT</link> &apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">http:</link>//<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">purl.org</link>/<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">rss</link>/1.0/<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">modules</link>/<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">content</link>/&apos;</para>
+</listitem>
+            <listitem><para>const <link linkend="__simple_pie_8php_1ab62c764df936ea8225b833dfb298772e">SIMPLEPIE_NAMESPACE_RSS_20</link> &apos;&apos;</para>
+</listitem>
+            <listitem><para>const <link linkend="__simple_pie_8php_1a7b8c374b79ce366db33428ca42685a90">SIMPLEPIE_NAMESPACE_DC_10</link> &apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">http:</link>//<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">purl.org</link>/<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">dc</link>/<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">elements</link>/1.0/&apos;</para>
+</listitem>
+            <listitem><para>const <link linkend="__simple_pie_8php_1a96fec98542c11980776fef2172192198">SIMPLEPIE_NAMESPACE_DC_11</link> &apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">http:</link>//<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">purl.org</link>/<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">dc</link>/<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">elements</link>/1.1/&apos;</para>
+</listitem>
+            <listitem><para>const <link linkend="__simple_pie_8php_1a263da668da50013c79f5df3d27635e58">SIMPLEPIE_NAMESPACE_W3C_BASIC_GEO</link> &apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">http:</link>//<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">www.w3.org</link>/2003/01/<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">geo</link>/<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">wgs84_pos</link>#&apos;</para>
+</listitem>
+            <listitem><para>const <link linkend="__simple_pie_8php_1a627614340191436af0ece34cf43d369e">SIMPLEPIE_NAMESPACE_GEORSS</link> &apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">http:</link>//<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">www.georss.org</link>/<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">georss</link>&apos;</para>
+</listitem>
+            <listitem><para>const <link linkend="__simple_pie_8php_1a842afeae791c74d2aab19438bf6f3f55">SIMPLEPIE_NAMESPACE_MEDIARSS</link> &apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">http:</link>//search.yahoo.com/<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">mrss</link>/&apos;</para>
+</listitem>
+            <listitem><para>const <link linkend="__simple_pie_8php_1a0966d98d59b93000ccffc0aef28e2863">SIMPLEPIE_NAMESPACE_MEDIARSS_WRONG</link> &apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">http:</link>//search.yahoo.com/<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">mrss</link>&apos;</para>
+</listitem>
+            <listitem><para>const <link linkend="__simple_pie_8php_1a93f8b5fde6c9c66ba97250731bdd507b">SIMPLEPIE_NAMESPACE_MEDIARSS_WRONG2</link> &apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">http:</link>//video.search.yahoo.com/<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">mrss</link>&apos;</para>
+</listitem>
+            <listitem><para>const <link linkend="__simple_pie_8php_1a942be2068eba8f6aade427b2b76f8371">SIMPLEPIE_NAMESPACE_MEDIARSS_WRONG3</link> &apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">http:</link>//video.search.yahoo.com/<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">mrss</link>/&apos;</para>
+</listitem>
+            <listitem><para>const <link linkend="__simple_pie_8php_1a100537c9e7bc6517c34ff8b31f34512a">SIMPLEPIE_NAMESPACE_MEDIARSS_WRONG4</link> &apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">http:</link>//<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">www.rssboard.org</link>/<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">media</link>-<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">rss</link>&apos;</para>
+</listitem>
+            <listitem><para>const <link linkend="__simple_pie_8php_1acc22230d08bdb2e3573e86c4b0fbed9c">SIMPLEPIE_NAMESPACE_MEDIARSS_WRONG5</link> &apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">http:</link>//<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">www.rssboard.org</link>/<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">media</link>-<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">rss</link>/&apos;</para>
+</listitem>
+            <listitem><para>const <link linkend="__simple_pie_8php_1a9bf48f20384caed72408017d3e52a1a5">SIMPLEPIE_NAMESPACE_ITUNES</link> &apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">http:</link>//www.itunes.com/<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">dtds</link>/<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">podcast</link>-1.0.<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">dtd</link>&apos;</para>
+</listitem>
+            <listitem><para>const <link linkend="__simple_pie_8php_1aac4638a4c4b3b51173fba14c1bd85349">SIMPLEPIE_NAMESPACE_XHTML</link> &apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">http:</link>//<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">www.w3.org</link>/1999/<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">xhtml</link>&apos;</para>
+</listitem>
+            <listitem><para>const <link linkend="__simple_pie_8php_1a81f5d67cc740cdbb60287f3975560db4">SIMPLEPIE_IANA_LINK_RELATIONS_REGISTRY</link> &apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">http:</link>//<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">www.iana.org</link>/<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">assignments</link>/<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">relation</link>/&apos;</para>
+</listitem>
+            <listitem><para>const <link linkend="__simple_pie_8php_1a29c651a605663acf38e6f86829604865">SIMPLEPIE_FILE_SOURCE_NONE</link> 0</para>
+</listitem>
+            <listitem><para>const <link linkend="__simple_pie_8php_1a8844529bf161b24b5a527e33f4e0b624">SIMPLEPIE_FILE_SOURCE_REMOTE</link> 1</para>
+</listitem>
+            <listitem><para>const <link linkend="__simple_pie_8php_1ab8d78f743db17e99b88c017376382827">SIMPLEPIE_FILE_SOURCE_LOCAL</link> 2</para>
+</listitem>
+            <listitem><para>const <link linkend="__simple_pie_8php_1a1df715e78dc11834c31efe0704522c3b">SIMPLEPIE_FILE_SOURCE_FSOCKOPEN</link> 4</para>
+</listitem>
+            <listitem><para>const <link linkend="__simple_pie_8php_1ab8cb0fd05c6e7a2ec591c6a2614c2477">SIMPLEPIE_FILE_SOURCE_CURL</link> 8</para>
+</listitem>
+            <listitem><para>const <link linkend="__simple_pie_8php_1a436b6f23cde09bd0f1250bba3a364873">SIMPLEPIE_FILE_SOURCE_FILE_GET_CONTENTS</link> 16</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Documentation des variables</title>
+<anchor xml:id="__simple_pie_8php_1aa07226af0bfdcb06c21a4464624a08d2"/><section>
+    <title>SIMPLEPIE_BUILD</title>
+<indexterm><primary>SIMPLEPIE_BUILD</primary><secondary>SimplePie.php</secondary></indexterm>
+<indexterm><primary>SimplePie.php</primary><secondary>SIMPLEPIE_BUILD</secondary></indexterm>
+<para><computeroutput>const SIMPLEPIE_BUILD <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">gmdate</link>(&apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">YmdHis</link>&apos;, <link linkend="_class_simple_pie___misc_1a49e53c71a10126852fd164a976640c0a">SimplePie_Misc::get_build</link>())</computeroutput></para>
+<para><link linkend="_class_simple_pie">SimplePie</link> Build <para><link linkend="_todo_1_todo000037">A faire</link> 
+<para>Hardcode for release (there&apos;s no need to have to call <link linkend="_class_simple_pie___misc_1a49e53c71a10126852fd164a976640c0a">SimplePie_Misc::get_build()</link> only every load of simplepie.inc) </para>
+</para></para>
+</section>
+<anchor xml:id="__simple_pie_8php_1a46a4b553855f2bd1aeb110fcbc4ad1ca"/><section>
+    <title>SIMPLEPIE_CONSTRUCT_ALL</title>
+<indexterm><primary>SIMPLEPIE_CONSTRUCT_ALL</primary><secondary>SimplePie.php</secondary></indexterm>
+<indexterm><primary>SimplePie.php</primary><secondary>SIMPLEPIE_CONSTRUCT_ALL</secondary></indexterm>
+<para><computeroutput>const SIMPLEPIE_CONSTRUCT_ALL 63</computeroutput></para>
+<para>All constructs </para>
+</section>
+<anchor xml:id="__simple_pie_8php_1a181a215206b345e72b6cfa0be7e8eaab"/><section>
+    <title>SIMPLEPIE_CONSTRUCT_BASE64</title>
+<indexterm><primary>SIMPLEPIE_CONSTRUCT_BASE64</primary><secondary>SimplePie.php</secondary></indexterm>
+<indexterm><primary>SimplePie.php</primary><secondary>SIMPLEPIE_CONSTRUCT_BASE64</secondary></indexterm>
+<para><computeroutput>const SIMPLEPIE_CONSTRUCT_BASE64 8</computeroutput></para>
+<para>base64-encoded construct </para>
+</section>
+<anchor xml:id="__simple_pie_8php_1a048873611857d2ea59c6df624f25bba7"/><section>
+    <title>SIMPLEPIE_CONSTRUCT_HTML</title>
+<indexterm><primary>SIMPLEPIE_CONSTRUCT_HTML</primary><secondary>SimplePie.php</secondary></indexterm>
+<indexterm><primary>SimplePie.php</primary><secondary>SIMPLEPIE_CONSTRUCT_HTML</secondary></indexterm>
+<para><computeroutput>const SIMPLEPIE_CONSTRUCT_HTML 2</computeroutput></para>
+<para>HTML construct </para>
+</section>
+<anchor xml:id="__simple_pie_8php_1a27b953d4a1dddffc8f6db2585c2b8fe0"/><section>
+    <title>SIMPLEPIE_CONSTRUCT_IRI</title>
+<indexterm><primary>SIMPLEPIE_CONSTRUCT_IRI</primary><secondary>SimplePie.php</secondary></indexterm>
+<indexterm><primary>SimplePie.php</primary><secondary>SIMPLEPIE_CONSTRUCT_IRI</secondary></indexterm>
+<para><computeroutput>const SIMPLEPIE_CONSTRUCT_IRI 16</computeroutput></para>
+<para>IRI construct </para>
+</section>
+<anchor xml:id="__simple_pie_8php_1aa561f1c03275b8dd5c7ed3ed7621b256"/><section>
+    <title>SIMPLEPIE_CONSTRUCT_MAYBE_HTML</title>
+<indexterm><primary>SIMPLEPIE_CONSTRUCT_MAYBE_HTML</primary><secondary>SimplePie.php</secondary></indexterm>
+<indexterm><primary>SimplePie.php</primary><secondary>SIMPLEPIE_CONSTRUCT_MAYBE_HTML</secondary></indexterm>
+<para><computeroutput>const SIMPLEPIE_CONSTRUCT_MAYBE_HTML 32</computeroutput></para>
+<para>A construct that might be HTML </para>
+</section>
+<anchor xml:id="__simple_pie_8php_1adf772a91641976a8e9b10bc30af98eb2"/><section>
+    <title>SIMPLEPIE_CONSTRUCT_NONE</title>
+<indexterm><primary>SIMPLEPIE_CONSTRUCT_NONE</primary><secondary>SimplePie.php</secondary></indexterm>
+<indexterm><primary>SimplePie.php</primary><secondary>SIMPLEPIE_CONSTRUCT_NONE</secondary></indexterm>
+<para><computeroutput>const SIMPLEPIE_CONSTRUCT_NONE 0</computeroutput></para>
+<para>No construct </para>
+</section>
+<anchor xml:id="__simple_pie_8php_1a32f1cee47ad770a8f7e7fa969c2ff9cf"/><section>
+    <title>SIMPLEPIE_CONSTRUCT_TEXT</title>
+<indexterm><primary>SIMPLEPIE_CONSTRUCT_TEXT</primary><secondary>SimplePie.php</secondary></indexterm>
+<indexterm><primary>SimplePie.php</primary><secondary>SIMPLEPIE_CONSTRUCT_TEXT</secondary></indexterm>
+<para><computeroutput>const SIMPLEPIE_CONSTRUCT_TEXT 1</computeroutput></para>
+<para>Text construct </para>
+</section>
+<anchor xml:id="__simple_pie_8php_1a356175e32fcf1365abbb8bf48a7e8ff7"/><section>
+    <title>SIMPLEPIE_CONSTRUCT_XHTML</title>
+<indexterm><primary>SIMPLEPIE_CONSTRUCT_XHTML</primary><secondary>SimplePie.php</secondary></indexterm>
+<indexterm><primary>SimplePie.php</primary><secondary>SIMPLEPIE_CONSTRUCT_XHTML</secondary></indexterm>
+<para><computeroutput>const SIMPLEPIE_CONSTRUCT_XHTML 4</computeroutput></para>
+<para>XHTML construct </para>
+</section>
+<anchor xml:id="__simple_pie_8php_1ab8cb0fd05c6e7a2ec591c6a2614c2477"/><section>
+    <title>SIMPLEPIE_FILE_SOURCE_CURL</title>
+<indexterm><primary>SIMPLEPIE_FILE_SOURCE_CURL</primary><secondary>SimplePie.php</secondary></indexterm>
+<indexterm><primary>SimplePie.php</primary><secondary>SIMPLEPIE_FILE_SOURCE_CURL</secondary></indexterm>
+<para><computeroutput>const SIMPLEPIE_FILE_SOURCE_CURL 8</computeroutput></para>
+<para>cURL file source </para>
+</section>
+<anchor xml:id="__simple_pie_8php_1a436b6f23cde09bd0f1250bba3a364873"/><section>
+    <title>SIMPLEPIE_FILE_SOURCE_FILE_GET_CONTENTS</title>
+<indexterm><primary>SIMPLEPIE_FILE_SOURCE_FILE_GET_CONTENTS</primary><secondary>SimplePie.php</secondary></indexterm>
+<indexterm><primary>SimplePie.php</primary><secondary>SIMPLEPIE_FILE_SOURCE_FILE_GET_CONTENTS</secondary></indexterm>
+<para><computeroutput>const SIMPLEPIE_FILE_SOURCE_FILE_GET_CONTENTS 16</computeroutput></para>
+<para>file_get_contents() file source </para>
+</section>
+<anchor xml:id="__simple_pie_8php_1a1df715e78dc11834c31efe0704522c3b"/><section>
+    <title>SIMPLEPIE_FILE_SOURCE_FSOCKOPEN</title>
+<indexterm><primary>SIMPLEPIE_FILE_SOURCE_FSOCKOPEN</primary><secondary>SimplePie.php</secondary></indexterm>
+<indexterm><primary>SimplePie.php</primary><secondary>SIMPLEPIE_FILE_SOURCE_FSOCKOPEN</secondary></indexterm>
+<para><computeroutput>const SIMPLEPIE_FILE_SOURCE_FSOCKOPEN 4</computeroutput></para>
+<para>fsockopen() file source </para>
+</section>
+<anchor xml:id="__simple_pie_8php_1ab8d78f743db17e99b88c017376382827"/><section>
+    <title>SIMPLEPIE_FILE_SOURCE_LOCAL</title>
+<indexterm><primary>SIMPLEPIE_FILE_SOURCE_LOCAL</primary><secondary>SimplePie.php</secondary></indexterm>
+<indexterm><primary>SimplePie.php</primary><secondary>SIMPLEPIE_FILE_SOURCE_LOCAL</secondary></indexterm>
+<para><computeroutput>const SIMPLEPIE_FILE_SOURCE_LOCAL 2</computeroutput></para>
+<para>Local file source </para>
+</section>
+<anchor xml:id="__simple_pie_8php_1a29c651a605663acf38e6f86829604865"/><section>
+    <title>SIMPLEPIE_FILE_SOURCE_NONE</title>
+<indexterm><primary>SIMPLEPIE_FILE_SOURCE_NONE</primary><secondary>SimplePie.php</secondary></indexterm>
+<indexterm><primary>SimplePie.php</primary><secondary>SIMPLEPIE_FILE_SOURCE_NONE</secondary></indexterm>
+<para><computeroutput>const SIMPLEPIE_FILE_SOURCE_NONE 0</computeroutput></para>
+<para>No file source </para>
+</section>
+<anchor xml:id="__simple_pie_8php_1a8844529bf161b24b5a527e33f4e0b624"/><section>
+    <title>SIMPLEPIE_FILE_SOURCE_REMOTE</title>
+<indexterm><primary>SIMPLEPIE_FILE_SOURCE_REMOTE</primary><secondary>SimplePie.php</secondary></indexterm>
+<indexterm><primary>SimplePie.php</primary><secondary>SIMPLEPIE_FILE_SOURCE_REMOTE</secondary></indexterm>
+<para><computeroutput>const SIMPLEPIE_FILE_SOURCE_REMOTE 1</computeroutput></para>
+<para>Remote file source </para>
+</section>
+<anchor xml:id="__simple_pie_8php_1a81f5d67cc740cdbb60287f3975560db4"/><section>
+    <title>SIMPLEPIE_IANA_LINK_RELATIONS_REGISTRY</title>
+<indexterm><primary>SIMPLEPIE_IANA_LINK_RELATIONS_REGISTRY</primary><secondary>SimplePie.php</secondary></indexterm>
+<indexterm><primary>SimplePie.php</primary><secondary>SIMPLEPIE_IANA_LINK_RELATIONS_REGISTRY</secondary></indexterm>
+<para><computeroutput>const SIMPLEPIE_IANA_LINK_RELATIONS_REGISTRY &apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">http:</link>//<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">www.iana.org</link>/<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">assignments</link>/<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">relation</link>/&apos;</computeroutput></para>
+<para>IANA <link linkend="_class_link">Link</link> Relations Registry </para>
+</section>
+<anchor xml:id="__simple_pie_8php_1ad70f2fab5f3be1c140f3d42b3229d16a"/><section>
+    <title>SIMPLEPIE_LINKBACK</title>
+<indexterm><primary>SIMPLEPIE_LINKBACK</primary><secondary>SimplePie.php</secondary></indexterm>
+<indexterm><primary>SimplePie.php</primary><secondary>SIMPLEPIE_LINKBACK</secondary></indexterm>
+<para><computeroutput>const SIMPLEPIE_LINKBACK &apos;&lt;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">a</link> <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">href</link>=&quot;&apos; . SIMPLEPIE_URL . &apos;&quot; title=&quot;&apos; . SIMPLEPIE_NAME . &apos; &apos; . <link linkend="__simple_pie_8php_1a02a6b6b545973012f91d3736686dc101">SIMPLEPIE_VERSION</link> . &apos;&quot;&gt;&apos; . SIMPLEPIE_NAME . &apos;&lt;/<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">a</link>&gt;&apos;</computeroutput></para>
+<para><link linkend="_class_simple_pie">SimplePie</link> Linkback </para>
+</section>
+<anchor xml:id="__simple_pie_8php_1a77835b708f60cde39bf93958e683a5f1"/><section>
+    <title>SIMPLEPIE_LOCATOR_ALL</title>
+<indexterm><primary>SIMPLEPIE_LOCATOR_ALL</primary><secondary>SimplePie.php</secondary></indexterm>
+<indexterm><primary>SimplePie.php</primary><secondary>SIMPLEPIE_LOCATOR_ALL</secondary></indexterm>
+<para><computeroutput>const SIMPLEPIE_LOCATOR_ALL 31</computeroutput></para>
+<para>All Feed Autodiscovery <formalpara><title>Voir également</title>
+
+<para>SimplePie::set_autodiscovery_level() </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="__simple_pie_8php_1a3bf370e1d9a3daecaa1e3da59cff24b8"/><section>
+    <title>SIMPLEPIE_LOCATOR_AUTODISCOVERY</title>
+<indexterm><primary>SIMPLEPIE_LOCATOR_AUTODISCOVERY</primary><secondary>SimplePie.php</secondary></indexterm>
+<indexterm><primary>SimplePie.php</primary><secondary>SIMPLEPIE_LOCATOR_AUTODISCOVERY</secondary></indexterm>
+<para><computeroutput>const SIMPLEPIE_LOCATOR_AUTODISCOVERY 1</computeroutput></para>
+<para>Feed <link linkend="_class_link">Link</link> Element Autodiscovery <formalpara><title>Voir également</title>
+
+<para>SimplePie::set_autodiscovery_level() </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="__simple_pie_8php_1a2300fe90d0b3ea85970ae5b29de7792f"/><section>
+    <title>SIMPLEPIE_LOCATOR_LOCAL_BODY</title>
+<indexterm><primary>SIMPLEPIE_LOCATOR_LOCAL_BODY</primary><secondary>SimplePie.php</secondary></indexterm>
+<indexterm><primary>SimplePie.php</primary><secondary>SIMPLEPIE_LOCATOR_LOCAL_BODY</secondary></indexterm>
+<para><computeroutput>const SIMPLEPIE_LOCATOR_LOCAL_BODY 4</computeroutput></para>
+<para>Local Feed Body Autodiscovery <formalpara><title>Voir également</title>
+
+<para>SimplePie::set_autodiscovery_level() </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="__simple_pie_8php_1a2096bb81875b5132817c0012d281de67"/><section>
+    <title>SIMPLEPIE_LOCATOR_LOCAL_EXTENSION</title>
+<indexterm><primary>SIMPLEPIE_LOCATOR_LOCAL_EXTENSION</primary><secondary>SimplePie.php</secondary></indexterm>
+<indexterm><primary>SimplePie.php</primary><secondary>SIMPLEPIE_LOCATOR_LOCAL_EXTENSION</secondary></indexterm>
+<para><computeroutput>const SIMPLEPIE_LOCATOR_LOCAL_EXTENSION 2</computeroutput></para>
+<para>Local Feed Extension Autodiscovery <formalpara><title>Voir également</title>
+
+<para>SimplePie::set_autodiscovery_level() </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="__simple_pie_8php_1a09a383bfb38f1dda61a043e47dfb92a5"/><section>
+    <title>SIMPLEPIE_LOCATOR_NONE</title>
+<indexterm><primary>SIMPLEPIE_LOCATOR_NONE</primary><secondary>SimplePie.php</secondary></indexterm>
+<indexterm><primary>SimplePie.php</primary><secondary>SIMPLEPIE_LOCATOR_NONE</secondary></indexterm>
+<para><computeroutput>const SIMPLEPIE_LOCATOR_NONE 0</computeroutput></para>
+<para>No Autodiscovery <formalpara><title>Voir également</title>
+
+<para>SimplePie::set_autodiscovery_level() </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="__simple_pie_8php_1a9ef3832108fc772ee0c436aff6a625bf"/><section>
+    <title>SIMPLEPIE_LOCATOR_REMOTE_BODY</title>
+<indexterm><primary>SIMPLEPIE_LOCATOR_REMOTE_BODY</primary><secondary>SimplePie.php</secondary></indexterm>
+<indexterm><primary>SimplePie.php</primary><secondary>SIMPLEPIE_LOCATOR_REMOTE_BODY</secondary></indexterm>
+<para><computeroutput>const SIMPLEPIE_LOCATOR_REMOTE_BODY 16</computeroutput></para>
+<para>Remote Feed Body Autodiscovery <formalpara><title>Voir également</title>
+
+<para>SimplePie::set_autodiscovery_level() </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="__simple_pie_8php_1a2ff1da5e6b2da7c22b22e0d1e108d529"/><section>
+    <title>SIMPLEPIE_LOCATOR_REMOTE_EXTENSION</title>
+<indexterm><primary>SIMPLEPIE_LOCATOR_REMOTE_EXTENSION</primary><secondary>SimplePie.php</secondary></indexterm>
+<indexterm><primary>SimplePie.php</primary><secondary>SIMPLEPIE_LOCATOR_REMOTE_EXTENSION</secondary></indexterm>
+<para><computeroutput>const SIMPLEPIE_LOCATOR_REMOTE_EXTENSION 8</computeroutput></para>
+<para>Remote Feed Extension Autodiscovery <formalpara><title>Voir également</title>
+
+<para>SimplePie::set_autodiscovery_level() </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="__simple_pie_8php_1ac11935cc7850cd942419326db336c822"/><section>
+    <title>SIMPLEPIE_LOWERCASE</title>
+<indexterm><primary>SIMPLEPIE_LOWERCASE</primary><secondary>SimplePie.php</secondary></indexterm>
+<indexterm><primary>SimplePie.php</primary><secondary>SIMPLEPIE_LOWERCASE</secondary></indexterm>
+<para><computeroutput>const SIMPLEPIE_LOWERCASE 2</computeroutput></para>
+<para><link linkend="_class_change">Change</link> to lowercase </para>
+</section>
+<anchor xml:id="__simple_pie_8php_1ad343f27eb7687289c6a643b591f6420f"/><section>
+    <title>SIMPLEPIE_NAME</title>
+<indexterm><primary>SIMPLEPIE_NAME</primary><secondary>SimplePie.php</secondary></indexterm>
+<indexterm><primary>SimplePie.php</primary><secondary>SIMPLEPIE_NAME</secondary></indexterm>
+<para><computeroutput>const SIMPLEPIE_NAME &apos;<link linkend="_class_simple_pie">SimplePie</link>&apos;</computeroutput></para>
+<para><link linkend="_class_simple_pie">SimplePie</link> Name </para>
+</section>
+<anchor xml:id="__simple_pie_8php_1a9104e654d49e0eb26fe37583cc20e52f"/><section>
+    <title>SIMPLEPIE_NAMESPACE_ATOM_03</title>
+<indexterm><primary>SIMPLEPIE_NAMESPACE_ATOM_03</primary><secondary>SimplePie.php</secondary></indexterm>
+<indexterm><primary>SimplePie.php</primary><secondary>SIMPLEPIE_NAMESPACE_ATOM_03</secondary></indexterm>
+<para><computeroutput>const SIMPLEPIE_NAMESPACE_ATOM_03 &apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">http:</link>//<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">purl.org</link>/<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">atom</link>/<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">ns</link>#&apos;</computeroutput></para>
+<para>Atom 0.3 Namespace </para>
+</section>
+<anchor xml:id="__simple_pie_8php_1a33c3585ac10f95c67ca7e797f5625707"/><section>
+    <title>SIMPLEPIE_NAMESPACE_ATOM_10</title>
+<indexterm><primary>SIMPLEPIE_NAMESPACE_ATOM_10</primary><secondary>SimplePie.php</secondary></indexterm>
+<indexterm><primary>SimplePie.php</primary><secondary>SIMPLEPIE_NAMESPACE_ATOM_10</secondary></indexterm>
+<para><computeroutput>const SIMPLEPIE_NAMESPACE_ATOM_10 &apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">http:</link>//<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">www.w3.org</link>/2005/<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">Atom</link>&apos;</computeroutput></para>
+<para>Atom 1.0 Namespace </para>
+</section>
+<anchor xml:id="__simple_pie_8php_1a7b8c374b79ce366db33428ca42685a90"/><section>
+    <title>SIMPLEPIE_NAMESPACE_DC_10</title>
+<indexterm><primary>SIMPLEPIE_NAMESPACE_DC_10</primary><secondary>SimplePie.php</secondary></indexterm>
+<indexterm><primary>SimplePie.php</primary><secondary>SIMPLEPIE_NAMESPACE_DC_10</secondary></indexterm>
+<para><computeroutput>const SIMPLEPIE_NAMESPACE_DC_10 &apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">http:</link>//<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">purl.org</link>/<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">dc</link>/<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">elements</link>/1.0/&apos;</computeroutput></para>
+<para>DC 1.0 Namespace </para>
+</section>
+<anchor xml:id="__simple_pie_8php_1a96fec98542c11980776fef2172192198"/><section>
+    <title>SIMPLEPIE_NAMESPACE_DC_11</title>
+<indexterm><primary>SIMPLEPIE_NAMESPACE_DC_11</primary><secondary>SimplePie.php</secondary></indexterm>
+<indexterm><primary>SimplePie.php</primary><secondary>SIMPLEPIE_NAMESPACE_DC_11</secondary></indexterm>
+<para><computeroutput>const SIMPLEPIE_NAMESPACE_DC_11 &apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">http:</link>//<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">purl.org</link>/<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">dc</link>/<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">elements</link>/1.1/&apos;</computeroutput></para>
+<para>DC 1.1 Namespace </para>
+</section>
+<anchor xml:id="__simple_pie_8php_1a627614340191436af0ece34cf43d369e"/><section>
+    <title>SIMPLEPIE_NAMESPACE_GEORSS</title>
+<indexterm><primary>SIMPLEPIE_NAMESPACE_GEORSS</primary><secondary>SimplePie.php</secondary></indexterm>
+<indexterm><primary>SimplePie.php</primary><secondary>SIMPLEPIE_NAMESPACE_GEORSS</secondary></indexterm>
+<para><computeroutput>const SIMPLEPIE_NAMESPACE_GEORSS &apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">http:</link>//<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">www.georss.org</link>/<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">georss</link>&apos;</computeroutput></para>
+<para>GeoRSS Namespace </para>
+</section>
+<anchor xml:id="__simple_pie_8php_1a9bf48f20384caed72408017d3e52a1a5"/><section>
+    <title>SIMPLEPIE_NAMESPACE_ITUNES</title>
+<indexterm><primary>SIMPLEPIE_NAMESPACE_ITUNES</primary><secondary>SimplePie.php</secondary></indexterm>
+<indexterm><primary>SimplePie.php</primary><secondary>SIMPLEPIE_NAMESPACE_ITUNES</secondary></indexterm>
+<para><computeroutput>const SIMPLEPIE_NAMESPACE_ITUNES &apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">http:</link>//www.itunes.com/<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">dtds</link>/<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">podcast</link>-1.0.<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">dtd</link>&apos;</computeroutput></para>
+<para>iTunes RSS Namespace </para>
+</section>
+<anchor xml:id="__simple_pie_8php_1a842afeae791c74d2aab19438bf6f3f55"/><section>
+    <title>SIMPLEPIE_NAMESPACE_MEDIARSS</title>
+<indexterm><primary>SIMPLEPIE_NAMESPACE_MEDIARSS</primary><secondary>SimplePie.php</secondary></indexterm>
+<indexterm><primary>SimplePie.php</primary><secondary>SIMPLEPIE_NAMESPACE_MEDIARSS</secondary></indexterm>
+<para><computeroutput>const SIMPLEPIE_NAMESPACE_MEDIARSS &apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">http:</link>//search.yahoo.com/<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">mrss</link>/&apos;</computeroutput></para>
+<para>Media RSS Namespace </para>
+</section>
+<anchor xml:id="__simple_pie_8php_1a0966d98d59b93000ccffc0aef28e2863"/><section>
+    <title>SIMPLEPIE_NAMESPACE_MEDIARSS_WRONG</title>
+<indexterm><primary>SIMPLEPIE_NAMESPACE_MEDIARSS_WRONG</primary><secondary>SimplePie.php</secondary></indexterm>
+<indexterm><primary>SimplePie.php</primary><secondary>SIMPLEPIE_NAMESPACE_MEDIARSS_WRONG</secondary></indexterm>
+<para><computeroutput>const SIMPLEPIE_NAMESPACE_MEDIARSS_WRONG &apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">http:</link>//search.yahoo.com/<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">mrss</link>&apos;</computeroutput></para>
+<para>Wrong Media RSS Namespace. Caused by a long-standing typo in the spec. </para>
+</section>
+<anchor xml:id="__simple_pie_8php_1a93f8b5fde6c9c66ba97250731bdd507b"/><section>
+    <title>SIMPLEPIE_NAMESPACE_MEDIARSS_WRONG2</title>
+<indexterm><primary>SIMPLEPIE_NAMESPACE_MEDIARSS_WRONG2</primary><secondary>SimplePie.php</secondary></indexterm>
+<indexterm><primary>SimplePie.php</primary><secondary>SIMPLEPIE_NAMESPACE_MEDIARSS_WRONG2</secondary></indexterm>
+<para><computeroutput>const SIMPLEPIE_NAMESPACE_MEDIARSS_WRONG2 &apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">http:</link>//video.search.yahoo.com/<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">mrss</link>&apos;</computeroutput></para>
+<para>Wrong Media RSS Namespace #2. New namespace introduced in Media RSS 1.5. </para>
+</section>
+<anchor xml:id="__simple_pie_8php_1a942be2068eba8f6aade427b2b76f8371"/><section>
+    <title>SIMPLEPIE_NAMESPACE_MEDIARSS_WRONG3</title>
+<indexterm><primary>SIMPLEPIE_NAMESPACE_MEDIARSS_WRONG3</primary><secondary>SimplePie.php</secondary></indexterm>
+<indexterm><primary>SimplePie.php</primary><secondary>SIMPLEPIE_NAMESPACE_MEDIARSS_WRONG3</secondary></indexterm>
+<para><computeroutput>const SIMPLEPIE_NAMESPACE_MEDIARSS_WRONG3 &apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">http:</link>//video.search.yahoo.com/<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">mrss</link>/&apos;</computeroutput></para>
+<para>Wrong Media RSS Namespace #3. A possible typo of the Media RSS 1.5 namespace. </para>
+</section>
+<anchor xml:id="__simple_pie_8php_1a100537c9e7bc6517c34ff8b31f34512a"/><section>
+    <title>SIMPLEPIE_NAMESPACE_MEDIARSS_WRONG4</title>
+<indexterm><primary>SIMPLEPIE_NAMESPACE_MEDIARSS_WRONG4</primary><secondary>SimplePie.php</secondary></indexterm>
+<indexterm><primary>SimplePie.php</primary><secondary>SIMPLEPIE_NAMESPACE_MEDIARSS_WRONG4</secondary></indexterm>
+<para><computeroutput>const SIMPLEPIE_NAMESPACE_MEDIARSS_WRONG4 &apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">http:</link>//<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">www.rssboard.org</link>/<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">media</link>-<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">rss</link>&apos;</computeroutput></para>
+<para>Wrong Media RSS Namespace #4. New spec location after the RSS Advisory Board takes it over, but not a valid namespace. </para>
+</section>
+<anchor xml:id="__simple_pie_8php_1acc22230d08bdb2e3573e86c4b0fbed9c"/><section>
+    <title>SIMPLEPIE_NAMESPACE_MEDIARSS_WRONG5</title>
+<indexterm><primary>SIMPLEPIE_NAMESPACE_MEDIARSS_WRONG5</primary><secondary>SimplePie.php</secondary></indexterm>
+<indexterm><primary>SimplePie.php</primary><secondary>SIMPLEPIE_NAMESPACE_MEDIARSS_WRONG5</secondary></indexterm>
+<para><computeroutput>const SIMPLEPIE_NAMESPACE_MEDIARSS_WRONG5 &apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">http:</link>//<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">www.rssboard.org</link>/<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">media</link>-<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">rss</link>/&apos;</computeroutput></para>
+<para>Wrong Media RSS Namespace #5. A possible typo of the RSS Advisory Board URL. </para>
+</section>
+<anchor xml:id="__simple_pie_8php_1af3206ab9444e30f971a3b6d03456b8a3"/><section>
+    <title>SIMPLEPIE_NAMESPACE_RDF</title>
+<indexterm><primary>SIMPLEPIE_NAMESPACE_RDF</primary><secondary>SimplePie.php</secondary></indexterm>
+<indexterm><primary>SimplePie.php</primary><secondary>SIMPLEPIE_NAMESPACE_RDF</secondary></indexterm>
+<para><computeroutput>const SIMPLEPIE_NAMESPACE_RDF &apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">http:</link>//<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">www.w3.org</link>/1999/02/22-<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">rdf</link>-<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">syntax</link>-<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">ns</link>#&apos;</computeroutput></para>
+<para>RDF Namespace </para>
+</section>
+<anchor xml:id="__simple_pie_8php_1a52b603e52d563c0a3cc05018f405e819"/><section>
+    <title>SIMPLEPIE_NAMESPACE_RSS_090</title>
+<indexterm><primary>SIMPLEPIE_NAMESPACE_RSS_090</primary><secondary>SimplePie.php</secondary></indexterm>
+<indexterm><primary>SimplePie.php</primary><secondary>SIMPLEPIE_NAMESPACE_RSS_090</secondary></indexterm>
+<para><computeroutput>const SIMPLEPIE_NAMESPACE_RSS_090 &apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">http:</link>//my.netscape.com/<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">rdf</link>/<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">simple</link>/0.9/&apos;</computeroutput></para>
+<para>RSS 0.90 Namespace </para>
+</section>
+<anchor xml:id="__simple_pie_8php_1af30963669d3f18d727407a20357f7de5"/><section>
+    <title>SIMPLEPIE_NAMESPACE_RSS_10</title>
+<indexterm><primary>SIMPLEPIE_NAMESPACE_RSS_10</primary><secondary>SimplePie.php</secondary></indexterm>
+<indexterm><primary>SimplePie.php</primary><secondary>SIMPLEPIE_NAMESPACE_RSS_10</secondary></indexterm>
+<para><computeroutput>const SIMPLEPIE_NAMESPACE_RSS_10 &apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">http:</link>//<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">purl.org</link>/<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">rss</link>/1.0/&apos;</computeroutput></para>
+<para>RSS 1.0 Namespace </para>
+</section>
+<anchor xml:id="__simple_pie_8php_1ac5ae4b6b9f8ea48bfa9d983ba53f9b4d"/><section>
+    <title>SIMPLEPIE_NAMESPACE_RSS_10_MODULES_CONTENT</title>
+<indexterm><primary>SIMPLEPIE_NAMESPACE_RSS_10_MODULES_CONTENT</primary><secondary>SimplePie.php</secondary></indexterm>
+<indexterm><primary>SimplePie.php</primary><secondary>SIMPLEPIE_NAMESPACE_RSS_10_MODULES_CONTENT</secondary></indexterm>
+<para><computeroutput>const SIMPLEPIE_NAMESPACE_RSS_10_MODULES_CONTENT &apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">http:</link>//<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">purl.org</link>/<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">rss</link>/1.0/<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">modules</link>/<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">content</link>/&apos;</computeroutput></para>
+<para>RSS 1.0 Content Module Namespace </para>
+</section>
+<anchor xml:id="__simple_pie_8php_1ab62c764df936ea8225b833dfb298772e"/><section>
+    <title>SIMPLEPIE_NAMESPACE_RSS_20</title>
+<indexterm><primary>SIMPLEPIE_NAMESPACE_RSS_20</primary><secondary>SimplePie.php</secondary></indexterm>
+<indexterm><primary>SimplePie.php</primary><secondary>SIMPLEPIE_NAMESPACE_RSS_20</secondary></indexterm>
+<para><computeroutput>const SIMPLEPIE_NAMESPACE_RSS_20 &apos;&apos;</computeroutput></para>
+<para>RSS 2.0 Namespace (Stupid, I know, but I&apos;m certain it will confuse people less with support.) </para>
+</section>
+<anchor xml:id="__simple_pie_8php_1a263da668da50013c79f5df3d27635e58"/><section>
+    <title>SIMPLEPIE_NAMESPACE_W3C_BASIC_GEO</title>
+<indexterm><primary>SIMPLEPIE_NAMESPACE_W3C_BASIC_GEO</primary><secondary>SimplePie.php</secondary></indexterm>
+<indexterm><primary>SimplePie.php</primary><secondary>SIMPLEPIE_NAMESPACE_W3C_BASIC_GEO</secondary></indexterm>
+<para><computeroutput>const SIMPLEPIE_NAMESPACE_W3C_BASIC_GEO &apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">http:</link>//<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">www.w3.org</link>/2003/01/<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">geo</link>/<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">wgs84_pos</link>#&apos;</computeroutput></para>
+<para>W3C Basic Geo (WGS84 lat/long) Vocabulary Namespace </para>
+</section>
+<anchor xml:id="__simple_pie_8php_1aac4638a4c4b3b51173fba14c1bd85349"/><section>
+    <title>SIMPLEPIE_NAMESPACE_XHTML</title>
+<indexterm><primary>SIMPLEPIE_NAMESPACE_XHTML</primary><secondary>SimplePie.php</secondary></indexterm>
+<indexterm><primary>SimplePie.php</primary><secondary>SIMPLEPIE_NAMESPACE_XHTML</secondary></indexterm>
+<para><computeroutput>const SIMPLEPIE_NAMESPACE_XHTML &apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">http:</link>//<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">www.w3.org</link>/1999/<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">xhtml</link>&apos;</computeroutput></para>
+<para>XHTML Namespace </para>
+</section>
+<anchor xml:id="__simple_pie_8php_1a83ec91d7062bc133dee93483957391da"/><section>
+    <title>SIMPLEPIE_NAMESPACE_XML</title>
+<indexterm><primary>SIMPLEPIE_NAMESPACE_XML</primary><secondary>SimplePie.php</secondary></indexterm>
+<indexterm><primary>SimplePie.php</primary><secondary>SIMPLEPIE_NAMESPACE_XML</secondary></indexterm>
+<para><computeroutput>const SIMPLEPIE_NAMESPACE_XML &apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">http:</link>//<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">www.w3.org</link>/<link linkend="_class_x_m_l">XML</link>/1998/<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">namespace</link>&apos;</computeroutput></para>
+<para><link linkend="_class_x_m_l">XML</link> Namespace </para>
+</section>
+<anchor xml:id="__simple_pie_8php_1ae8d34a93fac87ed8c4090acddfcf9d67"/><section>
+    <title>SIMPLEPIE_PCRE_HTML_ATTRIBUTE</title>
+<indexterm><primary>SIMPLEPIE_PCRE_HTML_ATTRIBUTE</primary><secondary>SimplePie.php</secondary></indexterm>
+<indexterm><primary>SimplePie.php</primary><secondary>SIMPLEPIE_PCRE_HTML_ATTRIBUTE</secondary></indexterm>
+<para><computeroutput>const SIMPLEPIE_PCRE_HTML_ATTRIBUTE &apos;((?:[\<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">x09\x0A\x0B\x0C\x0D\x20</link>]+[^\<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">x09\x0A\x0B\x0C\x0D\x20\x2F\x3E</link>][^\<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">x09\x0A\x0B\x0C\x0D\x20\x2F\x3D\x3E</link>]*(?:[\<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">x09\x0A\x0B\x0C\x0D\x20</link>]*=[\<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">x09\x0A\x0B\x0C\x0D\x20</link>]*(?:&quot;(?:[^&quot;]*)&quot;|\&apos;(?:[^\&apos;]*)\&apos;|(?:[^\x09\x0A\x0B\x0C\x0D\x20\x22\x27\x3E][^\<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">x09\x0A\x0B\x0C\x0D\x20\x3E</link>]*)?))?)*)[\<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">x09\x0A\x0B\x0C\x0D\x20</link>]*&apos;</computeroutput></para>
+<para>PCRE for HTML attributes </para>
+</section>
+<anchor xml:id="__simple_pie_8php_1aef3cca39609e207451efeffc1364a546"/><section>
+    <title>SIMPLEPIE_PCRE_XML_ATTRIBUTE</title>
+<indexterm><primary>SIMPLEPIE_PCRE_XML_ATTRIBUTE</primary><secondary>SimplePie.php</secondary></indexterm>
+<indexterm><primary>SimplePie.php</primary><secondary>SIMPLEPIE_PCRE_XML_ATTRIBUTE</secondary></indexterm>
+<para><computeroutput>const SIMPLEPIE_PCRE_XML_ATTRIBUTE &apos;((?:\s+(?:(?:[^\<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">s:</link>]+:)?[^\<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">s:</link>]+)\s*=\s*(?:&quot;(?:[^&quot;]*)&quot;|\&apos;(?:[^\&apos;]*)\&apos;))*)\s*&apos;</computeroutput></para>
+<para>PCRE for <link linkend="_class_x_m_l">XML</link> attributes </para>
+</section>
+<anchor xml:id="__simple_pie_8php_1ad80a8b322741dea8352381f19b50cb59"/><section>
+    <title>SIMPLEPIE_SAME_CASE</title>
+<indexterm><primary>SIMPLEPIE_SAME_CASE</primary><secondary>SimplePie.php</secondary></indexterm>
+<indexterm><primary>SimplePie.php</primary><secondary>SIMPLEPIE_SAME_CASE</secondary></indexterm>
+<para><computeroutput>const SIMPLEPIE_SAME_CASE 1</computeroutput></para>
+<para>Don&apos;t change case </para>
+</section>
+<anchor xml:id="__simple_pie_8php_1ac041c53630348f9b4e243f45a6bcc7a4"/><section>
+    <title>SIMPLEPIE_TYPE_ALL</title>
+<indexterm><primary>SIMPLEPIE_TYPE_ALL</primary><secondary>SimplePie.php</secondary></indexterm>
+<indexterm><primary>SimplePie.php</primary><secondary>SIMPLEPIE_TYPE_ALL</secondary></indexterm>
+<para><computeroutput>const SIMPLEPIE_TYPE_ALL 1023</computeroutput></para>
+<para>All feed types </para>
+</section>
+<anchor xml:id="__simple_pie_8php_1a7bb49b4c097ff7beb9db034847eda613"/><section>
+    <title>SIMPLEPIE_TYPE_ATOM_03</title>
+<indexterm><primary>SIMPLEPIE_TYPE_ATOM_03</primary><secondary>SimplePie.php</secondary></indexterm>
+<indexterm><primary>SimplePie.php</primary><secondary>SIMPLEPIE_TYPE_ATOM_03</secondary></indexterm>
+<para><computeroutput>const SIMPLEPIE_TYPE_ATOM_03 256</computeroutput></para>
+<para>Atom 0.3 </para>
+</section>
+<anchor xml:id="__simple_pie_8php_1a94ef8488ab54234e60d2ba79485e3f73"/><section>
+    <title>SIMPLEPIE_TYPE_ATOM_10</title>
+<indexterm><primary>SIMPLEPIE_TYPE_ATOM_10</primary><secondary>SimplePie.php</secondary></indexterm>
+<indexterm><primary>SimplePie.php</primary><secondary>SIMPLEPIE_TYPE_ATOM_10</secondary></indexterm>
+<para><computeroutput>const SIMPLEPIE_TYPE_ATOM_10 512</computeroutput></para>
+<para>Atom 1.0 </para>
+</section>
+<anchor xml:id="__simple_pie_8php_1ac317fe94790c4ac5a5a554440d68822e"/><section>
+    <title>SIMPLEPIE_TYPE_ATOM_ALL</title>
+<indexterm><primary>SIMPLEPIE_TYPE_ATOM_ALL</primary><secondary>SimplePie.php</secondary></indexterm>
+<indexterm><primary>SimplePie.php</primary><secondary>SIMPLEPIE_TYPE_ATOM_ALL</secondary></indexterm>
+<para><computeroutput>const SIMPLEPIE_TYPE_ATOM_ALL 768</computeroutput></para>
+<para>All Atom </para>
+</section>
+<anchor xml:id="__simple_pie_8php_1a2522cf3d1d9e4ff688435bcaaa34afe7"/><section>
+    <title>SIMPLEPIE_TYPE_NONE</title>
+<indexterm><primary>SIMPLEPIE_TYPE_NONE</primary><secondary>SimplePie.php</secondary></indexterm>
+<indexterm><primary>SimplePie.php</primary><secondary>SIMPLEPIE_TYPE_NONE</secondary></indexterm>
+<para><computeroutput>const SIMPLEPIE_TYPE_NONE 0</computeroutput></para>
+<para>No known feed type </para>
+</section>
+<anchor xml:id="__simple_pie_8php_1a10644820ee2d8fb3f1eaeb81283c4ccd"/><section>
+    <title>SIMPLEPIE_TYPE_RSS_090</title>
+<indexterm><primary>SIMPLEPIE_TYPE_RSS_090</primary><secondary>SimplePie.php</secondary></indexterm>
+<indexterm><primary>SimplePie.php</primary><secondary>SIMPLEPIE_TYPE_RSS_090</secondary></indexterm>
+<para><computeroutput>const SIMPLEPIE_TYPE_RSS_090 1</computeroutput></para>
+<para>RSS 0.90 </para>
+</section>
+<anchor xml:id="__simple_pie_8php_1a720edec10788020c5417c2a697903e06"/><section>
+    <title>SIMPLEPIE_TYPE_RSS_091</title>
+<indexterm><primary>SIMPLEPIE_TYPE_RSS_091</primary><secondary>SimplePie.php</secondary></indexterm>
+<indexterm><primary>SimplePie.php</primary><secondary>SIMPLEPIE_TYPE_RSS_091</secondary></indexterm>
+<para><computeroutput>const SIMPLEPIE_TYPE_RSS_091 6</computeroutput></para>
+<para>RSS 0.91 (both Netscape and Userland) </para>
+</section>
+<anchor xml:id="__simple_pie_8php_1a94d5b6757603b451892f50ba78c2533a"/><section>
+    <title>SIMPLEPIE_TYPE_RSS_091_NETSCAPE</title>
+<indexterm><primary>SIMPLEPIE_TYPE_RSS_091_NETSCAPE</primary><secondary>SimplePie.php</secondary></indexterm>
+<indexterm><primary>SimplePie.php</primary><secondary>SIMPLEPIE_TYPE_RSS_091_NETSCAPE</secondary></indexterm>
+<para><computeroutput>const SIMPLEPIE_TYPE_RSS_091_NETSCAPE 2</computeroutput></para>
+<para>RSS 0.91 (Netscape) </para>
+</section>
+<anchor xml:id="__simple_pie_8php_1a15ce2fe24c88e2e3bc7fc831b4439316"/><section>
+    <title>SIMPLEPIE_TYPE_RSS_091_USERLAND</title>
+<indexterm><primary>SIMPLEPIE_TYPE_RSS_091_USERLAND</primary><secondary>SimplePie.php</secondary></indexterm>
+<indexterm><primary>SimplePie.php</primary><secondary>SIMPLEPIE_TYPE_RSS_091_USERLAND</secondary></indexterm>
+<para><computeroutput>const SIMPLEPIE_TYPE_RSS_091_USERLAND 4</computeroutput></para>
+<para>RSS 0.91 (Userland) </para>
+</section>
+<anchor xml:id="__simple_pie_8php_1abb6da0ec041150f0dda721f15d4cc30e"/><section>
+    <title>SIMPLEPIE_TYPE_RSS_092</title>
+<indexterm><primary>SIMPLEPIE_TYPE_RSS_092</primary><secondary>SimplePie.php</secondary></indexterm>
+<indexterm><primary>SimplePie.php</primary><secondary>SIMPLEPIE_TYPE_RSS_092</secondary></indexterm>
+<para><computeroutput>const SIMPLEPIE_TYPE_RSS_092 8</computeroutput></para>
+<para>RSS 0.92 </para>
+</section>
+<anchor xml:id="__simple_pie_8php_1a8f547d774ea35d5b07b9b73e27b776ac"/><section>
+    <title>SIMPLEPIE_TYPE_RSS_093</title>
+<indexterm><primary>SIMPLEPIE_TYPE_RSS_093</primary><secondary>SimplePie.php</secondary></indexterm>
+<indexterm><primary>SimplePie.php</primary><secondary>SIMPLEPIE_TYPE_RSS_093</secondary></indexterm>
+<para><computeroutput>const SIMPLEPIE_TYPE_RSS_093 16</computeroutput></para>
+<para>RSS 0.93 </para>
+</section>
+<anchor xml:id="__simple_pie_8php_1a9b44ed65ab248d80bbdc0552cb12b973"/><section>
+    <title>SIMPLEPIE_TYPE_RSS_094</title>
+<indexterm><primary>SIMPLEPIE_TYPE_RSS_094</primary><secondary>SimplePie.php</secondary></indexterm>
+<indexterm><primary>SimplePie.php</primary><secondary>SIMPLEPIE_TYPE_RSS_094</secondary></indexterm>
+<para><computeroutput>const SIMPLEPIE_TYPE_RSS_094 32</computeroutput></para>
+<para>RSS 0.94 </para>
+</section>
+<anchor xml:id="__simple_pie_8php_1aac2c4954a4b922d76f5e2cdcfe27e458"/><section>
+    <title>SIMPLEPIE_TYPE_RSS_10</title>
+<indexterm><primary>SIMPLEPIE_TYPE_RSS_10</primary><secondary>SimplePie.php</secondary></indexterm>
+<indexterm><primary>SimplePie.php</primary><secondary>SIMPLEPIE_TYPE_RSS_10</secondary></indexterm>
+<para><computeroutput>const SIMPLEPIE_TYPE_RSS_10 64</computeroutput></para>
+<para>RSS 1.0 </para>
+</section>
+<anchor xml:id="__simple_pie_8php_1ae39c46f11a574e880fee23fa974699ca"/><section>
+    <title>SIMPLEPIE_TYPE_RSS_20</title>
+<indexterm><primary>SIMPLEPIE_TYPE_RSS_20</primary><secondary>SimplePie.php</secondary></indexterm>
+<indexterm><primary>SimplePie.php</primary><secondary>SIMPLEPIE_TYPE_RSS_20</secondary></indexterm>
+<para><computeroutput>const SIMPLEPIE_TYPE_RSS_20 128</computeroutput></para>
+<para>RSS 2.0 </para>
+</section>
+<anchor xml:id="__simple_pie_8php_1a4b9d8b61fafa46566cdaa486b4587c40"/><section>
+    <title>SIMPLEPIE_TYPE_RSS_ALL</title>
+<indexterm><primary>SIMPLEPIE_TYPE_RSS_ALL</primary><secondary>SimplePie.php</secondary></indexterm>
+<indexterm><primary>SimplePie.php</primary><secondary>SIMPLEPIE_TYPE_RSS_ALL</secondary></indexterm>
+<para><computeroutput>const SIMPLEPIE_TYPE_RSS_ALL 255</computeroutput></para>
+<para>All RSS </para>
+</section>
+<anchor xml:id="__simple_pie_8php_1a607f9ad10afe52936b666c49860c76f3"/><section>
+    <title>SIMPLEPIE_TYPE_RSS_RDF</title>
+<indexterm><primary>SIMPLEPIE_TYPE_RSS_RDF</primary><secondary>SimplePie.php</secondary></indexterm>
+<indexterm><primary>SimplePie.php</primary><secondary>SIMPLEPIE_TYPE_RSS_RDF</secondary></indexterm>
+<para><computeroutput>const SIMPLEPIE_TYPE_RSS_RDF 65</computeroutput></para>
+<para>RDF-based RSS </para>
+</section>
+<anchor xml:id="__simple_pie_8php_1adb6c8895db852aef6c77a959cce176fa"/><section>
+    <title>SIMPLEPIE_TYPE_RSS_SYNDICATION</title>
+<indexterm><primary>SIMPLEPIE_TYPE_RSS_SYNDICATION</primary><secondary>SimplePie.php</secondary></indexterm>
+<indexterm><primary>SimplePie.php</primary><secondary>SIMPLEPIE_TYPE_RSS_SYNDICATION</secondary></indexterm>
+<para><computeroutput>const SIMPLEPIE_TYPE_RSS_SYNDICATION 190</computeroutput></para>
+<para>Non-RDF-based RSS (truly intended as syndication format) </para>
+</section>
+<anchor xml:id="__simple_pie_8php_1a62ecba655e871e25658db827450dc75e"/><section>
+    <title>SIMPLEPIE_UPPERCASE</title>
+<indexterm><primary>SIMPLEPIE_UPPERCASE</primary><secondary>SimplePie.php</secondary></indexterm>
+<indexterm><primary>SimplePie.php</primary><secondary>SIMPLEPIE_UPPERCASE</secondary></indexterm>
+<para><computeroutput>const SIMPLEPIE_UPPERCASE 4</computeroutput></para>
+<para><link linkend="_class_change">Change</link> to uppercase </para>
+</section>
+<anchor xml:id="__simple_pie_8php_1a90062b76fdd188ca507e7d2a2b296ce2"/><section>
+    <title>SIMPLEPIE_URL</title>
+<indexterm><primary>SIMPLEPIE_URL</primary><secondary>SimplePie.php</secondary></indexterm>
+<indexterm><primary>SimplePie.php</primary><secondary>SIMPLEPIE_URL</secondary></indexterm>
+<para><computeroutput>const SIMPLEPIE_URL &apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">http:</link>//<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">simplepie.org</link>&apos;</computeroutput></para>
+<para><link linkend="_class_simple_pie">SimplePie</link> Website URL </para>
+</section>
+<anchor xml:id="__simple_pie_8php_1aa16b1a92eba4943f883b1f958edba8ef"/><section>
+    <title>SIMPLEPIE_USERAGENT</title>
+<indexterm><primary>SIMPLEPIE_USERAGENT</primary><secondary>SimplePie.php</secondary></indexterm>
+<indexterm><primary>SimplePie.php</primary><secondary>SIMPLEPIE_USERAGENT</secondary></indexterm>
+<para><computeroutput>const SIMPLEPIE_USERAGENT <link linkend="__simple_pie_8php_1ad343f27eb7687289c6a643b591f6420f">SIMPLEPIE_NAME</link> . &apos;/&apos; . <link linkend="__simple_pie_8php_1a02a6b6b545973012f91d3736686dc101">SIMPLEPIE_VERSION</link> . &apos; (<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">Feed</link> Parser; &apos; . <link linkend="__simple_pie_8php_1a90062b76fdd188ca507e7d2a2b296ce2">SIMPLEPIE_URL</link> . &apos;; <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">Allow</link> <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">like</link> <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">Gecko</link>) Build/&apos; . <link linkend="__simple_pie_8php_1aa07226af0bfdcb06c21a4464624a08d2">SIMPLEPIE_BUILD</link></computeroutput></para>
+<para><link linkend="_class_simple_pie">SimplePie</link> Useragent <formalpara><title>Voir également</title>
+
+<para>SimplePie::set_useragent() </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="__simple_pie_8php_1a02a6b6b545973012f91d3736686dc101"/><section>
+    <title>SIMPLEPIE_VERSION</title>
+<indexterm><primary>SIMPLEPIE_VERSION</primary><secondary>SimplePie.php</secondary></indexterm>
+<indexterm><primary>SimplePie.php</primary><secondary>SIMPLEPIE_VERSION</secondary></indexterm>
+<para><computeroutput>const SIMPLEPIE_VERSION &apos;1.5.8&apos;</computeroutput></para>
+<para><link linkend="_class_simple_pie">SimplePie</link> Version </para>
+</section>
+</section>
+</section>

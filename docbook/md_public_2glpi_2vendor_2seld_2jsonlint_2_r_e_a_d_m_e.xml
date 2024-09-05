@@ -1,0 +1,105 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_md_public_2glpi_2vendor_2seld_2jsonlint_2_r_e_a_d_m_e" xml:lang="fr">
+<title>JSON Lint</title>
+<indexterm><primary>JSON Lint</primary></indexterm>
+
+<para><link xlink:href="https://github.com/Seldaek/jsonlint/actions/workflows/continuous-integration.yml"></link></para>
+<section xml:id="_md_public_2glpi_2vendor_2seld_2jsonlint_2_r_e_a_d_m_e_1autotoc_md7168">
+<title><title>Usage</title></title>
+
+<para><literallayout><computeroutput>use&#32;Seld\JsonLint\JsonParser;
+
+$parser&#32;=&#32;new&#32;JsonParser();
+
+//&#32;returns&#32;null&#32;if&#32;it&apos;s&#32;valid&#32;json,&#32;or&#32;a&#32;ParsingException&#32;object.
+$parser-&gt;lint($json);
+
+//&#32;Call&#32;getMessage()&#32;on&#32;the&#32;exception&#32;object&#32;to&#32;get
+//&#32;a&#32;well&#32;formatted&#32;error&#32;message&#32;error&#32;like&#32;this
+
+//&#32;Parse&#32;error&#32;on&#32;line&#32;2:
+//&#32;...&#32;&quot;key&quot;:&#32;&quot;value&quot;&#32;&#32;&#32;&#32;&quot;numbers&quot;:&#32;[1,&#32;2,&#32;3]
+//&#32;----------------------^
+//&#32;Expected&#32;one&#32;of:&#32;&apos;EOF&apos;,&#32;&apos;}&apos;,&#32;&apos;:&apos;,&#32;&apos;,&apos;,&#32;&apos;]&apos;
+
+//&#32;Call&#32;getDetails()&#32;on&#32;the&#32;exception&#32;to&#32;get&#32;more&#32;info.
+
+//&#32;returns&#32;parsed&#32;json,&#32;like&#32;json_decode()&#32;does,&#32;but&#32;slower,&#32;throws
+//&#32;exceptions&#32;on&#32;failure.
+$parser-&gt;parse($json);
+</computeroutput></literallayout></para>
+
+<para>You can also pass additional flags to <computeroutput>JsonParser::lint/parse</computeroutput> that tweak the functionality:</para>
+
+<para><itemizedlist>
+<listitem>
+<para><computeroutput>JsonParser::DETECT_KEY_CONFLICTS</computeroutput> throws an exception on duplicate keys.</para>
+</listitem><listitem>
+<para><computeroutput>JsonParser::ALLOW_DUPLICATE_KEYS</computeroutput> collects duplicate keys. e.g. if you have two <computeroutput>foo</computeroutput> keys they will end up as <computeroutput>foo</computeroutput> and <computeroutput>foo.2</computeroutput>.</para>
+</listitem><listitem>
+<para><computeroutput>JsonParser::PARSE_TO_ASSOC</computeroutput> parses to associative arrays instead of stdClass objects.</para>
+</listitem><listitem>
+<para><computeroutput>JsonParser::ALLOW_COMMENTS</computeroutput> parses while allowing (and ignoring) inline <computeroutput>//</computeroutput> and multiline <computeroutput>/* */</computeroutput> comments in the JSON document.</para>
+</listitem></itemizedlist>
+</para>
+
+<para>Example:</para>
+
+<para><literallayout><computeroutput>$parser&#32;=&#32;new&#32;JsonParser;
+try&#32;{
+&#32;&#32;&#32;&#32;$parser-&gt;parse(file_get_contents($jsonFile),&#32;JsonParser::DETECT_KEY_CONFLICTS);
+}&#32;catch&#32;(DuplicateKeyException&#32;$e)&#32;{
+&#32;&#32;&#32;&#32;$details&#32;=&#32;$e-&gt;getDetails();
+&#32;&#32;&#32;&#32;echo&#32;&apos;Key&#32;&apos;.$details[&apos;key&apos;].&apos;&#32;is&#32;a&#32;duplicate&#32;in&#32;&apos;.$jsonFile.&apos;&#32;at&#32;line&#32;&apos;.$details[&apos;line&apos;];
+}
+</computeroutput></literallayout></para>
+
+<para><blockquote>
+<para>&#8205;<emphasis role="bold">Note:</emphasis> This library is meant to parse JSON while providing good error messages on failure. There is no way it can be as fast as php native <computeroutput>json_decode()</computeroutput>.</para>
+
+<para>It is recommended to parse with <computeroutput>json_decode</computeroutput>, and when it fails parse again with seld/jsonlint to get a proper error message back to the user. See for example <link xlink:href="https://github.com/composer/composer/blob/56edd53046fd697d32b2fd2fbaf45af5d7951671/src/Composer/Json/JsonFile.php#L283-L318">how Composer uses this library</link>: </para>
+</blockquote></para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2seld_2jsonlint_2_r_e_a_d_m_e_1autotoc_md7169">
+<title><title>Installation</title></title>
+
+<para>For a quick install with <link linkend="_namespace_composer">Composer</link> use:</para>
+
+<para><literallayout><computeroutput>composer&#32;require&#32;seld/jsonlint
+</computeroutput></literallayout></para>
+
+<para>JSON Lint can easily be used within another app if you have a <link xlink:href="https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-4-autoloader.md">PSR-4</link> autoloader, or it can be installed through <link xlink:href="https://getcomposer.org/">Composer</link> for use as a CLI util. Once installed via <link linkend="_namespace_composer">Composer</link> you can run the following command to lint a json file or URL: <literallayout><computeroutput>$ bin/jsonlint file.json
+</computeroutput></literallayout> </para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2seld_2jsonlint_2_r_e_a_d_m_e_1autotoc_md7170">
+<title><title>Requirements</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>PHP 5.3+</para>
+</listitem><listitem>
+<para>[optional] PHPUnit 3.5+ to execute the test suite (phpunit &#8211;version)</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2seld_2jsonlint_2_r_e_a_d_m_e_1autotoc_md7171">
+<title><title>Submitting bugs and feature requests</title></title>
+
+<para>Bugs and feature request are tracked on <link xlink:href="https://github.com/Seldaek/jsonlint/issues">GitHub</link></para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2seld_2jsonlint_2_r_e_a_d_m_e_1autotoc_md7172">
+<title><title>Author</title></title>
+
+<para>Jordi Boggiano - <link xlink:href="mailto:j.boggiano@seld.be">j.boggiano@seld.be</link> - <link xlink:href="http://twitter.com/seldaek">http://twitter.com/seldaek</link></para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2seld_2jsonlint_2_r_e_a_d_m_e_1autotoc_md7173">
+<title><title>License</title></title>
+
+<para>JSON Lint is licensed under the MIT License - see the LICENSE file for details</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2seld_2jsonlint_2_r_e_a_d_m_e_1autotoc_md7174">
+<title><title>Acknowledgements</title></title>
+
+<para>This library is a port of the JavaScript <link xlink:href="https://github.com/zaach/jsonlint">jsonlint</link> library. </para>
+</section>
+</section>

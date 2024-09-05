@@ -1,0 +1,221 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.10.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>CampusImmat: Container Interoperability</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">CampusImmat
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.10.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+</div><!-- top -->
+<div><div class="header">
+  <div class="headertitle"><div class="title">Container Interoperability</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><p><a class="anchor" id="autotoc_md5736"></a> <a href="https://packagist.org/packages/container-interop/container-interop"><img src="https://poser.pugx.org/container-interop/container-interop/v/stable.png" alt="Latest Stable Version" class="inline"/></a> <a href="https://packagist.org/packages/container-interop/container-interop"><img src="https://poser.pugx.org/container-interop/container-interop/downloads.svg" alt="Total Downloads" style="pointer-events: none;" class="inline"/></a></p>
+<h1><a class="anchor" id="autotoc_md5737"></a>
+Deprecation warning!</h1>
+<p>Starting Feb. 13th 2017, container-interop is officially deprecated in favor of <a href="https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-11-container.md">PSR-11</a>. Container-interop has been the test-bed of PSR-11. From v1.2, container-interop directly extends PSR-11 interfaces. Therefore, all containers implementing container-interop are now <em>de-facto</em> compatible with PSR-11.</p>
+<ul>
+<li>Projects implementing container-interop interfaces are encouraged to directly implement PSR-11 interfaces instead.</li>
+<li>Projects consuming container-interop interfaces are very strongly encouraged to directly type-hint on PSR-11 interfaces, in order to be compatible with PSR-11 containers that are not compatible with container-interop.</li>
+</ul>
+<p>Regarding the delegate lookup feature, that is present in container-interop and not in PSR-11, the feature is actually a design pattern. It is therefore not deprecated. Documentation regarding this design pattern will be migrated from this repository into a separate website in the future.</p>
+<h1><a class="anchor" id="autotoc_md5738"></a>
+About</h1>
+<p><em>container-interop</em> tries to identify and standardize features in <em>container</em> objects (service locators, dependency injection containers, etc.) to achieve interoperability.</p>
+<p>Through discussions and trials, we try to create a standard, made of common interfaces but also recommendations.</p>
+<p>If PHP projects that provide container implementations begin to adopt these common standards, then PHP applications and projects that use containers can depend on the common interfaces instead of specific implementations. This facilitates a high-level of interoperability and flexibility that allows users to consume <em>any</em> container implementation that can be adapted to these interfaces.</p>
+<p>The work done in this project is not officially endorsed by the <a href="http://www.php-fig.org/">PHP-FIG</a>, but it is being worked on by members of PHP-FIG and other good developers. We adhere to the spirit and ideals of PHP-FIG, and hope this project will pave the way for one or more future PSRs.</p>
+<h1><a class="anchor" id="autotoc_md5739"></a>
+Installation</h1>
+<p>You can install this package through <a class="el" href="namespace_composer.html">Composer</a>:</p>
+<div class="fragment"><div class="line">composer require container-interop/container-interop</div>
+</div><!-- fragment --><p>The packages adheres to the <a href="http://semver.org/">SemVer</a> specification, and there will be full backward compatibility between minor versions.</p>
+<h1><a class="anchor" id="autotoc_md5740"></a>
+Standards</h1>
+<h2><a class="anchor" id="autotoc_md5741"></a>
+Available</h2>
+<ul>
+<li><a href="src/Interop/Container/ContainerInterface.php"><code>ContainerInterface</code></a>. <a class="el" href="md_public_2glpi_2vendor_2container-interop_2container-interop_2docs_2_container_interface.html">Description</a> <a class="el" href="md_public_2glpi_2vendor_2container-interop_2container-interop_2docs_2_container_interface-meta.html">Meta Document</a>. Describes the interface of a container that exposes methods to read its entries.</li>
+<li><a class="el" href="md_public_2glpi_2vendor_2container-interop_2container-interop_2docs_2_delegate-lookup.html"><em>Delegate lookup feature</em></a>. <a class="el" href="md_public_2glpi_2vendor_2container-interop_2container-interop_2docs_2_delegate-lookup-meta.html">Meta Document</a>. Describes the ability for a container to delegate the lookup of its dependencies to a third-party container. This feature lets several containers work together in a single application.</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md5742"></a>
+Proposed</h2>
+<p>View open <a href="https://github.com/container-interop/container-interop/labels/RFC">request for comments</a></p>
+<h1><a class="anchor" id="autotoc_md5743"></a>
+Compatible projects</h1>
+<h2><a class="anchor" id="autotoc_md5744"></a>
+Projects implementing <code>ContainerInterface</code></h2>
+<ul>
+<li><a href="https://github.com/jeremeamia/acclimate-container">Acclimate</a>: Adapters for Aura.Di, Laravel, Nette DI, Pimple, Symfony DI, ZF2 Service manager, ZF2 Dependency injection and any container using <code>ArrayAccess</code></li>
+<li><a href="https://github.com/auraphp/Aura.Di">Aura.Di</a></li>
+<li><a href="https://github.com/elazar/auryn-container-interop">auryn-container-interop</a></li>
+<li><a href="https://github.com/codeeverything/burlap">Burlap</a></li>
+<li><a href="https://github.com/pyrsmk/Chernozem">Chernozem</a></li>
+<li><a href="https://github.com/chrismichaels84/data-manager">Data Manager</a></li>
+<li><a href="https://github.com/bitexpert/disco">Disco</a></li>
+<li><a href="https://github.com/idealogica/indi">InDI</a></li>
+<li><a href="http://container.thephpleague.com/">League/Container</a></li>
+<li><a href="http://mouf-php.com">Mouf</a></li>
+<li><a href="https://github.com/njasm/container">Njasm Container</a></li>
+<li><a href="http://php-di.org">PHP-DI</a></li>
+<li><a href="https://github.com/thecodingmachine/picotainer">Picotainer</a></li>
+<li><a href="https://github.com/moufmouf/pimple-interop">PimpleInterop</a></li>
+<li><a href="https://github.com/Sam-Burns/pimple3-containerinterop">Pimple3-ContainerInterop</a> (using Pimple v3)</li>
+<li><a href="https://github.com/sitepoint/Container">SitePoint Container</a></li>
+<li><a href="https://github.com/ThrusterIO/container">Thruster Container</a> (PHP7 only)</li>
+<li><a href="https://github.com/ultra-lite/container">Ultra-Lite Container</a></li>
+<li><a href="https://github.com/mindplay-dk/unbox">Unbox</a></li>
+<li><a href="https://github.com/jeremeamia/xstatic">XStatic</a></li>
+<li><a href="https://github.com/zendframework/zend-servicemanager">Zend\ServiceManager</a></li>
+<li><a href="https://github.com/inxilpro/Zit">Zit</a></li>
+</ul>
+<h2><a class="anchor" id="autotoc_md5745"></a>
+Projects implementing the <em>delegate lookup</em> feature</h2>
+<ul>
+<li><a href="https://github.com/auraphp/Aura.Di">Aura.Di</a></li>
+<li><a href="https://github.com/codeeverything/burlap">Burlap</a></li>
+<li><a href="https://github.com/pyrsmk/Chernozem">Chernozem</a></li>
+<li><a href="https://github.com/idealogica/indi">InDI</a></li>
+<li><a href="http://container.thephpleague.com/">League/Container</a></li>
+<li><a href="http://mouf-php.com">Mouf</a></li>
+<li><a href="https://github.com/thecodingmachine/picotainer">Picotainer</a></li>
+<li><a href="http://php-di.org">PHP-DI</a></li>
+<li><a href="https://github.com/moufmouf/pimple-interop">PimpleInterop</a></li>
+<li><a href="https://github.com/ultra-lite/container">Ultra-Lite Container</a></li>
+</ul>
+<h2><a class="anchor" id="autotoc_md5746"></a>
+Middlewares implementing <code>ContainerInterface</code></h2>
+<ul>
+<li><a href="https://github.com/thecodingmachine/alias-container">Alias-Container</a>: add aliases support to any container</li>
+<li><a href="https://github.com/thecodingmachine/prefixer-container">Prefixer-Container</a>: dynamically prefix identifiers</li>
+<li><a href="https://github.com/snapshotpl/lazy-container">Lazy-Container</a>: lazy services</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md5747"></a>
+Projects using <code>ContainerInterface</code></h2>
+<p>The list below contains only a sample of all the projects consuming <code>ContainerInterface</code>. For a more complete list have a look <a href="http://packanalyst.com/class?q=Interop%5CContainer%5CContainerInterface">here</a>.</p>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadNone"></th><th class="markdownTableHeadNone">Downloads    </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><a href="https://github.com/bitexpert/adroit">Adroit</a>   </td><td class="markdownTableBodyNone"><img src="https://img.shields.io/packagist/dt/bitexpert/adroit.svg" alt="" style="pointer-events: none;" class="inline"/>    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><a href="https://github.com/Behat/Behat/pull/974">Behat</a>   </td><td class="markdownTableBodyNone"><img src="https://img.shields.io/packagist/dt/behat/behat.svg" alt="" style="pointer-events: none;" class="inline"/>    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><a href="https://github.com/phpthinktank/blast-facades">blast-facades</a>: Minimize complexity and represent dependencies as facades.   </td><td class="markdownTableBodyNone"><img src="https://img.shields.io/packagist/dt/blast/facades.svg" alt="" style="pointer-events: none;" class="inline"/>    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><a href="https://github.com/thecodingmachine/interop.silex.di">interop.silex.di</a>: an extension to <a href="http://silex.sensiolabs.org/">Silex</a> that adds support for any <em>container-interop</em> compatible container   </td><td class="markdownTableBodyNone"><img src="https://img.shields.io/packagist/dt/mouf/interop.silex.di.svg" alt="" style="pointer-events: none;" class="inline"/>    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><a href="https://github.com/mindplay-dk/walkway">mindplay/walkway</a>: a modular request router   </td><td class="markdownTableBodyNone"><img src="https://img.shields.io/packagist/dt/mindplay/walkway.svg" alt="" style="pointer-events: none;" class="inline"/>    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><a href="https://github.com/mindplay-dk/middleman">mindplay/middleman</a>: minimalist PSR-7 middleware dispatcher   </td><td class="markdownTableBodyNone"><img src="https://img.shields.io/packagist/dt/mindplay/middleman.svg" alt="" style="pointer-events: none;" class="inline"/>    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><a href="https://github.com/PHP-DI/Invoker">PHP-DI/Invoker</a>: extensible and configurable invoker/dispatcher   </td><td class="markdownTableBodyNone"><img src="https://img.shields.io/packagist/dt/php-di/invoker.svg" alt="" style="pointer-events: none;" class="inline"/>    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><a href="https://github.com/fabfuel/prophiler">Prophiler</a>   </td><td class="markdownTableBodyNone"><img src="https://img.shields.io/packagist/dt/fabfuel/prophiler.svg" alt="" style="pointer-events: none;" class="inline"/>    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><a href="https://github.com/mnapoli/silly">Silly</a>: CLI micro-framework   </td><td class="markdownTableBodyNone"><img src="https://img.shields.io/packagist/dt/mnapoli/silly.svg" alt="" style="pointer-events: none;" class="inline"/>    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><a href="https://github.com/slimphp/Slim">Slim v3</a>   </td><td class="markdownTableBodyNone"><img src="https://img.shields.io/packagist/dt/slim/slim.svg" alt="" style="pointer-events: none;" class="inline"/>    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><a href="http://mouf-php.com/packages/mouf/mvc.splash-common/version/8.0-dev/README.md">Splash</a>   </td><td class="markdownTableBodyNone"><img src="https://img.shields.io/packagist/dt/mouf/mvc.splash-common.svg" alt="" style="pointer-events: none;" class="inline"/>    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><a href="https://github.com/woohoolabs/harmony">Woohoo Labs. Harmony</a>: a flexible micro-framework   </td><td class="markdownTableBodyNone"><img src="https://img.shields.io/packagist/dt/woohoolabs/harmony.svg" alt="" style="pointer-events: none;" class="inline"/>    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><a href="https://github.com/zendframework/zend-expressive">zend-expressive</a>   </td><td class="markdownTableBodyNone"><img src="https://img.shields.io/packagist/dt/zendframework/zend-expressive.svg" alt="" style="pointer-events: none;" class="inline"/>   </td></tr>
+</table>
+<h1><a class="anchor" id="autotoc_md5748"></a>
+Workflow</h1>
+<p>Everyone is welcome to join and contribute.</p>
+<p>The general workflow looks like this:</p>
+<ol type="1">
+<li>Someone opens a discussion (GitHub issue) to suggest an interface</li>
+</ol>
+<ol type="1">
+<li>Feedback is gathered</li>
+</ol>
+<ol type="1">
+<li>The interface is added to a development branch</li>
+</ol>
+<ol type="1">
+<li>We release alpha versions so that the interface can be experimented with</li>
+</ol>
+<ol type="1">
+<li>Discussions and edits ensue until the interface is deemed stable by a general consensus</li>
+</ol>
+<ol type="1">
+<li>A new minor version of the package is released</li>
+</ol>
+<p>We try to not break BC by creating new interfaces instead of editing existing ones.</p>
+<p>While we currently work on interfaces, we are open to anything that might help towards interoperability, may that be code, best practices, etc. </p>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0
+</small></address>
+</body>
+</html>

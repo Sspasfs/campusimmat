@@ -1,0 +1,117 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_interface_sabre_1_1_d_a_v_1_1_i_properties" xml:lang="fr">
+<title>Référence de l&apos;interface IProperties</title>
+<indexterm><primary>IProperties</primary></indexterm>
+Graphe d&apos;héritage de IProperties:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="interface_sabre_1_1_d_a_v_1_1_i_properties__inherit__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Graphe de collaboration de IProperties:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="interface_sabre_1_1_d_a_v_1_1_i_properties__coll__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Fonctions membres publiques    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_interface_sabre_1_1_d_a_v_1_1_i_properties_1aaa1ed377aaa9f4d644fda86f01afab25">propPatch</link> (<link linkend="_class_sabre_1_1_d_a_v_1_1_prop_patch">PropPatch</link> $propPatch)</para>
+</listitem>
+            <listitem><para><link linkend="_interface_sabre_1_1_d_a_v_1_1_i_properties_1a0df78341cffeace459efcae44dde3d48">getProperties</link> ($properties)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+Fonctions membres publiques hérités de <link linkend="_interface_sabre_1_1_d_a_v_1_1_i_node">INode</link>        <itemizedlist>
+            <listitem><para><link linkend="_interface_sabre_1_1_d_a_v_1_1_i_node_1a13bdffdd926f26b825ea57066334ff01">delete</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_interface_sabre_1_1_d_a_v_1_1_i_node_1a3d0963e68bb313b163a73f2803c64600">getName</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_interface_sabre_1_1_d_a_v_1_1_i_node_1a2fe666694997d047711d7653eca2f132">setName</link> ($name)</para>
+</listitem>
+            <listitem><para><link linkend="_interface_sabre_1_1_d_a_v_1_1_i_node_1aa388e2fda4fe702e8953c1a731868f18">getLastModified</link> ()</para>
+</listitem>
+        </itemizedlist>
+<section>
+<title>Description détaillée</title>
+
+<para>IProperties interface.</para>
+
+<para>Implement this interface to support custom WebDAV properties requested and sent from clients.</para>
+
+<para><formalpara><title>Copyright</title>
+
+<para>Copyright (C) fruux GmbH (<link xlink:href="https://fruux.com/">https://fruux.com/</link>) </para>
+</formalpara>
+<formalpara><title>Auteur</title>
+
+<para>Evert Pot (<link xlink:href="http://evertpot.com/">http://evertpot.com/</link>) @license <link xlink:href="http://sabre.io/license/">http://sabre.io/license/</link> Modified BSD License </para>
+</formalpara>
+</para>
+</section>
+<section>
+<title>Documentation des fonctions membres</title>
+<anchor xml:id="_interface_sabre_1_1_d_a_v_1_1_i_properties_1a0df78341cffeace459efcae44dde3d48"/><section>
+    <title>getProperties()</title>
+<indexterm><primary>getProperties</primary><secondary>IProperties</secondary></indexterm>
+<indexterm><primary>IProperties</primary><secondary>getProperties</secondary></indexterm>
+<para><computeroutput>getProperties ( $properties)</computeroutput></para>
+<para>Returns a list of properties for this nodes.</para>
+
+<para>The properties list is a list of propertynames the client requested, encoded in clark-notation {xmlnamespace}tagname</para>
+
+<para>If the array is empty, it means &apos;all properties&apos; were requested.</para>
+
+<para>Note that it&apos;s fine to liberally give properties back, instead of conforming to the list of requested properties. The Server class will filter out the extra.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>array</entry><entry>$properties</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>array </para>
+</formalpara>
+</para>
+<para>
+Implémenté dans <link linkend="_class_sabre_1_1_cal_d_a_v_1_1_subscriptions_1_1_subscription_1a0df78341cffeace459efcae44dde3d48">Subscription</link>, <link linkend="_class_sabre_1_1_card_d_a_v_1_1_address_book_1a0df78341cffeace459efcae44dde3d48">AddressBook</link>, <link linkend="_class_sabre_1_1_cal_d_a_v_1_1_calendar_1a1a83345db5971b7ca0f7e8c9bcf62e37">Calendar</link>, et <link linkend="_class_sabre_1_1_d_a_v_a_c_l_1_1_principal_1a1a83345db5971b7ca0f7e8c9bcf62e37">Principal</link>.</para>
+</section>
+<anchor xml:id="_interface_sabre_1_1_d_a_v_1_1_i_properties_1aaa1ed377aaa9f4d644fda86f01afab25"/><section>
+    <title>propPatch()</title>
+<indexterm><primary>propPatch</primary><secondary>IProperties</secondary></indexterm>
+<indexterm><primary>IProperties</primary><secondary>propPatch</secondary></indexterm>
+<para><computeroutput>propPatch (<link linkend="_class_sabre_1_1_d_a_v_1_1_prop_patch">PropPatch</link> $propPatch)</computeroutput></para>
+<para>Updates properties on this node.</para>
+
+<para>This method received a PropPatch object, which contains all the information about the update.</para>
+
+<para>To update specific properties, call the &apos;handle&apos; method on this object. Read the PropPatch documentation for more information. </para>
+<para>
+Implémenté dans <link linkend="_class_sabre_1_1_cal_d_a_v_1_1_calendar_1aaa1ed377aaa9f4d644fda86f01afab25">Calendar</link>, et <link linkend="_class_sabre_1_1_cal_d_a_v_1_1_subscriptions_1_1_subscription_1aaa1ed377aaa9f4d644fda86f01afab25">Subscription</link>.</para>
+</section>
+<para>
+La documentation de cette interface a été générée à partir du fichier suivant :</para>
+public/glpi/vendor/sabre/dav/lib/DAV/<link linkend="__i_properties_8php">IProperties.php</link></section>
+</section>

@@ -1,0 +1,523 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_laminas_1_1_loader_1_1_plugin_class_loader" xml:lang="fr">
+<title>Référence de la classe PluginClassLoader</title>
+<indexterm><primary>PluginClassLoader</primary></indexterm>
+Graphe d&apos;héritage de PluginClassLoader:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_laminas_1_1_loader_1_1_plugin_class_loader__inherit__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Graphe de collaboration de PluginClassLoader:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_laminas_1_1_loader_1_1_plugin_class_loader__coll__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Fonctions membres publiques    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_laminas_1_1_loader_1_1_plugin_class_loader_1a10c50cb6d658d1623456ad7470f2d178">__construct</link> ($map=null)</para>
+</listitem>
+            <listitem><para><link linkend="_class_laminas_1_1_loader_1_1_plugin_class_loader_1a8fdc1abe509095a9fafc032c24e94ef6">registerPlugin</link> ($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">shortName</link>, $className)</para>
+</listitem>
+            <listitem><para><link linkend="_class_laminas_1_1_loader_1_1_plugin_class_loader_1a55e9b5b25b4d4feb6322c0c7c93e3e16">registerPlugins</link> ($map)</para>
+</listitem>
+            <listitem><para><link linkend="_class_laminas_1_1_loader_1_1_plugin_class_loader_1a52e2a05bb67353191608ea72892e1bac">unregisterPlugin</link> ($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">shortName</link>)</para>
+</listitem>
+            <listitem><para><link linkend="_class_laminas_1_1_loader_1_1_plugin_class_loader_1a4c95a854be6eb598c22a96cb608997b9">getRegisteredPlugins</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_class_laminas_1_1_loader_1_1_plugin_class_loader_1aa8f8e361f944bc10f7ad45ec268b20ba">isLoaded</link> ($name)</para>
+</listitem>
+            <listitem><para><link linkend="_class_laminas_1_1_loader_1_1_plugin_class_loader_1a54476f4deb4913d9303f59995d9f2c90">getClassName</link> ($name)</para>
+</listitem>
+            <listitem><para><link linkend="_class_laminas_1_1_loader_1_1_plugin_class_loader_1a5d4a434c5fe83bade81f5815706a3551">load</link> ($name)</para>
+</listitem>
+            <listitem><para><link linkend="_class_laminas_1_1_loader_1_1_plugin_class_loader_1a7a9f937c2958e6f4dd7b030f86fb70b7">getIterator</link> ()</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Fonctions membres publiques statiques    </title>
+        <itemizedlist>
+            <listitem><para>static <link linkend="_class_laminas_1_1_loader_1_1_plugin_class_loader_1ac23961c911d54298e534bb0750f43228">addStaticMap</link> ($map)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Attributs protégés    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_laminas_1_1_loader_1_1_plugin_class_loader_1a4ab51386acb82cd0a0066eac2567b2bd">$plugins</link> = []</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Attributs protégés statiques    </title>
+        <itemizedlist>
+            <listitem><para>static <link linkend="_class_laminas_1_1_loader_1_1_plugin_class_loader_1afe7fbf5cf75f0e47aa9dac4959058320">$staticMap</link> = []</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Description détaillée</title>
+
+<para><link linkend="_class_plugin">Plugin</link> class locator interface </para>
+</section>
+<section>
+<title>Documentation des constructeurs et destructeur</title>
+<anchor xml:id="_class_laminas_1_1_loader_1_1_plugin_class_loader_1a10c50cb6d658d1623456ad7470f2d178"/><section>
+    <title>__construct()</title>
+<indexterm><primary>__construct</primary><secondary>PluginClassLoader</secondary></indexterm>
+<indexterm><primary>PluginClassLoader</primary><secondary>__construct</secondary></indexterm>
+<para><computeroutput>__construct ( $map = <computeroutput>null</computeroutput>
+)</computeroutput></para>
+<para>Constructor</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>null | array | Traversable</entry><entry>$map</entry><entry>
+<para>If provided, seeds the loader with a map </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_laminas_1_1_loader_1_1_plugin_class_loader_a10c50cb6d658d1623456ad7470f2d178_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+</section>
+<section>
+<title>Documentation des fonctions membres</title>
+<anchor xml:id="_class_laminas_1_1_loader_1_1_plugin_class_loader_1ac23961c911d54298e534bb0750f43228"/><section>
+    <title>addStaticMap()</title>
+<indexterm><primary>addStaticMap</primary><secondary>PluginClassLoader</secondary></indexterm>
+<indexterm><primary>PluginClassLoader</primary><secondary>addStaticMap</secondary></indexterm>
+<para><computeroutput>static addStaticMap ( $map)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>Add a static map of plugins</para>
+
+<para>A null value will clear the static map.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>null | array | Traversable</entry><entry>$map</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>Exception</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                InvalidArgumentException <formalpara><title>Renvoie</title>
+
+<para>void </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_class_laminas_1_1_loader_1_1_plugin_class_loader_1a54476f4deb4913d9303f59995d9f2c90"/><section>
+    <title>getClassName()</title>
+<indexterm><primary>getClassName</primary><secondary>PluginClassLoader</secondary></indexterm>
+<indexterm><primary>PluginClassLoader</primary><secondary>getClassName</secondary></indexterm>
+<para><computeroutput>getClassName ( $name)</computeroutput></para>
+<para>Return full class name for a named helper</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$name</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>string|false </para>
+</formalpara>
+</para>
+<para>
+Implémente <link linkend="_interface_laminas_1_1_loader_1_1_short_name_locator_1a54476f4deb4913d9303f59995d9f2c90">ShortNameLocator</link>.</para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_laminas_1_1_loader_1_1_plugin_class_loader_a54476f4deb4913d9303f59995d9f2c90_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_laminas_1_1_loader_1_1_plugin_class_loader_1a7a9f937c2958e6f4dd7b030f86fb70b7"/><section>
+    <title>getIterator()</title>
+<indexterm><primary>getIterator</primary><secondary>PluginClassLoader</secondary></indexterm>
+<indexterm><primary>PluginClassLoader</primary><secondary>getIterator</secondary></indexterm>
+<para><computeroutput>getIterator ( )</computeroutput></para>
+<para>Defined by IteratorAggregate</para>
+
+<para>Returns an instance of ArrayIterator, containing a map of all plugins</para>
+
+<para><formalpara><title>Renvoie</title>
+
+<para>ArrayIterator </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_class_laminas_1_1_loader_1_1_plugin_class_loader_1a4c95a854be6eb598c22a96cb608997b9"/><section>
+    <title>getRegisteredPlugins()</title>
+<indexterm><primary>getRegisteredPlugins</primary><secondary>PluginClassLoader</secondary></indexterm>
+<indexterm><primary>PluginClassLoader</primary><secondary>getRegisteredPlugins</secondary></indexterm>
+<para><computeroutput>getRegisteredPlugins ( )</computeroutput></para>
+<para>Get a list of all registered plugins</para>
+
+<para><formalpara><title>Renvoie</title>
+
+<para>array|Traversable </para>
+</formalpara>
+</para>
+<para>
+Implémente <link linkend="_interface_laminas_1_1_loader_1_1_plugin_class_locator_1a4c95a854be6eb598c22a96cb608997b9">PluginClassLocator</link>.</para>
+</section>
+<anchor xml:id="_class_laminas_1_1_loader_1_1_plugin_class_loader_1aa8f8e361f944bc10f7ad45ec268b20ba"/><section>
+    <title>isLoaded()</title>
+<indexterm><primary>isLoaded</primary><secondary>PluginClassLoader</secondary></indexterm>
+<indexterm><primary>PluginClassLoader</primary><secondary>isLoaded</secondary></indexterm>
+<para><computeroutput>isLoaded ( $name)</computeroutput></para>
+<para>Whether or not a plugin by a specific name has been registered</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$name</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>bool </para>
+</formalpara>
+</para>
+<para>
+Implémente <link linkend="_interface_laminas_1_1_loader_1_1_short_name_locator_1aa8f8e361f944bc10f7ad45ec268b20ba">ShortNameLocator</link>.</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_laminas_1_1_loader_1_1_plugin_class_loader_aa8f8e361f944bc10f7ad45ec268b20ba_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_laminas_1_1_loader_1_1_plugin_class_loader_1a5d4a434c5fe83bade81f5815706a3551"/><section>
+    <title>load()</title>
+<indexterm><primary>load</primary><secondary>PluginClassLoader</secondary></indexterm>
+<indexterm><primary>PluginClassLoader</primary><secondary>load</secondary></indexterm>
+<para><computeroutput>load ( $name)</computeroutput></para>
+<para>Load a helper via the name provided</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$name</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>string|false </para>
+</formalpara>
+</para>
+<para>
+Implémente <link linkend="_interface_laminas_1_1_loader_1_1_short_name_locator_1a5d4a434c5fe83bade81f5815706a3551">ShortNameLocator</link>.</para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_laminas_1_1_loader_1_1_plugin_class_loader_a5d4a434c5fe83bade81f5815706a3551_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_laminas_1_1_loader_1_1_plugin_class_loader_a5d4a434c5fe83bade81f5815706a3551_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_laminas_1_1_loader_1_1_plugin_class_loader_1a8fdc1abe509095a9fafc032c24e94ef6"/><section>
+    <title>registerPlugin()</title>
+<indexterm><primary>registerPlugin</primary><secondary>PluginClassLoader</secondary></indexterm>
+<indexterm><primary>PluginClassLoader</primary><secondary>registerPlugin</secondary></indexterm>
+<para><computeroutput>registerPlugin ( $shortName,  $className)</computeroutput></para>
+<para>Register a class to a given short name</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$shortName</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>string</entry><entry>$className</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>PluginClassLoader </para>
+</formalpara>
+</para>
+<para>
+Implémente <link linkend="_interface_laminas_1_1_loader_1_1_plugin_class_locator_1a8fdc1abe509095a9fafc032c24e94ef6">PluginClassLocator</link>.</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_laminas_1_1_loader_1_1_plugin_class_loader_a8fdc1abe509095a9fafc032c24e94ef6_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_laminas_1_1_loader_1_1_plugin_class_loader_1a55e9b5b25b4d4feb6322c0c7c93e3e16"/><section>
+    <title>registerPlugins()</title>
+<indexterm><primary>registerPlugins</primary><secondary>PluginClassLoader</secondary></indexterm>
+<indexterm><primary>PluginClassLoader</primary><secondary>registerPlugins</secondary></indexterm>
+<para><computeroutput>registerPlugins ( $map)</computeroutput></para>
+<para>Register many plugins at once</para>
+
+<para>If $map is a string, assumes that the map is the class name of a Traversable object (likely a ShortNameLocator); it will then instantiate this class and use it to register plugins.</para>
+
+<para>If $map is an array or Traversable object, it will iterate it to register plugin names/classes.</para>
+
+<para>For all other arguments, or if the string $map is not a class or not a Traversable class, an exception will be raised.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string | array | Traversable</entry><entry>$map</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>PluginClassLoader </para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>Exception</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                InvalidArgumentException </para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_laminas_1_1_loader_1_1_plugin_class_loader_a55e9b5b25b4d4feb6322c0c7c93e3e16_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_laminas_1_1_loader_1_1_plugin_class_loader_a55e9b5b25b4d4feb6322c0c7c93e3e16_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_laminas_1_1_loader_1_1_plugin_class_loader_1a52e2a05bb67353191608ea72892e1bac"/><section>
+    <title>unregisterPlugin()</title>
+<indexterm><primary>unregisterPlugin</primary><secondary>PluginClassLoader</secondary></indexterm>
+<indexterm><primary>PluginClassLoader</primary><secondary>unregisterPlugin</secondary></indexterm>
+<para><computeroutput>unregisterPlugin ( $shortName)</computeroutput></para>
+<para>Unregister a short name lookup</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>mixed</entry><entry>$shortName</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>PluginClassLoader </para>
+</formalpara>
+</para>
+<para>
+Implémente <link linkend="_interface_laminas_1_1_loader_1_1_plugin_class_locator_1a52e2a05bb67353191608ea72892e1bac">PluginClassLocator</link>.</para>
+</section>
+</section>
+<section>
+<title>Documentation des champs</title>
+<anchor xml:id="_class_laminas_1_1_loader_1_1_plugin_class_loader_1a4ab51386acb82cd0a0066eac2567b2bd"/><section>
+    <title>$plugins</title>
+<indexterm><primary>$plugins</primary><secondary>PluginClassLoader</secondary></indexterm>
+<indexterm><primary>PluginClassLoader</primary><secondary>$plugins</secondary></indexterm>
+<para><computeroutput>$<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">plugins</link> = []<computeroutput>[protected]</computeroutput></computeroutput></para></section>
+<anchor xml:id="_class_laminas_1_1_loader_1_1_plugin_class_loader_1afe7fbf5cf75f0e47aa9dac4959058320"/><section>
+    <title>$staticMap</title>
+<indexterm><primary>$staticMap</primary><secondary>PluginClassLoader</secondary></indexterm>
+<indexterm><primary>PluginClassLoader</primary><secondary>$staticMap</secondary></indexterm>
+<para><computeroutput>$<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">staticMap</link> = []<computeroutput>[static]</computeroutput>, <computeroutput>[protected]</computeroutput></computeroutput></para></section>
+<para>
+La documentation de cette classe a été générée à partir du fichier suivant :</para>
+public/glpi/vendor/laminas/laminas-loader/src/<link linkend="__plugin_class_loader_8php">PluginClassLoader.php</link></section>
+</section>

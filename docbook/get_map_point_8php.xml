@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_get_map_point_8php" xml:lang="fr">
+<title>Référence du fichier public/glpi/ajax/getMapPoint.php</title>
+<indexterm><primary>public/glpi/ajax/getMapPoint.php</primary></indexterm>
+<simplesect>
+    <title>Variables    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_get_map_point_8php_1ae241cf0159803673d118f68d99e6342f">$result</link> = []</para>
+</listitem>
+            <listitem><para><link linkend="_dropdown_location_8php_1a52332c22f84432520971794825a5a8e7">if</link>(!<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">isset</link>($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">_POST</link>[&apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">itemtype</link>&apos;])||!<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">isset</link>($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">_POST</link>[&apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">items_id</link>&apos;])||(int) $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">_POST</link>[&apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">items_id</link>&apos;]&lt; 1) <link linkend="_get_map_point_8php_1a34b9c42cadbbb35aaeacf665588c23fb">else</link></para>
+</listitem>
+            <listitem><para><link linkend="_get_map_point_8php_1a8522902708ccfa17a73c23e2ca04839c">$items_id</link> = $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">_POST</link>[&apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">items_id</link>&apos;]</para>
+</listitem>
+            <listitem><para>if( $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">itemtype</link> !=Location::getType()) <link linkend="_get_map_point_8php_1a2a7db514fe42d67f9a60ed31e674259f">if</link> (!count( $result))</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Documentation des variables</title>
+<anchor xml:id="_get_map_point_8php_1a8522902708ccfa17a73c23e2ca04839c"/><section>
+    <title>$items_id</title>
+<indexterm><primary>$items_id</primary><secondary>getMapPoint.php</secondary></indexterm>
+<indexterm><primary>getMapPoint.php</primary><secondary>$items_id</secondary></indexterm>
+<para><computeroutput>$<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">items_id</link> = $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">_POST</link>[&apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">items_id</link>&apos;]</computeroutput></para></section>
+<anchor xml:id="_get_map_point_8php_1ae241cf0159803673d118f68d99e6342f"/><section>
+    <title>$result</title>
+<indexterm><primary>$result</primary><secondary>getMapPoint.php</secondary></indexterm>
+<indexterm><primary>getMapPoint.php</primary><secondary>$result</secondary></indexterm>
+<para><computeroutput><link linkend="_entitytreesons_8php_1a9717e7bbecb906637e86cef6da3d83c2">return</link> $result = []</computeroutput></para></section>
+<anchor xml:id="_get_map_point_8php_1a34b9c42cadbbb35aaeacf665588c23fb"/><section>
+    <title>else</title>
+<indexterm><primary>else</primary><secondary>getMapPoint.php</secondary></indexterm>
+<indexterm><primary>getMapPoint.php</primary><secondary>else</secondary></indexterm>
+<para><computeroutput><link linkend="_dropdown_location_8php_1a52332c22f84432520971794825a5a8e7">if</link> (!<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">isset</link>( $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">_POST</link>[ &apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">itemtype</link>&apos;])||!<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">isset</link>( $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">_POST</link>[ &apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">items_id</link>&apos;])||(int) $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">_POST</link>[ &apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">items_id</link>&apos;]&lt; 1) else ( )</computeroutput></para><emphasis role="strong">Valeur initiale :</emphasis><programlisting linenumbering="unnumbered">{
+&#32;&#32;&#32;&#32;<link linkend="_ajax_2central_8php_1a90b1adfbee02dce12909b78de2e07bbc">$itemtype</link>&#32;=&#32;<link linkend="_dropdown_delegation_users_8php_1aafd65e1fd3be66763660e541468d9f5d">$_POST</link>[<emphasis role="stringliteral">&apos;itemtype&apos;</emphasis>]
+</programlisting></section>
+<anchor xml:id="_get_map_point_8php_1a2a7db514fe42d67f9a60ed31e674259f"/><section>
+    <title>if</title>
+<indexterm><primary>if</primary><secondary>getMapPoint.php</secondary></indexterm>
+<indexterm><primary>getMapPoint.php</primary><secondary>if</secondary></indexterm>
+<para><computeroutput>if($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">itemtype</link> !=Location::getType()) if(!count($result)) (! count $result)</computeroutput></para></section>
+</section>
+</section>

@@ -1,0 +1,251 @@
+\doxysection{Référence de la classe Subject}
+\hypertarget{class_laminas_1_1_mail_1_1_header_1_1_subject}{}\label{class_laminas_1_1_mail_1_1_header_1_1_subject}\index{Subject@{Subject}}
+
+
+Graphe d\textquotesingle{}héritage de Subject\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=252pt]{class_laminas_1_1_mail_1_1_header_1_1_subject__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Graphe de collaboration de Subject\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{class_laminas_1_1_mail_1_1_header_1_1_subject__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_laminas_1_1_mail_1_1_header_1_1_subject_a2d91ba7a665f48e0fb0f4ebf3f567417}{get\+Field\+Name}} ()
+\item 
+\mbox{\hyperlink{class_laminas_1_1_mail_1_1_header_1_1_subject_ae27293070145d8122fdd0ba14b0e21fd}{get\+Field\+Value}} (\$format=\mbox{\hyperlink{interface_laminas_1_1_mail_1_1_header_1_1_header_interface_a8f158a97479f44178fc793dbda914e38}{Header\+Interface\+::\+FORMAT\+\_\+\+RAW}})
+\item 
+\mbox{\hyperlink{class_laminas_1_1_mail_1_1_header_1_1_subject_a8742b6ed0b5341136f00d42ec3864fd6}{set\+Encoding}} (\$encoding)
+\item 
+\mbox{\hyperlink{class_laminas_1_1_mail_1_1_header_1_1_subject_a515b2653f040b0c8a4ed093878232943}{get\+Encoding}} ()
+\item 
+\mbox{\hyperlink{class_laminas_1_1_mail_1_1_header_1_1_subject_a971f2abb85a2e0fc85954322896d6b80}{set\+Subject}} (\$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{subject}})
+\item 
+\mbox{\hyperlink{class_laminas_1_1_mail_1_1_header_1_1_subject_a5558c5d549f41597377fa1ea8a1cefa3}{to\+String}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Fonctions membres publiques statiques}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_laminas_1_1_mail_1_1_header_1_1_subject_a6f2d052bd7f03821b96516f1f6ade57c}{from\+String}} (\$header\+Line)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Attributs protégés}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_laminas_1_1_mail_1_1_header_1_1_subject_afea90503726cd5ad2eb80baf0b6d217d}{\$subject}} = \textquotesingle{}\textquotesingle{}
+\item 
+\mbox{\hyperlink{class_laminas_1_1_mail_1_1_header_1_1_subject_aee271b7ce67fbe00b9976e6c347cbfbf}{\$encoding}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Membres hérités additionnels}
+\doxysubsection*{Champs de données hérités de \mbox{\hyperlink{interface_laminas_1_1_mail_1_1_header_1_1_header_interface}{Header\+Interface}}}
+\begin{DoxyCompactItemize}
+\item 
+const \mbox{\hyperlink{interface_laminas_1_1_mail_1_1_header_1_1_header_interface_a48d428982c8a2d6febdce055deae3cb2}{FORMAT\+\_\+\+ENCODED}} = true
+\item 
+const \mbox{\hyperlink{interface_laminas_1_1_mail_1_1_header_1_1_header_interface_a8f158a97479f44178fc793dbda914e38}{FORMAT\+\_\+\+RAW}} = false
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Subject header class methods.
+
+\begin{DoxySeeAlso}{Voir également}
+\href{https://tools.ietf.org/html/rfc2822}{\texttt{ https\+://tools.\+ietf.\+org/html/rfc2822}} \doxylink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{RFC} 2822 
+
+\href{https://tools.ietf.org/html/rfc2047}{\texttt{ https\+://tools.\+ietf.\+org/html/rfc2047}} \doxylink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{RFC} 2047 
+\end{DoxySeeAlso}
+
+
+\doxysubsection{Documentation des fonctions membres}
+\Hypertarget{class_laminas_1_1_mail_1_1_header_1_1_subject_a6f2d052bd7f03821b96516f1f6ade57c}\label{class_laminas_1_1_mail_1_1_header_1_1_subject_a6f2d052bd7f03821b96516f1f6ade57c} 
+\index{Subject@{Subject}!fromString@{fromString}}
+\index{fromString@{fromString}!Subject@{Subject}}
+\doxysubsubsection{\texorpdfstring{fromString()}{fromString()}}
+{\footnotesize\ttfamily static from\+String (\begin{DoxyParamCaption}\item[{}]{\$header\+Line }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Factory to generate a header object from a string
+
+
+\begin{DoxyParams}[1]{Paramètres}
+string & {\em \$header\+Line} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+static 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Exception} & \\
+\hline
+\end{DoxyExceptions}
+Invalid\+Argument\+Exception If the header does not match with RFC 2822 definition. \begin{DoxySeeAlso}{Voir également}
+\href{http://tools.ietf.org/html/rfc2822\#section-2.2}{\texttt{ http\+://tools.\+ietf.\+org/html/rfc2822\#section-\/2.\+2}} 
+\end{DoxySeeAlso}
+
+
+Implémente \mbox{\hyperlink{interface_laminas_1_1_mail_1_1_header_1_1_header_interface_a6f2d052bd7f03821b96516f1f6ade57c}{Header\+Interface}}.
+
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_laminas_1_1_mail_1_1_header_1_1_subject_a6f2d052bd7f03821b96516f1f6ade57c_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_laminas_1_1_mail_1_1_header_1_1_subject_a515b2653f040b0c8a4ed093878232943}\label{class_laminas_1_1_mail_1_1_header_1_1_subject_a515b2653f040b0c8a4ed093878232943} 
+\index{Subject@{Subject}!getEncoding@{getEncoding}}
+\index{getEncoding@{getEncoding}!Subject@{Subject}}
+\doxysubsubsection{\texorpdfstring{getEncoding()}{getEncoding()}}
+{\footnotesize\ttfamily get\+Encoding (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Get header encoding
+
+\begin{DoxyReturn}{Renvoie}
+string 
+\end{DoxyReturn}
+
+
+Implémente \mbox{\hyperlink{interface_laminas_1_1_mail_1_1_header_1_1_header_interface_a515b2653f040b0c8a4ed093878232943}{Header\+Interface}}.
+
+\Hypertarget{class_laminas_1_1_mail_1_1_header_1_1_subject_a2d91ba7a665f48e0fb0f4ebf3f567417}\label{class_laminas_1_1_mail_1_1_header_1_1_subject_a2d91ba7a665f48e0fb0f4ebf3f567417} 
+\index{Subject@{Subject}!getFieldName@{getFieldName}}
+\index{getFieldName@{getFieldName}!Subject@{Subject}}
+\doxysubsubsection{\texorpdfstring{getFieldName()}{getFieldName()}}
+{\footnotesize\ttfamily get\+Field\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Retrieve header name
+
+\begin{DoxyReturn}{Renvoie}
+string 
+\end{DoxyReturn}
+
+
+Implémente \mbox{\hyperlink{interface_laminas_1_1_mail_1_1_header_1_1_header_interface_a2d91ba7a665f48e0fb0f4ebf3f567417}{Header\+Interface}}.
+
+\Hypertarget{class_laminas_1_1_mail_1_1_header_1_1_subject_ae27293070145d8122fdd0ba14b0e21fd}\label{class_laminas_1_1_mail_1_1_header_1_1_subject_ae27293070145d8122fdd0ba14b0e21fd} 
+\index{Subject@{Subject}!getFieldValue@{getFieldValue}}
+\index{getFieldValue@{getFieldValue}!Subject@{Subject}}
+\doxysubsubsection{\texorpdfstring{getFieldValue()}{getFieldValue()}}
+{\footnotesize\ttfamily get\+Field\+Value (\begin{DoxyParamCaption}\item[{}]{\$format = {\ttfamily \mbox{\hyperlink{interface_laminas_1_1_mail_1_1_header_1_1_header_interface_a8f158a97479f44178fc793dbda914e38}{Header\+Interface\+::\+FORMAT\+\_\+\+RAW}}} }\end{DoxyParamCaption})}
+
+Retrieve header value
+
+
+\begin{DoxyParams}[1]{Paramètres}
+bool & {\em \$format} & Return the value in Mime\+::\+Encoded or in Raw format \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+string 
+\end{DoxyReturn}
+
+
+Implémente \mbox{\hyperlink{interface_laminas_1_1_mail_1_1_header_1_1_header_interface_a4f97dc3ba0076ac29d4d84934fd2ce5b}{Header\+Interface}}.
+
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=299pt]{class_laminas_1_1_mail_1_1_header_1_1_subject_ae27293070145d8122fdd0ba14b0e21fd_cgraph}
+\end{center}
+\end{figure}
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=240pt]{class_laminas_1_1_mail_1_1_header_1_1_subject_ae27293070145d8122fdd0ba14b0e21fd_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_laminas_1_1_mail_1_1_header_1_1_subject_a8742b6ed0b5341136f00d42ec3864fd6}\label{class_laminas_1_1_mail_1_1_header_1_1_subject_a8742b6ed0b5341136f00d42ec3864fd6} 
+\index{Subject@{Subject}!setEncoding@{setEncoding}}
+\index{setEncoding@{setEncoding}!Subject@{Subject}}
+\doxysubsubsection{\texorpdfstring{setEncoding()}{setEncoding()}}
+{\footnotesize\ttfamily set\+Encoding (\begin{DoxyParamCaption}\item[{}]{\$encoding }\end{DoxyParamCaption})}
+
+Set header encoding
+
+
+\begin{DoxyParams}[1]{Paramètres}
+string & {\em \$encoding} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+\$this 
+\end{DoxyReturn}
+
+
+Implémente \mbox{\hyperlink{interface_laminas_1_1_mail_1_1_header_1_1_header_interface_a8742b6ed0b5341136f00d42ec3864fd6}{Header\+Interface}}.
+
+\Hypertarget{class_laminas_1_1_mail_1_1_header_1_1_subject_a971f2abb85a2e0fc85954322896d6b80}\label{class_laminas_1_1_mail_1_1_header_1_1_subject_a971f2abb85a2e0fc85954322896d6b80} 
+\index{Subject@{Subject}!setSubject@{setSubject}}
+\index{setSubject@{setSubject}!Subject@{Subject}}
+\doxysubsubsection{\texorpdfstring{setSubject()}{setSubject()}}
+{\footnotesize\ttfamily set\+Subject (\begin{DoxyParamCaption}\item[{}]{\$subject }\end{DoxyParamCaption})}
+
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=321pt]{class_laminas_1_1_mail_1_1_header_1_1_subject_a971f2abb85a2e0fc85954322896d6b80_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_laminas_1_1_mail_1_1_header_1_1_subject_a5558c5d549f41597377fa1ea8a1cefa3}\label{class_laminas_1_1_mail_1_1_header_1_1_subject_a5558c5d549f41597377fa1ea8a1cefa3} 
+\index{Subject@{Subject}!toString@{toString}}
+\index{toString@{toString}!Subject@{Subject}}
+\doxysubsubsection{\texorpdfstring{toString()}{toString()}}
+{\footnotesize\ttfamily to\+String (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Cast to string
+
+Returns in form of "{}\+NAME\+: VALUE"{}
+
+\begin{DoxyReturn}{Renvoie}
+string 
+\end{DoxyReturn}
+
+
+Implémente \mbox{\hyperlink{interface_laminas_1_1_mail_1_1_header_1_1_header_interface_a5558c5d549f41597377fa1ea8a1cefa3}{Header\+Interface}}.
+
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_laminas_1_1_mail_1_1_header_1_1_subject_a5558c5d549f41597377fa1ea8a1cefa3_cgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Documentation des champs}
+\Hypertarget{class_laminas_1_1_mail_1_1_header_1_1_subject_aee271b7ce67fbe00b9976e6c347cbfbf}\label{class_laminas_1_1_mail_1_1_header_1_1_subject_aee271b7ce67fbe00b9976e6c347cbfbf} 
+\index{Subject@{Subject}!\$encoding@{\$encoding}}
+\index{\$encoding@{\$encoding}!Subject@{Subject}}
+\doxysubsubsection{\texorpdfstring{\$encoding}{\$encoding}}
+{\footnotesize\ttfamily \$encoding\hspace{0.3cm}{\ttfamily [protected]}}
+
+\Hypertarget{class_laminas_1_1_mail_1_1_header_1_1_subject_afea90503726cd5ad2eb80baf0b6d217d}\label{class_laminas_1_1_mail_1_1_header_1_1_subject_afea90503726cd5ad2eb80baf0b6d217d} 
+\index{Subject@{Subject}!\$subject@{\$subject}}
+\index{\$subject@{\$subject}!Subject@{Subject}}
+\doxysubsubsection{\texorpdfstring{\$subject}{\$subject}}
+{\footnotesize\ttfamily \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{subject}} = \textquotesingle{}\textquotesingle{}\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+La documentation de cette classe a été générée à partir du fichier suivant \+:\begin{DoxyCompactItemize}
+\item 
+public/glpi/vendor/laminas/laminas-\/mail/src/\+Header/\mbox{\hyperlink{_subject_8php}{Subject.\+php}}\end{DoxyCompactItemize}

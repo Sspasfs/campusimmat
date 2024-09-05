@@ -1,0 +1,179 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_interface_symfony_1_1_contracts_1_1_cache_1_1_cache_interface" xml:lang="fr">
+<title>Référence de l&apos;interface CacheInterface</title>
+<indexterm><primary>CacheInterface</primary></indexterm>
+Graphe d&apos;héritage de CacheInterface:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="interface_symfony_1_1_contracts_1_1_cache_1_1_cache_interface__inherit__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Graphe de collaboration de CacheInterface:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="interface_symfony_1_1_contracts_1_1_cache_1_1_cache_interface__coll__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Fonctions membres publiques    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_interface_symfony_1_1_contracts_1_1_cache_1_1_cache_interface_1abf2340ccf994c063bd1e7e3a94445108">get</link> (string $key, <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">callable</link> $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">callback</link>, float $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">beta</link>=null, array &amp;$<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">metadata</link>=null)</para>
+</listitem>
+            <listitem><para><link linkend="_interface_symfony_1_1_contracts_1_1_cache_1_1_cache_interface_1ac03d0331371567f0a97a6782746abd55">delete</link> (string $key)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Description détaillée</title>
+
+<para>Covers most simple to advanced caching needs.</para>
+
+<para><formalpara><title>Auteur</title>
+
+<para>Nicolas Grekas <link xlink:href="mailto:p@tchwork.com">p@tchwork.com</link> </para>
+</formalpara>
+</para>
+</section>
+<section>
+<title>Documentation des fonctions membres</title>
+<anchor xml:id="_interface_symfony_1_1_contracts_1_1_cache_1_1_cache_interface_1ac03d0331371567f0a97a6782746abd55"/><section>
+    <title>delete()</title>
+<indexterm><primary>delete</primary><secondary>CacheInterface</secondary></indexterm>
+<indexterm><primary>CacheInterface</primary><secondary>delete</secondary></indexterm>
+<para><computeroutput>delete (string $key)</computeroutput></para>
+<para>Removes an item from the pool.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$key</entry><entry>
+<para>The key to delete</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>InvalidArgumentException</entry><entry>
+<para>When $key is not valid</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>bool True if the item was successfully removed, false if there was any error </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_interface_symfony_1_1_contracts_1_1_cache_1_1_cache_interface_1abf2340ccf994c063bd1e7e3a94445108"/><section>
+    <title>get()</title>
+<indexterm><primary>get</primary><secondary>CacheInterface</secondary></indexterm>
+<indexterm><primary>CacheInterface</primary><secondary>get</secondary></indexterm>
+<para><computeroutput>get (string $key, <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">callable</link> $callback, float $beta = <computeroutput>null</computeroutput>
+, array &amp; $metadata = <computeroutput>null</computeroutput>
+)</computeroutput></para>
+<para>Fetches a value from the pool or computes it if not found.</para>
+
+<para>On cache misses, a callback is called that should return the missing value. This callback is given a PSR-6 CacheItemInterface instance corresponding to the requested key, that could be used e.g. for expiration control. It could also be an ItemInterface instance when its additional features are needed.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$key</entry><entry>
+<para>The key of the item to retrieve from the cache </para>
+</entry>
+                            </row>
+                            <row>
+<entry>callable | CallbackInterface</entry><entry>$callback</entry><entry>
+<para>Should return the computed value for the given key/item </para>
+</entry>
+                            </row>
+                            <row>
+<entry>float | null</entry><entry>$beta</entry><entry>
+<para>A float that, as it grows, controls the likeliness of triggering early expiration. 0 disables it, INF forces immediate expiration. The default (or providing null) is implementation dependent but should typically be 1.0, which should provide optimal stampede protection. See <link xlink:href="https://en.wikipedia.org/wiki/Cache_stampede#Probabilistic_early_expiration">https://en.wikipedia.org/wiki/Cache_stampede#Probabilistic_early_expiration</link> </para>
+</entry>
+                            </row>
+                            <row>
+<entry>array</entry><entry>&amp;$metadata</entry><entry>
+<para>The metadata of the cached item {</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Voir également</title>
+
+<para>ItemInterface::getMetadata()}</para>
+</formalpara>
+<formalpara><title>Renvoie</title>
+
+<para>mixed</para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>InvalidArgumentException</entry><entry>
+<para>When $key is not valid or when $beta is negative </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
+<para>
+La documentation de cette interface a été générée à partir du fichier suivant :</para>
+public/glpi/vendor/symfony/cache-contracts/<link linkend="_symfony_2cache-contracts_2_cache_interface_8php">CacheInterface.php</link></section>
+</section>

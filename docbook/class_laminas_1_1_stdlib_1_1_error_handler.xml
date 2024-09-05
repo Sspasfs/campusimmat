@@ -1,0 +1,255 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_laminas_1_1_stdlib_1_1_error_handler" xml:lang="fr">
+<title>Référence de la classe ErrorHandler</title>
+<indexterm><primary>ErrorHandler</primary></indexterm>
+Graphe de collaboration de ErrorHandler:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_laminas_1_1_stdlib_1_1_error_handler__coll__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Fonctions membres publiques statiques    </title>
+        <itemizedlist>
+            <listitem><para>static <link linkend="_class_laminas_1_1_stdlib_1_1_error_handler_1a138aaa9f9e7078bf89401bfe8a756976">started</link> ()</para>
+</listitem>
+            <listitem><para>static <link linkend="_class_laminas_1_1_stdlib_1_1_error_handler_1ad7905529b5feb3a10a3d5d68631bd500">getNestedLevel</link> ()</para>
+</listitem>
+            <listitem><para>static <link linkend="_class_laminas_1_1_stdlib_1_1_error_handler_1a963d7ece13141ac30ac8d76a51a10e08">start</link> ($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">errorLevel</link>=E_WARNING)</para>
+</listitem>
+            <listitem><para>static <link linkend="_class_laminas_1_1_stdlib_1_1_error_handler_1ab67035c6dfd8f432e54553b0122f272d">stop</link> ($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">throw</link>=false)</para>
+</listitem>
+            <listitem><para>static <link linkend="_class_laminas_1_1_stdlib_1_1_error_handler_1a2d964e881b99820bf727aa0c4bd96cd9">clean</link> ()</para>
+</listitem>
+            <listitem><para>static <link linkend="_class_laminas_1_1_stdlib_1_1_error_handler_1abbfe5c02c723a3b1316d280953e2ba07">addError</link> ($errno, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">errstr</link>=&apos;&apos;, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">errfile</link>=&apos;&apos;, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">errline</link>=0)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Attributs protégés statiques    </title>
+        <itemizedlist>
+            <listitem><para>static <link linkend="_class_laminas_1_1_stdlib_1_1_error_handler_1a6a0169b26b5301f906b1ec481b3f1eea">$stack</link> = []</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Description détaillée</title>
+
+<para>ErrorHandler that can be used to catch internal PHP errors and convert to an ErrorException instance. </para>
+</section>
+<section>
+<title>Documentation des fonctions membres</title>
+<anchor xml:id="_class_laminas_1_1_stdlib_1_1_error_handler_1abbfe5c02c723a3b1316d280953e2ba07"/><section>
+    <title>addError()</title>
+<indexterm><primary>addError</primary><secondary>ErrorHandler</secondary></indexterm>
+<indexterm><primary>ErrorHandler</primary><secondary>addError</secondary></indexterm>
+<para><computeroutput>static addError ( $errno,  $errstr = <computeroutput>&apos;&apos;</computeroutput>
+,  $errfile = <computeroutput>&apos;&apos;</computeroutput>
+,  $errline = <computeroutput>0</computeroutput>
+)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>Add an error to the stack</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>int</entry><entry>$errno</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>string</entry><entry>$errstr</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>string</entry><entry>$errfile</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>int</entry><entry>$errline</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>void </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_class_laminas_1_1_stdlib_1_1_error_handler_1a2d964e881b99820bf727aa0c4bd96cd9"/><section>
+    <title>clean()</title>
+<indexterm><primary>clean</primary><secondary>ErrorHandler</secondary></indexterm>
+<indexterm><primary>ErrorHandler</primary><secondary>clean</secondary></indexterm>
+<para><computeroutput>static clean ( )<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>Stop all active handler</para>
+
+<para><formalpara><title>Renvoie</title>
+
+<para>void </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_class_laminas_1_1_stdlib_1_1_error_handler_1ad7905529b5feb3a10a3d5d68631bd500"/><section>
+    <title>getNestedLevel()</title>
+<indexterm><primary>getNestedLevel</primary><secondary>ErrorHandler</secondary></indexterm>
+<indexterm><primary>ErrorHandler</primary><secondary>getNestedLevel</secondary></indexterm>
+<para><computeroutput>static getNestedLevel ( )<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>Get the current nested level</para>
+
+<para><formalpara><title>Renvoie</title>
+
+<para>int </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_class_laminas_1_1_stdlib_1_1_error_handler_1a963d7ece13141ac30ac8d76a51a10e08"/><section>
+    <title>start()</title>
+<indexterm><primary>start</primary><secondary>ErrorHandler</secondary></indexterm>
+<indexterm><primary>ErrorHandler</primary><secondary>start</secondary></indexterm>
+<para><computeroutput>static start ( $errorLevel = <computeroutput>E_WARNING</computeroutput>
+)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>Starting the error handler</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>int</entry><entry>$errorLevel</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>void </para>
+</formalpara>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_laminas_1_1_stdlib_1_1_error_handler_a963d7ece13141ac30ac8d76a51a10e08_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_laminas_1_1_stdlib_1_1_error_handler_1a138aaa9f9e7078bf89401bfe8a756976"/><section>
+    <title>started()</title>
+<indexterm><primary>started</primary><secondary>ErrorHandler</secondary></indexterm>
+<indexterm><primary>ErrorHandler</primary><secondary>started</secondary></indexterm>
+<para><computeroutput>static started ( )<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>Check if this error handler is active</para>
+
+<para><formalpara><title>Renvoie</title>
+
+<para>bool </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_class_laminas_1_1_stdlib_1_1_error_handler_1ab67035c6dfd8f432e54553b0122f272d"/><section>
+    <title>stop()</title>
+<indexterm><primary>stop</primary><secondary>ErrorHandler</secondary></indexterm>
+<indexterm><primary>ErrorHandler</primary><secondary>stop</secondary></indexterm>
+<para><computeroutput>static stop ( $throw = <computeroutput>false</computeroutput>
+)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>Stopping the error handler</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>bool</entry><entry>$throw</entry><entry>
+<para>Throw the ErrorException if any </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>null|ErrorException </para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>ErrorException</entry><entry>
+<para>If an error has been caught and $throw is true. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_laminas_1_1_stdlib_1_1_error_handler_ab67035c6dfd8f432e54553b0122f272d_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+</section>
+<section>
+<title>Documentation des champs</title>
+<anchor xml:id="_class_laminas_1_1_stdlib_1_1_error_handler_1a6a0169b26b5301f906b1ec481b3f1eea"/><section>
+    <title>$stack</title>
+<indexterm><primary>$stack</primary><secondary>ErrorHandler</secondary></indexterm>
+<indexterm><primary>ErrorHandler</primary><secondary>$stack</secondary></indexterm>
+<para><computeroutput>$<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">stack</link> = []<computeroutput>[static]</computeroutput>, <computeroutput>[protected]</computeroutput></computeroutput></para></section>
+<para>
+La documentation de cette classe a été générée à partir du fichier suivant :</para>
+public/glpi/vendor/laminas/laminas-stdlib/src/<link linkend="_vendor_2laminas_2laminas-stdlib_2src_2_error_handler_8php">ErrorHandler.php</link></section>
+</section>

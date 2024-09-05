@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_update__10_80_82__to__10_80_83_2notifications_8php" xml:lang="fr">
+<title>Référence du fichier public/glpi/install/migrations/update_10.0.2_to_10.0.3/notifications.php</title>
+<indexterm><primary>public/glpi/install/migrations/update_10.0.2_to_10.0.3/notifications.php</primary></indexterm>
+<simplesect>
+    <title>Variables    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_update__10_80_82__to__10_80_83_2notifications_8php_1a3a3839ee25d5713c38cab32bc340bcca">$itil_types</link> = [&apos;<link linkend="_class_ticket">Ticket</link>&apos;, &apos;<link linkend="_class_change">Change</link>&apos;, &apos;<link linkend="_class_problem">Problem</link>&apos;]</para>
+</listitem>
+            <listitem><para><link linkend="_update__10_80_82__to__10_80_83_2notifications_8php_1a3a999852dfee63e69aacacefb7e33564">$iterator</link></para>
+</listitem>
+            <listitem><para><link linkend="_get_user_picture_8php_1a0df27c645324b72eaf7093e10f310670">foreach</link>($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">iterator</link> <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">as</link> $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">notification</link>) <link linkend="_update__10_80_82__to__10_80_83_2notifications_8php_1a67395ce3b08a050092cbc179e96ab8f9">$template_iterator</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Documentation des variables</title>
+<anchor xml:id="_update__10_80_82__to__10_80_83_2notifications_8php_1a3a999852dfee63e69aacacefb7e33564"/><section>
+    <title>$iterator</title>
+<indexterm><primary>$iterator</primary><secondary>notifications.php</secondary></indexterm>
+<indexterm><primary>notifications.php</primary><secondary>$iterator</secondary></indexterm>
+<para><computeroutput>$<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">iterator</link></computeroutput></para><emphasis role="strong">Valeur initiale :</emphasis><programlisting linenumbering="unnumbered">=&#32;<link linkend="_dropdown_connect_network_port_8php_1afb8f39c26f5fd4c7fd0f68203d7e96b1">$DB</link>-&gt;request([
+&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&apos;SELECT&apos;</emphasis>&#32;=&gt;&#32;[<emphasis role="stringliteral">&apos;id&apos;</emphasis>,&#32;<emphasis role="stringliteral">&apos;event&apos;</emphasis>],
+&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&apos;FROM&apos;</emphasis>&#32;&#32;&#32;=&gt;&#32;<emphasis role="stringliteral">&apos;glpi_notifications&apos;</emphasis>,
+&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&apos;WHERE&apos;</emphasis>&#32;&#32;=&gt;&#32;[
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&apos;itemtype&apos;</emphasis>&#32;=&gt;&#32;<link linkend="_update__10_80_82__to__10_80_83_2notifications_8php_1a3a3839ee25d5713c38cab32bc340bcca">$itil_types</link>,
+&#32;&#32;&#32;&#32;],
+])
+</programlisting></section>
+<anchor xml:id="_update__10_80_82__to__10_80_83_2notifications_8php_1a3a3839ee25d5713c38cab32bc340bcca"/><section>
+    <title>$itil_types</title>
+<indexterm><primary>$itil_types</primary><secondary>notifications.php</secondary></indexterm>
+<indexterm><primary>notifications.php</primary><secondary>$itil_types</secondary></indexterm>
+<para><computeroutput>$<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">itil_types</link> = [&apos;<link linkend="_class_ticket">Ticket</link>&apos;, &apos;<link linkend="_class_change">Change</link>&apos;, &apos;<link linkend="_class_problem">Problem</link>&apos;]</computeroutput></para></section>
+<anchor xml:id="_update__10_80_82__to__10_80_83_2notifications_8php_1a67395ce3b08a050092cbc179e96ab8f9"/><section>
+    <title>$template_iterator</title>
+<indexterm><primary>$template_iterator</primary><secondary>notifications.php</secondary></indexterm>
+<indexterm><primary>notifications.php</primary><secondary>$template_iterator</secondary></indexterm>
+<para><computeroutput><link linkend="_get_user_picture_8php_1a0df27c645324b72eaf7093e10f310670">foreach</link> ( $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">iterator</link> <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">as</link> $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">notification</link>) $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">template_iterator</link></computeroutput></para><emphasis role="strong">Valeur initiale :</emphasis><programlisting linenumbering="unnumbered">=&#32;<link linkend="_dropdown_connect_network_port_8php_1afb8f39c26f5fd4c7fd0f68203d7e96b1">$DB</link>-&gt;request([
+&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&apos;SELECT&apos;</emphasis>&#32;=&gt;&#32;[<emphasis role="stringliteral">&apos;id&apos;</emphasis>,&#32;<emphasis role="stringliteral">&apos;content_html&apos;</emphasis>],
+&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&apos;FROM&apos;</emphasis>&#32;&#32;&#32;=&gt;&#32;<emphasis role="stringliteral">&apos;glpi_notificationtemplatetranslations&apos;</emphasis>,
+])
+</programlisting></section>
+</section>
+</section>

@@ -1,0 +1,129 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_monolog_1_1_signal_handler" xml:lang="fr">
+<title>Référence de la classe SignalHandler</title>
+<indexterm><primary>SignalHandler</primary></indexterm>
+Graphe de collaboration de SignalHandler:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_monolog_1_1_signal_handler__coll__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Fonctions membres publiques    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_monolog_1_1_signal_handler_1a2bd426f7ee55a596b1893454a77a006a">__construct</link> (<link linkend="_interface_psr_1_1_log_1_1_logger_interface">LoggerInterface</link> $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">logger</link>)</para>
+</listitem>
+            <listitem><para><link linkend="_class_monolog_1_1_signal_handler_1a5a0be44d503e9b8a4053da3bd723af68">registerSignalHandler</link> (int $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">signo</link>, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">level</link>=LogLevel::CRITICAL, bool $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">callPrevious</link>=true, bool $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">restartSyscalls</link>=true, ?bool $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">async</link>=true)</para>
+</listitem>
+            <listitem><para><link linkend="_class_monolog_1_1_signal_handler_1a97e1cc3987211310a0ed163bd739bb61">handleSignal</link> (int $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">signo</link>, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">siginfo</link>=null)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Description détaillée</title>
+
+<para><link linkend="_namespace_monolog">Monolog</link> POSIX signal handler</para>
+
+<para><formalpara><title>Auteur</title>
+
+<para>Robert Gust-Bardon <link xlink:href="mailto:robert@gust-bardon.org">robert@gust-bardon.org</link></para>
+</formalpara>
+@phpstan-import-type Level from \Monolog\Logger @phpstan-import-type LevelName from \Monolog\Logger </para>
+</section>
+<section>
+<title>Documentation des constructeurs et destructeur</title>
+<anchor xml:id="_class_monolog_1_1_signal_handler_1a2bd426f7ee55a596b1893454a77a006a"/><section>
+    <title>__construct()</title>
+<indexterm><primary>__construct</primary><secondary>SignalHandler</secondary></indexterm>
+<indexterm><primary>SignalHandler</primary><secondary>__construct</secondary></indexterm>
+<para><computeroutput>__construct (<link linkend="_interface_psr_1_1_log_1_1_logger_interface">LoggerInterface</link> $logger)</computeroutput></para></section>
+</section>
+<section>
+<title>Documentation des fonctions membres</title>
+<anchor xml:id="_class_monolog_1_1_signal_handler_1a97e1cc3987211310a0ed163bd739bb61"/><section>
+    <title>handleSignal()</title>
+<indexterm><primary>handleSignal</primary><secondary>SignalHandler</secondary></indexterm>
+<indexterm><primary>SignalHandler</primary><secondary>handleSignal</secondary></indexterm>
+<para><computeroutput>handleSignal (int $signo,  $siginfo = <computeroutput>null</computeroutput>
+)</computeroutput></para>
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>mixed</entry><entry>$siginfo</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
+<anchor xml:id="_class_monolog_1_1_signal_handler_1a5a0be44d503e9b8a4053da3bd723af68"/><section>
+    <title>registerSignalHandler()</title>
+<indexterm><primary>registerSignalHandler</primary><secondary>SignalHandler</secondary></indexterm>
+<indexterm><primary>SignalHandler</primary><secondary>registerSignalHandler</secondary></indexterm>
+<para><computeroutput>registerSignalHandler (int $signo,  $level = <computeroutput>LogLevel::CRITICAL</computeroutput>
+, bool $callPrevious = <computeroutput>true</computeroutput>
+, bool $restartSyscalls = <computeroutput>true</computeroutput>
+, ?bool $async = <computeroutput>true</computeroutput>
+)</computeroutput></para>
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>int | string</entry><entry>$level</entry><entry>
+<para>Level or level name </para>
+</entry>
+                            </row>
+                            <row>
+<entry>bool</entry><entry>$callPrevious</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>bool</entry><entry>$restartSyscalls</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>bool | null</entry><entry>$async</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>$this</para>
+</formalpara>
+@phpstan-param Level|LevelName|LogLevel::* $level </para>
+</section>
+<para>
+La documentation de cette classe a été générée à partir du fichier suivant :</para>
+public/glpi/vendor/monolog/monolog/src/Monolog/<link linkend="__signal_handler_8php">SignalHandler.php</link></section>
+</section>

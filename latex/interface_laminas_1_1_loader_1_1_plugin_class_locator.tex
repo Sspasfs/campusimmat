@@ -1,0 +1,108 @@
+\doxysection{Référence de l\textquotesingle{}interface Plugin\+Class\+Locator}
+\hypertarget{interface_laminas_1_1_loader_1_1_plugin_class_locator}{}\label{interface_laminas_1_1_loader_1_1_plugin_class_locator}\index{PluginClassLocator@{PluginClassLocator}}
+
+
+Graphe d\textquotesingle{}héritage de Plugin\+Class\+Locator\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{interface_laminas_1_1_loader_1_1_plugin_class_locator__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Graphe de collaboration de Plugin\+Class\+Locator\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=302pt]{interface_laminas_1_1_loader_1_1_plugin_class_locator__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{interface_laminas_1_1_loader_1_1_plugin_class_locator_a8fdc1abe509095a9fafc032c24e94ef6}{register\+Plugin}} (\$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{short\+Name}}, \$class\+Name)
+\item 
+\mbox{\hyperlink{interface_laminas_1_1_loader_1_1_plugin_class_locator_a52e2a05bb67353191608ea72892e1bac}{unregister\+Plugin}} (\$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{short\+Name}})
+\item 
+\mbox{\hyperlink{interface_laminas_1_1_loader_1_1_plugin_class_locator_a4c95a854be6eb598c22a96cb608997b9}{get\+Registered\+Plugins}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Fonctions membres publiques hérités de \mbox{\hyperlink{interface_laminas_1_1_loader_1_1_short_name_locator}{Short\+Name\+Locator}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{interface_laminas_1_1_loader_1_1_short_name_locator_aa8f8e361f944bc10f7ad45ec268b20ba}{is\+Loaded}} (\$name)
+\item 
+\mbox{\hyperlink{interface_laminas_1_1_loader_1_1_short_name_locator_a54476f4deb4913d9303f59995d9f2c90}{get\+Class\+Name}} (\$name)
+\item 
+\mbox{\hyperlink{interface_laminas_1_1_loader_1_1_short_name_locator_a5d4a434c5fe83bade81f5815706a3551}{load}} (\$name)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+\doxylink{class_plugin}{Plugin} class locator interface 
+
+\doxysubsection{Documentation des fonctions membres}
+\Hypertarget{interface_laminas_1_1_loader_1_1_plugin_class_locator_a4c95a854be6eb598c22a96cb608997b9}\label{interface_laminas_1_1_loader_1_1_plugin_class_locator_a4c95a854be6eb598c22a96cb608997b9} 
+\index{PluginClassLocator@{PluginClassLocator}!getRegisteredPlugins@{getRegisteredPlugins}}
+\index{getRegisteredPlugins@{getRegisteredPlugins}!PluginClassLocator@{PluginClassLocator}}
+\doxysubsubsection{\texorpdfstring{getRegisteredPlugins()}{getRegisteredPlugins()}}
+{\footnotesize\ttfamily get\+Registered\+Plugins (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Get a list of all registered plugins
+
+\begin{DoxyReturn}{Renvoie}
+array\texorpdfstring{$\vert$}{|}\+Traversable 
+\end{DoxyReturn}
+
+
+Implémenté dans \mbox{\hyperlink{class_laminas_1_1_loader_1_1_plugin_class_loader_a4c95a854be6eb598c22a96cb608997b9}{Plugin\+Class\+Loader}}.
+
+\Hypertarget{interface_laminas_1_1_loader_1_1_plugin_class_locator_a8fdc1abe509095a9fafc032c24e94ef6}\label{interface_laminas_1_1_loader_1_1_plugin_class_locator_a8fdc1abe509095a9fafc032c24e94ef6} 
+\index{PluginClassLocator@{PluginClassLocator}!registerPlugin@{registerPlugin}}
+\index{registerPlugin@{registerPlugin}!PluginClassLocator@{PluginClassLocator}}
+\doxysubsubsection{\texorpdfstring{registerPlugin()}{registerPlugin()}}
+{\footnotesize\ttfamily register\+Plugin (\begin{DoxyParamCaption}\item[{}]{\$short\+Name,  }\item[{}]{\$class\+Name }\end{DoxyParamCaption})}
+
+Register a class to a given short name
+
+
+\begin{DoxyParams}[1]{Paramètres}
+string & {\em \$short\+Name} & \\
+\hline
+string & {\em \$class\+Name} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+Plugin\+Class\+Locator 
+\end{DoxyReturn}
+
+
+Implémenté dans \mbox{\hyperlink{class_laminas_1_1_loader_1_1_plugin_class_loader_a8fdc1abe509095a9fafc032c24e94ef6}{Plugin\+Class\+Loader}}.
+
+\Hypertarget{interface_laminas_1_1_loader_1_1_plugin_class_locator_a52e2a05bb67353191608ea72892e1bac}\label{interface_laminas_1_1_loader_1_1_plugin_class_locator_a52e2a05bb67353191608ea72892e1bac} 
+\index{PluginClassLocator@{PluginClassLocator}!unregisterPlugin@{unregisterPlugin}}
+\index{unregisterPlugin@{unregisterPlugin}!PluginClassLocator@{PluginClassLocator}}
+\doxysubsubsection{\texorpdfstring{unregisterPlugin()}{unregisterPlugin()}}
+{\footnotesize\ttfamily unregister\+Plugin (\begin{DoxyParamCaption}\item[{}]{\$short\+Name }\end{DoxyParamCaption})}
+
+Unregister a short name lookup
+
+
+\begin{DoxyParams}[1]{Paramètres}
+mixed & {\em \$short\+Name} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+void 
+\end{DoxyReturn}
+
+
+Implémenté dans \mbox{\hyperlink{class_laminas_1_1_loader_1_1_plugin_class_loader_a52e2a05bb67353191608ea72892e1bac}{Plugin\+Class\+Loader}}.
+
+
+
+La documentation de cette interface a été générée à partir du fichier suivant \+:\begin{DoxyCompactItemize}
+\item 
+public/glpi/vendor/laminas/laminas-\/loader/src/\mbox{\hyperlink{_plugin_class_locator_8php}{Plugin\+Class\+Locator.\+php}}\end{DoxyCompactItemize}

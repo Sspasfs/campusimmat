@@ -1,0 +1,460 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_psr_1_1_log_1_1_abstract_logger" xml:lang="fr">
+<title>Référence de la classe AbstractLogger</title>
+<indexterm><primary>AbstractLogger</primary></indexterm>
+Graphe d&apos;héritage de AbstractLogger:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_psr_1_1_log_1_1_abstract_logger__inherit__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Graphe de collaboration de AbstractLogger:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_psr_1_1_log_1_1_abstract_logger__coll__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Fonctions membres publiques    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_psr_1_1_log_1_1_abstract_logger_1afb086b1f95759b162cd55ba2b6fa38ae">emergency</link> ($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">message</link>, array $context=array())</para>
+</listitem>
+            <listitem><para><link linkend="_class_psr_1_1_log_1_1_abstract_logger_1a4e65637c3b36b015b513fb9267ae375f">alert</link> ($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">message</link>, array $context=array())</para>
+</listitem>
+            <listitem><para><link linkend="_class_psr_1_1_log_1_1_abstract_logger_1a14ebc4ac3658a6054caade4a30587cd3">critical</link> ($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">message</link>, array $context=array())</para>
+</listitem>
+            <listitem><para><link linkend="_class_psr_1_1_log_1_1_abstract_logger_1a1cd5faee8fb5d0ddc73bca6d6bde78a1">error</link> ($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">message</link>, array $context=array())</para>
+</listitem>
+            <listitem><para><link linkend="_class_psr_1_1_log_1_1_abstract_logger_1aa9f94dcb1a687e36bc7f838a8801feec">warning</link> ($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">message</link>, array $context=array())</para>
+</listitem>
+            <listitem><para><link linkend="_class_psr_1_1_log_1_1_abstract_logger_1ae0f18fe657e53af89a1edca20cab8089">notice</link> ($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">message</link>, array $context=array())</para>
+</listitem>
+            <listitem><para><link linkend="_class_psr_1_1_log_1_1_abstract_logger_1a080c4e103f83f253391f134962c3bb0f">info</link> ($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">message</link>, array $context=array())</para>
+</listitem>
+            <listitem><para><link linkend="_class_psr_1_1_log_1_1_abstract_logger_1a9f1fbd09fa3d7fc7d6564fb7c6dfc87a">debug</link> ($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">message</link>, array $context=array())</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+Fonctions membres publiques hérités de <link linkend="_interface_psr_1_1_log_1_1_logger_interface">LoggerInterface</link>        <itemizedlist>
+            <listitem><para><link linkend="_interface_psr_1_1_log_1_1_logger_interface_1a142f6bf4e86dc16e0bae4cff1de0dd44">log</link> ($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">level</link>, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">message</link>, array $context=array())</para>
+</listitem>
+        </itemizedlist>
+<section>
+<title>Description détaillée</title>
+
+<para>This is a simple Logger implementation that other Loggers can inherit from.</para>
+
+<para>It simply delegates all log-level-specific methods to the <computeroutput>log</computeroutput> method to reduce boilerplate code that a simple Logger that does the same thing with messages regardless of the error level has to implement. </para>
+</section>
+<section>
+<title>Documentation des fonctions membres</title>
+<anchor xml:id="_class_psr_1_1_log_1_1_abstract_logger_1a4e65637c3b36b015b513fb9267ae375f"/><section>
+    <title>alert()</title>
+<indexterm><primary>alert</primary><secondary>AbstractLogger</secondary></indexterm>
+<indexterm><primary>AbstractLogger</primary><secondary>alert</secondary></indexterm>
+<para><computeroutput>alert ( $message, array $context = <computeroutput>array()</computeroutput>
+)</computeroutput></para>
+<para>Action must be taken immediately.</para>
+
+<para>Example: Entire website down, database unavailable, etc. This should trigger the SMS alerts and wake you up.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$message</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>mixed[]</entry><entry>$context</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>void </para>
+</formalpara>
+</para>
+<para>
+Implémente <link linkend="_interface_psr_1_1_log_1_1_logger_interface_1a4e65637c3b36b015b513fb9267ae375f">LoggerInterface</link>.</para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_psr_1_1_log_1_1_abstract_logger_a4e65637c3b36b015b513fb9267ae375f_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_psr_1_1_log_1_1_abstract_logger_1a14ebc4ac3658a6054caade4a30587cd3"/><section>
+    <title>critical()</title>
+<indexterm><primary>critical</primary><secondary>AbstractLogger</secondary></indexterm>
+<indexterm><primary>AbstractLogger</primary><secondary>critical</secondary></indexterm>
+<para><computeroutput>critical ( $message, array $context = <computeroutput>array()</computeroutput>
+)</computeroutput></para>
+<para>Critical conditions.</para>
+
+<para>Example: Application component unavailable, unexpected exception.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$message</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>mixed[]</entry><entry>$context</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>void </para>
+</formalpara>
+</para>
+<para>
+Implémente <link linkend="_interface_psr_1_1_log_1_1_logger_interface_1a14ebc4ac3658a6054caade4a30587cd3">LoggerInterface</link>.</para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_psr_1_1_log_1_1_abstract_logger_a14ebc4ac3658a6054caade4a30587cd3_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_psr_1_1_log_1_1_abstract_logger_1a9f1fbd09fa3d7fc7d6564fb7c6dfc87a"/><section>
+    <title>debug()</title>
+<indexterm><primary>debug</primary><secondary>AbstractLogger</secondary></indexterm>
+<indexterm><primary>AbstractLogger</primary><secondary>debug</secondary></indexterm>
+<para><computeroutput>debug ( $message, array $context = <computeroutput>array()</computeroutput>
+)</computeroutput></para>
+<para>Detailed debug information.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$message</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>mixed[]</entry><entry>$context</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>void </para>
+</formalpara>
+</para>
+<para>
+Implémente <link linkend="_interface_psr_1_1_log_1_1_logger_interface_1a9f1fbd09fa3d7fc7d6564fb7c6dfc87a">LoggerInterface</link>.</para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_psr_1_1_log_1_1_abstract_logger_a9f1fbd09fa3d7fc7d6564fb7c6dfc87a_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_psr_1_1_log_1_1_abstract_logger_1afb086b1f95759b162cd55ba2b6fa38ae"/><section>
+    <title>emergency()</title>
+<indexterm><primary>emergency</primary><secondary>AbstractLogger</secondary></indexterm>
+<indexterm><primary>AbstractLogger</primary><secondary>emergency</secondary></indexterm>
+<para><computeroutput>emergency ( $message, array $context = <computeroutput>array()</computeroutput>
+)</computeroutput></para>
+<para>System is unusable.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$message</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>mixed[]</entry><entry>$context</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>void </para>
+</formalpara>
+</para>
+<para>
+Implémente <link linkend="_interface_psr_1_1_log_1_1_logger_interface_1afb086b1f95759b162cd55ba2b6fa38ae">LoggerInterface</link>.</para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_psr_1_1_log_1_1_abstract_logger_afb086b1f95759b162cd55ba2b6fa38ae_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_psr_1_1_log_1_1_abstract_logger_1a1cd5faee8fb5d0ddc73bca6d6bde78a1"/><section>
+    <title>error()</title>
+<indexterm><primary>error</primary><secondary>AbstractLogger</secondary></indexterm>
+<indexterm><primary>AbstractLogger</primary><secondary>error</secondary></indexterm>
+<para><computeroutput>error ( $message, array $context = <computeroutput>array()</computeroutput>
+)</computeroutput></para>
+<para>Runtime errors that do not require immediate action but should typically be logged and monitored.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$message</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>mixed[]</entry><entry>$context</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>void </para>
+</formalpara>
+</para>
+<para>
+Implémente <link linkend="_interface_psr_1_1_log_1_1_logger_interface_1a1cd5faee8fb5d0ddc73bca6d6bde78a1">LoggerInterface</link>.</para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_psr_1_1_log_1_1_abstract_logger_a1cd5faee8fb5d0ddc73bca6d6bde78a1_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_psr_1_1_log_1_1_abstract_logger_1a080c4e103f83f253391f134962c3bb0f"/><section>
+    <title>info()</title>
+<indexterm><primary>info</primary><secondary>AbstractLogger</secondary></indexterm>
+<indexterm><primary>AbstractLogger</primary><secondary>info</secondary></indexterm>
+<para><computeroutput>info ( $message, array $context = <computeroutput>array()</computeroutput>
+)</computeroutput></para>
+<para>Interesting events.</para>
+
+<para>Example: <link linkend="_class_user">User</link> logs in, SQL logs.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$message</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>mixed[]</entry><entry>$context</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>void </para>
+</formalpara>
+</para>
+<para>
+Implémente <link linkend="_interface_psr_1_1_log_1_1_logger_interface_1a080c4e103f83f253391f134962c3bb0f">LoggerInterface</link>.</para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_psr_1_1_log_1_1_abstract_logger_a080c4e103f83f253391f134962c3bb0f_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_psr_1_1_log_1_1_abstract_logger_1ae0f18fe657e53af89a1edca20cab8089"/><section>
+    <title>notice()</title>
+<indexterm><primary>notice</primary><secondary>AbstractLogger</secondary></indexterm>
+<indexterm><primary>AbstractLogger</primary><secondary>notice</secondary></indexterm>
+<para><computeroutput>notice ( $message, array $context = <computeroutput>array()</computeroutput>
+)</computeroutput></para>
+<para>Normal but significant events.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$message</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>mixed[]</entry><entry>$context</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>void </para>
+</formalpara>
+</para>
+<para>
+Implémente <link linkend="_interface_psr_1_1_log_1_1_logger_interface_1ae0f18fe657e53af89a1edca20cab8089">LoggerInterface</link>.</para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_psr_1_1_log_1_1_abstract_logger_ae0f18fe657e53af89a1edca20cab8089_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_psr_1_1_log_1_1_abstract_logger_1aa9f94dcb1a687e36bc7f838a8801feec"/><section>
+    <title>warning()</title>
+<indexterm><primary>warning</primary><secondary>AbstractLogger</secondary></indexterm>
+<indexterm><primary>AbstractLogger</primary><secondary>warning</secondary></indexterm>
+<para><computeroutput>warning ( $message, array $context = <computeroutput>array()</computeroutput>
+)</computeroutput></para>
+<para>Exceptional occurrences that are not errors.</para>
+
+<para>Example: Use of deprecated APIs, poor use of an API, undesirable things that are not necessarily wrong.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$message</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>mixed[]</entry><entry>$context</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>void </para>
+</formalpara>
+</para>
+<para>
+Implémente <link linkend="_interface_psr_1_1_log_1_1_logger_interface_1aa9f94dcb1a687e36bc7f838a8801feec">LoggerInterface</link>.</para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_psr_1_1_log_1_1_abstract_logger_aa9f94dcb1a687e36bc7f838a8801feec_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<para>
+La documentation de cette classe a été générée à partir du fichier suivant :</para>
+public/glpi/vendor/psr/log/Psr/Log/<link linkend="__abstract_logger_8php">AbstractLogger.php</link></section>
+</section>

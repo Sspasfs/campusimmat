@@ -1,0 +1,260 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_sabre_1_1_v_object_1_1_v_card_converter" xml:lang="fr">
+<title>Référence de la classe VCardConverter</title>
+<indexterm><primary>VCardConverter</primary></indexterm>
+Graphe de collaboration de VCardConverter:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_sabre_1_1_v_object_1_1_v_card_converter__coll__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Fonctions membres publiques    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_sabre_1_1_v_object_1_1_v_card_converter_1aead0dc1beab2ac154f1fd12b478c301e">convert</link> (<link linkend="_class_sabre_1_1_v_object_1_1_component_1_1_v_card">Component\VCard</link> $input, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">targetVersion</link>)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Fonctions membres protégées    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_sabre_1_1_v_object_1_1_v_card_converter_1aff2409e692ff21bbe5331d719d3f5f11">convertProperty</link> (<link linkend="_class_sabre_1_1_v_object_1_1_component_1_1_v_card">Component\VCard</link> $input, <link linkend="_class_sabre_1_1_v_object_1_1_component_1_1_v_card">Component\VCard</link> $output, <link linkend="_class_sabre_1_1_v_object_1_1_property">Property</link> $property, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">targetVersion</link>)</para>
+</listitem>
+            <listitem><para><link linkend="_class_sabre_1_1_v_object_1_1_v_card_converter_1a4fb46af3a37c64a3e36989a9e43ed5e9">convertBinaryToUri</link> (<link linkend="_class_sabre_1_1_v_object_1_1_component_1_1_v_card">Component\VCard</link> $output, <link linkend="_class_sabre_1_1_v_object_1_1_property_1_1_binary">Property\Binary</link> $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">newProperty</link>, array &amp;$parameters)</para>
+</listitem>
+            <listitem><para><link linkend="_class_sabre_1_1_v_object_1_1_v_card_converter_1ad34fb690efc9341f47b563fae723bb74">convertUriToBinary</link> (<link linkend="_class_sabre_1_1_v_object_1_1_component_1_1_v_card">Component\VCard</link> $output, <link linkend="_class_sabre_1_1_v_object_1_1_property_1_1_uri">Property\Uri</link> $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">newProperty</link>)</para>
+</listitem>
+            <listitem><para><link linkend="_class_sabre_1_1_v_object_1_1_v_card_converter_1a7ced3a26630cc846a4e144742037a968">convertParameters40</link> (<link linkend="_class_sabre_1_1_v_object_1_1_property">Property</link> $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">newProperty</link>, array $parameters)</para>
+</listitem>
+            <listitem><para><link linkend="_class_sabre_1_1_v_object_1_1_v_card_converter_1a5c0ee12ea7f55f07aa0f7d129226215e">convertParameters30</link> (<link linkend="_class_sabre_1_1_v_object_1_1_property">Property</link> $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">newProperty</link>, array $parameters)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Description détaillée</title>
+
+<para>This utility converts vcards from one version to another.</para>
+
+<para><formalpara><title>Copyright</title>
+
+<para>Copyright (C) fruux GmbH (<link xlink:href="https://fruux.com/">https://fruux.com/</link>) </para>
+</formalpara>
+<formalpara><title>Auteur</title>
+
+<para>Evert Pot (<link xlink:href="http://evertpot.com/">http://evertpot.com/</link>) @license <link xlink:href="http://sabre.io/license/">http://sabre.io/license/</link> Modified BSD License </para>
+</formalpara>
+</para>
+</section>
+<section>
+<title>Documentation des fonctions membres</title>
+<anchor xml:id="_class_sabre_1_1_v_object_1_1_v_card_converter_1aead0dc1beab2ac154f1fd12b478c301e"/><section>
+    <title>convert()</title>
+<indexterm><primary>convert</primary><secondary>VCardConverter</secondary></indexterm>
+<indexterm><primary>VCardConverter</primary><secondary>convert</secondary></indexterm>
+<para><computeroutput>convert (<link linkend="_class_sabre_1_1_v_object_1_1_component_1_1_v_card">Component\VCard</link> $input,  $targetVersion)</computeroutput></para>
+<para>Converts a vCard object to a new version.</para>
+
+<para>targetVersion must be one of: Document::VCARD21 Document::VCARD30 Document::VCARD40</para>
+
+<para>Currently only 3.0 and 4.0 as input and output versions.</para>
+
+<para>2.1 has some minor support for the input version, it&apos;s incomplete at the moment though.</para>
+
+<para>If input and output version are identical, a clone is returned.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>int</entry><entry>$targetVersion</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_sabre_1_1_v_object_1_1_v_card_converter_aead0dc1beab2ac154f1fd12b478c301e_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_sabre_1_1_v_object_1_1_v_card_converter_1a4fb46af3a37c64a3e36989a9e43ed5e9"/><section>
+    <title>convertBinaryToUri()</title>
+<indexterm><primary>convertBinaryToUri</primary><secondary>VCardConverter</secondary></indexterm>
+<indexterm><primary>VCardConverter</primary><secondary>convertBinaryToUri</secondary></indexterm>
+<para><computeroutput>convertBinaryToUri (<link linkend="_class_sabre_1_1_v_object_1_1_component_1_1_v_card">Component\VCard</link> $output, <link linkend="_class_sabre_1_1_v_object_1_1_property_1_1_binary">Property\Binary</link> $newProperty, array &amp; $parameters)<computeroutput>[protected]</computeroutput></computeroutput></para>
+<para>Converts a BINARY property to a URI property.</para>
+
+<para>vCard 4.0 no longer supports BINARY properties.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>Property\Uri</entry><entry>$property</entry><entry>
+<para>the input property </para>
+</entry>
+                            </row>
+                            <row>
+<entry></entry><entry>$parameters</entry><entry>
+<para>list of parameters that will eventually be added to the new property</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>Property\Uri </para>
+</formalpara>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_sabre_1_1_v_object_1_1_v_card_converter_a4fb46af3a37c64a3e36989a9e43ed5e9_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_sabre_1_1_v_object_1_1_v_card_converter_1a5c0ee12ea7f55f07aa0f7d129226215e"/><section>
+    <title>convertParameters30()</title>
+<indexterm><primary>convertParameters30</primary><secondary>VCardConverter</secondary></indexterm>
+<indexterm><primary>VCardConverter</primary><secondary>convertParameters30</secondary></indexterm>
+<para><computeroutput>convertParameters30 (<link linkend="_class_sabre_1_1_v_object_1_1_property">Property</link> $newProperty, array $parameters)<computeroutput>[protected]</computeroutput></computeroutput></para>
+<para>Adds parameters to a new property for vCard 3.0. </para>
+</section>
+<anchor xml:id="_class_sabre_1_1_v_object_1_1_v_card_converter_1a7ced3a26630cc846a4e144742037a968"/><section>
+    <title>convertParameters40()</title>
+<indexterm><primary>convertParameters40</primary><secondary>VCardConverter</secondary></indexterm>
+<indexterm><primary>VCardConverter</primary><secondary>convertParameters40</secondary></indexterm>
+<para><computeroutput>convertParameters40 (<link linkend="_class_sabre_1_1_v_object_1_1_property">Property</link> $newProperty, array $parameters)<computeroutput>[protected]</computeroutput></computeroutput></para>
+<para>Adds parameters to a new property for vCard 4.0. </para>
+</section>
+<anchor xml:id="_class_sabre_1_1_v_object_1_1_v_card_converter_1aff2409e692ff21bbe5331d719d3f5f11"/><section>
+    <title>convertProperty()</title>
+<indexterm><primary>convertProperty</primary><secondary>VCardConverter</secondary></indexterm>
+<indexterm><primary>VCardConverter</primary><secondary>convertProperty</secondary></indexterm>
+<para><computeroutput>convertProperty (<link linkend="_class_sabre_1_1_v_object_1_1_component_1_1_v_card">Component\VCard</link> $input, <link linkend="_class_sabre_1_1_v_object_1_1_component_1_1_v_card">Component\VCard</link> $output, <link linkend="_class_sabre_1_1_v_object_1_1_property">Property</link> $property,  $targetVersion)<computeroutput>[protected]</computeroutput></computeroutput></para>
+<para>Handles conversion of a single property.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>int</entry><entry>$targetVersion</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_sabre_1_1_v_object_1_1_v_card_converter_aff2409e692ff21bbe5331d719d3f5f11_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_sabre_1_1_v_object_1_1_v_card_converter_aff2409e692ff21bbe5331d719d3f5f11_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_sabre_1_1_v_object_1_1_v_card_converter_1ad34fb690efc9341f47b563fae723bb74"/><section>
+    <title>convertUriToBinary()</title>
+<indexterm><primary>convertUriToBinary</primary><secondary>VCardConverter</secondary></indexterm>
+<indexterm><primary>VCardConverter</primary><secondary>convertUriToBinary</secondary></indexterm>
+<para><computeroutput>convertUriToBinary (<link linkend="_class_sabre_1_1_v_object_1_1_component_1_1_v_card">Component\VCard</link> $output, <link linkend="_class_sabre_1_1_v_object_1_1_property_1_1_uri">Property\Uri</link> $newProperty)<computeroutput>[protected]</computeroutput></computeroutput></para>
+<para>Converts a URI property to a BINARY property.</para>
+
+<para>In vCard 4.0 attachments are encoded as data: uri. Even though these may be valid in vCard 3.0 as well, we should convert those to BINARY if possible, to improve compatibility.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>Property\Uri</entry><entry>$property</entry><entry>
+<para>the input property</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>Property\Binary|null </para>
+</formalpara>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_sabre_1_1_v_object_1_1_v_card_converter_ad34fb690efc9341f47b563fae723bb74_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<para>
+La documentation de cette classe a été générée à partir du fichier suivant :</para>
+public/glpi/vendor/sabre/vobject/lib/<link linkend="__v_card_converter_8php">VCardConverter.php</link></section>
+</section>

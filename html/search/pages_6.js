@@ -1,0 +1,7 @@
+var searchData=
+[
+  ['badge_20svg_20branch_20main_20alt_20continuous_20integration_20a_0',['Monolog - Logging for PHP &lt;a href=&quot;https://github.com/Seldaek/monolog/actions&quot; &gt;&lt;img src=&quot;https://github.com/Seldaek/monolog/workflows/Continuous%20Integration/badge.svg?branch=main&quot; alt=&quot;Continuous Integration&quot;/&gt;&lt;/a&gt;',['../md_public_2glpi_2vendor_2monolog_2monolog_2_r_e_a_d_m_e.html',1,'']]],
+  ['branch_20main_20alt_20continuous_20integration_20a_1',['Monolog - Logging for PHP &lt;a href=&quot;https://github.com/Seldaek/monolog/actions&quot; &gt;&lt;img src=&quot;https://github.com/Seldaek/monolog/workflows/Continuous%20Integration/badge.svg?branch=main&quot; alt=&quot;Continuous Integration&quot;/&gt;&lt;/a&gt;',['../md_public_2glpi_2vendor_2monolog_2monolog_2_r_e_a_d_m_e.html',1,'']]],
+  ['branch_20master_20alt_20build_20status_20a_2',['PHPColors &lt;a href=&quot;https://travis-ci.org/mexitek/phpColors&quot; &gt;&lt;img src=&quot;https://travis-ci.org/mexitek/phpColors.svg?branch=master&quot; alt=&quot;Build Status&quot;/&gt;&lt;/a&gt;',['../md_public_2glpi_2vendor_2mexitek_2phpcolors_2_r_e_a_d_m_e.html',1,'']]],
+  ['build_20status_20a_3',['PHPColors &lt;a href=&quot;https://travis-ci.org/mexitek/phpColors&quot; &gt;&lt;img src=&quot;https://travis-ci.org/mexitek/phpColors.svg?branch=master&quot; alt=&quot;Build Status&quot;/&gt;&lt;/a&gt;',['../md_public_2glpi_2vendor_2mexitek_2phpcolors_2_r_e_a_d_m_e.html',1,'']]]
+];

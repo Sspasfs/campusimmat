@@ -1,0 +1,142 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_symfony_1_1_component_1_1_css_selector_1_1_parser_1_1_parser" xml:lang="fr">
+<title>Référence de la classe Parser</title>
+<indexterm><primary>Parser</primary></indexterm>
+Graphe d&apos;héritage de Parser:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_symfony_1_1_component_1_1_css_selector_1_1_parser_1_1_parser__inherit__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Graphe de collaboration de Parser:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_symfony_1_1_component_1_1_css_selector_1_1_parser_1_1_parser__coll__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Fonctions membres publiques    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_symfony_1_1_component_1_1_css_selector_1_1_parser_1_1_parser_1a089d82475f3de50459dde161c70de13a">__construct</link> (<link linkend="_class_symfony_1_1_component_1_1_css_selector_1_1_parser_1_1_tokenizer_1_1_tokenizer">Tokenizer</link> $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">tokenizer</link>=null)</para>
+</listitem>
+            <listitem><para><link linkend="_class_symfony_1_1_component_1_1_css_selector_1_1_parser_1_1_parser_1ac2a68d4d755d70b05af0c6f30694ec28">parse</link> (string $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">source</link>)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Fonctions membres publiques statiques    </title>
+        <itemizedlist>
+            <listitem><para>static <link linkend="_class_symfony_1_1_component_1_1_css_selector_1_1_parser_1_1_parser_1a14ef59415cb022e6e6ec883cb99514fb">parseSeries</link> (array $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">tokens</link>)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Description détaillée</title>
+
+<para>CSS selector parser.</para>
+
+<para>This component is a port of the Python cssselect library, which is copyright Ian Bicking, <formalpara><title>Voir également</title>
+
+<para><link xlink:href="https://github.com/SimonSapin/cssselect">https://github.com/SimonSapin/cssselect</link>.</para>
+</formalpara>
+<formalpara><title>Auteur</title>
+
+<para>Jean-François Simon <link xlink:href="mailto:jeanfrancois.simon@sensiolabs.com">jeanfrancois.simon@sensiolabs.com</link> </para>
+</formalpara>
+</para>
+</section>
+<section>
+<title>Documentation des constructeurs et destructeur</title>
+<anchor xml:id="_class_symfony_1_1_component_1_1_css_selector_1_1_parser_1_1_parser_1a089d82475f3de50459dde161c70de13a"/><section>
+    <title>__construct()</title>
+<indexterm><primary>__construct</primary><secondary>Parser</secondary></indexterm>
+<indexterm><primary>Parser</primary><secondary>__construct</secondary></indexterm>
+<para><computeroutput>__construct (<link linkend="_class_symfony_1_1_component_1_1_css_selector_1_1_parser_1_1_tokenizer_1_1_tokenizer">Tokenizer</link> $tokenizer = <computeroutput>null</computeroutput>
+)</computeroutput></para></section>
+</section>
+<section>
+<title>Documentation des fonctions membres</title>
+<anchor xml:id="_class_symfony_1_1_component_1_1_css_selector_1_1_parser_1_1_parser_1ac2a68d4d755d70b05af0c6f30694ec28"/><section>
+    <title>parse()</title>
+<indexterm><primary>parse</primary><secondary>Parser</secondary></indexterm>
+<indexterm><primary>Parser</primary><secondary>parse</secondary></indexterm>
+<para><computeroutput>parse (string $source)</computeroutput></para>
+<para>{
+<para>Parses given selector source into an array of tokens.</para>
+
+<para><formalpara><title>Renvoie</title>
+
+<para>SelectorNode[]</para>
+</formalpara>
+</para>
+} </para>
+<para>
+Implémente <link linkend="_interface_symfony_1_1_component_1_1_css_selector_1_1_parser_1_1_parser_interface_1ac2a68d4d755d70b05af0c6f30694ec28">ParserInterface</link>.</para>
+</section>
+<anchor xml:id="_class_symfony_1_1_component_1_1_css_selector_1_1_parser_1_1_parser_1a14ef59415cb022e6e6ec883cb99514fb"/><section>
+    <title>parseSeries()</title>
+<indexterm><primary>parseSeries</primary><secondary>Parser</secondary></indexterm>
+<indexterm><primary>Parser</primary><secondary>parseSeries</secondary></indexterm>
+<para><computeroutput>static parseSeries (array $tokens)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>Parses the arguments for &quot;:nth-child()&quot; and friends.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>Token[]</entry><entry>$tokens</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>SyntaxErrorException</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_symfony_1_1_component_1_1_css_selector_1_1_parser_1_1_parser_a14ef59415cb022e6e6ec883cb99514fb_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<para>
+La documentation de cette classe a été générée à partir du fichier suivant :</para>
+public/glpi/vendor/symfony/css-selector/Parser/<link linkend="_symfony_2css-selector_2_parser_2_parser_8php">Parser.php</link></section>
+</section>

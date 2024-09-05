@@ -1,0 +1,79 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_interface_symfony_1_1_contracts_1_1_service_1_1_service_provider_interface" xml:lang="fr">
+<title>Référence de l&apos;interface ServiceProviderInterface</title>
+<indexterm><primary>ServiceProviderInterface</primary></indexterm>
+Graphe d&apos;héritage de ServiceProviderInterface:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="interface_symfony_1_1_contracts_1_1_service_1_1_service_provider_interface__inherit__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Graphe de collaboration de ServiceProviderInterface:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="interface_symfony_1_1_contracts_1_1_service_1_1_service_provider_interface__coll__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Fonctions membres publiques    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_interface_symfony_1_1_contracts_1_1_service_1_1_service_provider_interface_1a31db1d6b5f97a88c0ddcef9aa8353a64">getProvidedServices</link> ()</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+Fonctions membres publiques hérités de <link linkend="_interface_psr_1_1_container_1_1_container_interface">ContainerInterface</link>        <itemizedlist>
+            <listitem><para><link linkend="_interface_psr_1_1_container_1_1_container_interface_1a5ac35cd9b27eb36bb68f58f665b440e5">get</link> (string $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">id</link>)</para>
+</listitem>
+            <listitem><para><link linkend="_interface_psr_1_1_container_1_1_container_interface_1a967ac33cd3aaf062fd84b40592c9fc3c">has</link> (string $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">id</link>)</para>
+</listitem>
+        </itemizedlist>
+<section>
+<title>Description détaillée</title>
+
+<para>A ServiceProviderInterface exposes the identifiers and the types of services provided by a container.</para>
+
+<para><formalpara><title>Auteur</title>
+
+<para>Nicolas Grekas <link xlink:href="mailto:p@tchwork.com">p@tchwork.com</link> </para>
+
+<para>Mateusz Sip <link xlink:href="mailto:mateusz.sip@gmail.com">mateusz.sip@gmail.com</link> </para>
+</formalpara>
+</para>
+</section>
+<section>
+<title>Documentation des fonctions membres</title>
+<anchor xml:id="_interface_symfony_1_1_contracts_1_1_service_1_1_service_provider_interface_1a31db1d6b5f97a88c0ddcef9aa8353a64"/><section>
+    <title>getProvidedServices()</title>
+<indexterm><primary>getProvidedServices</primary><secondary>ServiceProviderInterface</secondary></indexterm>
+<indexterm><primary>ServiceProviderInterface</primary><secondary>getProvidedServices</secondary></indexterm>
+<para><computeroutput>getProvidedServices ( )</computeroutput></para>
+<para>Returns an associative array of service types keyed by the identifiers provided by the current container.</para>
+
+<para>Examples:</para>
+
+<para><itemizedlist>
+<listitem>
+<para>[&apos;logger&apos; =&gt; &apos;Psr\Log\LoggerInterface&apos;] means the object provides a service named &quot;logger&quot; that implements Psr\Log\LoggerInterface</para>
+</listitem><listitem>
+<para>[&apos;foo&apos; =&gt; &apos;?&apos;] means the container provides service name &quot;foo&quot; of unspecified type</para>
+</listitem><listitem>
+<para>[&apos;bar&apos; =&gt; &apos;?Bar\Baz&apos;] means the container provides a service &quot;bar&quot; of type Bar\Baz|null</para>
+</listitem></itemizedlist>
+</para>
+
+<para><formalpara><title>Renvoie</title>
+
+<para>string[] The provided service types, keyed by service names </para>
+</formalpara>
+</para>
+</section>
+<para>
+La documentation de cette interface a été générée à partir du fichier suivant :</para>
+public/glpi/vendor/symfony/service-contracts/<link linkend="__service_provider_interface_8php">ServiceProviderInterface.php</link></section>
+</section>

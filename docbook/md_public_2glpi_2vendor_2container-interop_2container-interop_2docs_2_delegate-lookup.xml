@@ -1,0 +1,56 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_md_public_2glpi_2vendor_2container-interop_2container-interop_2docs_2_delegate-lookup" xml:lang="fr">
+<title>Delegate lookup feature</title>
+<indexterm><primary>Delegate lookup feature</primary></indexterm>
+
+<para>This document describes a standard for dependency injection containers.</para>
+
+<para>The goal set by the <emphasis>delegate lookup</emphasis> feature is to allow several containers to share entries. Containers implementing this feature can perform dependency lookups in other containers.</para>
+
+<para>Containers implementing this feature will offer a greater lever of interoperability with other containers. Implementation of this feature is therefore RECOMMENDED.</para>
+
+<para>The key words &quot;MUST&quot;, &quot;MUST NOT&quot;, &quot;REQUIRED&quot;, &quot;SHALL&quot;, &quot;SHALL NOT&quot;, &quot;SHOULD&quot;, &quot;SHOULD NOT&quot;, &quot;RECOMMENDED&quot;, &quot;MAY&quot;, and &quot;OPTIONAL&quot; in this document are to be interpreted as described in <link xlink:href="http://tools.ietf.org/html/rfc2119">RFC 2119</link>.</para>
+
+<para>The word <computeroutput>implementor</computeroutput> in this document is to be interpreted as someone implementing the delegate lookup feature in a dependency injection-related library or framework. Users of dependency injections containers (DIC) are referred to as <computeroutput>user</computeroutput>.</para>
+<section xml:id="_md_public_2glpi_2vendor_2container-interop_2container-interop_2docs_2_delegate-lookup_1autotoc_md5733">
+<title><title>1. Vocabulary</title></title>
+
+<para>In a dependency injection container, the container is used to fetch entries. Entries can have dependencies on other entries. Usually, these other entries are fetched by the container.</para>
+
+<para>The <emphasis>delegate lookup</emphasis> feature is the ability for a container to fetch dependencies in another container. In the rest of the document, the word &quot;container&quot; will reference the container implemented by the implementor. The word &quot;delegate container&quot; will reference the container we are fetching the dependencies from.</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2container-interop_2container-interop_2docs_2_delegate-lookup_1autotoc_md5734">
+<title><title>2. Specification</title></title>
+
+<para>A container implementing the <emphasis>delegate lookup</emphasis> feature:</para>
+
+<para><itemizedlist>
+<listitem>
+<para>MUST implement the <link linkend="_md_public_2glpi_2vendor_2container-interop_2container-interop_2docs_2_container_interface"><computeroutput>ContainerInterface</computeroutput></link></para>
+</listitem><listitem>
+<para>MUST provide a way to register a delegate container (using a constructor parameter, or a setter, or any possible way). The delegate container MUST implement the <link linkend="_md_public_2glpi_2vendor_2container-interop_2container-interop_2docs_2_container_interface"><computeroutput>ContainerInterface</computeroutput></link>.</para>
+</listitem></itemizedlist>
+</para>
+
+<para>When a container is configured to use a delegate container for dependencies:</para>
+
+<para><itemizedlist>
+<listitem>
+<para>Calls to the <computeroutput>get</computeroutput> method should only return an entry if the entry is part of the container. If the entry is not part of the container, an exception should be thrown (as requested by the <link linkend="_md_public_2glpi_2vendor_2container-interop_2container-interop_2docs_2_container_interface"><computeroutput>ContainerInterface</computeroutput></link>).</para>
+</listitem><listitem>
+<para>Calls to the <computeroutput>has</computeroutput> method should only return <computeroutput>true</computeroutput> if the entry is part of the container. If the entry is not part of the container, <computeroutput>false</computeroutput> should be returned.</para>
+</listitem><listitem>
+<para>If the fetched entry has dependencies, <emphasis role="bold">instead</emphasis> of performing the dependency lookup in the container, the lookup is performed on the <emphasis>delegate container</emphasis>.</para>
+</listitem></itemizedlist>
+</para>
+
+<para>Important: By default, the dependency lookups SHOULD be performed on the delegate container <emphasis role="bold">only</emphasis>, not on the container itself.</para>
+
+<para>It is however allowed for containers to provide exception cases for special entries, and a way to lookup into the same container (or another container) instead of the delegate container.</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2container-interop_2container-interop_2docs_2_delegate-lookup_1autotoc_md5735">
+<title><title>3. Package / Interface</title></title>
+
+<para>This feature is not tied to any code, interface or package. </para>
+</section>
+</section>

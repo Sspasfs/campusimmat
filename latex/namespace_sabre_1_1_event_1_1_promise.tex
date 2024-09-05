@@ -1,0 +1,77 @@
+\doxysection{Référence de l\textquotesingle{}espace de nommage Sabre\textbackslash{}Event\textbackslash{}Promise}
+\hypertarget{namespace_sabre_1_1_event_1_1_promise}{}\label{namespace_sabre_1_1_event_1_1_promise}\index{Sabre\textbackslash{}Event\textbackslash{}Promise@{Sabre\textbackslash{}Event\textbackslash{}Promise}}
+\doxysubsubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespace_sabre_1_1_event_1_1_promise_a1a337f08ad199faf88c585d6d7ad13d8}{all}} (array \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{promises}})
+\item 
+\mbox{\hyperlink{namespace_sabre_1_1_event_1_1_promise_a3af4f3fa94b7fb5af332845333a04c2d}{race}} (array \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{promises}})
+\item 
+\mbox{\hyperlink{namespace_sabre_1_1_event_1_1_promise_ad87255b62f0e4e81f9462328a026b510}{resolve}} (\$value)
+\item 
+\mbox{\hyperlink{namespace_sabre_1_1_event_1_1_promise_affabab07ec5afa282006ca70b768b957}{reject}} (Throwable \$reason)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Documentation des fonctions}
+\Hypertarget{namespace_sabre_1_1_event_1_1_promise_a1a337f08ad199faf88c585d6d7ad13d8}\label{namespace_sabre_1_1_event_1_1_promise_a1a337f08ad199faf88c585d6d7ad13d8} 
+\index{Sabre\textbackslash{}Event\textbackslash{}Promise@{Sabre\textbackslash{}Event\textbackslash{}Promise}!all@{all}}
+\index{all@{all}!Sabre\textbackslash{}Event\textbackslash{}Promise@{Sabre\textbackslash{}Event\textbackslash{}Promise}}
+\doxysubsubsection{\texorpdfstring{all()}{all()}}
+{\footnotesize\ttfamily all (\begin{DoxyParamCaption}\item[{array}]{\$promises }\end{DoxyParamCaption})}
+
+This file contains a set of functions that are useful for dealing with the Promise object.
+
+\begin{DoxyCopyright}{Copyright}
+Copyright (C) fruux GmbH (\href{https://fruux.com/}{\texttt{ https\+://fruux.\+com/}}) 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Auteur}
+Evert Pot (\href{http://evertpot.com/}{\texttt{ http\+://evertpot.\+com/}}) @license \href{http://sabre.io/license/}{\texttt{ http\+://sabre.\+io/license/}} Modified BSD License This function takes an array of Promises, and returns a Promise that resolves when all the given arguments have resolved.
+\end{DoxyAuthor}
+The returned Promise will resolve with a value that\textquotesingle{}s an array of all the values the given promises have been resolved with.
+
+This array will be in the exact same order as the array of input promises.
+
+If any of the given Promises fails, the returned promise will immediately fail with the first Promise that fails, and its reason.
+
+
+\begin{DoxyParams}[1]{Paramètres}
+Promise\mbox{[}$\,$\mbox{]} & {\em \$promises} & \\
+\hline
+\end{DoxyParams}
+\Hypertarget{namespace_sabre_1_1_event_1_1_promise_a3af4f3fa94b7fb5af332845333a04c2d}\label{namespace_sabre_1_1_event_1_1_promise_a3af4f3fa94b7fb5af332845333a04c2d} 
+\index{Sabre\textbackslash{}Event\textbackslash{}Promise@{Sabre\textbackslash{}Event\textbackslash{}Promise}!race@{race}}
+\index{race@{race}!Sabre\textbackslash{}Event\textbackslash{}Promise@{Sabre\textbackslash{}Event\textbackslash{}Promise}}
+\doxysubsubsection{\texorpdfstring{race()}{race()}}
+{\footnotesize\ttfamily race (\begin{DoxyParamCaption}\item[{array}]{\$promises }\end{DoxyParamCaption})}
+
+The race function returns a promise that resolves or rejects as soon as one of the promises in the argument resolves or rejects.
+
+The returned promise will resolve or reject with the value or reason of that first promise.
+
+
+\begin{DoxyParams}[1]{Paramètres}
+Promise\mbox{[}$\,$\mbox{]} & {\em \$promises} & \\
+\hline
+\end{DoxyParams}
+\Hypertarget{namespace_sabre_1_1_event_1_1_promise_affabab07ec5afa282006ca70b768b957}\label{namespace_sabre_1_1_event_1_1_promise_affabab07ec5afa282006ca70b768b957} 
+\index{Sabre\textbackslash{}Event\textbackslash{}Promise@{Sabre\textbackslash{}Event\textbackslash{}Promise}!reject@{reject}}
+\index{reject@{reject}!Sabre\textbackslash{}Event\textbackslash{}Promise@{Sabre\textbackslash{}Event\textbackslash{}Promise}}
+\doxysubsubsection{\texorpdfstring{reject()}{reject()}}
+{\footnotesize\ttfamily reject (\begin{DoxyParamCaption}\item[{Throwable}]{\$reason }\end{DoxyParamCaption})}
+
+Returns a Promise that will reject with the given reason. \Hypertarget{namespace_sabre_1_1_event_1_1_promise_ad87255b62f0e4e81f9462328a026b510}\label{namespace_sabre_1_1_event_1_1_promise_ad87255b62f0e4e81f9462328a026b510} 
+\index{Sabre\textbackslash{}Event\textbackslash{}Promise@{Sabre\textbackslash{}Event\textbackslash{}Promise}!resolve@{resolve}}
+\index{resolve@{resolve}!Sabre\textbackslash{}Event\textbackslash{}Promise@{Sabre\textbackslash{}Event\textbackslash{}Promise}}
+\doxysubsubsection{\texorpdfstring{resolve()}{resolve()}}
+{\footnotesize\ttfamily resolve (\begin{DoxyParamCaption}\item[{}]{\$value }\end{DoxyParamCaption})}
+
+Returns a Promise that resolves with the given value.
+
+If the value is a promise, the returned promise will attach itself to that promise and eventually get the same state as the followed promise.
+
+
+\begin{DoxyParams}[1]{Paramètres}
+mixed & {\em \$value} & \\
+\hline
+\end{DoxyParams}

@@ -1,0 +1,377 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.10.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>CampusImmat: API</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">CampusImmat
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.10.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+</div><!-- top -->
+<div><div class="header">
+  <div class="headertitle"><div class="title">API</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><p>This file describes all UnifiedArchive API.</p>
+<p>UnifiedArchive is represented by few basic classes under <code>\wapmorgan\UnifiedArchive</code> namespace:</p>
+<ol type="1">
+<li>`Formats` keeps information about formats support and specific format functions.</li>
+<li>`UnifiedArchive` - represents an archive and provides related functions.</li>
+<li>`ArchiveEntry` - represents information about a specific file from archive. This object can be obtained by call to one of <code>UnifiedArchive</code> methods.</li>
+</ol>
+<h1><a class="anchor" id="autotoc_md7487"></a>
+Formats</h1>
+<p><code>$format</code> should be one of <code>Formats</code> constants (such as <code>Formats::ZIP</code> and so on). Full list of constants provided in the <a class="el" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">appendix of this document</a>. <em>If you want to enabled specific format support, you need to install an additional program or php extension. List of extensions that should be installed can be obtained by executing built-in <code>cam</code>: <code>./vendor/bin/cam system:drivers</code></em></p>
+<p>All methods are static.</p>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadNone">Method   </th><th class="markdownTableHeadNone">Arguments   </th><th class="markdownTableHeadNone">Result   </th><th class="markdownTableHeadNone">Description    </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><code>Formats::detectArchiveFormat</code>   </td><td class="markdownTableBodyNone"><code>string $archiveFileName, bool $contentCheck = true</code>   </td><td class="markdownTableBodyNone"><code>string/false</code>   </td><td class="markdownTableBodyNone">Detects a format of given archive <code>$archiveFileName</code>. Checks file name and file content (if <code>$contentCheck = true</code>). Returns one of <code>Formats</code> constant or <code>false</code> if format is not detected.    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><code>Formats::canOpen</code>   </td><td class="markdownTableBodyNone"><code>string $format</code>   </td><td class="markdownTableBodyNone"><code>boolean</code>   </td><td class="markdownTableBodyNone"><a class="el" href="namespace_tests.html">Tests</a> if an archive format can be opened by any driver with current system and php configuration.    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><code>Formats::canStream</code>   </td><td class="markdownTableBodyNone"><code>string $format</code>   </td><td class="markdownTableBodyNone"><code>boolean</code>   </td><td class="markdownTableBodyNone"><a class="el" href="namespace_tests.html">Tests</a> if a specified archive can be streamed (getFileStream).    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><code>Formats::canCreate</code>   </td><td class="markdownTableBodyNone"><code>string $format</code>   </td><td class="markdownTableBodyNone"><code>boolean</code>   </td><td class="markdownTableBodyNone"><a class="el" href="namespace_tests.html">Tests</a> if an archive format can be created by any driver with current system and php configuration.    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><code>Formats::canAppend</code>   </td><td class="markdownTableBodyNone"><code>string $format</code>   </td><td class="markdownTableBodyNone"><code>boolean</code>   </td><td class="markdownTableBodyNone"><a class="el" href="namespace_tests.html">Tests</a> if an archive format can be appended (add).    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><code>Formats::canUpdate</code>   </td><td class="markdownTableBodyNone"><code>string $format</code>   </td><td class="markdownTableBodyNone"><code>boolean</code>   </td><td class="markdownTableBodyNone"><a class="el" href="namespace_tests.html">Tests</a> if an archive format can be updated (delete).    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><code>Formats::canEncrypt</code>   </td><td class="markdownTableBodyNone"><code>string $format</code>   </td><td class="markdownTableBodyNone"><code>boolean</code>   </td><td class="markdownTableBodyNone"><a class="el" href="namespace_tests.html">Tests</a> if an archive format can be encrypted or opened with encryption by any driver with new files.    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><code>Formats::checkFormatSupportAbility</code>   </td><td class="markdownTableBodyNone">string <code>$format, int $ability</code>   </td><td class="markdownTableBodyNone">boolean   </td><td class="markdownTableBodyNone">Check if any driver supports passed ability for passed format    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><code>Formats::getFormatMimeType</code>   </td><td class="markdownTableBodyNone"><code>string $format</code>   </td><td class="markdownTableBodyNone"><code>string/false</code>   </td><td class="markdownTableBodyNone">Returns mime type for passed format. Returns <code>false</code> if not found.   </td></tr>
+</table>
+<h1><a class="anchor" id="autotoc_md7488"></a>
+UnifiedArchive</h1>
+<ul>
+<li>Opening an archive<ul>
+<li><a class="el" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">`UnifiedArchive::canOpen`</a></li>
+<li><a class="el" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">`UnifiedArchive::open`</a></li>
+<li><a class="el" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">`UnifiedArchive-&gt;getPclZipInterface`</a></li>
+</ul>
+</li>
+<li>Archive information:<ul>
+<li><code>UnifiedArchive-&gt;getFormat</code></li>
+<li><code>UnifiedArchive-&gt;getSize</code></li>
+<li><code>UnifiedArchive-&gt;getCompressedSize</code></li>
+<li><code>UnifiedArchive-&gt;getOriginalSize</code></li>
+<li><code>UnifiedArchive-&gt;countFiles</code></li>
+<li><code>UnifiedArchive-&gt;getComment</code></li>
+</ul>
+</li>
+<li>Extracting an archive:<ul>
+<li><a class="el" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">`UnifiedArchive-&gt;getFiles`</a></li>
+<li><a class="el" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">`UnifiedArchive-&gt;hasFile`</a></li>
+<li><a class="el" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">`UnifiedArchive-&gt;getFileData`</a></li>
+<li><a class="el" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">`UnifiedArchive-&gt;getFileStream`</a></li>
+<li><a class="el" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">`UnifiedArchive-&gt;getFileContent`</a></li>
+<li><a class="el" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">`UnifiedArchive-&gt;extract`</a></li>
+</ul>
+</li>
+<li>Updating an archive:<ul>
+<li><a class="el" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">`UnifiedArchive-&gt;addDirectory`</a></li>
+<li><a class="el" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">`UnifiedArchive-&gt;addFile`</a></li>
+<li><a class="el" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">`UnifiedArchive-&gt;addFileFromString`</a></li>
+<li><a class="el" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">`UnifiedArchive-&gt;add`</a></li>
+<li><a class="el" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">`UnifiedArchive-&gt;delete`</a></li>
+</ul>
+</li>
+<li>Making an archive:<ul>
+<li><a class="el" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">`UnifiedArchive::archiveDirectory`</a></li>
+<li><a class="el" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">`UnifiedArchive::archiveFile`</a></li>
+<li><a class="el" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">`UnifiedArchive::archive`</a></li>
+</ul>
+</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md7489"></a>
+Archive opening</h2>
+<ul>
+<li><p class="startli"><span id="UnifiedArchive--canOpen"></span> </p><div class="fragment"><div class="line">UnifiedArchive::canOpen(<span class="keywordtype">string</span> $fileName): boolean</div>
+</div><!-- fragment --><p class="startli"><a class="el" href="namespace_tests.html">Tests</a> if an archive (format is resolved by extension) can be opened with current system and php configuration. <em>If you want to enabled specific format support, you need to install an additional program or php extension. List of extensions that should be installed can be obtained by executing built-in <code>cam</code>: <code> ./vendor/bin/cam system:formats</code></em> Returns <code>true</code> if given archive can be opened and <code>false</code> otherwise.</p>
+</li>
+<li><p class="startli"><span id="UnifiedArchive--open"></span> </p><div class="fragment"><div class="line">UnifiedArchive::open(</div>
+<div class="line">    <span class="keywordtype">string</span> $fileName,</div>
+<div class="line">    <span class="keywordtype">int</span>[] <a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">$abilities</a> = [],</div>
+<div class="line">    ?<span class="keywordtype">string</span> $password = <span class="keyword">null</span></div>
+<div class="line">): UnifiedArchive|null</div>
+<div class="ttc" id="areport_8contract_8php_html_a77b973d137fb33212e018b042df6e3e7"><div class="ttname"><a href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">$y</a></div><div class="ttdeci">$y</div><div class="ttdef"><b>Definition</b> report.contract.php:71</div></div>
+</div><!-- fragment --><p class="startli">Opens an archive and returns instance of <code>UnifiedArchive</code>. If you provide <code>$password</code>, it will be used to open encrypted archive. If you provide <code>$abilities</code>, it will be used to determine driver for format, that supports ALL of passed abilities. In case of failure (format is not supported or recognized), null will be returned.</p>
+</li>
+<li><p class="startli"><span id="UnifiedArchive--getPclZipInterface"></span> </p><div class="fragment"><div class="line">UnifiedArchive::getPclZipInterface(): <a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">PclzipZipInterface</a></div>
+</div><!-- fragment --><p class="startli">Returns a <code>PclzipZipInterface</code> handler for an archive. It provides all PclZip functions in PclZip-like interface for an archive.</p>
+</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md7490"></a>
+Archive information</h2>
+<p>All following methods is intended to be called to <code>UnifiedArchive</code> instance.</p>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadNone">Method   </th><th class="markdownTableHeadNone">Result   </th><th class="markdownTableHeadNone">Description    </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><code>UnifiedArchive::getFormat()</code>   </td><td class="markdownTableBodyNone"><code>string</code>   </td><td class="markdownTableBodyNone">Returns format of archive as one of <code>Formats</code> constants.    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><code>UnifiedArchive::getMimeType()</code>   </td><td class="markdownTableBodyNone"><code>string/false</code>   </td><td class="markdownTableBodyNone">Returns mime type of archive.    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><code>UnifiedArchive::getSize()</code>   </td><td class="markdownTableBodyNone"><code>int</code>   </td><td class="markdownTableBodyNone">Returns size of archive file in bytes.    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><code>UnifiedArchive::getCompressedSize()</code>   </td><td class="markdownTableBodyNone"><code>int</code>   </td><td class="markdownTableBodyNone">Returns size of all stored files in archive with archive compression in bytes. This can be used to measure efficiency of format compression.    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><code>UnifiedArchive::getOriginalSize()</code>   </td><td class="markdownTableBodyNone"><code>int</code>   </td><td class="markdownTableBodyNone">Returns size of all stored files in archive without compression in bytes. This can be used to measure size that extracted files will use.    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><code>UnifiedArchive::countFiles()</code>   </td><td class="markdownTableBodyNone"><code>int</code>   </td><td class="markdownTableBodyNone">Returns number of files stored in an archive.    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><code>UnifiedArchive::getComment()</code>   </td><td class="markdownTableBodyNone"><code>?string</code>   </td><td class="markdownTableBodyNone">Returns comment of archive or null (if not supported nor present).   </td></tr>
+</table>
+<h2><a class="anchor" id="autotoc_md7491"></a>
+Archive content</h2>
+<ul>
+<li><span id="UnifiedArchive--getFiles"></span> <div class="fragment"><div class="line">UnifiedArchive::getFiles(?<span class="keywordtype">string</span> <a class="code hl_variable" href="export_8php.html#aac53bdb48bdd96ff9c20e2a86f48ce5f">$filter</a> = <span class="keyword">null</span>): string[]</div>
+<div class="ttc" id="aexport_8php_html_aac53bdb48bdd96ff9c20e2a86f48ce5f"><div class="ttname"><a href="export_8php.html#aac53bdb48bdd96ff9c20e2a86f48ce5f">$filter</a></div><div class="ttdeci">$filter</div><div class="ttdef"><b>Definition</b> export.php:45</div></div>
+</div><!-- fragment --> Returns full list of files stored in an archive. If <code>$filter</code> is passed, will return only matched by <code><a class="el" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">fnmatch()</a></code> files.</li>
+<li><span id="UnifiedArchive--hasFile"></span> <div class="fragment"><div class="line">UnifiedArchive::hasFile(<span class="keywordtype">string</span> $fileName): boolean</div>
+</div><!-- fragment --> Checks whether file is presented in an archive.</li>
+<li><p class="startli"><span id="UnifiedArchive--getFileData"></span> </p><div class="fragment"><div class="line">UnifiedArchive::getFileData(<span class="keywordtype">string</span> $fileName): ArchiveEntry</div>
+</div><!-- fragment --><p class="startli">Returns <code>ArchiveEntry</code> that contains all specific information about file stored in archive and described <a class="el" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">later in the document</a>. If file is not in archive, <code>NonExistentArchiveFileException</code> is thrown.</p>
+</li>
+<li><p class="startli"><span id="UnifiedArchive--getFileStream"></span> </p><div class="fragment"><div class="line">UnifiedArchive::getFileStream(<span class="keywordtype">string</span> $fileName): resource</div>
+</div><!-- fragment --><p class="startli">Returns a resource of in-archive file that can be used to get it's content (by <code>fread()</code> and so on). This method of extraction is useful for large files or when you need to read files in portions. If file is not in archive, <code>NonExistentArchiveFileException</code> is thrown.</p>
+</li>
+<li><p class="startli"><span id="UnifiedArchive--getFileContent"></span> </p><div class="fragment"><div class="line">UnifiedArchive::getFileContent(<span class="keywordtype">string</span> $fileName): string</div>
+</div><!-- fragment --><p class="startli">Returns content of in-archive file as raw string. If file is not in archive, <code>NonExistentArchiveFileException</code> is thrown.</p>
+</li>
+<li><p class="startli"><span id="UnifiedArchive--extract"></span> </p><div class="fragment"><div class="line">UnifiedArchive::extract(<span class="keywordtype">string</span> <a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">$outputFolder</a>): int</div>
+</div><!-- fragment --><p class="startli">Extracts all archive content with full paths to output folder and rewriting existing files. In case of success, number of extracted files is returned.</p>
+<p class="startli">Throws:</p><ul>
+<li><code>ArchiveExtractionException</code></li>
+</ul>
+</li>
+<li><p class="startli"><span id="UnifiedArchive--extract"></span> </p><div class="fragment"><div class="line">UnifiedArchive::extract(</div>
+<div class="line">    <span class="keywordtype">string</span> <a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">$outputFolder</a>,</div>
+<div class="line">    array $files,</div>
+<div class="line">    <span class="keywordtype">boolean</span> <a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">$expandFilesList</a> = <span class="keyword">false</span></div>
+<div class="line">): int|false</div>
+</div><!-- fragment --><p class="startli">Extracts given files or directories to output folder. If directories is passed, you need to use <code>$expandFilesList</code> feature that will expand directory names to all nested files (e.g <code>dir</code> will be expanded to <code>dir/file1, dir/file2, dir/subdir/file3</code>). In case of success, number of extracted files is returned.</p>
+<p class="startli">Throws:</p><ul>
+<li><code>EmptyFileListException</code></li>
+<li><code>ArchiveExtractionException</code></li>
+</ul>
+</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md7492"></a>
+Archive modification</h2>
+<ul>
+<li><p class="startli"><span id="UnifiedArchive--addDirectory"></span> </p><div class="fragment"><div class="line">UnifiedArchive::addDirectory(</div>
+<div class="line">    <span class="keywordtype">string</span> $directory,</div>
+<div class="line">    <span class="keywordtype">string</span> <a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">$inArchivePath</a> = <span class="keyword">null</span></div>
+<div class="line">): boolean</div>
+</div><!-- fragment --><p class="startli">Packs all nested files from <code>$directory</code> in archive. If in-archive path is not specified, all contents will be stored with full directory path. If in-archive path is set, all nested files will have given in-archive path. If case of success, <code>true</code> is returned.</p>
+<p class="startli">Throws:</p><ul>
+<li><code>EmptyFileListException</code></li>
+<li><code>UnsupportedOperationException</code></li>
+<li><code>ArchiveModificationException</code></li>
+</ul>
+</li>
+<li><p class="startli"><span id="UnifiedArchive--addFile"></span> </p><div class="fragment"><div class="line">UnifiedArchive::addFile(</div>
+<div class="line">    <span class="keywordtype">string</span> <a class="code hl_variable" href="aealarabiya_8php.html#aa1bfbd27060176201b271918dff57e8f">$file</a>,</div>
+<div class="line">    <span class="keywordtype">string</span> <a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">$inArchiveName</a> = <span class="keyword">null</span></div>
+<div class="line">): boolean</div>
+<div class="ttc" id="aaealarabiya_8php_html_aa1bfbd27060176201b271918dff57e8f"><div class="ttname"><a href="aealarabiya_8php.html#aa1bfbd27060176201b271918dff57e8f">$file</a></div><div class="ttdeci">$file</div><div class="ttdef"><b>Definition</b> aealarabiya.php:11</div></div>
+</div><!-- fragment --><p class="startli">Packs file in an archive. If in-archive path is not specified, file will have it's original path. If in-archive path is set, file wil be packed with given path. If case of success, <code>true</code> is returned.</p>
+<p class="startli">Throws:</p><ul>
+<li><code>EmptyFileListException</code></li>
+<li><code>UnsupportedOperationException</code></li>
+<li><code>ArchiveModificationException</code></li>
+</ul>
+</li>
+<li><p class="startli"><span id="UnifiedArchive--addFileFromString"></span> </p><div class="fragment"><div class="line">UnifiedArchive::addFileFromString(</div>
+<div class="line">    <span class="keywordtype">string</span> <a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">$inArchiveName</a>,</div>
+<div class="line">    <span class="keywordtype">string</span> $content</div>
+<div class="line">): boolean</div>
+</div><!-- fragment --><p class="startli">Packs file in an archive. If case of success, <code>true</code> is returned.</p>
+<p class="startli">Throws:</p><ul>
+<li><code>ArchiveModificationException</code></li>
+</ul>
+</li>
+<li><p class="startli"><span id="UnifiedArchive--add"></span> </p><div class="fragment"><div class="line">UnifiedArchive::add(array $files): int|false</div>
+</div><!-- fragment --><p class="startli">Packs given <code>$files</code> into archive. <code>$files</code> is an array of files or directories. If file/directory passed with numeric key (e.g &lsquo;['file&rsquo;, 'directory']<code>), then file/directory will have it's full path in archive. If file/directory is a key (e.g</code>['in_archive_path' =&gt; 'file1']<code>), then file/directory will have path as it's key. If any error occurred (such as file already exists, files list is empty, ...), an</code>\Exception` is throwing. In case of success, number of packed files will be returned.</p>
+<p class="startli">Throws:</p><ul>
+<li><code>EmptyFileListException</code></li>
+<li><code>UnsupportedOperationException</code></li>
+<li><code>ArchiveModificationException</code></li>
+</ul>
+</li>
+<li><p class="startli"><span id="UnifiedArchive--delete"></span> </p><div class="fragment"><div class="line">UnifiedArchive::delete(</div>
+<div class="line">    <span class="keywordtype">string</span>|array <a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">$fileOrFiles</a>,</div>
+<div class="line">    <a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">$expandFilesList</a> = <span class="keyword">false</span></div>
+<div class="line">): int|false</div>
+</div><!-- fragment --><p class="startli">Deletes passed <code>$fileOrFiles</code> from archive. <code>$fileOrFiles</code> is a string with file/directory name or an array of files or directories. In case of success, number of deleted files will be returned.</p>
+<p class="startli">Throws:</p><ul>
+<li><code>EmptyFileListException</code></li>
+<li><code>UnsupportedOperationException</code></li>
+<li><code>ArchiveModificationException</code></li>
+</ul>
+</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md7493"></a>
+Making an archive</h2>
+<ul>
+<li><p class="startli"><span id="UnifiedArchive::archiveDirectory"></span> </p><div class="fragment"><div class="line">UnifiedArchive::archiveDirectory(</div>
+<div class="line">    <span class="keywordtype">string</span> $directory,</div>
+<div class="line">    <span class="keywordtype">string</span> <a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">$archiveName</a>,</div>
+<div class="line">    <span class="keywordtype">int</span> <a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">$compressionLevel</a> = BasicFormat::COMPRESSION_AVERAGE,</div>
+<div class="line">    ?<span class="keywordtype">string</span> $password = <span class="keyword">null</span></div>
+<div class="line">): boolean</div>
+</div><!-- fragment --><p class="startli">Creates an archive with all content from given directory and saves archive to <code>$archiveName</code> (format is resolved by extension). All files have relative path in the archive. By <code>$compressionLevel</code> you can adjust compression level for files. By <code>$password</code> you can set password for an archive. If case of success, <code>true</code> is returned.</p>
+<p class="startli">Available values for compression:</p><ul>
+<li><code>BasicFormat::COMPRESSION_NONE</code></li>
+<li><code>BasicFormat::COMPRESSION_WEAK</code></li>
+<li><code>BasicFormat::COMPRESSION_AVERAGE</code></li>
+<li><code>BasicFormat::COMPRESSION_STRONG</code></li>
+<li><code>BasicFormat::COMPRESSION_MAXIMUM</code></li>
+</ul>
+<p class="startli">Throws:</p><ul>
+<li><code>UnsupportedOperationException</code></li>
+<li><code>FileAlreadyExistsException</code></li>
+<li><code>EmptyFileListException</code></li>
+<li><code>ArchiveCreationException</code></li>
+</ul>
+</li>
+<li><p class="startli"><span id="UnifiedArchive--archiveFile"></span><span id="UnifiedArchive--archiveFile"></span> </p><div class="fragment"><div class="line">UnifiedArchive::archiveFile(</div>
+<div class="line">    <span class="keywordtype">string</span> <a class="code hl_variable" href="aealarabiya_8php.html#aa1bfbd27060176201b271918dff57e8f">$file</a>,</div>
+<div class="line">    <span class="keywordtype">string</span> <a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">$archiveName</a>,</div>
+<div class="line">    <span class="keywordtype">int</span> <a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">$compressionLevel</a> = BasicFormat::COMPRESSION_AVERAGE,</div>
+<div class="line">    ?<span class="keywordtype">string</span> $password = <span class="keyword">null</span></div>
+<div class="line">): boolean</div>
+</div><!-- fragment --><p class="startli">Creates an archive with file <code>$file</code> and saves archive to <code>$archiveName</code> (format is resolved by extension). File will have only relative name in the archive. If case of success, <code>true</code> is returned.</p>
+<p class="startli">Throws:</p><ul>
+<li><code>UnsupportedOperationException</code></li>
+<li><code>FileAlreadyExistsException</code></li>
+<li><code>EmptyFileListException</code></li>
+<li><code>ArchiveCreationException</code></li>
+</ul>
+</li>
+<li><p class="startli"><span id="UnifiedArchive--archive"></span> </p><div class="fragment"><div class="line">UnifiedArchive::archive(</div>
+<div class="line">    array $files,</div>
+<div class="line">    <span class="keywordtype">string</span> <a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">$archiveName</a>,</div>
+<div class="line">    <span class="keywordtype">int</span> <a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">$compressionLevel</a> = BasicFormat::COMPRESSION_AVERAGE,</div>
+<div class="line">    ?<span class="keywordtype">string</span> $password = <span class="keyword">null</span></div>
+<div class="line">): int</div>
+</div><!-- fragment --><p class="startli">Creates an archive with given <code>$files</code> list. <code>$files</code> is an array of files or directories. If file/directory passed with numeric key (e.g &lsquo;['file&rsquo;, 'directory']<code>), then file/directory will have it's full path in an archive. If file/directory is a key (e.g</code>['in_archive_path' =&gt; 'file1']`), then file/directory will have path as it's value. In case of success, number of stored files will be returned.</p>
+<p class="startli">Throws:</p><ul>
+<li><code>UnsupportedOperationException</code></li>
+<li><code>FileAlreadyExistsException</code></li>
+<li><code>EmptyFileListException</code></li>
+<li><code>ArchiveCreationException</code></li>
+</ul>
+</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md7494"></a>
+ArchiveEntry</h1>
+<p>The class represents a file from archive as result of a call to <code>UnifiedArchive::getFileData(string $fileName)</code>. It contains fields with file information:</p>
+<ul>
+<li><code>string $path</code> - full file path in archive.</li>
+<li><code>integer $modificationTime</code> - time of change of the file (the integer value containing number of seconds passed</li>
+<li><code>boolean $isCompressed</code> - a flag indicates if file stored with compression.</li>
+<li><code>integer $compressedSize</code> - size of the file with compression in bytes.</li>
+<li><code>integer $uncompressedSize</code> - size of the file without compression in bytes. since the beginning of an era of Unix).</li>
+</ul>
+<h3><a class="anchor" id="autotoc_md7495"></a>
+Formats list</h3>
+<ul>
+<li><code>Formats::ZIP</code></li>
+<li><code>Formats::SEVEN_ZIP</code></li>
+<li><code>Formats::RAR</code></li>
+<li><code>Formats::CAB</code></li>
+<li><code>Formats::TAR</code></li>
+<li><code>Formats::TAR_GZIP</code></li>
+<li><code>Formats::TAR_BZIP</code></li>
+<li><code>Formats::TAR_LZMA</code></li>
+<li><code>Formats::TAR_LZW</code></li>
+<li><code>Formats::ARJ</code></li>
+<li><code>Formats::GZIP</code></li>
+<li><code>Formats::BZIP</code></li>
+<li><code>Formats::LZMA</code></li>
+<li><code>Formats::UEFI</code></li>
+<li><code>Formats::GPT</code></li>
+<li><code>Formats::MBR</code></li>
+<li><code>Formats::MSI</code></li>
+<li><code>Formats::ISO</code></li>
+<li><code>Formats::DMG</code></li>
+<li><code>Formats::UDF</code></li>
+<li><code>Formats::RPM</code></li>
+<li><code>Formats::DEB</code> </li>
+</ul>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0
+</small></address>
+</body>
+</html>

@@ -1,0 +1,236 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_md_public_2glpi_2vendor_2league_2oauth2-google_2_r_e_a_d_m_e" xml:lang="fr">
+<title>Google Provider for OAuth 2.0 Client</title>
+<indexterm><primary>Google Provider for OAuth 2.0 Client</primary></indexterm>
+
+<para><anchor xml:id="_md_public_2glpi_2vendor_2league_2oauth2-google_2_r_e_a_d_m_e_1autotoc_md6745"/> <link xlink:href="https://gitter.im/thephpleague/oauth2-google"></link> <link xlink:href="https://travis-ci.org/thephpleague/oauth2-google"></link> <link xlink:href="https://coveralls.io/r/thephpleague/oauth2-google"></link> <link xlink:href="https://scrutinizer-ci.com/g/thephpleague/oauth2-google/"></link> <link xlink:href="https://github.com/thephpleague/oauth2-google/blob/master/LICENSE"></link> <link xlink:href="https://packagist.org/packages/league/oauth2-google"></link></para>
+
+<para>This package provides Google OAuth 2.0 support for the PHP League&apos;s <link xlink:href="https://github.com/thephpleague/oauth2-client">OAuth 2.0 Client</link>.</para>
+
+<para>This package is compliant with <link xlink:href="https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-1-basic-coding-standard.md">PSR-1</link>, <link xlink:href="https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-2-coding-style-guide.md">PSR-2</link> and <link xlink:href="https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-4-autoloader.md">PSR-4</link>. If you notice compliance oversights, please send a patch via pull request.</para>
+<section xml:id="_md_public_2glpi_2vendor_2league_2oauth2-google_2_r_e_a_d_m_e_1autotoc_md6746">
+<title><title>Requirements</title></title>
+
+<para>The following versions of PHP are supported.</para>
+
+<para><itemizedlist>
+<listitem>
+<para>PHP 7.2</para>
+</listitem><listitem>
+<para>PHP 7.3</para>
+</listitem><listitem>
+<para>PHP 7.4</para>
+</listitem><listitem>
+<para>PHP 8.0</para>
+</listitem></itemizedlist>
+</para>
+
+<para>This package uses <link xlink:href="https://developers.google.com/identity/protocols/OpenIDConnect">OpenID Connect</link> to authenticate users with Google accounts.</para>
+
+<para>To use this package, it will be necessary to have a Google client ID and client secret. These are referred to as <computeroutput>{google-client-id}</computeroutput> and <computeroutput>{google-client-secret}</computeroutput> in the documentation.</para>
+
+<para>Please follow the <link xlink:href="https://developers.google.com/identity/protocols/OpenIDConnect#registeringyourapp">Google instructions</link> to create the required credentials.</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2league_2oauth2-google_2_r_e_a_d_m_e_1autotoc_md6747">
+<title><title>Installation</title></title>
+
+<para>To install, use composer:</para>
+
+<para><literallayout><computeroutput>composer&#32;require&#32;league/oauth2-google
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2league_2oauth2-google_2_r_e_a_d_m_e_1autotoc_md6748">
+<title><title>Usage</title></title>
+<section xml:id="_md_public_2glpi_2vendor_2league_2oauth2-google_2_r_e_a_d_m_e_1autotoc_md6749">
+<title><title>Authorization Code Flow</title></title>
+
+<para><literallayout><computeroutput>require&#32;__DIR__&#32;.&#32;&apos;/vendor/autoload.php&apos;;
+
+use&#32;League\OAuth2\Client\Provider\Google;
+
+session_start();&#32;//&#32;Remove&#32;if&#32;session.auto_start=1&#32;in&#32;php.ini
+
+$provider&#32;=&#32;new&#32;Google([
+&#32;&#32;&#32;&#32;&apos;clientId&apos;&#32;&#32;&#32;&#32;&#32;=&gt;&#32;&apos;{google-client-id}&apos;,
+&#32;&#32;&#32;&#32;&apos;clientSecret&apos;&#32;=&gt;&#32;&apos;{google-client-secret}&apos;,
+&#32;&#32;&#32;&#32;&apos;redirectUri&apos;&#32;&#32;=&gt;&#32;&apos;https://example.com/callback-url&apos;,
+&#32;&#32;&#32;&#32;&apos;hostedDomain&apos;&#32;=&gt;&#32;&apos;example.com&apos;,&#32;//&#32;optional;&#32;used&#32;to&#32;restrict&#32;access&#32;to&#32;users&#32;on&#32;your&#32;G&#32;Suite/Google&#32;Apps&#32;for&#32;Business&#32;accounts
+]);
+
+if&#32;(!empty($_GET[&apos;error&apos;]))&#32;{
+
+&#32;&#32;&#32;&#32;//&#32;Got&#32;an&#32;error,&#32;probably&#32;user&#32;denied&#32;access
+&#32;&#32;&#32;&#32;exit(&apos;Got&#32;error:&#32;&apos;&#32;.&#32;htmlspecialchars($_GET[&apos;error&apos;],&#32;ENT_QUOTES,&#32;&apos;UTF-8&apos;));
+
+}&#32;elseif&#32;(empty($_GET[&apos;code&apos;]))&#32;{
+
+&#32;&#32;&#32;&#32;//&#32;If&#32;we&#32;don&apos;t&#32;have&#32;an&#32;authorization&#32;code&#32;then&#32;get&#32;one
+&#32;&#32;&#32;&#32;$authUrl&#32;=&#32;$provider-&gt;getAuthorizationUrl();
+&#32;&#32;&#32;&#32;$_SESSION[&apos;oauth2state&apos;]&#32;=&#32;$provider-&gt;getState();
+&#32;&#32;&#32;&#32;header(&apos;Location:&#32;&apos;&#32;.&#32;$authUrl);
+&#32;&#32;&#32;&#32;exit;
+
+}&#32;elseif&#32;(empty($_GET[&apos;state&apos;])&#32;||&#32;($_GET[&apos;state&apos;]&#32;!==&#32;$_SESSION[&apos;oauth2state&apos;]))&#32;{
+
+&#32;&#32;&#32;&#32;//&#32;State&#32;is&#32;invalid,&#32;possible&#32;CSRF&#32;attack&#32;in&#32;progress
+&#32;&#32;&#32;&#32;unset($_SESSION[&apos;oauth2state&apos;]);
+&#32;&#32;&#32;&#32;exit(&apos;Invalid&#32;state&apos;);
+
+}&#32;else&#32;{
+
+&#32;&#32;&#32;&#32;//&#32;Try&#32;to&#32;get&#32;an&#32;access&#32;token&#32;(using&#32;the&#32;authorization&#32;code&#32;grant)
+&#32;&#32;&#32;&#32;$token&#32;=&#32;$provider-&gt;getAccessToken(&apos;authorization_code&apos;,&#32;[
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&apos;code&apos;&#32;=&gt;&#32;$_GET[&apos;code&apos;]
+&#32;&#32;&#32;&#32;]);
+
+&#32;&#32;&#32;&#32;//&#32;Optional:&#32;Now&#32;you&#32;have&#32;a&#32;token&#32;you&#32;can&#32;look&#32;up&#32;a&#32;users&#32;profile&#32;data
+&#32;&#32;&#32;&#32;try&#32;{
+
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;//&#32;We&#32;got&#32;an&#32;access&#32;token,&#32;let&apos;s&#32;now&#32;get&#32;the&#32;owner&#32;details
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;$ownerDetails&#32;=&#32;$provider-&gt;getResourceOwner($token);
+
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;//&#32;Use&#32;these&#32;details&#32;to&#32;create&#32;a&#32;new&#32;profile
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;printf(&apos;Hello&#32;%s!&apos;,&#32;$ownerDetails-&gt;getFirstName());
+
+&#32;&#32;&#32;&#32;}&#32;catch&#32;(Exception&#32;$e)&#32;{
+
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;//&#32;Failed&#32;to&#32;get&#32;user&#32;details
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;exit(&apos;Something&#32;went&#32;wrong:&#32;&apos;&#32;.&#32;$e-&gt;getMessage());
+
+&#32;&#32;&#32;&#32;}
+
+&#32;&#32;&#32;&#32;//&#32;Use&#32;this&#32;to&#32;interact&#32;with&#32;an&#32;API&#32;on&#32;the&#32;users&#32;behalf
+&#32;&#32;&#32;&#32;echo&#32;$token-&gt;getToken();
+
+&#32;&#32;&#32;&#32;//&#32;Use&#32;this&#32;to&#32;get&#32;a&#32;new&#32;access&#32;token&#32;if&#32;the&#32;old&#32;one&#32;expires
+&#32;&#32;&#32;&#32;echo&#32;$token-&gt;getRefreshToken();
+
+&#32;&#32;&#32;&#32;//&#32;Unix&#32;timestamp&#32;at&#32;which&#32;the&#32;access&#32;token&#32;expires
+&#32;&#32;&#32;&#32;echo&#32;$token-&gt;getExpires();
+}
+</computeroutput></literallayout></para>
+<section xml:id="_md_public_2glpi_2vendor_2league_2oauth2-google_2_r_e_a_d_m_e_1autotoc_md6750">
+<title><title>Available Options</title></title>
+
+<para>The <computeroutput>Google</computeroutput> provider has the following <link xlink:href="https://developers.google.com/identity/protocols/OpenIDConnect#authenticationuriparameters">options</link>:</para>
+
+<para><itemizedlist>
+<listitem>
+<para><computeroutput>accessType</computeroutput> to use online or offline access</para>
+</listitem><listitem>
+<para><computeroutput>hostedDomain</computeroutput> to authenticate G Suite users</para>
+</listitem><listitem>
+<para><computeroutput>prompt</computeroutput> to modify the prompt that the user will see</para>
+</listitem><listitem>
+<para><computeroutput>scopes</computeroutput> to request access to additional user information</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2league_2oauth2-google_2_r_e_a_d_m_e_1autotoc_md6751">
+<title><title>Accessing Token JWT</title></title>
+
+<para>Google provides a <link xlink:href="https://jwt.io/">JSON Web Token</link> (JWT) with all access tokens. This token <link xlink:href="https://developers.google.com/identity/protocols/OpenIDConnect#obtainuserinfo">contains basic information</link> about the authenticated user. The JWT can be accessed from the <computeroutput>id_token</computeroutput> value of the access token:</para>
+
+<para><literallayout><computeroutput>/**&#32;@var&#32;League\OAuth2\Client\Token\AccessToken&#32;$token&#32;*/
+$values&#32;=&#32;$token-&gt;getValues();
+
+/**&#32;@var&#32;string&#32;*/
+$jwt&#32;=&#32;$values[&apos;id_token&apos;];
+</computeroutput></literallayout></para>
+
+<para>Parsing the JWT will require a <link xlink:href="https://packagist.org/search/?q=jwt">JWT parser</link>. Refer to parser documentation for instructions.</para>
+</section>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2league_2oauth2-google_2_r_e_a_d_m_e_1autotoc_md6752">
+<title><title>Refreshing a Token</title></title>
+
+<para>Refresh tokens are only provided to applications which request offline access. You can specify offline access by setting the <computeroutput>accessType</computeroutput> option in your provider:</para>
+
+<para><literallayout><computeroutput>use&#32;League\OAuth2\Client\Provider\Google;
+
+$provider&#32;=&#32;new&#32;Google([
+&#32;&#32;&#32;&#32;&apos;clientId&apos;&#32;&#32;&#32;&#32;&#32;=&gt;&#32;&apos;{google-client-id}&apos;,
+&#32;&#32;&#32;&#32;&apos;clientSecret&apos;&#32;=&gt;&#32;&apos;{google-client-secret}&apos;,
+&#32;&#32;&#32;&#32;&apos;redirectUri&apos;&#32;&#32;=&gt;&#32;&apos;https://example.com/callback-url&apos;,
+&#32;&#32;&#32;&#32;&apos;accessType&apos;&#32;&#32;&#32;=&gt;&#32;&apos;offline&apos;,
+]);
+</computeroutput></literallayout></para>
+
+<para>It is important to note that the refresh token is only returned on the first request after this it will be <computeroutput>null</computeroutput>. You should securely store the refresh token when it is returned:</para>
+
+<para><literallayout><computeroutput>$token&#32;=&#32;$provider-&gt;getAccessToken(&apos;authorization_code&apos;,&#32;[
+&#32;&#32;&#32;&#32;&apos;code&apos;&#32;=&gt;&#32;$code
+]);
+
+//&#32;persist&#32;the&#32;token&#32;in&#32;a&#32;database
+$refreshToken&#32;=&#32;$token-&gt;getRefreshToken();
+</computeroutput></literallayout></para>
+
+<para>If you ever need to get a new refresh token you can request one by forcing the consent prompt:</para>
+
+<para><literallayout><computeroutput>$authUrl&#32;=&#32;$provider-&gt;getAuthorizationUrl([&apos;prompt&apos;&#32;=&gt;&#32;&apos;consent&apos;]);
+</computeroutput></literallayout></para>
+
+<para>Now you have everything you need to refresh an access token using a refresh token:</para>
+
+<para><literallayout><computeroutput>use&#32;League\OAuth2\Client\Provider\Google;
+use&#32;League\OAuth2\Client\Grant\RefreshToken;
+
+$provider&#32;=&#32;new&#32;Google([
+&#32;&#32;&#32;&#32;&apos;clientId&apos;&#32;&#32;&#32;&#32;&#32;=&gt;&#32;&apos;{google-client-id}&apos;,
+&#32;&#32;&#32;&#32;&apos;clientSecret&apos;&#32;=&gt;&#32;&apos;{google-client-secret}&apos;,
+&#32;&#32;&#32;&#32;&apos;redirectUri&apos;&#32;&#32;=&gt;&#32;&apos;https://example.com/callback-url&apos;,
+]);
+
+$grant&#32;=&#32;new&#32;RefreshToken();
+$token&#32;=&#32;$provider-&gt;getAccessToken($grant,&#32;[&apos;refresh_token&apos;&#32;=&gt;&#32;$refreshToken]);
+</computeroutput></literallayout></para>
+</section>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2league_2oauth2-google_2_r_e_a_d_m_e_1autotoc_md6753">
+<title><title>Scopes</title></title>
+
+<para>Additional <link xlink:href="https://developers.google.com/identity/protocols/googlescopes">scopes</link> can be set by using the <computeroutput>scope</computeroutput> parameter when generating the authorization URL:</para>
+
+<para><literallayout><computeroutput>$authorizationUrl&#32;=&#32;$provider-&gt;getAuthorizationUrl([
+&#32;&#32;&#32;&#32;&apos;scope&apos;&#32;=&gt;&#32;[
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&apos;scope-url-here&apos;
+&#32;&#32;&#32;&#32;],
+]);
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2league_2oauth2-google_2_r_e_a_d_m_e_1autotoc_md6754">
+<title><title>Testing</title></title>
+
+<para><link linkend="_namespace_tests">Tests</link> can be run with:</para>
+
+<para><literallayout><computeroutput>composer&#32;test
+</computeroutput></literallayout></para>
+
+<para>Style checks can be run with:</para>
+
+<para><literallayout><computeroutput>composer&#32;check
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2league_2oauth2-google_2_r_e_a_d_m_e_1autotoc_md6755">
+<title><title>Contributing</title></title>
+
+<para>Please see <link xlink:href="https://github.com/thephpleague/oauth2-google/blob/master/CONTRIBUTING.md">CONTRIBUTING</link> for details.</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2league_2oauth2-google_2_r_e_a_d_m_e_1autotoc_md6756">
+<title><title>Credits</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para><link xlink:href="https://github.com/shadowhand">Woody Gilk</link></para>
+</listitem><listitem>
+<para><link xlink:href="https://github.com/thephpleague/oauth2-google/contributors">All Contributors</link></para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2league_2oauth2-google_2_r_e_a_d_m_e_1autotoc_md6757">
+<title><title>License</title></title>
+
+<para>The MIT License (MIT). Please see <link xlink:href="https://github.com/thephpleague/oauth2-google/blob/master/LICENSE">License File</link> for more information. </para>
+</section>
+</section>

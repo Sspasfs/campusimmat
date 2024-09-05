@@ -1,0 +1,111 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_guzzle_http_1_1_retry_middleware" xml:lang="fr">
+<title>Référence de la classe RetryMiddleware</title>
+<indexterm><primary>RetryMiddleware</primary></indexterm>
+Graphe de collaboration de RetryMiddleware:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_guzzle_http_1_1_retry_middleware__coll__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Fonctions membres publiques    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_guzzle_http_1_1_retry_middleware_1a0a27767cfccc4db63b1109b9b5212d98">__construct</link> (<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">callable</link> $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">decider</link>, <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">callable</link> $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">nextHandler</link>, <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">callable</link> $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">delay</link>=null)</para>
+</listitem>
+            <listitem><para><link linkend="_class_guzzle_http_1_1_retry_middleware_1a8b41a62c59d4d0d86e7525197f2904f5">__invoke</link> (<link linkend="_interface_psr_1_1_http_1_1_message_1_1_request_interface">RequestInterface</link> $request, array $options)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Fonctions membres publiques statiques    </title>
+        <itemizedlist>
+            <listitem><para>static <link linkend="_class_guzzle_http_1_1_retry_middleware_1ae092dfda3c7598c9d3dfb77e948c0380">exponentialDelay</link> (int $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">retries</link>)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Description détaillée</title>
+
+<para>Middleware that retries requests based on the boolean result of invoking the provided &quot;decider&quot; function.</para>
+
+<para>@final </para>
+</section>
+<section>
+<title>Documentation des constructeurs et destructeur</title>
+<anchor xml:id="_class_guzzle_http_1_1_retry_middleware_1a0a27767cfccc4db63b1109b9b5212d98"/><section>
+    <title>__construct()</title>
+<indexterm><primary>__construct</primary><secondary>RetryMiddleware</secondary></indexterm>
+<indexterm><primary>RetryMiddleware</primary><secondary>__construct</secondary></indexterm>
+<para><computeroutput>__construct (<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">callable</link> $decider, <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">callable</link> $nextHandler, <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">callable</link> $delay = <computeroutput>null</computeroutput>
+)</computeroutput></para>
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>callable</entry><entry>$decider</entry><entry>
+<para>Function that accepts the number of retries, a request, [response], and [exception] and returns true if the request is to be retried. </para>
+</entry>
+                            </row>
+                            <row>
+<entry></entry><entry><link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">callable(RequestInterface</link>, array)</entry><entry>
+<para>PromiseInterface $nextHandler Next handler to invoke. </para>
+</entry>
+                            </row>
+                            <row>
+<entry></entry><entry>(callable(int)</entry><entry>
+<para>int)|null $delay Function that accepts the number of retries and returns the number of milliseconds to delay. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
+</section>
+<section>
+<title>Documentation des fonctions membres</title>
+<anchor xml:id="_class_guzzle_http_1_1_retry_middleware_1a8b41a62c59d4d0d86e7525197f2904f5"/><section>
+    <title>__invoke()</title>
+<indexterm><primary>__invoke</primary><secondary>RetryMiddleware</secondary></indexterm>
+<indexterm><primary>RetryMiddleware</primary><secondary>__invoke</secondary></indexterm>
+<para><computeroutput>__invoke (<link linkend="_interface_psr_1_1_http_1_1_message_1_1_request_interface">RequestInterface</link> $request, array $options)</computeroutput></para>Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_guzzle_http_1_1_retry_middleware_a8b41a62c59d4d0d86e7525197f2904f5_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_guzzle_http_1_1_retry_middleware_1ae092dfda3c7598c9d3dfb77e948c0380"/><section>
+    <title>exponentialDelay()</title>
+<indexterm><primary>exponentialDelay</primary><secondary>RetryMiddleware</secondary></indexterm>
+<indexterm><primary>RetryMiddleware</primary><secondary>exponentialDelay</secondary></indexterm>
+<para><computeroutput>static exponentialDelay (int $retries)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>Default exponential backoff delay function.</para>
+
+<para><formalpara><title>Renvoie</title>
+
+<para>int milliseconds. </para>
+</formalpara>
+</para>
+</section>
+<para>
+La documentation de cette classe a été générée à partir du fichier suivant :</para>
+public/glpi/vendor/guzzlehttp/guzzle/src/<link linkend="__retry_middleware_8php">RetryMiddleware.php</link></section>
+</section>

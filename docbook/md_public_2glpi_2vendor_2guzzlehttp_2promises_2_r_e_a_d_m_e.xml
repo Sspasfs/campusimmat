@@ -1,0 +1,595 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_md_public_2glpi_2vendor_2guzzlehttp_2promises_2_r_e_a_d_m_e" xml:lang="fr">
+<title>Guzzle Promises</title>
+<indexterm><primary>Guzzle Promises</primary></indexterm>
+
+<para><anchor xml:id="_md_public_2glpi_2vendor_2guzzlehttp_2promises_2_r_e_a_d_m_e_1autotoc_md6094"/> <link xlink:href="https://promisesaplus.com/">Promises/A+</link> implementation that handles promise chaining and resolution iteratively, allowing for &quot;infinite&quot; promise chaining while keeping the stack size constant. Read <link xlink:href="https://blog.domenic.me/youre-missing-the-point-of-promises/">this blog post</link> for a general introduction to promises.</para>
+
+<para><itemizedlist>
+<listitem>
+<para><link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">Features</link></para>
+</listitem><listitem>
+<para><link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">Quick start</link></para>
+</listitem><listitem>
+<para><link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">Synchronous wait</link></para>
+</listitem><listitem>
+<para><link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">Cancellation</link></para>
+</listitem><listitem>
+<para><link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">API</link><itemizedlist>
+<listitem>
+<para>Promise</para>
+</listitem><listitem>
+<para><link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">FulfilledPromise</link></para>
+</listitem><listitem>
+<para><link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">RejectedPromise</link></para>
+</listitem></itemizedlist>
+</para>
+</listitem><listitem>
+<para><link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">Promise interop</link></para>
+</listitem><listitem>
+<para><link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">Implementation notes</link></para>
+</listitem></itemizedlist>
+</para>
+<section xml:id="_md_public_2glpi_2vendor_2guzzlehttp_2promises_2_r_e_a_d_m_e_1autotoc_md6095">
+<title><title>Features</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para><link xlink:href="https://promisesaplus.com/">Promises/A+</link> implementation.</para>
+</listitem><listitem>
+<para>Promise resolution and chaining is handled iteratively, allowing for &quot;infinite&quot; promise chaining.</para>
+</listitem><listitem>
+<para>Promises have a synchronous <computeroutput>wait</computeroutput> method.</para>
+</listitem><listitem>
+<para>Promises can be cancelled.</para>
+</listitem><listitem>
+<para>Works with any object that has a <computeroutput>then</computeroutput> function.</para>
+</listitem><listitem>
+<para>C# style async/await coroutine promises using <computeroutput><link linkend="_namespace_guzzle_http">GuzzleHttp</link>\Promise\Coroutine::of()</computeroutput>.</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2guzzlehttp_2promises_2_r_e_a_d_m_e_1autotoc_md6096">
+<title><title>Quick Start</title></title>
+
+<para>A <emphasis>promise</emphasis> represents the eventual result of an asynchronous operation. The primary way of interacting with a promise is through its <computeroutput>then</computeroutput> method, which registers callbacks to receive either a promise&apos;s eventual value or the reason why the promise cannot be fulfilled.</para>
+<section xml:id="_md_public_2glpi_2vendor_2guzzlehttp_2promises_2_r_e_a_d_m_e_1autotoc_md6097">
+<title><title>Callbacks</title></title>
+
+<para>Callbacks are registered with the <computeroutput>then</computeroutput> method by providing an optional <computeroutput>$onFulfilled</computeroutput> followed by an optional <computeroutput>$onRejected</computeroutput> function.</para>
+
+<para><literallayout><computeroutput>use&#32;GuzzleHttp\Promise\Promise;
+
+$promise&#32;=&#32;new&#32;Promise();
+$promise-&gt;then(
+&#32;&#32;&#32;&#32;//&#32;$onFulfilled
+&#32;&#32;&#32;&#32;function&#32;($value)&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;echo&#32;&apos;The&#32;promise&#32;was&#32;fulfilled.&apos;;
+&#32;&#32;&#32;&#32;},
+&#32;&#32;&#32;&#32;//&#32;$onRejected
+&#32;&#32;&#32;&#32;function&#32;($reason)&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;echo&#32;&apos;The&#32;promise&#32;was&#32;rejected.&apos;;
+&#32;&#32;&#32;&#32;}
+);
+</computeroutput></literallayout></para>
+
+<para><emphasis>Resolving</emphasis> a promise means that you either fulfill a promise with a <emphasis>value</emphasis> or reject a promise with a <emphasis>reason</emphasis>. Resolving a promise triggers callbacks registered with the promise&apos;s <computeroutput>then</computeroutput> method. These callbacks are triggered only once and in the order in which they were added.</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2guzzlehttp_2promises_2_r_e_a_d_m_e_1autotoc_md6098">
+<title><title>Resolving a Promise</title></title>
+
+<para>Promises are fulfilled using the <computeroutput>resolve($value)</computeroutput> method. Resolving a promise with any value other than a <computeroutput><link linkend="_namespace_guzzle_http">GuzzleHttp</link>\Promise\RejectedPromise</computeroutput> will trigger all of the onFulfilled callbacks (resolving a promise with a rejected promise will reject the promise and trigger the <computeroutput>$onRejected</computeroutput> callbacks).</para>
+
+<para><literallayout><computeroutput>use&#32;GuzzleHttp\Promise\Promise;
+
+$promise&#32;=&#32;new&#32;Promise();
+$promise
+&#32;&#32;&#32;&#32;-&gt;then(function&#32;($value)&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;//&#32;Return&#32;a&#32;value&#32;and&#32;don&apos;t&#32;break&#32;the&#32;chain
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;return&#32;&quot;Hello,&#32;&quot;&#32;.&#32;$value;
+&#32;&#32;&#32;&#32;})
+&#32;&#32;&#32;&#32;//&#32;This&#32;then&#32;is&#32;executed&#32;after&#32;the&#32;first&#32;then&#32;and&#32;receives&#32;the&#32;value
+&#32;&#32;&#32;&#32;//&#32;returned&#32;from&#32;the&#32;first&#32;then.
+&#32;&#32;&#32;&#32;-&gt;then(function&#32;($value)&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;echo&#32;$value;
+&#32;&#32;&#32;&#32;});
+
+//&#32;Resolving&#32;the&#32;promise&#32;triggers&#32;the&#32;$onFulfilled&#32;callbacks&#32;and&#32;outputs
+//&#32;&quot;Hello,&#32;reader.&quot;
+$promise-&gt;resolve(&apos;reader.&apos;);
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2guzzlehttp_2promises_2_r_e_a_d_m_e_1autotoc_md6099">
+<title><title>Promise Forwarding</title></title>
+
+<para>Promises can be chained one after the other. Each then in the chain is a new promise. The return value of a promise is what&apos;s forwarded to the next promise in the chain. Returning a promise in a <computeroutput>then</computeroutput> callback will cause the subsequent promises in the chain to only be fulfilled when the returned promise has been fulfilled. The next promise in the chain will be invoked with the resolved value of the promise.</para>
+
+<para><literallayout><computeroutput>use&#32;GuzzleHttp\Promise\Promise;
+
+$promise&#32;=&#32;new&#32;Promise();
+$nextPromise&#32;=&#32;new&#32;Promise();
+
+$promise
+&#32;&#32;&#32;&#32;-&gt;then(function&#32;($value)&#32;use&#32;($nextPromise)&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;echo&#32;$value;
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;return&#32;$nextPromise;
+&#32;&#32;&#32;&#32;})
+&#32;&#32;&#32;&#32;-&gt;then(function&#32;($value)&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;echo&#32;$value;
+&#32;&#32;&#32;&#32;});
+
+//&#32;Triggers&#32;the&#32;first&#32;callback&#32;and&#32;outputs&#32;&quot;A&quot;
+$promise-&gt;resolve(&apos;A&apos;);
+//&#32;Triggers&#32;the&#32;second&#32;callback&#32;and&#32;outputs&#32;&quot;B&quot;
+$nextPromise-&gt;resolve(&apos;B&apos;);
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2guzzlehttp_2promises_2_r_e_a_d_m_e_1autotoc_md6100">
+<title><title>Promise Rejection</title></title>
+
+<para>When a promise is rejected, the <computeroutput>$onRejected</computeroutput> callbacks are invoked with the rejection reason.</para>
+
+<para><literallayout><computeroutput>use&#32;GuzzleHttp\Promise\Promise;
+
+$promise&#32;=&#32;new&#32;Promise();
+$promise-&gt;then(null,&#32;function&#32;($reason)&#32;{
+&#32;&#32;&#32;&#32;echo&#32;$reason;
+});
+
+$promise-&gt;reject(&apos;Error!&apos;);
+//&#32;Outputs&#32;&quot;Error!&quot;
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2guzzlehttp_2promises_2_r_e_a_d_m_e_1autotoc_md6101">
+<title><title>Rejection Forwarding</title></title>
+
+<para>If an exception is thrown in an <computeroutput>$onRejected</computeroutput> callback, subsequent <computeroutput>$onRejected</computeroutput> callbacks are invoked with the thrown exception as the reason.</para>
+
+<para><literallayout><computeroutput>use&#32;GuzzleHttp\Promise\Promise;
+
+$promise&#32;=&#32;new&#32;Promise();
+$promise-&gt;then(null,&#32;function&#32;($reason)&#32;{
+&#32;&#32;&#32;&#32;throw&#32;new&#32;Exception($reason);
+})-&gt;then(null,&#32;function&#32;($reason)&#32;{
+&#32;&#32;&#32;&#32;assert($reason-&gt;getMessage()&#32;===&#32;&apos;Error!&apos;);
+});
+
+$promise-&gt;reject(&apos;Error!&apos;);
+</computeroutput></literallayout></para>
+
+<para>You can also forward a rejection down the promise chain by returning a <computeroutput><link linkend="_namespace_guzzle_http">GuzzleHttp</link>\Promise\RejectedPromise</computeroutput> in either an <computeroutput>$onFulfilled</computeroutput> or <computeroutput>$onRejected</computeroutput> callback.</para>
+
+<para><literallayout><computeroutput>use&#32;GuzzleHttp\Promise\Promise;
+use&#32;GuzzleHttp\Promise\RejectedPromise;
+
+$promise&#32;=&#32;new&#32;Promise();
+$promise-&gt;then(null,&#32;function&#32;($reason)&#32;{
+&#32;&#32;&#32;&#32;return&#32;new&#32;RejectedPromise($reason);
+})-&gt;then(null,&#32;function&#32;($reason)&#32;{
+&#32;&#32;&#32;&#32;assert($reason&#32;===&#32;&apos;Error!&apos;);
+});
+
+$promise-&gt;reject(&apos;Error!&apos;);
+</computeroutput></literallayout></para>
+
+<para>If an exception is not thrown in a <computeroutput>$onRejected</computeroutput> callback and the callback does not return a rejected promise, downstream <computeroutput>$onFulfilled</computeroutput> callbacks are invoked using the value returned from the <computeroutput>$onRejected</computeroutput> callback.</para>
+
+<para><literallayout><computeroutput>use&#32;GuzzleHttp\Promise\Promise;
+
+$promise&#32;=&#32;new&#32;Promise();
+$promise
+&#32;&#32;&#32;&#32;-&gt;then(null,&#32;function&#32;($reason)&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;return&#32;&quot;It&apos;s&#32;ok&quot;;
+&#32;&#32;&#32;&#32;})
+&#32;&#32;&#32;&#32;-&gt;then(function&#32;($value)&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;assert($value&#32;===&#32;&quot;It&apos;s&#32;ok&quot;);
+&#32;&#32;&#32;&#32;});
+
+$promise-&gt;reject(&apos;Error!&apos;);
+</computeroutput></literallayout></para>
+</section>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2guzzlehttp_2promises_2_r_e_a_d_m_e_1autotoc_md6102">
+<title><title>Synchronous Wait</title></title>
+
+<para>You can synchronously force promises to complete using a promise&apos;s <computeroutput>wait</computeroutput> method. When creating a promise, you can provide a wait function that is used to synchronously force a promise to complete. When a wait function is invoked it is expected to deliver a value to the promise or reject the promise. If the wait function does not deliver a value, then an exception is thrown. The wait function provided to a promise constructor is invoked when the <computeroutput>wait</computeroutput> function of the promise is called.</para>
+
+<para><literallayout><computeroutput>$promise&#32;=&#32;new&#32;Promise(function&#32;()&#32;use&#32;(&amp;$promise)&#32;{
+&#32;&#32;&#32;&#32;$promise-&gt;resolve(&apos;foo&apos;);
+});
+
+//&#32;Calling&#32;wait&#32;will&#32;return&#32;the&#32;value&#32;of&#32;the&#32;promise.
+echo&#32;$promise-&gt;wait();&#32;//&#32;outputs&#32;&quot;foo&quot;
+</computeroutput></literallayout></para>
+
+<para>If an exception is encountered while invoking the wait function of a promise, the promise is rejected with the exception and the exception is thrown.</para>
+
+<para><literallayout><computeroutput>$promise&#32;=&#32;new&#32;Promise(function&#32;()&#32;use&#32;(&amp;$promise)&#32;{
+&#32;&#32;&#32;&#32;throw&#32;new&#32;Exception(&apos;foo&apos;);
+});
+
+$promise-&gt;wait();&#32;//&#32;throws&#32;the&#32;exception.
+</computeroutput></literallayout></para>
+
+<para>Calling <computeroutput>wait</computeroutput> on a promise that has been fulfilled will not trigger the wait function. It will simply return the previously resolved value.</para>
+
+<para><literallayout><computeroutput>$promise&#32;=&#32;new&#32;Promise(function&#32;()&#32;{&#32;die(&apos;this&#32;is&#32;not&#32;called!&apos;);&#32;});
+$promise-&gt;resolve(&apos;foo&apos;);
+echo&#32;$promise-&gt;wait();&#32;//&#32;outputs&#32;&quot;foo&quot;
+</computeroutput></literallayout></para>
+
+<para>Calling <computeroutput>wait</computeroutput> on a promise that has been rejected will throw an exception. If the rejection reason is an instance of <computeroutput>\Exception</computeroutput> the reason is thrown. Otherwise, a <computeroutput><link linkend="_namespace_guzzle_http">GuzzleHttp</link>\Promise\RejectionException</computeroutput> is thrown and the reason can be obtained by calling the <computeroutput>getReason</computeroutput> method of the exception.</para>
+
+<para><literallayout><computeroutput>$promise&#32;=&#32;new&#32;Promise();
+$promise-&gt;reject(&apos;foo&apos;);
+$promise-&gt;wait();
+</computeroutput></literallayout></para>
+
+<para><blockquote>
+<para>&#8205;PHP Fatal error: Uncaught exception &apos;<link linkend="_namespace_guzzle_http">GuzzleHttp</link>\Promise\RejectionException&apos; with message &apos;The promise was rejected with value: foo&apos; </para>
+</blockquote></para>
+<section xml:id="_md_public_2glpi_2vendor_2guzzlehttp_2promises_2_r_e_a_d_m_e_1autotoc_md6103">
+<title><title>Unwrapping a Promise</title></title>
+
+<para>When synchronously waiting on a promise, you are joining the state of the promise into the current state of execution (i.e., return the value of the promise if it was fulfilled or throw an exception if it was rejected). This is called &quot;unwrapping&quot; the promise. Waiting on a promise will by default unwrap the promise state.</para>
+
+<para>You can force a promise to resolve and <emphasis>not</emphasis> unwrap the state of the promise by passing <computeroutput>false</computeroutput> to the first argument of the <computeroutput>wait</computeroutput> function:</para>
+
+<para><literallayout><computeroutput>$promise&#32;=&#32;new&#32;Promise();
+$promise-&gt;reject(&apos;foo&apos;);
+//&#32;This&#32;will&#32;not&#32;throw&#32;an&#32;exception.&#32;It&#32;simply&#32;ensures&#32;the&#32;promise&#32;has
+//&#32;been&#32;resolved.
+$promise-&gt;wait(false);
+</computeroutput></literallayout></para>
+
+<para>When unwrapping a promise, the resolved value of the promise will be waited upon until the unwrapped value is not a promise. This means that if you resolve promise A with a promise B and unwrap promise A, the value returned by the wait function will be the value delivered to promise B.</para>
+
+<para><emphasis role="bold">Note</emphasis>: when you do not unwrap the promise, no value is returned.</para>
+</section>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2guzzlehttp_2promises_2_r_e_a_d_m_e_1autotoc_md6104">
+<title><title>Cancellation</title></title>
+
+<para>You can cancel a promise that has not yet been fulfilled using the <computeroutput>cancel()</computeroutput> method of a promise. When creating a promise you can provide an optional cancel function that when invoked cancels the action of computing a resolution of the promise.</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2guzzlehttp_2promises_2_r_e_a_d_m_e_1autotoc_md6105">
+<title><title>API</title></title>
+<section xml:id="_md_public_2glpi_2vendor_2guzzlehttp_2promises_2_r_e_a_d_m_e_1autotoc_md6106">
+<title><title>Promise</title></title>
+
+<para>When creating a promise object, you can provide an optional <computeroutput>$waitFn</computeroutput> and <computeroutput>$cancelFn</computeroutput>. <computeroutput>$waitFn</computeroutput> is a function that is invoked with no arguments and is expected to resolve the promise. <computeroutput>$cancelFn</computeroutput> is a function with no arguments that is expected to cancel the computation of a promise. It is invoked when the <computeroutput>cancel()</computeroutput> method of a promise is called.</para>
+
+<para><literallayout><computeroutput>use&#32;GuzzleHttp\Promise\Promise;
+
+$promise&#32;=&#32;new&#32;Promise(
+&#32;&#32;&#32;&#32;function&#32;()&#32;use&#32;(&amp;$promise)&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;$promise-&gt;resolve(&apos;waited&apos;);
+&#32;&#32;&#32;&#32;},
+&#32;&#32;&#32;&#32;function&#32;()&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;//&#32;do&#32;something&#32;that&#32;will&#32;cancel&#32;the&#32;promise&#32;computation&#32;(e.g.,&#32;close
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;//&#32;a&#32;socket,&#32;cancel&#32;a&#32;database&#32;query,&#32;etc...)
+&#32;&#32;&#32;&#32;}
+);
+
+assert(&apos;waited&apos;&#32;===&#32;$promise-&gt;wait());
+</computeroutput></literallayout></para>
+
+<para>A promise has the following methods:</para>
+
+<para><itemizedlist>
+<listitem>
+<para><computeroutput>then(callable $onFulfilled, callable $onRejected) : PromiseInterface</computeroutput></para>
+
+<para>Appends fulfillment and rejection handlers to the promise, and returns a new promise resolving to the return value of the called handler.</para>
+</listitem><listitem>
+<para><computeroutput>otherwise(callable $onRejected) : PromiseInterface</computeroutput></para>
+
+<para>Appends a rejection handler callback to the promise, and returns a new promise resolving to the return value of the callback if it is called, or to its original fulfillment value if the promise is instead fulfilled.</para>
+</listitem><listitem>
+<para><computeroutput>wait($unwrap = true) : mixed</computeroutput></para>
+
+<para>Synchronously waits on the promise to complete.</para>
+
+<para><computeroutput>$unwrap</computeroutput> controls whether or not the value of the promise is returned for a fulfilled promise or if an exception is thrown if the promise is rejected. This is set to <computeroutput>true</computeroutput> by default.</para>
+</listitem><listitem>
+<para><computeroutput>cancel()</computeroutput></para>
+
+<para>Attempts to cancel the promise if possible. The promise being cancelled and the parent most ancestor that has not yet been resolved will also be cancelled. Any promises waiting on the cancelled promise to resolve will also be cancelled.</para>
+</listitem><listitem>
+<para><computeroutput>getState() : string</computeroutput></para>
+
+<para>Returns the state of the promise. One of <computeroutput>pending</computeroutput>, <computeroutput>fulfilled</computeroutput>, or <computeroutput>rejected</computeroutput>.</para>
+</listitem><listitem>
+<para><computeroutput>resolve($value)</computeroutput></para>
+
+<para>Fulfills the promise with the given <computeroutput>$value</computeroutput>.</para>
+</listitem><listitem>
+<para><computeroutput>reject($reason)</computeroutput></para>
+
+<para>Rejects the promise with the given <computeroutput>$reason</computeroutput>.</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2guzzlehttp_2promises_2_r_e_a_d_m_e_1autotoc_md6107">
+<title><title>FulfilledPromise</title></title>
+
+<para>A fulfilled promise can be created to represent a promise that has been fulfilled.</para>
+
+<para><literallayout><computeroutput>use&#32;GuzzleHttp\Promise\FulfilledPromise;
+
+$promise&#32;=&#32;new&#32;FulfilledPromise(&apos;value&apos;);
+
+//&#32;Fulfilled&#32;callbacks&#32;are&#32;immediately&#32;invoked.
+$promise-&gt;then(function&#32;($value)&#32;{
+&#32;&#32;&#32;&#32;echo&#32;$value;
+});
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2guzzlehttp_2promises_2_r_e_a_d_m_e_1autotoc_md6108">
+<title><title>RejectedPromise</title></title>
+
+<para>A rejected promise can be created to represent a promise that has been rejected.</para>
+
+<para><literallayout><computeroutput>use&#32;GuzzleHttp\Promise\RejectedPromise;
+
+$promise&#32;=&#32;new&#32;RejectedPromise(&apos;Error&apos;);
+
+//&#32;Rejected&#32;callbacks&#32;are&#32;immediately&#32;invoked.
+$promise-&gt;then(null,&#32;function&#32;($reason)&#32;{
+&#32;&#32;&#32;&#32;echo&#32;$reason;
+});
+</computeroutput></literallayout></para>
+</section>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2guzzlehttp_2promises_2_r_e_a_d_m_e_1autotoc_md6109">
+<title><title>Promise Interoperability</title></title>
+
+<para>This library works with foreign promises that have a <computeroutput>then</computeroutput> method. This means you can use Guzzle promises with <link xlink:href="https://github.com/reactphp/promise">React promises</link> for example. When a foreign promise is returned inside of a then method callback, promise resolution will occur recursively.</para>
+
+<para><literallayout><computeroutput>//&#32;Create&#32;a&#32;React&#32;promise
+$deferred&#32;=&#32;new&#32;React\Promise\Deferred();
+$reactPromise&#32;=&#32;$deferred-&gt;promise();
+
+//&#32;Create&#32;a&#32;Guzzle&#32;promise&#32;that&#32;is&#32;fulfilled&#32;with&#32;a&#32;React&#32;promise.
+$guzzlePromise&#32;=&#32;new&#32;GuzzleHttp\Promise\Promise();
+$guzzlePromise-&gt;then(function&#32;($value)&#32;use&#32;($reactPromise)&#32;{
+&#32;&#32;&#32;&#32;//&#32;Do&#32;something&#32;something&#32;with&#32;the&#32;value...
+&#32;&#32;&#32;&#32;//&#32;Return&#32;the&#32;React&#32;promise
+&#32;&#32;&#32;&#32;return&#32;$reactPromise;
+});
+</computeroutput></literallayout></para>
+
+<para>Please note that wait and cancel chaining is no longer possible when forwarding a foreign promise. You will need to wrap a third-party promise with a Guzzle promise in order to utilize wait and cancel functions with foreign promises.</para>
+<section xml:id="_md_public_2glpi_2vendor_2guzzlehttp_2promises_2_r_e_a_d_m_e_1autotoc_md6110">
+<title><title>Event Loop Integration</title></title>
+
+<para>In order to keep the stack size constant, Guzzle promises are resolved asynchronously using a task queue. When waiting on promises synchronously, the task queue will be automatically run to ensure that the blocking promise and any forwarded promises are resolved. When using promises asynchronously in an event loop, you will need to run the task queue on each tick of the loop. If you do not run the task queue, then promises will not be resolved.</para>
+
+<para>You can run the task queue using the <computeroutput>run()</computeroutput> method of the global task queue instance.</para>
+
+<para><literallayout><computeroutput>//&#32;Get&#32;the&#32;global&#32;task&#32;queue
+$queue&#32;=&#32;GuzzleHttp\Promise\Utils::queue();
+$queue-&gt;run();
+</computeroutput></literallayout></para>
+
+<para>For example, you could use Guzzle promises with React using a periodic timer:</para>
+
+<para><literallayout><computeroutput>$loop&#32;=&#32;React\EventLoop\Factory::create();
+$loop-&gt;addPeriodicTimer(0,&#32;[$queue,&#32;&apos;run&apos;]);
+</computeroutput></literallayout></para>
+
+<para><emphasis>TODO</emphasis>: Perhaps adding a <computeroutput><link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">futureTick()</link></computeroutput> on each tick would be faster?</para>
+</section>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2guzzlehttp_2promises_2_r_e_a_d_m_e_1autotoc_md6111">
+<title><title>Implementation Notes</title></title>
+<section xml:id="_md_public_2glpi_2vendor_2guzzlehttp_2promises_2_r_e_a_d_m_e_1autotoc_md6112">
+<title><title>Promise Resolution and Chaining is Handled Iteratively</title></title>
+
+<para>By shuffling pending handlers from one owner to another, promises are resolved iteratively, allowing for &quot;infinite&quot; then chaining.</para>
+
+<para><literallayout><computeroutput>&lt;?php
+require&#32;&apos;vendor/autoload.php&apos;;
+
+use&#32;GuzzleHttp\Promise\Promise;
+
+$parent&#32;=&#32;new&#32;Promise();
+$p&#32;=&#32;$parent;
+
+for&#32;($i&#32;=&#32;0;&#32;$i&#32;&lt;&#32;1000;&#32;$i++)&#32;{
+&#32;&#32;&#32;&#32;$p&#32;=&#32;$p-&gt;then(function&#32;($v)&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;//&#32;The&#32;stack&#32;size&#32;remains&#32;constant&#32;(a&#32;good&#32;thing)
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;echo&#32;xdebug_get_stack_depth()&#32;.&#32;&apos;,&#32;&apos;;
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;return&#32;$v&#32;+&#32;1;
+&#32;&#32;&#32;&#32;});
+}
+
+$parent-&gt;resolve(0);
+var_dump($p-&gt;wait());&#32;//&#32;int(1000)
+</computeroutput></literallayout></para>
+
+<para>When a promise is fulfilled or rejected with a non-promise value, the promise then takes ownership of the handlers of each child promise and delivers values down the chain without using recursion.</para>
+
+<para>When a promise is resolved with another promise, the original promise transfers all of its pending handlers to the new promise. When the new promise is eventually resolved, all of the pending handlers are delivered the forwarded value.</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2guzzlehttp_2promises_2_r_e_a_d_m_e_1autotoc_md6113">
+<title><title>A Promise is the Deferred</title></title>
+
+<para>Some promise libraries implement promises using a deferred object to represent a computation and a promise object to represent the delivery of the result of the computation. This is a nice separation of computation and delivery because consumers of the promise cannot modify the value that will be eventually delivered.</para>
+
+<para>One side effect of being able to implement promise resolution and chaining iteratively is that you need to be able for one promise to reach into the state of another promise to shuffle around ownership of handlers. In order to achieve this without making the handlers of a promise publicly mutable, a promise is also the deferred value, allowing promises of the same parent class to reach into and modify the private properties of promises of the same type. While this does allow consumers of the value to modify the resolution or rejection of the deferred, it is a small price to pay for keeping the stack size constant.</para>
+
+<para><literallayout><computeroutput>$promise&#32;=&#32;new&#32;Promise();
+$promise-&gt;then(function&#32;($value)&#32;{&#32;echo&#32;$value;&#32;});
+//&#32;The&#32;promise&#32;is&#32;the&#32;deferred&#32;value,&#32;so&#32;you&#32;can&#32;deliver&#32;a&#32;value&#32;to&#32;it.
+$promise-&gt;resolve(&apos;foo&apos;);
+//&#32;prints&#32;&quot;foo&quot;
+</computeroutput></literallayout></para>
+</section>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2guzzlehttp_2promises_2_r_e_a_d_m_e_1autotoc_md6114">
+<title><title>Upgrading from Function API</title></title>
+
+<para>A static API was first introduced in 1.4.0, in order to mitigate problems with functions conflicting between global and local copies of the package. The function API will be removed in 2.0.0. A migration table has been provided here for your convenience:</para>
+
+<para><informaltable frame="all">
+    <tgroup cols="2" align="left" colsep="1" rowsep="1">
+      <colspec colname='c1'/>
+      <colspec colname='c2'/>
+<thead>
+      <row  class='markdownTableHead'>
+<entry>
+<para>Original Function   </para>
+</entry><entry>
+<para>Replacement Method    </para>
+</entry></row>
+</thead><tbody>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>queue</computeroutput>   </para>
+</entry><entry>
+<para><computeroutput>Utils::queue</computeroutput>    </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para><computeroutput>task</computeroutput>   </para>
+</entry><entry>
+<para><computeroutput>Utils::task</computeroutput>    </para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>promise_for</computeroutput>   </para>
+</entry><entry>
+<para><computeroutput>Create::promiseFor</computeroutput>    </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para><computeroutput>rejection_for</computeroutput>   </para>
+</entry><entry>
+<para><computeroutput>Create::rejectionFor</computeroutput>    </para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>exception_for</computeroutput>   </para>
+</entry><entry>
+<para><computeroutput>Create::exceptionFor</computeroutput>    </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para><computeroutput>iter_for</computeroutput>   </para>
+</entry><entry>
+<para><computeroutput>Create::iterFor</computeroutput>    </para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>inspect</computeroutput>   </para>
+</entry><entry>
+<para><computeroutput>Utils::inspect</computeroutput>    </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para><computeroutput>inspect_all</computeroutput>   </para>
+</entry><entry>
+<para><computeroutput>Utils::inspectAll</computeroutput>    </para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>unwrap</computeroutput>   </para>
+</entry><entry>
+<para><computeroutput>Utils::unwrap</computeroutput>    </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para><computeroutput>all</computeroutput>   </para>
+</entry><entry>
+<para><computeroutput>Utils::all</computeroutput>    </para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>some</computeroutput>   </para>
+</entry><entry>
+<para><computeroutput>Utils::some</computeroutput>    </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para><computeroutput>any</computeroutput>   </para>
+</entry><entry>
+<para><computeroutput>Utils::any</computeroutput>    </para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>settle</computeroutput>   </para>
+</entry><entry>
+<para><computeroutput>Utils::settle</computeroutput>    </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para><computeroutput>each</computeroutput>   </para>
+</entry><entry>
+<para><computeroutput>Each::of</computeroutput>    </para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>each_limit</computeroutput>   </para>
+</entry><entry>
+<para><computeroutput>Each::ofLimit</computeroutput>    </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para><computeroutput>each_limit_all</computeroutput>   </para>
+</entry><entry>
+<para><computeroutput>Each::ofLimitAll</computeroutput>    </para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>!is_fulfilled</computeroutput>   </para>
+</entry><entry>
+<para><computeroutput>Is::pending</computeroutput>    </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para><computeroutput>is_fulfilled</computeroutput>   </para>
+</entry><entry>
+<para><computeroutput>Is::fulfilled</computeroutput>    </para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>is_rejected</computeroutput>   </para>
+</entry><entry>
+<para><computeroutput>Is::rejected</computeroutput>    </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para><computeroutput>is_settled</computeroutput>   </para>
+</entry><entry>
+<para><computeroutput>Is::settled</computeroutput>    </para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>coroutine</computeroutput>   </para>
+</entry><entry>
+<para><computeroutput>Coroutine::of</computeroutput>   </para>
+</entry></row>
+    </tbody>
+    </tgroup>
+</informaltable>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2guzzlehttp_2promises_2_r_e_a_d_m_e_1autotoc_md6115">
+<title><title>Security</title></title>
+
+<para>If you discover a security vulnerability within this package, please send an email to <link xlink:href="mailto:security@tidelift.com">security@tidelift.com</link>. All security vulnerabilities will be promptly addressed. Please do not disclose security-related issues publicly until a fix has been announced. Please see <link xlink:href="https://github.com/guzzle/promises/security/policy">Security Policy</link> for more information.</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2guzzlehttp_2promises_2_r_e_a_d_m_e_1autotoc_md6116">
+<title><title>License</title></title>
+
+<para>Guzzle is made available under the MIT License (MIT). Please see [License File](LICENSE) for more information.</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2guzzlehttp_2promises_2_r_e_a_d_m_e_1autotoc_md6117">
+<title><title>For Enterprise</title></title>
+
+<para>Available as part of the Tidelift Subscription</para>
+
+<para>The maintainers of Guzzle and thousands of other packages are working with Tidelift to deliver commercial support and maintenance for the open source dependencies you use to build your applications. Save time, reduce risk, and improve code health, while paying the maintainers of the exact dependencies you use. <link xlink:href="https://tidelift.com/subscription/pkg/packagist-guzzlehttp-promises?utm_source=packagist-guzzlehttp-promises&amp;utm_medium=referral&amp;utm_campaign=enterprise&amp;utm_term=repo">Learn more.</link> </para>
+</section>
+</section>

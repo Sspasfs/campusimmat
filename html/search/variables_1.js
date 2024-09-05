@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['if_0',['if',['../index_8php.html#a07244f5d0990e757f62c0322fb34cb50',1,'index.php']]]
+  ['_5farray_0',['_ARRAY',['../class_swaggest_1_1_json_schema_1_1_json_schema.html#a87d81eea3dde4e7e3134dbac9d66bbb2',1,'Swaggest::JsonSchema::JsonSchema']]]
 ];

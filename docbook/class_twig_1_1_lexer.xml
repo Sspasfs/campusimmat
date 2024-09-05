@@ -1,0 +1,145 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_twig_1_1_lexer" xml:lang="fr">
+<title>Référence de la classe Lexer</title>
+<indexterm><primary>Lexer</primary></indexterm>
+Graphe de collaboration de Lexer:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_twig_1_1_lexer__coll__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Fonctions membres publiques    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_twig_1_1_lexer_1a6ae1fcb2881c44b90314359909641ed9">__construct</link> (<link linkend="_class_twig_1_1_environment">Environment</link> $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">env</link>, array $options=[])</para>
+</listitem>
+            <listitem><para><link linkend="_class_twig_1_1_lexer_1a7103721d759296dd3a808f66f983b338">tokenize</link> (<link linkend="_class_twig_1_1_source">Source</link> $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">source</link>)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Champs de données    </title>
+        <itemizedlist>
+            <listitem><para>const <link linkend="_class_twig_1_1_lexer_1aed1034ab76d6f68a9936141fb43e46c4">STATE_DATA</link> = 0</para>
+</listitem>
+            <listitem><para>const <link linkend="_class_twig_1_1_lexer_1a7943cc4ef427db839acf8405ab7622b1">STATE_BLOCK</link> = 1</para>
+</listitem>
+            <listitem><para>const <link linkend="_class_twig_1_1_lexer_1ace602c247a72e20792de0cbbaece8d4e">STATE_VAR</link> = 2</para>
+</listitem>
+            <listitem><para>const <link linkend="_class_twig_1_1_lexer_1aee10c9511fcc8204cd8ba7ced221e096">STATE_STRING</link> = 3</para>
+</listitem>
+            <listitem><para>const <link linkend="_class_twig_1_1_lexer_1ab366646ed1df9dc0a6b90e96dbaa2293">STATE_INTERPOLATION</link> = 4</para>
+</listitem>
+            <listitem><para>const <link linkend="_class_twig_1_1_lexer_1a16ad69f49b3f1e3d15823ce6760c49c1">REGEX_NAME</link> = &apos;/[<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">a</link>-<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">zA</link>-Z_\x7f-\<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">xff</link>][<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">a</link>-<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">zA</link>-<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">Z0</link>-9_\x7f-\<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">xff</link>]*/<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">A</link>&apos;</para>
+</listitem>
+            <listitem><para>const <link linkend="_class_twig_1_1_lexer_1aba3337b652ecdf16df6874ebc9307462">REGEX_NUMBER</link> = &apos;/[0-9]+(?:\.[0-9]+)?([<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">Ee</link>][\+\-][0-9]+)?/<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">A</link>&apos;</para>
+</listitem>
+            <listitem><para>const <link linkend="_class_twig_1_1_lexer_1ae6555ae628472b4a4b9c77f0ffb77538">REGEX_STRING</link> = &apos;/&quot;([^#&quot;\\\\]*(?:\\\\.[^#&quot;\\\\]*)*)&quot;|\&apos;([^\&apos;\\\\]*(?:\\\\.[^\&apos;\\\\]*)*)\&apos;/<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">As</link>&apos;</para>
+</listitem>
+            <listitem><para>const <link linkend="_class_twig_1_1_lexer_1a4b8929b8c0c28e947ed9f7bb68ad2b1f">REGEX_DQ_STRING_DELIM</link> = &apos;/&quot;/A&apos;</para>
+</listitem>
+            <listitem><para>const <link linkend="_class_twig_1_1_lexer_1a703a02d213d85b11041fa5b74f756dcf">REGEX_DQ_STRING_PART</link> = &apos;/[^#&quot;\\\\]*(?:(?:\\\\.|#(?!\{))[^#&quot;\\\\]*)*/<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">As</link>&apos;</para>
+</listitem>
+            <listitem><para>const <link linkend="_class_twig_1_1_lexer_1a11e565318270644ea275995c4a100291">PUNCTUATION</link> = &apos;()[]{}?:.,|&apos;</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Description détaillée</title>
+
+<para><formalpara><title>Auteur</title>
+
+<para>Fabien Potencier <link xlink:href="mailto:fabien@symfony.com">fabien@symfony.com</link> </para>
+</formalpara>
+</para>
+</section>
+<section>
+<title>Documentation des constructeurs et destructeur</title>
+<anchor xml:id="_class_twig_1_1_lexer_1a6ae1fcb2881c44b90314359909641ed9"/><section>
+    <title>__construct()</title>
+<indexterm><primary>__construct</primary><secondary>Lexer</secondary></indexterm>
+<indexterm><primary>Lexer</primary><secondary>__construct</secondary></indexterm>
+<para><computeroutput>__construct (<link linkend="_class_twig_1_1_environment">Environment</link> $env, array $options = <computeroutput>[]</computeroutput>
+)</computeroutput></para></section>
+</section>
+<section>
+<title>Documentation des fonctions membres</title>
+<anchor xml:id="_class_twig_1_1_lexer_1a7103721d759296dd3a808f66f983b338"/><section>
+    <title>tokenize()</title>
+<indexterm><primary>tokenize</primary><secondary>Lexer</secondary></indexterm>
+<indexterm><primary>Lexer</primary><secondary>tokenize</secondary></indexterm>
+<para><computeroutput>tokenize (<link linkend="_class_twig_1_1_source">Source</link> $source)</computeroutput></para>Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_twig_1_1_lexer_a7103721d759296dd3a808f66f983b338_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+</section>
+<section>
+<title>Documentation des champs</title>
+<anchor xml:id="_class_twig_1_1_lexer_1a11e565318270644ea275995c4a100291"/><section>
+    <title>PUNCTUATION</title>
+<indexterm><primary>PUNCTUATION</primary><secondary>Lexer</secondary></indexterm>
+<indexterm><primary>Lexer</primary><secondary>PUNCTUATION</secondary></indexterm>
+<para><computeroutput>const PUNCTUATION = &apos;()[]{}?:.,|&apos;</computeroutput></para></section>
+<anchor xml:id="_class_twig_1_1_lexer_1a4b8929b8c0c28e947ed9f7bb68ad2b1f"/><section>
+    <title>REGEX_DQ_STRING_DELIM</title>
+<indexterm><primary>REGEX_DQ_STRING_DELIM</primary><secondary>Lexer</secondary></indexterm>
+<indexterm><primary>Lexer</primary><secondary>REGEX_DQ_STRING_DELIM</secondary></indexterm>
+<para><computeroutput>const REGEX_DQ_STRING_DELIM = &apos;/&quot;/A&apos;</computeroutput></para></section>
+<anchor xml:id="_class_twig_1_1_lexer_1a703a02d213d85b11041fa5b74f756dcf"/><section>
+    <title>REGEX_DQ_STRING_PART</title>
+<indexterm><primary>REGEX_DQ_STRING_PART</primary><secondary>Lexer</secondary></indexterm>
+<indexterm><primary>Lexer</primary><secondary>REGEX_DQ_STRING_PART</secondary></indexterm>
+<para><computeroutput>const REGEX_DQ_STRING_PART = &apos;/[^#&quot;\\\\]*(?:(?:\\\\.|#(?!\{))[^#&quot;\\\\]*)*/<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">As</link>&apos;</computeroutput></para></section>
+<anchor xml:id="_class_twig_1_1_lexer_1a16ad69f49b3f1e3d15823ce6760c49c1"/><section>
+    <title>REGEX_NAME</title>
+<indexterm><primary>REGEX_NAME</primary><secondary>Lexer</secondary></indexterm>
+<indexterm><primary>Lexer</primary><secondary>REGEX_NAME</secondary></indexterm>
+<para><computeroutput>const REGEX_NAME = &apos;/[<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">a</link>-<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">zA</link>-Z_\x7f-\<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">xff</link>][<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">a</link>-<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">zA</link>-<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">Z0</link>-9_\x7f-\<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">xff</link>]*/<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">A</link>&apos;</computeroutput></para></section>
+<anchor xml:id="_class_twig_1_1_lexer_1aba3337b652ecdf16df6874ebc9307462"/><section>
+    <title>REGEX_NUMBER</title>
+<indexterm><primary>REGEX_NUMBER</primary><secondary>Lexer</secondary></indexterm>
+<indexterm><primary>Lexer</primary><secondary>REGEX_NUMBER</secondary></indexterm>
+<para><computeroutput>const REGEX_NUMBER = &apos;/[0-9]+(?:\.[0-9]+)?([<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">Ee</link>][\+\-][0-9]+)?/<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">A</link>&apos;</computeroutput></para></section>
+<anchor xml:id="_class_twig_1_1_lexer_1ae6555ae628472b4a4b9c77f0ffb77538"/><section>
+    <title>REGEX_STRING</title>
+<indexterm><primary>REGEX_STRING</primary><secondary>Lexer</secondary></indexterm>
+<indexterm><primary>Lexer</primary><secondary>REGEX_STRING</secondary></indexterm>
+<para><computeroutput>const REGEX_STRING = &apos;/&quot;([^#&quot;\\\\]*(?:\\\\.[^#&quot;\\\\]*)*)&quot;|\&apos;([^\&apos;\\\\]*(?:\\\\.[^\&apos;\\\\]*)*)\&apos;/<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">As</link>&apos;</computeroutput></para></section>
+<anchor xml:id="_class_twig_1_1_lexer_1a7943cc4ef427db839acf8405ab7622b1"/><section>
+    <title>STATE_BLOCK</title>
+<indexterm><primary>STATE_BLOCK</primary><secondary>Lexer</secondary></indexterm>
+<indexterm><primary>Lexer</primary><secondary>STATE_BLOCK</secondary></indexterm>
+<para><computeroutput>const STATE_BLOCK = 1</computeroutput></para></section>
+<anchor xml:id="_class_twig_1_1_lexer_1aed1034ab76d6f68a9936141fb43e46c4"/><section>
+    <title>STATE_DATA</title>
+<indexterm><primary>STATE_DATA</primary><secondary>Lexer</secondary></indexterm>
+<indexterm><primary>Lexer</primary><secondary>STATE_DATA</secondary></indexterm>
+<para><computeroutput>const STATE_DATA = 0</computeroutput></para></section>
+<anchor xml:id="_class_twig_1_1_lexer_1ab366646ed1df9dc0a6b90e96dbaa2293"/><section>
+    <title>STATE_INTERPOLATION</title>
+<indexterm><primary>STATE_INTERPOLATION</primary><secondary>Lexer</secondary></indexterm>
+<indexterm><primary>Lexer</primary><secondary>STATE_INTERPOLATION</secondary></indexterm>
+<para><computeroutput>const STATE_INTERPOLATION = 4</computeroutput></para></section>
+<anchor xml:id="_class_twig_1_1_lexer_1aee10c9511fcc8204cd8ba7ced221e096"/><section>
+    <title>STATE_STRING</title>
+<indexterm><primary>STATE_STRING</primary><secondary>Lexer</secondary></indexterm>
+<indexterm><primary>Lexer</primary><secondary>STATE_STRING</secondary></indexterm>
+<para><computeroutput>const STATE_STRING = 3</computeroutput></para></section>
+<anchor xml:id="_class_twig_1_1_lexer_1ace602c247a72e20792de0cbbaece8d4e"/><section>
+    <title>STATE_VAR</title>
+<indexterm><primary>STATE_VAR</primary><secondary>Lexer</secondary></indexterm>
+<indexterm><primary>Lexer</primary><secondary>STATE_VAR</secondary></indexterm>
+<para><computeroutput>const STATE_VAR = 2</computeroutput></para></section>
+<para>
+La documentation de cette classe a été générée à partir du fichier suivant :</para>
+public/glpi/vendor/twig/twig/src/<link linkend="_twig_2twig_2src_2_lexer_8php">Lexer.php</link></section>
+</section>

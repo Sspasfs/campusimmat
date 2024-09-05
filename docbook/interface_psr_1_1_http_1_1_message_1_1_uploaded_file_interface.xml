@@ -1,0 +1,272 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_interface_psr_1_1_http_1_1_message_1_1_uploaded_file_interface" xml:lang="fr">
+<title>Référence de l&apos;interface UploadedFileInterface</title>
+<indexterm><primary>UploadedFileInterface</primary></indexterm>
+Graphe d&apos;héritage de UploadedFileInterface:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="interface_psr_1_1_http_1_1_message_1_1_uploaded_file_interface__inherit__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Graphe de collaboration de UploadedFileInterface:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="interface_psr_1_1_http_1_1_message_1_1_uploaded_file_interface__coll__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Fonctions membres publiques    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_interface_psr_1_1_http_1_1_message_1_1_uploaded_file_interface_1a3e5834ff3daeecd091712270886a16fb">getStream</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_interface_psr_1_1_http_1_1_message_1_1_uploaded_file_interface_1a8974feaa6764b71016839e764243d9f5">moveTo</link> (string $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">targetPath</link>)</para>
+</listitem>
+            <listitem><para><link linkend="_interface_psr_1_1_http_1_1_message_1_1_uploaded_file_interface_1a75cce10cdf81be6dc84881c28b3379b7">getSize</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_interface_psr_1_1_http_1_1_message_1_1_uploaded_file_interface_1a24ada5decce3d1b79cd82f5a90ccf404">getError</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_interface_psr_1_1_http_1_1_message_1_1_uploaded_file_interface_1ace985ea32f42a84e765b941aee6a74dd">getClientFilename</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_interface_psr_1_1_http_1_1_message_1_1_uploaded_file_interface_1a0eb11010787d58d8be9c35f607e51b31">getClientMediaType</link> ()</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Description détaillée</title>
+
+<para>Value object representing a file uploaded through an HTTP request.</para>
+
+<para>Instances of this interface are considered immutable; all methods that might change state MUST be implemented such that they retain the internal state of the current instance and return an instance that contains the changed state. </para>
+</section>
+<section>
+<title>Documentation des fonctions membres</title>
+<anchor xml:id="_interface_psr_1_1_http_1_1_message_1_1_uploaded_file_interface_1ace985ea32f42a84e765b941aee6a74dd"/><section>
+    <title>getClientFilename()</title>
+<indexterm><primary>getClientFilename</primary><secondary>UploadedFileInterface</secondary></indexterm>
+<indexterm><primary>UploadedFileInterface</primary><secondary>getClientFilename</secondary></indexterm>
+<para><computeroutput>getClientFilename ( )</computeroutput></para>
+<para>Retrieve the filename sent by the client.</para>
+
+<para>Do not trust the value returned by this method. A client could send a malicious filename with the intention to corrupt or hack your application.</para>
+
+<para>Implementations SHOULD return the value stored in the &quot;name&quot; key of the file in the $_FILES array.</para>
+
+<para><formalpara><title>Renvoie</title>
+
+<para>string|null The filename sent by the client or null if none was provided. </para>
+</formalpara>
+</para>
+<para>
+Implémenté dans <link linkend="_class_guzzle_http_1_1_psr7_1_1_uploaded_file_1ace985ea32f42a84e765b941aee6a74dd">UploadedFile</link>.</para>
+</section>
+<anchor xml:id="_interface_psr_1_1_http_1_1_message_1_1_uploaded_file_interface_1a0eb11010787d58d8be9c35f607e51b31"/><section>
+    <title>getClientMediaType()</title>
+<indexterm><primary>getClientMediaType</primary><secondary>UploadedFileInterface</secondary></indexterm>
+<indexterm><primary>UploadedFileInterface</primary><secondary>getClientMediaType</secondary></indexterm>
+<para><computeroutput>getClientMediaType ( )</computeroutput></para>
+<para>Retrieve the media type sent by the client.</para>
+
+<para>Do not trust the value returned by this method. A client could send a malicious media type with the intention to corrupt or hack your application.</para>
+
+<para>Implementations SHOULD return the value stored in the &quot;type&quot; key of the file in the $_FILES array.</para>
+
+<para><formalpara><title>Renvoie</title>
+
+<para>string|null The media type sent by the client or null if none was provided. </para>
+</formalpara>
+</para>
+<para>
+Implémenté dans <link linkend="_class_guzzle_http_1_1_psr7_1_1_uploaded_file_1a0eb11010787d58d8be9c35f607e51b31">UploadedFile</link>.</para>
+</section>
+<anchor xml:id="_interface_psr_1_1_http_1_1_message_1_1_uploaded_file_interface_1a24ada5decce3d1b79cd82f5a90ccf404"/><section>
+    <title>getError()</title>
+<indexterm><primary>getError</primary><secondary>UploadedFileInterface</secondary></indexterm>
+<indexterm><primary>UploadedFileInterface</primary><secondary>getError</secondary></indexterm>
+<para><computeroutput>getError ( )</computeroutput></para>
+<para>Retrieve the error associated with the uploaded file.</para>
+
+<para>The return value MUST be one of PHP&apos;s UPLOAD_ERR_XXX constants.</para>
+
+<para>If the file was uploaded successfully, this method MUST return UPLOAD_ERR_OK.</para>
+
+<para>Implementations SHOULD return the value stored in the &quot;error&quot; key of the file in the $_FILES array.</para>
+
+<para><formalpara><title>Voir également</title>
+
+<para><link xlink:href="http://php.net/manual/en/features.file-upload.errors.php">http://php.net/manual/en/features.file-upload.errors.php</link> </para>
+</formalpara>
+<formalpara><title>Renvoie</title>
+
+<para>int One of PHP&apos;s UPLOAD_ERR_XXX constants. </para>
+</formalpara>
+</para>
+<para>
+Implémenté dans <link linkend="_class_guzzle_http_1_1_psr7_1_1_uploaded_file_1a24ada5decce3d1b79cd82f5a90ccf404">UploadedFile</link>.</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="interface_psr_1_1_http_1_1_message_1_1_uploaded_file_interface_a24ada5decce3d1b79cd82f5a90ccf404_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_interface_psr_1_1_http_1_1_message_1_1_uploaded_file_interface_1a75cce10cdf81be6dc84881c28b3379b7"/><section>
+    <title>getSize()</title>
+<indexterm><primary>getSize</primary><secondary>UploadedFileInterface</secondary></indexterm>
+<indexterm><primary>UploadedFileInterface</primary><secondary>getSize</secondary></indexterm>
+<para><computeroutput>getSize ( )</computeroutput></para>
+<para>Retrieve the file size.</para>
+
+<para>Implementations SHOULD return the value stored in the &quot;size&quot; key of the file in the $_FILES array if available, as PHP calculates this based on the actual size transmitted.</para>
+
+<para><formalpara><title>Renvoie</title>
+
+<para>int|null The file size in bytes or null if unknown. </para>
+</formalpara>
+</para>
+<para>
+Implémenté dans <link linkend="_class_guzzle_http_1_1_psr7_1_1_uploaded_file_1a75cce10cdf81be6dc84881c28b3379b7">UploadedFile</link>.</para>
+</section>
+<anchor xml:id="_interface_psr_1_1_http_1_1_message_1_1_uploaded_file_interface_1a3e5834ff3daeecd091712270886a16fb"/><section>
+    <title>getStream()</title>
+<indexterm><primary>getStream</primary><secondary>UploadedFileInterface</secondary></indexterm>
+<indexterm><primary>UploadedFileInterface</primary><secondary>getStream</secondary></indexterm>
+<para><computeroutput>getStream ( )</computeroutput></para>
+<para>Retrieve a stream representing the uploaded file.</para>
+
+<para>This method MUST return a StreamInterface instance, representing the uploaded file. The purpose of this method is to allow utilizing native PHP stream functionality to manipulate the file upload, such as <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">stream_copy_to_stream()</link> (though the result will need to be decorated in a native PHP stream wrapper to work with such functions).</para>
+
+<para>If the moveTo() method has been called previously, this method MUST raise an exception.</para>
+
+<para><formalpara><title>Renvoie</title>
+
+<para>StreamInterface Stream representation of the uploaded file. </para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry></entry>
+<entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                RuntimeException in cases when no stream is available or can be created. </para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="interface_psr_1_1_http_1_1_message_1_1_uploaded_file_interface_a3e5834ff3daeecd091712270886a16fb_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_interface_psr_1_1_http_1_1_message_1_1_uploaded_file_interface_1a8974feaa6764b71016839e764243d9f5"/><section>
+    <title>moveTo()</title>
+<indexterm><primary>moveTo</primary><secondary>UploadedFileInterface</secondary></indexterm>
+<indexterm><primary>UploadedFileInterface</primary><secondary>moveTo</secondary></indexterm>
+<para><computeroutput>moveTo (string $targetPath)</computeroutput></para>
+<para>Move the uploaded file to a new location.</para>
+
+<para>Use this method as an alternative to <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">move_uploaded_file()</link>. This method is guaranteed to work in both SAPI and non-SAPI environments. Implementations must determine which environment they are in, and use the appropriate method (<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">move_uploaded_file()</link>, rename(), or a stream operation) to perform the operation.</para>
+
+<para>$targetPath may be an absolute path, or a relative path. If it is a relative path, resolution should be the same as used by PHP&apos;s rename() function.</para>
+
+<para>The original file or stream MUST be removed on completion.</para>
+
+<para>If this method is called more than once, any subsequent calls MUST raise an exception.</para>
+
+<para>When used in an SAPI environment where $_FILES is populated, when writing files via moveTo(), is_uploaded_file() and <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">move_uploaded_file()</link> SHOULD be used to ensure permissions and upload status are verified correctly.</para>
+
+<para>If you wish to move to a stream, use getStream(), as SAPI operations cannot guarantee writing to stream destinations.</para>
+
+<para><formalpara><title>Voir également</title>
+
+<para><link xlink:href="http://php.net/is_uploaded_file">http://php.net/is_uploaded_file</link> </para>
+
+<para><link xlink:href="http://php.net/move_uploaded_file">http://php.net/move_uploaded_file</link> </para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$targetPath</entry><entry>
+<para>Path to which to move the uploaded file. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry></entry>
+<entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                InvalidArgumentException if the $targetPath specified is invalid. 
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry></entry>
+<entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                RuntimeException on any error during the move operation, or on the second or subsequent call to the method. </para>
+</section>
+<para>
+La documentation de cette interface a été générée à partir du fichier suivant :</para>
+public/glpi/vendor/psr/http-message/src/<link linkend="__uploaded_file_interface_8php">UploadedFileInterface.php</link></section>
+</section>

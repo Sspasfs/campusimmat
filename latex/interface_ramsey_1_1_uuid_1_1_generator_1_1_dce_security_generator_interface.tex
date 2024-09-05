@@ -1,0 +1,69 @@
+\doxysection{Référence de l\textquotesingle{}interface Dce\+Security\+Generator\+Interface}
+\hypertarget{interface_ramsey_1_1_uuid_1_1_generator_1_1_dce_security_generator_interface}{}\label{interface_ramsey_1_1_uuid_1_1_generator_1_1_dce_security_generator_interface}\index{DceSecurityGeneratorInterface@{DceSecurityGeneratorInterface}}
+
+
+Graphe d\textquotesingle{}héritage de Dce\+Security\+Generator\+Interface\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=328pt]{interface_ramsey_1_1_uuid_1_1_generator_1_1_dce_security_generator_interface__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Graphe de collaboration de Dce\+Security\+Generator\+Interface\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=240pt]{interface_ramsey_1_1_uuid_1_1_generator_1_1_dce_security_generator_interface__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{interface_ramsey_1_1_uuid_1_1_generator_1_1_dce_security_generator_interface_acdac5c5751bf4d3eb66ee40ba46e8f6a}{generate}} (int \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{local\+Domain}}, ?\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{Integer\+Object}} \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{local\+Identifier}}=null, ?\mbox{\hyperlink{class_ramsey_1_1_uuid_1_1_type_1_1_hexadecimal}{Hexadecimal}} \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{node}}=null, ?int \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{clock\+Seq}}=null)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+A DCE Security generator generates strings of binary data based on a local domain, local identifier, node ID, clock sequence, and the current time
+
+\begin{DoxySeeAlso}{Voir également}
+Uuid\+V2 
+\end{DoxySeeAlso}
+
+
+\doxysubsection{Documentation des fonctions membres}
+\Hypertarget{interface_ramsey_1_1_uuid_1_1_generator_1_1_dce_security_generator_interface_acdac5c5751bf4d3eb66ee40ba46e8f6a}\label{interface_ramsey_1_1_uuid_1_1_generator_1_1_dce_security_generator_interface_acdac5c5751bf4d3eb66ee40ba46e8f6a} 
+\index{DceSecurityGeneratorInterface@{DceSecurityGeneratorInterface}!generate@{generate}}
+\index{generate@{generate}!DceSecurityGeneratorInterface@{DceSecurityGeneratorInterface}}
+\doxysubsubsection{\texorpdfstring{generate()}{generate()}}
+{\footnotesize\ttfamily generate (\begin{DoxyParamCaption}\item[{int}]{\$local\+Domain,  }\item[{?\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{Integer\+Object}}}]{\$local\+Identifier = {\ttfamily null},  }\item[{?\mbox{\hyperlink{class_ramsey_1_1_uuid_1_1_type_1_1_hexadecimal}{Hexadecimal}}}]{\$node = {\ttfamily null},  }\item[{?int}]{\$clock\+Seq = {\ttfamily null} }\end{DoxyParamCaption})}
+
+Generate a binary string from a local domain, local identifier, node ID, clock sequence, and current time
+
+
+\begin{DoxyParams}[1]{Paramètres}
+int & {\em \$local\+Domain} & The local domain to use when generating bytes, according to DCE Security \\
+\hline
+Integer\+Object | null & {\em \$local\+Identifier} & The local identifier for the given domain; this may be a UID or GID on POSIX systems, if the local domain is person or group, or it may be a site-\/defined identifier if the local domain is org \\
+\hline
+Hexadecimal | null & {\em \$node} & A 48-\/bit number representing the hardware address \\
+\hline
+int | null & {\em \$clock\+Seq} & A 14-\/bit number used to help avoid duplicates that could arise when the clock is set backwards in time or if the node ID changes\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+string A binary string 
+\end{DoxyReturn}
+
+
+Implémenté dans \mbox{\hyperlink{class_ramsey_1_1_uuid_1_1_generator_1_1_dce_security_generator_acdac5c5751bf4d3eb66ee40ba46e8f6a}{Dce\+Security\+Generator}}.
+
+
+
+La documentation de cette interface a été générée à partir du fichier suivant \+:\begin{DoxyCompactItemize}
+\item 
+public/glpi/vendor/ramsey/uuid/src/\+Generator/\mbox{\hyperlink{_dce_security_generator_interface_8php}{Dce\+Security\+Generator\+Interface.\+php}}\end{DoxyCompactItemize}

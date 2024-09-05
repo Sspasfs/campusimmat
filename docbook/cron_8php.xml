@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_cron_8php" xml:lang="fr">
+<title>Référence du fichier public/glpi/front/cron.php</title>
+<indexterm><primary>public/glpi/front/cron.php</primary></indexterm>
+<simplesect>
+    <title>Variables    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">global</link> <link linkend="_cron_8php_1a2e00a61703ee4673cdfb5eb376a9b295">$CFG_GLPI</link></para>
+</listitem>
+            <listitem><para><link linkend="_cron_8php_1a803992d20070f8b025dcc9ea32ff1ebb">$SECURITY_STRATEGY</link> = &apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">no_check</link>&apos;</para>
+</listitem>
+            <listitem><para><link linkend="_dropdown_location_8php_1a52332c22f84432520971794825a5a8e7">if</link>(!is_writable(<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">GLPI_LOCK_DIR</link>)) <link linkend="_dropdown_location_8php_1a52332c22f84432520971794825a5a8e7">if</link>(!<link linkend="_autoload_8function_8php_1ab4e318ad07e38b1cd122362832786aca">isCommandLine</link>()) else <link linkend="_dropdown_location_8php_1a52332c22f84432520971794825a5a8e7">if</link>(<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">isset</link>($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">_SERVER</link>[&apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">argc</link>&apos;]) &amp;&amp;($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">_SERVER</link>[&apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">argc</link>&apos;] &gt; 1)) <link linkend="_cron_8php_1ab59293e4f6b429d541bc7e478c4ba3bb">else</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Documentation des variables</title>
+<anchor xml:id="_cron_8php_1a2e00a61703ee4673cdfb5eb376a9b295"/><section>
+    <title>$CFG_GLPI</title>
+<indexterm><primary>$CFG_GLPI</primary><secondary>cron.php</secondary></indexterm>
+<indexterm><primary>cron.php</primary><secondary>$CFG_GLPI</secondary></indexterm>
+<para><computeroutput><link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">global</link> $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">CFG_GLPI</link></computeroutput></para></section>
+<anchor xml:id="_cron_8php_1a803992d20070f8b025dcc9ea32ff1ebb"/><section>
+    <title>$SECURITY_STRATEGY</title>
+<indexterm><primary>$SECURITY_STRATEGY</primary><secondary>cron.php</secondary></indexterm>
+<indexterm><primary>cron.php</primary><secondary>$SECURITY_STRATEGY</secondary></indexterm>
+<para><computeroutput>$<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">SECURITY_STRATEGY</link> = &apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">no_check</link>&apos;</computeroutput></para></section>
+<anchor xml:id="_cron_8php_1ab59293e4f6b429d541bc7e478c4ba3bb"/><section>
+    <title>else</title>
+<indexterm><primary>else</primary><secondary>cron.php</secondary></indexterm>
+<indexterm><primary>cron.php</primary><secondary>else</secondary></indexterm>
+<para><computeroutput><link linkend="_dropdown_location_8php_1a52332c22f84432520971794825a5a8e7">if</link>(!is_writable(<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">GLPI_LOCK_DIR</link>)) <link linkend="_dropdown_location_8php_1a52332c22f84432520971794825a5a8e7">if</link>(!<link linkend="_autoload_8function_8php_1ab4e318ad07e38b1cd122362832786aca">isCommandLine</link>()) else <link linkend="_dropdown_location_8php_1a52332c22f84432520971794825a5a8e7">if</link> (<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">isset</link>( $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">_SERVER</link>[ &apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">argc</link>&apos;]) &amp;&amp;( $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">_SERVER</link>[ &apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">argc</link>&apos;] &gt; 1)) else</computeroutput></para><emphasis role="strong">Valeur initiale :</emphasis><programlisting linenumbering="unnumbered">{
+&#32;&#32;&#32;
+&#32;&#32;&#32;&#32;CronTask::launch(CronTask::MODE_EXTERNAL,&#32;<link linkend="_cron_8php_1a2e00a61703ee4673cdfb5eb376a9b295">$CFG_GLPI</link>[<emphasis role="stringliteral">&apos;cron_limit&apos;</emphasis>])
+</programlisting></section>
+</section>
+</section>

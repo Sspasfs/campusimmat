@@ -1,0 +1,106 @@
+\doxysection{Référence de la classe Noop\+Handler}
+\hypertarget{class_monolog_1_1_handler_1_1_noop_handler}{}\label{class_monolog_1_1_handler_1_1_noop_handler}\index{NoopHandler@{NoopHandler}}
+
+
+Graphe d\textquotesingle{}héritage de Noop\+Handler\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=189pt]{class_monolog_1_1_handler_1_1_noop_handler__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Graphe de collaboration de Noop\+Handler\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=189pt]{class_monolog_1_1_handler_1_1_noop_handler__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_monolog_1_1_handler_1_1_noop_handler_abbfbbcd3430dea8422ecd3c725737758}{is\+Handling}} (array \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{record}})
+\item 
+\mbox{\hyperlink{class_monolog_1_1_handler_1_1_noop_handler_ad54b568c673b7b4fc724268a54313603}{handle}} (array \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{record}})
+\end{DoxyCompactItemize}
+\doxysubsection*{Fonctions membres publiques hérités de \mbox{\hyperlink{class_monolog_1_1_handler_1_1_handler}{Handler}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_monolog_1_1_handler_1_1_handler_a944865926b0302ad2d802bea1eec3a57}{handle\+Batch}} (array \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{records}})
+\item 
+\mbox{\hyperlink{class_monolog_1_1_handler_1_1_handler_aa69c8bf1f1dcf4e72552efff1fe3e87e}{close}} ()
+\item 
+\mbox{\hyperlink{class_monolog_1_1_handler_1_1_handler_a421831a265621325e1fdd19aace0c758}{\+\_\+\+\_\+destruct}} ()
+\item 
+\mbox{\hyperlink{class_monolog_1_1_handler_1_1_handler_aaf11785905da71774e052912d784e3b4}{\+\_\+\+\_\+sleep}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+No-\/op
+
+This handler handles anything, but does nothing, and does not stop bubbling to the rest of the stack. This can be used for testing, or to disable a handler when overriding a configuration without influencing the rest of the stack.
+
+\begin{DoxyAuthor}{Auteur}
+Roel Harbers \href{mailto:roelharbers@gmail.com}{\texttt{ roelharbers@gmail.\+com}} 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Documentation des fonctions membres}
+\Hypertarget{class_monolog_1_1_handler_1_1_noop_handler_ad54b568c673b7b4fc724268a54313603}\label{class_monolog_1_1_handler_1_1_noop_handler_ad54b568c673b7b4fc724268a54313603} 
+\index{NoopHandler@{NoopHandler}!handle@{handle}}
+\index{handle@{handle}!NoopHandler@{NoopHandler}}
+\doxysubsubsection{\texorpdfstring{handle()}{handle()}}
+{\footnotesize\ttfamily handle (\begin{DoxyParamCaption}\item[{array}]{\$record }\end{DoxyParamCaption})}
+
+Handles a record.
+
+All records may be passed to this method, and the handler should discard those that it does not want to handle.
+
+The return value of this function controls the bubbling process of the handler stack. Unless the bubbling is interrupted (by returning true), the \doxylink{class_monolog_1_1_logger}{Logger} class will keep on calling further handlers in the stack with a given log record.
+
+
+\begin{DoxyParams}[1]{Paramètres}
+array & {\em \$record} & The record to handle \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+bool true means that this handler handled the record, and that bubbling is not permitted. false means the record was either not processed or that this handler allows bubbling.
+\end{DoxyReturn}
+@phpstan-\/param Record \$record 
+
+Implémente \mbox{\hyperlink{interface_monolog_1_1_handler_1_1_handler_interface_ad54b568c673b7b4fc724268a54313603}{Handler\+Interface}}.
+
+\Hypertarget{class_monolog_1_1_handler_1_1_noop_handler_abbfbbcd3430dea8422ecd3c725737758}\label{class_monolog_1_1_handler_1_1_noop_handler_abbfbbcd3430dea8422ecd3c725737758} 
+\index{NoopHandler@{NoopHandler}!isHandling@{isHandling}}
+\index{isHandling@{isHandling}!NoopHandler@{NoopHandler}}
+\doxysubsubsection{\texorpdfstring{isHandling()}{isHandling()}}
+{\footnotesize\ttfamily is\+Handling (\begin{DoxyParamCaption}\item[{array}]{\$record }\end{DoxyParamCaption})}
+
+Checks whether the given record will be handled by this handler.
+
+This is mostly done for performance reasons, to avoid calling processors for nothing.
+
+Handlers should still check the record levels within \doxylink{interface_monolog_1_1_handler_1_1_handler_interface_ad54b568c673b7b4fc724268a54313603}{handle()}, returning false in \doxylink{interface_monolog_1_1_handler_1_1_handler_interface_abbfbbcd3430dea8422ecd3c725737758}{is\+Handling()} is no guarantee that \doxylink{interface_monolog_1_1_handler_1_1_handler_interface_ad54b568c673b7b4fc724268a54313603}{handle()} will not be called, and \doxylink{interface_monolog_1_1_handler_1_1_handler_interface_abbfbbcd3430dea8422ecd3c725737758}{is\+Handling()} might not be called for a given record.
+
+
+\begin{DoxyParams}[1]{Paramètres}
+array & {\em \$record} & Partial log record containing only a level key\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+bool
+\end{DoxyReturn}
+@phpstan-\/param array\{level\+: Level\} \$record 
+
+Implémente \mbox{\hyperlink{interface_monolog_1_1_handler_1_1_handler_interface_abbfbbcd3430dea8422ecd3c725737758}{Handler\+Interface}}.
+
+
+
+La documentation de cette classe a été générée à partir du fichier suivant \+:\begin{DoxyCompactItemize}
+\item 
+public/glpi/vendor/monolog/monolog/src/\+Monolog/\+Handler/\mbox{\hyperlink{_noop_handler_8php}{Noop\+Handler.\+php}}\end{DoxyCompactItemize}

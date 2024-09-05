@@ -1,0 +1,49 @@
+\doxysection{Référence du fichier public/glpi/install/migrations/update\+\_\+10.0.9\+\_\+to\+\_\+10.0.10/ldap\+\_\+fields.php}
+\hypertarget{ldap__fields_8php}{}\label{ldap__fields_8php}\index{public/glpi/install/migrations/update\_10.0.9\_to\_10.0.10/ldap\_fields.php@{public/glpi/install/migrations/update\_10.0.9\_to\_10.0.10/ldap\_fields.php}}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{ldap__fields_8php_a65101298410cf2b94ac35d83a79df4cd}{\$groups}} = \mbox{\hyperlink{db_8function_8php_a6c1665314faef61cab7f18df7ec18873}{get\+All\+Data\+From\+Table}}(\textquotesingle{}\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{glpi\+\_\+groups}}\textquotesingle{})
+\item 
+\mbox{\hyperlink{get_user_picture_8php_a0df27c645324b72eaf7093e10f310670}{foreach}}(\$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{groups}} \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{as}} \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{group}}) \mbox{\hyperlink{ldap__fields_8php_a7ad889fd999d79cec4ad55ac25c262ce}{\$users}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Documentation des variables}
+\Hypertarget{ldap__fields_8php_a65101298410cf2b94ac35d83a79df4cd}\label{ldap__fields_8php_a65101298410cf2b94ac35d83a79df4cd} 
+\index{ldap\_fields.php@{ldap\_fields.php}!\$groups@{\$groups}}
+\index{\$groups@{\$groups}!ldap\_fields.php@{ldap\_fields.php}}
+\doxysubsubsection{\texorpdfstring{\$groups}{\$groups}}
+{\footnotesize\ttfamily read array \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{groups}} = \mbox{\hyperlink{db_8function_8php_a6c1665314faef61cab7f18df7ec18873}{get\+All\+Data\+From\+Table}}(\textquotesingle{}\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{glpi\+\_\+groups}}\textquotesingle{})}
+
+Fix non encoded LDAP fields in groups \Hypertarget{ldap__fields_8php_a7ad889fd999d79cec4ad55ac25c262ce}\label{ldap__fields_8php_a7ad889fd999d79cec4ad55ac25c262ce} 
+\index{ldap\_fields.php@{ldap\_fields.php}!\$users@{\$users}}
+\index{\$users@{\$users}!ldap\_fields.php@{ldap\_fields.php}}
+\doxysubsubsection{\texorpdfstring{\$users}{\$users}}
+{\footnotesize\ttfamily read array \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{users}}}
+
+{\bfseries Valeur initiale \+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ \mbox{\hyperlink{dropdown_connect_network_port_8php_afb8f39c26f5fd4c7fd0f68203d7e96b1}{\$DB}}-\/>request([}
+\DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{'SELECT'}\ =>\ [}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{'glpi\_users.id'},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{'glpi\_users.user\_dn'},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{'glpi\_users.sync\_field'},}
+\DoxyCodeLine{\ \ \ \ ],}
+\DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{'FROM'}\ \ \ =>\ \textcolor{stringliteral}{'glpi\_users'},}
+\DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{'WHERE'}\ \ =>\ [}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{'authtype'}\ =>\ 3,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ [}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{'OR'}\ =>\ [}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{'user\_dn'}\ =>\ [\textcolor{stringliteral}{'REGEXP'},\ \textcolor{stringliteral}{'(<|>|\&)'}],}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{'sync\_field'}\ =>\ [\textcolor{stringliteral}{'REGEXP'},\ \textcolor{stringliteral}{'(<|>|\&)'}],}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ ]}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ ]}
+\DoxyCodeLine{\ \ \ \ ],}
+\DoxyCodeLine{])}
+
+\end{DoxyCode}
+/\+Fix non encoded LDAP fields in groups Fix non encoded LDAP fields in users
+
+\doxylink{class_common_i_t_i_l_object}{Common\+ITILObject} Class 

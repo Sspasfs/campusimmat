@@ -1,0 +1,80 @@
+\chapter{JSON Lint}
+\hypertarget{md_public_2glpi_2vendor_2seld_2jsonlint_2_r_e_a_d_m_e}{}\label{md_public_2glpi_2vendor_2seld_2jsonlint_2_r_e_a_d_m_e}\index{JSON Lint@{JSON Lint}}
+\href{https://github.com/Seldaek/jsonlint/actions/workflows/continuous-integration.yml}{\texttt{ }}\hypertarget{md_public_2glpi_2vendor_2seld_2jsonlint_2_r_e_a_d_m_e_autotoc_md7168}{}\doxysection{\texorpdfstring{Usage}{Usage}}\label{md_public_2glpi_2vendor_2seld_2jsonlint_2_r_e_a_d_m_e_autotoc_md7168}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{use}}\ \mbox{\hyperlink{class_seld_1_1_json_lint_1_1_json_parser}{Seld\(\backslash\)JsonLint\(\backslash\)JsonParser}};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\$parser\ =\ \textcolor{keyword}{new}\ JsonParser();}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ returns\ null\ if\ it's\ valid\ json,\ or\ a\ ParsingException\ object.}}
+\DoxyCodeLine{\$parser-\/>lint(\$json);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ Call\ getMessage()\ on\ the\ exception\ object\ to\ get}}
+\DoxyCodeLine{\textcolor{comment}{//\ a\ well\ formatted\ error\ message\ error\ like\ this}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ Parse\ error\ on\ line\ 2:}}
+\DoxyCodeLine{\textcolor{comment}{//\ ...\ "{}key"{}:\ "{}value"{}\ \ \ \ "{}numbers"{}:\ [1,\ 2,\ 3]}}
+\DoxyCodeLine{\textcolor{comment}{//\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\string^}}
+\DoxyCodeLine{\textcolor{comment}{//\ Expected\ one\ of:\ 'EOF',\ '\}',\ ':',\ ',',\ ']'}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ Call\ getDetails()\ on\ the\ exception\ to\ get\ more\ info.}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ returns\ parsed\ json,\ like\ json\_decode()\ does,\ but\ slower,\ throws}}
+\DoxyCodeLine{\textcolor{comment}{//\ exceptions\ on\ failure.}}
+\DoxyCodeLine{\$parser-\/>parse(\$json);}
+
+\end{DoxyCode}
+
+
+You can also pass additional flags to {\ttfamily Json\+Parser\+::lint/parse} that tweak the functionality\+:
+
+
+\begin{DoxyItemize}
+\item {\ttfamily Json\+Parser\+::\+DETECT\+\_\+\+KEY\+\_\+\+CONFLICTS} throws an exception on duplicate keys.
+\item {\ttfamily Json\+Parser\+::\+ALLOW\+\_\+\+DUPLICATE\+\_\+\+KEYS} collects duplicate keys. e.\+g. if you have two {\ttfamily foo} keys they will end up as {\ttfamily foo} and {\ttfamily foo.\+2}.
+\item {\ttfamily Json\+Parser\+::\+PARSE\+\_\+\+TO\+\_\+\+ASSOC} parses to associative arrays instead of std\+Class objects.
+\item {\ttfamily Json\+Parser\+::\+ALLOW\+\_\+\+COMMENTS} parses while allowing (and ignoring) inline {\ttfamily //} and multiline {\ttfamily /\texorpdfstring{$\ast$}{*} \texorpdfstring{$\ast$}{*}/} comments in the JSON document.
+\end{DoxyItemize}
+
+Example\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\$parser\ =\ \textcolor{keyword}{new}\ JsonParser;}
+\DoxyCodeLine{\textcolor{keywordflow}{try}\ \{}
+\DoxyCodeLine{\ \ \ \ \$parser-\/>parse(file\_get\_contents(\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\$jsonFile}}),\ JsonParser::DETECT\_KEY\_CONFLICTS);}
+\DoxyCodeLine{\}\ \textcolor{keywordflow}{catch}\ (DuplicateKeyException\ \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\$e}})\ \{}
+\DoxyCodeLine{\ \ \ \ \$details\ =\ \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\$e}}-\/>getDetails();}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{echo}}\ \textcolor{stringliteral}{'Key\ '}.\$details[\textcolor{stringliteral}{'key'}].\textcolor{stringliteral}{'\ is\ a\ duplicate\ in\ '}.\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\$jsonFile}}.\textcolor{stringliteral}{'\ at\ line\ '}.\$details[\textcolor{stringliteral}{'line'}];}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+\begin{quote}
+{\bfseries{Note\+:}} This library is meant to parse JSON while providing good error messages on failure. There is no way it can be as fast as php native {\ttfamily json\+\_\+decode()}.
+
+It is recommended to parse with {\ttfamily json\+\_\+decode}, and when it fails parse again with seld/jsonlint to get a proper error message back to the user. See for example \href{https://github.com/composer/composer/blob/56edd53046fd697d32b2fd2fbaf45af5d7951671/src/Composer/Json/JsonFile.php\#L283-L318}{\texttt{ how Composer uses this library}}\+: \end{quote}
+\hypertarget{md_public_2glpi_2vendor_2seld_2jsonlint_2_r_e_a_d_m_e_autotoc_md7169}{}\doxysection{\texorpdfstring{Installation}{Installation}}\label{md_public_2glpi_2vendor_2seld_2jsonlint_2_r_e_a_d_m_e_autotoc_md7169}
+For a quick install with \doxylink{namespace_composer}{Composer} use\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{composer\ require\ seld/jsonlint}
+
+\end{DoxyCode}
+
+
+JSON Lint can easily be used within another app if you have a \href{https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-4-autoloader.md}{\texttt{ PSR-\/4}} autoloader, or it can be installed through \href{https://getcomposer.org/}{\texttt{ Composer}} for use as a CLI util. Once installed via \doxylink{namespace_composer}{Composer} you can run the following command to lint a json file or URL\+: \begin{DoxyVerb}$ bin/jsonlint file.json
+\end{DoxyVerb}
+ \hypertarget{md_public_2glpi_2vendor_2seld_2jsonlint_2_r_e_a_d_m_e_autotoc_md7170}{}\doxysection{\texorpdfstring{Requirements}{Requirements}}\label{md_public_2glpi_2vendor_2seld_2jsonlint_2_r_e_a_d_m_e_autotoc_md7170}
+
+\begin{DoxyItemize}
+\item PHP 5.\+3+
+\item \mbox{[}optional\mbox{]} PHPUnit 3.\+5+ to execute the test suite (phpunit --version)
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2seld_2jsonlint_2_r_e_a_d_m_e_autotoc_md7171}{}\doxysection{\texorpdfstring{Submitting bugs and feature requests}{Submitting bugs and feature requests}}\label{md_public_2glpi_2vendor_2seld_2jsonlint_2_r_e_a_d_m_e_autotoc_md7171}
+Bugs and feature request are tracked on \href{https://github.com/Seldaek/jsonlint/issues}{\texttt{ Git\+Hub}}\hypertarget{md_public_2glpi_2vendor_2seld_2jsonlint_2_r_e_a_d_m_e_autotoc_md7172}{}\doxysection{\texorpdfstring{Author}{Author}}\label{md_public_2glpi_2vendor_2seld_2jsonlint_2_r_e_a_d_m_e_autotoc_md7172}
+Jordi Boggiano -\/ \href{mailto:j.boggiano@seld.be}{\texttt{ j.\+boggiano@seld.\+be}} -\/ \href{http://twitter.com/seldaek}{\texttt{ http\+://twitter.\+com/seldaek}}\hypertarget{md_public_2glpi_2vendor_2seld_2jsonlint_2_r_e_a_d_m_e_autotoc_md7173}{}\doxysection{\texorpdfstring{License}{License}}\label{md_public_2glpi_2vendor_2seld_2jsonlint_2_r_e_a_d_m_e_autotoc_md7173}
+JSON Lint is licensed under the MIT License -\/ see the LICENSE file for details\hypertarget{md_public_2glpi_2vendor_2seld_2jsonlint_2_r_e_a_d_m_e_autotoc_md7174}{}\doxysection{\texorpdfstring{Acknowledgements}{Acknowledgements}}\label{md_public_2glpi_2vendor_2seld_2jsonlint_2_r_e_a_d_m_e_autotoc_md7174}
+This library is a port of the Java\+Script \href{https://github.com/zaach/jsonlint}{\texttt{ jsonlint}} library. 

@@ -1,0 +1,137 @@
+\chapter{Container Interoperability}
+\hypertarget{md_public_2glpi_2vendor_2container-interop_2container-interop_2_r_e_a_d_m_e}{}\label{md_public_2glpi_2vendor_2container-interop_2container-interop_2_r_e_a_d_m_e}\index{Container Interoperability@{Container Interoperability}}
+\label{md_public_2glpi_2vendor_2container-interop_2container-interop_2_r_e_a_d_m_e_autotoc_md5736}%
+\Hypertarget{md_public_2glpi_2vendor_2container-interop_2container-interop_2_r_e_a_d_m_e_autotoc_md5736}%
+ \href{https://packagist.org/packages/container-interop/container-interop}{\texttt{ }} \href{https://packagist.org/packages/container-interop/container-interop}{\texttt{ }}\hypertarget{md_public_2glpi_2vendor_2container-interop_2container-interop_2_r_e_a_d_m_e_autotoc_md5737}{}\doxysection{\texorpdfstring{Deprecation warning!}{Deprecation warning!}}\label{md_public_2glpi_2vendor_2container-interop_2container-interop_2_r_e_a_d_m_e_autotoc_md5737}
+Starting Feb. 13th 2017, container-\/interop is officially deprecated in favor of \href{https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-11-container.md}{\texttt{ PSR-\/11}}. Container-\/interop has been the test-\/bed of PSR-\/11. From v1.\+2, container-\/interop directly extends PSR-\/11 interfaces. Therefore, all containers implementing container-\/interop are now {\itshape de-\/facto} compatible with PSR-\/11.
+
+
+\begin{DoxyItemize}
+\item Projects implementing container-\/interop interfaces are encouraged to directly implement PSR-\/11 interfaces instead.
+\item Projects consuming container-\/interop interfaces are very strongly encouraged to directly type-\/hint on PSR-\/11 interfaces, in order to be compatible with PSR-\/11 containers that are not compatible with container-\/interop.
+\end{DoxyItemize}
+
+Regarding the delegate lookup feature, that is present in container-\/interop and not in PSR-\/11, the feature is actually a design pattern. It is therefore not deprecated. Documentation regarding this design pattern will be migrated from this repository into a separate website in the future.\hypertarget{md_public_2glpi_2vendor_2container-interop_2container-interop_2_r_e_a_d_m_e_autotoc_md5738}{}\doxysection{\texorpdfstring{About}{About}}\label{md_public_2glpi_2vendor_2container-interop_2container-interop_2_r_e_a_d_m_e_autotoc_md5738}
+{\itshape container-\/interop} tries to identify and standardize features in {\itshape container} objects (service locators, dependency injection containers, etc.) to achieve interoperability.
+
+Through discussions and trials, we try to create a standard, made of common interfaces but also recommendations.
+
+If PHP projects that provide container implementations begin to adopt these common standards, then PHP applications and projects that use containers can depend on the common interfaces instead of specific implementations. This facilitates a high-\/level of interoperability and flexibility that allows users to consume {\itshape any} container implementation that can be adapted to these interfaces.
+
+The work done in this project is not officially endorsed by the \href{http://www.php-fig.org/}{\texttt{ PHP-\/\+FIG}}, but it is being worked on by members of PHP-\/\+FIG and other good developers. We adhere to the spirit and ideals of PHP-\/\+FIG, and hope this project will pave the way for one or more future PSRs.\hypertarget{md_public_2glpi_2vendor_2container-interop_2container-interop_2_r_e_a_d_m_e_autotoc_md5739}{}\doxysection{\texorpdfstring{Installation}{Installation}}\label{md_public_2glpi_2vendor_2container-interop_2container-interop_2_r_e_a_d_m_e_autotoc_md5739}
+You can install this package through \doxylink{namespace_composer}{Composer}\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{composer\ require\ container-\/interop/container-\/interop}
+
+\end{DoxyCode}
+
+
+The packages adheres to the \href{http://semver.org/}{\texttt{ Sem\+Ver}} specification, and there will be full backward compatibility between minor versions.\hypertarget{md_public_2glpi_2vendor_2container-interop_2container-interop_2_r_e_a_d_m_e_autotoc_md5740}{}\doxysection{\texorpdfstring{Standards}{Standards}}\label{md_public_2glpi_2vendor_2container-interop_2container-interop_2_r_e_a_d_m_e_autotoc_md5740}
+\hypertarget{md_public_2glpi_2vendor_2container-interop_2container-interop_2_r_e_a_d_m_e_autotoc_md5741}{}\doxysubsection{\texorpdfstring{Available}{Available}}\label{md_public_2glpi_2vendor_2container-interop_2container-interop_2_r_e_a_d_m_e_autotoc_md5741}
+
+\begin{DoxyItemize}
+\item \href{src/Interop/Container/ContainerInterface.php}{\texttt{ {\ttfamily Container\+Interface}}}. \doxysectlink{md_public_2glpi_2vendor_2container-interop_2container-interop_2docs_2_container_interface}{Description}{0} \doxysectlink{md_public_2glpi_2vendor_2container-interop_2container-interop_2docs_2_container_interface-meta}{Meta Document}{0}. Describes the interface of a container that exposes methods to read its entries.
+\item \doxysectlink{md_public_2glpi_2vendor_2container-interop_2container-interop_2docs_2_delegate-lookup}{{\itshape Delegate lookup feature}}{0}. \doxysectlink{md_public_2glpi_2vendor_2container-interop_2container-interop_2docs_2_delegate-lookup-meta}{Meta Document}{0}. Describes the ability for a container to delegate the lookup of its dependencies to a third-\/party container. This feature lets several containers work together in a single application.
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2container-interop_2container-interop_2_r_e_a_d_m_e_autotoc_md5742}{}\doxysubsection{\texorpdfstring{Proposed}{Proposed}}\label{md_public_2glpi_2vendor_2container-interop_2container-interop_2_r_e_a_d_m_e_autotoc_md5742}
+View open \href{https://github.com/container-interop/container-interop/labels/RFC}{\texttt{ request for comments}}\hypertarget{md_public_2glpi_2vendor_2container-interop_2container-interop_2_r_e_a_d_m_e_autotoc_md5743}{}\doxysection{\texorpdfstring{Compatible projects}{Compatible projects}}\label{md_public_2glpi_2vendor_2container-interop_2container-interop_2_r_e_a_d_m_e_autotoc_md5743}
+\hypertarget{md_public_2glpi_2vendor_2container-interop_2container-interop_2_r_e_a_d_m_e_autotoc_md5744}{}\doxysubsection{\texorpdfstring{Projects implementing {\ttfamily Container\+Interface}}{Projects implementing {\ttfamily Container\+Interface}}}\label{md_public_2glpi_2vendor_2container-interop_2container-interop_2_r_e_a_d_m_e_autotoc_md5744}
+
+\begin{DoxyItemize}
+\item \href{https://github.com/jeremeamia/acclimate-container}{\texttt{ Acclimate}}\+: Adapters for Aura.\+Di, Laravel, Nette DI, Pimple, Symfony DI, ZF2 Service manager, ZF2 Dependency injection and any container using {\ttfamily Array\+Access}
+\item \href{https://github.com/auraphp/Aura.Di}{\texttt{ Aura.\+Di}}
+\item \href{https://github.com/elazar/auryn-container-interop}{\texttt{ auryn-\/container-\/interop}}
+\item \href{https://github.com/codeeverything/burlap}{\texttt{ Burlap}}
+\item \href{https://github.com/pyrsmk/Chernozem}{\texttt{ Chernozem}}
+\item \href{https://github.com/chrismichaels84/data-manager}{\texttt{ Data Manager}}
+\item \href{https://github.com/bitexpert/disco}{\texttt{ Disco}}
+\item \href{https://github.com/idealogica/indi}{\texttt{ In\+DI}}
+\item \href{http://container.thephpleague.com/}{\texttt{ League/\+Container}}
+\item \href{http://mouf-php.com}{\texttt{ Mouf}}
+\item \href{https://github.com/njasm/container}{\texttt{ Njasm Container}}
+\item \href{http://php-di.org}{\texttt{ PHP-\/\+DI}}
+\item \href{https://github.com/thecodingmachine/picotainer}{\texttt{ Picotainer}}
+\item \href{https://github.com/moufmouf/pimple-interop}{\texttt{ Pimple\+Interop}}
+\item \href{https://github.com/Sam-Burns/pimple3-containerinterop}{\texttt{ Pimple3-\/\+Container\+Interop}} (using Pimple v3)
+\item \href{https://github.com/sitepoint/Container}{\texttt{ Site\+Point Container}}
+\item \href{https://github.com/ThrusterIO/container}{\texttt{ Thruster Container}} (PHP7 only)
+\item \href{https://github.com/ultra-lite/container}{\texttt{ Ultra-\/\+Lite Container}}
+\item \href{https://github.com/mindplay-dk/unbox}{\texttt{ Unbox}}
+\item \href{https://github.com/jeremeamia/xstatic}{\texttt{ XStatic}}
+\item \href{https://github.com/zendframework/zend-servicemanager}{\texttt{ Zend\textbackslash{}\+Service\+Manager}}
+\item \href{https://github.com/inxilpro/Zit}{\texttt{ Zit}}
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2container-interop_2container-interop_2_r_e_a_d_m_e_autotoc_md5745}{}\doxysubsection{\texorpdfstring{Projects implementing the {\itshape delegate lookup} feature}{Projects implementing the {\itshape delegate lookup} feature}}\label{md_public_2glpi_2vendor_2container-interop_2container-interop_2_r_e_a_d_m_e_autotoc_md5745}
+
+\begin{DoxyItemize}
+\item \href{https://github.com/auraphp/Aura.Di}{\texttt{ Aura.\+Di}}
+\item \href{https://github.com/codeeverything/burlap}{\texttt{ Burlap}}
+\item \href{https://github.com/pyrsmk/Chernozem}{\texttt{ Chernozem}}
+\item \href{https://github.com/idealogica/indi}{\texttt{ In\+DI}}
+\item \href{http://container.thephpleague.com/}{\texttt{ League/\+Container}}
+\item \href{http://mouf-php.com}{\texttt{ Mouf}}
+\item \href{https://github.com/thecodingmachine/picotainer}{\texttt{ Picotainer}}
+\item \href{http://php-di.org}{\texttt{ PHP-\/\+DI}}
+\item \href{https://github.com/moufmouf/pimple-interop}{\texttt{ Pimple\+Interop}}
+\item \href{https://github.com/ultra-lite/container}{\texttt{ Ultra-\/\+Lite Container}}
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2container-interop_2container-interop_2_r_e_a_d_m_e_autotoc_md5746}{}\doxysubsection{\texorpdfstring{Middlewares implementing {\ttfamily Container\+Interface}}{Middlewares implementing {\ttfamily Container\+Interface}}}\label{md_public_2glpi_2vendor_2container-interop_2container-interop_2_r_e_a_d_m_e_autotoc_md5746}
+
+\begin{DoxyItemize}
+\item \href{https://github.com/thecodingmachine/alias-container}{\texttt{ Alias-\/\+Container}}\+: add aliases support to any container
+\item \href{https://github.com/thecodingmachine/prefixer-container}{\texttt{ Prefixer-\/\+Container}}\+: dynamically prefix identifiers
+\item \href{https://github.com/snapshotpl/lazy-container}{\texttt{ Lazy-\/\+Container}}\+: lazy services
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2container-interop_2container-interop_2_r_e_a_d_m_e_autotoc_md5747}{}\doxysubsection{\texorpdfstring{Projects using {\ttfamily Container\+Interface}}{Projects using {\ttfamily Container\+Interface}}}\label{md_public_2glpi_2vendor_2container-interop_2container-interop_2_r_e_a_d_m_e_autotoc_md5747}
+The list below contains only a sample of all the projects consuming {\ttfamily Container\+Interface}. For a more complete list have a look \href{http://packanalyst.com/class?q=Interop\%5CContainer\%5CContainerInterface}{\texttt{ here}}.
+
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Downloads    }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Downloads    }\\\cline{1-2}
+\endhead
+\href{https://github.com/bitexpert/adroit}{\texttt{ Adroit}}   &    \\\cline{1-2}
+\href{https://github.com/Behat/Behat/pull/974}{\texttt{ Behat}}   &    \\\cline{1-2}
+\href{https://github.com/phpthinktank/blast-facades}{\texttt{ blast-\/facades}}\+: Minimize complexity and represent dependencies as facades.   &    \\\cline{1-2}
+\href{https://github.com/thecodingmachine/interop.silex.di}{\texttt{ interop.\+silex.\+di}}\+: an extension to \href{http://silex.sensiolabs.org/}{\texttt{ Silex}} that adds support for any {\itshape container-\/interop} compatible container   &    \\\cline{1-2}
+\href{https://github.com/mindplay-dk/walkway}{\texttt{ mindplay/walkway}}\+: a modular request router   &    \\\cline{1-2}
+\href{https://github.com/mindplay-dk/middleman}{\texttt{ mindplay/middleman}}\+: minimalist PSR-\/7 middleware dispatcher   &    \\\cline{1-2}
+\href{https://github.com/PHP-DI/Invoker}{\texttt{ PHP-\/\+DI/\+Invoker}}\+: extensible and configurable invoker/dispatcher   &    \\\cline{1-2}
+\href{https://github.com/fabfuel/prophiler}{\texttt{ Prophiler}}   &    \\\cline{1-2}
+\href{https://github.com/mnapoli/silly}{\texttt{ Silly}}\+: CLI micro-\/framework   &    \\\cline{1-2}
+\href{https://github.com/slimphp/Slim}{\texttt{ Slim v3}}   &    \\\cline{1-2}
+\href{http://mouf-php.com/packages/mouf/mvc.splash-common/version/8.0-dev/README.md}{\texttt{ Splash}}   &    \\\cline{1-2}
+\href{https://github.com/woohoolabs/harmony}{\texttt{ Woohoo Labs. Harmony}}\+: a flexible micro-\/framework   &    \\\cline{1-2}
+\href{https://github.com/zendframework/zend-expressive}{\texttt{ zend-\/expressive}}   &   \\\cline{1-2}
+\end{longtabu}
+\hypertarget{md_public_2glpi_2vendor_2container-interop_2container-interop_2_r_e_a_d_m_e_autotoc_md5748}{}\doxysection{\texorpdfstring{Workflow}{Workflow}}\label{md_public_2glpi_2vendor_2container-interop_2container-interop_2_r_e_a_d_m_e_autotoc_md5748}
+Everyone is welcome to join and contribute.
+
+The general workflow looks like this\+:
+
+
+\begin{DoxyEnumerate}
+\item Someone opens a discussion (Git\+Hub issue) to suggest an interface
+\end{DoxyEnumerate}
+\begin{DoxyEnumerate}
+\item Feedback is gathered
+\end{DoxyEnumerate}
+\begin{DoxyEnumerate}
+\item The interface is added to a development branch
+\end{DoxyEnumerate}
+\begin{DoxyEnumerate}
+\item We release alpha versions so that the interface can be experimented with
+\end{DoxyEnumerate}
+\begin{DoxyEnumerate}
+\item Discussions and edits ensue until the interface is deemed stable by a general consensus
+\end{DoxyEnumerate}
+\begin{DoxyEnumerate}
+\item A new minor version of the package is released
+\end{DoxyEnumerate}
+
+We try to not break BC by creating new interfaces instead of editing existing ones.
+
+While we currently work on interfaces, we are open to anything that might help towards interoperability, may that be code, best practices, etc. 

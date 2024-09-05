@@ -69,7 +69,9 @@ class Kernel implements KernelContract
      *
      * @deprecated
      */
-    protected $routeMiddleware = [];
+    protected $routeMiddleware = [
+        
+    ];
 
     /**
      * The application's middleware aliases.

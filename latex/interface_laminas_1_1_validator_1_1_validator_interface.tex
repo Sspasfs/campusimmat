@@ -1,0 +1,89 @@
+\doxysection{Référence de l\textquotesingle{}interface Validator\+Interface}
+\hypertarget{interface_laminas_1_1_validator_1_1_validator_interface}{}\label{interface_laminas_1_1_validator_1_1_validator_interface}\index{ValidatorInterface@{ValidatorInterface}}
+
+
+Graphe d\textquotesingle{}héritage de Validator\+Interface\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{interface_laminas_1_1_validator_1_1_validator_interface__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Graphe de collaboration de Validator\+Interface\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=165pt]{interface_laminas_1_1_validator_1_1_validator_interface__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{interface_laminas_1_1_validator_1_1_validator_interface_a72063d2e922edda5321b1970297eb0c3}{is\+Valid}} (\$value)
+\item 
+\mbox{\hyperlink{interface_laminas_1_1_validator_1_1_validator_interface_a7347b0b89cca1d7604e93f5b5e896fc4}{get\+Messages}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Documentation des fonctions membres}
+\Hypertarget{interface_laminas_1_1_validator_1_1_validator_interface_a7347b0b89cca1d7604e93f5b5e896fc4}\label{interface_laminas_1_1_validator_1_1_validator_interface_a7347b0b89cca1d7604e93f5b5e896fc4} 
+\index{ValidatorInterface@{ValidatorInterface}!getMessages@{getMessages}}
+\index{getMessages@{getMessages}!ValidatorInterface@{ValidatorInterface}}
+\doxysubsubsection{\texorpdfstring{getMessages()}{getMessages()}}
+{\footnotesize\ttfamily get\+Messages (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Returns an array of messages that explain why the most recent is\+Valid() call returned false. The array keys are validation failure message identifiers, and the array values are the corresponding human-\/readable message strings.
+
+If is\+Valid() was never called or if the most recent is\+Valid() call returned true, then this method returns an empty array.
+
+\begin{DoxyReturn}{Renvoie}
+array 
+\end{DoxyReturn}
+
+
+Implémenté dans \mbox{\hyperlink{class_laminas_1_1_validator_1_1_abstract_validator_a7347b0b89cca1d7604e93f5b5e896fc4}{Abstract\+Validator}}, et \mbox{\hyperlink{class_laminas_1_1_validator_1_1_validator_chain_a7347b0b89cca1d7604e93f5b5e896fc4}{Validator\+Chain}}.
+
+\Hypertarget{interface_laminas_1_1_validator_1_1_validator_interface_a72063d2e922edda5321b1970297eb0c3}\label{interface_laminas_1_1_validator_1_1_validator_interface_a72063d2e922edda5321b1970297eb0c3} 
+\index{ValidatorInterface@{ValidatorInterface}!isValid@{isValid}}
+\index{isValid@{isValid}!ValidatorInterface@{ValidatorInterface}}
+\doxysubsubsection{\texorpdfstring{isValid()}{isValid()}}
+{\footnotesize\ttfamily is\+Valid (\begin{DoxyParamCaption}\item[{}]{\$value }\end{DoxyParamCaption})}
+
+Returns true if and only if \$value meets the validation requirements
+
+If \$value fails validation, then this method returns false, and get\+Messages() will return an array of messages that explain why the validation failed.
+
+
+\begin{DoxyParams}[1]{Paramètres}
+mixed & {\em \$value} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+bool 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Exception} & \\
+\hline
+\end{DoxyExceptions}
+Runtime\+Exception If validation of \$value is impossible. 
+
+Implémenté dans \mbox{\hyperlink{class_laminas_1_1_i18n_1_1_validator_1_1_alnum_a72063d2e922edda5321b1970297eb0c3}{Alnum}}, \mbox{\hyperlink{class_laminas_1_1_i18n_1_1_validator_1_1_alpha_a72063d2e922edda5321b1970297eb0c3}{Alpha}}, \mbox{\hyperlink{class_laminas_1_1_i18n_1_1_validator_1_1_date_time_a72063d2e922edda5321b1970297eb0c3}{Date\+Time}}, \mbox{\hyperlink{class_laminas_1_1_i18n_1_1_validator_1_1_is_float_a72063d2e922edda5321b1970297eb0c3}{Is\+Float}}, \mbox{\hyperlink{class_laminas_1_1_i18n_1_1_validator_1_1_is_int_a72063d2e922edda5321b1970297eb0c3}{Is\+Int}}, \mbox{\hyperlink{class_laminas_1_1_i18n_1_1_validator_1_1_post_code_a72063d2e922edda5321b1970297eb0c3}{Post\+Code}}, \mbox{\hyperlink{class_laminas_1_1_validator_1_1_barcode_a72063d2e922edda5321b1970297eb0c3}{Barcode}}, \mbox{\hyperlink{class_laminas_1_1_validator_1_1_between_a72063d2e922edda5321b1970297eb0c3}{Between}}, \mbox{\hyperlink{class_laminas_1_1_validator_1_1_bitwise_a72063d2e922edda5321b1970297eb0c3}{Bitwise}}, \mbox{\hyperlink{class_laminas_1_1_validator_1_1_business_identifier_code_a72063d2e922edda5321b1970297eb0c3}{Business\+Identifier\+Code}}, \mbox{\hyperlink{class_laminas_1_1_validator_1_1_credit_card_a72063d2e922edda5321b1970297eb0c3}{Credit\+Card}}, \mbox{\hyperlink{class_laminas_1_1_validator_1_1_date_a72063d2e922edda5321b1970297eb0c3}{Date}}, \mbox{\hyperlink{class_laminas_1_1_validator_1_1_date_step_a72063d2e922edda5321b1970297eb0c3}{Date\+Step}}, \mbox{\hyperlink{class_laminas_1_1_validator_1_1_db_1_1_no_record_exists_a72063d2e922edda5321b1970297eb0c3}{No\+Record\+Exists}}, \mbox{\hyperlink{class_laminas_1_1_validator_1_1_db_1_1_record_exists_a72063d2e922edda5321b1970297eb0c3}{Record\+Exists}}, \mbox{\hyperlink{class_laminas_1_1_validator_1_1_digits_a72063d2e922edda5321b1970297eb0c3}{Digits}}, \mbox{\hyperlink{class_laminas_1_1_validator_1_1_email_address_a72063d2e922edda5321b1970297eb0c3}{Email\+Address}}, \mbox{\hyperlink{class_laminas_1_1_validator_1_1_file_1_1_upload_file_a72063d2e922edda5321b1970297eb0c3}{Upload\+File}}, \mbox{\hyperlink{class_laminas_1_1_validator_1_1_gps_point_a72063d2e922edda5321b1970297eb0c3}{Gps\+Point}}, \mbox{\hyperlink{class_laminas_1_1_validator_1_1_greater_than_a72063d2e922edda5321b1970297eb0c3}{Greater\+Than}}, \mbox{\hyperlink{class_laminas_1_1_validator_1_1_hex_a72063d2e922edda5321b1970297eb0c3}{Hex}}, \mbox{\hyperlink{class_laminas_1_1_validator_1_1_hostname_a72063d2e922edda5321b1970297eb0c3}{Hostname}}, \mbox{\hyperlink{class_laminas_1_1_validator_1_1_iban_a72063d2e922edda5321b1970297eb0c3}{Iban}}, \mbox{\hyperlink{class_laminas_1_1_validator_1_1_in_array_a72063d2e922edda5321b1970297eb0c3}{In\+Array}}, \mbox{\hyperlink{class_laminas_1_1_validator_1_1_ip_a72063d2e922edda5321b1970297eb0c3}{Ip}}, \mbox{\hyperlink{class_laminas_1_1_validator_1_1_isbn_a72063d2e922edda5321b1970297eb0c3}{Isbn}}, \mbox{\hyperlink{class_laminas_1_1_validator_1_1_is_countable_a72063d2e922edda5321b1970297eb0c3}{Is\+Countable}}, \mbox{\hyperlink{class_laminas_1_1_validator_1_1_is_instance_of_a72063d2e922edda5321b1970297eb0c3}{Is\+Instance\+Of}}, \mbox{\hyperlink{class_laminas_1_1_validator_1_1_less_than_a72063d2e922edda5321b1970297eb0c3}{Less\+Than}}, \mbox{\hyperlink{class_laminas_1_1_validator_1_1_not_empty_a72063d2e922edda5321b1970297eb0c3}{Not\+Empty}}, \mbox{\hyperlink{class_laminas_1_1_validator_1_1_regex_a72063d2e922edda5321b1970297eb0c3}{Regex}}, \mbox{\hyperlink{class_laminas_1_1_validator_1_1_sitemap_1_1_changefreq_a72063d2e922edda5321b1970297eb0c3}{Changefreq}}, \mbox{\hyperlink{class_laminas_1_1_validator_1_1_sitemap_1_1_lastmod_a72063d2e922edda5321b1970297eb0c3}{Lastmod}}, \mbox{\hyperlink{class_laminas_1_1_validator_1_1_sitemap_1_1_loc_a72063d2e922edda5321b1970297eb0c3}{Loc}}, \mbox{\hyperlink{class_laminas_1_1_validator_1_1_sitemap_1_1_priority_a72063d2e922edda5321b1970297eb0c3}{Priority}}, \mbox{\hyperlink{class_laminas_1_1_validator_1_1_step_a72063d2e922edda5321b1970297eb0c3}{Step}}, \mbox{\hyperlink{class_laminas_1_1_validator_1_1_string_length_a72063d2e922edda5321b1970297eb0c3}{String\+Length}}, \mbox{\hyperlink{class_laminas_1_1_validator_1_1_timezone_a72063d2e922edda5321b1970297eb0c3}{Timezone}}, \mbox{\hyperlink{class_laminas_1_1_validator_1_1_undisclosed_password_a72063d2e922edda5321b1970297eb0c3}{Undisclosed\+Password}}, \mbox{\hyperlink{class_laminas_1_1_validator_1_1_uri_a72063d2e922edda5321b1970297eb0c3}{Uri}}, et \mbox{\hyperlink{class_laminas_1_1_validator_1_1_uuid_a72063d2e922edda5321b1970297eb0c3}{Uuid}}.
+
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=294pt]{interface_laminas_1_1_validator_1_1_validator_interface_a72063d2e922edda5321b1970297eb0c3_icgraph}
+\end{center}
+\end{figure}
+
+
+La documentation de cette interface a été générée à partir du fichier suivant \+:\begin{DoxyCompactItemize}
+\item 
+public/glpi/vendor/laminas/laminas-\/validator/src/\mbox{\hyperlink{laminas_2laminas-validator_2src_2_validator_interface_8php}{Validator\+Interface.\+php}}\end{DoxyCompactItemize}

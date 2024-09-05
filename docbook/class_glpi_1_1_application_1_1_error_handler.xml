@@ -1,0 +1,509 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_glpi_1_1_application_1_1_error_handler" xml:lang="fr">
+<title>Référence de la classe ErrorHandler</title>
+<indexterm><primary>ErrorHandler</primary></indexterm>
+Graphe de collaboration de ErrorHandler:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_glpi_1_1_application_1_1_error_handler__coll__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Fonctions membres publiques    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_glpi_1_1_application_1_1_error_handler_1aba0f1989a18727d823cf4f62204e3c01">__construct</link> (<link linkend="_interface_psr_1_1_log_1_1_logger_interface">LoggerInterface</link> $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">logger</link>=null)</para>
+</listitem>
+            <listitem><para><link linkend="_class_glpi_1_1_application_1_1_error_handler_1a597f403dce81ed34f6a7fe4b38f034e1">enableOutput</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_class_glpi_1_1_application_1_1_error_handler_1ab23b607872a560d53bac6213a7c965a8">disableOutput</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_class_glpi_1_1_application_1_1_error_handler_1a61b0386dda13510050ea6ea9de70c4de">suspendOutput</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_class_glpi_1_1_application_1_1_error_handler_1ac00ce98aec43e74790a543c74c2c0718">unsuspendOutput</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_class_glpi_1_1_application_1_1_error_handler_1af82bea1ba4f447839e13cf42ec2a748a">setOutputHandler</link> (<link linkend="_interface_symfony_1_1_component_1_1_console_1_1_output_1_1_output_interface">OutputInterface</link> $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">output_handler</link>)</para>
+</listitem>
+            <listitem><para><link linkend="_class_glpi_1_1_application_1_1_error_handler_1acc294a6cc8e69743746820e3d15e3f78">register</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_class_glpi_1_1_application_1_1_error_handler_1a1955b67ab111678dfc29eb3c0c3ecc68">handleError</link> (int $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">error_code</link>, string $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">error_message</link>, string $filename, int $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">line_number</link>)</para>
+</listitem>
+            <listitem><para><link linkend="_class_glpi_1_1_application_1_1_error_handler_1ad5fba4a34c0e38912aed4e8564b8fc25">handleTwigError</link> (<link linkend="_class_twig_1_1_error_1_1_error">Error</link> $error)</para>
+</listitem>
+            <listitem><para><link linkend="_class_glpi_1_1_application_1_1_error_handler_1aa43ec0cf8c96cb21eb2b6d6c334863b3">handleSqlError</link> (int $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">error_code</link>, string $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">error_message</link>, string $query)</para>
+</listitem>
+            <listitem><para><link linkend="_class_glpi_1_1_application_1_1_error_handler_1a2472c179557fe352a770ea216b9cdb37">handleSqlWarnings</link> (array $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">warnings</link>, string $query)</para>
+</listitem>
+            <listitem><para><link linkend="_class_glpi_1_1_application_1_1_error_handler_1a718d61337a5b50ef38f2089a8de9a97e">handleException</link> (\Throwable $exception, bool $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">quiet</link>=false)</para>
+</listitem>
+            <listitem><para><link linkend="_class_glpi_1_1_application_1_1_error_handler_1ab1df674eee1fcbda8ba8ea263f7ae513">handleFatalError</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_class_glpi_1_1_application_1_1_error_handler_1af1aedc9560f4cc208e626f8ccda0d380">setForwardToInternalHandler</link> (bool $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">forward_to_internal_handler</link>)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Champs de données    </title>
+        <itemizedlist>
+            <listitem><para>const <link linkend="_class_glpi_1_1_application_1_1_error_handler_1a969bd0a974c2b40b7e3eed1ccb922eaf">ERROR_LEVEL_MAP</link></para>
+</listitem>
+            <listitem><para>const <link linkend="_class_glpi_1_1_application_1_1_error_handler_1aa0efa8f2eba1d95842998c9ec541dbd7">FATAL_ERRORS</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Description détaillée</title>
+
+<para><formalpara><title>Depuis</title>
+
+<para>9.5.0 </para>
+</formalpara>
+</para>
+</section>
+<section>
+<title>Documentation des constructeurs et destructeur</title>
+<anchor xml:id="_class_glpi_1_1_application_1_1_error_handler_1aba0f1989a18727d823cf4f62204e3c01"/><section>
+    <title>__construct()</title>
+<indexterm><primary>__construct</primary><secondary>ErrorHandler</secondary></indexterm>
+<indexterm><primary>ErrorHandler</primary><secondary>__construct</secondary></indexterm>
+<para><computeroutput>__construct (<link linkend="_interface_psr_1_1_log_1_1_logger_interface">LoggerInterface</link> $logger = <computeroutput>null</computeroutput>
+)</computeroutput></para>
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>LoggerInterface | null</entry><entry>$logger</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
+</section>
+<section>
+<title>Documentation des fonctions membres</title>
+<anchor xml:id="_class_glpi_1_1_application_1_1_error_handler_1ab23b607872a560d53bac6213a7c965a8"/><section>
+    <title>disableOutput()</title>
+<indexterm><primary>disableOutput</primary><secondary>ErrorHandler</secondary></indexterm>
+<indexterm><primary>ErrorHandler</primary><secondary>disableOutput</secondary></indexterm>
+<para><computeroutput>disableOutput ( )</computeroutput></para>
+<para>Disable output.</para>
+
+<para><formalpara><title>Renvoie</title>
+
+<para>void </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_class_glpi_1_1_application_1_1_error_handler_1a597f403dce81ed34f6a7fe4b38f034e1"/><section>
+    <title>enableOutput()</title>
+<indexterm><primary>enableOutput</primary><secondary>ErrorHandler</secondary></indexterm>
+<indexterm><primary>ErrorHandler</primary><secondary>enableOutput</secondary></indexterm>
+<para><computeroutput>enableOutput ( )</computeroutput></para>
+<para>Enable output.</para>
+
+<para><formalpara><title>Renvoie</title>
+
+<para>void </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_class_glpi_1_1_application_1_1_error_handler_1a1955b67ab111678dfc29eb3c0c3ecc68"/><section>
+    <title>handleError()</title>
+<indexterm><primary>handleError</primary><secondary>ErrorHandler</secondary></indexterm>
+<indexterm><primary>ErrorHandler</primary><secondary>handleError</secondary></indexterm>
+<para><computeroutput>handleError (int $error_code, string $error_message, string $filename, int $line_number)</computeroutput></para>
+<para>Error handler.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>integer</entry><entry>$error_code</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>string</entry><entry>$error_message</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>string</entry><entry>$filename</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>integer</entry><entry>$line_number</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>boolean </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_class_glpi_1_1_application_1_1_error_handler_1a718d61337a5b50ef38f2089a8de9a97e"/><section>
+    <title>handleException()</title>
+<indexterm><primary>handleException</primary><secondary>ErrorHandler</secondary></indexterm>
+<indexterm><primary>ErrorHandler</primary><secondary>handleException</secondary></indexterm>
+<para><computeroutput>handleException (\Throwable $exception, bool $quiet = <computeroutput>false</computeroutput>
+)</computeroutput></para>
+<para>Exception handler.</para>
+
+<para>This handler is called by PHP prior to exiting, when an Exception is not catched, or manually called by the application to log exception details.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>\Throwable</entry><entry>$exception</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>bool</entry><entry>$quiet</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>void </para>
+</formalpara>
+</para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_glpi_1_1_application_1_1_error_handler_a718d61337a5b50ef38f2089a8de9a97e_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_glpi_1_1_application_1_1_error_handler_1ab1df674eee1fcbda8ba8ea263f7ae513"/><section>
+    <title>handleFatalError()</title>
+<indexterm><primary>handleFatalError</primary><secondary>ErrorHandler</secondary></indexterm>
+<indexterm><primary>ErrorHandler</primary><secondary>handleFatalError</secondary></indexterm>
+<para><computeroutput>handleFatalError ( )</computeroutput></para>
+<para>Handle fatal errors.</para>
+
+<para>@retun void </para>
+</section>
+<anchor xml:id="_class_glpi_1_1_application_1_1_error_handler_1aa43ec0cf8c96cb21eb2b6d6c334863b3"/><section>
+    <title>handleSqlError()</title>
+<indexterm><primary>handleSqlError</primary><secondary>ErrorHandler</secondary></indexterm>
+<indexterm><primary>ErrorHandler</primary><secondary>handleSqlError</secondary></indexterm>
+<para><computeroutput>handleSqlError (int $error_code, string $error_message, string $query)</computeroutput></para>
+<para>SQL error handler.</para>
+
+<para>This handler is manually called by application when a SQL error occurred.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>integer</entry><entry>$error_code</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>string</entry><entry>$error_message</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>string</entry><entry>$query</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>void </para>
+</formalpara>
+</para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_glpi_1_1_application_1_1_error_handler_aa43ec0cf8c96cb21eb2b6d6c334863b3_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_glpi_1_1_application_1_1_error_handler_1a2472c179557fe352a770ea216b9cdb37"/><section>
+    <title>handleSqlWarnings()</title>
+<indexterm><primary>handleSqlWarnings</primary><secondary>ErrorHandler</secondary></indexterm>
+<indexterm><primary>ErrorHandler</primary><secondary>handleSqlWarnings</secondary></indexterm>
+<para><computeroutput>handleSqlWarnings (array $warnings, string $query)</computeroutput></para>
+<para>SQL warnings handler.</para>
+
+<para>This handler is manually called by application when warnings are triggered by a SQL query.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string[]</entry><entry>$warnings</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>string</entry><entry>$query</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>void </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_class_glpi_1_1_application_1_1_error_handler_1ad5fba4a34c0e38912aed4e8564b8fc25"/><section>
+    <title>handleTwigError()</title>
+<indexterm><primary>handleTwigError</primary><secondary>ErrorHandler</secondary></indexterm>
+<indexterm><primary>ErrorHandler</primary><secondary>handleTwigError</secondary></indexterm>
+<para><computeroutput>handleTwigError (<link linkend="_class_twig_1_1_error_1_1_error">Error</link> $error)</computeroutput></para>
+<para><link linkend="_namespace_twig">Twig</link> error handler.</para>
+
+<para>This handler is manually called by application when an error occurred during <link linkend="_namespace_twig">Twig</link> template rendering.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>\Twig\Error\Error</entry><entry>$error</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>void </para>
+</formalpara>
+</para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_glpi_1_1_application_1_1_error_handler_ad5fba4a34c0e38912aed4e8564b8fc25_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_glpi_1_1_application_1_1_error_handler_1acc294a6cc8e69743746820e3d15e3f78"/><section>
+    <title>register()</title>
+<indexterm><primary>register</primary><secondary>ErrorHandler</secondary></indexterm>
+<indexterm><primary>ErrorHandler</primary><secondary>register</secondary></indexterm>
+<para><computeroutput>register ( )</computeroutput></para>
+<para>Register error handler callbacks.</para>
+
+<para><formalpara><title>Renvoie</title>
+
+<para>void </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_class_glpi_1_1_application_1_1_error_handler_1af1aedc9560f4cc208e626f8ccda0d380"/><section>
+    <title>setForwardToInternalHandler()</title>
+<indexterm><primary>setForwardToInternalHandler</primary><secondary>ErrorHandler</secondary></indexterm>
+<indexterm><primary>ErrorHandler</primary><secondary>setForwardToInternalHandler</secondary></indexterm>
+<para><computeroutput>setForwardToInternalHandler (bool $forward_to_internal_handler)</computeroutput></para>
+<para>Defines if errors should be forward to PHP internal error handler.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>bool</entry><entry>$forward_to_internal_handler</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>void </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_class_glpi_1_1_application_1_1_error_handler_1af82bea1ba4f447839e13cf42ec2a748a"/><section>
+    <title>setOutputHandler()</title>
+<indexterm><primary>setOutputHandler</primary><secondary>ErrorHandler</secondary></indexterm>
+<indexterm><primary>ErrorHandler</primary><secondary>setOutputHandler</secondary></indexterm>
+<para><computeroutput>setOutputHandler (<link linkend="_interface_symfony_1_1_component_1_1_console_1_1_output_1_1_output_interface">OutputInterface</link> $output_handler)</computeroutput></para>
+<para>Defines output handler.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>OutputInterface</entry><entry>$output_handler</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>void </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_class_glpi_1_1_application_1_1_error_handler_1a61b0386dda13510050ea6ea9de70c4de"/><section>
+    <title>suspendOutput()</title>
+<indexterm><primary>suspendOutput</primary><secondary>ErrorHandler</secondary></indexterm>
+<indexterm><primary>ErrorHandler</primary><secondary>suspendOutput</secondary></indexterm>
+<para><computeroutput>suspendOutput ( )</computeroutput></para>
+<para>Suspend output.</para>
+
+<para><formalpara><title>Renvoie</title>
+
+<para>void </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_class_glpi_1_1_application_1_1_error_handler_1ac00ce98aec43e74790a543c74c2c0718"/><section>
+    <title>unsuspendOutput()</title>
+<indexterm><primary>unsuspendOutput</primary><secondary>ErrorHandler</secondary></indexterm>
+<indexterm><primary>ErrorHandler</primary><secondary>unsuspendOutput</secondary></indexterm>
+<para><computeroutput>unsuspendOutput ( )</computeroutput></para>
+<para>Take away output suspension.</para>
+
+<para><formalpara><title>Renvoie</title>
+
+<para>void </para>
+</formalpara>
+</para>
+</section>
+</section>
+<section>
+<title>Documentation des champs</title>
+<anchor xml:id="_class_glpi_1_1_application_1_1_error_handler_1a969bd0a974c2b40b7e3eed1ccb922eaf"/><section>
+    <title>ERROR_LEVEL_MAP</title>
+<indexterm><primary>ERROR_LEVEL_MAP</primary><secondary>ErrorHandler</secondary></indexterm>
+<indexterm><primary>ErrorHandler</primary><secondary>ERROR_LEVEL_MAP</secondary></indexterm>
+<para><computeroutput>const ERROR_LEVEL_MAP</computeroutput></para><emphasis role="strong">Valeur initiale :</emphasis><programlisting linenumbering="unnumbered">=&#32;[
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">E_ERROR</link>&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;=&gt;&#32;<link linkend="_class_psr_1_1_log_1_1_log_level_1a5e924d1434e5b36fdc72dd03b1a8f744">LogLevel::CRITICAL</link>,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;E_WARNING&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;=&gt;&#32;<link linkend="_class_psr_1_1_log_1_1_log_level_1ad0c7ccd2f8b92a760391d21d0ec7b339">LogLevel::WARNING</link>,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">E_PARSE</link>&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;=&gt;&#32;<link linkend="_class_psr_1_1_log_1_1_log_level_1a037a7f6e892e6adb07c2aa099fbaf69d">LogLevel::ALERT</link>,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;E_NOTICE&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;=&gt;&#32;<link linkend="_class_psr_1_1_log_1_1_log_level_1a0b32ca69140ca26e6614dddf004ae3d9">LogLevel::NOTICE</link>,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">E_CORE_ERROR</link>&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;=&gt;&#32;<link linkend="_class_psr_1_1_log_1_1_log_level_1a5e924d1434e5b36fdc72dd03b1a8f744">LogLevel::CRITICAL</link>,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">E_CORE_WARNING</link>&#32;&#32;&#32;&#32;&#32;&#32;=&gt;&#32;<link linkend="_class_psr_1_1_log_1_1_log_level_1ad0c7ccd2f8b92a760391d21d0ec7b339">LogLevel::WARNING</link>,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">E_COMPILE_ERROR</link>&#32;&#32;&#32;&#32;&#32;=&gt;&#32;<link linkend="_class_psr_1_1_log_1_1_log_level_1a037a7f6e892e6adb07c2aa099fbaf69d">LogLevel::ALERT</link>,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">E_COMPILE_WARNING</link>&#32;&#32;&#32;=&gt;&#32;<link linkend="_class_psr_1_1_log_1_1_log_level_1ad0c7ccd2f8b92a760391d21d0ec7b339">LogLevel::WARNING</link>,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">E_USER_ERROR</link>&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;=&gt;&#32;<link linkend="_class_psr_1_1_log_1_1_log_level_1a7f79d7b73cfb40bb7855d4260393cc0f">LogLevel::ERROR</link>,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">E_USER_WARNING</link>&#32;&#32;&#32;&#32;&#32;&#32;=&gt;&#32;<link linkend="_class_psr_1_1_log_1_1_log_level_1ad0c7ccd2f8b92a760391d21d0ec7b339">LogLevel::WARNING</link>,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">E_USER_NOTICE</link>&#32;&#32;&#32;&#32;&#32;&#32;&#32;=&gt;&#32;<link linkend="_class_psr_1_1_log_1_1_log_level_1a0b32ca69140ca26e6614dddf004ae3d9">LogLevel::NOTICE</link>,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">E_STRICT</link>&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;=&gt;&#32;<link linkend="_class_psr_1_1_log_1_1_log_level_1a0b32ca69140ca26e6614dddf004ae3d9">LogLevel::NOTICE</link>,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">E_RECOVERABLE_ERROR</link>&#32;=&gt;&#32;<link linkend="_class_psr_1_1_log_1_1_log_level_1a7f79d7b73cfb40bb7855d4260393cc0f">LogLevel::ERROR</link>,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">E_DEPRECATED</link>&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;=&gt;&#32;<link linkend="_class_psr_1_1_log_1_1_log_level_1a0b32ca69140ca26e6614dddf004ae3d9">LogLevel::NOTICE</link>,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;E_USER_DEPRECATED&#32;&#32;&#32;=&gt;&#32;<link linkend="_class_psr_1_1_log_1_1_log_level_1a0b32ca69140ca26e6614dddf004ae3d9">LogLevel::NOTICE</link>,
+&#32;&#32;&#32;&#32;]
+</programlisting></section>
+<anchor xml:id="_class_glpi_1_1_application_1_1_error_handler_1aa0efa8f2eba1d95842998c9ec541dbd7"/><section>
+    <title>FATAL_ERRORS</title>
+<indexterm><primary>FATAL_ERRORS</primary><secondary>ErrorHandler</secondary></indexterm>
+<indexterm><primary>ErrorHandler</primary><secondary>FATAL_ERRORS</secondary></indexterm>
+<para><computeroutput>const FATAL_ERRORS</computeroutput></para><emphasis role="strong">Valeur initiale :</emphasis><programlisting linenumbering="unnumbered">=&#32;[
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">E_ERROR</link>,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">E_PARSE</link>,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">E_CORE_ERROR</link>,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">E_COMPILE_ERROR</link>,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">E_USER_ERROR</link>,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">E_RECOVERABLE_ERROR</link>,
+&#32;&#32;&#32;&#32;]
+</programlisting></section>
+<para>
+La documentation de cette classe a été générée à partir du fichier suivant :</para>
+public/glpi/src/Application/<link linkend="_src_2_application_2_error_handler_8php">ErrorHandler.php</link></section>
+</section>

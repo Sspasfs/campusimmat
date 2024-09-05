@@ -1,0 +1,119 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_interface_laminas_1_1_validator_1_1_validator_interface" xml:lang="fr">
+<title>Référence de l&apos;interface ValidatorInterface</title>
+<indexterm><primary>ValidatorInterface</primary></indexterm>
+Graphe d&apos;héritage de ValidatorInterface:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="interface_laminas_1_1_validator_1_1_validator_interface__inherit__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Graphe de collaboration de ValidatorInterface:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="interface_laminas_1_1_validator_1_1_validator_interface__coll__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Fonctions membres publiques    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_interface_laminas_1_1_validator_1_1_validator_interface_1a72063d2e922edda5321b1970297eb0c3">isValid</link> ($value)</para>
+</listitem>
+            <listitem><para><link linkend="_interface_laminas_1_1_validator_1_1_validator_interface_1a7347b0b89cca1d7604e93f5b5e896fc4">getMessages</link> ()</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Documentation des fonctions membres</title>
+<anchor xml:id="_interface_laminas_1_1_validator_1_1_validator_interface_1a7347b0b89cca1d7604e93f5b5e896fc4"/><section>
+    <title>getMessages()</title>
+<indexterm><primary>getMessages</primary><secondary>ValidatorInterface</secondary></indexterm>
+<indexterm><primary>ValidatorInterface</primary><secondary>getMessages</secondary></indexterm>
+<para><computeroutput>getMessages ( )</computeroutput></para>
+<para>Returns an array of messages that explain why the most recent isValid() call returned false. The array keys are validation failure message identifiers, and the array values are the corresponding human-readable message strings.</para>
+
+<para>If isValid() was never called or if the most recent isValid() call returned true, then this method returns an empty array.</para>
+
+<para><formalpara><title>Renvoie</title>
+
+<para>array </para>
+</formalpara>
+</para>
+<para>
+Implémenté dans <link linkend="_class_laminas_1_1_validator_1_1_abstract_validator_1a7347b0b89cca1d7604e93f5b5e896fc4">AbstractValidator</link>, et <link linkend="_class_laminas_1_1_validator_1_1_validator_chain_1a7347b0b89cca1d7604e93f5b5e896fc4">ValidatorChain</link>.</para>
+</section>
+<anchor xml:id="_interface_laminas_1_1_validator_1_1_validator_interface_1a72063d2e922edda5321b1970297eb0c3"/><section>
+    <title>isValid()</title>
+<indexterm><primary>isValid</primary><secondary>ValidatorInterface</secondary></indexterm>
+<indexterm><primary>ValidatorInterface</primary><secondary>isValid</secondary></indexterm>
+<para><computeroutput>isValid ( $value)</computeroutput></para>
+<para>Returns true if and only if $value meets the validation requirements</para>
+
+<para>If $value fails validation, then this method returns false, and getMessages() will return an array of messages that explain why the validation failed.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>mixed</entry><entry>$value</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>bool </para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>Exception</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                RuntimeException If validation of $value is impossible. </para>
+<para>
+Implémenté dans <link linkend="_class_laminas_1_1_i18n_1_1_validator_1_1_alnum_1a72063d2e922edda5321b1970297eb0c3">Alnum</link>, <link linkend="_class_laminas_1_1_i18n_1_1_validator_1_1_alpha_1a72063d2e922edda5321b1970297eb0c3">Alpha</link>, <link linkend="_class_laminas_1_1_i18n_1_1_validator_1_1_date_time_1a72063d2e922edda5321b1970297eb0c3">DateTime</link>, <link linkend="_class_laminas_1_1_i18n_1_1_validator_1_1_is_float_1a72063d2e922edda5321b1970297eb0c3">IsFloat</link>, <link linkend="_class_laminas_1_1_i18n_1_1_validator_1_1_is_int_1a72063d2e922edda5321b1970297eb0c3">IsInt</link>, <link linkend="_class_laminas_1_1_i18n_1_1_validator_1_1_post_code_1a72063d2e922edda5321b1970297eb0c3">PostCode</link>, <link linkend="_class_laminas_1_1_validator_1_1_barcode_1a72063d2e922edda5321b1970297eb0c3">Barcode</link>, <link linkend="_class_laminas_1_1_validator_1_1_between_1a72063d2e922edda5321b1970297eb0c3">Between</link>, <link linkend="_class_laminas_1_1_validator_1_1_bitwise_1a72063d2e922edda5321b1970297eb0c3">Bitwise</link>, <link linkend="_class_laminas_1_1_validator_1_1_business_identifier_code_1a72063d2e922edda5321b1970297eb0c3">BusinessIdentifierCode</link>, <link linkend="_class_laminas_1_1_validator_1_1_credit_card_1a72063d2e922edda5321b1970297eb0c3">CreditCard</link>, <link linkend="_class_laminas_1_1_validator_1_1_date_1a72063d2e922edda5321b1970297eb0c3">Date</link>, <link linkend="_class_laminas_1_1_validator_1_1_date_step_1a72063d2e922edda5321b1970297eb0c3">DateStep</link>, <link linkend="_class_laminas_1_1_validator_1_1_db_1_1_no_record_exists_1a72063d2e922edda5321b1970297eb0c3">NoRecordExists</link>, <link linkend="_class_laminas_1_1_validator_1_1_db_1_1_record_exists_1a72063d2e922edda5321b1970297eb0c3">RecordExists</link>, <link linkend="_class_laminas_1_1_validator_1_1_digits_1a72063d2e922edda5321b1970297eb0c3">Digits</link>, <link linkend="_class_laminas_1_1_validator_1_1_email_address_1a72063d2e922edda5321b1970297eb0c3">EmailAddress</link>, <link linkend="_class_laminas_1_1_validator_1_1_file_1_1_upload_file_1a72063d2e922edda5321b1970297eb0c3">UploadFile</link>, <link linkend="_class_laminas_1_1_validator_1_1_gps_point_1a72063d2e922edda5321b1970297eb0c3">GpsPoint</link>, <link linkend="_class_laminas_1_1_validator_1_1_greater_than_1a72063d2e922edda5321b1970297eb0c3">GreaterThan</link>, <link linkend="_class_laminas_1_1_validator_1_1_hex_1a72063d2e922edda5321b1970297eb0c3">Hex</link>, <link linkend="_class_laminas_1_1_validator_1_1_hostname_1a72063d2e922edda5321b1970297eb0c3">Hostname</link>, <link linkend="_class_laminas_1_1_validator_1_1_iban_1a72063d2e922edda5321b1970297eb0c3">Iban</link>, <link linkend="_class_laminas_1_1_validator_1_1_in_array_1a72063d2e922edda5321b1970297eb0c3">InArray</link>, <link linkend="_class_laminas_1_1_validator_1_1_ip_1a72063d2e922edda5321b1970297eb0c3">Ip</link>, <link linkend="_class_laminas_1_1_validator_1_1_isbn_1a72063d2e922edda5321b1970297eb0c3">Isbn</link>, <link linkend="_class_laminas_1_1_validator_1_1_is_countable_1a72063d2e922edda5321b1970297eb0c3">IsCountable</link>, <link linkend="_class_laminas_1_1_validator_1_1_is_instance_of_1a72063d2e922edda5321b1970297eb0c3">IsInstanceOf</link>, <link linkend="_class_laminas_1_1_validator_1_1_less_than_1a72063d2e922edda5321b1970297eb0c3">LessThan</link>, <link linkend="_class_laminas_1_1_validator_1_1_not_empty_1a72063d2e922edda5321b1970297eb0c3">NotEmpty</link>, <link linkend="_class_laminas_1_1_validator_1_1_regex_1a72063d2e922edda5321b1970297eb0c3">Regex</link>, <link linkend="_class_laminas_1_1_validator_1_1_sitemap_1_1_changefreq_1a72063d2e922edda5321b1970297eb0c3">Changefreq</link>, <link linkend="_class_laminas_1_1_validator_1_1_sitemap_1_1_lastmod_1a72063d2e922edda5321b1970297eb0c3">Lastmod</link>, <link linkend="_class_laminas_1_1_validator_1_1_sitemap_1_1_loc_1a72063d2e922edda5321b1970297eb0c3">Loc</link>, <link linkend="_class_laminas_1_1_validator_1_1_sitemap_1_1_priority_1a72063d2e922edda5321b1970297eb0c3">Priority</link>, <link linkend="_class_laminas_1_1_validator_1_1_step_1a72063d2e922edda5321b1970297eb0c3">Step</link>, <link linkend="_class_laminas_1_1_validator_1_1_string_length_1a72063d2e922edda5321b1970297eb0c3">StringLength</link>, <link linkend="_class_laminas_1_1_validator_1_1_timezone_1a72063d2e922edda5321b1970297eb0c3">Timezone</link>, <link linkend="_class_laminas_1_1_validator_1_1_undisclosed_password_1a72063d2e922edda5321b1970297eb0c3">UndisclosedPassword</link>, <link linkend="_class_laminas_1_1_validator_1_1_uri_1a72063d2e922edda5321b1970297eb0c3">Uri</link>, et <link linkend="_class_laminas_1_1_validator_1_1_uuid_1a72063d2e922edda5321b1970297eb0c3">Uuid</link>.</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="interface_laminas_1_1_validator_1_1_validator_interface_a72063d2e922edda5321b1970297eb0c3_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<para>
+La documentation de cette interface a été générée à partir du fichier suivant :</para>
+public/glpi/vendor/laminas/laminas-validator/src/<link linkend="_laminas_2laminas-validator_2src_2_validator_interface_8php">ValidatorInterface.php</link></section>
+</section>

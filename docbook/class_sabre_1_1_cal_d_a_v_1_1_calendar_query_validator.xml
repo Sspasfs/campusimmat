@@ -1,0 +1,240 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_sabre_1_1_cal_d_a_v_1_1_calendar_query_validator" xml:lang="fr">
+<title>Référence de la classe CalendarQueryValidator</title>
+<indexterm><primary>CalendarQueryValidator</primary></indexterm>
+Graphe de collaboration de CalendarQueryValidator:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_sabre_1_1_cal_d_a_v_1_1_calendar_query_validator__coll__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Fonctions membres publiques    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_sabre_1_1_cal_d_a_v_1_1_calendar_query_validator_1a94397432d0d2c0ce9ba37444a5320824">validate</link> (<link linkend="_class_sabre_1_1_v_object_1_1_component_1_1_v_calendar">VObject\Component\VCalendar</link> $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">vObject</link>, array $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">filters</link>)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Fonctions membres protégées    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_sabre_1_1_cal_d_a_v_1_1_calendar_query_validator_1aa8bfc09662b2a5f576c12b036c1a6648">validateCompFilters</link> (<link linkend="_class_sabre_1_1_v_object_1_1_component">VObject\Component</link> $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">parent</link>, array $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">filters</link>)</para>
+</listitem>
+            <listitem><para><link linkend="_class_sabre_1_1_cal_d_a_v_1_1_calendar_query_validator_1a3f8f4b77c1a7b26e190bda86430244ba">validatePropFilters</link> (<link linkend="_class_sabre_1_1_v_object_1_1_component">VObject\Component</link> $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">parent</link>, array $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">filters</link>)</para>
+</listitem>
+            <listitem><para><link linkend="_class_sabre_1_1_cal_d_a_v_1_1_calendar_query_validator_1aefc760fd71ffb5bb9792e37c4326d292">validateParamFilters</link> (<link linkend="_class_sabre_1_1_v_object_1_1_property">VObject\Property</link> $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">parent</link>, array $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">filters</link>)</para>
+</listitem>
+            <listitem><para><link linkend="_class_sabre_1_1_cal_d_a_v_1_1_calendar_query_validator_1add844542ded418658d778771eea3865e">validateTextMatch</link> ($check, array $textMatch)</para>
+</listitem>
+            <listitem><para><link linkend="_class_sabre_1_1_cal_d_a_v_1_1_calendar_query_validator_1a4499712cbb09355f15117834956500a4">validateTimeRange</link> (<link linkend="_class_sabre_1_1_v_object_1_1_node">VObject\Node</link> $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">component</link>, $start, $end)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Description détaillée</title>
+
+<para>CalendarQuery Validator.</para>
+
+<para>This class is responsible for checking if an iCalendar object matches a set of filters. The main function to do this is &apos;validate&apos;.</para>
+
+<para>This is used to determine which icalendar objects should be returned for a calendar-query REPORT request.</para>
+
+<para><formalpara><title>Copyright</title>
+
+<para>Copyright (C) fruux GmbH (<link xlink:href="https://fruux.com/">https://fruux.com/</link>) </para>
+</formalpara>
+<formalpara><title>Auteur</title>
+
+<para>Evert Pot (<link xlink:href="http://evertpot.com/">http://evertpot.com/</link>) @license <link xlink:href="http://sabre.io/license/">http://sabre.io/license/</link> Modified BSD License </para>
+</formalpara>
+</para>
+</section>
+<section>
+<title>Documentation des fonctions membres</title>
+<anchor xml:id="_class_sabre_1_1_cal_d_a_v_1_1_calendar_query_validator_1a94397432d0d2c0ce9ba37444a5320824"/><section>
+    <title>validate()</title>
+<indexterm><primary>validate</primary><secondary>CalendarQueryValidator</secondary></indexterm>
+<indexterm><primary>CalendarQueryValidator</primary><secondary>validate</secondary></indexterm>
+<para><computeroutput>validate (<link linkend="_class_sabre_1_1_v_object_1_1_component_1_1_v_calendar">VObject\Component\VCalendar</link> $vObject, array $filters)</computeroutput></para>
+<para>Verify if a list of filters applies to the calendar data object.</para>
+
+<para>The list of filters must be formatted as parsed by \Sabre\CalDAV\CalendarQueryParser</para>
+
+<para><formalpara><title>Renvoie</title>
+
+<para>bool </para>
+</formalpara>
+</para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_sabre_1_1_cal_d_a_v_1_1_calendar_query_validator_a94397432d0d2c0ce9ba37444a5320824_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_sabre_1_1_cal_d_a_v_1_1_calendar_query_validator_1aa8bfc09662b2a5f576c12b036c1a6648"/><section>
+    <title>validateCompFilters()</title>
+<indexterm><primary>validateCompFilters</primary><secondary>CalendarQueryValidator</secondary></indexterm>
+<indexterm><primary>CalendarQueryValidator</primary><secondary>validateCompFilters</secondary></indexterm>
+<para><computeroutput>validateCompFilters (<link linkend="_class_sabre_1_1_v_object_1_1_component">VObject\Component</link> $parent, array $filters)<computeroutput>[protected]</computeroutput></computeroutput></para>
+<para>This method checks the validity of comp-filters.</para>
+
+<para>A list of comp-filters needs to be specified. Also the parent of the component we&apos;re checking should be specified, not the component to check itself.</para>
+
+<para><formalpara><title>Renvoie</title>
+
+<para>bool </para>
+</formalpara>
+</para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_sabre_1_1_cal_d_a_v_1_1_calendar_query_validator_aa8bfc09662b2a5f576c12b036c1a6648_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_sabre_1_1_cal_d_a_v_1_1_calendar_query_validator_aa8bfc09662b2a5f576c12b036c1a6648_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_sabre_1_1_cal_d_a_v_1_1_calendar_query_validator_1aefc760fd71ffb5bb9792e37c4326d292"/><section>
+    <title>validateParamFilters()</title>
+<indexterm><primary>validateParamFilters</primary><secondary>CalendarQueryValidator</secondary></indexterm>
+<indexterm><primary>CalendarQueryValidator</primary><secondary>validateParamFilters</secondary></indexterm>
+<para><computeroutput>validateParamFilters (<link linkend="_class_sabre_1_1_v_object_1_1_property">VObject\Property</link> $parent, array $filters)<computeroutput>[protected]</computeroutput></computeroutput></para>
+<para>This method checks the validity of param-filters.</para>
+
+<para>A list of param-filters needs to be specified. Also the parent of the parameter we&apos;re checking should be specified, not the parameter to check itself.</para>
+
+<para><formalpara><title>Renvoie</title>
+
+<para>bool </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_class_sabre_1_1_cal_d_a_v_1_1_calendar_query_validator_1a3f8f4b77c1a7b26e190bda86430244ba"/><section>
+    <title>validatePropFilters()</title>
+<indexterm><primary>validatePropFilters</primary><secondary>CalendarQueryValidator</secondary></indexterm>
+<indexterm><primary>CalendarQueryValidator</primary><secondary>validatePropFilters</secondary></indexterm>
+<para><computeroutput>validatePropFilters (<link linkend="_class_sabre_1_1_v_object_1_1_component">VObject\Component</link> $parent, array $filters)<computeroutput>[protected]</computeroutput></computeroutput></para>
+<para>This method checks the validity of prop-filters.</para>
+
+<para>A list of prop-filters needs to be specified. Also the parent of the property we&apos;re checking should be specified, not the property to check itself.</para>
+
+<para><formalpara><title>Renvoie</title>
+
+<para>bool </para>
+</formalpara>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_sabre_1_1_cal_d_a_v_1_1_calendar_query_validator_a3f8f4b77c1a7b26e190bda86430244ba_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_sabre_1_1_cal_d_a_v_1_1_calendar_query_validator_1add844542ded418658d778771eea3865e"/><section>
+    <title>validateTextMatch()</title>
+<indexterm><primary>validateTextMatch</primary><secondary>CalendarQueryValidator</secondary></indexterm>
+<indexterm><primary>CalendarQueryValidator</primary><secondary>validateTextMatch</secondary></indexterm>
+<para><computeroutput>validateTextMatch ( $check, array $textMatch)<computeroutput>[protected]</computeroutput></computeroutput></para>
+<para>This method checks the validity of a text-match.</para>
+
+<para>A single text-match should be specified as well as the specific property or parameter we need to validate.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>VObject\Node | string</entry><entry>$check</entry><entry>
+<para>value to check against</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>bool </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_class_sabre_1_1_cal_d_a_v_1_1_calendar_query_validator_1a4499712cbb09355f15117834956500a4"/><section>
+    <title>validateTimeRange()</title>
+<indexterm><primary>validateTimeRange</primary><secondary>CalendarQueryValidator</secondary></indexterm>
+<indexterm><primary>CalendarQueryValidator</primary><secondary>validateTimeRange</secondary></indexterm>
+<para><computeroutput>validateTimeRange (<link linkend="_class_sabre_1_1_v_object_1_1_node">VObject\Node</link> $component,  $start,  $end)<computeroutput>[protected]</computeroutput></computeroutput></para>
+<para>Validates if a component matches the given time range.</para>
+
+<para>This is all based on the rules specified in rfc4791, which are quite complex.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>DateTime</entry><entry>$start</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>DateTime</entry><entry>$end</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>bool </para>
+</formalpara>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_sabre_1_1_cal_d_a_v_1_1_calendar_query_validator_a4499712cbb09355f15117834956500a4_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<para>
+La documentation de cette classe a été générée à partir du fichier suivant :</para>
+public/glpi/vendor/sabre/dav/lib/CalDAV/<link linkend="__calendar_query_validator_8php">CalendarQueryValidator.php</link></section>
+</section>

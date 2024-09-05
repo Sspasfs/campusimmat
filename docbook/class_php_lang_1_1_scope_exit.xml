@@ -1,0 +1,76 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_php_lang_1_1_scope_exit" xml:lang="fr">
+<title>Référence de la classe ScopeExit</title>
+<indexterm><primary>ScopeExit</primary></indexterm>
+Graphe de collaboration de ScopeExit:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_php_lang_1_1_scope_exit__coll__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Fonctions membres publiques    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_php_lang_1_1_scope_exit_1a8c007a6c2e3ce47e59e802a241d4264d">__construct</link> (<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">Callable</link> $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">onexit</link>)</para>
+</listitem>
+            <listitem><para><link linkend="_class_php_lang_1_1_scope_exit_1a421831a265621325e1fdd19aace0c758">__destruct</link> ()</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Description détaillée</title>
+
+<para>Emulate C++&apos;s SCOPE_EXIT { expr; }; construct by means of a short-lived object which takes a callable as its ctor arg and invokes it on destruction (i.e. when it drops out of scope).</para>
+
+<para>Note that if you retain a copy of this object, such as in another object&apos;s property. It&apos;s scope will not fully exit until that object dies.</para>
+
+<para>This allows ScopeExit to apply to more than just lexical scopes. </para>
+</section>
+<section>
+<title>Documentation des constructeurs et destructeur</title>
+<anchor xml:id="_class_php_lang_1_1_scope_exit_1a8c007a6c2e3ce47e59e802a241d4264d"/><section>
+    <title>__construct()</title>
+<indexterm><primary>__construct</primary><secondary>ScopeExit</secondary></indexterm>
+<indexterm><primary>ScopeExit</primary><secondary>__construct</secondary></indexterm>
+<para><computeroutput>__construct (<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">Callable</link> $onexit)</computeroutput></para>
+<para>Initialize object from Callable</para>
+
+<para>When this object drops out of scope, either by leaving the scope, or by explicit unset() The $onexit property is invoked.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>Callable</entry><entry>$onexit</entry><entry>
+<para>- Invocable callback with zero arg </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
+<anchor xml:id="_class_php_lang_1_1_scope_exit_1a421831a265621325e1fdd19aace0c758"/><section>
+    <title>__destruct()</title>
+<indexterm><primary>__destruct</primary><secondary>ScopeExit</secondary></indexterm>
+<indexterm><primary>ScopeExit</primary><secondary>__destruct</secondary></indexterm>
+<para><computeroutput>__destruct ( )</computeroutput></para>
+<para>Invoke the callback since the object is falling out of scope </para>
+</section>
+<para>
+La documentation de cette classe a été générée à partir du fichier suivant :</para>
+public/glpi/vendor/phplang/scope-exit/src/<link linkend="__scope_exit_8php">ScopeExit.php</link></section>
+</section>

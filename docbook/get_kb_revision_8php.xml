@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_get_kb_revision_8php" xml:lang="fr">
+<title>Référence du fichier public/glpi/ajax/getKbRevision.php</title>
+<indexterm><primary>public/glpi/ajax/getKbRevision.php</primary></indexterm>
+<simplesect>
+    <title>Variables    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_dropdown_location_8php_1a52332c22f84432520971794825a5a8e7">if</link>(!<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">isset</link>($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">_POST</link>[&apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">revid</link>&apos;])) <link linkend="_get_kb_revision_8php_1aa80be584c81c846419bf84dd94bf979b">$revid</link> = $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">_POST</link>[&apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">revid</link>&apos;]</para>
+</listitem>
+            <listitem><para><link linkend="_get_kb_revision_8php_1a4ff96b89e7ea5fa55acb086ecb6d0c03">$revision</link> = <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">new</link> <link linkend="_class_knowbase_item___revision">KnowbaseItem_Revision</link>()</para>
+</listitem>
+            <listitem><para><link linkend="_get_kb_revision_8php_1aa61b415cee119a7511e05c405ecd0b32">$item</link> = <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">new</link> \<link linkend="_class_knowbase_item">KnowbaseItem</link>()</para>
+</listitem>
+            <listitem><para><link linkend="_dropdown_location_8php_1a52332c22f84432520971794825a5a8e7">if</link>(! $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">item</link>-&gt;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">getFromDB</link>($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">revision</link>-&gt;<link linkend="_dropdown_fields_blacklist_8php_1a5c75a53080fde91f4f343f206474308d">fields</link>[&apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">knowbaseitems_id</link>&apos;])||! $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">item</link>-&gt;can($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">revision</link>-&gt;<link linkend="_dropdown_fields_blacklist_8php_1a5c75a53080fde91f4f343f206474308d">fields</link>[&apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">knowbaseitems_id</link>&apos;], <link linkend="_define_8php_1add302975378da047de904daa059a332b">READ</link>)) <link linkend="_get_kb_revision_8php_1aa4cc78fb1c1bde890d6f7c135bd91033">$rev</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Documentation des variables</title>
+<anchor xml:id="_get_kb_revision_8php_1aa61b415cee119a7511e05c405ecd0b32"/><section>
+    <title>$item</title>
+<indexterm><primary>$item</primary><secondary>getKbRevision.php</secondary></indexterm>
+<indexterm><primary>getKbRevision.php</primary><secondary>$item</secondary></indexterm>
+<para><computeroutput>$<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">item</link> = <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">new</link> \<link linkend="_class_knowbase_item">KnowbaseItem</link>()</computeroutput></para></section>
+<anchor xml:id="_get_kb_revision_8php_1aa4cc78fb1c1bde890d6f7c135bd91033"/><section>
+    <title>$rev</title>
+<indexterm><primary>$rev</primary><secondary>getKbRevision.php</secondary></indexterm>
+<indexterm><primary>getKbRevision.php</primary><secondary>$rev</secondary></indexterm>
+<para><computeroutput><link linkend="_dropdown_location_8php_1a52332c22f84432520971794825a5a8e7">if</link> (! $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">item</link>-&gt;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">getFromDB</link>( $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">revision</link>-&gt;<link linkend="_dropdown_fields_blacklist_8php_1a5c75a53080fde91f4f343f206474308d">fields</link>[ &apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">knowbaseitems_id</link>&apos;])||! $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">item</link>-&gt;can( $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">revision</link>-&gt;<link linkend="_dropdown_fields_blacklist_8php_1a5c75a53080fde91f4f343f206474308d">fields</link>[ &apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">knowbaseitems_id</link>&apos;], <link linkend="_define_8php_1add302975378da047de904daa059a332b">READ</link>)) $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">rev</link></computeroutput></para><emphasis role="strong">Valeur initiale :</emphasis><programlisting linenumbering="unnumbered">=&#32;[
+&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&apos;name&apos;</emphasis>&#32;&#32;&#32;=&gt;&#32;<link linkend="_get_kb_revision_8php_1a4ff96b89e7ea5fa55acb086ecb6d0c03">$revision</link>-&gt;fields[<emphasis role="stringliteral">&apos;name&apos;</emphasis>],
+&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&apos;answer&apos;</emphasis>&#32;=&gt;&#32;RichText::getEnhancedHtml(<link linkend="_get_kb_revision_8php_1a4ff96b89e7ea5fa55acb086ecb6d0c03">$revision</link>-&gt;fields[<emphasis role="stringliteral">&apos;answer&apos;</emphasis>])
+]
+</programlisting></section>
+<anchor xml:id="_get_kb_revision_8php_1aa80be584c81c846419bf84dd94bf979b"/><section>
+    <title>$revid</title>
+<indexterm><primary>$revid</primary><secondary>getKbRevision.php</secondary></indexterm>
+<indexterm><primary>getKbRevision.php</primary><secondary>$revid</secondary></indexterm>
+<para><computeroutput><link linkend="_dropdown_location_8php_1a52332c22f84432520971794825a5a8e7">if</link> (!<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">isset</link>( $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">_POST</link>[ &apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">revid</link>&apos;])) $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">revid</link> = $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">_POST</link>[&apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">revid</link>&apos;]</computeroutput></para></section>
+<anchor xml:id="_get_kb_revision_8php_1a4ff96b89e7ea5fa55acb086ecb6d0c03"/><section>
+    <title>$revision</title>
+<indexterm><primary>$revision</primary><secondary>getKbRevision.php</secondary></indexterm>
+<indexterm><primary>getKbRevision.php</primary><secondary>$revision</secondary></indexterm>
+<para><computeroutput>$<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">revision</link> = <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">new</link> <link linkend="_class_knowbase_item___revision">KnowbaseItem_Revision</link>()</computeroutput></para></section>
+</section>
+</section>

@@ -1,0 +1,62 @@
+\doxysection{Référence de la classe Lock\+Registry}
+\hypertarget{class_symfony_1_1_component_1_1_cache_1_1_lock_registry}{}\label{class_symfony_1_1_component_1_1_cache_1_1_lock_registry}\index{LockRegistry@{LockRegistry}}
+
+
+Graphe de collaboration de Lock\+Registry\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=257pt]{class_symfony_1_1_component_1_1_cache_1_1_lock_registry__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Fonctions membres publiques statiques}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_symfony_1_1_component_1_1_cache_1_1_lock_registry_a2bb7897cf59d5a84f03e2653e220dc18}{set\+Files}} (array \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{files}})
+\item 
+static \mbox{\hyperlink{class_symfony_1_1_component_1_1_cache_1_1_lock_registry_a92e71f95b9ec6139f9477721e31e3a59}{compute}} (\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{callable}} \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{callback}}, \mbox{\hyperlink{interface_symfony_1_1_contracts_1_1_cache_1_1_item_interface}{Item\+Interface}} \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{item}}, bool \&\$save, \mbox{\hyperlink{interface_psr_1_1_simple_cache_1_1_cache_interface}{Cache\+Interface}} \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{pool}}, \textbackslash{}Closure \$set\+Metadata=null, \mbox{\hyperlink{interface_psr_1_1_log_1_1_logger_interface}{Logger\+Interface}} \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{logger}}=null)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Lock\+Registry is used internally by existing adapters to protect against cache stampede.
+
+It does so by wrapping the computation of items in a pool of locks. Foreach each apps, there can be at most 20 concurrent processes that compute items at the same time and only one per cache-\/key.
+
+\begin{DoxyAuthor}{Auteur}
+Nicolas Grekas \href{mailto:p@tchwork.com}{\texttt{ p@tchwork.\+com}} 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Documentation des fonctions membres}
+\Hypertarget{class_symfony_1_1_component_1_1_cache_1_1_lock_registry_a92e71f95b9ec6139f9477721e31e3a59}\label{class_symfony_1_1_component_1_1_cache_1_1_lock_registry_a92e71f95b9ec6139f9477721e31e3a59} 
+\index{LockRegistry@{LockRegistry}!compute@{compute}}
+\index{compute@{compute}!LockRegistry@{LockRegistry}}
+\doxysubsubsection{\texorpdfstring{compute()}{compute()}}
+{\footnotesize\ttfamily static compute (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{callable}}}]{\$callback,  }\item[{\mbox{\hyperlink{interface_symfony_1_1_contracts_1_1_cache_1_1_item_interface}{Item\+Interface}}}]{\$item,  }\item[{bool \&}]{\$save,  }\item[{\mbox{\hyperlink{interface_psr_1_1_simple_cache_1_1_cache_interface}{Cache\+Interface}}}]{\$pool,  }\item[{\textbackslash{}Closure}]{\$set\+Metadata = {\ttfamily null},  }\item[{\mbox{\hyperlink{interface_psr_1_1_log_1_1_logger_interface}{Logger\+Interface}}}]{\$logger = {\ttfamily null} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=348pt]{class_symfony_1_1_component_1_1_cache_1_1_lock_registry_a92e71f95b9ec6139f9477721e31e3a59_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_symfony_1_1_component_1_1_cache_1_1_lock_registry_a2bb7897cf59d5a84f03e2653e220dc18}\label{class_symfony_1_1_component_1_1_cache_1_1_lock_registry_a2bb7897cf59d5a84f03e2653e220dc18} 
+\index{LockRegistry@{LockRegistry}!setFiles@{setFiles}}
+\index{setFiles@{setFiles}!LockRegistry@{LockRegistry}}
+\doxysubsubsection{\texorpdfstring{setFiles()}{setFiles()}}
+{\footnotesize\ttfamily static set\+Files (\begin{DoxyParamCaption}\item[{array}]{\$files }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Defines a set of existing files that will be used as keys to acquire locks.
+
+\begin{DoxyReturn}{Renvoie}
+array The previously defined set of files 
+\end{DoxyReturn}
+
+
+La documentation de cette classe a été générée à partir du fichier suivant \+:\begin{DoxyCompactItemize}
+\item 
+public/glpi/vendor/symfony/cache/\mbox{\hyperlink{_lock_registry_8php}{Lock\+Registry.\+php}}\end{DoxyCompactItemize}

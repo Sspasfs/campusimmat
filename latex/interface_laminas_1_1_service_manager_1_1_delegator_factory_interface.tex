@@ -1,0 +1,87 @@
+\doxysection{Référence de l\textquotesingle{}interface Delegator\+Factory\+Interface}
+\hypertarget{interface_laminas_1_1_service_manager_1_1_delegator_factory_interface}{}\label{interface_laminas_1_1_service_manager_1_1_delegator_factory_interface}\index{DelegatorFactoryInterface@{DelegatorFactoryInterface}}
+
+
+Graphe d\textquotesingle{}héritage de Delegator\+Factory\+Interface\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=239pt]{interface_laminas_1_1_service_manager_1_1_delegator_factory_interface__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Graphe de collaboration de Delegator\+Factory\+Interface\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=239pt]{interface_laminas_1_1_service_manager_1_1_delegator_factory_interface__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{interface_laminas_1_1_service_manager_1_1_delegator_factory_interface_aa987b785eb021a15f13103f395b4a66d}{create\+Delegator\+With\+Name}} (\mbox{\hyperlink{interface_laminas_1_1_service_manager_1_1_service_locator_interface}{Service\+Locator\+Interface}} \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{service\+Locator}}, \$name, \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{requested\+Name}}, \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{callback}})
+\end{DoxyCompactItemize}
+\doxysubsection*{Fonctions membres publiques hérités de \mbox{\hyperlink{interface_laminas_1_1_service_manager_1_1_factory_1_1_delegator_factory_interface}{Delegator\+Factory\+Interface}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{interface_laminas_1_1_service_manager_1_1_factory_1_1_delegator_factory_interface_a67d7f11cb132fb6d4d3546155ce705b6}{\+\_\+\+\_\+invoke}} (\mbox{\hyperlink{interface_interop_1_1_container_1_1_container_interface}{Container\+Interface}} \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{container}}, \$name, \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{callable}} \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{callback}}, ?array \$options=null)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Backwards-\/compatibility shim for Delegator\+Factory\+Interface.
+
+Implementations should update to implement only Laminas\textbackslash{}\+Service\+Manager\textbackslash{}\+Factory\textbackslash{}\+Delegator\+Factory\+Interface.
+
+If upgrading from v2, take the following steps\+:
+
+
+\begin{DoxyItemize}
+\item rename the method {\ttfamily create\+Delegator\+With\+Name()} to {\ttfamily \+\_\+\+\_\+invoke()}, and\+:
+\begin{DoxyItemize}
+\item rename the {\ttfamily \$service\+Locator} argument to {\ttfamily \$container}, and change the typehint to {\ttfamily Interop\textbackslash{}Container\textbackslash{}Container\+Interface}
+\item merge the {\ttfamily \$name} and {\ttfamily \$requested\+Name} arguments
+\item add the {\ttfamily callable} typehint to the {\ttfamily \$callback} argument
+\item add the optional {\ttfamily array \$options = null} argument as a final argument
+\end{DoxyItemize}
+\item create a {\ttfamily create\+Delegator\+With\+Name()} method as defined in this interface, and have it proxy to {\ttfamily \+\_\+\+\_\+invoke()}, passing {\ttfamily \$requested\+Name} as the second argument.
+\end{DoxyItemize}
+
+Once you have tested your code, you can then update your class to only implement Laminas\textbackslash{}\+Service\+Manager\textbackslash{}\+Factory\textbackslash{}\+Delegator\+Factory\+Interface, and remove the {\ttfamily create\+Delegator\+With\+Name()} method.
+
+\begin{DoxyRefDesc}{Obsolète}
+\item[\mbox{\hyperlink{deprecated__deprecated000076}{Obsolète}}]Use Laminas\textbackslash{}\+Service\+Manager\textbackslash{}\+Factory\textbackslash{}\+Delegator\+Factory\+Interface instead. \end{DoxyRefDesc}
+
+
+\doxysubsection{Documentation des fonctions membres}
+\Hypertarget{interface_laminas_1_1_service_manager_1_1_delegator_factory_interface_aa987b785eb021a15f13103f395b4a66d}\label{interface_laminas_1_1_service_manager_1_1_delegator_factory_interface_aa987b785eb021a15f13103f395b4a66d} 
+\index{DelegatorFactoryInterface@{DelegatorFactoryInterface}!createDelegatorWithName@{createDelegatorWithName}}
+\index{createDelegatorWithName@{createDelegatorWithName}!DelegatorFactoryInterface@{DelegatorFactoryInterface}}
+\doxysubsubsection{\texorpdfstring{createDelegatorWithName()}{createDelegatorWithName()}}
+{\footnotesize\ttfamily create\+Delegator\+With\+Name (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{interface_laminas_1_1_service_manager_1_1_service_locator_interface}{Service\+Locator\+Interface}}}]{\$service\+Locator,  }\item[{}]{\$name,  }\item[{}]{\$requested\+Name,  }\item[{}]{\$callback }\end{DoxyParamCaption})}
+
+A factory that creates delegates of a given service
+
+
+\begin{DoxyParams}[1]{Paramètres}
+Service\+Locator\+Interface & {\em \$service\+Locator} & the service locator which requested the service \\
+\hline
+string & {\em \$name} & the normalized service name \\
+\hline
+string & {\em \$requested\+Name} & the requested service name \\
+\hline
+callable & {\em \$callback} & the callback that is responsible for creating the service \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+mixed 
+\end{DoxyReturn}
+
+
+La documentation de cette interface a été générée à partir du fichier suivant \+:\begin{DoxyCompactItemize}
+\item 
+public/glpi/vendor/laminas/laminas-\/servicemanager/src/\mbox{\hyperlink{_delegator_factory_interface_8php}{Delegator\+Factory\+Interface.\+php}}\end{DoxyCompactItemize}

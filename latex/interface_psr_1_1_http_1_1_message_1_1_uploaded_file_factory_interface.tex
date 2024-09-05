@@ -1,0 +1,75 @@
+\doxysection{Référence de l\textquotesingle{}interface Uploaded\+File\+Factory\+Interface}
+\hypertarget{interface_psr_1_1_http_1_1_message_1_1_uploaded_file_factory_interface}{}\label{interface_psr_1_1_http_1_1_message_1_1_uploaded_file_factory_interface}\index{UploadedFileFactoryInterface@{UploadedFileFactoryInterface}}
+
+
+Graphe d\textquotesingle{}héritage de Uploaded\+File\+Factory\+Interface\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=296pt]{interface_psr_1_1_http_1_1_message_1_1_uploaded_file_factory_interface__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Graphe de collaboration de Uploaded\+File\+Factory\+Interface\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=296pt]{interface_psr_1_1_http_1_1_message_1_1_uploaded_file_factory_interface__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{interface_psr_1_1_http_1_1_message_1_1_uploaded_file_factory_interface_acbcc538b83b22c57ed28618fdef759fe}{create\+Uploaded\+File}} (\mbox{\hyperlink{interface_psr_1_1_http_1_1_message_1_1_stream_interface}{Stream\+Interface}} \$stream, int \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{size}}=null, int \$error=\textbackslash{}UPLOAD\+\_\+\+ERR\+\_\+\+OK, string \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{client\+Filename}}=null, string \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{client\+Media\+Type}}=null)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Documentation des fonctions membres}
+\Hypertarget{interface_psr_1_1_http_1_1_message_1_1_uploaded_file_factory_interface_acbcc538b83b22c57ed28618fdef759fe}\label{interface_psr_1_1_http_1_1_message_1_1_uploaded_file_factory_interface_acbcc538b83b22c57ed28618fdef759fe} 
+\index{UploadedFileFactoryInterface@{UploadedFileFactoryInterface}!createUploadedFile@{createUploadedFile}}
+\index{createUploadedFile@{createUploadedFile}!UploadedFileFactoryInterface@{UploadedFileFactoryInterface}}
+\doxysubsubsection{\texorpdfstring{createUploadedFile()}{createUploadedFile()}}
+{\footnotesize\ttfamily create\+Uploaded\+File (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{interface_psr_1_1_http_1_1_message_1_1_stream_interface}{Stream\+Interface}}}]{\$stream,  }\item[{int}]{\$size = {\ttfamily null},  }\item[{int}]{\$error = {\ttfamily \textbackslash{}UPLOAD\+\_\+ERR\+\_\+OK},  }\item[{string}]{\$client\+Filename = {\ttfamily null},  }\item[{string}]{\$client\+Media\+Type = {\ttfamily null} }\end{DoxyParamCaption})}
+
+Create a new uploaded file.
+
+If a size is not provided it will be determined by checking the size of the file.
+
+\begin{DoxySeeAlso}{Voir également}
+\href{http://php.net/manual/features.file-upload.post-method.php}{\texttt{ http\+://php.\+net/manual/features.\+file-\/upload.\+post-\/method.\+php}} 
+
+\href{http://php.net/manual/features.file-upload.errors.php}{\texttt{ http\+://php.\+net/manual/features.\+file-\/upload.\+errors.\+php}}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}[1]{Paramètres}
+Stream\+Interface & {\em \$stream} & Underlying stream representing the uploaded file content. \\
+\hline
+int & {\em \$size} & in bytes \\
+\hline
+int & {\em \$error} & PHP file upload error \\
+\hline
+string & {\em \$client\+Filename} & Filename as provided by the client, if any. \\
+\hline
+string & {\em \$client\+Media\+Type} & Media type as provided by the client, if any.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+Uploaded\+File\+Interface
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em } & \\
+\hline
+\end{DoxyExceptions}
+Invalid\+Argument\+Exception If the file resource is not readable. 
+
+Implémenté dans \mbox{\hyperlink{class_guzzle_http_1_1_psr7_1_1_http_factory_acbcc538b83b22c57ed28618fdef759fe}{Http\+Factory}}.
+
+
+
+La documentation de cette interface a été générée à partir du fichier suivant \+:\begin{DoxyCompactItemize}
+\item 
+public/glpi/vendor/psr/http-\/factory/src/\mbox{\hyperlink{_uploaded_file_factory_interface_8php}{Uploaded\+File\+Factory\+Interface.\+php}}\end{DoxyCompactItemize}

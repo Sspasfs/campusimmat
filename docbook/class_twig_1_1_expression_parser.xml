@@ -1,0 +1,235 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_twig_1_1_expression_parser" xml:lang="fr">
+<title>Référence de la classe ExpressionParser</title>
+<indexterm><primary>ExpressionParser</primary></indexterm>
+Graphe de collaboration de ExpressionParser:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_twig_1_1_expression_parser__coll__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Fonctions membres publiques    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_twig_1_1_expression_parser_1a7bd3fd401fa8fe9d4a9096693ea6270b">__construct</link> (<link linkend="_class_twig_1_1_parser">Parser</link> $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">parser</link>, <link linkend="_class_twig_1_1_environment">Environment</link> $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">env</link>)</para>
+</listitem>
+            <listitem><para><link linkend="_class_twig_1_1_expression_parser_1ae184447b46c0e0a1fea882a2d08e6d36">parseExpression</link> ($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">precedence</link>=0, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">allowArrow</link>=false)</para>
+</listitem>
+            <listitem><para><link linkend="_class_twig_1_1_expression_parser_1af4649c23ab84785567030a0673a9ee76">parsePrimaryExpression</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_class_twig_1_1_expression_parser_1a99a1301121a1b6e34fb7ce044baef1cf">parseStringExpression</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_class_twig_1_1_expression_parser_1ac8125f8f7746662e24757a1207fe9986">parseArrayExpression</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_class_twig_1_1_expression_parser_1aa1ab124f21f6eb72bdda3f835a747237">parseHashExpression</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_class_twig_1_1_expression_parser_1ad6aaf1c175652606d37f74ef5e008664">parsePostfixExpression</link> ($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">node</link>)</para>
+</listitem>
+            <listitem><para><link linkend="_class_twig_1_1_expression_parser_1acf5750a843dfd9532b700e0e28c83381">getFunctionNode</link> ($name, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">line</link>)</para>
+</listitem>
+            <listitem><para><link linkend="_class_twig_1_1_expression_parser_1a39de613eaf1404c8b0e3e676feaf5131">parseSubscriptExpression</link> ($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">node</link>)</para>
+</listitem>
+            <listitem><para><link linkend="_class_twig_1_1_expression_parser_1aa34dd7e6733af986a5d59be68e0cc24e">parseFilterExpression</link> ($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">node</link>)</para>
+</listitem>
+            <listitem><para><link linkend="_class_twig_1_1_expression_parser_1a042523e3f2021f368ceee6ce9fd2ea0e">parseFilterExpressionRaw</link> ($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">node</link>, $tag=null)</para>
+</listitem>
+            <listitem><para><link linkend="_class_twig_1_1_expression_parser_1a4a3bee0f5b31778f427899e53354f6c0">parseArguments</link> ($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">namedArguments</link>=false, $definition=false, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">allowArrow</link>=false)</para>
+</listitem>
+            <listitem><para><link linkend="_class_twig_1_1_expression_parser_1a9d63b236eb972c8932a82eb72b6b74d2">parseAssignmentExpression</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_class_twig_1_1_expression_parser_1a723d955922d5703cae23f36dcdbfdc06">parseMultitargetExpression</link> ()</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Champs de données    </title>
+        <itemizedlist>
+            <listitem><para>const <link linkend="_class_twig_1_1_expression_parser_1abe5a3390382bf3aba3867940eec28a61">OPERATOR_LEFT</link> = 1</para>
+</listitem>
+            <listitem><para>const <link linkend="_class_twig_1_1_expression_parser_1a90a1202797b2ac98156a907ac86d0052">OPERATOR_RIGHT</link> = 2</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Description détaillée</title>
+
+<para>Parses expressions.</para>
+
+<para>This parser implements a &quot;Precedence climbing&quot; algorithm.</para>
+
+<para><formalpara><title>Voir également</title>
+
+<para><link xlink:href="https://www.engr.mun.ca/~theo/Misc/exp_parsing.htm">https://www.engr.mun.ca/~theo/Misc/exp_parsing.htm</link> </para>
+
+<para><link xlink:href="https://en.wikipedia.org/wiki/Operator-precedence_parser">https://en.wikipedia.org/wiki/Operator-precedence_parser</link></para>
+</formalpara>
+<formalpara><title>Auteur</title>
+
+<para>Fabien Potencier <link xlink:href="mailto:fabien@symfony.com">fabien@symfony.com</link> </para>
+</formalpara>
+</para>
+</section>
+<section>
+<title>Documentation des constructeurs et destructeur</title>
+<anchor xml:id="_class_twig_1_1_expression_parser_1a7bd3fd401fa8fe9d4a9096693ea6270b"/><section>
+    <title>__construct()</title>
+<indexterm><primary>__construct</primary><secondary>ExpressionParser</secondary></indexterm>
+<indexterm><primary>ExpressionParser</primary><secondary>__construct</secondary></indexterm>
+<para><computeroutput>__construct (<link linkend="_class_twig_1_1_parser">Parser</link> $parser, <link linkend="_class_twig_1_1_environment">Environment</link> $env)</computeroutput></para>Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_twig_1_1_expression_parser_a7bd3fd401fa8fe9d4a9096693ea6270b_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+</section>
+<section>
+<title>Documentation des fonctions membres</title>
+<anchor xml:id="_class_twig_1_1_expression_parser_1acf5750a843dfd9532b700e0e28c83381"/><section>
+    <title>getFunctionNode()</title>
+<indexterm><primary>getFunctionNode</primary><secondary>ExpressionParser</secondary></indexterm>
+<indexterm><primary>ExpressionParser</primary><secondary>getFunctionNode</secondary></indexterm>
+<para><computeroutput>getFunctionNode ( $name,  $line)</computeroutput></para></section>
+<anchor xml:id="_class_twig_1_1_expression_parser_1a4a3bee0f5b31778f427899e53354f6c0"/><section>
+    <title>parseArguments()</title>
+<indexterm><primary>parseArguments</primary><secondary>ExpressionParser</secondary></indexterm>
+<indexterm><primary>ExpressionParser</primary><secondary>parseArguments</secondary></indexterm>
+<para><computeroutput>parseArguments ( $namedArguments = <computeroutput>false</computeroutput>
+,  $definition = <computeroutput>false</computeroutput>
+,  $allowArrow = <computeroutput>false</computeroutput>
+)</computeroutput></para>
+<para>Parses arguments.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>bool</entry><entry>$namedArguments</entry><entry>
+<para>Whether to allow named arguments or not </para>
+</entry>
+                            </row>
+                            <row>
+<entry>bool</entry><entry>$definition</entry><entry>
+<para>Whether we are parsing arguments for a function definition</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>Node</para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>SyntaxError</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
+<anchor xml:id="_class_twig_1_1_expression_parser_1ac8125f8f7746662e24757a1207fe9986"/><section>
+    <title>parseArrayExpression()</title>
+<indexterm><primary>parseArrayExpression</primary><secondary>ExpressionParser</secondary></indexterm>
+<indexterm><primary>ExpressionParser</primary><secondary>parseArrayExpression</secondary></indexterm>
+<para><computeroutput>parseArrayExpression ( )</computeroutput></para></section>
+<anchor xml:id="_class_twig_1_1_expression_parser_1a9d63b236eb972c8932a82eb72b6b74d2"/><section>
+    <title>parseAssignmentExpression()</title>
+<indexterm><primary>parseAssignmentExpression</primary><secondary>ExpressionParser</secondary></indexterm>
+<indexterm><primary>ExpressionParser</primary><secondary>parseAssignmentExpression</secondary></indexterm>
+<para><computeroutput>parseAssignmentExpression ( )</computeroutput></para></section>
+<anchor xml:id="_class_twig_1_1_expression_parser_1ae184447b46c0e0a1fea882a2d08e6d36"/><section>
+    <title>parseExpression()</title>
+<indexterm><primary>parseExpression</primary><secondary>ExpressionParser</secondary></indexterm>
+<indexterm><primary>ExpressionParser</primary><secondary>parseExpression</secondary></indexterm>
+<para><computeroutput>parseExpression ( $precedence = <computeroutput>0</computeroutput>
+,  $allowArrow = <computeroutput>false</computeroutput>
+)</computeroutput></para></section>
+<anchor xml:id="_class_twig_1_1_expression_parser_1aa34dd7e6733af986a5d59be68e0cc24e"/><section>
+    <title>parseFilterExpression()</title>
+<indexterm><primary>parseFilterExpression</primary><secondary>ExpressionParser</secondary></indexterm>
+<indexterm><primary>ExpressionParser</primary><secondary>parseFilterExpression</secondary></indexterm>
+<para><computeroutput>parseFilterExpression ( $node)</computeroutput></para></section>
+<anchor xml:id="_class_twig_1_1_expression_parser_1a042523e3f2021f368ceee6ce9fd2ea0e"/><section>
+    <title>parseFilterExpressionRaw()</title>
+<indexterm><primary>parseFilterExpressionRaw</primary><secondary>ExpressionParser</secondary></indexterm>
+<indexterm><primary>ExpressionParser</primary><secondary>parseFilterExpressionRaw</secondary></indexterm>
+<para><computeroutput>parseFilterExpressionRaw ( $node,  $tag = <computeroutput>null</computeroutput>
+)</computeroutput></para></section>
+<anchor xml:id="_class_twig_1_1_expression_parser_1aa1ab124f21f6eb72bdda3f835a747237"/><section>
+    <title>parseHashExpression()</title>
+<indexterm><primary>parseHashExpression</primary><secondary>ExpressionParser</secondary></indexterm>
+<indexterm><primary>ExpressionParser</primary><secondary>parseHashExpression</secondary></indexterm>
+<para><computeroutput>parseHashExpression ( )</computeroutput></para></section>
+<anchor xml:id="_class_twig_1_1_expression_parser_1a723d955922d5703cae23f36dcdbfdc06"/><section>
+    <title>parseMultitargetExpression()</title>
+<indexterm><primary>parseMultitargetExpression</primary><secondary>ExpressionParser</secondary></indexterm>
+<indexterm><primary>ExpressionParser</primary><secondary>parseMultitargetExpression</secondary></indexterm>
+<para><computeroutput>parseMultitargetExpression ( )</computeroutput></para></section>
+<anchor xml:id="_class_twig_1_1_expression_parser_1ad6aaf1c175652606d37f74ef5e008664"/><section>
+    <title>parsePostfixExpression()</title>
+<indexterm><primary>parsePostfixExpression</primary><secondary>ExpressionParser</secondary></indexterm>
+<indexterm><primary>ExpressionParser</primary><secondary>parsePostfixExpression</secondary></indexterm>
+<para><computeroutput>parsePostfixExpression ( $node)</computeroutput></para></section>
+<anchor xml:id="_class_twig_1_1_expression_parser_1af4649c23ab84785567030a0673a9ee76"/><section>
+    <title>parsePrimaryExpression()</title>
+<indexterm><primary>parsePrimaryExpression</primary><secondary>ExpressionParser</secondary></indexterm>
+<indexterm><primary>ExpressionParser</primary><secondary>parsePrimaryExpression</secondary></indexterm>
+<para><computeroutput>parsePrimaryExpression ( )</computeroutput></para></section>
+<anchor xml:id="_class_twig_1_1_expression_parser_1a99a1301121a1b6e34fb7ce044baef1cf"/><section>
+    <title>parseStringExpression()</title>
+<indexterm><primary>parseStringExpression</primary><secondary>ExpressionParser</secondary></indexterm>
+<indexterm><primary>ExpressionParser</primary><secondary>parseStringExpression</secondary></indexterm>
+<para><computeroutput>parseStringExpression ( )</computeroutput></para></section>
+<anchor xml:id="_class_twig_1_1_expression_parser_1a39de613eaf1404c8b0e3e676feaf5131"/><section>
+    <title>parseSubscriptExpression()</title>
+<indexterm><primary>parseSubscriptExpression</primary><secondary>ExpressionParser</secondary></indexterm>
+<indexterm><primary>ExpressionParser</primary><secondary>parseSubscriptExpression</secondary></indexterm>
+<para><computeroutput>parseSubscriptExpression ( $node)</computeroutput></para></section>
+</section>
+<section>
+<title>Documentation des champs</title>
+<anchor xml:id="_class_twig_1_1_expression_parser_1abe5a3390382bf3aba3867940eec28a61"/><section>
+    <title>OPERATOR_LEFT</title>
+<indexterm><primary>OPERATOR_LEFT</primary><secondary>ExpressionParser</secondary></indexterm>
+<indexterm><primary>ExpressionParser</primary><secondary>OPERATOR_LEFT</secondary></indexterm>
+<para><computeroutput>const OPERATOR_LEFT = 1</computeroutput></para></section>
+<anchor xml:id="_class_twig_1_1_expression_parser_1a90a1202797b2ac98156a907ac86d0052"/><section>
+    <title>OPERATOR_RIGHT</title>
+<indexterm><primary>OPERATOR_RIGHT</primary><secondary>ExpressionParser</secondary></indexterm>
+<indexterm><primary>ExpressionParser</primary><secondary>OPERATOR_RIGHT</secondary></indexterm>
+<para><computeroutput>const OPERATOR_RIGHT = 2</computeroutput></para></section>
+<para>
+La documentation de cette classe a été générée à partir du fichier suivant :</para>
+public/glpi/vendor/twig/twig/src/<link linkend="__expression_parser_8php">ExpressionParser.php</link></section>
+</section>

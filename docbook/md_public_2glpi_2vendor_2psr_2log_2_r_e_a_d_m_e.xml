@@ -1,0 +1,54 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_md_public_2glpi_2vendor_2psr_2log_2_r_e_a_d_m_e" xml:lang="fr">
+<title>PSR Log</title>
+<indexterm><primary>PSR Log</primary></indexterm>
+
+<para>This repository holds all interfaces/classes/traits related to <link xlink:href="https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-3-logger-interface.md">PSR-3</link>.</para>
+
+<para>Note that this is not a logger of its own. It is merely an interface that describes a logger. See the specification for more details.</para>
+<section xml:id="_md_public_2glpi_2vendor_2psr_2log_2_r_e_a_d_m_e_1autotoc_md6956">
+<title><title>Installation</title></title>
+
+<para><literallayout><computeroutput>composer&#32;require&#32;psr/log
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2psr_2log_2_r_e_a_d_m_e_1autotoc_md6957">
+<title><title>Usage</title></title>
+
+<para>If you need a logger, you can use the interface like this:</para>
+
+<para><literallayout><computeroutput>&lt;?php
+
+use&#32;Psr\Log\LoggerInterface;
+
+class&#32;Foo
+{
+&#32;&#32;&#32;&#32;private&#32;$logger;
+
+&#32;&#32;&#32;&#32;public&#32;function&#32;__construct(LoggerInterface&#32;$logger&#32;=&#32;null)
+&#32;&#32;&#32;&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;$this-&gt;logger&#32;=&#32;$logger;
+&#32;&#32;&#32;&#32;}
+
+&#32;&#32;&#32;&#32;public&#32;function&#32;doSomething()
+&#32;&#32;&#32;&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;if&#32;($this-&gt;logger)&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;$this-&gt;logger-&gt;info(&apos;Doing&#32;work&apos;);
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;try&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;$this-&gt;doSomethingElse();
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}&#32;catch&#32;(Exception&#32;$exception)&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;$this-&gt;logger-&gt;error(&apos;Oh&#32;no!&apos;,&#32;array(&apos;exception&apos;&#32;=&gt;&#32;$exception));
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;//&#32;do&#32;something&#32;useful
+&#32;&#32;&#32;&#32;}
+}
+</computeroutput></literallayout></para>
+
+<para>You can then pick one of the implementations of the interface to get a logger.</para>
+
+<para>If you want to implement the interface, you can require this package and implement <computeroutput>Psr\<link linkend="_class_log">Log</link>\LoggerInterface</computeroutput> in your code. Please read the <link xlink:href="https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-3-logger-interface.md">specification text</link> for details. </para>
+</section>
+</section>

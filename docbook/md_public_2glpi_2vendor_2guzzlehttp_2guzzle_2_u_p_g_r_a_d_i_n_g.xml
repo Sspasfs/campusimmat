@@ -1,0 +1,1323 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_md_public_2glpi_2vendor_2guzzlehttp_2guzzle_2_u_p_g_r_a_d_i_n_g" xml:lang="fr">
+<title>Guzzle Upgrade Guide</title>
+<indexterm><primary>Guzzle Upgrade Guide</primary></indexterm>
+<section xml:id="_md_public_2glpi_2vendor_2guzzlehttp_2guzzle_2_u_p_g_r_a_d_i_n_g_1autotoc_md5991">
+<title><title>6.0 to 7.0</title></title>
+
+<para>In order to take advantage of the new features of PHP, Guzzle dropped the support of PHP 5. The minimum supported PHP version is now PHP 7.2. Type hints and return types for functions and methods have been added wherever possible.</para>
+
+<para>Please make sure:<itemizedlist>
+<listitem>
+<para>You are calling a function or a method with the correct type.</para>
+</listitem><listitem>
+<para>If you extend a class of Guzzle; update all signatures on methods you override.</para>
+</listitem></itemizedlist>
+</para>
+<section xml:id="_md_public_2glpi_2vendor_2guzzlehttp_2guzzle_2_u_p_g_r_a_d_i_n_g_1autotoc_md5992">
+<title><title>Other backwards compatibility breaking changes</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Class <computeroutput><link linkend="_namespace_guzzle_http">GuzzleHttp</link>\UriTemplate</computeroutput> is removed.</para>
+</listitem><listitem>
+<para>Class <computeroutput><link linkend="_namespace_guzzle_http">GuzzleHttp</link>\Exception\SeekException</computeroutput> is removed.</para>
+</listitem><listitem>
+<para>Classes <computeroutput><link linkend="_namespace_guzzle_http">GuzzleHttp</link>\Exception\BadResponseException</computeroutput>, <computeroutput><link linkend="_namespace_guzzle_http">GuzzleHttp</link>\Exception\ClientException</computeroutput>, <computeroutput><link linkend="_namespace_guzzle_http">GuzzleHttp</link>\Exception\ServerException</computeroutput> can no longer be initialized with an empty Response as argument.</para>
+</listitem><listitem>
+<para>Class <computeroutput><link linkend="_namespace_guzzle_http">GuzzleHttp</link>\Exception\ConnectException</computeroutput> now extends <computeroutput><link linkend="_namespace_guzzle_http">GuzzleHttp</link>\Exception\TransferException</computeroutput> instead of <computeroutput><link linkend="_namespace_guzzle_http">GuzzleHttp</link>\Exception\RequestException</computeroutput>.</para>
+</listitem><listitem>
+<para>Function <computeroutput><link linkend="_namespace_guzzle_http">GuzzleHttp</link>\Exception\ConnectException::getResponse()</computeroutput> is removed.</para>
+</listitem><listitem>
+<para>Function <computeroutput><link linkend="_namespace_guzzle_http">GuzzleHttp</link>\Exception\ConnectException::hasResponse()</computeroutput> is removed.</para>
+</listitem><listitem>
+<para>Constant <computeroutput><link linkend="_namespace_guzzle_http">GuzzleHttp</link>\ClientInterface::VERSION</computeroutput> is removed. Added <computeroutput><link linkend="_namespace_guzzle_http">GuzzleHttp</link>\ClientInterface::MAJOR_VERSION</computeroutput> instead.</para>
+</listitem><listitem>
+<para>Function <computeroutput><link linkend="_namespace_guzzle_http">GuzzleHttp</link>\Exception\RequestException::getResponseBodySummary</computeroutput> is removed. Use <computeroutput>\<link linkend="_namespace_guzzle_http">GuzzleHttp</link>\Psr7\get_message_body_summary</computeroutput> as an alternative.</para>
+</listitem><listitem>
+<para>Function <computeroutput><link linkend="_namespace_guzzle_http">GuzzleHttp</link>\Cookie\CookieJar::getCookieValue</computeroutput> is removed.</para>
+</listitem><listitem>
+<para>Request option <computeroutput>exception</computeroutput> is removed. Please use <computeroutput>http_errors</computeroutput>.</para>
+</listitem><listitem>
+<para>Request option <computeroutput>save_to</computeroutput> is removed. Please use <computeroutput>sink</computeroutput>.</para>
+</listitem><listitem>
+<para>Pool option <computeroutput>pool_size</computeroutput> is removed. Please use <computeroutput>concurrency</computeroutput>.</para>
+</listitem><listitem>
+<para>We now look for environment variables in the <computeroutput>$_SERVER</computeroutput> super global, due to thread safety issues with <computeroutput>getenv</computeroutput>. We continue to fallback to <computeroutput>getenv</computeroutput> in CLI environments, for maximum compatibility.</para>
+</listitem><listitem>
+<para>The <computeroutput>get</computeroutput>, <computeroutput>head</computeroutput>, <computeroutput>put</computeroutput>, <computeroutput>post</computeroutput>, <computeroutput>patch</computeroutput>, <computeroutput>delete</computeroutput>, <computeroutput>getAsync</computeroutput>, <computeroutput>headAsync</computeroutput>, <computeroutput>putAsync</computeroutput>, <computeroutput>postAsync</computeroutput>, <computeroutput>patchAsync</computeroutput>, and <computeroutput>deleteAsync</computeroutput> methods are now implemented as genuine methods on <computeroutput><link linkend="_namespace_guzzle_http">GuzzleHttp</link>\Client</computeroutput>, with strong typing. The original <computeroutput>__call</computeroutput> implementation remains unchanged for now, for maximum backwards compatibility, but won&apos;t be invoked under normal operation.</para>
+</listitem><listitem>
+<para>The <computeroutput>log</computeroutput> middleware will log the errors with level <computeroutput>error</computeroutput> instead of <computeroutput>notice</computeroutput></para>
+</listitem><listitem>
+<para>Support for international domain names (IDN) is now disabled by default, and enabling it requires installing ext-intl, linked against a modern version of the C library (ICU 4.6 or higher).</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2guzzlehttp_2guzzle_2_u_p_g_r_a_d_i_n_g_1autotoc_md5993">
+<title><title>Native functions calls</title></title>
+
+<para>All internal native functions calls of Guzzle are now prefixed with a slash. This change makes it impossible for method overloading by other libraries or applications. Example:</para>
+
+<para><literallayout><computeroutput>//&#32;Before:
+curl_version();
+
+//&#32;After:
+\curl_version();
+</computeroutput></literallayout></para>
+
+<para>For the full diff you can check <link xlink:href="https://github.com/guzzle/guzzle/compare/6.5.4..master">here</link>.</para>
+</section>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2guzzlehttp_2guzzle_2_u_p_g_r_a_d_i_n_g_1autotoc_md5994">
+<title><title>5.0 to 6.0</title></title>
+
+<para>Guzzle now uses <link xlink:href="https://www.php-fig.org/psr/psr-7/">PSR-7</link> for HTTP messages. Due to the fact that these messages are immutable, this prompted a refactoring of Guzzle to use a middleware based system rather than an event system. Any HTTP message interaction (e.g., <computeroutput><link linkend="_namespace_guzzle_http">GuzzleHttp</link>\Message\Request</computeroutput>) need to be updated to work with the new immutable PSR-7 request and response objects. Any event listeners or subscribers need to be updated to become middleware functions that wrap handlers (or are injected into a <computeroutput><link linkend="_namespace_guzzle_http">GuzzleHttp</link>\HandlerStack</computeroutput>).</para>
+
+<para><itemizedlist>
+<listitem>
+<para>Removed <computeroutput><link linkend="_namespace_guzzle_http">GuzzleHttp</link>\BatchResults</computeroutput></para>
+</listitem><listitem>
+<para>Removed <computeroutput><link linkend="_namespace_guzzle_http">GuzzleHttp</link>\Collection</computeroutput></para>
+</listitem><listitem>
+<para>Removed <computeroutput><link linkend="_namespace_guzzle_http">GuzzleHttp</link>\HasDataTrait</computeroutput></para>
+</listitem><listitem>
+<para>Removed <computeroutput><link linkend="_namespace_guzzle_http">GuzzleHttp</link>\ToArrayInterface</computeroutput></para>
+</listitem><listitem>
+<para>The <computeroutput>guzzlehttp/streams</computeroutput> dependency has been removed. Stream functionality is now present in the <computeroutput><link linkend="_namespace_guzzle_http">GuzzleHttp</link>\Psr7</computeroutput> namespace provided by the <computeroutput>guzzlehttp/psr7</computeroutput> package.</para>
+</listitem><listitem>
+<para>Guzzle no longer uses ReactPHP promises and now uses the <computeroutput>guzzlehttp/promises</computeroutput> library. We use a custom promise library for three significant reasons:<orderedlist>
+<listitem>
+<para>React promises (at the time of writing this) are recursive. Promise chaining and promise resolution will eventually blow the stack. Guzzle promises are not recursive as they use a sort of trampolining technique. Note: there has been movement in the React project to modify promises to no longer utilize recursion.</para>
+</listitem><listitem>
+<para>Guzzle needs to have the ability to synchronously block on a promise to wait for a result. Guzzle promises allows this functionality (and does not require the use of recursion).</para>
+</listitem><listitem>
+<para>Because we need to be able to wait on a result, doing so using React promises requires wrapping react promises with RingPHP futures. This overhead is no longer needed, reducing stack sizes, reducing complexity, and improving performance.</para>
+</listitem></orderedlist>
+</para>
+</listitem><listitem>
+<para><computeroutput><link linkend="_namespace_guzzle_http">GuzzleHttp</link>\Mimetypes</computeroutput> has been moved to a function in <computeroutput><link linkend="_namespace_guzzle_http">GuzzleHttp</link>\Psr7\mimetype_from_extension</computeroutput> and <computeroutput><link linkend="_namespace_guzzle_http">GuzzleHttp</link>\Psr7\mimetype_from_filename</computeroutput>.</para>
+</listitem><listitem>
+<para><computeroutput><link linkend="_namespace_guzzle_http">GuzzleHttp</link>\Query</computeroutput> and <computeroutput><link linkend="_namespace_guzzle_http">GuzzleHttp</link>\QueryParser</computeroutput> have been removed. Query strings must now be passed into request objects as strings, or provided to the <computeroutput>query</computeroutput> request option when creating requests with clients. The <computeroutput>query</computeroutput> option uses PHP&apos;s <computeroutput>http_build_query</computeroutput> to convert an array to a string. If you need a different serialization technique, you will need to pass the query string in as a string. There are a couple helper functions that will make working with query strings easier: <computeroutput><link linkend="_namespace_guzzle_http">GuzzleHttp</link>\Psr7\parse_query</computeroutput> and <computeroutput><link linkend="_namespace_guzzle_http">GuzzleHttp</link>\Psr7\build_query</computeroutput>.</para>
+</listitem><listitem>
+<para>Guzzle no longer has a dependency on RingPHP. Due to the use of a middleware system based on PSR-7, using RingPHP and it&apos;s middleware system as well adds more complexity than the benefits it provides. All HTTP handlers that were present in RingPHP have been modified to work directly with PSR-7 messages and placed in the <computeroutput><link linkend="_namespace_guzzle_http">GuzzleHttp</link>\Handler</computeroutput> namespace. This significantly reduces complexity in Guzzle, removes a dependency, and improves performance. RingPHP will be maintained for Guzzle 5 support, but will no longer be a part of Guzzle 6.</para>
+</listitem><listitem>
+<para>As Guzzle now uses a middleware based systems the event system and RingPHP integration has been removed. Note: while the event system has been removed, it is possible to add your own type of event system that is powered by the middleware system.<itemizedlist>
+<listitem>
+<para>Removed the <computeroutput>Event</computeroutput> namespace.</para>
+</listitem><listitem>
+<para>Removed the <computeroutput>Subscriber</computeroutput> namespace.</para>
+</listitem><listitem>
+<para>Removed <computeroutput>Transaction</computeroutput> class</para>
+</listitem><listitem>
+<para>Removed <computeroutput>RequestFsm</computeroutput></para>
+</listitem><listitem>
+<para>Removed <computeroutput>RingBridge</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput><link linkend="_namespace_guzzle_http">GuzzleHttp</link>\Subscriber\Cookie</computeroutput> is now provided by <computeroutput><link linkend="_namespace_guzzle_http">GuzzleHttp</link>\Middleware::cookies</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput><link linkend="_namespace_guzzle_http">GuzzleHttp</link>\Subscriber\HttpError</computeroutput> is now provided by <computeroutput><link linkend="_namespace_guzzle_http">GuzzleHttp</link>\Middleware::httpError</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput><link linkend="_namespace_guzzle_http">GuzzleHttp</link>\Subscriber\History</computeroutput> is now provided by <computeroutput><link linkend="_namespace_guzzle_http">GuzzleHttp</link>\Middleware::history</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput><link linkend="_namespace_guzzle_http">GuzzleHttp</link>\Subscriber\Mock</computeroutput> is now provided by <computeroutput><link linkend="_namespace_guzzle_http">GuzzleHttp</link>\Handler\MockHandler</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput><link linkend="_namespace_guzzle_http">GuzzleHttp</link>\Subscriber\Prepare</computeroutput> is now provided by <computeroutput><link linkend="_namespace_guzzle_http">GuzzleHttp</link>\PrepareBodyMiddleware</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput><link linkend="_namespace_guzzle_http">GuzzleHttp</link>\Subscriber\Redirect</computeroutput> is now provided by <computeroutput><link linkend="_namespace_guzzle_http">GuzzleHttp</link>\RedirectMiddleware</computeroutput></para>
+</listitem></itemizedlist>
+</para>
+</listitem><listitem>
+<para>Guzzle now uses <computeroutput>Psr\Http\Message\UriInterface</computeroutput> (implements in <computeroutput><link linkend="_namespace_guzzle_http">GuzzleHttp</link>\Psr7\Uri</computeroutput>) for URI support. <computeroutput><link linkend="_namespace_guzzle_http">GuzzleHttp</link>\Url</computeroutput> is now gone.</para>
+</listitem><listitem>
+<para>Static functions in <computeroutput><link linkend="_namespace_guzzle_http">GuzzleHttp</link>\Utils</computeroutput> have been moved to namespaced functions under the <computeroutput><link linkend="_namespace_guzzle_http">GuzzleHttp</link></computeroutput> namespace. This requires either a <link linkend="_namespace_composer">Composer</link> based autoloader or you to include functions.php.</para>
+</listitem><listitem>
+<para><computeroutput><link linkend="_namespace_guzzle_http">GuzzleHttp</link>\ClientInterface::getDefaultOption</computeroutput> has been renamed to <computeroutput><link linkend="_namespace_guzzle_http">GuzzleHttp</link>\ClientInterface::getConfig</computeroutput>.</para>
+</listitem><listitem>
+<para><computeroutput><link linkend="_namespace_guzzle_http">GuzzleHttp</link>\ClientInterface::setDefaultOption</computeroutput> has been removed.</para>
+</listitem><listitem>
+<para>The <computeroutput>json</computeroutput> and <computeroutput>xml</computeroutput> methods of response objects has been removed. With the migration to strictly adhering to PSR-7 as the interface for Guzzle messages, adding methods to message interfaces would actually require Guzzle messages to extend from PSR-7 messages rather then work with them directly.</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2guzzlehttp_2guzzle_2_u_p_g_r_a_d_i_n_g_1autotoc_md5995">
+<title><title>Migrating to middleware</title></title>
+
+<para>The change to PSR-7 unfortunately required significant refactoring to Guzzle due to the fact that PSR-7 messages are immutable. Guzzle 5 relied on an event system from plugins. The event system relied on mutability of HTTP messages and side effects in order to work. With immutable messages, you have to change your workflow to become more about either returning a value (e.g., functional middlewares) or setting a value on an object. Guzzle v6 has chosen the functional middleware approach.</para>
+
+<para>Instead of using the event system to listen for things like the <computeroutput>before</computeroutput> event, you now create a stack based middleware function that intercepts a request on the way in and the promise of the response on the way out. This is a much simpler and more predictable approach than the event system and works nicely with PSR-7 middleware. Due to the use of promises, the middleware system is also asynchronous.</para>
+
+<para>v5:</para>
+
+<para><literallayout><computeroutput>use&#32;GuzzleHttp\Event\BeforeEvent;
+$client&#32;=&#32;new&#32;GuzzleHttp\Client();
+//&#32;Get&#32;the&#32;emitter&#32;and&#32;listen&#32;to&#32;the&#32;before&#32;event.
+$client-&gt;getEmitter()-&gt;on(&apos;before&apos;,&#32;function&#32;(BeforeEvent&#32;$e)&#32;{
+&#32;&#32;&#32;&#32;//&#32;Guzzle&#32;v5&#32;events&#32;relied&#32;on&#32;mutation
+&#32;&#32;&#32;&#32;$e-&gt;getRequest()-&gt;setHeader(&apos;X-Foo&apos;,&#32;&apos;Bar&apos;);
+});
+</computeroutput></literallayout></para>
+
+<para>v6:</para>
+
+<para>In v6, you can modify the request before it is sent using the <computeroutput>mapRequest</computeroutput> middleware. The idiomatic way in v6 to modify the request/response lifecycle is to setup a handler middleware stack up front and inject the handler into a client.</para>
+
+<para><literallayout><computeroutput>use&#32;GuzzleHttp\Middleware;
+//&#32;Create&#32;a&#32;handler&#32;stack&#32;that&#32;has&#32;all&#32;of&#32;the&#32;default&#32;middlewares&#32;attached
+$handler&#32;=&#32;GuzzleHttp\HandlerStack::create();
+//&#32;Push&#32;the&#32;handler&#32;onto&#32;the&#32;handler&#32;stack
+$handler-&gt;push(Middleware::mapRequest(function&#32;(RequestInterface&#32;$request)&#32;{
+&#32;&#32;&#32;&#32;//&#32;Notice&#32;that&#32;we&#32;have&#32;to&#32;return&#32;a&#32;request&#32;object
+&#32;&#32;&#32;&#32;return&#32;$request-&gt;withHeader(&apos;X-Foo&apos;,&#32;&apos;Bar&apos;);
+}));
+//&#32;Inject&#32;the&#32;handler&#32;into&#32;the&#32;client
+$client&#32;=&#32;new&#32;GuzzleHttp\Client([&apos;handler&apos;&#32;=&gt;&#32;$handler]);
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2guzzlehttp_2guzzle_2_u_p_g_r_a_d_i_n_g_1autotoc_md5996">
+<title><title>POST Requests</title></title>
+
+<para>This version added the <link xlink:href="http://guzzle.readthedocs.org/en/latest/request-options.html#form_params"><computeroutput>form_params</computeroutput></link> and <computeroutput>multipart</computeroutput> request options. <computeroutput>form_params</computeroutput> is an associative array of strings or array of strings and is used to serialize an <computeroutput>application/x-www-form-urlencoded</computeroutput> POST request. The <link xlink:href="http://guzzle.readthedocs.org/en/latest/request-options.html#multipart"><computeroutput>multipart</computeroutput></link> option is now used to send a multipart/form-data POST request.</para>
+
+<para><computeroutput><link linkend="_namespace_guzzle_http">GuzzleHttp</link>\Post\PostFile</computeroutput> has been removed. Use the <computeroutput>multipart</computeroutput> option to add POST files to a multipart/form-data request.</para>
+
+<para>The <computeroutput>body</computeroutput> option no longer accepts an array to send POST requests. Please use <computeroutput>multipart</computeroutput> or <computeroutput>form_params</computeroutput> instead.</para>
+
+<para>The <computeroutput>base_url</computeroutput> option has been renamed to <computeroutput>base_uri</computeroutput>.</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2guzzlehttp_2guzzle_2_u_p_g_r_a_d_i_n_g_1autotoc_md5997">
+<title><title>4.x to 5.0</title></title>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2guzzlehttp_2guzzle_2_u_p_g_r_a_d_i_n_g_1autotoc_md5998">
+<title><title>Rewritten Adapter Layer</title></title>
+
+<para>Guzzle now uses <link xlink:href="http://ringphp.readthedocs.org/en/latest">RingPHP</link> to send HTTP requests. The <computeroutput>adapter</computeroutput> option in a <computeroutput><link linkend="_namespace_guzzle_http">GuzzleHttp</link>\Client</computeroutput> constructor is still supported, but it has now been renamed to <computeroutput>handler</computeroutput>. Instead of passing a <computeroutput><link linkend="_namespace_guzzle_http">GuzzleHttp</link>\Adapter\AdapterInterface</computeroutput>, you must now pass a PHP <computeroutput>callable</computeroutput> that follows the RingPHP specification.</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2guzzlehttp_2guzzle_2_u_p_g_r_a_d_i_n_g_1autotoc_md5999">
+<title><title>Removed Fluent Interfaces</title></title>
+
+<para><link xlink:href="https://ocramius.github.io/blog/fluent-interfaces-are-evil/">Fluent interfaces were removed</link> from the following classes:</para>
+
+<para><itemizedlist>
+<listitem>
+<para><computeroutput><link linkend="_namespace_guzzle_http">GuzzleHttp</link>\Collection</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput><link linkend="_namespace_guzzle_http">GuzzleHttp</link>\Url</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput><link linkend="_namespace_guzzle_http">GuzzleHttp</link>\Query</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput><link linkend="_namespace_guzzle_http">GuzzleHttp</link>\Post\PostBody</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput><link linkend="_namespace_guzzle_http">GuzzleHttp</link>\Cookie\SetCookie</computeroutput></para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2guzzlehttp_2guzzle_2_u_p_g_r_a_d_i_n_g_1autotoc_md6000">
+<title><title>Removed functions.php</title></title>
+
+<para>Removed &quot;functions.php&quot;, so that Guzzle is truly PSR-4 compliant. The following functions can be used as replacements.</para>
+
+<para><itemizedlist>
+<listitem>
+<para><computeroutput><link linkend="_namespace_guzzle_http">GuzzleHttp</link>\json_decode</computeroutput> -&gt; <computeroutput><link linkend="_namespace_guzzle_http">GuzzleHttp</link>\Utils::jsonDecode</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput><link linkend="_namespace_guzzle_http">GuzzleHttp</link>\get_path</computeroutput> -&gt; <computeroutput><link linkend="_namespace_guzzle_http">GuzzleHttp</link>\Utils::getPath</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput><link linkend="_namespace_guzzle_http">GuzzleHttp</link>\Utils::setPath</computeroutput> -&gt; <computeroutput><link linkend="_namespace_guzzle_http">GuzzleHttp</link>\set_path</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput><link linkend="_namespace_guzzle_http">GuzzleHttp</link>\Pool::batch</computeroutput> -&gt; <computeroutput><link linkend="_namespace_guzzle_http">GuzzleHttp</link>\batch</computeroutput>. This function is, however, deprecated in favor of using <computeroutput><link linkend="_namespace_guzzle_http">GuzzleHttp</link>\Pool::batch()</computeroutput>.</para>
+</listitem></itemizedlist>
+</para>
+
+<para>The &quot;procedural&quot; global client has been removed with no replacement (e.g., <computeroutput><link linkend="_namespace_guzzle_http">GuzzleHttp</link>\get()</computeroutput>, <computeroutput><link linkend="_namespace_guzzle_http">GuzzleHttp</link>\post()</computeroutput>, etc.). Use a <computeroutput><link linkend="_namespace_guzzle_http">GuzzleHttp</link>\Client</computeroutput> object as a replacement.</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2guzzlehttp_2guzzle_2_u_p_g_r_a_d_i_n_g_1autotoc_md6001">
+<title><title><computeroutput>throwImmediately</computeroutput> has been removed</title></title>
+
+<para>The concept of &quot;throwImmediately&quot; has been removed from exceptions and error events. This control mechanism was used to stop a transfer of concurrent requests from completing. This can now be handled by throwing the exception or by cancelling a pool of requests or each outstanding future request individually.</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2guzzlehttp_2guzzle_2_u_p_g_r_a_d_i_n_g_1autotoc_md6002">
+<title><title>headers event has been removed</title></title>
+
+<para>Removed the &quot;headers&quot; event. This event was only useful for changing the body a response once the headers of the response were known. You can implement a similar behavior in a number of ways. One example might be to use a FnStream that has access to the transaction being sent. For example, when the first byte is written, you could check if the response headers match your expectations, and if so, change the actual stream body that is being written to.</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2guzzlehttp_2guzzle_2_u_p_g_r_a_d_i_n_g_1autotoc_md6003">
+<title><title>Updates to HTTP Messages</title></title>
+
+<para>Removed the <computeroutput>asArray</computeroutput> parameter from <computeroutput><link linkend="_namespace_guzzle_http">GuzzleHttp</link>\Message\MessageInterface::getHeader</computeroutput>. If you want to get a header value as an array, then use the newly added <computeroutput>getHeaderAsArray()</computeroutput> method of <computeroutput>MessageInterface</computeroutput>. This change makes the Guzzle interfaces compatible with the PSR-7 interfaces.</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2guzzlehttp_2guzzle_2_u_p_g_r_a_d_i_n_g_1autotoc_md6004">
+<title><title>3.x to 4.0</title></title>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2guzzlehttp_2guzzle_2_u_p_g_r_a_d_i_n_g_1autotoc_md6005">
+<title><title>Overarching changes:</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Now requires PHP 5.4 or greater.</para>
+</listitem><listitem>
+<para>No longer requires cURL to send requests.</para>
+</listitem><listitem>
+<para>Guzzle no longer wraps every exception it throws. Only exceptions that are recoverable are now wrapped by Guzzle.</para>
+</listitem><listitem>
+<para>Various namespaces have been removed or renamed.</para>
+</listitem><listitem>
+<para>No longer requiring the Symfony EventDispatcher. A custom event dispatcher based on the Symfony EventDispatcher is now utilized in <computeroutput><link linkend="_namespace_guzzle_http">GuzzleHttp</link>\Event\EmitterInterface</computeroutput> (resulting in significant speed and functionality improvements).</para>
+</listitem></itemizedlist>
+</para>
+
+<para>Changes per Guzzle 3.x namespace are described below.</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2guzzlehttp_2guzzle_2_u_p_g_r_a_d_i_n_g_1autotoc_md6006">
+<title><title>Batch</title></title>
+
+<para>The <computeroutput>Guzzle\Batch</computeroutput> namespace has been removed. This is best left to third-parties to implement on top of Guzzle&apos;s core HTTP library.</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2guzzlehttp_2guzzle_2_u_p_g_r_a_d_i_n_g_1autotoc_md6007">
+<title><title>Cache</title></title>
+
+<para>The <computeroutput>Guzzle\Cache</computeroutput> namespace has been removed. (Todo: No suitable replacement has been implemented yet, but hoping to utilize a PSR cache interface).</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2guzzlehttp_2guzzle_2_u_p_g_r_a_d_i_n_g_1autotoc_md6008">
+<title><title>Common</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Removed all of the wrapped exceptions. It&apos;s better to use the standard PHP library for unrecoverable exceptions.</para>
+</listitem><listitem>
+<para><computeroutput>FromConfigInterface</computeroutput> has been removed.</para>
+</listitem><listitem>
+<para><computeroutput>Guzzle\Common\Version</computeroutput> has been removed. The VERSION constant can be found at <computeroutput><link linkend="_namespace_guzzle_http">GuzzleHttp</link>\ClientInterface::VERSION</computeroutput>.</para>
+</listitem></itemizedlist>
+</para>
+<section xml:id="_md_public_2glpi_2vendor_2guzzlehttp_2guzzle_2_u_p_g_r_a_d_i_n_g_1autotoc_md6009">
+<title><title>Collection</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para><computeroutput>getAll</computeroutput> has been removed. Use <computeroutput>toArray</computeroutput> to convert a collection to an array.</para>
+</listitem><listitem>
+<para><computeroutput>inject</computeroutput> has been removed.</para>
+</listitem><listitem>
+<para><computeroutput>keySearch</computeroutput> has been removed.</para>
+</listitem><listitem>
+<para><computeroutput>getPath</computeroutput> no longer supports wildcard expressions. Use something better like JMESPath for this.</para>
+</listitem><listitem>
+<para><computeroutput>setPath</computeroutput> now supports appending to an existing array via the <computeroutput>[]</computeroutput> notation.</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2guzzlehttp_2guzzle_2_u_p_g_r_a_d_i_n_g_1autotoc_md6010">
+<title><title>Events</title></title>
+
+<para>Guzzle no longer requires Symfony&apos;s EventDispatcher component. Guzzle now uses <computeroutput><link linkend="_namespace_guzzle_http">GuzzleHttp</link>\Event\Emitter</computeroutput>.</para>
+
+<para><itemizedlist>
+<listitem>
+<para><computeroutput>Symfony\Component\EventDispatcher\EventDispatcherInterface</computeroutput> is replaced by <computeroutput><link linkend="_namespace_guzzle_http">GuzzleHttp</link>\Event\EmitterInterface</computeroutput>.</para>
+</listitem><listitem>
+<para><computeroutput>Symfony\Component\EventDispatcher\EventDispatcher</computeroutput> is replaced by <computeroutput><link linkend="_namespace_guzzle_http">GuzzleHttp</link>\Event\Emitter</computeroutput>.</para>
+</listitem><listitem>
+<para><computeroutput>Symfony\Component\EventDispatcher\Event</computeroutput> is replaced by <computeroutput><link linkend="_namespace_guzzle_http">GuzzleHttp</link>\Event\Event</computeroutput>, and Guzzle now has an EventInterface in <computeroutput><link linkend="_namespace_guzzle_http">GuzzleHttp</link>\Event\EventInterface</computeroutput>.</para>
+</listitem><listitem>
+<para><computeroutput>AbstractHasDispatcher</computeroutput> has moved to a trait, <computeroutput>HasEmitterTrait</computeroutput>, and <computeroutput>HasDispatcherInterface</computeroutput> has moved to <computeroutput>HasEmitterInterface</computeroutput>. Retrieving the event emitter of a request, client, etc. now uses the <computeroutput>getEmitter</computeroutput> method rather than the <computeroutput>getDispatcher</computeroutput> method.</para>
+</listitem></itemizedlist>
+</para>
+<section xml:id="_md_public_2glpi_2vendor_2guzzlehttp_2guzzle_2_u_p_g_r_a_d_i_n_g_1autotoc_md6011">
+<title><title>Emitter</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Use the <computeroutput>once()</computeroutput> method to add a listener that automatically removes itself the first time it is invoked.</para>
+</listitem><listitem>
+<para>Use the <computeroutput>listeners()</computeroutput> method to retrieve a list of event listeners rather than the <computeroutput><link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">getListeners()</link></computeroutput> method.</para>
+</listitem><listitem>
+<para>Use <computeroutput>emit()</computeroutput> instead of <computeroutput>dispatch()</computeroutput> to emit an event from an emitter.</para>
+</listitem><listitem>
+<para>Use <computeroutput>attach()</computeroutput> instead of <computeroutput><link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">addSubscriber()</link></computeroutput> and <computeroutput>detach()</computeroutput> instead of <computeroutput><link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">removeSubscriber()</link></computeroutput>.</para>
+</listitem></itemizedlist>
+</para>
+
+<para><literallayout><computeroutput>$mock&#32;=&#32;new&#32;Mock();
+//&#32;3.x
+$request-&gt;getEventDispatcher()-&gt;addSubscriber($mock);
+$request-&gt;getEventDispatcher()-&gt;removeSubscriber($mock);
+//&#32;4.x
+$request-&gt;getEmitter()-&gt;attach($mock);
+$request-&gt;getEmitter()-&gt;detach($mock);
+</computeroutput></literallayout></para>
+
+<para>Use the <computeroutput>on()</computeroutput> method to add a listener rather than the <computeroutput><link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">addListener()</link></computeroutput> method.</para>
+
+<para><literallayout><computeroutput>//&#32;3.x
+$request-&gt;getEventDispatcher()-&gt;addListener(&apos;foo&apos;,&#32;function&#32;(Event&#32;$event)&#32;{&#32;/*&#32;...&#32;*/&#32;}&#32;);
+//&#32;4.x
+$request-&gt;getEmitter()-&gt;on(&apos;foo&apos;,&#32;function&#32;(Event&#32;$event,&#32;$name)&#32;{&#32;/*&#32;...&#32;*/&#32;}&#32;);
+</computeroutput></literallayout></para>
+</section>
+</section>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2guzzlehttp_2guzzle_2_u_p_g_r_a_d_i_n_g_1autotoc_md6012">
+<title><title>Http</title></title>
+<section xml:id="_md_public_2glpi_2vendor_2guzzlehttp_2guzzle_2_u_p_g_r_a_d_i_n_g_1autotoc_md6013">
+<title><title>General changes</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>The cacert.pem certificate has been moved to <computeroutput>src/cacert.pem</computeroutput>.</para>
+</listitem><listitem>
+<para>Added the concept of adapters that are used to transfer requests over the wire.</para>
+</listitem><listitem>
+<para>Simplified the event system.</para>
+</listitem><listitem>
+<para>Sending requests in parallel is still possible, but batching is no longer a concept of the HTTP layer. Instead, you must use the <computeroutput>complete</computeroutput> and <computeroutput>error</computeroutput> events to asynchronously manage parallel request transfers.</para>
+</listitem><listitem>
+<para><computeroutput>Guzzle\Http\Url</computeroutput> has moved to <computeroutput><link linkend="_namespace_guzzle_http">GuzzleHttp</link>\Url</computeroutput>.</para>
+</listitem><listitem>
+<para><computeroutput>Guzzle\Http\QueryString</computeroutput> has moved to <computeroutput><link linkend="_namespace_guzzle_http">GuzzleHttp</link>\Query</computeroutput>.</para>
+</listitem><listitem>
+<para>QueryAggregators have been rewritten so that they are simply callable functions.</para>
+</listitem><listitem>
+<para><computeroutput><link linkend="_namespace_guzzle_http">GuzzleHttp</link>\StaticClient</computeroutput> has been removed. Use the functions provided in <computeroutput>functions.php</computeroutput> for an easy to use static client instance.</para>
+</listitem><listitem>
+<para>Exceptions in <computeroutput><link linkend="_namespace_guzzle_http">GuzzleHttp</link>\Exception</computeroutput> have been updated to all extend from <computeroutput><link linkend="_namespace_guzzle_http">GuzzleHttp</link>\Exception\TransferException</computeroutput>.</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2guzzlehttp_2guzzle_2_u_p_g_r_a_d_i_n_g_1autotoc_md6014">
+<title><title>Client</title></title>
+
+<para>Calling methods like <computeroutput>get()</computeroutput>, <computeroutput>post()</computeroutput>, <computeroutput>head()</computeroutput>, etc. no longer create and return a request, but rather creates a request, sends the request, and returns the response.</para>
+
+<para><literallayout><computeroutput>//&#32;3.0
+$request&#32;=&#32;$client-&gt;get(&apos;/&apos;);
+$response&#32;=&#32;$request-&gt;send();
+
+//&#32;4.0
+$response&#32;=&#32;$client-&gt;get(&apos;/&apos;);
+
+//&#32;or,&#32;to&#32;mirror&#32;the&#32;previous&#32;behavior
+$request&#32;=&#32;$client-&gt;createRequest(&apos;GET&apos;,&#32;&apos;/&apos;);
+$response&#32;=&#32;$client-&gt;send($request);
+</computeroutput></literallayout></para>
+
+<para><computeroutput><link linkend="_namespace_guzzle_http">GuzzleHttp</link>\ClientInterface</computeroutput> has changed.</para>
+
+<para><itemizedlist>
+<listitem>
+<para>The <computeroutput>send</computeroutput> method no longer accepts more than one request. Use <computeroutput>sendAll</computeroutput> to send multiple requests in parallel.</para>
+</listitem><listitem>
+<para><computeroutput><link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">setUserAgent()</link></computeroutput> has been removed. Use a default request option instead. You could, for example, do something like: &#8216;$client-&gt;setConfig(&apos;defaults/headers/User-Agent&#8217;, &apos;Foo/Bar &apos; . $client::getDefaultUserAgent())<computeroutput>. -</computeroutput><link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">setSslVerification()</link><computeroutput>has been removed. Use default request options instead, like</computeroutput>$client-&gt;setConfig(&apos;defaults/verify&apos;, true)`.</para>
+</listitem></itemizedlist>
+</para>
+
+<para><computeroutput><link linkend="_namespace_guzzle_http">GuzzleHttp</link>\Client</computeroutput> has changed.</para>
+
+<para><itemizedlist>
+<listitem>
+<para>The constructor now accepts only an associative array. You can include a <computeroutput>base_url</computeroutput> string or array to use a URI template as the base URL of a client. You can also specify a <computeroutput>defaults</computeroutput> key that is an associative array of default request options. You can pass an <computeroutput>adapter</computeroutput> to use a custom adapter, <computeroutput>batch_adapter</computeroutput> to use a custom adapter for sending requests in parallel, or a <computeroutput>message_factory</computeroutput> to change the factory used to create HTTP requests and responses.</para>
+</listitem><listitem>
+<para>The client no longer emits a <computeroutput>client.create_request</computeroutput> event.</para>
+</listitem><listitem>
+<para>Creating requests with a client no longer automatically utilize a URI template. You must pass an array into a creational method (e.g., <computeroutput>createRequest</computeroutput>, <computeroutput>get</computeroutput>, <computeroutput>put</computeroutput>, etc.) in order to expand a URI template.</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2guzzlehttp_2guzzle_2_u_p_g_r_a_d_i_n_g_1autotoc_md6015">
+<title><title>Messages</title></title>
+
+<para>Messages no longer have references to their counterparts (i.e., a request no longer has a reference to it&apos;s response, and a response no loger has a reference to its request). This association is now managed through a <computeroutput><link linkend="_namespace_guzzle_http">GuzzleHttp</link>\Adapter\TransactionInterface</computeroutput> object. You can get references to these transaction objects using request events that are emitted over the lifecycle of a request.</para>
+<section xml:id="_md_public_2glpi_2vendor_2guzzlehttp_2guzzle_2_u_p_g_r_a_d_i_n_g_1autotoc_md6016">
+<title><title>Requests with a body</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para><computeroutput><link linkend="_namespace_guzzle_http">GuzzleHttp</link>\Message\EntityEnclosingRequest</computeroutput> and <computeroutput><link linkend="_namespace_guzzle_http">GuzzleHttp</link>\Message\EntityEnclosingRequestInterface</computeroutput> have been removed. The separation between requests that contain a body and requests that do not contain a body has been removed, and now <computeroutput><link linkend="_namespace_guzzle_http">GuzzleHttp</link>\Message\RequestInterface</computeroutput> handles both use cases.</para>
+</listitem><listitem>
+<para>Any method that previously accepts a <computeroutput><link linkend="_namespace_guzzle_http">GuzzleHttp</link>\Response</computeroutput> object now accept a <computeroutput><link linkend="_namespace_guzzle_http">GuzzleHttp</link>\Message\ResponseInterface</computeroutput>.</para>
+</listitem><listitem>
+<para><computeroutput><link linkend="_namespace_guzzle_http">GuzzleHttp</link>\Message\RequestFactoryInterface</computeroutput> has been renamed to <computeroutput><link linkend="_namespace_guzzle_http">GuzzleHttp</link>\Message\MessageFactoryInterface</computeroutput>. This interface is used to create both requests and responses and is implemented in <computeroutput><link linkend="_namespace_guzzle_http">GuzzleHttp</link>\Message\MessageFactory</computeroutput>.</para>
+</listitem><listitem>
+<para>POST field and file methods have been removed from the request object. You must now use the methods made available to <computeroutput><link linkend="_namespace_guzzle_http">GuzzleHttp</link>\Post\PostBodyInterface</computeroutput> to control the format of a POST body. Requests that are created using a standard <computeroutput><link linkend="_namespace_guzzle_http">GuzzleHttp</link>\Message\MessageFactoryInterface</computeroutput> will automatically use a <computeroutput><link linkend="_namespace_guzzle_http">GuzzleHttp</link>\Post\PostBody</computeroutput> body if the body was passed as an array or if the method is POST and no body is provided.</para>
+</listitem></itemizedlist>
+</para>
+
+<para><literallayout><computeroutput>$request&#32;=&#32;$client-&gt;createRequest(&apos;POST&apos;,&#32;&apos;/&apos;);
+$request-&gt;getBody()-&gt;setField(&apos;foo&apos;,&#32;&apos;bar&apos;);
+$request-&gt;getBody()-&gt;addFile(new&#32;PostFile(&apos;file_key&apos;,&#32;fopen(&apos;/path/to/content&apos;,&#32;&apos;r&apos;)));
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2guzzlehttp_2guzzle_2_u_p_g_r_a_d_i_n_g_1autotoc_md6017">
+<title><title>Headers</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para><computeroutput><link linkend="_namespace_guzzle_http">GuzzleHttp</link>\Message\Header</computeroutput> has been removed. Header values are now simply represented by an array of values or as a string. Header values are returned as a string by default when retrieving a header value from a message. You can pass an optional argument of <computeroutput>true</computeroutput> to retrieve a header value as an array of strings instead of a single concatenated string.</para>
+</listitem><listitem>
+<para><computeroutput><link linkend="_namespace_guzzle_http">GuzzleHttp</link>\PostFile</computeroutput> and <computeroutput><link linkend="_namespace_guzzle_http">GuzzleHttp</link>\PostFileInterface</computeroutput> have been moved to <computeroutput><link linkend="_namespace_guzzle_http">GuzzleHttp</link>\Post</computeroutput>. This interface has been simplified and now allows the addition of arbitrary headers.</para>
+</listitem><listitem>
+<para>Custom headers like <computeroutput><link linkend="_namespace_guzzle_http">GuzzleHttp</link>\Message\Header\<link linkend="_class_link">Link</link></computeroutput> have been removed. Most of the custom headers are now handled separately in specific subscribers/plugins, and <computeroutput><link linkend="_namespace_guzzle_http">GuzzleHttp</link>\Message\HeaderValues::parseParams()</computeroutput> has been updated to properly handle headers that contain parameters (like the <computeroutput><link linkend="_class_link">Link</link></computeroutput> header).</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2guzzlehttp_2guzzle_2_u_p_g_r_a_d_i_n_g_1autotoc_md6018">
+<title><title>Responses</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para><computeroutput><link linkend="_namespace_guzzle_http">GuzzleHttp</link>\Message\Response::getInfo()</computeroutput> and <computeroutput><link linkend="_namespace_guzzle_http">GuzzleHttp</link>\Message\Response::setInfo()</computeroutput> have been removed. Use the event system to retrieve this type of information.</para>
+</listitem><listitem>
+<para><computeroutput><link linkend="_namespace_guzzle_http">GuzzleHttp</link>\Message\Response::getRawHeaders()</computeroutput> has been removed.</para>
+</listitem><listitem>
+<para><computeroutput><link linkend="_namespace_guzzle_http">GuzzleHttp</link>\Message\Response::getMessage()</computeroutput> has been removed.</para>
+</listitem><listitem>
+<para><computeroutput><link linkend="_namespace_guzzle_http">GuzzleHttp</link>\Message\Response::calculateAge()</computeroutput> and other cache specific methods have moved to the CacheSubscriber.</para>
+</listitem><listitem>
+<para>Header specific helper functions like <computeroutput><link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">getContentMd5()</link></computeroutput> have been removed. Just use &#8216;getHeader(&apos;Content-MD5&#8217;)<computeroutput>instead. -</computeroutput><link linkend="_namespace_guzzle_http">GuzzleHttp</link>\Message\Response<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">setRequest()</link><computeroutput>and </computeroutput><link linkend="_namespace_guzzle_http">GuzzleHttp</link>\Message\Response::getRequest()<computeroutput>have been removed. Use the event system to work with request and response objects as a transaction. -</computeroutput><link linkend="_namespace_guzzle_http">GuzzleHttp</link>\Message\Response<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">getRedirectCount()</link><computeroutput>has been removed. Use the Redirect subscriber instead. -</computeroutput><link linkend="_namespace_guzzle_http">GuzzleHttp</link>\Message\Response<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">isSuccessful()</link><computeroutput>and other related methods have been removed. Use</computeroutput>getStatusCode()` instead.</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2guzzlehttp_2guzzle_2_u_p_g_r_a_d_i_n_g_1autotoc_md6019">
+<title><title>Streaming responses</title></title>
+
+<para>Streaming requests can now be created by a client directly, returning a <computeroutput><link linkend="_namespace_guzzle_http">GuzzleHttp</link>\Message\ResponseInterface</computeroutput> object that contains a body stream referencing an open PHP HTTP stream.</para>
+
+<para><literallayout><computeroutput>//&#32;3.0
+use&#32;Guzzle\Stream\PhpStreamRequestFactory;
+$request&#32;=&#32;$client-&gt;get(&apos;/&apos;);
+$factory&#32;=&#32;new&#32;PhpStreamRequestFactory();
+$stream&#32;=&#32;$factory-&gt;fromRequest($request);
+$data&#32;=&#32;$stream-&gt;read(1024);
+
+//&#32;4.0
+$response&#32;=&#32;$client-&gt;get(&apos;/&apos;,&#32;[&apos;stream&apos;&#32;=&gt;&#32;true]);
+//&#32;Read&#32;some&#32;data&#32;off&#32;of&#32;the&#32;stream&#32;in&#32;the&#32;response&#32;body
+$data&#32;=&#32;$response-&gt;getBody()-&gt;read(1024);
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2guzzlehttp_2guzzle_2_u_p_g_r_a_d_i_n_g_1autotoc_md6020">
+<title><title>Redirects</title></title>
+
+<para>The <computeroutput><link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">configureRedirects()</link></computeroutput> method has been removed in favor of a <computeroutput>allow_redirects</computeroutput> request option.</para>
+
+<para><literallayout><computeroutput>//&#32;Standard&#32;redirects&#32;with&#32;a&#32;default&#32;of&#32;a&#32;max&#32;of&#32;5&#32;redirects
+$request&#32;=&#32;$client-&gt;createRequest(&apos;GET&apos;,&#32;&apos;/&apos;,&#32;[&apos;allow_redirects&apos;&#32;=&gt;&#32;true]);
+
+//&#32;Strict&#32;redirects&#32;with&#32;a&#32;custom&#32;number&#32;of&#32;redirects
+$request&#32;=&#32;$client-&gt;createRequest(&apos;GET&apos;,&#32;&apos;/&apos;,&#32;[
+&#32;&#32;&#32;&#32;&apos;allow_redirects&apos;&#32;=&gt;&#32;[&apos;max&apos;&#32;=&gt;&#32;5,&#32;&apos;strict&apos;&#32;=&gt;&#32;true]
+]);
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2guzzlehttp_2guzzle_2_u_p_g_r_a_d_i_n_g_1autotoc_md6021">
+<title><title>EntityBody</title></title>
+
+<para>EntityBody interfaces and classes have been removed or moved to <computeroutput><link linkend="_namespace_guzzle_http">GuzzleHttp</link>\Stream</computeroutput>. All classes and interfaces that once required <computeroutput><link linkend="_namespace_guzzle_http">GuzzleHttp</link>\EntityBodyInterface</computeroutput> now require <computeroutput><link linkend="_namespace_guzzle_http">GuzzleHttp</link>\Stream\StreamInterface</computeroutput>. Creating a new body for a request no longer uses <computeroutput><link linkend="_namespace_guzzle_http">GuzzleHttp</link>\EntityBody::factory</computeroutput> but now uses <computeroutput><link linkend="_namespace_guzzle_http">GuzzleHttp</link>\Stream\Stream::factory</computeroutput> or even better: <computeroutput><link linkend="_namespace_guzzle_http">GuzzleHttp</link>\Stream\create()</computeroutput>.</para>
+
+<para><itemizedlist>
+<listitem>
+<para><computeroutput>Guzzle\Http\EntityBodyInterface</computeroutput> is now <computeroutput><link linkend="_namespace_guzzle_http">GuzzleHttp</link>\Stream\StreamInterface</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>Guzzle\Http\EntityBody</computeroutput> is now <computeroutput><link linkend="_namespace_guzzle_http">GuzzleHttp</link>\Stream\Stream</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>Guzzle\Http\CachingEntityBody</computeroutput> is now <computeroutput><link linkend="_namespace_guzzle_http">GuzzleHttp</link>\Stream\CachingStream</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>Guzzle\Http\ReadLimitEntityBody</computeroutput> is now <computeroutput><link linkend="_namespace_guzzle_http">GuzzleHttp</link>\Stream\LimitStream</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>Guzzle\Http\IoEmittyinEntityBody</computeroutput> has been removed.</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2guzzlehttp_2guzzle_2_u_p_g_r_a_d_i_n_g_1autotoc_md6022">
+<title><title>Request lifecycle events</title></title>
+
+<para>Requests previously submitted a large number of requests. The number of events emitted over the lifecycle of a request has been significantly reduced to make it easier to understand how to extend the behavior of a request. All events emitted during the lifecycle of a request now emit a custom <computeroutput><link linkend="_namespace_guzzle_http">GuzzleHttp</link>\Event\EventInterface</computeroutput> object that contains context providing methods and a way in which to modify the transaction at that specific point in time (e.g., intercept the request and set a response on the transaction).</para>
+
+<para><itemizedlist>
+<listitem>
+<para><computeroutput>request.before_send</computeroutput> has been renamed to <computeroutput>before</computeroutput> and now emits a <computeroutput><link linkend="_namespace_guzzle_http">GuzzleHttp</link>\Event\BeforeEvent</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>request.complete</computeroutput> has been renamed to <computeroutput>complete</computeroutput> and now emits a <computeroutput><link linkend="_namespace_guzzle_http">GuzzleHttp</link>\Event\CompleteEvent</computeroutput>.</para>
+</listitem><listitem>
+<para><computeroutput>request.sent</computeroutput> has been removed. Use <computeroutput>complete</computeroutput>.</para>
+</listitem><listitem>
+<para><computeroutput>request.success</computeroutput> has been removed. Use <computeroutput>complete</computeroutput>.</para>
+</listitem><listitem>
+<para><computeroutput>error</computeroutput> is now an event that emits a <computeroutput><link linkend="_namespace_guzzle_http">GuzzleHttp</link>\Event\ErrorEvent</computeroutput>.</para>
+</listitem><listitem>
+<para><computeroutput>request.exception</computeroutput> has been removed. Use <computeroutput>error</computeroutput>.</para>
+</listitem><listitem>
+<para><computeroutput>request.receive.status_line</computeroutput> has been removed.</para>
+</listitem><listitem>
+<para><computeroutput>curl.callback.progress</computeroutput> has been removed. Use a custom <computeroutput>StreamInterface</computeroutput> to maintain a status update.</para>
+</listitem><listitem>
+<para><computeroutput>curl.callback.write</computeroutput> has been removed. Use a custom <computeroutput>StreamInterface</computeroutput> to intercept writes.</para>
+</listitem><listitem>
+<para><computeroutput>curl.callback.read</computeroutput> has been removed. Use a custom <computeroutput>StreamInterface</computeroutput> to intercept reads.</para>
+</listitem></itemizedlist>
+</para>
+
+<para><computeroutput>headers</computeroutput> is a new event that is emitted after the response headers of a request have been received before the body of the response is downloaded. This event emits a <computeroutput><link linkend="_namespace_guzzle_http">GuzzleHttp</link>\Event\HeadersEvent</computeroutput>.</para>
+
+<para>You can intercept a request and inject a response using the <computeroutput><link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">intercept()</link></computeroutput> event of a <computeroutput><link linkend="_namespace_guzzle_http">GuzzleHttp</link>\Event\BeforeEvent</computeroutput>, <computeroutput><link linkend="_namespace_guzzle_http">GuzzleHttp</link>\Event\CompleteEvent</computeroutput>, and <computeroutput><link linkend="_namespace_guzzle_http">GuzzleHttp</link>\Event\ErrorEvent</computeroutput> event.</para>
+
+<para>See: <link xlink:href="http://docs.guzzlephp.org/en/latest/events.html">http://docs.guzzlephp.org/en/latest/events.html</link></para>
+</section>
+</section>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2guzzlehttp_2guzzle_2_u_p_g_r_a_d_i_n_g_1autotoc_md6023">
+<title><title>Inflection</title></title>
+
+<para>The <computeroutput>Guzzle\Inflection</computeroutput> namespace has been removed. This is not a core concern of Guzzle.</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2guzzlehttp_2guzzle_2_u_p_g_r_a_d_i_n_g_1autotoc_md6024">
+<title><title>Iterator</title></title>
+
+<para>The <computeroutput>Guzzle\Iterator</computeroutput> namespace has been removed.</para>
+
+<para><itemizedlist>
+<listitem>
+<para><computeroutput>Guzzle\Iterator\AppendIterator</computeroutput>, <computeroutput>Guzzle\Iterator\ChunkedIterator</computeroutput>, and <computeroutput>Guzzle\Iterator\MethodProxyIterator</computeroutput> are nice, but not a core requirement of Guzzle itself.</para>
+</listitem><listitem>
+<para><computeroutput>Guzzle\Iterator\FilterIterator</computeroutput> is no longer needed because an equivalent class is shipped with PHP 5.4.</para>
+</listitem><listitem>
+<para><computeroutput>Guzzle\Iterator\MapIterator</computeroutput> is not really needed when using PHP 5.5 because it&apos;s easier to just wrap an iterator in a generator that maps values.</para>
+</listitem></itemizedlist>
+</para>
+
+<para>For a replacement of these iterators, see <link xlink:href="https://github.com/nikic/iter">https://github.com/nikic/iter</link></para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2guzzlehttp_2guzzle_2_u_p_g_r_a_d_i_n_g_1autotoc_md6025">
+<title><title>Log</title></title>
+
+<para>The LogPlugin has moved to <link xlink:href="https://github.com/guzzle/log-subscriber">https://github.com/guzzle/log-subscriber</link>. The <computeroutput>Guzzle\<link linkend="_class_log">Log</link></computeroutput> namespace has been removed. Guzzle now relies on <computeroutput>Psr\<link linkend="_class_log">Log</link>\LoggerInterface</computeroutput> for all logging. The MessageFormatter class has been moved to <computeroutput><link linkend="_namespace_guzzle_http">GuzzleHttp</link>\Subscriber\<link linkend="_class_log">Log</link>\Formatter</computeroutput>.</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2guzzlehttp_2guzzle_2_u_p_g_r_a_d_i_n_g_1autotoc_md6026">
+<title><title>Parser</title></title>
+
+<para>The <computeroutput>Guzzle\Parser</computeroutput> namespace has been removed. This was previously used to make it possible to plug in custom parsers for cookies, messages, URI templates, and URLs; however, this level of complexity is not needed in Guzzle so it has been removed.</para>
+
+<para><itemizedlist>
+<listitem>
+<para>Cookie: Cookie parsing logic has been moved to <computeroutput><link linkend="_namespace_guzzle_http">GuzzleHttp</link>\Cookie\SetCookie::fromString</computeroutput>.</para>
+</listitem><listitem>
+<para>Message: Message parsing logic for both requests and responses has been moved to <computeroutput><link linkend="_namespace_guzzle_http">GuzzleHttp</link>\Message\MessageFactory::fromMessage</computeroutput>. Message parsing is only used in debugging or deserializing messages, so it doesn&apos;t make sense for Guzzle as a library to add this level of complexity to parsing messages.</para>
+</listitem><listitem>
+<para>UriTemplate: URI template parsing has been moved to <computeroutput><link linkend="_namespace_guzzle_http">GuzzleHttp</link>\UriTemplate</computeroutput>. The Guzzle library will automatically use the PECL URI template library if it is installed.</para>
+</listitem><listitem>
+<para>Url: URL parsing is now performed in <computeroutput><link linkend="_namespace_guzzle_http">GuzzleHttp</link>\Url::fromString</computeroutput> (previously it was <computeroutput>Guzzle\Http\Url::factory()</computeroutput>). If custom URL parsing is necessary, then developers are free to subclass <computeroutput><link linkend="_namespace_guzzle_http">GuzzleHttp</link>\Url</computeroutput>.</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2guzzlehttp_2guzzle_2_u_p_g_r_a_d_i_n_g_1autotoc_md6027">
+<title><title>Plugin</title></title>
+
+<para>The <computeroutput>Guzzle\<link linkend="_class_plugin">Plugin</link></computeroutput> namespace has been renamed to <computeroutput><link linkend="_namespace_guzzle_http">GuzzleHttp</link>\Subscriber</computeroutput>. Several plugins are shipping with the core Guzzle library under this namespace.</para>
+
+<para><itemizedlist>
+<listitem>
+<para><computeroutput><link linkend="_namespace_guzzle_http">GuzzleHttp</link>\Subscriber\Cookie</computeroutput>: Replaces the old CookiePlugin. Cookie jar code has moved to <computeroutput><link linkend="_namespace_guzzle_http">GuzzleHttp</link>\Cookie</computeroutput>.</para>
+</listitem><listitem>
+<para><computeroutput><link linkend="_namespace_guzzle_http">GuzzleHttp</link>\Subscriber\History</computeroutput>: Replaces the old HistoryPlugin.</para>
+</listitem><listitem>
+<para><computeroutput><link linkend="_namespace_guzzle_http">GuzzleHttp</link>\Subscriber\HttpError</computeroutput>: Throws errors when a bad HTTP response is received.</para>
+</listitem><listitem>
+<para><computeroutput><link linkend="_namespace_guzzle_http">GuzzleHttp</link>\Subscriber\Mock</computeroutput>: Replaces the old MockPlugin.</para>
+</listitem><listitem>
+<para><computeroutput><link linkend="_namespace_guzzle_http">GuzzleHttp</link>\Subscriber\Prepare</computeroutput>: Prepares the body of a request just before sending. This subscriber is attached to all requests by default.</para>
+</listitem><listitem>
+<para><computeroutput><link linkend="_namespace_guzzle_http">GuzzleHttp</link>\Subscriber\Redirect</computeroutput>: Replaces the RedirectPlugin.</para>
+</listitem></itemizedlist>
+</para>
+
+<para>The following plugins have been removed (third-parties are free to re-implement these if needed):</para>
+
+<para><itemizedlist>
+<listitem>
+<para><computeroutput><link linkend="_namespace_guzzle_http">GuzzleHttp</link>\<link linkend="_class_plugin">Plugin</link>\Async</computeroutput> has been removed.</para>
+</listitem><listitem>
+<para><computeroutput><link linkend="_namespace_guzzle_http">GuzzleHttp</link>\<link linkend="_class_plugin">Plugin</link>\CurlAuth</computeroutput> has been removed.</para>
+</listitem><listitem>
+<para><computeroutput><link linkend="_namespace_guzzle_http">GuzzleHttp</link>\<link linkend="_class_plugin">Plugin</link>\ErrorResponse\ErrorResponsePlugin</computeroutput> has been removed. This functionality should instead be implemented with event listeners that occur after normal response parsing occurs in the guzzle/command package.</para>
+</listitem></itemizedlist>
+</para>
+
+<para>The following plugins are not part of the core Guzzle package, but are provided in separate repositories:</para>
+
+<para><itemizedlist>
+<listitem>
+<para><computeroutput>Guzzle\Http\<link linkend="_class_plugin">Plugin</link>\BackoffPlugin</computeroutput> has been rewritten to be much simpler to build custom retry policies using simple functions rather than various chained classes. See: <link xlink:href="https://github.com/guzzle/retry-subscriber">https://github.com/guzzle/retry-subscriber</link></para>
+</listitem><listitem>
+<para><computeroutput>Guzzle\Http\<link linkend="_class_plugin">Plugin</link>\Cache\CachePlugin</computeroutput> has moved to <link xlink:href="https://github.com/guzzle/cache-subscriber">https://github.com/guzzle/cache-subscriber</link></para>
+</listitem><listitem>
+<para><computeroutput>Guzzle\Http\<link linkend="_class_plugin">Plugin</link>\<link linkend="_class_log">Log</link>\LogPlugin</computeroutput> has moved to <link xlink:href="https://github.com/guzzle/log-subscriber">https://github.com/guzzle/log-subscriber</link></para>
+</listitem><listitem>
+<para><computeroutput>Guzzle\Http\<link linkend="_class_plugin">Plugin</link>\Md5\Md5Plugin</computeroutput> has moved to <link xlink:href="https://github.com/guzzle/message-integrity-subscriber">https://github.com/guzzle/message-integrity-subscriber</link></para>
+</listitem><listitem>
+<para><computeroutput>Guzzle\Http\<link linkend="_class_plugin">Plugin</link>\Mock\MockPlugin</computeroutput> has moved to <computeroutput><link linkend="_namespace_guzzle_http">GuzzleHttp</link>\Subscriber\MockSubscriber</computeroutput>.</para>
+</listitem><listitem>
+<para><computeroutput>Guzzle\Http\<link linkend="_class_plugin">Plugin</link>\Oauth\OauthPlugin</computeroutput> has moved to <link xlink:href="https://github.com/guzzle/oauth-subscriber">https://github.com/guzzle/oauth-subscriber</link></para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2guzzlehttp_2guzzle_2_u_p_g_r_a_d_i_n_g_1autotoc_md6028">
+<title><title>Service</title></title>
+
+<para>The service description layer of Guzzle has moved into two separate packages:</para>
+
+<para><itemizedlist>
+<listitem>
+<para><link xlink:href="http://github.com/guzzle/command">http://github.com/guzzle/command</link> Provides a high level abstraction over web services by representing web service operations using commands.</para>
+</listitem><listitem>
+<para><link xlink:href="http://github.com/guzzle/guzzle-services">http://github.com/guzzle/guzzle-services</link> Provides an implementation of guzzle/command that provides request serialization and response parsing using Guzzle service descriptions.</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2guzzlehttp_2guzzle_2_u_p_g_r_a_d_i_n_g_1autotoc_md6029">
+<title><title>Stream</title></title>
+
+<para>Stream have moved to a separate package available at <link xlink:href="https://github.com/guzzle/streams">https://github.com/guzzle/streams</link>.</para>
+
+<para><computeroutput>Guzzle\Stream\StreamInterface</computeroutput> has been given a large update to cleanly take on the responsibilities of <computeroutput>Guzzle\Http\EntityBody</computeroutput> and <computeroutput>Guzzle\Http\EntityBodyInterface</computeroutput> now that they have been removed. The number of methods implemented by the <computeroutput>StreamInterface</computeroutput> has been drastically reduced to allow developers to more easily extend and decorate stream behavior.</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2guzzlehttp_2guzzle_2_u_p_g_r_a_d_i_n_g_1autotoc_md6030">
+<title><title>Removed methods from StreamInterface</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para><computeroutput>getStream</computeroutput> and <computeroutput>setStream</computeroutput> have been removed to better encapsulate streams.</para>
+</listitem><listitem>
+<para><computeroutput>getMetadata</computeroutput> and <computeroutput>setMetadata</computeroutput> have been removed in favor of <computeroutput><link linkend="_namespace_guzzle_http">GuzzleHttp</link>\Stream\MetadataStreamInterface</computeroutput>.</para>
+</listitem><listitem>
+<para><computeroutput>getWrapper</computeroutput>, <computeroutput>getWrapperData</computeroutput>, <computeroutput>getStreamType</computeroutput>, and <computeroutput>getUri</computeroutput> have all been removed. This data is accessible when using streams that implement <computeroutput><link linkend="_namespace_guzzle_http">GuzzleHttp</link>\Stream\MetadataStreamInterface</computeroutput>.</para>
+</listitem><listitem>
+<para><computeroutput>rewind</computeroutput> has been removed. Use <computeroutput>seek(0)</computeroutput> for a similar behavior.</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2guzzlehttp_2guzzle_2_u_p_g_r_a_d_i_n_g_1autotoc_md6031">
+<title><title>Renamed methods</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para><computeroutput>detachStream</computeroutput> has been renamed to <computeroutput>detach</computeroutput>.</para>
+</listitem><listitem>
+<para><computeroutput>feof</computeroutput> has been renamed to <computeroutput>eof</computeroutput>.</para>
+</listitem><listitem>
+<para><computeroutput>ftell</computeroutput> has been renamed to <computeroutput>tell</computeroutput>.</para>
+</listitem><listitem>
+<para><computeroutput>readLine</computeroutput> has moved from an instance method to a static class method of <computeroutput><link linkend="_namespace_guzzle_http">GuzzleHttp</link>\Stream\Stream</computeroutput>.</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2guzzlehttp_2guzzle_2_u_p_g_r_a_d_i_n_g_1autotoc_md6032">
+<title><title>Metadata streams</title></title>
+
+<para><computeroutput><link linkend="_namespace_guzzle_http">GuzzleHttp</link>\Stream\MetadataStreamInterface</computeroutput> has been added to denote streams that contain additional metadata accessible via <computeroutput>getMetadata()</computeroutput>. <computeroutput><link linkend="_namespace_guzzle_http">GuzzleHttp</link>\Stream\StreamInterface::getMetadata</computeroutput> and <computeroutput><link linkend="_namespace_guzzle_http">GuzzleHttp</link>\Stream\StreamInterface::setMetadata</computeroutput> have been removed.</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2guzzlehttp_2guzzle_2_u_p_g_r_a_d_i_n_g_1autotoc_md6033">
+<title><title>StreamRequestFactory</title></title>
+
+<para>The entire concept of the StreamRequestFactory has been removed. The way this was used in Guzzle 3 broke the actual interface of sending streaming requests (instead of getting back a Response, you got a StreamInterface). Streaming PHP requests are now implemented through the <computeroutput><link linkend="_namespace_guzzle_http">GuzzleHttp</link>\Adapter\StreamAdapter</computeroutput>.</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2guzzlehttp_2guzzle_2_u_p_g_r_a_d_i_n_g_1autotoc_md6034">
+<title><title>3.6 to 3.7</title></title>
+<section xml:id="_md_public_2glpi_2vendor_2guzzlehttp_2guzzle_2_u_p_g_r_a_d_i_n_g_1autotoc_md6035">
+<title><title>Deprecations</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>You can now enable E_USER_DEPRECATED warnings to see if you are using any deprecated methods.:</para>
+</listitem></itemizedlist>
+</para>
+
+<para><literallayout><computeroutput>\Guzzle\Common\Version::$emitWarnings&#32;=&#32;true;
+</computeroutput></literallayout></para>
+
+<para>The following APIs and options have been marked as deprecated:</para>
+
+<para><itemizedlist>
+<listitem>
+<para>Marked <computeroutput>Guzzle\Http\Message\Request::isResponseBodyRepeatable()</computeroutput> as deprecated. Use <computeroutput>$request-&gt;getResponseBody()-&gt;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">isRepeatable()</link></computeroutput> instead.</para>
+</listitem><listitem>
+<para>Marked <computeroutput>Guzzle\Http\Message\Request::canCache()</computeroutput> as deprecated. Use <computeroutput>Guzzle\<link linkend="_class_plugin">Plugin</link>\Cache\DefaultCanCacheStrategy-&gt;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">canCacheRequest()</link></computeroutput> instead.</para>
+</listitem><listitem>
+<para>Marked <computeroutput>Guzzle\Http\Message\Request::canCache()</computeroutput> as deprecated. Use <computeroutput>Guzzle\<link linkend="_class_plugin">Plugin</link>\Cache\DefaultCanCacheStrategy-&gt;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">canCacheRequest()</link></computeroutput> instead.</para>
+</listitem><listitem>
+<para>Marked <computeroutput>Guzzle\Http\Message\Request::setIsRedirect()</computeroutput> as deprecated. Use the HistoryPlugin instead.</para>
+</listitem><listitem>
+<para>Marked <computeroutput>Guzzle\Http\Message\Request::isRedirect()</computeroutput> as deprecated. Use the HistoryPlugin instead.</para>
+</listitem><listitem>
+<para>Marked <computeroutput>Guzzle\Cache\CacheAdapterFactory::factory()</computeroutput> as deprecated</para>
+</listitem><listitem>
+<para>Marked <computeroutput>Guzzle\Service\Client::enableMagicMethods()</computeroutput> as deprecated. Magic methods can no longer be disabled on a Guzzle\Service\Client.</para>
+</listitem><listitem>
+<para>Marked <computeroutput>Guzzle\Parser\Url\UrlParser</computeroutput> as deprecated. Just use PHP&apos;s <computeroutput>parse_url()</computeroutput> and percent encode your UTF-8.</para>
+</listitem><listitem>
+<para>Marked <computeroutput>Guzzle\Common\Collection::inject()</computeroutput> as deprecated.</para>
+</listitem><listitem>
+<para>Marked <computeroutput>Guzzle\<link linkend="_class_plugin">Plugin</link>\CurlAuth\CurlAuthPlugin</computeroutput> as deprecated. Use &#8216;$client-&gt;getConfig()-&gt;setPath(&apos;request.options/auth&#8217;, array(&apos;user&apos;, &apos;pass&apos;, &apos;Basic|Digest|NTLM|Any&apos;));<computeroutput>or </computeroutput>$client-&gt;setDefaultOption(&apos;auth&apos;, array(&apos;user&apos;, &apos;pass&apos;, &apos;Basic|Digest|NTLM|Any&apos;));`</para>
+</listitem></itemizedlist>
+</para>
+
+<para>3.7 introduces <computeroutput>request.options</computeroutput> as a parameter for a client configuration and as an optional argument to all creational request methods. When paired with a client&apos;s configuration settings, these options allow you to specify default settings for various aspects of a request. Because these options make other previous configuration options redundant, several configuration options and methods of a client and AbstractCommand have been deprecated.</para>
+
+<para><itemizedlist>
+<listitem>
+<para>Marked <computeroutput>Guzzle\Service\Client::getDefaultHeaders()</computeroutput> as deprecated. Use &#8216;$client-&gt;getDefaultOption(&apos;headers&#8217;)<computeroutput>.</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>Marked</computeroutput>Guzzle\Service\Client<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">setDefaultHeaders()</link><computeroutput>as deprecated. Use</computeroutput>$client-&gt;setDefaultOption(&apos;headers/{header_name}&apos;, &apos;value&apos;)&#8216;.</para>
+</listitem><listitem>
+<para>Marked &apos;request.params&#8217; for <computeroutput>Guzzle\Http\Client</computeroutput> as deprecated. Use &#8216;$client-&gt;setDefaultOption(&apos;params/{param_name}&#8217;, &apos;value&apos;)&#8216;</para>
+</listitem><listitem>
+<para>Marked &apos;command.headers&#8217;, &apos;command.response_body&apos; and &apos;command.on_complete&apos; as deprecated for AbstractCommand. These will work through Guzzle 4.0 <literallayout><computeroutput>  $command = $client-&gt;getCommand(&apos;foo&apos;, array(
+      &apos;command.headers&apos; =&gt; array(&apos;Test&apos; =&gt; &apos;123&apos;),
+      &apos;command.response_body&apos; =&gt; &apos;/path/to/file&apos;
+  ));
+
+  // Should be changed to:
+
+  $command = $client-&gt;getCommand(&apos;foo&apos;, array(
+      &apos;command.request_options&apos; =&gt; array(
+          &apos;headers&apos; =&gt; array(&apos;Test&apos; =&gt; &apos;123&apos;),
+          &apos;save_as&apos; =&gt; &apos;/path/to/file&apos;
+      )
+  ));
+</computeroutput></literallayout> </para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2guzzlehttp_2guzzle_2_u_p_g_r_a_d_i_n_g_1autotoc_md6036">
+<title><title>Interface changes</title></title>
+
+<para>Additions and changes (you will need to update any implementations or subclasses you may have created):</para>
+
+<para><itemizedlist>
+<listitem>
+<para>Added an <computeroutput>$options</computeroutput> argument to the end of the following methods of <computeroutput>Guzzle\Http\ClientInterface</computeroutput>: createRequest, head, delete, put, patch, post, options, prepareRequest</para>
+</listitem><listitem>
+<para>Added an <computeroutput>$options</computeroutput> argument to the end of <computeroutput>Guzzle\Http\Message\Request\RequestFactoryInterface::createRequest()</computeroutput></para>
+</listitem><listitem>
+<para>Added an <computeroutput>applyOptions()</computeroutput> method to <computeroutput>Guzzle\Http\Message\Request\RequestFactoryInterface</computeroutput></para>
+</listitem><listitem>
+<para>Changed <computeroutput>Guzzle\Http\ClientInterface::get($uri = null, $headers = null, $body = null)</computeroutput> to <computeroutput>Guzzle\Http\ClientInterface::get($uri = null, $headers = null, $options = array())</computeroutput>. You can still pass in a resource, string, or EntityBody into the $options parameter to specify the download location of the response.</para>
+</listitem><listitem>
+<para>Changed <computeroutput>Guzzle\Common\Collection::__construct($data)</computeroutput> to no longer accepts a null value for <computeroutput>$data</computeroutput> but a default <computeroutput>array()</computeroutput></para>
+</listitem><listitem>
+<para>Added <computeroutput>Guzzle\Stream\StreamInterface::isRepeatable</computeroutput></para>
+</listitem><listitem>
+<para>Made <computeroutput>Guzzle\Http\Client::expandTemplate</computeroutput> and <computeroutput>getUriTemplate</computeroutput> protected methods.</para>
+</listitem></itemizedlist>
+</para>
+
+<para>The following methods were removed from interfaces. All of these methods are still available in the concrete classes that implement them, but you should update your code to use alternative methods:</para>
+
+<para><itemizedlist>
+<listitem>
+<para>Removed <computeroutput>Guzzle\Http\ClientInterface::setDefaultHeaders(). Use </computeroutput>$client-&gt;getConfig()-&gt;setPath(&apos;request.options/headers/{header_name}&apos;, &apos;value&apos;)<computeroutput>. or </computeroutput>$client-&gt;getConfig()-&gt;setPath(&apos;request.options/headers&apos;, array(&apos;header_name&apos; =&gt; &apos;value&apos;))<computeroutput>or </computeroutput>$client-&gt;setDefaultOption(&apos;headers/{header_name}&apos;, &apos;value&apos;)<computeroutput>. or </computeroutput>$client-&gt;setDefaultOption(&apos;headers&apos;, array(&apos;header_name&apos; =&gt; &apos;value&apos;))<computeroutput>.</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>Removed</computeroutput>Guzzle\Http\ClientInterface::getDefaultHeaders(). Use &#8216;$client-&gt;getConfig()-&gt;getPath(&apos;request.options/headers&#8217;)<computeroutput>.</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>Removed</computeroutput>Guzzle\Http\ClientInterface<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">expandTemplate()</link><computeroutput>. This is an implementation detail.</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>Removed</computeroutput>Guzzle\Http\ClientInterface::setRequestFactory()<computeroutput>. This is an implementation detail.</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>Removed</computeroutput>Guzzle\Http\ClientInterface<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">getCurlMulti()</link><computeroutput>. This is a very specific implementation detail.</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>Removed</computeroutput>Guzzle\Http\Message\RequestInterface<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">canCache</link><computeroutput>. Use the CachePlugin.</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>Removed</computeroutput>Guzzle\Http\Message\RequestInterface<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">setIsRedirect</link><computeroutput>. Use the HistoryPlugin.</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>Removed</computeroutput>Guzzle\Http\Message\RequestInterface::isRedirect`. Use the HistoryPlugin.</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2guzzlehttp_2guzzle_2_u_p_g_r_a_d_i_n_g_1autotoc_md6037">
+<title><title>Cache plugin breaking changes</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>CacheKeyProviderInterface and DefaultCacheKeyProvider are no longer used. All of this logic is handled in a CacheStorageInterface. These two objects and interface will be removed in a future version.</para>
+</listitem><listitem>
+<para>Always setting X-cache headers on cached responses</para>
+</listitem><listitem>
+<para>Default cache TTLs are now handled by the CacheStorageInterface of a CachePlugin</para>
+</listitem><listitem>
+<para><computeroutput>CacheStorageInterface::cache($key, Response $response, $ttl = null)</computeroutput> has changed to <computeroutput>cache(RequestInterface $request, Response $response);</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>CacheStorageInterface::fetch($key)</computeroutput> has changed to <computeroutput>fetch(RequestInterface $request);</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>CacheStorageInterface::delete($key)</computeroutput> has changed to <computeroutput>delete(RequestInterface $request);</computeroutput></para>
+</listitem><listitem>
+<para>Added <computeroutput>CacheStorageInterface::purge($url)</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>DefaultRevalidation::__construct(CacheKeyProviderInterface $cacheKey, CacheStorageInterface $cache, CachePlugin $plugin)</computeroutput> has changed to <computeroutput>DefaultRevalidation::__construct(CacheStorageInterface $cache, CanCacheStrategyInterface $canCache = null)</computeroutput></para>
+</listitem><listitem>
+<para>Added <computeroutput>RevalidationInterface::shouldRevalidate(RequestInterface $request, Response $response)</computeroutput></para>
+</listitem></itemizedlist>
+</para>
+</section>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2guzzlehttp_2guzzle_2_u_p_g_r_a_d_i_n_g_1autotoc_md6038">
+<title><title>3.5 to 3.6</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Mixed casing of headers are now forced to be a single consistent casing across all values for that header.</para>
+</listitem><listitem>
+<para>Messages internally use a HeaderCollection object to delegate handling case-insensitive header resolution</para>
+</listitem><listitem>
+<para>Removed the whole <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">changedHeader()</link> function system of messages because all header changes now go through addHeader(). For example, setHeader() first removes the header using unset on a HeaderCollection and then calls addHeader(). Keeping the Host header and URL host in sync is now handled by overriding the addHeader method in Request.</para>
+</listitem><listitem>
+<para>Specific header implementations can be created for complex headers. When a message creates a header, it uses a HeaderFactory which can map specific headers to specific header classes. There is now a <link linkend="_class_link">Link</link> header and CacheControl header implementation.</para>
+</listitem><listitem>
+<para>Moved <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">getLinks()</link> from Response to just be used on a <link linkend="_class_link">Link</link> header object.</para>
+</listitem></itemizedlist>
+</para>
+
+<para>If you previously relied on Guzzle\Http\Message\Header::raw(), then you will need to update your code to use the HeaderInterface (e.g. toArray(), getAll(), etc.).</para>
+<section xml:id="_md_public_2glpi_2vendor_2guzzlehttp_2guzzle_2_u_p_g_r_a_d_i_n_g_1autotoc_md6039">
+<title><title>Interface changes</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Removed from interface: Guzzle\Http\ClientInterface<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">setUriTemplate</link></para>
+</listitem><listitem>
+<para>Removed from interface: Guzzle\Http\ClientInterface<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">setCurlMulti()</link></para>
+</listitem><listitem>
+<para>Removed Guzzle\Http\Message\Request<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">receivedRequestHeader()</link> and implemented this functionality in Guzzle\Http\Curl\RequestMediator</para>
+</listitem><listitem>
+<para>Removed the optional $asString parameter from MessageInterface::getHeader(). Just cast the header to a string.</para>
+</listitem><listitem>
+<para>Removed the optional $tryChunkedTransfer option from Guzzle\Http\Message\EntityEnclosingRequestInterface</para>
+</listitem><listitem>
+<para>Removed the $asObjects argument from Guzzle\Http\Message\MessageInterface::getHeaders()</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2guzzlehttp_2guzzle_2_u_p_g_r_a_d_i_n_g_1autotoc_md6040">
+<title><title>Removed deprecated functions</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Removed Guzzle\Parser\ParserRegister::get(). Use <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">getParser()</link></para>
+</listitem><listitem>
+<para>Removed Guzzle\Parser\ParserRegister::set(). Use <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">registerParser()</link>.</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2guzzlehttp_2guzzle_2_u_p_g_r_a_d_i_n_g_1autotoc_md6041">
+<title><title>Deprecations</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>The ability to case-insensitively search for header values</para>
+</listitem><listitem>
+<para>Guzzle\Http\Message\Header<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">hasExactHeader</link></para>
+</listitem><listitem>
+<para>Guzzle\Http\Message\Header::raw. Use getAll()</para>
+</listitem><listitem>
+<para>Deprecated cache control specific methods on Guzzle\Http\Message\AbstractMessage. Use the CacheControl header object instead.</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2guzzlehttp_2guzzle_2_u_p_g_r_a_d_i_n_g_1autotoc_md6042">
+<title><title>Other changes</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>All response header helper functions return a string rather than mixing Header objects and strings inconsistently</para>
+</listitem><listitem>
+<para>Removed cURL blacklist support. This is no longer necessary now that Expect, Accept, etc. are managed by Guzzle directly via interfaces</para>
+</listitem><listitem>
+<para>Removed the injecting of a request object onto a response object. The methods to get and set a request still exist but are a no-op until removed.</para>
+</listitem><listitem>
+<para>Most classes that used to require a <computeroutput>Guzzle\Service\Command\CommandInterface</computeroutput> typehint now request a <computeroutput>Guzzle\Service\Command\ArrayCommandInterface</computeroutput>.</para>
+</listitem><listitem>
+<para>Added <computeroutput>Guzzle\Http\Message\RequestInterface::startResponse()</computeroutput> to the RequestInterface to handle injecting a response on a request while the request is still being transferred</para>
+</listitem><listitem>
+<para><computeroutput>Guzzle\Service\Command\CommandInterface</computeroutput> now extends from ToArrayInterface and ArrayAccess</para>
+</listitem></itemizedlist>
+</para>
+</section>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2guzzlehttp_2guzzle_2_u_p_g_r_a_d_i_n_g_1autotoc_md6043">
+<title><title>3.3 to 3.4</title></title>
+
+<para>Base URLs of a client now follow the rules of <link xlink:href="https://tools.ietf.org/html/rfc3986#section-5.2.2">https://tools.ietf.org/html/rfc3986#section-5.2.2</link> when merging URLs.</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2guzzlehttp_2guzzle_2_u_p_g_r_a_d_i_n_g_1autotoc_md6044">
+<title><title>3.2 to 3.3</title></title>
+<section xml:id="_md_public_2glpi_2vendor_2guzzlehttp_2guzzle_2_u_p_g_r_a_d_i_n_g_1autotoc_md6045">
+<title><title>Response::getEtag() quote stripping removed</title></title>
+
+<para><computeroutput>Guzzle\Http\Message\Response::getEtag()</computeroutput> no longer strips quotes around the ETag response header</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2guzzlehttp_2guzzle_2_u_p_g_r_a_d_i_n_g_1autotoc_md6046">
+<title><title>Removed <computeroutput>Guzzle\Http\Utils</computeroutput></title></title>
+
+<para>The <computeroutput>Guzzle\Http\Utils</computeroutput> class was removed. This class was only used for testing.</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2guzzlehttp_2guzzle_2_u_p_g_r_a_d_i_n_g_1autotoc_md6047">
+<title><title>Stream wrapper and type</title></title>
+
+<para><computeroutput>Guzzle\Stream\Stream::getWrapper()</computeroutput> and <computeroutput>Guzzle\Stream\Stream::getStreamType()</computeroutput> are no longer converted to lowercase.</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2guzzlehttp_2guzzle_2_u_p_g_r_a_d_i_n_g_1autotoc_md6048">
+<title><title>curl.emit_io became emit_io</title></title>
+
+<para>Emitting IO events from a RequestMediator is now a parameter that must be set in a request&apos;s curl options using the &apos;emit_io&apos; key. This was previously set under a request&apos;s parameters using &apos;curl.emit_io&apos;</para>
+</section>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2guzzlehttp_2guzzle_2_u_p_g_r_a_d_i_n_g_1autotoc_md6049">
+<title><title>3.1 to 3.2</title></title>
+<section xml:id="_md_public_2glpi_2vendor_2guzzlehttp_2guzzle_2_u_p_g_r_a_d_i_n_g_1autotoc_md6050">
+<title><title>CurlMulti is no longer reused globally</title></title>
+
+<para>Before 3.2, the same CurlMulti object was reused globally for each client. This can cause issue where plugins added to a single client can pollute requests dispatched from other clients.</para>
+
+<para>If you still wish to reuse the same CurlMulti object with each client, then you can add a listener to the ServiceBuilder&apos;s <computeroutput>service_builder.create_client</computeroutput> event to inject a custom CurlMulti object into each client as it is created.</para>
+
+<para><literallayout><computeroutput>$multi&#32;=&#32;new&#32;Guzzle\Http\Curl\CurlMulti();
+$builder&#32;=&#32;Guzzle\Service\Builder\ServiceBuilder::factory(&apos;/path/to/config.json&apos;);
+$builder-&gt;addListener(&apos;service_builder.create_client&apos;,&#32;function&#32;($event)&#32;use&#32;($multi)&#32;{
+&#32;&#32;&#32;&#32;$event[&apos;client&apos;]-&gt;setCurlMulti($multi);
+}
+});
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2guzzlehttp_2guzzle_2_u_p_g_r_a_d_i_n_g_1autotoc_md6051">
+<title><title>No default path</title></title>
+
+<para>URLs no longer have a default path value of &apos;/&apos; if no path was specified.</para>
+
+<para>Before:</para>
+
+<para><literallayout><computeroutput>$request&#32;=&#32;$client-&gt;get(&apos;http://www.foo.com&apos;);
+echo&#32;$request-&gt;getUrl();
+//&#32;&gt;&gt;&#32;http://www.foo.com/
+</computeroutput></literallayout></para>
+
+<para>After:</para>
+
+<para><literallayout><computeroutput>$request&#32;=&#32;$client-&gt;get(&apos;http://www.foo.com&apos;);
+echo&#32;$request-&gt;getUrl();
+//&#32;&gt;&gt;&#32;http://www.foo.com
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2guzzlehttp_2guzzle_2_u_p_g_r_a_d_i_n_g_1autotoc_md6052">
+<title><title>Less verbose BadResponseException</title></title>
+
+<para>The exception message for <computeroutput>Guzzle\Http\Exception\BadResponseException</computeroutput> no longer contains the full HTTP request and response information. You can, however, get access to the request and response object by calling <computeroutput>getRequest()</computeroutput> or <computeroutput>getResponse()</computeroutput> on the exception object.</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2guzzlehttp_2guzzle_2_u_p_g_r_a_d_i_n_g_1autotoc_md6053">
+<title><title>Query parameter aggregation</title></title>
+
+<para>Multi-valued query parameters are no longer aggregated using a callback function. <computeroutput>Guzzle\Http\Query</computeroutput> now has a <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">setAggregator()</link> method that accepts a <computeroutput>Guzzle\Http\QueryAggregator\QueryAggregatorInterface</computeroutput> object. This object is responsible for handling the aggregation of multi-valued query string variables into a flattened hash.</para>
+</section>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2guzzlehttp_2guzzle_2_u_p_g_r_a_d_i_n_g_1autotoc_md6054">
+<title><title>2.8 to 3.x</title></title>
+<section xml:id="_md_public_2glpi_2vendor_2guzzlehttp_2guzzle_2_u_p_g_r_a_d_i_n_g_1autotoc_md6055">
+<title><title>Guzzle\Service\Inspector</title></title>
+
+<para><link linkend="_class_change">Change</link> <computeroutput>\Guzzle\Service\Inspector::fromConfig</computeroutput> to <computeroutput>\Guzzle\Common\Collection::fromConfig</computeroutput></para>
+
+<para><emphasis role="bold">Before</emphasis></para>
+
+<para><literallayout><computeroutput>use&#32;Guzzle\Service\Inspector;
+
+class&#32;YourClient&#32;extends&#32;\Guzzle\Service\Client
+{
+&#32;&#32;&#32;&#32;public&#32;static&#32;function&#32;factory($config&#32;=&#32;array())
+&#32;&#32;&#32;&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;$default&#32;=&#32;array();
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;$required&#32;=&#32;array(&apos;base_url&apos;,&#32;&apos;username&apos;,&#32;&apos;api_key&apos;);
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;$config&#32;=&#32;Inspector::fromConfig($config,&#32;$default,&#32;$required);
+
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;$client&#32;=&#32;new&#32;self(
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;$config-&gt;get(&apos;base_url&apos;),
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;$config-&gt;get(&apos;username&apos;),
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;$config-&gt;get(&apos;api_key&apos;)
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;);
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;$client-&gt;setConfig($config);
+
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;$client-&gt;setDescription(ServiceDescription::factory(__DIR__&#32;.&#32;DIRECTORY_SEPARATOR&#32;.&#32;&apos;client.json&apos;));
+
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;return&#32;$client;
+&#32;&#32;&#32;&#32;}
+</computeroutput></literallayout></para>
+
+<para><emphasis role="bold">After</emphasis></para>
+
+<para><literallayout><computeroutput>use&#32;Guzzle\Common\Collection;
+
+class&#32;YourClient&#32;extends&#32;\Guzzle\Service\Client
+{
+&#32;&#32;&#32;&#32;public&#32;static&#32;function&#32;factory($config&#32;=&#32;array())
+&#32;&#32;&#32;&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;$default&#32;=&#32;array();
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;$required&#32;=&#32;array(&apos;base_url&apos;,&#32;&apos;username&apos;,&#32;&apos;api_key&apos;);
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;$config&#32;=&#32;Collection::fromConfig($config,&#32;$default,&#32;$required);
+
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;$client&#32;=&#32;new&#32;self(
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;$config-&gt;get(&apos;base_url&apos;),
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;$config-&gt;get(&apos;username&apos;),
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;$config-&gt;get(&apos;api_key&apos;)
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;);
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;$client-&gt;setConfig($config);
+
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;$client-&gt;setDescription(ServiceDescription::factory(__DIR__&#32;.&#32;DIRECTORY_SEPARATOR&#32;.&#32;&apos;client.json&apos;));
+
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;return&#32;$client;
+&#32;&#32;&#32;&#32;}
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2guzzlehttp_2guzzle_2_u_p_g_r_a_d_i_n_g_1autotoc_md6056">
+<title><title>Convert XML Service Descriptions to JSON</title></title>
+
+<para><emphasis role="bold">Before</emphasis></para>
+
+<para><literallayout><computeroutput>&lt;?xml&#32;version=&quot;1.0&quot;&#32;encoding=&quot;UTF-8&quot;?&gt;
+&lt;client&gt;
+&#32;&#32;&#32;&#32;&lt;commands&gt;
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&lt;!--&#32;Groups&#32;--&gt;
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&lt;command&#32;name=&quot;list_groups&quot;&#32;method=&quot;GET&quot;&#32;uri=&quot;groups.json&quot;&gt;
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&lt;doc&gt;Get&#32;a&#32;list&#32;of&#32;groups&lt;/doc&gt;
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&lt;/command&gt;
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&lt;command&#32;name=&quot;search_groups&quot;&#32;method=&quot;GET&quot;&#32;uri=&apos;search.json?query=&quot;{{query}}&#32;type:group&quot;&apos;&gt;
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&lt;doc&gt;Uses&#32;a&#32;search&#32;query&#32;to&#32;get&#32;a&#32;list&#32;of&#32;groups&lt;/doc&gt;
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&lt;param&#32;name=&quot;query&quot;&#32;type=&quot;string&quot;&#32;required=&quot;true&quot;&#32;/&gt;
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&lt;/command&gt;
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&lt;command&#32;name=&quot;create_group&quot;&#32;method=&quot;POST&quot;&#32;uri=&quot;groups.json&quot;&gt;
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&lt;doc&gt;Create&#32;a&#32;group&lt;/doc&gt;
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&lt;param&#32;name=&quot;data&quot;&#32;type=&quot;array&quot;&#32;location=&quot;body&quot;&#32;filters=&quot;json_encode&quot;&#32;doc=&quot;Group&#32;JSON&quot;/&gt;
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&lt;param&#32;name=&quot;Content-Type&quot;&#32;location=&quot;header&quot;&#32;static=&quot;application/json&quot;/&gt;
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&lt;/command&gt;
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&lt;command&#32;name=&quot;delete_group&quot;&#32;method=&quot;DELETE&quot;&#32;uri=&quot;groups/{{id}}.json&quot;&gt;
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&lt;doc&gt;Delete&#32;a&#32;group&#32;by&#32;ID&lt;/doc&gt;
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&lt;param&#32;name=&quot;id&quot;&#32;type=&quot;integer&quot;&#32;required=&quot;true&quot;/&gt;
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&lt;/command&gt;
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&lt;command&#32;name=&quot;get_group&quot;&#32;method=&quot;GET&quot;&#32;uri=&quot;groups/{{id}}.json&quot;&gt;
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&lt;param&#32;name=&quot;id&quot;&#32;type=&quot;integer&quot;&#32;required=&quot;true&quot;/&gt;
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&lt;/command&gt;
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&lt;command&#32;name=&quot;update_group&quot;&#32;method=&quot;PUT&quot;&#32;uri=&quot;groups/{{id}}.json&quot;&gt;
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&lt;doc&gt;Update&#32;a&#32;group&lt;/doc&gt;
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&lt;param&#32;name=&quot;id&quot;&#32;type=&quot;integer&quot;&#32;required=&quot;true&quot;/&gt;
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&lt;param&#32;name=&quot;data&quot;&#32;type=&quot;array&quot;&#32;location=&quot;body&quot;&#32;filters=&quot;json_encode&quot;&#32;doc=&quot;Group&#32;JSON&quot;/&gt;
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&lt;param&#32;name=&quot;Content-Type&quot;&#32;location=&quot;header&quot;&#32;static=&quot;application/json&quot;/&gt;
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&lt;/command&gt;
+&#32;&#32;&#32;&#32;&lt;/commands&gt;
+&lt;/client&gt;
+</computeroutput></literallayout></para>
+
+<para><emphasis role="bold">After</emphasis></para>
+
+<para><literallayout><computeroutput>{
+&#32;&#32;&#32;&#32;&quot;name&quot;:&#32;&#32;&#32;&#32;&#32;&#32;&#32;&quot;Zendesk&#32;REST&#32;API&#32;v2&quot;,
+&#32;&#32;&#32;&#32;&quot;apiVersion&quot;:&#32;&quot;2012-12-31&quot;,
+&#32;&#32;&#32;&#32;&quot;description&quot;:&quot;Provides&#32;access&#32;to&#32;Zendesk&#32;views,&#32;groups,&#32;tickets,&#32;ticket&#32;fields,&#32;and&#32;users&quot;,
+&#32;&#32;&#32;&#32;&quot;operations&quot;:&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&quot;list_groups&quot;:&#32;&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&quot;httpMethod&quot;:&quot;GET&quot;,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&quot;uri&quot;:&#32;&#32;&#32;&#32;&#32;&#32;&#32;&quot;groups.json&quot;,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&quot;summary&quot;:&#32;&#32;&#32;&quot;Get&#32;a&#32;list&#32;of&#32;groups&quot;
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;},
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&quot;search_groups&quot;:{
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&quot;httpMethod&quot;:&quot;GET&quot;,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&quot;uri&quot;:&#32;&#32;&#32;&#32;&#32;&#32;&#32;&quot;search.json?query=\&quot;{query}&#32;type:group\&quot;&quot;,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&quot;summary&quot;:&#32;&#32;&#32;&quot;Uses&#32;a&#32;search&#32;query&#32;to&#32;get&#32;a&#32;list&#32;of&#32;groups&quot;,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&quot;parameters&quot;:{
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&quot;query&quot;:{
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&quot;location&quot;:&#32;&#32;&#32;&quot;uri&quot;,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&quot;description&quot;:&quot;Zendesk&#32;Search&#32;Query&quot;,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&quot;type&quot;:&#32;&#32;&#32;&#32;&#32;&#32;&#32;&quot;string&quot;,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&quot;required&quot;:&#32;&#32;&#32;true
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;},
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&quot;create_group&quot;:&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&quot;httpMethod&quot;:&quot;POST&quot;,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&quot;uri&quot;:&#32;&#32;&#32;&#32;&#32;&#32;&#32;&quot;groups.json&quot;,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&quot;summary&quot;:&#32;&#32;&#32;&quot;Create&#32;a&#32;group&quot;,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&quot;parameters&quot;:{
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&quot;data&quot;:&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&quot;type&quot;:&#32;&#32;&#32;&#32;&#32;&#32;&#32;&quot;array&quot;,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&quot;location&quot;:&#32;&#32;&#32;&quot;body&quot;,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&quot;description&quot;:&quot;Group&#32;JSON&quot;,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&quot;filters&quot;:&#32;&#32;&#32;&#32;&quot;json_encode&quot;,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&quot;required&quot;:&#32;&#32;&#32;true
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;},
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&quot;Content-Type&quot;:{
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&quot;type&quot;:&#32;&#32;&#32;&#32;&quot;string&quot;,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&quot;location&quot;:&quot;header&quot;,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&quot;static&quot;:&#32;&#32;&quot;application/json&quot;
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;},
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&quot;delete_group&quot;:&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&quot;httpMethod&quot;:&quot;DELETE&quot;,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&quot;uri&quot;:&#32;&#32;&#32;&#32;&#32;&#32;&#32;&quot;groups/{id}.json&quot;,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&quot;summary&quot;:&#32;&#32;&#32;&quot;Delete&#32;a&#32;group&quot;,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&quot;parameters&quot;:{
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&quot;id&quot;:{
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&quot;location&quot;:&#32;&#32;&#32;&quot;uri&quot;,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&quot;description&quot;:&quot;Group&#32;to&#32;delete&#32;by&#32;ID&quot;,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&quot;type&quot;:&#32;&#32;&#32;&#32;&#32;&#32;&#32;&quot;integer&quot;,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&quot;required&quot;:&#32;&#32;&#32;true
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;},
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&quot;get_group&quot;:&#32;&#32;&#32;&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&quot;httpMethod&quot;:&quot;GET&quot;,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&quot;uri&quot;:&#32;&#32;&#32;&#32;&#32;&#32;&#32;&quot;groups/{id}.json&quot;,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&quot;summary&quot;:&#32;&#32;&#32;&quot;Get&#32;a&#32;ticket&quot;,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&quot;parameters&quot;:{
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&quot;id&quot;:{
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&quot;location&quot;:&#32;&#32;&#32;&quot;uri&quot;,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&quot;description&quot;:&quot;Group&#32;to&#32;get&#32;by&#32;ID&quot;,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&quot;type&quot;:&#32;&#32;&#32;&#32;&#32;&#32;&#32;&quot;integer&quot;,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&quot;required&quot;:&#32;&#32;&#32;true
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;},
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&quot;update_group&quot;:&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&quot;httpMethod&quot;:&quot;PUT&quot;,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&quot;uri&quot;:&#32;&#32;&#32;&#32;&#32;&#32;&#32;&quot;groups/{id}.json&quot;,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&quot;summary&quot;:&#32;&#32;&#32;&quot;Update&#32;a&#32;group&quot;,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&quot;parameters&quot;:{
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&quot;id&quot;:&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&quot;location&quot;:&#32;&#32;&#32;&quot;uri&quot;,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&quot;description&quot;:&quot;Group&#32;to&#32;update&#32;by&#32;ID&quot;,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&quot;type&quot;:&#32;&#32;&#32;&#32;&#32;&#32;&#32;&quot;integer&quot;,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&quot;required&quot;:&#32;&#32;&#32;true
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;},
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&quot;data&quot;:&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&quot;type&quot;:&#32;&#32;&#32;&#32;&#32;&#32;&#32;&quot;array&quot;,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&quot;location&quot;:&#32;&#32;&#32;&quot;body&quot;,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&quot;description&quot;:&quot;Group&#32;JSON&quot;,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&quot;filters&quot;:&#32;&#32;&#32;&#32;&quot;json_encode&quot;,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&quot;required&quot;:&#32;&#32;&#32;true
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;},
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&quot;Content-Type&quot;:{
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&quot;type&quot;:&#32;&#32;&#32;&#32;&quot;string&quot;,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&quot;location&quot;:&quot;header&quot;,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&quot;static&quot;:&#32;&#32;&quot;application/json&quot;
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+}
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2guzzlehttp_2guzzle_2_u_p_g_r_a_d_i_n_g_1autotoc_md6057">
+<title><title>Guzzle\Service\Description\ServiceDescription</title></title>
+
+<para>Commands are now called Operations</para>
+
+<para><emphasis role="bold">Before</emphasis></para>
+
+<para><literallayout><computeroutput>use&#32;Guzzle\Service\Description\ServiceDescription;
+
+$sd&#32;=&#32;new&#32;ServiceDescription();
+$sd-&gt;getCommands();&#32;&#32;&#32;&#32;&#32;//&#32;@returns&#32;ApiCommandInterface[]
+$sd-&gt;hasCommand($name);
+$sd-&gt;getCommand($name);&#32;//&#32;@returns&#32;ApiCommandInterface|null
+$sd-&gt;addCommand($command);&#32;//&#32;@param&#32;ApiCommandInterface&#32;$command
+</computeroutput></literallayout></para>
+
+<para><emphasis role="bold">After</emphasis></para>
+
+<para><literallayout><computeroutput>use&#32;Guzzle\Service\Description\ServiceDescription;
+
+$sd&#32;=&#32;new&#32;ServiceDescription();
+$sd-&gt;getOperations();&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;//&#32;@returns&#32;OperationInterface[]
+$sd-&gt;hasOperation($name);
+$sd-&gt;getOperation($name);&#32;&#32;&#32;&#32;&#32;&#32;&#32;//&#32;@returns&#32;OperationInterface|null
+$sd-&gt;addOperation($operation);&#32;&#32;//&#32;@param&#32;OperationInterface&#32;$operation
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2guzzlehttp_2guzzle_2_u_p_g_r_a_d_i_n_g_1autotoc_md6058">
+<title><title>Guzzle\Common\Inflection\Inflector</title></title>
+
+<para>Namespace is now <computeroutput>Guzzle\Inflection\Inflector</computeroutput></para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2guzzlehttp_2guzzle_2_u_p_g_r_a_d_i_n_g_1autotoc_md6059">
+<title><title>Guzzle\Http\Plugin</title></title>
+
+<para>Namespace is now <computeroutput>Guzzle\<link linkend="_class_plugin">Plugin</link></computeroutput>. Many other changes occur within this namespace and are detailed in their own sections below.</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2guzzlehttp_2guzzle_2_u_p_g_r_a_d_i_n_g_1autotoc_md6060">
+<title><title>Guzzle\Http\Plugin\LogPlugin and Guzzle\Common\Log</title></title>
+
+<para>Now <computeroutput>Guzzle\<link linkend="_class_plugin">Plugin</link>\<link linkend="_class_log">Log</link>\LogPlugin</computeroutput> and <computeroutput>Guzzle\<link linkend="_class_log">Log</link></computeroutput> respectively.</para>
+
+<para><emphasis role="bold">Before</emphasis></para>
+
+<para><literallayout><computeroutput>use&#32;Guzzle\Common\Log\ClosureLogAdapter;
+use&#32;Guzzle\Http\Plugin\LogPlugin;
+
+/**&#32;@var&#32;\Guzzle\Http\Client&#32;*/
+$client;
+
+//&#32;$verbosity&#32;is&#32;an&#32;integer&#32;indicating&#32;desired&#32;message&#32;verbosity&#32;level
+$client-&gt;addSubscriber(new&#32;LogPlugin(new&#32;ClosureLogAdapter(function($m)&#32;{&#32;echo&#32;$m;&#32;},&#32;$verbosity&#32;=&#32;LogPlugin::LOG_VERBOSE);
+</computeroutput></literallayout></para>
+
+<para><emphasis role="bold">After</emphasis></para>
+
+<para><literallayout><computeroutput>use&#32;Guzzle\Log\ClosureLogAdapter;
+use&#32;Guzzle\Log\MessageFormatter;
+use&#32;Guzzle\Plugin\Log\LogPlugin;
+
+/**&#32;@var&#32;\Guzzle\Http\Client&#32;*/
+$client;
+
+//&#32;$format&#32;is&#32;a&#32;string&#32;indicating&#32;desired&#32;message&#32;format&#32;--&#32;@see&#32;MessageFormatter
+$client-&gt;addSubscriber(new&#32;LogPlugin(new&#32;ClosureLogAdapter(function($m)&#32;{&#32;echo&#32;$m;&#32;},&#32;$format&#32;=&#32;MessageFormatter::DEBUG_FORMAT);
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2guzzlehttp_2guzzle_2_u_p_g_r_a_d_i_n_g_1autotoc_md6061">
+<title><title>Guzzle\Http\Plugin\CurlAuthPlugin</title></title>
+
+<para>Now <computeroutput>Guzzle\<link linkend="_class_plugin">Plugin</link>\CurlAuth\CurlAuthPlugin</computeroutput>.</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2guzzlehttp_2guzzle_2_u_p_g_r_a_d_i_n_g_1autotoc_md6062">
+<title><title>Guzzle\Http\Plugin\ExponentialBackoffPlugin</title></title>
+
+<para>Now <computeroutput>Guzzle\<link linkend="_class_plugin">Plugin</link>\Backoff\BackoffPlugin</computeroutput>, and other changes.</para>
+
+<para><emphasis role="bold">Before</emphasis></para>
+
+<para><literallayout><computeroutput>use&#32;Guzzle\Http\Plugin\ExponentialBackoffPlugin;
+
+$backoffPlugin&#32;=&#32;new&#32;ExponentialBackoffPlugin($maxRetries,&#32;array_merge(
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;ExponentialBackoffPlugin::getDefaultFailureCodes(),&#32;array(429)
+&#32;&#32;&#32;&#32;));
+
+$client-&gt;addSubscriber($backoffPlugin);
+</computeroutput></literallayout></para>
+
+<para><emphasis role="bold">After</emphasis></para>
+
+<para><literallayout><computeroutput>use&#32;Guzzle\Plugin\Backoff\BackoffPlugin;
+use&#32;Guzzle\Plugin\Backoff\HttpBackoffStrategy;
+
+//&#32;Use&#32;convenient&#32;factory&#32;method&#32;instead&#32;--&#32;see&#32;implementation&#32;for&#32;ideas&#32;of&#32;what
+//&#32;you&#32;can&#32;do&#32;with&#32;chaining&#32;backoff&#32;strategies
+$backoffPlugin&#32;=&#32;BackoffPlugin::getExponentialBackoff($maxRetries,&#32;array_merge(
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;HttpBackoffStrategy::getDefaultFailureCodes(),&#32;array(429)
+&#32;&#32;&#32;&#32;));
+$client-&gt;addSubscriber($backoffPlugin);
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2guzzlehttp_2guzzle_2_u_p_g_r_a_d_i_n_g_1autotoc_md6063">
+<title><title>Known Issues</title></title>
+<section xml:id="_md_public_2glpi_2vendor_2guzzlehttp_2guzzle_2_u_p_g_r_a_d_i_n_g_1autotoc_md6064">
+<title><title>[BUG] Accept-Encoding header behavior changed unintentionally.</title></title>
+
+<para>(See #217) (Fixed in 09daeb8c666fb44499a0646d655a8ae36456575e)</para>
+
+<para>In version 2.8 setting the <computeroutput>Accept-Encoding</computeroutput> header would set the CURLOPT_ENCODING option, which permitted cURL to properly handle gzip/deflate compressed responses from the server. In versions affected by this bug this does not happen. See issue #217 for a workaround, or use a version containing the fix. </para>
+</section>
+</section>
+</section>
+</section>

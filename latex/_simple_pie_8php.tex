@@ -1,0 +1,605 @@
+\doxysection{Référence du fichier public/glpi/vendor/simplepie/simplepie/library/\+Simple\+Pie.php}
+\hypertarget{_simple_pie_8php}{}\label{_simple_pie_8php}\index{public/glpi/vendor/simplepie/simplepie/library/SimplePie.php@{public/glpi/vendor/simplepie/simplepie/library/SimplePie.php}}
+\doxysubsubsection*{Structures de données}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_simple_pie}{Simple\+Pie}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Espaces de nommage}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespace_simple_pie}{Simple\+Pie}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const \mbox{\hyperlink{_simple_pie_8php_ad343f27eb7687289c6a643b591f6420f}{SIMPLEPIE\+\_\+\+NAME}} \textquotesingle{}\mbox{\hyperlink{class_simple_pie}{Simple\+Pie}}\textquotesingle{}
+\item 
+const \mbox{\hyperlink{_simple_pie_8php_a02a6b6b545973012f91d3736686dc101}{SIMPLEPIE\+\_\+\+VERSION}} \textquotesingle{}1.\+5.\+8\textquotesingle{}
+\item 
+const \mbox{\hyperlink{_simple_pie_8php_aa07226af0bfdcb06c21a4464624a08d2}{SIMPLEPIE\+\_\+\+BUILD}} \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{gmdate}}(\textquotesingle{}\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{Ymd\+His}}\textquotesingle{}, \mbox{\hyperlink{class_simple_pie___misc_a49e53c71a10126852fd164a976640c0a}{Simple\+Pie\+\_\+\+Misc\+::get\+\_\+build}}())
+\item 
+const \mbox{\hyperlink{_simple_pie_8php_a90062b76fdd188ca507e7d2a2b296ce2}{SIMPLEPIE\+\_\+\+URL}} \textquotesingle{}\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{http\+:}}//\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{simplepie.\+org}}\textquotesingle{}
+\item 
+const \mbox{\hyperlink{_simple_pie_8php_aa16b1a92eba4943f883b1f958edba8ef}{SIMPLEPIE\+\_\+\+USERAGENT}} \mbox{\hyperlink{_simple_pie_8php_ad343f27eb7687289c6a643b591f6420f}{SIMPLEPIE\+\_\+\+NAME}} . \textquotesingle{}/\textquotesingle{} . \mbox{\hyperlink{_simple_pie_8php_a02a6b6b545973012f91d3736686dc101}{SIMPLEPIE\+\_\+\+VERSION}} . \textquotesingle{} (\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{Feed}} Parser; \textquotesingle{} . \mbox{\hyperlink{_simple_pie_8php_a90062b76fdd188ca507e7d2a2b296ce2}{SIMPLEPIE\+\_\+\+URL}} . \textquotesingle{}; \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{Allow}} \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{like}} \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{Gecko}}) Build/\textquotesingle{} . \mbox{\hyperlink{_simple_pie_8php_aa07226af0bfdcb06c21a4464624a08d2}{SIMPLEPIE\+\_\+\+BUILD}}
+\item 
+const \mbox{\hyperlink{_simple_pie_8php_ad70f2fab5f3be1c140f3d42b3229d16a}{SIMPLEPIE\+\_\+\+LINKBACK}} \textquotesingle{}$<$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{a}} \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{href}}="{}\textquotesingle{} . SIMPLEPIE\+\_\+\+URL . \textquotesingle{}"{} title="{}\textquotesingle{} . SIMPLEPIE\+\_\+\+NAME . \textquotesingle{} \textquotesingle{} . \mbox{\hyperlink{_simple_pie_8php_a02a6b6b545973012f91d3736686dc101}{SIMPLEPIE\+\_\+\+VERSION}} . \textquotesingle{}"{}$>$\textquotesingle{} . SIMPLEPIE\+\_\+\+NAME . \textquotesingle{}$<$/\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{a}}$>$\textquotesingle{}
+\item 
+const \mbox{\hyperlink{_simple_pie_8php_a09a383bfb38f1dda61a043e47dfb92a5}{SIMPLEPIE\+\_\+\+LOCATOR\+\_\+\+NONE}} 0
+\item 
+const \mbox{\hyperlink{_simple_pie_8php_a3bf370e1d9a3daecaa1e3da59cff24b8}{SIMPLEPIE\+\_\+\+LOCATOR\+\_\+\+AUTODISCOVERY}} 1
+\item 
+const \mbox{\hyperlink{_simple_pie_8php_a2096bb81875b5132817c0012d281de67}{SIMPLEPIE\+\_\+\+LOCATOR\+\_\+\+LOCAL\+\_\+\+EXTENSION}} 2
+\item 
+const \mbox{\hyperlink{_simple_pie_8php_a2300fe90d0b3ea85970ae5b29de7792f}{SIMPLEPIE\+\_\+\+LOCATOR\+\_\+\+LOCAL\+\_\+\+BODY}} 4
+\item 
+const \mbox{\hyperlink{_simple_pie_8php_a2ff1da5e6b2da7c22b22e0d1e108d529}{SIMPLEPIE\+\_\+\+LOCATOR\+\_\+\+REMOTE\+\_\+\+EXTENSION}} 8
+\item 
+const \mbox{\hyperlink{_simple_pie_8php_a9ef3832108fc772ee0c436aff6a625bf}{SIMPLEPIE\+\_\+\+LOCATOR\+\_\+\+REMOTE\+\_\+\+BODY}} 16
+\item 
+const \mbox{\hyperlink{_simple_pie_8php_a77835b708f60cde39bf93958e683a5f1}{SIMPLEPIE\+\_\+\+LOCATOR\+\_\+\+ALL}} 31
+\item 
+const \mbox{\hyperlink{_simple_pie_8php_a2522cf3d1d9e4ff688435bcaaa34afe7}{SIMPLEPIE\+\_\+\+TYPE\+\_\+\+NONE}} 0
+\item 
+const \mbox{\hyperlink{_simple_pie_8php_a10644820ee2d8fb3f1eaeb81283c4ccd}{SIMPLEPIE\+\_\+\+TYPE\+\_\+\+RSS\+\_\+090}} 1
+\item 
+const \mbox{\hyperlink{_simple_pie_8php_a94d5b6757603b451892f50ba78c2533a}{SIMPLEPIE\+\_\+\+TYPE\+\_\+\+RSS\+\_\+091\+\_\+\+NETSCAPE}} 2
+\item 
+const \mbox{\hyperlink{_simple_pie_8php_a15ce2fe24c88e2e3bc7fc831b4439316}{SIMPLEPIE\+\_\+\+TYPE\+\_\+\+RSS\+\_\+091\+\_\+\+USERLAND}} 4
+\item 
+const \mbox{\hyperlink{_simple_pie_8php_a720edec10788020c5417c2a697903e06}{SIMPLEPIE\+\_\+\+TYPE\+\_\+\+RSS\+\_\+091}} 6
+\item 
+const \mbox{\hyperlink{_simple_pie_8php_abb6da0ec041150f0dda721f15d4cc30e}{SIMPLEPIE\+\_\+\+TYPE\+\_\+\+RSS\+\_\+092}} 8
+\item 
+const \mbox{\hyperlink{_simple_pie_8php_a8f547d774ea35d5b07b9b73e27b776ac}{SIMPLEPIE\+\_\+\+TYPE\+\_\+\+RSS\+\_\+093}} 16
+\item 
+const \mbox{\hyperlink{_simple_pie_8php_a9b44ed65ab248d80bbdc0552cb12b973}{SIMPLEPIE\+\_\+\+TYPE\+\_\+\+RSS\+\_\+094}} 32
+\item 
+const \mbox{\hyperlink{_simple_pie_8php_aac2c4954a4b922d76f5e2cdcfe27e458}{SIMPLEPIE\+\_\+\+TYPE\+\_\+\+RSS\+\_\+10}} 64
+\item 
+const \mbox{\hyperlink{_simple_pie_8php_ae39c46f11a574e880fee23fa974699ca}{SIMPLEPIE\+\_\+\+TYPE\+\_\+\+RSS\+\_\+20}} 128
+\item 
+const \mbox{\hyperlink{_simple_pie_8php_a607f9ad10afe52936b666c49860c76f3}{SIMPLEPIE\+\_\+\+TYPE\+\_\+\+RSS\+\_\+\+RDF}} 65
+\item 
+const \mbox{\hyperlink{_simple_pie_8php_adb6c8895db852aef6c77a959cce176fa}{SIMPLEPIE\+\_\+\+TYPE\+\_\+\+RSS\+\_\+\+SYNDICATION}} 190
+\item 
+const \mbox{\hyperlink{_simple_pie_8php_a4b9d8b61fafa46566cdaa486b4587c40}{SIMPLEPIE\+\_\+\+TYPE\+\_\+\+RSS\+\_\+\+ALL}} 255
+\item 
+const \mbox{\hyperlink{_simple_pie_8php_a7bb49b4c097ff7beb9db034847eda613}{SIMPLEPIE\+\_\+\+TYPE\+\_\+\+ATOM\+\_\+03}} 256
+\item 
+const \mbox{\hyperlink{_simple_pie_8php_a94ef8488ab54234e60d2ba79485e3f73}{SIMPLEPIE\+\_\+\+TYPE\+\_\+\+ATOM\+\_\+10}} 512
+\item 
+const \mbox{\hyperlink{_simple_pie_8php_ac317fe94790c4ac5a5a554440d68822e}{SIMPLEPIE\+\_\+\+TYPE\+\_\+\+ATOM\+\_\+\+ALL}} 768
+\item 
+const \mbox{\hyperlink{_simple_pie_8php_ac041c53630348f9b4e243f45a6bcc7a4}{SIMPLEPIE\+\_\+\+TYPE\+\_\+\+ALL}} 1023
+\item 
+const \mbox{\hyperlink{_simple_pie_8php_adf772a91641976a8e9b10bc30af98eb2}{SIMPLEPIE\+\_\+\+CONSTRUCT\+\_\+\+NONE}} 0
+\item 
+const \mbox{\hyperlink{_simple_pie_8php_a32f1cee47ad770a8f7e7fa969c2ff9cf}{SIMPLEPIE\+\_\+\+CONSTRUCT\+\_\+\+TEXT}} 1
+\item 
+const \mbox{\hyperlink{_simple_pie_8php_a048873611857d2ea59c6df624f25bba7}{SIMPLEPIE\+\_\+\+CONSTRUCT\+\_\+\+HTML}} 2
+\item 
+const \mbox{\hyperlink{_simple_pie_8php_a356175e32fcf1365abbb8bf48a7e8ff7}{SIMPLEPIE\+\_\+\+CONSTRUCT\+\_\+\+XHTML}} 4
+\item 
+const \mbox{\hyperlink{_simple_pie_8php_a181a215206b345e72b6cfa0be7e8eaab}{SIMPLEPIE\+\_\+\+CONSTRUCT\+\_\+\+BASE64}} 8
+\item 
+const \mbox{\hyperlink{_simple_pie_8php_a27b953d4a1dddffc8f6db2585c2b8fe0}{SIMPLEPIE\+\_\+\+CONSTRUCT\+\_\+\+IRI}} 16
+\item 
+const \mbox{\hyperlink{_simple_pie_8php_aa561f1c03275b8dd5c7ed3ed7621b256}{SIMPLEPIE\+\_\+\+CONSTRUCT\+\_\+\+MAYBE\+\_\+\+HTML}} 32
+\item 
+const \mbox{\hyperlink{_simple_pie_8php_a46a4b553855f2bd1aeb110fcbc4ad1ca}{SIMPLEPIE\+\_\+\+CONSTRUCT\+\_\+\+ALL}} 63
+\item 
+const \mbox{\hyperlink{_simple_pie_8php_ad80a8b322741dea8352381f19b50cb59}{SIMPLEPIE\+\_\+\+SAME\+\_\+\+CASE}} 1
+\item 
+const \mbox{\hyperlink{_simple_pie_8php_ac11935cc7850cd942419326db336c822}{SIMPLEPIE\+\_\+\+LOWERCASE}} 2
+\item 
+const \mbox{\hyperlink{_simple_pie_8php_a62ecba655e871e25658db827450dc75e}{SIMPLEPIE\+\_\+\+UPPERCASE}} 4
+\item 
+const \mbox{\hyperlink{_simple_pie_8php_ae8d34a93fac87ed8c4090acddfcf9d67}{SIMPLEPIE\+\_\+\+PCRE\+\_\+\+HTML\+\_\+\+ATTRIBUTE}} \textquotesingle{}((?\+:\mbox{[}\textbackslash{}\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{x09\textbackslash{}x0\+A\textbackslash{}x0\+B\textbackslash{}x0\+C\textbackslash{}x0\+D\textbackslash{}x20}}\mbox{]}+\mbox{[}\texorpdfstring{$^\wedge$}{\string^}\textbackslash{}\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{x09\textbackslash{}x0\+A\textbackslash{}x0\+B\textbackslash{}x0\+C\textbackslash{}x0\+D\textbackslash{}x20\textbackslash{}x2\+F\textbackslash{}x3E}}\mbox{]}\mbox{[}\texorpdfstring{$^\wedge$}{\string^}\textbackslash{}\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{x09\textbackslash{}x0\+A\textbackslash{}x0\+B\textbackslash{}x0\+C\textbackslash{}x0\+D\textbackslash{}x20\textbackslash{}x2\+F\textbackslash{}x3\+D\textbackslash{}x3E}}\mbox{]}\texorpdfstring{$\ast$}{*}(?\+:\mbox{[}\textbackslash{}\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{x09\textbackslash{}x0\+A\textbackslash{}x0\+B\textbackslash{}x0\+C\textbackslash{}x0\+D\textbackslash{}x20}}\mbox{]}\texorpdfstring{$\ast$}{*}=\mbox{[}\textbackslash{}\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{x09\textbackslash{}x0\+A\textbackslash{}x0\+B\textbackslash{}x0\+C\textbackslash{}x0\+D\textbackslash{}x20}}\mbox{]}\texorpdfstring{$\ast$}{*}(?\+:"{}(?\+:\mbox{[}\texorpdfstring{$^\wedge$}{\string^}"{}\mbox{]}\texorpdfstring{$\ast$}{*})"{}\texorpdfstring{$\vert$}{|}\textbackslash{}\textquotesingle{}(?\+:\mbox{[}\texorpdfstring{$^\wedge$}{\string^}\textbackslash{}\textquotesingle{}\mbox{]}\texorpdfstring{$\ast$}{*})\textbackslash{}\textquotesingle{}\texorpdfstring{$\vert$}{|}(?\+:\mbox{[}\texorpdfstring{$^\wedge$}{\string^}\textbackslash{}x09\textbackslash{}x0\+A\textbackslash{}x0\+B\textbackslash{}x0\+C\textbackslash{}x0\+D\textbackslash{}x20\textbackslash{}x22\textbackslash{}x27\textbackslash{}x3E\mbox{]}\mbox{[}\texorpdfstring{$^\wedge$}{\string^}\textbackslash{}\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{x09\textbackslash{}x0\+A\textbackslash{}x0\+B\textbackslash{}x0\+C\textbackslash{}x0\+D\textbackslash{}x20\textbackslash{}x3E}}\mbox{]}\texorpdfstring{$\ast$}{*})?))?)\texorpdfstring{$\ast$}{*})\mbox{[}\textbackslash{}\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{x09\textbackslash{}x0\+A\textbackslash{}x0\+B\textbackslash{}x0\+C\textbackslash{}x0\+D\textbackslash{}x20}}\mbox{]}\texorpdfstring{$\ast$}{*}\textquotesingle{}
+\item 
+const \mbox{\hyperlink{_simple_pie_8php_aef3cca39609e207451efeffc1364a546}{SIMPLEPIE\+\_\+\+PCRE\+\_\+\+XML\+\_\+\+ATTRIBUTE}} \textquotesingle{}((?\+:\textbackslash{}s+(?\+:(?\+:\mbox{[}\texorpdfstring{$^\wedge$}{\string^}\textbackslash{}\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{s\+:}}\mbox{]}+\+:)?\mbox{[}\texorpdfstring{$^\wedge$}{\string^}\textbackslash{}\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{s\+:}}\mbox{]}+)\textbackslash{}s\texorpdfstring{$\ast$}{*}=\textbackslash{}s\texorpdfstring{$\ast$}{*}(?\+:"{}(?\+:\mbox{[}\texorpdfstring{$^\wedge$}{\string^}"{}\mbox{]}\texorpdfstring{$\ast$}{*})"{}\texorpdfstring{$\vert$}{|}\textbackslash{}\textquotesingle{}(?\+:\mbox{[}\texorpdfstring{$^\wedge$}{\string^}\textbackslash{}\textquotesingle{}\mbox{]}\texorpdfstring{$\ast$}{*})\textbackslash{}\textquotesingle{}))\texorpdfstring{$\ast$}{*})\textbackslash{}s\texorpdfstring{$\ast$}{*}\textquotesingle{}
+\item 
+const \mbox{\hyperlink{_simple_pie_8php_a83ec91d7062bc133dee93483957391da}{SIMPLEPIE\+\_\+\+NAMESPACE\+\_\+\+XML}} \textquotesingle{}\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{http\+:}}//\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{www.\+w3.\+org}}/\mbox{\hyperlink{class_x_m_l}{XML}}/1998/\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{namespace}}\textquotesingle{}
+\item 
+const \mbox{\hyperlink{_simple_pie_8php_a33c3585ac10f95c67ca7e797f5625707}{SIMPLEPIE\+\_\+\+NAMESPACE\+\_\+\+ATOM\+\_\+10}} \textquotesingle{}\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{http\+:}}//\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{www.\+w3.\+org}}/2005/\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{Atom}}\textquotesingle{}
+\item 
+const \mbox{\hyperlink{_simple_pie_8php_a9104e654d49e0eb26fe37583cc20e52f}{SIMPLEPIE\+\_\+\+NAMESPACE\+\_\+\+ATOM\+\_\+03}} \textquotesingle{}\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{http\+:}}//\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{purl.\+org}}/\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{atom}}/\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{ns}}\#\textquotesingle{}
+\item 
+const \mbox{\hyperlink{_simple_pie_8php_af3206ab9444e30f971a3b6d03456b8a3}{SIMPLEPIE\+\_\+\+NAMESPACE\+\_\+\+RDF}} \textquotesingle{}\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{http\+:}}//\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{www.\+w3.\+org}}/1999/02/22-\/\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{rdf}}-\/\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{syntax}}-\/\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{ns}}\#\textquotesingle{}
+\item 
+const \mbox{\hyperlink{_simple_pie_8php_a52b603e52d563c0a3cc05018f405e819}{SIMPLEPIE\+\_\+\+NAMESPACE\+\_\+\+RSS\+\_\+090}} \textquotesingle{}\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{http\+:}}//my.\+netscape.\+com/\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{rdf}}/\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{simple}}/0.\+9/\textquotesingle{}
+\item 
+const \mbox{\hyperlink{_simple_pie_8php_af30963669d3f18d727407a20357f7de5}{SIMPLEPIE\+\_\+\+NAMESPACE\+\_\+\+RSS\+\_\+10}} \textquotesingle{}\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{http\+:}}//\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{purl.\+org}}/\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{rss}}/1.\+0/\textquotesingle{}
+\item 
+const \mbox{\hyperlink{_simple_pie_8php_ac5ae4b6b9f8ea48bfa9d983ba53f9b4d}{SIMPLEPIE\+\_\+\+NAMESPACE\+\_\+\+RSS\+\_\+10\+\_\+\+MODULES\+\_\+\+CONTENT}} \textquotesingle{}\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{http\+:}}//\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{purl.\+org}}/\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{rss}}/1.\+0/\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{modules}}/\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{content}}/\textquotesingle{}
+\item 
+const \mbox{\hyperlink{_simple_pie_8php_ab62c764df936ea8225b833dfb298772e}{SIMPLEPIE\+\_\+\+NAMESPACE\+\_\+\+RSS\+\_\+20}} \textquotesingle{}\textquotesingle{}
+\item 
+const \mbox{\hyperlink{_simple_pie_8php_a7b8c374b79ce366db33428ca42685a90}{SIMPLEPIE\+\_\+\+NAMESPACE\+\_\+\+DC\+\_\+10}} \textquotesingle{}\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{http\+:}}//\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{purl.\+org}}/\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{dc}}/\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{elements}}/1.\+0/\textquotesingle{}
+\item 
+const \mbox{\hyperlink{_simple_pie_8php_a96fec98542c11980776fef2172192198}{SIMPLEPIE\+\_\+\+NAMESPACE\+\_\+\+DC\+\_\+11}} \textquotesingle{}\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{http\+:}}//\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{purl.\+org}}/\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{dc}}/\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{elements}}/1.\+1/\textquotesingle{}
+\item 
+const \mbox{\hyperlink{_simple_pie_8php_a263da668da50013c79f5df3d27635e58}{SIMPLEPIE\+\_\+\+NAMESPACE\+\_\+\+W3\+C\+\_\+\+BASIC\+\_\+\+GEO}} \textquotesingle{}\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{http\+:}}//\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{www.\+w3.\+org}}/2003/01/\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{geo}}/\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{wgs84\+\_\+pos}}\#\textquotesingle{}
+\item 
+const \mbox{\hyperlink{_simple_pie_8php_a627614340191436af0ece34cf43d369e}{SIMPLEPIE\+\_\+\+NAMESPACE\+\_\+\+GEORSS}} \textquotesingle{}\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{http\+:}}//\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{www.\+georss.\+org}}/\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{georss}}\textquotesingle{}
+\item 
+const \mbox{\hyperlink{_simple_pie_8php_a842afeae791c74d2aab19438bf6f3f55}{SIMPLEPIE\+\_\+\+NAMESPACE\+\_\+\+MEDIARSS}} \textquotesingle{}\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{http\+:}}//search.\+yahoo.\+com/\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{mrss}}/\textquotesingle{}
+\item 
+const \mbox{\hyperlink{_simple_pie_8php_a0966d98d59b93000ccffc0aef28e2863}{SIMPLEPIE\+\_\+\+NAMESPACE\+\_\+\+MEDIARSS\+\_\+\+WRONG}} \textquotesingle{}\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{http\+:}}//search.\+yahoo.\+com/\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{mrss}}\textquotesingle{}
+\item 
+const \mbox{\hyperlink{_simple_pie_8php_a93f8b5fde6c9c66ba97250731bdd507b}{SIMPLEPIE\+\_\+\+NAMESPACE\+\_\+\+MEDIARSS\+\_\+\+WRONG2}} \textquotesingle{}\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{http\+:}}//video.\+search.\+yahoo.\+com/\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{mrss}}\textquotesingle{}
+\item 
+const \mbox{\hyperlink{_simple_pie_8php_a942be2068eba8f6aade427b2b76f8371}{SIMPLEPIE\+\_\+\+NAMESPACE\+\_\+\+MEDIARSS\+\_\+\+WRONG3}} \textquotesingle{}\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{http\+:}}//video.\+search.\+yahoo.\+com/\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{mrss}}/\textquotesingle{}
+\item 
+const \mbox{\hyperlink{_simple_pie_8php_a100537c9e7bc6517c34ff8b31f34512a}{SIMPLEPIE\+\_\+\+NAMESPACE\+\_\+\+MEDIARSS\+\_\+\+WRONG4}} \textquotesingle{}\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{http\+:}}//\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{www.\+rssboard.\+org}}/\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{media}}-\/\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{rss}}\textquotesingle{}
+\item 
+const \mbox{\hyperlink{_simple_pie_8php_acc22230d08bdb2e3573e86c4b0fbed9c}{SIMPLEPIE\+\_\+\+NAMESPACE\+\_\+\+MEDIARSS\+\_\+\+WRONG5}} \textquotesingle{}\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{http\+:}}//\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{www.\+rssboard.\+org}}/\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{media}}-\/\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{rss}}/\textquotesingle{}
+\item 
+const \mbox{\hyperlink{_simple_pie_8php_a9bf48f20384caed72408017d3e52a1a5}{SIMPLEPIE\+\_\+\+NAMESPACE\+\_\+\+ITUNES}} \textquotesingle{}\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{http\+:}}//www.\+itunes.\+com/\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{dtds}}/\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{podcast}}-\/1.\+0.\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{dtd}}\textquotesingle{}
+\item 
+const \mbox{\hyperlink{_simple_pie_8php_aac4638a4c4b3b51173fba14c1bd85349}{SIMPLEPIE\+\_\+\+NAMESPACE\+\_\+\+XHTML}} \textquotesingle{}\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{http\+:}}//\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{www.\+w3.\+org}}/1999/\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{xhtml}}\textquotesingle{}
+\item 
+const \mbox{\hyperlink{_simple_pie_8php_a81f5d67cc740cdbb60287f3975560db4}{SIMPLEPIE\+\_\+\+IANA\+\_\+\+LINK\+\_\+\+RELATIONS\+\_\+\+REGISTRY}} \textquotesingle{}\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{http\+:}}//\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{www.\+iana.\+org}}/\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{assignments}}/\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{relation}}/\textquotesingle{}
+\item 
+const \mbox{\hyperlink{_simple_pie_8php_a29c651a605663acf38e6f86829604865}{SIMPLEPIE\+\_\+\+FILE\+\_\+\+SOURCE\+\_\+\+NONE}} 0
+\item 
+const \mbox{\hyperlink{_simple_pie_8php_a8844529bf161b24b5a527e33f4e0b624}{SIMPLEPIE\+\_\+\+FILE\+\_\+\+SOURCE\+\_\+\+REMOTE}} 1
+\item 
+const \mbox{\hyperlink{_simple_pie_8php_ab8d78f743db17e99b88c017376382827}{SIMPLEPIE\+\_\+\+FILE\+\_\+\+SOURCE\+\_\+\+LOCAL}} 2
+\item 
+const \mbox{\hyperlink{_simple_pie_8php_a1df715e78dc11834c31efe0704522c3b}{SIMPLEPIE\+\_\+\+FILE\+\_\+\+SOURCE\+\_\+\+FSOCKOPEN}} 4
+\item 
+const \mbox{\hyperlink{_simple_pie_8php_ab8cb0fd05c6e7a2ec591c6a2614c2477}{SIMPLEPIE\+\_\+\+FILE\+\_\+\+SOURCE\+\_\+\+CURL}} 8
+\item 
+const \mbox{\hyperlink{_simple_pie_8php_a436b6f23cde09bd0f1250bba3a364873}{SIMPLEPIE\+\_\+\+FILE\+\_\+\+SOURCE\+\_\+\+FILE\+\_\+\+GET\+\_\+\+CONTENTS}} 16
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Documentation des variables}
+\Hypertarget{_simple_pie_8php_aa07226af0bfdcb06c21a4464624a08d2}\label{_simple_pie_8php_aa07226af0bfdcb06c21a4464624a08d2} 
+\index{SimplePie.php@{SimplePie.php}!SIMPLEPIE\_BUILD@{SIMPLEPIE\_BUILD}}
+\index{SIMPLEPIE\_BUILD@{SIMPLEPIE\_BUILD}!SimplePie.php@{SimplePie.php}}
+\doxysubsubsection{\texorpdfstring{SIMPLEPIE\_BUILD}{SIMPLEPIE\_BUILD}}
+{\footnotesize\ttfamily const SIMPLEPIE\+\_\+\+BUILD \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{gmdate}}(\textquotesingle{}\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{Ymd\+His}}\textquotesingle{}, \mbox{\hyperlink{class_simple_pie___misc_a49e53c71a10126852fd164a976640c0a}{Simple\+Pie\+\_\+\+Misc\+::get\+\_\+build}}())}
+
+\doxylink{class_simple_pie}{Simple\+Pie} Build \begin{DoxyRefDesc}{A faire}
+\item[\mbox{\hyperlink{todo__todo000037}{A faire}}]Hardcode for release (there\textquotesingle{}s no need to have to call \doxylink{class_simple_pie___misc_a49e53c71a10126852fd164a976640c0a}{Simple\+Pie\+\_\+\+Misc\+::get\+\_\+build()} only every load of simplepie.\+inc) \end{DoxyRefDesc}
+\Hypertarget{_simple_pie_8php_a46a4b553855f2bd1aeb110fcbc4ad1ca}\label{_simple_pie_8php_a46a4b553855f2bd1aeb110fcbc4ad1ca} 
+\index{SimplePie.php@{SimplePie.php}!SIMPLEPIE\_CONSTRUCT\_ALL@{SIMPLEPIE\_CONSTRUCT\_ALL}}
+\index{SIMPLEPIE\_CONSTRUCT\_ALL@{SIMPLEPIE\_CONSTRUCT\_ALL}!SimplePie.php@{SimplePie.php}}
+\doxysubsubsection{\texorpdfstring{SIMPLEPIE\_CONSTRUCT\_ALL}{SIMPLEPIE\_CONSTRUCT\_ALL}}
+{\footnotesize\ttfamily const SIMPLEPIE\+\_\+\+CONSTRUCT\+\_\+\+ALL 63}
+
+All constructs \Hypertarget{_simple_pie_8php_a181a215206b345e72b6cfa0be7e8eaab}\label{_simple_pie_8php_a181a215206b345e72b6cfa0be7e8eaab} 
+\index{SimplePie.php@{SimplePie.php}!SIMPLEPIE\_CONSTRUCT\_BASE64@{SIMPLEPIE\_CONSTRUCT\_BASE64}}
+\index{SIMPLEPIE\_CONSTRUCT\_BASE64@{SIMPLEPIE\_CONSTRUCT\_BASE64}!SimplePie.php@{SimplePie.php}}
+\doxysubsubsection{\texorpdfstring{SIMPLEPIE\_CONSTRUCT\_BASE64}{SIMPLEPIE\_CONSTRUCT\_BASE64}}
+{\footnotesize\ttfamily const SIMPLEPIE\+\_\+\+CONSTRUCT\+\_\+\+BASE64 8}
+
+base64-\/encoded construct \Hypertarget{_simple_pie_8php_a048873611857d2ea59c6df624f25bba7}\label{_simple_pie_8php_a048873611857d2ea59c6df624f25bba7} 
+\index{SimplePie.php@{SimplePie.php}!SIMPLEPIE\_CONSTRUCT\_HTML@{SIMPLEPIE\_CONSTRUCT\_HTML}}
+\index{SIMPLEPIE\_CONSTRUCT\_HTML@{SIMPLEPIE\_CONSTRUCT\_HTML}!SimplePie.php@{SimplePie.php}}
+\doxysubsubsection{\texorpdfstring{SIMPLEPIE\_CONSTRUCT\_HTML}{SIMPLEPIE\_CONSTRUCT\_HTML}}
+{\footnotesize\ttfamily const SIMPLEPIE\+\_\+\+CONSTRUCT\+\_\+\+HTML 2}
+
+HTML construct \Hypertarget{_simple_pie_8php_a27b953d4a1dddffc8f6db2585c2b8fe0}\label{_simple_pie_8php_a27b953d4a1dddffc8f6db2585c2b8fe0} 
+\index{SimplePie.php@{SimplePie.php}!SIMPLEPIE\_CONSTRUCT\_IRI@{SIMPLEPIE\_CONSTRUCT\_IRI}}
+\index{SIMPLEPIE\_CONSTRUCT\_IRI@{SIMPLEPIE\_CONSTRUCT\_IRI}!SimplePie.php@{SimplePie.php}}
+\doxysubsubsection{\texorpdfstring{SIMPLEPIE\_CONSTRUCT\_IRI}{SIMPLEPIE\_CONSTRUCT\_IRI}}
+{\footnotesize\ttfamily const SIMPLEPIE\+\_\+\+CONSTRUCT\+\_\+\+IRI 16}
+
+IRI construct \Hypertarget{_simple_pie_8php_aa561f1c03275b8dd5c7ed3ed7621b256}\label{_simple_pie_8php_aa561f1c03275b8dd5c7ed3ed7621b256} 
+\index{SimplePie.php@{SimplePie.php}!SIMPLEPIE\_CONSTRUCT\_MAYBE\_HTML@{SIMPLEPIE\_CONSTRUCT\_MAYBE\_HTML}}
+\index{SIMPLEPIE\_CONSTRUCT\_MAYBE\_HTML@{SIMPLEPIE\_CONSTRUCT\_MAYBE\_HTML}!SimplePie.php@{SimplePie.php}}
+\doxysubsubsection{\texorpdfstring{SIMPLEPIE\_CONSTRUCT\_MAYBE\_HTML}{SIMPLEPIE\_CONSTRUCT\_MAYBE\_HTML}}
+{\footnotesize\ttfamily const SIMPLEPIE\+\_\+\+CONSTRUCT\+\_\+\+MAYBE\+\_\+\+HTML 32}
+
+A construct that might be HTML \Hypertarget{_simple_pie_8php_adf772a91641976a8e9b10bc30af98eb2}\label{_simple_pie_8php_adf772a91641976a8e9b10bc30af98eb2} 
+\index{SimplePie.php@{SimplePie.php}!SIMPLEPIE\_CONSTRUCT\_NONE@{SIMPLEPIE\_CONSTRUCT\_NONE}}
+\index{SIMPLEPIE\_CONSTRUCT\_NONE@{SIMPLEPIE\_CONSTRUCT\_NONE}!SimplePie.php@{SimplePie.php}}
+\doxysubsubsection{\texorpdfstring{SIMPLEPIE\_CONSTRUCT\_NONE}{SIMPLEPIE\_CONSTRUCT\_NONE}}
+{\footnotesize\ttfamily const SIMPLEPIE\+\_\+\+CONSTRUCT\+\_\+\+NONE 0}
+
+No construct \Hypertarget{_simple_pie_8php_a32f1cee47ad770a8f7e7fa969c2ff9cf}\label{_simple_pie_8php_a32f1cee47ad770a8f7e7fa969c2ff9cf} 
+\index{SimplePie.php@{SimplePie.php}!SIMPLEPIE\_CONSTRUCT\_TEXT@{SIMPLEPIE\_CONSTRUCT\_TEXT}}
+\index{SIMPLEPIE\_CONSTRUCT\_TEXT@{SIMPLEPIE\_CONSTRUCT\_TEXT}!SimplePie.php@{SimplePie.php}}
+\doxysubsubsection{\texorpdfstring{SIMPLEPIE\_CONSTRUCT\_TEXT}{SIMPLEPIE\_CONSTRUCT\_TEXT}}
+{\footnotesize\ttfamily const SIMPLEPIE\+\_\+\+CONSTRUCT\+\_\+\+TEXT 1}
+
+Text construct \Hypertarget{_simple_pie_8php_a356175e32fcf1365abbb8bf48a7e8ff7}\label{_simple_pie_8php_a356175e32fcf1365abbb8bf48a7e8ff7} 
+\index{SimplePie.php@{SimplePie.php}!SIMPLEPIE\_CONSTRUCT\_XHTML@{SIMPLEPIE\_CONSTRUCT\_XHTML}}
+\index{SIMPLEPIE\_CONSTRUCT\_XHTML@{SIMPLEPIE\_CONSTRUCT\_XHTML}!SimplePie.php@{SimplePie.php}}
+\doxysubsubsection{\texorpdfstring{SIMPLEPIE\_CONSTRUCT\_XHTML}{SIMPLEPIE\_CONSTRUCT\_XHTML}}
+{\footnotesize\ttfamily const SIMPLEPIE\+\_\+\+CONSTRUCT\+\_\+\+XHTML 4}
+
+XHTML construct \Hypertarget{_simple_pie_8php_ab8cb0fd05c6e7a2ec591c6a2614c2477}\label{_simple_pie_8php_ab8cb0fd05c6e7a2ec591c6a2614c2477} 
+\index{SimplePie.php@{SimplePie.php}!SIMPLEPIE\_FILE\_SOURCE\_CURL@{SIMPLEPIE\_FILE\_SOURCE\_CURL}}
+\index{SIMPLEPIE\_FILE\_SOURCE\_CURL@{SIMPLEPIE\_FILE\_SOURCE\_CURL}!SimplePie.php@{SimplePie.php}}
+\doxysubsubsection{\texorpdfstring{SIMPLEPIE\_FILE\_SOURCE\_CURL}{SIMPLEPIE\_FILE\_SOURCE\_CURL}}
+{\footnotesize\ttfamily const SIMPLEPIE\+\_\+\+FILE\+\_\+\+SOURCE\+\_\+\+CURL 8}
+
+c\+URL file source \Hypertarget{_simple_pie_8php_a436b6f23cde09bd0f1250bba3a364873}\label{_simple_pie_8php_a436b6f23cde09bd0f1250bba3a364873} 
+\index{SimplePie.php@{SimplePie.php}!SIMPLEPIE\_FILE\_SOURCE\_FILE\_GET\_CONTENTS@{SIMPLEPIE\_FILE\_SOURCE\_FILE\_GET\_CONTENTS}}
+\index{SIMPLEPIE\_FILE\_SOURCE\_FILE\_GET\_CONTENTS@{SIMPLEPIE\_FILE\_SOURCE\_FILE\_GET\_CONTENTS}!SimplePie.php@{SimplePie.php}}
+\doxysubsubsection{\texorpdfstring{SIMPLEPIE\_FILE\_SOURCE\_FILE\_GET\_CONTENTS}{SIMPLEPIE\_FILE\_SOURCE\_FILE\_GET\_CONTENTS}}
+{\footnotesize\ttfamily const SIMPLEPIE\+\_\+\+FILE\+\_\+\+SOURCE\+\_\+\+FILE\+\_\+\+GET\+\_\+\+CONTENTS 16}
+
+file\+\_\+get\+\_\+contents() file source \Hypertarget{_simple_pie_8php_a1df715e78dc11834c31efe0704522c3b}\label{_simple_pie_8php_a1df715e78dc11834c31efe0704522c3b} 
+\index{SimplePie.php@{SimplePie.php}!SIMPLEPIE\_FILE\_SOURCE\_FSOCKOPEN@{SIMPLEPIE\_FILE\_SOURCE\_FSOCKOPEN}}
+\index{SIMPLEPIE\_FILE\_SOURCE\_FSOCKOPEN@{SIMPLEPIE\_FILE\_SOURCE\_FSOCKOPEN}!SimplePie.php@{SimplePie.php}}
+\doxysubsubsection{\texorpdfstring{SIMPLEPIE\_FILE\_SOURCE\_FSOCKOPEN}{SIMPLEPIE\_FILE\_SOURCE\_FSOCKOPEN}}
+{\footnotesize\ttfamily const SIMPLEPIE\+\_\+\+FILE\+\_\+\+SOURCE\+\_\+\+FSOCKOPEN 4}
+
+fsockopen() file source \Hypertarget{_simple_pie_8php_ab8d78f743db17e99b88c017376382827}\label{_simple_pie_8php_ab8d78f743db17e99b88c017376382827} 
+\index{SimplePie.php@{SimplePie.php}!SIMPLEPIE\_FILE\_SOURCE\_LOCAL@{SIMPLEPIE\_FILE\_SOURCE\_LOCAL}}
+\index{SIMPLEPIE\_FILE\_SOURCE\_LOCAL@{SIMPLEPIE\_FILE\_SOURCE\_LOCAL}!SimplePie.php@{SimplePie.php}}
+\doxysubsubsection{\texorpdfstring{SIMPLEPIE\_FILE\_SOURCE\_LOCAL}{SIMPLEPIE\_FILE\_SOURCE\_LOCAL}}
+{\footnotesize\ttfamily const SIMPLEPIE\+\_\+\+FILE\+\_\+\+SOURCE\+\_\+\+LOCAL 2}
+
+Local file source \Hypertarget{_simple_pie_8php_a29c651a605663acf38e6f86829604865}\label{_simple_pie_8php_a29c651a605663acf38e6f86829604865} 
+\index{SimplePie.php@{SimplePie.php}!SIMPLEPIE\_FILE\_SOURCE\_NONE@{SIMPLEPIE\_FILE\_SOURCE\_NONE}}
+\index{SIMPLEPIE\_FILE\_SOURCE\_NONE@{SIMPLEPIE\_FILE\_SOURCE\_NONE}!SimplePie.php@{SimplePie.php}}
+\doxysubsubsection{\texorpdfstring{SIMPLEPIE\_FILE\_SOURCE\_NONE}{SIMPLEPIE\_FILE\_SOURCE\_NONE}}
+{\footnotesize\ttfamily const SIMPLEPIE\+\_\+\+FILE\+\_\+\+SOURCE\+\_\+\+NONE 0}
+
+No file source \Hypertarget{_simple_pie_8php_a8844529bf161b24b5a527e33f4e0b624}\label{_simple_pie_8php_a8844529bf161b24b5a527e33f4e0b624} 
+\index{SimplePie.php@{SimplePie.php}!SIMPLEPIE\_FILE\_SOURCE\_REMOTE@{SIMPLEPIE\_FILE\_SOURCE\_REMOTE}}
+\index{SIMPLEPIE\_FILE\_SOURCE\_REMOTE@{SIMPLEPIE\_FILE\_SOURCE\_REMOTE}!SimplePie.php@{SimplePie.php}}
+\doxysubsubsection{\texorpdfstring{SIMPLEPIE\_FILE\_SOURCE\_REMOTE}{SIMPLEPIE\_FILE\_SOURCE\_REMOTE}}
+{\footnotesize\ttfamily const SIMPLEPIE\+\_\+\+FILE\+\_\+\+SOURCE\+\_\+\+REMOTE 1}
+
+Remote file source \Hypertarget{_simple_pie_8php_a81f5d67cc740cdbb60287f3975560db4}\label{_simple_pie_8php_a81f5d67cc740cdbb60287f3975560db4} 
+\index{SimplePie.php@{SimplePie.php}!SIMPLEPIE\_IANA\_LINK\_RELATIONS\_REGISTRY@{SIMPLEPIE\_IANA\_LINK\_RELATIONS\_REGISTRY}}
+\index{SIMPLEPIE\_IANA\_LINK\_RELATIONS\_REGISTRY@{SIMPLEPIE\_IANA\_LINK\_RELATIONS\_REGISTRY}!SimplePie.php@{SimplePie.php}}
+\doxysubsubsection{\texorpdfstring{SIMPLEPIE\_IANA\_LINK\_RELATIONS\_REGISTRY}{SIMPLEPIE\_IANA\_LINK\_RELATIONS\_REGISTRY}}
+{\footnotesize\ttfamily const SIMPLEPIE\+\_\+\+IANA\+\_\+\+LINK\+\_\+\+RELATIONS\+\_\+\+REGISTRY \textquotesingle{}\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{http\+:}}//\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{www.\+iana.\+org}}/\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{assignments}}/\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{relation}}/\textquotesingle{}}
+
+IANA \doxylink{class_link}{Link} Relations Registry \Hypertarget{_simple_pie_8php_ad70f2fab5f3be1c140f3d42b3229d16a}\label{_simple_pie_8php_ad70f2fab5f3be1c140f3d42b3229d16a} 
+\index{SimplePie.php@{SimplePie.php}!SIMPLEPIE\_LINKBACK@{SIMPLEPIE\_LINKBACK}}
+\index{SIMPLEPIE\_LINKBACK@{SIMPLEPIE\_LINKBACK}!SimplePie.php@{SimplePie.php}}
+\doxysubsubsection{\texorpdfstring{SIMPLEPIE\_LINKBACK}{SIMPLEPIE\_LINKBACK}}
+{\footnotesize\ttfamily const SIMPLEPIE\+\_\+\+LINKBACK \textquotesingle{}$<$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{a}} \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{href}}="{}\textquotesingle{} . SIMPLEPIE\+\_\+\+URL . \textquotesingle{}"{} title="{}\textquotesingle{} . SIMPLEPIE\+\_\+\+NAME . \textquotesingle{} \textquotesingle{} . \mbox{\hyperlink{_simple_pie_8php_a02a6b6b545973012f91d3736686dc101}{SIMPLEPIE\+\_\+\+VERSION}} . \textquotesingle{}"{}$>$\textquotesingle{} . SIMPLEPIE\+\_\+\+NAME . \textquotesingle{}$<$/\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{a}}$>$\textquotesingle{}}
+
+\doxylink{class_simple_pie}{Simple\+Pie} Linkback \Hypertarget{_simple_pie_8php_a77835b708f60cde39bf93958e683a5f1}\label{_simple_pie_8php_a77835b708f60cde39bf93958e683a5f1} 
+\index{SimplePie.php@{SimplePie.php}!SIMPLEPIE\_LOCATOR\_ALL@{SIMPLEPIE\_LOCATOR\_ALL}}
+\index{SIMPLEPIE\_LOCATOR\_ALL@{SIMPLEPIE\_LOCATOR\_ALL}!SimplePie.php@{SimplePie.php}}
+\doxysubsubsection{\texorpdfstring{SIMPLEPIE\_LOCATOR\_ALL}{SIMPLEPIE\_LOCATOR\_ALL}}
+{\footnotesize\ttfamily const SIMPLEPIE\+\_\+\+LOCATOR\+\_\+\+ALL 31}
+
+All Feed Autodiscovery \begin{DoxySeeAlso}{Voir également}
+Simple\+Pie\+::set\+\_\+autodiscovery\+\_\+level() 
+\end{DoxySeeAlso}
+\Hypertarget{_simple_pie_8php_a3bf370e1d9a3daecaa1e3da59cff24b8}\label{_simple_pie_8php_a3bf370e1d9a3daecaa1e3da59cff24b8} 
+\index{SimplePie.php@{SimplePie.php}!SIMPLEPIE\_LOCATOR\_AUTODISCOVERY@{SIMPLEPIE\_LOCATOR\_AUTODISCOVERY}}
+\index{SIMPLEPIE\_LOCATOR\_AUTODISCOVERY@{SIMPLEPIE\_LOCATOR\_AUTODISCOVERY}!SimplePie.php@{SimplePie.php}}
+\doxysubsubsection{\texorpdfstring{SIMPLEPIE\_LOCATOR\_AUTODISCOVERY}{SIMPLEPIE\_LOCATOR\_AUTODISCOVERY}}
+{\footnotesize\ttfamily const SIMPLEPIE\+\_\+\+LOCATOR\+\_\+\+AUTODISCOVERY 1}
+
+Feed \doxylink{class_link}{Link} Element Autodiscovery \begin{DoxySeeAlso}{Voir également}
+Simple\+Pie\+::set\+\_\+autodiscovery\+\_\+level() 
+\end{DoxySeeAlso}
+\Hypertarget{_simple_pie_8php_a2300fe90d0b3ea85970ae5b29de7792f}\label{_simple_pie_8php_a2300fe90d0b3ea85970ae5b29de7792f} 
+\index{SimplePie.php@{SimplePie.php}!SIMPLEPIE\_LOCATOR\_LOCAL\_BODY@{SIMPLEPIE\_LOCATOR\_LOCAL\_BODY}}
+\index{SIMPLEPIE\_LOCATOR\_LOCAL\_BODY@{SIMPLEPIE\_LOCATOR\_LOCAL\_BODY}!SimplePie.php@{SimplePie.php}}
+\doxysubsubsection{\texorpdfstring{SIMPLEPIE\_LOCATOR\_LOCAL\_BODY}{SIMPLEPIE\_LOCATOR\_LOCAL\_BODY}}
+{\footnotesize\ttfamily const SIMPLEPIE\+\_\+\+LOCATOR\+\_\+\+LOCAL\+\_\+\+BODY 4}
+
+Local Feed Body Autodiscovery \begin{DoxySeeAlso}{Voir également}
+Simple\+Pie\+::set\+\_\+autodiscovery\+\_\+level() 
+\end{DoxySeeAlso}
+\Hypertarget{_simple_pie_8php_a2096bb81875b5132817c0012d281de67}\label{_simple_pie_8php_a2096bb81875b5132817c0012d281de67} 
+\index{SimplePie.php@{SimplePie.php}!SIMPLEPIE\_LOCATOR\_LOCAL\_EXTENSION@{SIMPLEPIE\_LOCATOR\_LOCAL\_EXTENSION}}
+\index{SIMPLEPIE\_LOCATOR\_LOCAL\_EXTENSION@{SIMPLEPIE\_LOCATOR\_LOCAL\_EXTENSION}!SimplePie.php@{SimplePie.php}}
+\doxysubsubsection{\texorpdfstring{SIMPLEPIE\_LOCATOR\_LOCAL\_EXTENSION}{SIMPLEPIE\_LOCATOR\_LOCAL\_EXTENSION}}
+{\footnotesize\ttfamily const SIMPLEPIE\+\_\+\+LOCATOR\+\_\+\+LOCAL\+\_\+\+EXTENSION 2}
+
+Local Feed Extension Autodiscovery \begin{DoxySeeAlso}{Voir également}
+Simple\+Pie\+::set\+\_\+autodiscovery\+\_\+level() 
+\end{DoxySeeAlso}
+\Hypertarget{_simple_pie_8php_a09a383bfb38f1dda61a043e47dfb92a5}\label{_simple_pie_8php_a09a383bfb38f1dda61a043e47dfb92a5} 
+\index{SimplePie.php@{SimplePie.php}!SIMPLEPIE\_LOCATOR\_NONE@{SIMPLEPIE\_LOCATOR\_NONE}}
+\index{SIMPLEPIE\_LOCATOR\_NONE@{SIMPLEPIE\_LOCATOR\_NONE}!SimplePie.php@{SimplePie.php}}
+\doxysubsubsection{\texorpdfstring{SIMPLEPIE\_LOCATOR\_NONE}{SIMPLEPIE\_LOCATOR\_NONE}}
+{\footnotesize\ttfamily const SIMPLEPIE\+\_\+\+LOCATOR\+\_\+\+NONE 0}
+
+No Autodiscovery \begin{DoxySeeAlso}{Voir également}
+Simple\+Pie\+::set\+\_\+autodiscovery\+\_\+level() 
+\end{DoxySeeAlso}
+\Hypertarget{_simple_pie_8php_a9ef3832108fc772ee0c436aff6a625bf}\label{_simple_pie_8php_a9ef3832108fc772ee0c436aff6a625bf} 
+\index{SimplePie.php@{SimplePie.php}!SIMPLEPIE\_LOCATOR\_REMOTE\_BODY@{SIMPLEPIE\_LOCATOR\_REMOTE\_BODY}}
+\index{SIMPLEPIE\_LOCATOR\_REMOTE\_BODY@{SIMPLEPIE\_LOCATOR\_REMOTE\_BODY}!SimplePie.php@{SimplePie.php}}
+\doxysubsubsection{\texorpdfstring{SIMPLEPIE\_LOCATOR\_REMOTE\_BODY}{SIMPLEPIE\_LOCATOR\_REMOTE\_BODY}}
+{\footnotesize\ttfamily const SIMPLEPIE\+\_\+\+LOCATOR\+\_\+\+REMOTE\+\_\+\+BODY 16}
+
+Remote Feed Body Autodiscovery \begin{DoxySeeAlso}{Voir également}
+Simple\+Pie\+::set\+\_\+autodiscovery\+\_\+level() 
+\end{DoxySeeAlso}
+\Hypertarget{_simple_pie_8php_a2ff1da5e6b2da7c22b22e0d1e108d529}\label{_simple_pie_8php_a2ff1da5e6b2da7c22b22e0d1e108d529} 
+\index{SimplePie.php@{SimplePie.php}!SIMPLEPIE\_LOCATOR\_REMOTE\_EXTENSION@{SIMPLEPIE\_LOCATOR\_REMOTE\_EXTENSION}}
+\index{SIMPLEPIE\_LOCATOR\_REMOTE\_EXTENSION@{SIMPLEPIE\_LOCATOR\_REMOTE\_EXTENSION}!SimplePie.php@{SimplePie.php}}
+\doxysubsubsection{\texorpdfstring{SIMPLEPIE\_LOCATOR\_REMOTE\_EXTENSION}{SIMPLEPIE\_LOCATOR\_REMOTE\_EXTENSION}}
+{\footnotesize\ttfamily const SIMPLEPIE\+\_\+\+LOCATOR\+\_\+\+REMOTE\+\_\+\+EXTENSION 8}
+
+Remote Feed Extension Autodiscovery \begin{DoxySeeAlso}{Voir également}
+Simple\+Pie\+::set\+\_\+autodiscovery\+\_\+level() 
+\end{DoxySeeAlso}
+\Hypertarget{_simple_pie_8php_ac11935cc7850cd942419326db336c822}\label{_simple_pie_8php_ac11935cc7850cd942419326db336c822} 
+\index{SimplePie.php@{SimplePie.php}!SIMPLEPIE\_LOWERCASE@{SIMPLEPIE\_LOWERCASE}}
+\index{SIMPLEPIE\_LOWERCASE@{SIMPLEPIE\_LOWERCASE}!SimplePie.php@{SimplePie.php}}
+\doxysubsubsection{\texorpdfstring{SIMPLEPIE\_LOWERCASE}{SIMPLEPIE\_LOWERCASE}}
+{\footnotesize\ttfamily const SIMPLEPIE\+\_\+\+LOWERCASE 2}
+
+\doxylink{class_change}{Change} to lowercase \Hypertarget{_simple_pie_8php_ad343f27eb7687289c6a643b591f6420f}\label{_simple_pie_8php_ad343f27eb7687289c6a643b591f6420f} 
+\index{SimplePie.php@{SimplePie.php}!SIMPLEPIE\_NAME@{SIMPLEPIE\_NAME}}
+\index{SIMPLEPIE\_NAME@{SIMPLEPIE\_NAME}!SimplePie.php@{SimplePie.php}}
+\doxysubsubsection{\texorpdfstring{SIMPLEPIE\_NAME}{SIMPLEPIE\_NAME}}
+{\footnotesize\ttfamily const SIMPLEPIE\+\_\+\+NAME \textquotesingle{}\mbox{\hyperlink{class_simple_pie}{Simple\+Pie}}\textquotesingle{}}
+
+\doxylink{class_simple_pie}{Simple\+Pie} Name \Hypertarget{_simple_pie_8php_a9104e654d49e0eb26fe37583cc20e52f}\label{_simple_pie_8php_a9104e654d49e0eb26fe37583cc20e52f} 
+\index{SimplePie.php@{SimplePie.php}!SIMPLEPIE\_NAMESPACE\_ATOM\_03@{SIMPLEPIE\_NAMESPACE\_ATOM\_03}}
+\index{SIMPLEPIE\_NAMESPACE\_ATOM\_03@{SIMPLEPIE\_NAMESPACE\_ATOM\_03}!SimplePie.php@{SimplePie.php}}
+\doxysubsubsection{\texorpdfstring{SIMPLEPIE\_NAMESPACE\_ATOM\_03}{SIMPLEPIE\_NAMESPACE\_ATOM\_03}}
+{\footnotesize\ttfamily const SIMPLEPIE\+\_\+\+NAMESPACE\+\_\+\+ATOM\+\_\+03 \textquotesingle{}\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{http\+:}}//\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{purl.\+org}}/\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{atom}}/\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{ns}}\#\textquotesingle{}}
+
+Atom 0.\+3 Namespace \Hypertarget{_simple_pie_8php_a33c3585ac10f95c67ca7e797f5625707}\label{_simple_pie_8php_a33c3585ac10f95c67ca7e797f5625707} 
+\index{SimplePie.php@{SimplePie.php}!SIMPLEPIE\_NAMESPACE\_ATOM\_10@{SIMPLEPIE\_NAMESPACE\_ATOM\_10}}
+\index{SIMPLEPIE\_NAMESPACE\_ATOM\_10@{SIMPLEPIE\_NAMESPACE\_ATOM\_10}!SimplePie.php@{SimplePie.php}}
+\doxysubsubsection{\texorpdfstring{SIMPLEPIE\_NAMESPACE\_ATOM\_10}{SIMPLEPIE\_NAMESPACE\_ATOM\_10}}
+{\footnotesize\ttfamily const SIMPLEPIE\+\_\+\+NAMESPACE\+\_\+\+ATOM\+\_\+10 \textquotesingle{}\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{http\+:}}//\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{www.\+w3.\+org}}/2005/\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{Atom}}\textquotesingle{}}
+
+Atom 1.\+0 Namespace \Hypertarget{_simple_pie_8php_a7b8c374b79ce366db33428ca42685a90}\label{_simple_pie_8php_a7b8c374b79ce366db33428ca42685a90} 
+\index{SimplePie.php@{SimplePie.php}!SIMPLEPIE\_NAMESPACE\_DC\_10@{SIMPLEPIE\_NAMESPACE\_DC\_10}}
+\index{SIMPLEPIE\_NAMESPACE\_DC\_10@{SIMPLEPIE\_NAMESPACE\_DC\_10}!SimplePie.php@{SimplePie.php}}
+\doxysubsubsection{\texorpdfstring{SIMPLEPIE\_NAMESPACE\_DC\_10}{SIMPLEPIE\_NAMESPACE\_DC\_10}}
+{\footnotesize\ttfamily const SIMPLEPIE\+\_\+\+NAMESPACE\+\_\+\+DC\+\_\+10 \textquotesingle{}\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{http\+:}}//\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{purl.\+org}}/\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{dc}}/\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{elements}}/1.\+0/\textquotesingle{}}
+
+DC 1.\+0 Namespace \Hypertarget{_simple_pie_8php_a96fec98542c11980776fef2172192198}\label{_simple_pie_8php_a96fec98542c11980776fef2172192198} 
+\index{SimplePie.php@{SimplePie.php}!SIMPLEPIE\_NAMESPACE\_DC\_11@{SIMPLEPIE\_NAMESPACE\_DC\_11}}
+\index{SIMPLEPIE\_NAMESPACE\_DC\_11@{SIMPLEPIE\_NAMESPACE\_DC\_11}!SimplePie.php@{SimplePie.php}}
+\doxysubsubsection{\texorpdfstring{SIMPLEPIE\_NAMESPACE\_DC\_11}{SIMPLEPIE\_NAMESPACE\_DC\_11}}
+{\footnotesize\ttfamily const SIMPLEPIE\+\_\+\+NAMESPACE\+\_\+\+DC\+\_\+11 \textquotesingle{}\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{http\+:}}//\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{purl.\+org}}/\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{dc}}/\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{elements}}/1.\+1/\textquotesingle{}}
+
+DC 1.\+1 Namespace \Hypertarget{_simple_pie_8php_a627614340191436af0ece34cf43d369e}\label{_simple_pie_8php_a627614340191436af0ece34cf43d369e} 
+\index{SimplePie.php@{SimplePie.php}!SIMPLEPIE\_NAMESPACE\_GEORSS@{SIMPLEPIE\_NAMESPACE\_GEORSS}}
+\index{SIMPLEPIE\_NAMESPACE\_GEORSS@{SIMPLEPIE\_NAMESPACE\_GEORSS}!SimplePie.php@{SimplePie.php}}
+\doxysubsubsection{\texorpdfstring{SIMPLEPIE\_NAMESPACE\_GEORSS}{SIMPLEPIE\_NAMESPACE\_GEORSS}}
+{\footnotesize\ttfamily const SIMPLEPIE\+\_\+\+NAMESPACE\+\_\+\+GEORSS \textquotesingle{}\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{http\+:}}//\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{www.\+georss.\+org}}/\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{georss}}\textquotesingle{}}
+
+Geo\+RSS Namespace \Hypertarget{_simple_pie_8php_a9bf48f20384caed72408017d3e52a1a5}\label{_simple_pie_8php_a9bf48f20384caed72408017d3e52a1a5} 
+\index{SimplePie.php@{SimplePie.php}!SIMPLEPIE\_NAMESPACE\_ITUNES@{SIMPLEPIE\_NAMESPACE\_ITUNES}}
+\index{SIMPLEPIE\_NAMESPACE\_ITUNES@{SIMPLEPIE\_NAMESPACE\_ITUNES}!SimplePie.php@{SimplePie.php}}
+\doxysubsubsection{\texorpdfstring{SIMPLEPIE\_NAMESPACE\_ITUNES}{SIMPLEPIE\_NAMESPACE\_ITUNES}}
+{\footnotesize\ttfamily const SIMPLEPIE\+\_\+\+NAMESPACE\+\_\+\+ITUNES \textquotesingle{}\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{http\+:}}//www.\+itunes.\+com/\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{dtds}}/\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{podcast}}-\/1.\+0.\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{dtd}}\textquotesingle{}}
+
+i\+Tunes RSS Namespace \Hypertarget{_simple_pie_8php_a842afeae791c74d2aab19438bf6f3f55}\label{_simple_pie_8php_a842afeae791c74d2aab19438bf6f3f55} 
+\index{SimplePie.php@{SimplePie.php}!SIMPLEPIE\_NAMESPACE\_MEDIARSS@{SIMPLEPIE\_NAMESPACE\_MEDIARSS}}
+\index{SIMPLEPIE\_NAMESPACE\_MEDIARSS@{SIMPLEPIE\_NAMESPACE\_MEDIARSS}!SimplePie.php@{SimplePie.php}}
+\doxysubsubsection{\texorpdfstring{SIMPLEPIE\_NAMESPACE\_MEDIARSS}{SIMPLEPIE\_NAMESPACE\_MEDIARSS}}
+{\footnotesize\ttfamily const SIMPLEPIE\+\_\+\+NAMESPACE\+\_\+\+MEDIARSS \textquotesingle{}\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{http\+:}}//search.\+yahoo.\+com/\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{mrss}}/\textquotesingle{}}
+
+Media RSS Namespace \Hypertarget{_simple_pie_8php_a0966d98d59b93000ccffc0aef28e2863}\label{_simple_pie_8php_a0966d98d59b93000ccffc0aef28e2863} 
+\index{SimplePie.php@{SimplePie.php}!SIMPLEPIE\_NAMESPACE\_MEDIARSS\_WRONG@{SIMPLEPIE\_NAMESPACE\_MEDIARSS\_WRONG}}
+\index{SIMPLEPIE\_NAMESPACE\_MEDIARSS\_WRONG@{SIMPLEPIE\_NAMESPACE\_MEDIARSS\_WRONG}!SimplePie.php@{SimplePie.php}}
+\doxysubsubsection{\texorpdfstring{SIMPLEPIE\_NAMESPACE\_MEDIARSS\_WRONG}{SIMPLEPIE\_NAMESPACE\_MEDIARSS\_WRONG}}
+{\footnotesize\ttfamily const SIMPLEPIE\+\_\+\+NAMESPACE\+\_\+\+MEDIARSS\+\_\+\+WRONG \textquotesingle{}\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{http\+:}}//search.\+yahoo.\+com/\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{mrss}}\textquotesingle{}}
+
+Wrong Media RSS Namespace. Caused by a long-\/standing typo in the spec. \Hypertarget{_simple_pie_8php_a93f8b5fde6c9c66ba97250731bdd507b}\label{_simple_pie_8php_a93f8b5fde6c9c66ba97250731bdd507b} 
+\index{SimplePie.php@{SimplePie.php}!SIMPLEPIE\_NAMESPACE\_MEDIARSS\_WRONG2@{SIMPLEPIE\_NAMESPACE\_MEDIARSS\_WRONG2}}
+\index{SIMPLEPIE\_NAMESPACE\_MEDIARSS\_WRONG2@{SIMPLEPIE\_NAMESPACE\_MEDIARSS\_WRONG2}!SimplePie.php@{SimplePie.php}}
+\doxysubsubsection{\texorpdfstring{SIMPLEPIE\_NAMESPACE\_MEDIARSS\_WRONG2}{SIMPLEPIE\_NAMESPACE\_MEDIARSS\_WRONG2}}
+{\footnotesize\ttfamily const SIMPLEPIE\+\_\+\+NAMESPACE\+\_\+\+MEDIARSS\+\_\+\+WRONG2 \textquotesingle{}\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{http\+:}}//video.\+search.\+yahoo.\+com/\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{mrss}}\textquotesingle{}}
+
+Wrong Media RSS Namespace \#2. New namespace introduced in Media RSS 1.\+5. \Hypertarget{_simple_pie_8php_a942be2068eba8f6aade427b2b76f8371}\label{_simple_pie_8php_a942be2068eba8f6aade427b2b76f8371} 
+\index{SimplePie.php@{SimplePie.php}!SIMPLEPIE\_NAMESPACE\_MEDIARSS\_WRONG3@{SIMPLEPIE\_NAMESPACE\_MEDIARSS\_WRONG3}}
+\index{SIMPLEPIE\_NAMESPACE\_MEDIARSS\_WRONG3@{SIMPLEPIE\_NAMESPACE\_MEDIARSS\_WRONG3}!SimplePie.php@{SimplePie.php}}
+\doxysubsubsection{\texorpdfstring{SIMPLEPIE\_NAMESPACE\_MEDIARSS\_WRONG3}{SIMPLEPIE\_NAMESPACE\_MEDIARSS\_WRONG3}}
+{\footnotesize\ttfamily const SIMPLEPIE\+\_\+\+NAMESPACE\+\_\+\+MEDIARSS\+\_\+\+WRONG3 \textquotesingle{}\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{http\+:}}//video.\+search.\+yahoo.\+com/\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{mrss}}/\textquotesingle{}}
+
+Wrong Media RSS Namespace \#3. A possible typo of the Media RSS 1.\+5 namespace. \Hypertarget{_simple_pie_8php_a100537c9e7bc6517c34ff8b31f34512a}\label{_simple_pie_8php_a100537c9e7bc6517c34ff8b31f34512a} 
+\index{SimplePie.php@{SimplePie.php}!SIMPLEPIE\_NAMESPACE\_MEDIARSS\_WRONG4@{SIMPLEPIE\_NAMESPACE\_MEDIARSS\_WRONG4}}
+\index{SIMPLEPIE\_NAMESPACE\_MEDIARSS\_WRONG4@{SIMPLEPIE\_NAMESPACE\_MEDIARSS\_WRONG4}!SimplePie.php@{SimplePie.php}}
+\doxysubsubsection{\texorpdfstring{SIMPLEPIE\_NAMESPACE\_MEDIARSS\_WRONG4}{SIMPLEPIE\_NAMESPACE\_MEDIARSS\_WRONG4}}
+{\footnotesize\ttfamily const SIMPLEPIE\+\_\+\+NAMESPACE\+\_\+\+MEDIARSS\+\_\+\+WRONG4 \textquotesingle{}\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{http\+:}}//\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{www.\+rssboard.\+org}}/\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{media}}-\/\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{rss}}\textquotesingle{}}
+
+Wrong Media RSS Namespace \#4. New spec location after the RSS Advisory Board takes it over, but not a valid namespace. \Hypertarget{_simple_pie_8php_acc22230d08bdb2e3573e86c4b0fbed9c}\label{_simple_pie_8php_acc22230d08bdb2e3573e86c4b0fbed9c} 
+\index{SimplePie.php@{SimplePie.php}!SIMPLEPIE\_NAMESPACE\_MEDIARSS\_WRONG5@{SIMPLEPIE\_NAMESPACE\_MEDIARSS\_WRONG5}}
+\index{SIMPLEPIE\_NAMESPACE\_MEDIARSS\_WRONG5@{SIMPLEPIE\_NAMESPACE\_MEDIARSS\_WRONG5}!SimplePie.php@{SimplePie.php}}
+\doxysubsubsection{\texorpdfstring{SIMPLEPIE\_NAMESPACE\_MEDIARSS\_WRONG5}{SIMPLEPIE\_NAMESPACE\_MEDIARSS\_WRONG5}}
+{\footnotesize\ttfamily const SIMPLEPIE\+\_\+\+NAMESPACE\+\_\+\+MEDIARSS\+\_\+\+WRONG5 \textquotesingle{}\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{http\+:}}//\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{www.\+rssboard.\+org}}/\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{media}}-\/\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{rss}}/\textquotesingle{}}
+
+Wrong Media RSS Namespace \#5. A possible typo of the RSS Advisory Board URL. \Hypertarget{_simple_pie_8php_af3206ab9444e30f971a3b6d03456b8a3}\label{_simple_pie_8php_af3206ab9444e30f971a3b6d03456b8a3} 
+\index{SimplePie.php@{SimplePie.php}!SIMPLEPIE\_NAMESPACE\_RDF@{SIMPLEPIE\_NAMESPACE\_RDF}}
+\index{SIMPLEPIE\_NAMESPACE\_RDF@{SIMPLEPIE\_NAMESPACE\_RDF}!SimplePie.php@{SimplePie.php}}
+\doxysubsubsection{\texorpdfstring{SIMPLEPIE\_NAMESPACE\_RDF}{SIMPLEPIE\_NAMESPACE\_RDF}}
+{\footnotesize\ttfamily const SIMPLEPIE\+\_\+\+NAMESPACE\+\_\+\+RDF \textquotesingle{}\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{http\+:}}//\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{www.\+w3.\+org}}/1999/02/22-\/\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{rdf}}-\/\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{syntax}}-\/\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{ns}}\#\textquotesingle{}}
+
+RDF Namespace \Hypertarget{_simple_pie_8php_a52b603e52d563c0a3cc05018f405e819}\label{_simple_pie_8php_a52b603e52d563c0a3cc05018f405e819} 
+\index{SimplePie.php@{SimplePie.php}!SIMPLEPIE\_NAMESPACE\_RSS\_090@{SIMPLEPIE\_NAMESPACE\_RSS\_090}}
+\index{SIMPLEPIE\_NAMESPACE\_RSS\_090@{SIMPLEPIE\_NAMESPACE\_RSS\_090}!SimplePie.php@{SimplePie.php}}
+\doxysubsubsection{\texorpdfstring{SIMPLEPIE\_NAMESPACE\_RSS\_090}{SIMPLEPIE\_NAMESPACE\_RSS\_090}}
+{\footnotesize\ttfamily const SIMPLEPIE\+\_\+\+NAMESPACE\+\_\+\+RSS\+\_\+090 \textquotesingle{}\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{http\+:}}//my.\+netscape.\+com/\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{rdf}}/\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{simple}}/0.\+9/\textquotesingle{}}
+
+RSS 0.\+90 Namespace \Hypertarget{_simple_pie_8php_af30963669d3f18d727407a20357f7de5}\label{_simple_pie_8php_af30963669d3f18d727407a20357f7de5} 
+\index{SimplePie.php@{SimplePie.php}!SIMPLEPIE\_NAMESPACE\_RSS\_10@{SIMPLEPIE\_NAMESPACE\_RSS\_10}}
+\index{SIMPLEPIE\_NAMESPACE\_RSS\_10@{SIMPLEPIE\_NAMESPACE\_RSS\_10}!SimplePie.php@{SimplePie.php}}
+\doxysubsubsection{\texorpdfstring{SIMPLEPIE\_NAMESPACE\_RSS\_10}{SIMPLEPIE\_NAMESPACE\_RSS\_10}}
+{\footnotesize\ttfamily const SIMPLEPIE\+\_\+\+NAMESPACE\+\_\+\+RSS\+\_\+10 \textquotesingle{}\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{http\+:}}//\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{purl.\+org}}/\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{rss}}/1.\+0/\textquotesingle{}}
+
+RSS 1.\+0 Namespace \Hypertarget{_simple_pie_8php_ac5ae4b6b9f8ea48bfa9d983ba53f9b4d}\label{_simple_pie_8php_ac5ae4b6b9f8ea48bfa9d983ba53f9b4d} 
+\index{SimplePie.php@{SimplePie.php}!SIMPLEPIE\_NAMESPACE\_RSS\_10\_MODULES\_CONTENT@{SIMPLEPIE\_NAMESPACE\_RSS\_10\_MODULES\_CONTENT}}
+\index{SIMPLEPIE\_NAMESPACE\_RSS\_10\_MODULES\_CONTENT@{SIMPLEPIE\_NAMESPACE\_RSS\_10\_MODULES\_CONTENT}!SimplePie.php@{SimplePie.php}}
+\doxysubsubsection{\texorpdfstring{SIMPLEPIE\_NAMESPACE\_RSS\_10\_MODULES\_CONTENT}{SIMPLEPIE\_NAMESPACE\_RSS\_10\_MODULES\_CONTENT}}
+{\footnotesize\ttfamily const SIMPLEPIE\+\_\+\+NAMESPACE\+\_\+\+RSS\+\_\+10\+\_\+\+MODULES\+\_\+\+CONTENT \textquotesingle{}\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{http\+:}}//\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{purl.\+org}}/\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{rss}}/1.\+0/\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{modules}}/\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{content}}/\textquotesingle{}}
+
+RSS 1.\+0 Content Module Namespace \Hypertarget{_simple_pie_8php_ab62c764df936ea8225b833dfb298772e}\label{_simple_pie_8php_ab62c764df936ea8225b833dfb298772e} 
+\index{SimplePie.php@{SimplePie.php}!SIMPLEPIE\_NAMESPACE\_RSS\_20@{SIMPLEPIE\_NAMESPACE\_RSS\_20}}
+\index{SIMPLEPIE\_NAMESPACE\_RSS\_20@{SIMPLEPIE\_NAMESPACE\_RSS\_20}!SimplePie.php@{SimplePie.php}}
+\doxysubsubsection{\texorpdfstring{SIMPLEPIE\_NAMESPACE\_RSS\_20}{SIMPLEPIE\_NAMESPACE\_RSS\_20}}
+{\footnotesize\ttfamily const SIMPLEPIE\+\_\+\+NAMESPACE\+\_\+\+RSS\+\_\+20 \textquotesingle{}\textquotesingle{}}
+
+RSS 2.\+0 Namespace (Stupid, I know, but I\textquotesingle{}m certain it will confuse people less with support.) \Hypertarget{_simple_pie_8php_a263da668da50013c79f5df3d27635e58}\label{_simple_pie_8php_a263da668da50013c79f5df3d27635e58} 
+\index{SimplePie.php@{SimplePie.php}!SIMPLEPIE\_NAMESPACE\_W3C\_BASIC\_GEO@{SIMPLEPIE\_NAMESPACE\_W3C\_BASIC\_GEO}}
+\index{SIMPLEPIE\_NAMESPACE\_W3C\_BASIC\_GEO@{SIMPLEPIE\_NAMESPACE\_W3C\_BASIC\_GEO}!SimplePie.php@{SimplePie.php}}
+\doxysubsubsection{\texorpdfstring{SIMPLEPIE\_NAMESPACE\_W3C\_BASIC\_GEO}{SIMPLEPIE\_NAMESPACE\_W3C\_BASIC\_GEO}}
+{\footnotesize\ttfamily const SIMPLEPIE\+\_\+\+NAMESPACE\+\_\+\+W3\+C\+\_\+\+BASIC\+\_\+\+GEO \textquotesingle{}\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{http\+:}}//\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{www.\+w3.\+org}}/2003/01/\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{geo}}/\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{wgs84\+\_\+pos}}\#\textquotesingle{}}
+
+W3C Basic Geo (WGS84 lat/long) Vocabulary Namespace \Hypertarget{_simple_pie_8php_aac4638a4c4b3b51173fba14c1bd85349}\label{_simple_pie_8php_aac4638a4c4b3b51173fba14c1bd85349} 
+\index{SimplePie.php@{SimplePie.php}!SIMPLEPIE\_NAMESPACE\_XHTML@{SIMPLEPIE\_NAMESPACE\_XHTML}}
+\index{SIMPLEPIE\_NAMESPACE\_XHTML@{SIMPLEPIE\_NAMESPACE\_XHTML}!SimplePie.php@{SimplePie.php}}
+\doxysubsubsection{\texorpdfstring{SIMPLEPIE\_NAMESPACE\_XHTML}{SIMPLEPIE\_NAMESPACE\_XHTML}}
+{\footnotesize\ttfamily const SIMPLEPIE\+\_\+\+NAMESPACE\+\_\+\+XHTML \textquotesingle{}\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{http\+:}}//\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{www.\+w3.\+org}}/1999/\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{xhtml}}\textquotesingle{}}
+
+XHTML Namespace \Hypertarget{_simple_pie_8php_a83ec91d7062bc133dee93483957391da}\label{_simple_pie_8php_a83ec91d7062bc133dee93483957391da} 
+\index{SimplePie.php@{SimplePie.php}!SIMPLEPIE\_NAMESPACE\_XML@{SIMPLEPIE\_NAMESPACE\_XML}}
+\index{SIMPLEPIE\_NAMESPACE\_XML@{SIMPLEPIE\_NAMESPACE\_XML}!SimplePie.php@{SimplePie.php}}
+\doxysubsubsection{\texorpdfstring{SIMPLEPIE\_NAMESPACE\_XML}{SIMPLEPIE\_NAMESPACE\_XML}}
+{\footnotesize\ttfamily const SIMPLEPIE\+\_\+\+NAMESPACE\+\_\+\+XML \textquotesingle{}\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{http\+:}}//\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{www.\+w3.\+org}}/\mbox{\hyperlink{class_x_m_l}{XML}}/1998/\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{namespace}}\textquotesingle{}}
+
+\doxylink{class_x_m_l}{XML} Namespace \Hypertarget{_simple_pie_8php_ae8d34a93fac87ed8c4090acddfcf9d67}\label{_simple_pie_8php_ae8d34a93fac87ed8c4090acddfcf9d67} 
+\index{SimplePie.php@{SimplePie.php}!SIMPLEPIE\_PCRE\_HTML\_ATTRIBUTE@{SIMPLEPIE\_PCRE\_HTML\_ATTRIBUTE}}
+\index{SIMPLEPIE\_PCRE\_HTML\_ATTRIBUTE@{SIMPLEPIE\_PCRE\_HTML\_ATTRIBUTE}!SimplePie.php@{SimplePie.php}}
+\doxysubsubsection{\texorpdfstring{SIMPLEPIE\_PCRE\_HTML\_ATTRIBUTE}{SIMPLEPIE\_PCRE\_HTML\_ATTRIBUTE}}
+{\footnotesize\ttfamily const SIMPLEPIE\+\_\+\+PCRE\+\_\+\+HTML\+\_\+\+ATTRIBUTE \textquotesingle{}((?\+:\mbox{[}\textbackslash{}\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{x09\textbackslash{}x0\+A\textbackslash{}x0\+B\textbackslash{}x0\+C\textbackslash{}x0\+D\textbackslash{}x20}}\mbox{]}+\mbox{[}\texorpdfstring{$^\wedge$}{\string^}\textbackslash{}\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{x09\textbackslash{}x0\+A\textbackslash{}x0\+B\textbackslash{}x0\+C\textbackslash{}x0\+D\textbackslash{}x20\textbackslash{}x2\+F\textbackslash{}x3E}}\mbox{]}\mbox{[}\texorpdfstring{$^\wedge$}{\string^}\textbackslash{}\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{x09\textbackslash{}x0\+A\textbackslash{}x0\+B\textbackslash{}x0\+C\textbackslash{}x0\+D\textbackslash{}x20\textbackslash{}x2\+F\textbackslash{}x3\+D\textbackslash{}x3E}}\mbox{]}\texorpdfstring{$\ast$}{*}(?\+:\mbox{[}\textbackslash{}\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{x09\textbackslash{}x0\+A\textbackslash{}x0\+B\textbackslash{}x0\+C\textbackslash{}x0\+D\textbackslash{}x20}}\mbox{]}\texorpdfstring{$\ast$}{*}=\mbox{[}\textbackslash{}\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{x09\textbackslash{}x0\+A\textbackslash{}x0\+B\textbackslash{}x0\+C\textbackslash{}x0\+D\textbackslash{}x20}}\mbox{]}\texorpdfstring{$\ast$}{*}(?\+:"{}(?\+:\mbox{[}\texorpdfstring{$^\wedge$}{\string^}"{}\mbox{]}\texorpdfstring{$\ast$}{*})"{}\texorpdfstring{$\vert$}{|}\textbackslash{}\textquotesingle{}(?\+:\mbox{[}\texorpdfstring{$^\wedge$}{\string^}\textbackslash{}\textquotesingle{}\mbox{]}\texorpdfstring{$\ast$}{*})\textbackslash{}\textquotesingle{}\texorpdfstring{$\vert$}{|}(?\+:\mbox{[}\texorpdfstring{$^\wedge$}{\string^}\textbackslash{}x09\textbackslash{}x0\+A\textbackslash{}x0\+B\textbackslash{}x0\+C\textbackslash{}x0\+D\textbackslash{}x20\textbackslash{}x22\textbackslash{}x27\textbackslash{}x3E\mbox{]}\mbox{[}\texorpdfstring{$^\wedge$}{\string^}\textbackslash{}\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{x09\textbackslash{}x0\+A\textbackslash{}x0\+B\textbackslash{}x0\+C\textbackslash{}x0\+D\textbackslash{}x20\textbackslash{}x3E}}\mbox{]}\texorpdfstring{$\ast$}{*})?))?)\texorpdfstring{$\ast$}{*})\mbox{[}\textbackslash{}\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{x09\textbackslash{}x0\+A\textbackslash{}x0\+B\textbackslash{}x0\+C\textbackslash{}x0\+D\textbackslash{}x20}}\mbox{]}\texorpdfstring{$\ast$}{*}\textquotesingle{}}
+
+PCRE for HTML attributes \Hypertarget{_simple_pie_8php_aef3cca39609e207451efeffc1364a546}\label{_simple_pie_8php_aef3cca39609e207451efeffc1364a546} 
+\index{SimplePie.php@{SimplePie.php}!SIMPLEPIE\_PCRE\_XML\_ATTRIBUTE@{SIMPLEPIE\_PCRE\_XML\_ATTRIBUTE}}
+\index{SIMPLEPIE\_PCRE\_XML\_ATTRIBUTE@{SIMPLEPIE\_PCRE\_XML\_ATTRIBUTE}!SimplePie.php@{SimplePie.php}}
+\doxysubsubsection{\texorpdfstring{SIMPLEPIE\_PCRE\_XML\_ATTRIBUTE}{SIMPLEPIE\_PCRE\_XML\_ATTRIBUTE}}
+{\footnotesize\ttfamily const SIMPLEPIE\+\_\+\+PCRE\+\_\+\+XML\+\_\+\+ATTRIBUTE \textquotesingle{}((?\+:\textbackslash{}s+(?\+:(?\+:\mbox{[}\texorpdfstring{$^\wedge$}{\string^}\textbackslash{}\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{s\+:}}\mbox{]}+\+:)?\mbox{[}\texorpdfstring{$^\wedge$}{\string^}\textbackslash{}\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{s\+:}}\mbox{]}+)\textbackslash{}s\texorpdfstring{$\ast$}{*}=\textbackslash{}s\texorpdfstring{$\ast$}{*}(?\+:"{}(?\+:\mbox{[}\texorpdfstring{$^\wedge$}{\string^}"{}\mbox{]}\texorpdfstring{$\ast$}{*})"{}\texorpdfstring{$\vert$}{|}\textbackslash{}\textquotesingle{}(?\+:\mbox{[}\texorpdfstring{$^\wedge$}{\string^}\textbackslash{}\textquotesingle{}\mbox{]}\texorpdfstring{$\ast$}{*})\textbackslash{}\textquotesingle{}))\texorpdfstring{$\ast$}{*})\textbackslash{}s\texorpdfstring{$\ast$}{*}\textquotesingle{}}
+
+PCRE for \doxylink{class_x_m_l}{XML} attributes \Hypertarget{_simple_pie_8php_ad80a8b322741dea8352381f19b50cb59}\label{_simple_pie_8php_ad80a8b322741dea8352381f19b50cb59} 
+\index{SimplePie.php@{SimplePie.php}!SIMPLEPIE\_SAME\_CASE@{SIMPLEPIE\_SAME\_CASE}}
+\index{SIMPLEPIE\_SAME\_CASE@{SIMPLEPIE\_SAME\_CASE}!SimplePie.php@{SimplePie.php}}
+\doxysubsubsection{\texorpdfstring{SIMPLEPIE\_SAME\_CASE}{SIMPLEPIE\_SAME\_CASE}}
+{\footnotesize\ttfamily const SIMPLEPIE\+\_\+\+SAME\+\_\+\+CASE 1}
+
+Don\textquotesingle{}t change case \Hypertarget{_simple_pie_8php_ac041c53630348f9b4e243f45a6bcc7a4}\label{_simple_pie_8php_ac041c53630348f9b4e243f45a6bcc7a4} 
+\index{SimplePie.php@{SimplePie.php}!SIMPLEPIE\_TYPE\_ALL@{SIMPLEPIE\_TYPE\_ALL}}
+\index{SIMPLEPIE\_TYPE\_ALL@{SIMPLEPIE\_TYPE\_ALL}!SimplePie.php@{SimplePie.php}}
+\doxysubsubsection{\texorpdfstring{SIMPLEPIE\_TYPE\_ALL}{SIMPLEPIE\_TYPE\_ALL}}
+{\footnotesize\ttfamily const SIMPLEPIE\+\_\+\+TYPE\+\_\+\+ALL 1023}
+
+All feed types \Hypertarget{_simple_pie_8php_a7bb49b4c097ff7beb9db034847eda613}\label{_simple_pie_8php_a7bb49b4c097ff7beb9db034847eda613} 
+\index{SimplePie.php@{SimplePie.php}!SIMPLEPIE\_TYPE\_ATOM\_03@{SIMPLEPIE\_TYPE\_ATOM\_03}}
+\index{SIMPLEPIE\_TYPE\_ATOM\_03@{SIMPLEPIE\_TYPE\_ATOM\_03}!SimplePie.php@{SimplePie.php}}
+\doxysubsubsection{\texorpdfstring{SIMPLEPIE\_TYPE\_ATOM\_03}{SIMPLEPIE\_TYPE\_ATOM\_03}}
+{\footnotesize\ttfamily const SIMPLEPIE\+\_\+\+TYPE\+\_\+\+ATOM\+\_\+03 256}
+
+Atom 0.\+3 \Hypertarget{_simple_pie_8php_a94ef8488ab54234e60d2ba79485e3f73}\label{_simple_pie_8php_a94ef8488ab54234e60d2ba79485e3f73} 
+\index{SimplePie.php@{SimplePie.php}!SIMPLEPIE\_TYPE\_ATOM\_10@{SIMPLEPIE\_TYPE\_ATOM\_10}}
+\index{SIMPLEPIE\_TYPE\_ATOM\_10@{SIMPLEPIE\_TYPE\_ATOM\_10}!SimplePie.php@{SimplePie.php}}
+\doxysubsubsection{\texorpdfstring{SIMPLEPIE\_TYPE\_ATOM\_10}{SIMPLEPIE\_TYPE\_ATOM\_10}}
+{\footnotesize\ttfamily const SIMPLEPIE\+\_\+\+TYPE\+\_\+\+ATOM\+\_\+10 512}
+
+Atom 1.\+0 \Hypertarget{_simple_pie_8php_ac317fe94790c4ac5a5a554440d68822e}\label{_simple_pie_8php_ac317fe94790c4ac5a5a554440d68822e} 
+\index{SimplePie.php@{SimplePie.php}!SIMPLEPIE\_TYPE\_ATOM\_ALL@{SIMPLEPIE\_TYPE\_ATOM\_ALL}}
+\index{SIMPLEPIE\_TYPE\_ATOM\_ALL@{SIMPLEPIE\_TYPE\_ATOM\_ALL}!SimplePie.php@{SimplePie.php}}
+\doxysubsubsection{\texorpdfstring{SIMPLEPIE\_TYPE\_ATOM\_ALL}{SIMPLEPIE\_TYPE\_ATOM\_ALL}}
+{\footnotesize\ttfamily const SIMPLEPIE\+\_\+\+TYPE\+\_\+\+ATOM\+\_\+\+ALL 768}
+
+All Atom \Hypertarget{_simple_pie_8php_a2522cf3d1d9e4ff688435bcaaa34afe7}\label{_simple_pie_8php_a2522cf3d1d9e4ff688435bcaaa34afe7} 
+\index{SimplePie.php@{SimplePie.php}!SIMPLEPIE\_TYPE\_NONE@{SIMPLEPIE\_TYPE\_NONE}}
+\index{SIMPLEPIE\_TYPE\_NONE@{SIMPLEPIE\_TYPE\_NONE}!SimplePie.php@{SimplePie.php}}
+\doxysubsubsection{\texorpdfstring{SIMPLEPIE\_TYPE\_NONE}{SIMPLEPIE\_TYPE\_NONE}}
+{\footnotesize\ttfamily const SIMPLEPIE\+\_\+\+TYPE\+\_\+\+NONE 0}
+
+No known feed type \Hypertarget{_simple_pie_8php_a10644820ee2d8fb3f1eaeb81283c4ccd}\label{_simple_pie_8php_a10644820ee2d8fb3f1eaeb81283c4ccd} 
+\index{SimplePie.php@{SimplePie.php}!SIMPLEPIE\_TYPE\_RSS\_090@{SIMPLEPIE\_TYPE\_RSS\_090}}
+\index{SIMPLEPIE\_TYPE\_RSS\_090@{SIMPLEPIE\_TYPE\_RSS\_090}!SimplePie.php@{SimplePie.php}}
+\doxysubsubsection{\texorpdfstring{SIMPLEPIE\_TYPE\_RSS\_090}{SIMPLEPIE\_TYPE\_RSS\_090}}
+{\footnotesize\ttfamily const SIMPLEPIE\+\_\+\+TYPE\+\_\+\+RSS\+\_\+090 1}
+
+RSS 0.\+90 \Hypertarget{_simple_pie_8php_a720edec10788020c5417c2a697903e06}\label{_simple_pie_8php_a720edec10788020c5417c2a697903e06} 
+\index{SimplePie.php@{SimplePie.php}!SIMPLEPIE\_TYPE\_RSS\_091@{SIMPLEPIE\_TYPE\_RSS\_091}}
+\index{SIMPLEPIE\_TYPE\_RSS\_091@{SIMPLEPIE\_TYPE\_RSS\_091}!SimplePie.php@{SimplePie.php}}
+\doxysubsubsection{\texorpdfstring{SIMPLEPIE\_TYPE\_RSS\_091}{SIMPLEPIE\_TYPE\_RSS\_091}}
+{\footnotesize\ttfamily const SIMPLEPIE\+\_\+\+TYPE\+\_\+\+RSS\+\_\+091 6}
+
+RSS 0.\+91 (both Netscape and Userland) \Hypertarget{_simple_pie_8php_a94d5b6757603b451892f50ba78c2533a}\label{_simple_pie_8php_a94d5b6757603b451892f50ba78c2533a} 
+\index{SimplePie.php@{SimplePie.php}!SIMPLEPIE\_TYPE\_RSS\_091\_NETSCAPE@{SIMPLEPIE\_TYPE\_RSS\_091\_NETSCAPE}}
+\index{SIMPLEPIE\_TYPE\_RSS\_091\_NETSCAPE@{SIMPLEPIE\_TYPE\_RSS\_091\_NETSCAPE}!SimplePie.php@{SimplePie.php}}
+\doxysubsubsection{\texorpdfstring{SIMPLEPIE\_TYPE\_RSS\_091\_NETSCAPE}{SIMPLEPIE\_TYPE\_RSS\_091\_NETSCAPE}}
+{\footnotesize\ttfamily const SIMPLEPIE\+\_\+\+TYPE\+\_\+\+RSS\+\_\+091\+\_\+\+NETSCAPE 2}
+
+RSS 0.\+91 (Netscape) \Hypertarget{_simple_pie_8php_a15ce2fe24c88e2e3bc7fc831b4439316}\label{_simple_pie_8php_a15ce2fe24c88e2e3bc7fc831b4439316} 
+\index{SimplePie.php@{SimplePie.php}!SIMPLEPIE\_TYPE\_RSS\_091\_USERLAND@{SIMPLEPIE\_TYPE\_RSS\_091\_USERLAND}}
+\index{SIMPLEPIE\_TYPE\_RSS\_091\_USERLAND@{SIMPLEPIE\_TYPE\_RSS\_091\_USERLAND}!SimplePie.php@{SimplePie.php}}
+\doxysubsubsection{\texorpdfstring{SIMPLEPIE\_TYPE\_RSS\_091\_USERLAND}{SIMPLEPIE\_TYPE\_RSS\_091\_USERLAND}}
+{\footnotesize\ttfamily const SIMPLEPIE\+\_\+\+TYPE\+\_\+\+RSS\+\_\+091\+\_\+\+USERLAND 4}
+
+RSS 0.\+91 (Userland) \Hypertarget{_simple_pie_8php_abb6da0ec041150f0dda721f15d4cc30e}\label{_simple_pie_8php_abb6da0ec041150f0dda721f15d4cc30e} 
+\index{SimplePie.php@{SimplePie.php}!SIMPLEPIE\_TYPE\_RSS\_092@{SIMPLEPIE\_TYPE\_RSS\_092}}
+\index{SIMPLEPIE\_TYPE\_RSS\_092@{SIMPLEPIE\_TYPE\_RSS\_092}!SimplePie.php@{SimplePie.php}}
+\doxysubsubsection{\texorpdfstring{SIMPLEPIE\_TYPE\_RSS\_092}{SIMPLEPIE\_TYPE\_RSS\_092}}
+{\footnotesize\ttfamily const SIMPLEPIE\+\_\+\+TYPE\+\_\+\+RSS\+\_\+092 8}
+
+RSS 0.\+92 \Hypertarget{_simple_pie_8php_a8f547d774ea35d5b07b9b73e27b776ac}\label{_simple_pie_8php_a8f547d774ea35d5b07b9b73e27b776ac} 
+\index{SimplePie.php@{SimplePie.php}!SIMPLEPIE\_TYPE\_RSS\_093@{SIMPLEPIE\_TYPE\_RSS\_093}}
+\index{SIMPLEPIE\_TYPE\_RSS\_093@{SIMPLEPIE\_TYPE\_RSS\_093}!SimplePie.php@{SimplePie.php}}
+\doxysubsubsection{\texorpdfstring{SIMPLEPIE\_TYPE\_RSS\_093}{SIMPLEPIE\_TYPE\_RSS\_093}}
+{\footnotesize\ttfamily const SIMPLEPIE\+\_\+\+TYPE\+\_\+\+RSS\+\_\+093 16}
+
+RSS 0.\+93 \Hypertarget{_simple_pie_8php_a9b44ed65ab248d80bbdc0552cb12b973}\label{_simple_pie_8php_a9b44ed65ab248d80bbdc0552cb12b973} 
+\index{SimplePie.php@{SimplePie.php}!SIMPLEPIE\_TYPE\_RSS\_094@{SIMPLEPIE\_TYPE\_RSS\_094}}
+\index{SIMPLEPIE\_TYPE\_RSS\_094@{SIMPLEPIE\_TYPE\_RSS\_094}!SimplePie.php@{SimplePie.php}}
+\doxysubsubsection{\texorpdfstring{SIMPLEPIE\_TYPE\_RSS\_094}{SIMPLEPIE\_TYPE\_RSS\_094}}
+{\footnotesize\ttfamily const SIMPLEPIE\+\_\+\+TYPE\+\_\+\+RSS\+\_\+094 32}
+
+RSS 0.\+94 \Hypertarget{_simple_pie_8php_aac2c4954a4b922d76f5e2cdcfe27e458}\label{_simple_pie_8php_aac2c4954a4b922d76f5e2cdcfe27e458} 
+\index{SimplePie.php@{SimplePie.php}!SIMPLEPIE\_TYPE\_RSS\_10@{SIMPLEPIE\_TYPE\_RSS\_10}}
+\index{SIMPLEPIE\_TYPE\_RSS\_10@{SIMPLEPIE\_TYPE\_RSS\_10}!SimplePie.php@{SimplePie.php}}
+\doxysubsubsection{\texorpdfstring{SIMPLEPIE\_TYPE\_RSS\_10}{SIMPLEPIE\_TYPE\_RSS\_10}}
+{\footnotesize\ttfamily const SIMPLEPIE\+\_\+\+TYPE\+\_\+\+RSS\+\_\+10 64}
+
+RSS 1.\+0 \Hypertarget{_simple_pie_8php_ae39c46f11a574e880fee23fa974699ca}\label{_simple_pie_8php_ae39c46f11a574e880fee23fa974699ca} 
+\index{SimplePie.php@{SimplePie.php}!SIMPLEPIE\_TYPE\_RSS\_20@{SIMPLEPIE\_TYPE\_RSS\_20}}
+\index{SIMPLEPIE\_TYPE\_RSS\_20@{SIMPLEPIE\_TYPE\_RSS\_20}!SimplePie.php@{SimplePie.php}}
+\doxysubsubsection{\texorpdfstring{SIMPLEPIE\_TYPE\_RSS\_20}{SIMPLEPIE\_TYPE\_RSS\_20}}
+{\footnotesize\ttfamily const SIMPLEPIE\+\_\+\+TYPE\+\_\+\+RSS\+\_\+20 128}
+
+RSS 2.\+0 \Hypertarget{_simple_pie_8php_a4b9d8b61fafa46566cdaa486b4587c40}\label{_simple_pie_8php_a4b9d8b61fafa46566cdaa486b4587c40} 
+\index{SimplePie.php@{SimplePie.php}!SIMPLEPIE\_TYPE\_RSS\_ALL@{SIMPLEPIE\_TYPE\_RSS\_ALL}}
+\index{SIMPLEPIE\_TYPE\_RSS\_ALL@{SIMPLEPIE\_TYPE\_RSS\_ALL}!SimplePie.php@{SimplePie.php}}
+\doxysubsubsection{\texorpdfstring{SIMPLEPIE\_TYPE\_RSS\_ALL}{SIMPLEPIE\_TYPE\_RSS\_ALL}}
+{\footnotesize\ttfamily const SIMPLEPIE\+\_\+\+TYPE\+\_\+\+RSS\+\_\+\+ALL 255}
+
+All RSS \Hypertarget{_simple_pie_8php_a607f9ad10afe52936b666c49860c76f3}\label{_simple_pie_8php_a607f9ad10afe52936b666c49860c76f3} 
+\index{SimplePie.php@{SimplePie.php}!SIMPLEPIE\_TYPE\_RSS\_RDF@{SIMPLEPIE\_TYPE\_RSS\_RDF}}
+\index{SIMPLEPIE\_TYPE\_RSS\_RDF@{SIMPLEPIE\_TYPE\_RSS\_RDF}!SimplePie.php@{SimplePie.php}}
+\doxysubsubsection{\texorpdfstring{SIMPLEPIE\_TYPE\_RSS\_RDF}{SIMPLEPIE\_TYPE\_RSS\_RDF}}
+{\footnotesize\ttfamily const SIMPLEPIE\+\_\+\+TYPE\+\_\+\+RSS\+\_\+\+RDF 65}
+
+RDF-\/based RSS \Hypertarget{_simple_pie_8php_adb6c8895db852aef6c77a959cce176fa}\label{_simple_pie_8php_adb6c8895db852aef6c77a959cce176fa} 
+\index{SimplePie.php@{SimplePie.php}!SIMPLEPIE\_TYPE\_RSS\_SYNDICATION@{SIMPLEPIE\_TYPE\_RSS\_SYNDICATION}}
+\index{SIMPLEPIE\_TYPE\_RSS\_SYNDICATION@{SIMPLEPIE\_TYPE\_RSS\_SYNDICATION}!SimplePie.php@{SimplePie.php}}
+\doxysubsubsection{\texorpdfstring{SIMPLEPIE\_TYPE\_RSS\_SYNDICATION}{SIMPLEPIE\_TYPE\_RSS\_SYNDICATION}}
+{\footnotesize\ttfamily const SIMPLEPIE\+\_\+\+TYPE\+\_\+\+RSS\+\_\+\+SYNDICATION 190}
+
+Non-\/\+RDF-\/based RSS (truly intended as syndication format) \Hypertarget{_simple_pie_8php_a62ecba655e871e25658db827450dc75e}\label{_simple_pie_8php_a62ecba655e871e25658db827450dc75e} 
+\index{SimplePie.php@{SimplePie.php}!SIMPLEPIE\_UPPERCASE@{SIMPLEPIE\_UPPERCASE}}
+\index{SIMPLEPIE\_UPPERCASE@{SIMPLEPIE\_UPPERCASE}!SimplePie.php@{SimplePie.php}}
+\doxysubsubsection{\texorpdfstring{SIMPLEPIE\_UPPERCASE}{SIMPLEPIE\_UPPERCASE}}
+{\footnotesize\ttfamily const SIMPLEPIE\+\_\+\+UPPERCASE 4}
+
+\doxylink{class_change}{Change} to uppercase \Hypertarget{_simple_pie_8php_a90062b76fdd188ca507e7d2a2b296ce2}\label{_simple_pie_8php_a90062b76fdd188ca507e7d2a2b296ce2} 
+\index{SimplePie.php@{SimplePie.php}!SIMPLEPIE\_URL@{SIMPLEPIE\_URL}}
+\index{SIMPLEPIE\_URL@{SIMPLEPIE\_URL}!SimplePie.php@{SimplePie.php}}
+\doxysubsubsection{\texorpdfstring{SIMPLEPIE\_URL}{SIMPLEPIE\_URL}}
+{\footnotesize\ttfamily const SIMPLEPIE\+\_\+\+URL \textquotesingle{}\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{http\+:}}//\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{simplepie.\+org}}\textquotesingle{}}
+
+\doxylink{class_simple_pie}{Simple\+Pie} Website URL \Hypertarget{_simple_pie_8php_aa16b1a92eba4943f883b1f958edba8ef}\label{_simple_pie_8php_aa16b1a92eba4943f883b1f958edba8ef} 
+\index{SimplePie.php@{SimplePie.php}!SIMPLEPIE\_USERAGENT@{SIMPLEPIE\_USERAGENT}}
+\index{SIMPLEPIE\_USERAGENT@{SIMPLEPIE\_USERAGENT}!SimplePie.php@{SimplePie.php}}
+\doxysubsubsection{\texorpdfstring{SIMPLEPIE\_USERAGENT}{SIMPLEPIE\_USERAGENT}}
+{\footnotesize\ttfamily const SIMPLEPIE\+\_\+\+USERAGENT \mbox{\hyperlink{_simple_pie_8php_ad343f27eb7687289c6a643b591f6420f}{SIMPLEPIE\+\_\+\+NAME}} . \textquotesingle{}/\textquotesingle{} . \mbox{\hyperlink{_simple_pie_8php_a02a6b6b545973012f91d3736686dc101}{SIMPLEPIE\+\_\+\+VERSION}} . \textquotesingle{} (\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{Feed}} Parser; \textquotesingle{} . \mbox{\hyperlink{_simple_pie_8php_a90062b76fdd188ca507e7d2a2b296ce2}{SIMPLEPIE\+\_\+\+URL}} . \textquotesingle{}; \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{Allow}} \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{like}} \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{Gecko}}) Build/\textquotesingle{} . \mbox{\hyperlink{_simple_pie_8php_aa07226af0bfdcb06c21a4464624a08d2}{SIMPLEPIE\+\_\+\+BUILD}}}
+
+\doxylink{class_simple_pie}{Simple\+Pie} Useragent \begin{DoxySeeAlso}{Voir également}
+Simple\+Pie\+::set\+\_\+useragent() 
+\end{DoxySeeAlso}
+\Hypertarget{_simple_pie_8php_a02a6b6b545973012f91d3736686dc101}\label{_simple_pie_8php_a02a6b6b545973012f91d3736686dc101} 
+\index{SimplePie.php@{SimplePie.php}!SIMPLEPIE\_VERSION@{SIMPLEPIE\_VERSION}}
+\index{SIMPLEPIE\_VERSION@{SIMPLEPIE\_VERSION}!SimplePie.php@{SimplePie.php}}
+\doxysubsubsection{\texorpdfstring{SIMPLEPIE\_VERSION}{SIMPLEPIE\_VERSION}}
+{\footnotesize\ttfamily const SIMPLEPIE\+\_\+\+VERSION \textquotesingle{}1.\+5.\+8\textquotesingle{}}
+
+\doxylink{class_simple_pie}{Simple\+Pie} Version 

@@ -1,0 +1,154 @@
+\doxysection{Référence de la classe Logger\+Interface\+Test}
+\hypertarget{class_psr_1_1_log_1_1_test_1_1_logger_interface_test}{}\label{class_psr_1_1_log_1_1_test_1_1_logger_interface_test}\index{LoggerInterfaceTest@{LoggerInterfaceTest}}
+
+
+Graphe d\textquotesingle{}héritage de Logger\+Interface\+Test\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=245pt]{class_psr_1_1_log_1_1_test_1_1_logger_interface_test__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Graphe de collaboration de Logger\+Interface\+Test\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=245pt]{class_psr_1_1_log_1_1_test_1_1_logger_interface_test__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_psr_1_1_log_1_1_test_1_1_logger_interface_test_a2321df4f2f7d188b92b96fe63dc71a90}{get\+Logger}} ()
+\item 
+\mbox{\hyperlink{class_psr_1_1_log_1_1_test_1_1_logger_interface_test_a5a1b761c901432b2bfd7fc4e5e75a6bd}{get\+Logs}} ()
+\item 
+\mbox{\hyperlink{class_psr_1_1_log_1_1_test_1_1_logger_interface_test_a05eb970133cd4708d4598057acebe221}{test\+Implements}} ()
+\item 
+\mbox{\hyperlink{class_psr_1_1_log_1_1_test_1_1_logger_interface_test_a3a7c019ac9e988f557e5f37c788391a8}{test\+Logs\+At\+All\+Levels}} (\$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{level}}, \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{message}})
+\item 
+\mbox{\hyperlink{class_psr_1_1_log_1_1_test_1_1_logger_interface_test_a1f93b32803ba1b2bec7a4e6d8416f669}{provide\+Levels\+And\+Messages}} ()
+\item 
+\mbox{\hyperlink{class_psr_1_1_log_1_1_test_1_1_logger_interface_test_af621fb46850406098a62e9ba34fe1fc2}{test\+Throws\+On\+Invalid\+Level}} ()
+\item 
+\mbox{\hyperlink{class_psr_1_1_log_1_1_test_1_1_logger_interface_test_aa5e8ede4b7396826c61122a948c538e8}{test\+Context\+Replacement}} ()
+\item 
+\mbox{\hyperlink{class_psr_1_1_log_1_1_test_1_1_logger_interface_test_ab86c992d24807f1b06b1cb9ace4b3f95}{test\+Object\+Cast\+To\+String}} ()
+\item 
+\mbox{\hyperlink{class_psr_1_1_log_1_1_test_1_1_logger_interface_test_a534dff475220ff08de51cb5d5cdd578c}{test\+Context\+Can\+Contain\+Anything}} ()
+\item 
+\mbox{\hyperlink{class_psr_1_1_log_1_1_test_1_1_logger_interface_test_a045549cad2e5603bc955ee851f28344d}{test\+Context\+Exception\+Key\+Can\+Be\+Exception\+Or\+Other\+Values}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Provides a base test class for ensuring compliance with the Logger\+Interface.
+
+Implementors can extend the class and implement abstract methods to run this as part of their test suite. 
+
+\doxysubsection{Documentation des fonctions membres}
+\Hypertarget{class_psr_1_1_log_1_1_test_1_1_logger_interface_test_a2321df4f2f7d188b92b96fe63dc71a90}\label{class_psr_1_1_log_1_1_test_1_1_logger_interface_test_a2321df4f2f7d188b92b96fe63dc71a90} 
+\index{LoggerInterfaceTest@{LoggerInterfaceTest}!getLogger@{getLogger}}
+\index{getLogger@{getLogger}!LoggerInterfaceTest@{LoggerInterfaceTest}}
+\doxysubsubsection{\texorpdfstring{getLogger()}{getLogger()}}
+{\footnotesize\ttfamily get\+Logger (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [abstract]}}
+
+\begin{DoxyReturn}{Renvoie}
+Logger\+Interface 
+\end{DoxyReturn}
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=278pt]{class_psr_1_1_log_1_1_test_1_1_logger_interface_test_a2321df4f2f7d188b92b96fe63dc71a90_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_psr_1_1_log_1_1_test_1_1_logger_interface_test_a5a1b761c901432b2bfd7fc4e5e75a6bd}\label{class_psr_1_1_log_1_1_test_1_1_logger_interface_test_a5a1b761c901432b2bfd7fc4e5e75a6bd} 
+\index{LoggerInterfaceTest@{LoggerInterfaceTest}!getLogs@{getLogs}}
+\index{getLogs@{getLogs}!LoggerInterfaceTest@{LoggerInterfaceTest}}
+\doxysubsubsection{\texorpdfstring{getLogs()}{getLogs()}}
+{\footnotesize\ttfamily get\+Logs (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [abstract]}}
+
+This must return the log messages in order.
+
+The simple formatting of the messages is\+: "{}$<$\+LOG LEVEL$>$ $<$\+MESSAGE$>$"{}.
+
+Example -\/\texorpdfstring{$>$}{>}error(\textquotesingle{}Foo\textquotesingle{}) would yield "{}error Foo"{}.
+
+\begin{DoxyReturn}{Renvoie}
+string\mbox{[}\mbox{]} 
+\end{DoxyReturn}
+\Hypertarget{class_psr_1_1_log_1_1_test_1_1_logger_interface_test_a1f93b32803ba1b2bec7a4e6d8416f669}\label{class_psr_1_1_log_1_1_test_1_1_logger_interface_test_a1f93b32803ba1b2bec7a4e6d8416f669} 
+\index{LoggerInterfaceTest@{LoggerInterfaceTest}!provideLevelsAndMessages@{provideLevelsAndMessages}}
+\index{provideLevelsAndMessages@{provideLevelsAndMessages}!LoggerInterfaceTest@{LoggerInterfaceTest}}
+\doxysubsubsection{\texorpdfstring{provideLevelsAndMessages()}{provideLevelsAndMessages()}}
+{\footnotesize\ttfamily provide\+Levels\+And\+Messages (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\Hypertarget{class_psr_1_1_log_1_1_test_1_1_logger_interface_test_a534dff475220ff08de51cb5d5cdd578c}\label{class_psr_1_1_log_1_1_test_1_1_logger_interface_test_a534dff475220ff08de51cb5d5cdd578c} 
+\index{LoggerInterfaceTest@{LoggerInterfaceTest}!testContextCanContainAnything@{testContextCanContainAnything}}
+\index{testContextCanContainAnything@{testContextCanContainAnything}!LoggerInterfaceTest@{LoggerInterfaceTest}}
+\doxysubsubsection{\texorpdfstring{testContextCanContainAnything()}{testContextCanContainAnything()}}
+{\footnotesize\ttfamily test\+Context\+Can\+Contain\+Anything (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\Hypertarget{class_psr_1_1_log_1_1_test_1_1_logger_interface_test_a045549cad2e5603bc955ee851f28344d}\label{class_psr_1_1_log_1_1_test_1_1_logger_interface_test_a045549cad2e5603bc955ee851f28344d} 
+\index{LoggerInterfaceTest@{LoggerInterfaceTest}!testContextExceptionKeyCanBeExceptionOrOtherValues@{testContextExceptionKeyCanBeExceptionOrOtherValues}}
+\index{testContextExceptionKeyCanBeExceptionOrOtherValues@{testContextExceptionKeyCanBeExceptionOrOtherValues}!LoggerInterfaceTest@{LoggerInterfaceTest}}
+\doxysubsubsection{\texorpdfstring{testContextExceptionKeyCanBeExceptionOrOtherValues()}{testContextExceptionKeyCanBeExceptionOrOtherValues()}}
+{\footnotesize\ttfamily test\+Context\+Exception\+Key\+Can\+Be\+Exception\+Or\+Other\+Values (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\Hypertarget{class_psr_1_1_log_1_1_test_1_1_logger_interface_test_aa5e8ede4b7396826c61122a948c538e8}\label{class_psr_1_1_log_1_1_test_1_1_logger_interface_test_aa5e8ede4b7396826c61122a948c538e8} 
+\index{LoggerInterfaceTest@{LoggerInterfaceTest}!testContextReplacement@{testContextReplacement}}
+\index{testContextReplacement@{testContextReplacement}!LoggerInterfaceTest@{LoggerInterfaceTest}}
+\doxysubsubsection{\texorpdfstring{testContextReplacement()}{testContextReplacement()}}
+{\footnotesize\ttfamily test\+Context\+Replacement (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\Hypertarget{class_psr_1_1_log_1_1_test_1_1_logger_interface_test_a05eb970133cd4708d4598057acebe221}\label{class_psr_1_1_log_1_1_test_1_1_logger_interface_test_a05eb970133cd4708d4598057acebe221} 
+\index{LoggerInterfaceTest@{LoggerInterfaceTest}!testImplements@{testImplements}}
+\index{testImplements@{testImplements}!LoggerInterfaceTest@{LoggerInterfaceTest}}
+\doxysubsubsection{\texorpdfstring{testImplements()}{testImplements()}}
+{\footnotesize\ttfamily test\+Implements (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=258pt]{class_psr_1_1_log_1_1_test_1_1_logger_interface_test_a05eb970133cd4708d4598057acebe221_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_psr_1_1_log_1_1_test_1_1_logger_interface_test_a3a7c019ac9e988f557e5f37c788391a8}\label{class_psr_1_1_log_1_1_test_1_1_logger_interface_test_a3a7c019ac9e988f557e5f37c788391a8} 
+\index{LoggerInterfaceTest@{LoggerInterfaceTest}!testLogsAtAllLevels@{testLogsAtAllLevels}}
+\index{testLogsAtAllLevels@{testLogsAtAllLevels}!LoggerInterfaceTest@{LoggerInterfaceTest}}
+\doxysubsubsection{\texorpdfstring{testLogsAtAllLevels()}{testLogsAtAllLevels()}}
+{\footnotesize\ttfamily test\+Logs\+At\+All\+Levels (\begin{DoxyParamCaption}\item[{}]{\$level,  }\item[{}]{\$message }\end{DoxyParamCaption})}
+
+@data\+Provider provide\+Levels\+And\+Messages Voici le graphe d\textquotesingle{}appel pour cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=278pt]{class_psr_1_1_log_1_1_test_1_1_logger_interface_test_a3a7c019ac9e988f557e5f37c788391a8_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_psr_1_1_log_1_1_test_1_1_logger_interface_test_ab86c992d24807f1b06b1cb9ace4b3f95}\label{class_psr_1_1_log_1_1_test_1_1_logger_interface_test_ab86c992d24807f1b06b1cb9ace4b3f95} 
+\index{LoggerInterfaceTest@{LoggerInterfaceTest}!testObjectCastToString@{testObjectCastToString}}
+\index{testObjectCastToString@{testObjectCastToString}!LoggerInterfaceTest@{LoggerInterfaceTest}}
+\doxysubsubsection{\texorpdfstring{testObjectCastToString()}{testObjectCastToString()}}
+{\footnotesize\ttfamily test\+Object\+Cast\+To\+String (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\Hypertarget{class_psr_1_1_log_1_1_test_1_1_logger_interface_test_af621fb46850406098a62e9ba34fe1fc2}\label{class_psr_1_1_log_1_1_test_1_1_logger_interface_test_af621fb46850406098a62e9ba34fe1fc2} 
+\index{LoggerInterfaceTest@{LoggerInterfaceTest}!testThrowsOnInvalidLevel@{testThrowsOnInvalidLevel}}
+\index{testThrowsOnInvalidLevel@{testThrowsOnInvalidLevel}!LoggerInterfaceTest@{LoggerInterfaceTest}}
+\doxysubsubsection{\texorpdfstring{testThrowsOnInvalidLevel()}{testThrowsOnInvalidLevel()}}
+{\footnotesize\ttfamily test\+Throws\+On\+Invalid\+Level (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+@expected\+Exception \textbackslash{}\+Psr\textbackslash{}\+Log\textbackslash{}\+Invalid\+Argument\+Exception 
+
+La documentation de cette classe a été générée à partir du fichier suivant \+:\begin{DoxyCompactItemize}
+\item 
+public/glpi/vendor/psr/log/\+Psr/\+Log/\+Test/\mbox{\hyperlink{_logger_interface_test_8php}{Logger\+Interface\+Test.\+php}}\end{DoxyCompactItemize}

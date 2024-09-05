@@ -1,0 +1,166 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_namespace_sabre_1_1_event" xml:lang="fr">
+<title>Référence de l&apos;espace de nommage Sabre\Event</title>
+<indexterm><primary>Sabre\Event</primary></indexterm>
+<simplesect>
+    <title>Espaces de nommage    </title>
+        <itemizedlist>
+            <listitem><para>namespace <link linkend="_namespace_sabre_1_1_event_1_1_loop">Loop</link></para>
+</listitem>
+            <listitem><para>namespace <link linkend="_namespace_sabre_1_1_event_1_1_promise">Promise</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Structures de données    </title>
+        <itemizedlist>
+            <listitem><para>class <link linkend="_class_sabre_1_1_event_1_1_emitter">Emitter</link></para>
+</listitem>
+            <listitem><para>interface <link linkend="_interface_sabre_1_1_event_1_1_emitter_interface">EmitterInterface</link></para>
+</listitem>
+            <listitem><para>class <link linkend="_class_sabre_1_1_event_1_1_event_emitter">EventEmitter</link></para>
+</listitem>
+            <listitem><para>class <link linkend="_class_sabre_1_1_event_1_1_promise">Promise</link></para>
+</listitem>
+            <listitem><para>class <link linkend="_class_sabre_1_1_event_1_1_promise_already_resolved_exception">PromiseAlreadyResolvedException</link></para>
+</listitem>
+            <listitem><para>class <link linkend="_class_sabre_1_1_event_1_1_version">Version</link></para>
+</listitem>
+            <listitem><para>class <link linkend="_class_sabre_1_1_event_1_1_wildcard_emitter">WildcardEmitter</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Fonctions    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_namespace_sabre_1_1_event_1a8ae6594f7f7f23b47f7cd44fc2cab3bf">coroutine</link> (<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">callable</link> $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">gen</link>)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Variables    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">trait</link> <link linkend="_namespace_sabre_1_1_event_1a7732f775b37087effa9b3b0e6b1197da">EmitterTrait</link></para>
+</listitem>
+            <listitem><para><link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">trait</link> <link linkend="_namespace_sabre_1_1_event_1a76ec333002e4917bb1e7a259ba19a388">WildcardEmitterTrait</link></para>
+</listitem>
+            <listitem><para><link linkend="_namespace_sabre_1_1_event_1ab57017be1396c7b2958ff337732845d4">$wildcardListeners</link> = []</para>
+</listitem>
+            <listitem><para><link linkend="_namespace_sabre_1_1_event_1a7f50fdbb0aa77709d05cc98aaa338d18">$listenerIndex</link> = []</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Documentation des fonctions</title>
+<anchor xml:id="_namespace_sabre_1_1_event_1a8ae6594f7f7f23b47f7cd44fc2cab3bf"/><section>
+    <title>coroutine()</title>
+<indexterm><primary>coroutine</primary><secondary>Sabre\Event</secondary></indexterm>
+<indexterm><primary>Sabre\Event</primary><secondary>coroutine</secondary></indexterm>
+<para><computeroutput>coroutine (<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">callable</link> $gen)</computeroutput></para>
+<para>Turn asynchronous promise-based code into something that looks synchronous again, through the use of generators.</para>
+
+<para>Example without coroutines:</para>
+
+<para>$promise = $httpClient-&gt;request(&apos;GET&apos;, &apos;/foo&apos;); $promise-&gt;then(function($value) {</para>
+
+<para>return $httpClient-&gt;request(&apos;DELETE&apos;,&apos;/foo&apos;);</para>
+
+<para>})-&gt;then(function($value) {</para>
+
+<para>return $httpClient-&gt;request(&apos;PUT&apos;, &apos;/foo&apos;);</para>
+
+<para>})-&gt;error(function($reason) {</para>
+
+<para>echo &quot;Failed because: $reason\n&quot;;</para>
+
+<para>});</para>
+
+<para>Example with coroutines:</para>
+
+<para>coroutine(function() {</para>
+
+<para>try { yield $httpClient-&gt;request(&apos;GET&apos;, &apos;/foo&apos;); yield $httpClient-&gt;request(&apos;DELETE&apos;, /foo&apos;); yield $httpClient-&gt;request(&apos;PUT&apos;, &apos;/foo&apos;); } catch(\Throwable $reason) { echo &quot;Failed because: $reason\n&quot;; }</para>
+
+<para>});</para>
+
+<para><formalpara><title>Renvoie</title>
+
+<para>\Sabre\Event\Promise</para>
+</formalpara>
+@psalm-template TReturn @psalm-param <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">callable()</link>:\Generator&lt;mixed, mixed, mixed, TReturn&gt; $gen @psalm-return Promise&lt;TReturn&gt;</para>
+
+<para><formalpara><title>Copyright</title>
+
+<para>Copyright (C) fruux GmbH (<link xlink:href="https://fruux.com/">https://fruux.com/</link>) </para>
+</formalpara>
+<formalpara><title>Auteur</title>
+
+<para>Evert Pot (<link xlink:href="http://evertpot.com/">http://evertpot.com/</link>) @license <link xlink:href="http://sabre.io/license/">http://sabre.io/license/</link> Modified BSD License </para>
+</formalpara>
+</para>
+
+<para>So tempted to use the mythical y-combinator here, but it&apos;s not needed in PHP.</para>
+</section>
+</section>
+<section>
+<title>Documentation des variables</title>
+<anchor xml:id="_namespace_sabre_1_1_event_1a7f50fdbb0aa77709d05cc98aaa338d18"/><section>
+    <title>$listenerIndex</title>
+<indexterm><primary>$listenerIndex</primary><secondary>Sabre\Event</secondary></indexterm>
+<indexterm><primary>Sabre\Event</primary><secondary>$listenerIndex</secondary></indexterm>
+<para><computeroutput>$<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">listenerIndex</link> = []<computeroutput>[protected]</computeroutput></computeroutput></para>
+<para>An index of listeners for a specific event name. This helps speeding up emitting events after all listeners have been set.</para>
+
+<para>If the list of listeners changes though, the index clears. </para>
+</section>
+<anchor xml:id="_namespace_sabre_1_1_event_1ab57017be1396c7b2958ff337732845d4"/><section>
+    <title>$wildcardListeners</title>
+<indexterm><primary>$wildcardListeners</primary><secondary>Sabre\Event</secondary></indexterm>
+<indexterm><primary>Sabre\Event</primary><secondary>$wildcardListeners</secondary></indexterm>
+<para><computeroutput>$<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">wildcardListeners</link> = []<computeroutput>[protected]</computeroutput></computeroutput></para>
+<para>The list of &quot;wildcard listeners&quot;. </para>
+</section>
+<anchor xml:id="_namespace_sabre_1_1_event_1a7732f775b37087effa9b3b0e6b1197da"/><section>
+    <title>EmitterTrait</title>
+<indexterm><primary>EmitterTrait</primary><secondary>Sabre\Event</secondary></indexterm>
+<indexterm><primary>Sabre\Event</primary><secondary>EmitterTrait</secondary></indexterm>
+<para><computeroutput><link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">trait</link> EmitterTrait</computeroutput></para>
+<para>Event Emitter Trait.</para>
+
+<para>This trait contains all the basic functions to implement an EventEmitterInterface.</para>
+
+<para>Using the trait + interface allows you to add EventEmitter capabilities without having to change your base-class.</para>
+
+<para><formalpara><title>Copyright</title>
+
+<para>Copyright (C) fruux GmbH (<link xlink:href="https://fruux.com/">https://fruux.com/</link>) </para>
+</formalpara>
+<formalpara><title>Auteur</title>
+
+<para>Evert Pot (<link xlink:href="http://evertpot.com/">http://evertpot.com/</link>) @license <link xlink:href="http://sabre.io/license/">http://sabre.io/license/</link> Modified BSD License </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_namespace_sabre_1_1_event_1a76ec333002e4917bb1e7a259ba19a388"/><section>
+    <title>WildcardEmitterTrait</title>
+<indexterm><primary>WildcardEmitterTrait</primary><secondary>Sabre\Event</secondary></indexterm>
+<indexterm><primary>Sabre\Event</primary><secondary>WildcardEmitterTrait</secondary></indexterm>
+<para><computeroutput><link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">trait</link> WildcardEmitterTrait</computeroutput></para>
+<para>Wildcard Emitter Trait.</para>
+
+<para>This trait provides the implementation for WildCardEmitter Refer to that class for the full documentation about this trait.</para>
+
+<para>Normally you can just instantiate that class, but if you want to add emitter functionality to existing classes, using the trait might be a better way to do this.</para>
+
+<para><formalpara><title>Copyright</title>
+
+<para>Copyright (C) fruux GmbH (<link xlink:href="https://fruux.com/">https://fruux.com/</link>) </para>
+</formalpara>
+<formalpara><title>Auteur</title>
+
+<para>Evert Pot (<link xlink:href="http://evertpot.com/">http://evertpot.com/</link>) @license <link xlink:href="http://sabre.io/license/">http://sabre.io/license/</link> Modified BSD License </para>
+</formalpara>
+</para>
+</section>
+</section>
+</section>

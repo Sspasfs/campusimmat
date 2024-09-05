@@ -1,0 +1,202 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_md_public_2glpi_2vendor_2sebastian_2diff_2_r_e_a_d_m_e" xml:lang="fr">
+<title>sebastian/diff</title>
+<indexterm><primary>sebastian/diff</primary></indexterm>
+
+<para><anchor xml:id="_md_public_2glpi_2vendor_2sebastian_2diff_2_r_e_a_d_m_e_1autotoc_md7139"/> <link xlink:href="https://github.com/sebastianbergmann/diff/actions"></link> <link xlink:href="https://shepherd.dev/github/sebastianbergmann/diff"></link></para>
+
+<para>Diff implementation for PHP, factored out of PHPUnit into a stand-alone component.</para>
+<section xml:id="_md_public_2glpi_2vendor_2sebastian_2diff_2_r_e_a_d_m_e_1autotoc_md7140">
+<title><title>Installation</title></title>
+
+<para>You can add this library as a local, per-project dependency to your project using <link xlink:href="https://getcomposer.org/">Composer</link>:</para>
+
+<para><literallayout><computeroutput>composer&#32;require&#32;sebastian/diff
+</computeroutput></literallayout></para>
+
+<para>If you only need this library during development, for instance to run your project&apos;s test suite, then you should add it as a development-time dependency:</para>
+
+<para><literallayout><computeroutput>composer&#32;require&#32;--dev&#32;sebastian/diff
+</computeroutput></literallayout></para>
+<section xml:id="_md_public_2glpi_2vendor_2sebastian_2diff_2_r_e_a_d_m_e_1autotoc_md7141">
+<title><title>Usage</title></title>
+<section xml:id="_md_public_2glpi_2vendor_2sebastian_2diff_2_r_e_a_d_m_e_1autotoc_md7142">
+<title><title>Generating diff</title></title>
+
+<para>The <computeroutput>Differ</computeroutput> class can be used to generate a textual representation of the difference between two strings:</para>
+
+<para><literallayout><computeroutput>&lt;?php
+use&#32;SebastianBergmann\Diff\Differ;
+
+$differ&#32;=&#32;new&#32;Differ;
+print&#32;$differ-&gt;diff(&apos;foo&apos;,&#32;&apos;bar&apos;);
+</computeroutput></literallayout></para>
+
+<para>The code above yields the output below: <literallayout><computeroutput>---&#32;Original
++++&#32;New
+@@&#32;@@
+-foo
++bar
+</computeroutput></literallayout></para>
+
+<para>There are three output builders available in this package:</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2sebastian_2diff_2_r_e_a_d_m_e_1autotoc_md7143">
+<title><title>UnifiedDiffOutputBuilder</title></title>
+
+<para>This is default builder, which generates the output close to udiff and is used by PHPUnit.</para>
+
+<para><literallayout><computeroutput>&lt;?php
+
+use&#32;SebastianBergmann\Diff\Differ;
+use&#32;SebastianBergmann\Diff\Output\UnifiedDiffOutputBuilder;
+
+$builder&#32;=&#32;new&#32;UnifiedDiffOutputBuilder(
+&#32;&#32;&#32;&#32;&quot;---&#32;Original\n+++&#32;New\n&quot;,&#32;//&#32;custom&#32;header
+&#32;&#32;&#32;&#32;false&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;//&#32;do&#32;not&#32;add&#32;line&#32;numbers&#32;to&#32;the&#32;diff&#32;
+);
+
+$differ&#32;=&#32;new&#32;Differ($builder);
+print&#32;$differ-&gt;diff(&apos;foo&apos;,&#32;&apos;bar&apos;);
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2sebastian_2diff_2_r_e_a_d_m_e_1autotoc_md7144">
+<title><title>StrictUnifiedDiffOutputBuilder</title></title>
+
+<para>Generates (strict) Unified diff&apos;s (unidiffs) with hunks, similar to <computeroutput>diff -u</computeroutput> and compatible with <computeroutput>patch</computeroutput> and <computeroutput>git apply</computeroutput>.</para>
+
+<para><literallayout><computeroutput>&lt;?php
+
+use&#32;SebastianBergmann\Diff\Differ;
+use&#32;SebastianBergmann\Diff\Output\StrictUnifiedDiffOutputBuilder;
+
+$builder&#32;=&#32;new&#32;StrictUnifiedDiffOutputBuilder([
+&#32;&#32;&#32;&#32;&apos;collapseRanges&apos;&#32;&#32;&#32;&#32;&#32;&#32;=&gt;&#32;true,&#32;//&#32;ranges&#32;of&#32;length&#32;one&#32;are&#32;rendered&#32;with&#32;the&#32;trailing&#32;`,1`
+&#32;&#32;&#32;&#32;&apos;commonLineThreshold&apos;&#32;=&gt;&#32;6,&#32;&#32;&#32;&#32;//&#32;number&#32;of&#32;same&#32;lines&#32;before&#32;ending&#32;a&#32;new&#32;hunk&#32;and&#32;creating&#32;a&#32;new&#32;one&#32;(if&#32;needed)
+&#32;&#32;&#32;&#32;&apos;contextLines&apos;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;=&gt;&#32;3,&#32;&#32;&#32;&#32;//&#32;like&#32;`diff:&#32;&#32;-u,&#32;-U&#32;NUM,&#32;--unified[=NUM]`,&#32;for&#32;patch/git&#32;apply&#32;compatibility&#32;best&#32;to&#32;keep&#32;at&#32;least&#32;@&#32;3
+&#32;&#32;&#32;&#32;&apos;fromFile&apos;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;=&gt;&#32;null,
+&#32;&#32;&#32;&#32;&apos;fromFileDate&apos;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;=&gt;&#32;null,
+&#32;&#32;&#32;&#32;&apos;toFile&apos;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;=&gt;&#32;null,
+&#32;&#32;&#32;&#32;&apos;toFileDate&apos;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;=&gt;&#32;null,
+]);
+
+$differ&#32;=&#32;new&#32;Differ($builder);
+print&#32;$differ-&gt;diff(&apos;foo&apos;,&#32;&apos;bar&apos;);
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2sebastian_2diff_2_r_e_a_d_m_e_1autotoc_md7145">
+<title><title>DiffOnlyOutputBuilder</title></title>
+
+<para>Output only the lines that differ.</para>
+
+<para><literallayout><computeroutput>&lt;?php
+
+use&#32;SebastianBergmann\Diff\Differ;
+use&#32;SebastianBergmann\Diff\Output\DiffOnlyOutputBuilder;
+
+$builder&#32;=&#32;new&#32;DiffOnlyOutputBuilder(
+&#32;&#32;&#32;&#32;&quot;---&#32;Original\n+++&#32;New\n&quot;
+);
+
+$differ&#32;=&#32;new&#32;Differ($builder);
+print&#32;$differ-&gt;diff(&apos;foo&apos;,&#32;&apos;bar&apos;);
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2sebastian_2diff_2_r_e_a_d_m_e_1autotoc_md7146">
+<title><title>DiffOutputBuilderInterface</title></title>
+
+<para>You can pass any output builder to the <computeroutput>Differ</computeroutput> class as longs as it implements the <computeroutput>DiffOutputBuilderInterface</computeroutput>.</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2sebastian_2diff_2_r_e_a_d_m_e_1autotoc_md7147">
+<title><title>Parsing diff</title></title>
+
+<para>The <computeroutput>Parser</computeroutput> class can be used to parse a unified diff into an object graph:</para>
+
+<para><literallayout><computeroutput>use&#32;SebastianBergmann\Diff\Parser;
+use&#32;SebastianBergmann\Git;
+
+$git&#32;=&#32;new&#32;Git(&apos;/usr/local/src/money&apos;);
+
+$diff&#32;=&#32;$git-&gt;getDiff(
+&#32;&#32;&apos;948a1a07768d8edd10dcefa8315c1cbeffb31833&apos;,
+&#32;&#32;&apos;c07a373d2399f3e686234c4f7f088d635eb9641b&apos;
+);
+
+$parser&#32;=&#32;new&#32;Parser;
+
+print_r($parser-&gt;parse($diff));
+</computeroutput></literallayout></para>
+
+<para>The code above yields the output below: <literallayout><computeroutput>Array
+(
+    [0] =&gt; SebastianBergmann\Diff\Diff Object
+        (
+            [from:SebastianBergmann\Diff\Diff:private] =&gt; a/tests/MoneyTest.php
+            [to:SebastianBergmann\Diff\Diff:private] =&gt; b/tests/MoneyTest.php
+            [chunks:SebastianBergmann\Diff\Diff:private] =&gt; Array
+                (
+                    [0] =&gt; SebastianBergmann\Diff\Chunk Object
+                        (
+                            [start:SebastianBergmann\Diff\Chunk:private] =&gt; 87
+                            [startRange:SebastianBergmann\Diff\Chunk:private] =&gt; 7
+                            [end:SebastianBergmann\Diff\Chunk:private] =&gt; 87
+                            [endRange:SebastianBergmann\Diff\Chunk:private] =&gt; 7
+                            [lines:SebastianBergmann\Diff\Chunk:private] =&gt; Array
+                                (
+                                    [0] =&gt; SebastianBergmann\Diff\Line Object
+                                        (
+                                            [type:SebastianBergmann\Diff\Line:private] =&gt; 3
+                                            [content:SebastianBergmann\Diff\Line:private] =&gt;      * @covers SebastianBergmann\Money\Money::add
+                                        )
+
+                                    [1] =&gt; SebastianBergmann\Diff\Line Object
+                                        (
+                                            [type:SebastianBergmann\Diff\Line:private] =&gt; 3
+                                            [content:SebastianBergmann\Diff\Line:private] =&gt;      * @covers SebastianBergmann\Money\Money::newMoney
+                                        )
+
+                                    [2] =&gt; SebastianBergmann\Diff\Line Object
+                                        (
+                                            [type:SebastianBergmann\Diff\Line:private] =&gt; 3
+                                            [content:SebastianBergmann\Diff\Line:private] =&gt;      */
+                                        )
+
+                                    [3] =&gt; SebastianBergmann\Diff\Line Object
+                                        (
+                                            [type:SebastianBergmann\Diff\Line:private] =&gt; 2
+                                            [content:SebastianBergmann\Diff\Line:private] =&gt;     public function testAnotherMoneyWithSameCurrencyObjectCanBeAdded()
+                                        )
+
+                                    [4] =&gt; SebastianBergmann\Diff\Line Object
+                                        (
+                                            [type:SebastianBergmann\Diff\Line:private] =&gt; 1
+                                            [content:SebastianBergmann\Diff\Line:private] =&gt;     public function testAnotherMoneyObjectWithSameCurrencyCanBeAdded()
+                                        )
+
+                                    [5] =&gt; SebastianBergmann\Diff\Line Object
+                                        (
+                                            [type:SebastianBergmann\Diff\Line:private] =&gt; 3
+                                            [content:SebastianBergmann\Diff\Line:private] =&gt;     {
+                                        )
+
+                                    [6] =&gt; SebastianBergmann\Diff\Line Object
+                                        (
+                                            [type:SebastianBergmann\Diff\Line:private] =&gt; 3
+                                            [content:SebastianBergmann\Diff\Line:private] =&gt;         $a = new Money(1, new Currency(&apos;EUR&apos;));
+                                        )
+
+                                    [7] =&gt; SebastianBergmann\Diff\Line Object
+                                        (
+                                            [type:SebastianBergmann\Diff\Line:private] =&gt; 3
+                                            [content:SebastianBergmann\Diff\Line:private] =&gt;         $b = new Money(2, new Currency(&apos;EUR&apos;));
+                                        )
+                                )
+                        )
+                )
+        )
+)
+</computeroutput></literallayout> </para>
+</section>
+</section>
+</section>
+</section>

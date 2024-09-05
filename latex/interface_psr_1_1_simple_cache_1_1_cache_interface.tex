@@ -1,0 +1,267 @@
+\doxysection{Référence de l\textquotesingle{}interface Cache\+Interface}
+\hypertarget{interface_psr_1_1_simple_cache_1_1_cache_interface}{}\label{interface_psr_1_1_simple_cache_1_1_cache_interface}\index{CacheInterface@{CacheInterface}}
+
+
+Graphe d\textquotesingle{}héritage de Cache\+Interface\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{interface_psr_1_1_simple_cache_1_1_cache_interface__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Graphe de collaboration de Cache\+Interface\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=190pt]{interface_psr_1_1_simple_cache_1_1_cache_interface__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{interface_psr_1_1_simple_cache_1_1_cache_interface_a499d39d1876a05b20e1ca8e8a1c2b466}{get}} (\$key, \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{default}}=null)
+\item 
+\mbox{\hyperlink{interface_psr_1_1_simple_cache_1_1_cache_interface_ae972783bbd380976dc0cb87fc985d84e}{set}} (\$key, \$value, \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{ttl}}=null)
+\item 
+\mbox{\hyperlink{interface_psr_1_1_simple_cache_1_1_cache_interface_aa74a2edd6f3cbb5c5353f7faa97b6d70}{delete}} (\$key)
+\item 
+\mbox{\hyperlink{interface_psr_1_1_simple_cache_1_1_cache_interface_aa821bec12eaa7e0f649397c9675ff505}{clear}} ()
+\item 
+\mbox{\hyperlink{interface_psr_1_1_simple_cache_1_1_cache_interface_a9f113f21f478daebfafe7f573b23dce3}{get\+Multiple}} (\$keys, \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{default}}=null)
+\item 
+\mbox{\hyperlink{interface_psr_1_1_simple_cache_1_1_cache_interface_a0cddff25fce3972ec25ced86f1715780}{set\+Multiple}} (\$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{values}}, \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{ttl}}=null)
+\item 
+\mbox{\hyperlink{interface_psr_1_1_simple_cache_1_1_cache_interface_a5950974b7aa126f3c1864539b722cbbd}{delete\+Multiple}} (\$keys)
+\item 
+\mbox{\hyperlink{interface_psr_1_1_simple_cache_1_1_cache_interface_a8b23dbb48f0c3c94725695191d06981a}{has}} (\$key)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Documentation des fonctions membres}
+\Hypertarget{interface_psr_1_1_simple_cache_1_1_cache_interface_aa821bec12eaa7e0f649397c9675ff505}\label{interface_psr_1_1_simple_cache_1_1_cache_interface_aa821bec12eaa7e0f649397c9675ff505} 
+\index{CacheInterface@{CacheInterface}!clear@{clear}}
+\index{clear@{clear}!CacheInterface@{CacheInterface}}
+\doxysubsubsection{\texorpdfstring{clear()}{clear()}}
+{\footnotesize\ttfamily clear (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Wipes clean the entire cache\textquotesingle{}s keys.
+
+\begin{DoxyReturn}{Renvoie}
+bool True on success and false on failure. 
+\end{DoxyReturn}
+
+
+Implémenté dans \mbox{\hyperlink{class_symfony_1_1_component_1_1_cache_1_1_psr16_cache_aa821bec12eaa7e0f649397c9675ff505}{Psr16\+Cache}}.
+
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=293pt]{interface_psr_1_1_simple_cache_1_1_cache_interface_aa821bec12eaa7e0f649397c9675ff505_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{interface_psr_1_1_simple_cache_1_1_cache_interface_aa74a2edd6f3cbb5c5353f7faa97b6d70}\label{interface_psr_1_1_simple_cache_1_1_cache_interface_aa74a2edd6f3cbb5c5353f7faa97b6d70} 
+\index{CacheInterface@{CacheInterface}!delete@{delete}}
+\index{delete@{delete}!CacheInterface@{CacheInterface}}
+\doxysubsubsection{\texorpdfstring{delete()}{delete()}}
+{\footnotesize\ttfamily delete (\begin{DoxyParamCaption}\item[{}]{\$key }\end{DoxyParamCaption})}
+
+Delete an item from the cache by its unique key.
+
+
+\begin{DoxyParams}[1]{Paramètres}
+string & {\em \$key} & The unique cache key of the item to delete.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+bool True if the item was successfully removed. False if there was an error.
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em } & \\
+\hline
+\end{DoxyExceptions}
+Psr\textbackslash{}\+Simple\+Cache\textbackslash{}\+Invalid\+Argument\+Exception MUST be thrown if the \$key string is not a legal value. 
+
+Implémenté dans \mbox{\hyperlink{class_glpi_1_1_cache_1_1_simple_cache_aa74a2edd6f3cbb5c5353f7faa97b6d70}{Simple\+Cache}}, et \mbox{\hyperlink{class_symfony_1_1_component_1_1_cache_1_1_psr16_cache_aa74a2edd6f3cbb5c5353f7faa97b6d70}{Psr16\+Cache}}.
+
+\Hypertarget{interface_psr_1_1_simple_cache_1_1_cache_interface_a5950974b7aa126f3c1864539b722cbbd}\label{interface_psr_1_1_simple_cache_1_1_cache_interface_a5950974b7aa126f3c1864539b722cbbd} 
+\index{CacheInterface@{CacheInterface}!deleteMultiple@{deleteMultiple}}
+\index{deleteMultiple@{deleteMultiple}!CacheInterface@{CacheInterface}}
+\doxysubsubsection{\texorpdfstring{deleteMultiple()}{deleteMultiple()}}
+{\footnotesize\ttfamily delete\+Multiple (\begin{DoxyParamCaption}\item[{}]{\$keys }\end{DoxyParamCaption})}
+
+Deletes multiple cache items in a single operation.
+
+
+\begin{DoxyParams}[1]{Paramètres}
+iterable & {\em \$keys} & A list of string-\/based keys to be deleted.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+bool True if the items were successfully removed. False if there was an error.
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em } & \\
+\hline
+\end{DoxyExceptions}
+Psr\textbackslash{}\+Simple\+Cache\textbackslash{}\+Invalid\+Argument\+Exception MUST be thrown if \$keys is neither an array nor a Traversable, or if any of the \$keys are not a legal value. 
+
+Implémenté dans \mbox{\hyperlink{class_glpi_1_1_cache_1_1_simple_cache_a5950974b7aa126f3c1864539b722cbbd}{Simple\+Cache}}, et \mbox{\hyperlink{class_symfony_1_1_component_1_1_cache_1_1_psr16_cache_a5950974b7aa126f3c1864539b722cbbd}{Psr16\+Cache}}.
+
+\Hypertarget{interface_psr_1_1_simple_cache_1_1_cache_interface_a499d39d1876a05b20e1ca8e8a1c2b466}\label{interface_psr_1_1_simple_cache_1_1_cache_interface_a499d39d1876a05b20e1ca8e8a1c2b466} 
+\index{CacheInterface@{CacheInterface}!get@{get}}
+\index{get@{get}!CacheInterface@{CacheInterface}}
+\doxysubsubsection{\texorpdfstring{get()}{get()}}
+{\footnotesize\ttfamily get (\begin{DoxyParamCaption}\item[{}]{\$key,  }\item[{}]{\$default = {\ttfamily null} }\end{DoxyParamCaption})}
+
+Fetches a value from the cache.
+
+
+\begin{DoxyParams}[1]{Paramètres}
+string & {\em \$key} & The unique key of this item in the cache. \\
+\hline
+mixed & {\em \$default} & Default value to return if the key does not exist.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+mixed The value of the item from the cache, or \$default in case of cache miss.
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em } & \\
+\hline
+\end{DoxyExceptions}
+Psr\textbackslash{}\+Simple\+Cache\textbackslash{}\+Invalid\+Argument\+Exception MUST be thrown if the \$key string is not a legal value. 
+
+Implémenté dans \mbox{\hyperlink{class_glpi_1_1_cache_1_1_simple_cache_a499d39d1876a05b20e1ca8e8a1c2b466}{Simple\+Cache}}, et \mbox{\hyperlink{class_symfony_1_1_component_1_1_cache_1_1_psr16_cache_a499d39d1876a05b20e1ca8e8a1c2b466}{Psr16\+Cache}}.
+
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=285pt]{interface_psr_1_1_simple_cache_1_1_cache_interface_a499d39d1876a05b20e1ca8e8a1c2b466_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{interface_psr_1_1_simple_cache_1_1_cache_interface_a9f113f21f478daebfafe7f573b23dce3}\label{interface_psr_1_1_simple_cache_1_1_cache_interface_a9f113f21f478daebfafe7f573b23dce3} 
+\index{CacheInterface@{CacheInterface}!getMultiple@{getMultiple}}
+\index{getMultiple@{getMultiple}!CacheInterface@{CacheInterface}}
+\doxysubsubsection{\texorpdfstring{getMultiple()}{getMultiple()}}
+{\footnotesize\ttfamily get\+Multiple (\begin{DoxyParamCaption}\item[{}]{\$keys,  }\item[{}]{\$default = {\ttfamily null} }\end{DoxyParamCaption})}
+
+Obtains multiple cache items by their unique keys.
+
+
+\begin{DoxyParams}[1]{Paramètres}
+iterable & {\em \$keys} & A list of keys that can obtained in a single operation. \\
+\hline
+mixed & {\em \$default} & Default value to return for keys that do not exist.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+iterable A list of key =\texorpdfstring{$>$}{>} value pairs. Cache keys that do not exist or are stale will have \$default as value.
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em } & \\
+\hline
+\end{DoxyExceptions}
+Psr\textbackslash{}\+Simple\+Cache\textbackslash{}\+Invalid\+Argument\+Exception MUST be thrown if \$keys is neither an array nor a Traversable, or if any of the \$keys are not a legal value. 
+
+Implémenté dans \mbox{\hyperlink{class_glpi_1_1_cache_1_1_simple_cache_a9f113f21f478daebfafe7f573b23dce3}{Simple\+Cache}}, et \mbox{\hyperlink{class_symfony_1_1_component_1_1_cache_1_1_psr16_cache_a9f113f21f478daebfafe7f573b23dce3}{Psr16\+Cache}}.
+
+\Hypertarget{interface_psr_1_1_simple_cache_1_1_cache_interface_a8b23dbb48f0c3c94725695191d06981a}\label{interface_psr_1_1_simple_cache_1_1_cache_interface_a8b23dbb48f0c3c94725695191d06981a} 
+\index{CacheInterface@{CacheInterface}!has@{has}}
+\index{has@{has}!CacheInterface@{CacheInterface}}
+\doxysubsubsection{\texorpdfstring{has()}{has()}}
+{\footnotesize\ttfamily has (\begin{DoxyParamCaption}\item[{}]{\$key }\end{DoxyParamCaption})}
+
+Determines whether an item is present in the cache.
+
+NOTE\+: It is recommended that has() is only to be used for cache warming type purposes and not to be used within your live applications operations for get/set, as this method is subject to a race condition where your has() will return true and immediately after, another script can remove it making the state of your app out of date.
+
+
+\begin{DoxyParams}[1]{Paramètres}
+string & {\em \$key} & The cache item key.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+bool
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em } & \\
+\hline
+\end{DoxyExceptions}
+Psr\textbackslash{}\+Simple\+Cache\textbackslash{}\+Invalid\+Argument\+Exception MUST be thrown if the \$key string is not a legal value. 
+
+Implémenté dans \mbox{\hyperlink{class_glpi_1_1_cache_1_1_simple_cache_a8b23dbb48f0c3c94725695191d06981a}{Simple\+Cache}}, et \mbox{\hyperlink{class_symfony_1_1_component_1_1_cache_1_1_psr16_cache_a8b23dbb48f0c3c94725695191d06981a}{Psr16\+Cache}}.
+
+\Hypertarget{interface_psr_1_1_simple_cache_1_1_cache_interface_ae972783bbd380976dc0cb87fc985d84e}\label{interface_psr_1_1_simple_cache_1_1_cache_interface_ae972783bbd380976dc0cb87fc985d84e} 
+\index{CacheInterface@{CacheInterface}!set@{set}}
+\index{set@{set}!CacheInterface@{CacheInterface}}
+\doxysubsubsection{\texorpdfstring{set()}{set()}}
+{\footnotesize\ttfamily set (\begin{DoxyParamCaption}\item[{}]{\$key,  }\item[{}]{\$value,  }\item[{}]{\$ttl = {\ttfamily null} }\end{DoxyParamCaption})}
+
+Persists data in the cache, uniquely referenced by a key with an optional expiration TTL time.
+
+
+\begin{DoxyParams}[1]{Paramètres}
+string & {\em \$key} & The key of the item to store. \\
+\hline
+mixed & {\em \$value} & The value of the item to store, must be serializable. \\
+\hline
+null | int | \textbackslash{}\+Date\+Interval & {\em \$ttl} & Optional. The TTL value of this item. If no value is sent and the driver supports TTL then the library may set a default value for it or let the driver take care of that.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+bool True on success and false on failure.
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em } & \\
+\hline
+\end{DoxyExceptions}
+Psr\textbackslash{}\+Simple\+Cache\textbackslash{}\+Invalid\+Argument\+Exception MUST be thrown if the \$key string is not a legal value. 
+
+Implémenté dans \mbox{\hyperlink{class_glpi_1_1_cache_1_1_simple_cache_ae972783bbd380976dc0cb87fc985d84e}{Simple\+Cache}}, et \mbox{\hyperlink{class_symfony_1_1_component_1_1_cache_1_1_psr16_cache_ae972783bbd380976dc0cb87fc985d84e}{Psr16\+Cache}}.
+
+\Hypertarget{interface_psr_1_1_simple_cache_1_1_cache_interface_a0cddff25fce3972ec25ced86f1715780}\label{interface_psr_1_1_simple_cache_1_1_cache_interface_a0cddff25fce3972ec25ced86f1715780} 
+\index{CacheInterface@{CacheInterface}!setMultiple@{setMultiple}}
+\index{setMultiple@{setMultiple}!CacheInterface@{CacheInterface}}
+\doxysubsubsection{\texorpdfstring{setMultiple()}{setMultiple()}}
+{\footnotesize\ttfamily set\+Multiple (\begin{DoxyParamCaption}\item[{}]{\$values,  }\item[{}]{\$ttl = {\ttfamily null} }\end{DoxyParamCaption})}
+
+Persists a set of key =\texorpdfstring{$>$}{>} value pairs in the cache, with an optional TTL.
+
+
+\begin{DoxyParams}[1]{Paramètres}
+iterable & {\em \$values} & A list of key =\texorpdfstring{$>$}{>} value pairs for a multiple-\/set operation. \\
+\hline
+null | int | \textbackslash{}\+Date\+Interval & {\em \$ttl} & Optional. The TTL value of this item. If no value is sent and the driver supports TTL then the library may set a default value for it or let the driver take care of that.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+bool True on success and false on failure.
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em } & \\
+\hline
+\end{DoxyExceptions}
+Psr\textbackslash{}\+Simple\+Cache\textbackslash{}\+Invalid\+Argument\+Exception MUST be thrown if \$values is neither an array nor a Traversable, or if any of the \$values are not a legal value. 
+
+Implémenté dans \mbox{\hyperlink{class_glpi_1_1_cache_1_1_simple_cache_a0cddff25fce3972ec25ced86f1715780}{Simple\+Cache}}, et \mbox{\hyperlink{class_symfony_1_1_component_1_1_cache_1_1_psr16_cache_a0cddff25fce3972ec25ced86f1715780}{Psr16\+Cache}}.
+
+
+
+La documentation de cette interface a été générée à partir du fichier suivant \+:\begin{DoxyCompactItemize}
+\item 
+public/glpi/vendor/psr/simple-\/cache/src/\mbox{\hyperlink{psr_2simple-cache_2src_2_cache_interface_8php}{Cache\+Interface.\+php}}\end{DoxyCompactItemize}

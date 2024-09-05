@@ -1,0 +1,86 @@
+\doxysection{Référence du fichier public/glpi/vendor/tecnickcom/tcpdf/include/barcodes/datamatrix.php}
+\hypertarget{datamatrix_8php}{}\label{datamatrix_8php}\index{public/glpi/vendor/tecnickcom/tcpdf/include/barcodes/datamatrix.php@{public/glpi/vendor/tecnickcom/tcpdf/include/barcodes/datamatrix.php}}
+\doxysubsubsection*{Structures de données}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_datamatrix}{Datamatrix}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Espaces de nommage}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacecom_1_1tecnick_1_1tcpdf}{com\textbackslash{}tecnick\textbackslash{}tcpdf}}
+\begin{DoxyCompactList}\small\item\em This is a PHP class for decoding common PDF filters. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const \mbox{\hyperlink{datamatrix_8php_a318f0ab4ffea633eaf4f36208d324c05}{ENC\+\_\+\+ASCII}} (!defined(\textquotesingle{}\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{DATAMATRIXDEFS}}\textquotesingle{})) 0
+\item 
+const \mbox{\hyperlink{datamatrix_8php_a1eec4ea74743c650eb7f47f1b5147ee2}{ENC\+\_\+\+C40}} 1
+\item 
+const \mbox{\hyperlink{datamatrix_8php_adfd1b306f0db0a3f32800f3e0fbab815}{ENC\+\_\+\+TXT}} 2
+\item 
+const \mbox{\hyperlink{datamatrix_8php_ab2fe358931d361ed5811c1b0efa90821}{ENC\+\_\+\+X12}} 3
+\item 
+const \mbox{\hyperlink{datamatrix_8php_a905bf3ab55369185d8c263d5a56403ad}{ENC\+\_\+\+EDF}} 4
+\item 
+const \mbox{\hyperlink{datamatrix_8php_a8bb7662e8d5efad2206283cb7e9637f0}{ENC\+\_\+\+BASE256}} 5
+\item 
+const \mbox{\hyperlink{datamatrix_8php_a303fb85acef4bfb470e50901d261eadb}{ENC\+\_\+\+ASCII\+\_\+\+EXT}} 6
+\item 
+const \mbox{\hyperlink{datamatrix_8php_a107dbd2aa9497cf62a54ccb9c3b895b6}{ENC\+\_\+\+ASCII\+\_\+\+NUM}} 7
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Class to create Data\+Matrix ECC 200 barcode arrays for \doxylink{class_t_c_p_d_f}{TCPDF} class. Data\+Matrix (ISO/\+IEC 16022\+:2006) is a 2-\/dimensional bar code. 
+
+\doxysubsection{Documentation des variables}
+\Hypertarget{datamatrix_8php_a318f0ab4ffea633eaf4f36208d324c05}\label{datamatrix_8php_a318f0ab4ffea633eaf4f36208d324c05} 
+\index{datamatrix.php@{datamatrix.php}!ENC\_ASCII@{ENC\_ASCII}}
+\index{ENC\_ASCII@{ENC\_ASCII}!datamatrix.php@{datamatrix.php}}
+\doxysubsubsection{\texorpdfstring{ENC\_ASCII}{ENC\_ASCII}}
+{\footnotesize\ttfamily const ENC\+\_\+\+ASCII(!defined( \textquotesingle{}\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{DATAMATRIXDEFS}}\textquotesingle{})) (\begin{DoxyParamCaption}\item[{!}]{defined \textquotesingle{}\+DATAMATRIXDEFS\textquotesingle{} }\end{DoxyParamCaption}) 0}
+
+ASCII encoding\+: ASCII character 0 to 127 (1 byte per CW) \Hypertarget{datamatrix_8php_a303fb85acef4bfb470e50901d261eadb}\label{datamatrix_8php_a303fb85acef4bfb470e50901d261eadb} 
+\index{datamatrix.php@{datamatrix.php}!ENC\_ASCII\_EXT@{ENC\_ASCII\_EXT}}
+\index{ENC\_ASCII\_EXT@{ENC\_ASCII\_EXT}!datamatrix.php@{datamatrix.php}}
+\doxysubsubsection{\texorpdfstring{ENC\_ASCII\_EXT}{ENC\_ASCII\_EXT}}
+{\footnotesize\ttfamily const ENC\+\_\+\+ASCII\+\_\+\+EXT 6}
+
+ASCII extended encoding\+: ASCII character 128 to 255 (1/2 byte per CW) \Hypertarget{datamatrix_8php_a107dbd2aa9497cf62a54ccb9c3b895b6}\label{datamatrix_8php_a107dbd2aa9497cf62a54ccb9c3b895b6} 
+\index{datamatrix.php@{datamatrix.php}!ENC\_ASCII\_NUM@{ENC\_ASCII\_NUM}}
+\index{ENC\_ASCII\_NUM@{ENC\_ASCII\_NUM}!datamatrix.php@{datamatrix.php}}
+\doxysubsubsection{\texorpdfstring{ENC\_ASCII\_NUM}{ENC\_ASCII\_NUM}}
+{\footnotesize\ttfamily const ENC\+\_\+\+ASCII\+\_\+\+NUM 7}
+
+ASCII number encoding\+: ASCII digits (2 bytes per CW) \Hypertarget{datamatrix_8php_a8bb7662e8d5efad2206283cb7e9637f0}\label{datamatrix_8php_a8bb7662e8d5efad2206283cb7e9637f0} 
+\index{datamatrix.php@{datamatrix.php}!ENC\_BASE256@{ENC\_BASE256}}
+\index{ENC\_BASE256@{ENC\_BASE256}!datamatrix.php@{datamatrix.php}}
+\doxysubsubsection{\texorpdfstring{ENC\_BASE256}{ENC\_BASE256}}
+{\footnotesize\ttfamily const ENC\+\_\+\+BASE256 5}
+
+BASE 256 encoding\+: ASCII character 0 to 255 (1 byte per CW) \Hypertarget{datamatrix_8php_a1eec4ea74743c650eb7f47f1b5147ee2}\label{datamatrix_8php_a1eec4ea74743c650eb7f47f1b5147ee2} 
+\index{datamatrix.php@{datamatrix.php}!ENC\_C40@{ENC\_C40}}
+\index{ENC\_C40@{ENC\_C40}!datamatrix.php@{datamatrix.php}}
+\doxysubsubsection{\texorpdfstring{ENC\_C40}{ENC\_C40}}
+{\footnotesize\ttfamily const ENC\+\_\+\+C40 1}
+
+C40 encoding\+: Upper-\/case alphanumeric (3/2 bytes per CW) \Hypertarget{datamatrix_8php_a905bf3ab55369185d8c263d5a56403ad}\label{datamatrix_8php_a905bf3ab55369185d8c263d5a56403ad} 
+\index{datamatrix.php@{datamatrix.php}!ENC\_EDF@{ENC\_EDF}}
+\index{ENC\_EDF@{ENC\_EDF}!datamatrix.php@{datamatrix.php}}
+\doxysubsubsection{\texorpdfstring{ENC\_EDF}{ENC\_EDF}}
+{\footnotesize\ttfamily const ENC\+\_\+\+EDF 4}
+
+EDIFACT encoding\+: ASCII character 32 to 94 (4/3 bytes per CW) \Hypertarget{datamatrix_8php_adfd1b306f0db0a3f32800f3e0fbab815}\label{datamatrix_8php_adfd1b306f0db0a3f32800f3e0fbab815} 
+\index{datamatrix.php@{datamatrix.php}!ENC\_TXT@{ENC\_TXT}}
+\index{ENC\_TXT@{ENC\_TXT}!datamatrix.php@{datamatrix.php}}
+\doxysubsubsection{\texorpdfstring{ENC\_TXT}{ENC\_TXT}}
+{\footnotesize\ttfamily const ENC\+\_\+\+TXT 2}
+
+TEXT encoding\+: Lower-\/case alphanumeric (3/2 bytes per CW) \Hypertarget{datamatrix_8php_ab2fe358931d361ed5811c1b0efa90821}\label{datamatrix_8php_ab2fe358931d361ed5811c1b0efa90821} 
+\index{datamatrix.php@{datamatrix.php}!ENC\_X12@{ENC\_X12}}
+\index{ENC\_X12@{ENC\_X12}!datamatrix.php@{datamatrix.php}}
+\doxysubsubsection{\texorpdfstring{ENC\_X12}{ENC\_X12}}
+{\footnotesize\ttfamily const ENC\+\_\+\+X12 3}
+
+X12 encoding\+: ANSI X12 (3/2 byte per CW) 

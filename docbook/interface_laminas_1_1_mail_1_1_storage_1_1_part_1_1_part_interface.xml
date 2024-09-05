@@ -1,0 +1,411 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_interface_laminas_1_1_mail_1_1_storage_1_1_part_1_1_part_interface" xml:lang="fr">
+<title>Référence de l&apos;interface PartInterface</title>
+<indexterm><primary>PartInterface</primary></indexterm>
+Graphe d&apos;héritage de PartInterface:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="interface_laminas_1_1_mail_1_1_storage_1_1_part_1_1_part_interface__inherit__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Graphe de collaboration de PartInterface:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="interface_laminas_1_1_mail_1_1_storage_1_1_part_1_1_part_interface__coll__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Fonctions membres publiques    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_interface_laminas_1_1_mail_1_1_storage_1_1_part_1_1_part_interface_1ac868a4c8cf67bc5a5007ed07ab60fc31">isMultipart</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_interface_laminas_1_1_mail_1_1_storage_1_1_part_1_1_part_interface_1a58e43f09a06ce4e29b192c4e17ce7915">getContent</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_interface_laminas_1_1_mail_1_1_storage_1_1_part_1_1_part_interface_1a75cce10cdf81be6dc84881c28b3379b7">getSize</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_interface_laminas_1_1_mail_1_1_storage_1_1_part_1_1_part_interface_1a604c12bbfa181358f90fa538fc3d0fdc">getPart</link> ($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">num</link>)</para>
+</listitem>
+            <listitem><para><link linkend="_interface_laminas_1_1_mail_1_1_storage_1_1_part_1_1_part_interface_1a6d16d77df0cbb635c3fed2c39d9a2673">countParts</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_interface_laminas_1_1_mail_1_1_storage_1_1_part_1_1_part_interface_1a157e0005d82edaa21cbea07fdc5c62da">getHeaders</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_interface_laminas_1_1_mail_1_1_storage_1_1_part_1_1_part_interface_1a68354c7855f95836f8c7b69ee486eae1">getHeader</link> ($name, $format=null)</para>
+</listitem>
+            <listitem><para><link linkend="_interface_laminas_1_1_mail_1_1_storage_1_1_part_1_1_part_interface_1aa8fe958e8db8c95470fb1acdaa123e83">getHeaderField</link> ($name, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">wantedPart</link>=&apos;0&apos;, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">firstName</link>=&apos;0&apos;)</para>
+</listitem>
+            <listitem><para><link linkend="_interface_laminas_1_1_mail_1_1_storage_1_1_part_1_1_part_interface_1abc8e9e31bb15c8a44c3210ec551407c8">__get</link> ($name)</para>
+</listitem>
+            <listitem><para><link linkend="_interface_laminas_1_1_mail_1_1_storage_1_1_part_1_1_part_interface_1a7516ca30af0db3cdbf9a7739b48ce91d">__toString</link> ()</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Documentation des fonctions membres</title>
+<anchor xml:id="_interface_laminas_1_1_mail_1_1_storage_1_1_part_1_1_part_interface_1abc8e9e31bb15c8a44c3210ec551407c8"/><section>
+    <title>__get()</title>
+<indexterm><primary>__get</primary><secondary>PartInterface</secondary></indexterm>
+<indexterm><primary>PartInterface</primary><secondary>__get</secondary></indexterm>
+<para><computeroutput>__get ( $name)</computeroutput></para>
+<para>Getter for mail headers - name is matched in lowercase</para>
+
+<para>This getter is short for PartInterface::getHeader($name, &apos;string&apos;)</para>
+
+<para><formalpara><title>Voir également</title>
+
+<para>PartInterface::getHeader() </para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$name</entry><entry>
+<para>header name </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>string value of header </para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>Exception</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                ExceptionInterface </para>
+<para>
+Implémenté dans <link linkend="_class_laminas_1_1_mail_1_1_storage_1_1_part_1abc8e9e31bb15c8a44c3210ec551407c8">Part</link>.</para>
+</section>
+<anchor xml:id="_interface_laminas_1_1_mail_1_1_storage_1_1_part_1_1_part_interface_1a7516ca30af0db3cdbf9a7739b48ce91d"/><section>
+    <title>__toString()</title>
+<indexterm><primary>__toString</primary><secondary>PartInterface</secondary></indexterm>
+<indexterm><primary>PartInterface</primary><secondary>__toString</secondary></indexterm>
+<para><computeroutput>__toString ( )</computeroutput></para>
+<para>magic method to get content of part</para>
+
+<para><formalpara><title>Renvoie</title>
+
+<para>string content </para>
+</formalpara>
+</para>
+<para>
+Implémenté dans <link linkend="_class_laminas_1_1_mail_1_1_storage_1_1_part_1a7516ca30af0db3cdbf9a7739b48ce91d">Part</link>.</para>
+</section>
+<anchor xml:id="_interface_laminas_1_1_mail_1_1_storage_1_1_part_1_1_part_interface_1a6d16d77df0cbb635c3fed2c39d9a2673"/><section>
+    <title>countParts()</title>
+<indexterm><primary>countParts</primary><secondary>PartInterface</secondary></indexterm>
+<indexterm><primary>PartInterface</primary><secondary>countParts</secondary></indexterm>
+<para><computeroutput>countParts ( )</computeroutput></para>
+<para>Count parts of a multipart part</para>
+
+<para><formalpara><title>Renvoie</title>
+
+<para>int number of sub-parts </para>
+</formalpara>
+</para>
+<para>
+Implémenté dans <link linkend="_class_laminas_1_1_mail_1_1_storage_1_1_part_1a6d16d77df0cbb635c3fed2c39d9a2673">Part</link>.</para>
+</section>
+<anchor xml:id="_interface_laminas_1_1_mail_1_1_storage_1_1_part_1_1_part_interface_1a58e43f09a06ce4e29b192c4e17ce7915"/><section>
+    <title>getContent()</title>
+<indexterm><primary>getContent</primary><secondary>PartInterface</secondary></indexterm>
+<indexterm><primary>PartInterface</primary><secondary>getContent</secondary></indexterm>
+<para><computeroutput>getContent ( )</computeroutput></para>
+<para>Body of part</para>
+
+<para>If part is multipart the raw content of this part with all sub parts is returned.</para>
+
+<para><formalpara><title>Renvoie</title>
+
+<para>string body </para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>Exception</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                ExceptionInterface </para>
+<para>
+Implémenté dans <link linkend="_class_laminas_1_1_mail_1_1_storage_1_1_part_1a58e43f09a06ce4e29b192c4e17ce7915">Part</link>.</para>
+</section>
+<anchor xml:id="_interface_laminas_1_1_mail_1_1_storage_1_1_part_1_1_part_interface_1a68354c7855f95836f8c7b69ee486eae1"/><section>
+    <title>getHeader()</title>
+<indexterm><primary>getHeader</primary><secondary>PartInterface</secondary></indexterm>
+<indexterm><primary>PartInterface</primary><secondary>getHeader</secondary></indexterm>
+<para><computeroutput>getHeader ( $name,  $format = <computeroutput>null</computeroutput>
+)</computeroutput></para>
+<para>Get a header in specified format</para>
+
+<para>Internally headers that occur more than once are saved as array, all other as string. If $format is set to string implode is used to concat the values (with Laminas\Mime\Mime::LINEEND as delim).</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$name</entry><entry>
+<para>name of header, matches case-insensitive, but camel-case is replaced with dashes </para>
+</entry>
+                            </row>
+                            <row>
+<entry>string</entry><entry>$format</entry><entry>
+<para>change type of return value to &apos;string&apos; or &apos;array&apos; </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>string|array|HeaderInterface|ArrayIterator value of header in wanted or internal format </para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>Exception</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                ExceptionInterface </para>
+<para>
+Implémenté dans <link linkend="_class_laminas_1_1_mail_1_1_storage_1_1_part_1a68354c7855f95836f8c7b69ee486eae1">Part</link>.</para>
+</section>
+<anchor xml:id="_interface_laminas_1_1_mail_1_1_storage_1_1_part_1_1_part_interface_1aa8fe958e8db8c95470fb1acdaa123e83"/><section>
+    <title>getHeaderField()</title>
+<indexterm><primary>getHeaderField</primary><secondary>PartInterface</secondary></indexterm>
+<indexterm><primary>PartInterface</primary><secondary>getHeaderField</secondary></indexterm>
+<para><computeroutput>getHeaderField ( $name,  $wantedPart = <computeroutput>&apos;0&apos;</computeroutput>
+,  $firstName = <computeroutput>&apos;0&apos;</computeroutput>
+)</computeroutput></para>
+<para>Get a specific field from a header like content type or all fields as array</para>
+
+<para>If the header occurs more than once, only the value from the first header is returned.</para>
+
+<para>Throws an exception if the requested header does not exist. If the specific header field does not exist, returns null.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$name</entry><entry>
+<para>name of header, like in getHeader() </para>
+</entry>
+                            </row>
+                            <row>
+<entry>string</entry><entry>$wantedPart</entry><entry>
+<para>the wanted part, default is first, if null an array with all parts is returned </para>
+</entry>
+                            </row>
+                            <row>
+<entry>string</entry><entry>$firstName</entry><entry>
+<para>key name for the first part </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>string|array wanted part or all parts as [$firstName =&gt; firstPart, partname =&gt; value] </para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>Exception</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                ExceptionInterface </para>
+<para>
+Implémenté dans <link linkend="_class_laminas_1_1_mail_1_1_storage_1_1_part_1aa8fe958e8db8c95470fb1acdaa123e83">Part</link>.</para>
+</section>
+<anchor xml:id="_interface_laminas_1_1_mail_1_1_storage_1_1_part_1_1_part_interface_1a157e0005d82edaa21cbea07fdc5c62da"/><section>
+    <title>getHeaders()</title>
+<indexterm><primary>getHeaders</primary><secondary>PartInterface</secondary></indexterm>
+<indexterm><primary>PartInterface</primary><secondary>getHeaders</secondary></indexterm>
+<para><computeroutput>getHeaders ( )</computeroutput></para>
+<para>Get all headers</para>
+
+<para>The returned headers are as saved internally. All names are lowercased. The value is a string or an array if a header with the same name occurs more than once.</para>
+
+<para><formalpara><title>Renvoie</title>
+
+<para>Headers </para>
+</formalpara>
+</para>
+<para>
+Implémenté dans <link linkend="_class_laminas_1_1_mail_1_1_storage_1_1_part_1a157e0005d82edaa21cbea07fdc5c62da">Part</link>.</para>
+</section>
+<anchor xml:id="_interface_laminas_1_1_mail_1_1_storage_1_1_part_1_1_part_interface_1a604c12bbfa181358f90fa538fc3d0fdc"/><section>
+    <title>getPart()</title>
+<indexterm><primary>getPart</primary><secondary>PartInterface</secondary></indexterm>
+<indexterm><primary>PartInterface</primary><secondary>getPart</secondary></indexterm>
+<para><computeroutput>getPart ( $num)</computeroutput></para>
+<para>Get part of multipart message</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>int</entry><entry>$num</entry><entry>
+<para>number of part starting with 1 for first part </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>PartInterface wanted part </para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>Exception</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                ExceptionInterface </para>
+<para>
+Implémenté dans <link linkend="_class_laminas_1_1_mail_1_1_storage_1_1_part_1a604c12bbfa181358f90fa538fc3d0fdc">Part</link>, et <link linkend="_class_laminas_1_1_mail_1_1_storage_1_1_part_1_1_file_1a604c12bbfa181358f90fa538fc3d0fdc">File</link>.</para>
+</section>
+<anchor xml:id="_interface_laminas_1_1_mail_1_1_storage_1_1_part_1_1_part_interface_1a75cce10cdf81be6dc84881c28b3379b7"/><section>
+    <title>getSize()</title>
+<indexterm><primary>getSize</primary><secondary>PartInterface</secondary></indexterm>
+<indexterm><primary>PartInterface</primary><secondary>getSize</secondary></indexterm>
+<para><computeroutput>getSize ( )</computeroutput></para>
+<para>Return size of part</para>
+
+<para><formalpara><title>Renvoie</title>
+
+<para>int size </para>
+</formalpara>
+</para>
+<para>
+Implémenté dans <link linkend="_class_laminas_1_1_mail_1_1_storage_1_1_part_1a75cce10cdf81be6dc84881c28b3379b7">Part</link>, et <link linkend="_class_laminas_1_1_mail_1_1_storage_1_1_part_1_1_file_1a75cce10cdf81be6dc84881c28b3379b7">File</link>.</para>
+</section>
+<anchor xml:id="_interface_laminas_1_1_mail_1_1_storage_1_1_part_1_1_part_interface_1ac868a4c8cf67bc5a5007ed07ab60fc31"/><section>
+    <title>isMultipart()</title>
+<indexterm><primary>isMultipart</primary><secondary>PartInterface</secondary></indexterm>
+<indexterm><primary>PartInterface</primary><secondary>isMultipart</secondary></indexterm>
+<para><computeroutput>isMultipart ( )</computeroutput></para>
+<para>Check if part is a multipart message</para>
+
+<para><formalpara><title>Renvoie</title>
+
+<para>bool if part is multipart </para>
+</formalpara>
+</para>
+<para>
+Implémenté dans <link linkend="_class_laminas_1_1_mail_1_1_storage_1_1_part_1ac868a4c8cf67bc5a5007ed07ab60fc31">Part</link>.</para>
+</section>
+<para>
+La documentation de cette interface a été générée à partir du fichier suivant :</para>
+public/glpi/vendor/laminas/laminas-mail/src/Storage/Part/<link linkend="__part_interface_8php">PartInterface.php</link></section>
+</section>

@@ -1,0 +1,281 @@
+\chapter{Azure Active Directory Provider for OAuth 2.0 Client}
+\hypertarget{md_public_2glpi_2vendor_2thenetworg_2oauth2-azure_2_r_e_a_d_m_e}{}\label{md_public_2glpi_2vendor_2thenetworg_2oauth2-azure_2_r_e_a_d_m_e}\index{Azure Active Directory Provider for OAuth 2.0 Client@{Azure Active Directory Provider for OAuth 2.0 Client}}
+\label{md_public_2glpi_2vendor_2thenetworg_2oauth2-azure_2_r_e_a_d_m_e_autotoc_md7423}%
+\Hypertarget{md_public_2glpi_2vendor_2thenetworg_2oauth2-azure_2_r_e_a_d_m_e_autotoc_md7423}%
+\href{https://github.com/thenetworg/oauth2-azure/releases}{\texttt{ }} \href{https://packagist.org/packages/thenetworg/oauth2-azure}{\texttt{ }} \doxysectlink{md_public_2glpi_2vendor_2thenetworg_2oauth2-azure_2_l_i_c_e_n_s_e}{}{0}
+
+This package provides \href{https://azure.microsoft.com/en-us/services/active-directory/}{\texttt{ Azure Active Directory}} OAuth 2.\+0 support for the PHP League\textquotesingle{}s \href{https://github.com/thephpleague/oauth2-client}{\texttt{ OAuth 2.\+0 Client}}.\hypertarget{md_public_2glpi_2vendor_2thenetworg_2oauth2-azure_2_r_e_a_d_m_e_autotoc_md7424}{}\doxysection{\texorpdfstring{Table of Contents}{Table of Contents}}\label{md_public_2glpi_2vendor_2thenetworg_2oauth2-azure_2_r_e_a_d_m_e_autotoc_md7424}
+
+\begin{DoxyItemize}
+\item \doxylink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{Installation}
+\item \doxylink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{Usage}
+\begin{DoxyItemize}
+\item \doxylink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{Authorization Code Flow}
+\begin{DoxyItemize}
+\item \doxylink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{Advanced flow}
+\item \doxylink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{Using custom parameters}
+\item \doxylink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}\+NEW\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*} -\/ Call on behalf of a token provided by another app}
+\end{DoxyItemize}
+\item \doxylink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}\+NEW\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*} -\/ Logging out}
+\end{DoxyItemize}
+\item \doxylink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{Making API Requests}
+\begin{DoxyItemize}
+\item \doxylink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{Variables}
+\end{DoxyItemize}
+\item \doxylink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{Resource Owner}
+\item \doxylink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}\+UPDATED\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*} -\/ Microsoft Graph}
+\item \doxylink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}\+NEW\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*} -\/ Protecting your API -\/ \texorpdfstring{$\ast$}{*}experimental\texorpdfstring{$\ast$}{*}}
+\item \doxylink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{Azure Active Directory B2C -\/ \texorpdfstring{$\ast$}{*}experimental\texorpdfstring{$\ast$}{*}}
+\item \doxylink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{Multipurpose refresh tokens -\/ \texorpdfstring{$\ast$}{*}experimental\texorpdfstring{$\ast$}{*}}
+\item \doxylink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{Known users}
+\item \doxylink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{Contributing}
+\item \doxylink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{Credits}
+\item \doxylink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{Support}
+\item \doxylink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{License}
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2thenetworg_2oauth2-azure_2_r_e_a_d_m_e_autotoc_md7425}{}\doxysection{\texorpdfstring{Installation}{Installation}}\label{md_public_2glpi_2vendor_2thenetworg_2oauth2-azure_2_r_e_a_d_m_e_autotoc_md7425}
+To install, use composer\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{composer\ require\ thenetworg/oauth2-\/azure}
+
+\end{DoxyCode}
+\hypertarget{md_public_2glpi_2vendor_2thenetworg_2oauth2-azure_2_r_e_a_d_m_e_autotoc_md7426}{}\doxysection{\texorpdfstring{Usage}{Usage}}\label{md_public_2glpi_2vendor_2thenetworg_2oauth2-azure_2_r_e_a_d_m_e_autotoc_md7426}
+Usage is the same as The League\textquotesingle{}s OAuth client, using {\ttfamily \textbackslash{}The\+Networg\textbackslash{}OAuth2\textbackslash{}Client\textbackslash{}Provider\textbackslash{}Azure} as the provider.\hypertarget{md_public_2glpi_2vendor_2thenetworg_2oauth2-azure_2_r_e_a_d_m_e_autotoc_md7427}{}\doxysubsection{\texorpdfstring{Authorization Code Flow}{Authorization Code Flow}}\label{md_public_2glpi_2vendor_2thenetworg_2oauth2-azure_2_r_e_a_d_m_e_autotoc_md7427}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\$provider\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{class_the_networg_1_1_o_auth2_1_1_client_1_1_provider_1_1_azure}{TheNetworg\(\backslash\)OAuth2\(\backslash\)Client\(\backslash\)Provider\(\backslash\)Azure}}([}
+\DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{'clientId'}\ \ \ \ \ \ \ \ \ \ =>\ \textcolor{stringliteral}{'\{azure-\/client-\/id\}'},}
+\DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{'clientSecret'}\ \ \ \ \ \ =>\ \textcolor{stringliteral}{'\{azure-\/client-\/secret\}'},}
+\DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{'redirectUri'}\ \ \ \ \ \ \ =>\ \textcolor{stringliteral}{'https://example.com/callback-\/url'},}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//Optional}}
+\DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{'scopes'}\ \ \ \ \ \ \ \ \ \ \ \ =>\ [\textcolor{stringliteral}{'openid'}],}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//Optional}}
+\DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{'defaultEndPointVersion'}\ =>\ \textcolor{stringliteral}{'2.0'}}
+\DoxyCodeLine{]);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ Set\ to\ use\ v2\ API,\ skip\ the\ line\ or\ set\ the\ value\ to\ Azure::ENDPOINT\_VERSION\_1\_0\ if\ willing\ to\ use\ v1\ API}}
+\DoxyCodeLine{\$provider-\/>defaultEndPointVersion\ =\ TheNetworg\(\backslash\)OAuth2\(\backslash\)Client\(\backslash\)Provider\(\backslash\)Azure::ENDPOINT\_VERSION\_2\_0;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\$baseGraphUri}}\ =\ \$provider-\/>getRootMicrosoftGraphUri(\textcolor{keyword}{null});}
+\DoxyCodeLine{\$provider-\/>scope\ =\ \textcolor{stringliteral}{'openid\ profile\ email\ offline\_access\ '}\ .\ \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\$baseGraphUri}}\ .\ \textcolor{stringliteral}{'/User.Read'};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordflow}{if}\ (\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{isset}}(\mbox{\hyperlink{common_8tabs_8php_a7b2772071c2b50e11742306f5abe68e3}{\$\_GET}}[\textcolor{stringliteral}{'code'}])\ \&\&\ \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{isset}}(\mbox{\hyperlink{ajax_2knowbase_8php_a8d51972dab0856e7ed5db52b906de613}{\$\_SESSION}}[\textcolor{stringliteral}{'OAuth2.state'}])\ \&\&\ \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{isset}}(\mbox{\hyperlink{common_8tabs_8php_a7b2772071c2b50e11742306f5abe68e3}{\$\_GET}}[\textcolor{stringliteral}{'state'}]))\ \{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{common_8tabs_8php_a7b2772071c2b50e11742306f5abe68e3}{\$\_GET}}[\textcolor{stringliteral}{'state'}]\ ==\ \mbox{\hyperlink{ajax_2knowbase_8php_a8d51972dab0856e7ed5db52b906de613}{\$\_SESSION}}[\textcolor{stringliteral}{'OAuth2.state'}])\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ unset(\mbox{\hyperlink{ajax_2knowbase_8php_a8d51972dab0856e7ed5db52b906de613}{\$\_SESSION}}[\textcolor{stringliteral}{'OAuth2.state'}]);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{comment}{//\ Try\ to\ get\ an\ access\ token\ (using\ the\ authorization\ code\ grant)}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \$token\ =\ \$provider-\/>getAccessToken(\textcolor{stringliteral}{'authorization\_code'},\ [}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{'scope'}\ =>\ \$provider-\/>scope,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{'code'}\ =>\ \mbox{\hyperlink{common_8tabs_8php_a7b2772071c2b50e11742306f5abe68e3}{\$\_GET}}[\textcolor{stringliteral}{'code'}],}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ ]);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{comment}{//\ Verify\ token}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{comment}{//\ Save\ it\ to\ local\ server\ session\ data}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \$token-\/>getToken();}
+\DoxyCodeLine{\ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{echo}}\ \textcolor{stringliteral}{'Invalid\ state'};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{null};}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{\}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ //\ Check\ local\ server's\ session\ data\ for\ a\ token}}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ //\ and\ verify\ if\ still\ valid\ }}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ /**\ @var\ ?AccessToken\ \$token\ */}}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ \$token\ =\ //\ token\ cached\ in\ session\ data,\ null\ if\ not\ found;}}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ if\ (isset(\$token))\ \{}}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ \ \ \ \$me\ =\ \$provider-\/>get(\$provider-\/>getRootMicrosoftGraphUri(\$token)\ .\ '/v1.0/me',\ \$token);}}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ \ \ \ \$userEmail\ =\ \$me['mail'];}}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ \ \ \ if\ (\$token-\/>hasExpired())\ \{}}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ \ \ \ \ \ \ \ if\ (!is\_null(\$token-\/>getRefreshToken()))\ \{}}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \$token\ =\ \$provider-\/>getAccessToken('refresh\_token',\ [}}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 'scope'\ =>\ \$provider-\/>scope,}}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 'refresh\_token'\ =>\ \$token-\/>getRefreshToken()}}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ ]);}}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ \ \ \ \ \ \ \ \}\ else\ \{}}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \$token\ =\ null;}}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ \ \ \ \ \ \ \ \}}}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ \ \ \ \}}}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\}}}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ If\ the\ token\ is\ not\ found\ in\ }}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ if\ (!isset(\$token))\ \{}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\$authorizationUrl}}\ =\ \$provider-\/>getAuthorizationUrl([\textcolor{stringliteral}{'scope'}\ =>\ \$provider-\/>scope]);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \mbox{\hyperlink{ajax_2knowbase_8php_a8d51972dab0856e7ed5db52b906de613}{\$\_SESSION}}[\textcolor{stringliteral}{'OAuth2.state'}]\ =\ \$provider-\/>getState();}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ header(\textcolor{stringliteral}{'Location:\ '}\ .\ \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\$authorizationUrl}});}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{exit}};}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ \}}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{return}\ \$token-\/>getToken();}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\hypertarget{md_public_2glpi_2vendor_2thenetworg_2oauth2-azure_2_r_e_a_d_m_e_autotoc_md7428}{}\doxysubsubsection{\texorpdfstring{Advanced flow}{Advanced flow}}\label{md_public_2glpi_2vendor_2thenetworg_2oauth2-azure_2_r_e_a_d_m_e_autotoc_md7428}
+The \href{https://msdn.microsoft.com/en-us/library/azure/dn645542.aspx}{\texttt{ Authorization Code Grant Flow}} is a little bit different for Azure Active Directory. Instead of scopes, you specify the resource which you would like to access -\/ there is a param {\ttfamily \$provider-\/\texorpdfstring{$>$}{>}auth\+With\+Resource} which will automatically populate the {\ttfamily resource} param of request with the value of either {\ttfamily \$provider-\/\texorpdfstring{$>$}{>}resource} or {\ttfamily \$provider-\/\texorpdfstring{$>$}{>}url\+API}. This feature is mostly intended for v2.\+0 endpoint of Azure AD (see more \href{https://docs.microsoft.com/en-us/azure/active-directory/develop/azure-ad-endpoint-comparison\#scopes-not-resources}{\texttt{ here}}).\hypertarget{md_public_2glpi_2vendor_2thenetworg_2oauth2-azure_2_r_e_a_d_m_e_autotoc_md7429}{}\doxysubsubsection{\texorpdfstring{Using custom parameters}{Using custom parameters}}\label{md_public_2glpi_2vendor_2thenetworg_2oauth2-azure_2_r_e_a_d_m_e_autotoc_md7429}
+With \href{https://github.com/thephpleague/oauth2-client}{\texttt{ oauth2-\/client}} of version 1.\+3.\+0 and higher, it is now possible to specify custom parameters for the authorization URL, so you can now make use of options like {\ttfamily prompt}, {\ttfamily login\+\_\+hint} and similar. See the following example of obtaining an authorization URL which will force the user to reauthenticate\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\$authUrl}}\ =\ \$provider-\/>getAuthorizationUrl([}
+\DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{'prompt'}\ =>\ \textcolor{stringliteral}{'login'}}
+\DoxyCodeLine{]);}
+
+\end{DoxyCode}
+ You can find additional parameters \href{https://msdn.microsoft.com/en-us/library/azure/dn645542.aspx}{\texttt{ here}}.\hypertarget{md_public_2glpi_2vendor_2thenetworg_2oauth2-azure_2_r_e_a_d_m_e_autotoc_md7430}{}\doxysubsection{\texorpdfstring{Logging out}{Logging out}}\label{md_public_2glpi_2vendor_2thenetworg_2oauth2-azure_2_r_e_a_d_m_e_autotoc_md7430}
+If you need to quickly generate a logout URL for the user, you can do following\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{comment}{//\ Assuming\ you\ have\ provider\ properly\ initialized.}}
+\DoxyCodeLine{\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\$post\_logout\_redirect\_uri}}\ =\ \textcolor{stringliteral}{'https://www.msn.com'};\ \textcolor{comment}{//\ The\ logout\ destination\ after\ the\ user\ is\ logged\ out\ from\ their\ account.}}
+\DoxyCodeLine{\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\$logoutUrl}}\ =\ \$provider-\/>getLogoutUrl(\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\$post\_logout\_redirect\_uri}});}
+\DoxyCodeLine{header(\textcolor{stringliteral}{'Location:\ '}.\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\$logoutUrl}});\ \textcolor{comment}{//\ Redirect\ the\ user\ to\ the\ generated\ URL}}
+
+\end{DoxyCode}
+\hypertarget{md_public_2glpi_2vendor_2thenetworg_2oauth2-azure_2_r_e_a_d_m_e_autotoc_md7431}{}\doxysubsubsection{\texorpdfstring{Call on behalf of a token provided by another app}{Call on behalf of a token provided by another app}}\label{md_public_2glpi_2vendor_2thenetworg_2oauth2-azure_2_r_e_a_d_m_e_autotoc_md7431}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{comment}{//\ Use\ token\ provided\ by\ the\ other\ app}}
+\DoxyCodeLine{\textcolor{comment}{//\ Make\ sure\ the\ other\ app\ mentioned\ this\ app\ in\ the\ scope\ when\ requesting\ the\ token}}
+\DoxyCodeLine{\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\$suppliedToken}}\ =\ \textcolor{stringliteral}{''};\ \ }
+\DoxyCodeLine{}
+\DoxyCodeLine{\$provider\ =\ \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{xxxxx}};\textcolor{comment}{//\ Initialize\ provider}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ Call\ this\ to\ get\ claims}}
+\DoxyCodeLine{\textcolor{comment}{//\ \$claims\ =\ \$provider-\/>validateAccessToken(\$suppliedToken);}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\$token\ =\ \$provider-\/>getAccessToken(\textcolor{stringliteral}{'jwt\_bearer'},\ [}
+\DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{'scope'}\ =>\ \$provider-\/>scope,}
+\DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{'assertion'}\ =>\ \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\$suppliedToken}},}
+\DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{'requested\_token\_use'}\ =>\ \textcolor{stringliteral}{'on\_behalf\_of'},}
+\DoxyCodeLine{]);}
+
+\end{DoxyCode}
+\hypertarget{md_public_2glpi_2vendor_2thenetworg_2oauth2-azure_2_r_e_a_d_m_e_autotoc_md7432}{}\doxysection{\texorpdfstring{Making API Requests}{Making API Requests}}\label{md_public_2glpi_2vendor_2thenetworg_2oauth2-azure_2_r_e_a_d_m_e_autotoc_md7432}
+This library also provides easy interface to make it easier to interact with \href{https://msdn.microsoft.com/en-us/library/azure/hh974476.aspx}{\texttt{ Azure Graph API}} and \href{http://graph.microsoft.io}{\texttt{ Microsoft Graph}}, the following methods are available on {\ttfamily provider} object (it also handles automatic token refresh flow should it be needed during making the request)\+:
+
+
+\begin{DoxyItemize}
+\item {\ttfamily get(\$ref, \$access\+Token, \$headers = \mbox{[}\mbox{]})}
+\item {\ttfamily post(\$ref, \$body, \$access\+Token, \$headers = \mbox{[}\mbox{]})}
+\item {\ttfamily put(\$ref, \$body, \$access\+Token, \$headers = \mbox{[}\mbox{]})}
+\item {\ttfamily delete(\$ref, \$body, \$access\+Token, \$headers = \mbox{[}\mbox{]})}
+\item {\ttfamily patch(\$ref, \$body, \$access\+Token, \$headers = \mbox{[}\mbox{]})}
+\item {\ttfamily get\+Objects(\$tenant, \$ref, \$access\+Token, \$headers = \mbox{[}\mbox{]})} This is used for example for listing large amount of data -\/ where you need to list all users for example -\/ it automatically follows {\ttfamily odata.\+next\+Link} until the end.
+\begin{DoxyItemize}
+\item {\ttfamily \$tenant} tenant has to be provided since the {\ttfamily odata.\+next\+Link} doesn\textquotesingle{}t contain it.
+\end{DoxyItemize}
+\item {\ttfamily request(\$method, \$ref, \$access\+Token, \$options = \mbox{[}\mbox{]})} See \href{https://github.com/TheNetworg/oauth2-azure/issues/36}{\texttt{ \#36}} for use case.
+\end{DoxyItemize}
+
+{\itshape Please note that if you need to create a custom request, the method get\+Authenticated\+Request and get\+Response can still be used.}\hypertarget{md_public_2glpi_2vendor_2thenetworg_2oauth2-azure_2_r_e_a_d_m_e_autotoc_md7433}{}\doxysubsection{\texorpdfstring{Variables}{Variables}}\label{md_public_2glpi_2vendor_2thenetworg_2oauth2-azure_2_r_e_a_d_m_e_autotoc_md7433}
+
+\begin{DoxyItemize}
+\item {\ttfamily \$ref} The URL reference without the leading {\ttfamily /}, for example {\ttfamily my\+Organization/groups}
+\item {\ttfamily \$body} The contents of the request, make has to be either string (so make sure to use {\ttfamily json\+\_\+encode} to encode the request)s or stream (see \href{http://docs.guzzlephp.org/en/latest/request-options.html\#body}{\texttt{ Guzzle HTTP}})
+\item {\ttfamily \$access\+Token} The access token object obtained by using {\ttfamily get\+Access\+Token} method
+\item {\ttfamily \$headers} Ability to set custom headers for the request (see \href{http://docs.guzzlephp.org/en/latest/request-options.html\#headers}{\texttt{ Guzzle HTTP}})
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2thenetworg_2oauth2-azure_2_r_e_a_d_m_e_autotoc_md7434}{}\doxysection{\texorpdfstring{Resource Owner}{Resource Owner}}\label{md_public_2glpi_2vendor_2thenetworg_2oauth2-azure_2_r_e_a_d_m_e_autotoc_md7434}
+With version 1.\+1.\+0 and onward, the Resource Owner information is parsed from the JWT passed in {\ttfamily access\+\_\+token} by Azure Active Directory. It exposes few attributes and one function.
+
+{\bfseries{Example\+:}} 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\$resourceOwner}}\ =\ \$provider-\/>getResourceOwner(\$token);}
+\DoxyCodeLine{\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{echo}}\ \textcolor{stringliteral}{'Hello,\ '}.\$resourceOwner-\/>getFirstName().\textcolor{charliteral}{'!'};}
+
+\end{DoxyCode}
+ The exposed attributes and function are\+:
+\begin{DoxyItemize}
+\item {\ttfamily get\+Id()} -\/ Gets user\textquotesingle{}s object id -\/ unique for each user
+\item {\ttfamily get\+First\+Name()} -\/ Gets user\textquotesingle{}s first name
+\item {\ttfamily get\+Last\+Name()} -\/ Gets user\textquotesingle{}s family name/surname
+\item {\ttfamily get\+Tenant\+Id()} -\/ Gets id of tenant which the user is member of
+\item {\ttfamily get\+Upn()} -\/ Gets user\textquotesingle{}s \doxylink{class_user}{User} Principal Name, which can be also used as user\textquotesingle{}s e-\/mail address
+\item {\ttfamily claim(\$name)} -\/ Gets any other claim (specified as {\ttfamily \$name}) from the JWT, full list can be found \href{https://azure.microsoft.com/en-us/documentation/articles/active-directory-token-and-claims/}{\texttt{ here}}
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2thenetworg_2oauth2-azure_2_r_e_a_d_m_e_autotoc_md7435}{}\doxysection{\texorpdfstring{Microsoft Graph}{Microsoft Graph}}\label{md_public_2glpi_2vendor_2thenetworg_2oauth2-azure_2_r_e_a_d_m_e_autotoc_md7435}
+Calling \href{http://graph.microsoft.io/}{\texttt{ Microsoft Graph}} is very simple with this library. After provider initialization simply change the API URL followingly (replace {\ttfamily v1.\+0} with your desired version)\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{comment}{//\ Mention\ Microsoft\ Graph\ scope\ when\ initializing\ the\ provider\ }}
+\DoxyCodeLine{\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\$baseGraphUri}}\ =\ \$provider-\/>getRootMicrosoftGraphUri(\textcolor{keyword}{null});}
+\DoxyCodeLine{\$provider-\/>scope\ =\ \textcolor{stringliteral}{'your\ scope\ '}\ .\ \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\$baseGraphUri}}\ .\ \textcolor{stringliteral}{'/User.Read'};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ Call\ a\ query}}
+\DoxyCodeLine{\$provider-\/>get(\$provider-\/>getRootMicrosoftGraphUri(\$token)\ .\ \textcolor{stringliteral}{'/v1.0/me'},\ \$token);}
+
+\end{DoxyCode}
+ After that, when requesting access token, refresh token or so, provide the {\ttfamily resource} with value {\ttfamily \href{https://graph.microsoft.com/}{\texttt{ https\+://graph.\+microsoft.\+com/}}} in order to be able to make calls to the Graph (see more about {\ttfamily resource} \doxylink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{here}).\hypertarget{md_public_2glpi_2vendor_2thenetworg_2oauth2-azure_2_r_e_a_d_m_e_autotoc_md7436}{}\doxysection{\texorpdfstring{Protecting your API -\/ {\itshape experimental}}{Protecting your API -\/ {\itshape experimental}}}\label{md_public_2glpi_2vendor_2thenetworg_2oauth2-azure_2_r_e_a_d_m_e_autotoc_md7436}
+With version 1.\+2.\+0 you can now use this library to protect your API with Azure Active Directory authentication very easily. The Provider now also exposes {\ttfamily validate\+Access\+Token(string \$token)} which lets you pass an access token inside which you for example received in the {\ttfamily Authorization} header of the request on your API. You can use the function followingly (in vanilla PHP)\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{comment}{//\ Assuming\ you\ have\ already\ initialized\ the\ \$provider}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ Obtain\ the\ accessToken\ -\/\ in\ this\ case,\ we\ are\ getting\ it\ from\ Authorization\ header}}
+\DoxyCodeLine{\mbox{\hyperlink{locale_8php_a52500036ee807241b8b4b7e2367c49ef}{\$headers}}\ =\ \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{getallheaders}}();}
+\DoxyCodeLine{\textcolor{comment}{//\ Assuming\ you\ got\ the\ value\ of\ Authorization\ header\ as\ "{}Bearer\ [the\_access\_token]"{}\ we\ parse\ it}}
+\DoxyCodeLine{\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\$authorization}}\ =\ explode(\textcolor{charliteral}{'\ '},\ \mbox{\hyperlink{locale_8php_a52500036ee807241b8b4b7e2367c49ef}{\$headers}}[\textcolor{stringliteral}{'Authorization'}]);}
+\DoxyCodeLine{\$accessToken\ =\ \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\$authorization}}[1];}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordflow}{try}\ \{}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\$claims}}\ =\ \$provider-\/>validateAccessToken(\$accessToken);}
+\DoxyCodeLine{\}\ \textcolor{keywordflow}{catch}\ (Exception\ \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\$e}})\ \{}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ Something\ happened,\ handle\ the\ error}}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ The\ access\ token\ is\ valid,\ you\ can\ now\ proceed\ with\ your\ code.\ You\ can\ also\ access\ the\ \$claims\ as\ defined\ in\ JWT\ -\/\ for\ example\ roles,\ group\ memberships\ etc.}}
+
+\end{DoxyCode}
+
+
+You may also need to access some other resource from the API like the Microsoft Graph to get some additional information. In order to do that, there is {\ttfamily urn\+:ietf\+:params\+:oauth\+:grant-\/type\+:jwt-\/bearer} grant available (\href{https://tools.ietf.org/html/draft-jones-oauth-jwt-bearer-03}{\texttt{ RFC}}). An example (assuming you have the code above working and you have the required permissions configured correctly in the Azure AD application)\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\$graphAccessToken}}\ =\ \$provider-\/>getAccessToken(\textcolor{stringliteral}{'jwt\_bearer'},\ [}
+\DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{'resource'}\ =>\ \textcolor{stringliteral}{'https://graph.microsoft.com/v1.0/'},}
+\DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{'assertion'}\ =>\ \$accessToken,}
+\DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{'requested\_token\_use'}\ =>\ \textcolor{stringliteral}{'on\_behalf\_of'}}
+\DoxyCodeLine{]);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\$me}}\ =\ \$provider-\/>get(\textcolor{stringliteral}{'https://graph.microsoft.com/v1.0/me'},\ \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\$graphAccessToken}});}
+\DoxyCodeLine{\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{print\_r}}(\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\$me}});}
+
+\end{DoxyCode}
+ Just to make it easier so you don\textquotesingle{}t have to remember entire name for {\ttfamily grant\+\_\+type} ({\ttfamily urn\+:ietf\+:params\+:oauth\+:grant-\/type\+:jwt-\/bearer}), you just use short {\ttfamily jwt\+\_\+bearer} instead.\hypertarget{md_public_2glpi_2vendor_2thenetworg_2oauth2-azure_2_r_e_a_d_m_e_autotoc_md7437}{}\doxysection{\texorpdfstring{Azure Active Directory B2C -\/ {\itshape experimental}}{Azure Active Directory B2C -\/ {\itshape experimental}}}\label{md_public_2glpi_2vendor_2thenetworg_2oauth2-azure_2_r_e_a_d_m_e_autotoc_md7437}
+You can also now very simply make use of \href{https://azure.microsoft.com/en-us/documentation/articles/active-directory-b2c-reference-oauth-code/}{\texttt{ Azure Active Directory B2C}}. Before authentication, change the endpoints using {\ttfamily path\+Authorize}, {\ttfamily path\+Token} and {\ttfamily scope} and additionally specify your \href{https://azure.microsoft.com/en-gb/documentation/articles/active-directory-b2c-reference-policies/}{\texttt{ login policy}}. {\bfseries{Please note that the B2C support is still experimental and wasn\textquotesingle{}t fully tested.}} 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\$provider-\/>pathAuthorize\ =\ \textcolor{stringliteral}{"{}/oauth2/v2.0/authorize"{}};}
+\DoxyCodeLine{\$provider-\/>pathToken\ =\ \textcolor{stringliteral}{"{}/oauth2/v2.0/token"{}};}
+\DoxyCodeLine{\$provider-\/>scope\ =\ [\textcolor{stringliteral}{"{}idtoken"{}}];}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ Specify\ custom\ policy\ in\ our\ authorization\ URL}}
+\DoxyCodeLine{\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\$authUrl}}\ =\ \$provider-\/>getAuthorizationUrl([}
+\DoxyCodeLine{\ \ \ \ \textcolor{charliteral}{'p'}\ =>\ \textcolor{stringliteral}{'b2c\_1\_siup'}}
+\DoxyCodeLine{]);}
+
+\end{DoxyCode}
+\hypertarget{md_public_2glpi_2vendor_2thenetworg_2oauth2-azure_2_r_e_a_d_m_e_autotoc_md7438}{}\doxysection{\texorpdfstring{Multipurpose refresh tokens -\/ {\itshape experimental}}{Multipurpose refresh tokens -\/ {\itshape experimental}}}\label{md_public_2glpi_2vendor_2thenetworg_2oauth2-azure_2_r_e_a_d_m_e_autotoc_md7438}
+In cause that you need to access multiple resources (like your API and Microsoft Graph), you can use multipurpose \href{https://msdn.microsoft.com/en-us/library/azure/dn645538.aspx}{\texttt{ refresh tokens}}. Once obtaining a token for first resource, you can simply request another token for different resource like so\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\$accessToken2}}\ =\ \$provider-\/>getAccessToken(\textcolor{stringliteral}{'refresh\_token'},\ [}
+\DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{'refresh\_token'}\ =>\ \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\$accessToken1}}-\/>getRefreshToken(),}
+\DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{'resource'}\ =>\ \textcolor{stringliteral}{'http://urlOfYourSecondResource'}}
+\DoxyCodeLine{]);}
+
+\end{DoxyCode}
+ At the moment, there is one issue\+: When you make a call to your API and the token has expired, it will have the value of {\ttfamily \$provider-\/\texorpdfstring{$>$}{>}url\+API} which is obviously wrong for {\ttfamily \$access\+Token2}. The solution is very simple -\/ set the {\ttfamily \$provider-\/\texorpdfstring{$>$}{>}url\+API} to the resource which you want to call. This issue will be addressed in future release. {\bfseries{Please note that this is experimental and wasn\textquotesingle{}t fully tested.}}\hypertarget{md_public_2glpi_2vendor_2thenetworg_2oauth2-azure_2_r_e_a_d_m_e_autotoc_md7439}{}\doxysection{\texorpdfstring{Known users}{Known users}}\label{md_public_2glpi_2vendor_2thenetworg_2oauth2-azure_2_r_e_a_d_m_e_autotoc_md7439}
+If you are using this library and would like to be listed here, please let us know!
+\begin{DoxyItemize}
+\item \href{https://github.com/thenetworg/dreamspark-sso}{\texttt{ The\+Networg/\+Dream\+Spark-\/\+SSO}}
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2thenetworg_2oauth2-azure_2_r_e_a_d_m_e_autotoc_md7440}{}\doxysection{\texorpdfstring{Contributing}{Contributing}}\label{md_public_2glpi_2vendor_2thenetworg_2oauth2-azure_2_r_e_a_d_m_e_autotoc_md7440}
+We accept contributions via \href{https://github.com/thenetworg/oauth2-azure}{\texttt{ Pull Requests on Github}}.\hypertarget{md_public_2glpi_2vendor_2thenetworg_2oauth2-azure_2_r_e_a_d_m_e_autotoc_md7441}{}\doxysection{\texorpdfstring{Credits}{Credits}}\label{md_public_2glpi_2vendor_2thenetworg_2oauth2-azure_2_r_e_a_d_m_e_autotoc_md7441}
+
+\begin{DoxyItemize}
+\item \href{https://github.com/hajekj}{\texttt{ Jan Hajek}} (\href{https://thenetw.org}{\texttt{ The\+Netw.\+org}})
+\item \href{https://github.com/vibronet}{\texttt{ Vittorio Bertocci}} (Microsoft)
+\begin{DoxyItemize}
+\item Thanks for the splendid support while implementing \#16
+\end{DoxyItemize}
+\item \href{https://github.com/mcetkovsky}{\texttt{ Martin Cetkovský}} (\href{https://www.cetkovsky.eu}{\texttt{ cetkovsky.\+eu}}\mbox{]}
+\item \href{https://github.com/thenetworg/oauth2-azure/contributors}{\texttt{ All Contributors}}
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2thenetworg_2oauth2-azure_2_r_e_a_d_m_e_autotoc_md7442}{}\doxysection{\texorpdfstring{Support}{Support}}\label{md_public_2glpi_2vendor_2thenetworg_2oauth2-azure_2_r_e_a_d_m_e_autotoc_md7442}
+If you find a bug or encounter any issue or have a problem/question with this library please create a \href{https://github.com/TheNetworg/oauth2-azure/issues}{\texttt{ new issue}}.\hypertarget{md_public_2glpi_2vendor_2thenetworg_2oauth2-azure_2_r_e_a_d_m_e_autotoc_md7443}{}\doxysection{\texorpdfstring{License}{License}}\label{md_public_2glpi_2vendor_2thenetworg_2oauth2-azure_2_r_e_a_d_m_e_autotoc_md7443}
+The MIT License (MIT). Please see \href{https://github.com/thenetworg/oauth2-azure/blob/master/LICENSE}{\texttt{ License File}} for more information. 

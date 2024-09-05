@@ -1,0 +1,74 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_update__9_85_8x__to__10_80_80_2schema__fixes_8php" xml:lang="fr">
+<title>Référence du fichier public/glpi/install/migrations/update_9.5.x_to_10.0.0/schema_fixes.php</title>
+<indexterm><primary>public/glpi/install/migrations/update_9.5.x_to_10.0.0/schema_fixes.php</primary></indexterm>
+<simplesect>
+    <title>Variables    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_update__9_85_8x__to__10_80_80_2schema__fixes_8php_1aab10bf9380556dea48f8983a8b07bdf4">$default_key_sign</link> = <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">DBConnection::getDefaultPrimaryKeySignOption</link>()</para>
+</listitem>
+            <listitem><para><link linkend="_update__9_85_8x__to__10_80_80_2schema__fixes_8php_1a3d332a3c374a53802495dcb045f6133f">$tables</link></para>
+</listitem>
+            <listitem><para><link linkend="_update__9_85_8x__to__10_80_80_2schema__fixes_8php_1a7f46935012bcfb334eec7aad20f45d84">$malformed_keys</link></para>
+</listitem>
+            <listitem><para><link linkend="_get_user_picture_8php_1a0df27c645324b72eaf7093e10f310670">foreach</link>($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">malformed_keys</link> <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">as</link> $table=&gt; $keys) <link linkend="_update__9_85_8x__to__10_80_80_2schema__fixes_8php_1a393ab5a06c0e9cb7fffa04437ad3c3fe">$useless_keys</link></para>
+</listitem>
+            <listitem><para><link linkend="_get_user_picture_8php_1a0df27c645324b72eaf7093e10f310670">foreach</link>($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">useless_keys</link> <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">as</link> $table=&gt; $keys) <link linkend="_update__9_85_8x__to__10_80_80_2schema__fixes_8php_1adbb9ef1f060097829884da1eed3e17a9">$missing_keys</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Documentation des variables</title>
+<anchor xml:id="_update__9_85_8x__to__10_80_80_2schema__fixes_8php_1aab10bf9380556dea48f8983a8b07bdf4"/><section>
+    <title>$default_key_sign</title>
+<indexterm><primary>$default_key_sign</primary><secondary>schema_fixes.php</secondary></indexterm>
+<indexterm><primary>schema_fixes.php</primary><secondary>$default_key_sign</secondary></indexterm>
+<para><computeroutput>$<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">default_key_sign</link> = <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">DBConnection::getDefaultPrimaryKeySignOption</link>()</computeroutput></para></section>
+<anchor xml:id="_update__9_85_8x__to__10_80_80_2schema__fixes_8php_1a7f46935012bcfb334eec7aad20f45d84"/><section>
+    <title>$malformed_keys</title>
+<indexterm><primary>$malformed_keys</primary><secondary>schema_fixes.php</secondary></indexterm>
+<indexterm><primary>schema_fixes.php</primary><secondary>$malformed_keys</secondary></indexterm>
+<para><computeroutput>$<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">malformed_keys</link></computeroutput></para><emphasis role="strong">Valeur initiale :</emphasis><programlisting linenumbering="unnumbered">=&#32;[
+&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&apos;glpi_ipaddresses&apos;</emphasis>&#32;=&gt;&#32;[
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&apos;textual&apos;</emphasis>,
+&#32;&#32;&#32;&#32;],
+&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&apos;glpi_items_softwareversions&apos;</emphasis>&#32;=&gt;&#32;[
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&apos;is_deleted&apos;</emphasis>,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&apos;is_template&apos;</emphasis>,
+&#32;&#32;&#32;&#32;],
+&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&apos;glpi_registeredids&apos;</emphasis>&#32;=&gt;&#32;[
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&apos;item&apos;</emphasis>,
+&#32;&#32;&#32;&#32;],
+]
+</programlisting></section>
+<anchor xml:id="_update__9_85_8x__to__10_80_80_2schema__fixes_8php_1adbb9ef1f060097829884da1eed3e17a9"/><section>
+    <title>$missing_keys</title>
+<indexterm><primary>$missing_keys</primary><secondary>schema_fixes.php</secondary></indexterm>
+<indexterm><primary>schema_fixes.php</primary><secondary>$missing_keys</secondary></indexterm>
+<para><computeroutput><link linkend="_get_user_picture_8php_1a0df27c645324b72eaf7093e10f310670">foreach</link> ( $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">useless_keys</link> <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">as</link> $table=&gt; $keys) $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">missing_keys</link></computeroutput></para></section>
+<anchor xml:id="_update__9_85_8x__to__10_80_80_2schema__fixes_8php_1a3d332a3c374a53802495dcb045f6133f"/><section>
+    <title>$tables</title>
+<indexterm><primary>$tables</primary><secondary>schema_fixes.php</secondary></indexterm>
+<indexterm><primary>schema_fixes.php</primary><secondary>$tables</secondary></indexterm>
+<para><computeroutput>$<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">tables</link></computeroutput></para><emphasis role="strong">Valeur initiale :</emphasis><programlisting linenumbering="unnumbered">=&#32;[
+&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&apos;glpi_apiclients&apos;</emphasis>,
+&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&apos;glpi_applianceenvironments&apos;</emphasis>,
+&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&apos;glpi_appliances&apos;</emphasis>,
+&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&apos;glpi_appliancetypes&apos;</emphasis>,
+&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&apos;glpi_devicesimcards&apos;</emphasis>,
+&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&apos;glpi_knowbaseitems_comments&apos;</emphasis>,
+&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&apos;glpi_lines&apos;</emphasis>,
+&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&apos;glpi_rulerightparameters&apos;</emphasis>,
+&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&apos;glpi_ssovariables&apos;</emphasis>,
+&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&apos;glpi_virtualmachinestates&apos;</emphasis>,
+&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&apos;glpi_virtualmachinesystems&apos;</emphasis>,
+&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&apos;glpi_virtualmachinetypes&apos;</emphasis>,
+]
+</programlisting></section>
+<anchor xml:id="_update__9_85_8x__to__10_80_80_2schema__fixes_8php_1a393ab5a06c0e9cb7fffa04437ad3c3fe"/><section>
+    <title>$useless_keys</title>
+<indexterm><primary>$useless_keys</primary><secondary>schema_fixes.php</secondary></indexterm>
+<indexterm><primary>schema_fixes.php</primary><secondary>$useless_keys</secondary></indexterm>
+<para><computeroutput><link linkend="_get_user_picture_8php_1a0df27c645324b72eaf7093e10f310670">foreach</link> ( $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">malformed_keys</link> <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">as</link> $table=&gt; $keys) $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">useless_keys</link></computeroutput></para></section>
+</section>
+</section>

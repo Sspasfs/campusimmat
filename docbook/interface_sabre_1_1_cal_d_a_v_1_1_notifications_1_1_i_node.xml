@@ -1,0 +1,88 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_interface_sabre_1_1_cal_d_a_v_1_1_notifications_1_1_i_node" xml:lang="fr">
+<title>Référence de l&apos;interface INode</title>
+<indexterm><primary>INode</primary></indexterm>
+Graphe d&apos;héritage de INode:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="interface_sabre_1_1_cal_d_a_v_1_1_notifications_1_1_i_node__inherit__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Graphe de collaboration de INode:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="interface_sabre_1_1_cal_d_a_v_1_1_notifications_1_1_i_node__coll__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Fonctions membres publiques    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_interface_sabre_1_1_cal_d_a_v_1_1_notifications_1_1_i_node_1a5cc1c03f264bd6d4c4351f156db75f11">getNotificationType</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_interface_sabre_1_1_cal_d_a_v_1_1_notifications_1_1_i_node_1a255fe68769f6bd6681c2a7e9168c1c98">getETag</link> ()</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Description détaillée</title>
+
+<para>This node represents a single notification.</para>
+
+<para>The signature is mostly identical to that of Sabre\DAV\IFile, but the get() method MUST return an xml document that matches the requirements of the &apos;caldav-notifications.txt&apos; spec.</para>
+
+<para>For a complete example, check out the <link linkend="_class_notification">Notification</link> class, which contains some helper functions.</para>
+
+<para><formalpara><title>Copyright</title>
+
+<para>Copyright (C) fruux GmbH (<link xlink:href="https://fruux.com/">https://fruux.com/</link>) </para>
+</formalpara>
+<formalpara><title>Auteur</title>
+
+<para>Evert Pot (<link xlink:href="http://evertpot.com/">http://evertpot.com/</link>) @license <link xlink:href="http://sabre.io/license/">http://sabre.io/license/</link> Modified BSD License </para>
+</formalpara>
+</para>
+</section>
+<section>
+<title>Documentation des fonctions membres</title>
+<anchor xml:id="_interface_sabre_1_1_cal_d_a_v_1_1_notifications_1_1_i_node_1a255fe68769f6bd6681c2a7e9168c1c98"/><section>
+    <title>getETag()</title>
+<indexterm><primary>getETag</primary><secondary>INode</secondary></indexterm>
+<indexterm><primary>INode</primary><secondary>getETag</secondary></indexterm>
+<para><computeroutput>getETag ( )</computeroutput></para>
+<para>Returns the etag for the notification.</para>
+
+<para>The etag must be surrounded by literal double-quotes.</para>
+
+<para><formalpara><title>Renvoie</title>
+
+<para>string </para>
+</formalpara>
+</para>
+<para>
+Implémenté dans <link linkend="_class_sabre_1_1_cal_d_a_v_1_1_notifications_1_1_node_1a255fe68769f6bd6681c2a7e9168c1c98">Node</link>.</para>
+</section>
+<anchor xml:id="_interface_sabre_1_1_cal_d_a_v_1_1_notifications_1_1_i_node_1a5cc1c03f264bd6d4c4351f156db75f11"/><section>
+    <title>getNotificationType()</title>
+<indexterm><primary>getNotificationType</primary><secondary>INode</secondary></indexterm>
+<indexterm><primary>INode</primary><secondary>getNotificationType</secondary></indexterm>
+<para><computeroutput>getNotificationType ( )</computeroutput></para>
+<para>This method must return an xml element, using the Sabre\CalDAV\Xml\Notification\NotificationInterface classes.</para>
+
+<para><formalpara><title>Renvoie</title>
+
+<para><link linkend="_interface_notification_interface">NotificationInterface</link> </para>
+</formalpara>
+</para>
+<para>
+Implémenté dans <link linkend="_class_sabre_1_1_cal_d_a_v_1_1_notifications_1_1_node_1a5cc1c03f264bd6d4c4351f156db75f11">Node</link>.</para>
+</section>
+<para>
+La documentation de cette interface a été générée à partir du fichier suivant :</para>
+public/glpi/vendor/sabre/dav/lib/CalDAV/Notifications/<link linkend="__cal_d_a_v_2_notifications_2_i_node_8php">INode.php</link></section>
+</section>

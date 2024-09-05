@@ -1,0 +1,272 @@
+\doxysection{Référence de la classe JWT}
+\hypertarget{class_firebase_1_1_j_w_t_1_1_j_w_t}{}\label{class_firebase_1_1_j_w_t_1_1_j_w_t}\index{JWT@{JWT}}
+
+
+Graphe de collaboration de JWT\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=224pt]{class_firebase_1_1_j_w_t_1_1_j_w_t__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Fonctions membres publiques statiques}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_firebase_1_1_j_w_t_1_1_j_w_t_a3bf9f8df1cf38f1d818f8bf64f611949}{decode}} (string \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{jwt}}, \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{key\+Or\+Key\+Array}})
+\item 
+static \mbox{\hyperlink{class_firebase_1_1_j_w_t_1_1_j_w_t_a3a793ce15e74f429b92d9cc604109a2d}{encode}} (array \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{payload}}, \$key, string \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{alg}}, string \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{key\+Id}}=null, array \$head=null)
+\item 
+static \mbox{\hyperlink{class_firebase_1_1_j_w_t_1_1_j_w_t_ab3def13b731b09f9520d51e9106ba024}{sign}} (string \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{msg}}, \$key, string \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{alg}})
+\item 
+static \mbox{\hyperlink{class_firebase_1_1_j_w_t_1_1_j_w_t_a3bdabbb798909d9177e044ae1a2bc37c}{json\+Decode}} (string \$input)
+\item 
+static \mbox{\hyperlink{class_firebase_1_1_j_w_t_1_1_j_w_t_a55253d93e077c6898d27a5557322bb66}{json\+Encode}} (array \$input)
+\item 
+static \mbox{\hyperlink{class_firebase_1_1_j_w_t_1_1_j_w_t_a43e5fe7515f84b0d57a69c87b9ced2f3}{urlsafe\+B64\+Decode}} (string \$input)
+\item 
+static \mbox{\hyperlink{class_firebase_1_1_j_w_t_1_1_j_w_t_a2bef61399b876f3482a1c8c42ecc5791}{urlsafe\+B64\+Encode}} (string \$input)
+\item 
+static \mbox{\hyperlink{class_firebase_1_1_j_w_t_1_1_j_w_t_aef84d3077ff346e78541427f1cdab272}{constant\+Time\+Equals}} (string \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{left}}, string \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{right}})
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Attributs publics statiques}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_firebase_1_1_j_w_t_1_1_j_w_t_ae016d9c791204699779d7d7af0cfa02d}{\$leeway}} = 0
+\item 
+static \mbox{\hyperlink{class_firebase_1_1_j_w_t_1_1_j_w_t_a2b69de9676dd97c675cd4d9bcceb684c}{\$timestamp}} = null
+\item 
+static \mbox{\hyperlink{class_firebase_1_1_j_w_t_1_1_j_w_t_adcc57819be535c2f254bc8cc787eb335}{\$supported\+\_\+algs}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Documentation des fonctions membres}
+\Hypertarget{class_firebase_1_1_j_w_t_1_1_j_w_t_aef84d3077ff346e78541427f1cdab272}\label{class_firebase_1_1_j_w_t_1_1_j_w_t_aef84d3077ff346e78541427f1cdab272} 
+\index{JWT@{JWT}!constantTimeEquals@{constantTimeEquals}}
+\index{constantTimeEquals@{constantTimeEquals}!JWT@{JWT}}
+\doxysubsubsection{\texorpdfstring{constantTimeEquals()}{constantTimeEquals()}}
+{\footnotesize\ttfamily static constant\+Time\+Equals (\begin{DoxyParamCaption}\item[{string}]{\$left,  }\item[{string}]{\$right }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+\begin{DoxyParams}[1]{Paramètres}
+string & {\em \$left} & The string of known length to compare against \\
+\hline
+string & {\em \$right} & The user-\/supplied string \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+bool 
+\end{DoxyReturn}
+\Hypertarget{class_firebase_1_1_j_w_t_1_1_j_w_t_a3bf9f8df1cf38f1d818f8bf64f611949}\label{class_firebase_1_1_j_w_t_1_1_j_w_t_a3bf9f8df1cf38f1d818f8bf64f611949} 
+\index{JWT@{JWT}!decode@{decode}}
+\index{decode@{decode}!JWT@{JWT}}
+\doxysubsubsection{\texorpdfstring{decode()}{decode()}}
+{\footnotesize\ttfamily static decode (\begin{DoxyParamCaption}\item[{string}]{\$jwt,  }\item[{}]{\$key\+Or\+Key\+Array }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Decodes a JWT string into a PHP object.
+
+
+\begin{DoxyParams}[1]{Paramètres}
+string & {\em \$jwt} & The JWT \\
+\hline
+ & {\em Key\texorpdfstring{$\vert$}{|}array$<$string,Key$>$} & \$key\+Or\+Key\+Array The Key or associative array of key IDs (kid) to Key objects. If the algorithm used is asymmetric, this is the public key Each Key object contains an algorithm and matching key. Supported algorithms are \textquotesingle{}ES384\textquotesingle{},\textquotesingle{}ES256\textquotesingle{}, \textquotesingle{}HS256\textquotesingle{}, \textquotesingle{}HS384\textquotesingle{}, \textquotesingle{}HS512\textquotesingle{}, \textquotesingle{}RS256\textquotesingle{}, \textquotesingle{}RS384\textquotesingle{}, and \textquotesingle{}RS512\textquotesingle{}\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+std\+Class The JWT\textquotesingle{}s payload as a PHP object
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Invalid\+Argument\+Exception} & Provided key/key-\/array was empty or malformed \\
+\hline
+{\em Domain\+Exception} & Provided JWT is malformed \\
+\hline
+{\em Unexpected\+Value\+Exception} & Provided JWT was invalid \\
+\hline
+{\em Signature\+Invalid\+Exception} & Provided JWT was invalid because the signature verification failed \\
+\hline
+{\em Before\+Valid\+Exception} & Provided JWT is trying to be used before it\textquotesingle{}s eligible as defined by \textquotesingle{}nbf\textquotesingle{} \\
+\hline
+{\em Before\+Valid\+Exception} & Provided JWT is trying to be used before it\textquotesingle{}s been created as defined by \textquotesingle{}iat\textquotesingle{} \\
+\hline
+{\em Expired\+Exception} & Provided JWT has since expired, as defined by the \textquotesingle{}exp\textquotesingle{} claim\\
+\hline
+\end{DoxyExceptions}
+@uses json\+Decode @uses urlsafe\+B64\+Decode Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=343pt]{class_firebase_1_1_j_w_t_1_1_j_w_t_a3bf9f8df1cf38f1d818f8bf64f611949_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_firebase_1_1_j_w_t_1_1_j_w_t_a3a793ce15e74f429b92d9cc604109a2d}\label{class_firebase_1_1_j_w_t_1_1_j_w_t_a3a793ce15e74f429b92d9cc604109a2d} 
+\index{JWT@{JWT}!encode@{encode}}
+\index{encode@{encode}!JWT@{JWT}}
+\doxysubsubsection{\texorpdfstring{encode()}{encode()}}
+{\footnotesize\ttfamily static encode (\begin{DoxyParamCaption}\item[{array}]{\$payload,  }\item[{}]{\$key,  }\item[{string}]{\$alg,  }\item[{string}]{\$key\+Id = {\ttfamily null},  }\item[{array}]{\$head = {\ttfamily null} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Converts and signs a PHP array into a JWT string.
+
+
+\begin{DoxyParams}[1]{Paramètres}
+ & {\em array$<$mixed$>$} & \$payload PHP array \\
+\hline
+string | resource | Open\+SSLAsymmetric\+Key | Open\+SSLCertificate & {\em \$key} & The secret key. \\
+\hline
+string & {\em \$alg} & Supported algorithms are \textquotesingle{}ES384\textquotesingle{},\textquotesingle{}ES256\textquotesingle{}, \textquotesingle{}ES256K\textquotesingle{}, \textquotesingle{}HS256\textquotesingle{}, \textquotesingle{}HS384\textquotesingle{}, \textquotesingle{}HS512\textquotesingle{}, \textquotesingle{}RS256\textquotesingle{}, \textquotesingle{}RS384\textquotesingle{}, and \textquotesingle{}RS512\textquotesingle{} \\
+\hline
+string & {\em \$key\+Id} & \\
+\hline
+ & {\em array$<$string,string$>$} & \$head An array with header elements to attach\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+string A signed JWT
+\end{DoxyReturn}
+@uses json\+Encode @uses urlsafe\+B64\+Encode \Hypertarget{class_firebase_1_1_j_w_t_1_1_j_w_t_a3bdabbb798909d9177e044ae1a2bc37c}\label{class_firebase_1_1_j_w_t_1_1_j_w_t_a3bdabbb798909d9177e044ae1a2bc37c} 
+\index{JWT@{JWT}!jsonDecode@{jsonDecode}}
+\index{jsonDecode@{jsonDecode}!JWT@{JWT}}
+\doxysubsubsection{\texorpdfstring{jsonDecode()}{jsonDecode()}}
+{\footnotesize\ttfamily static json\+Decode (\begin{DoxyParamCaption}\item[{string}]{\$input }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Decode a JSON string into a PHP object.
+
+
+\begin{DoxyParams}[1]{Paramètres}
+string & {\em \$input} & JSON string\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+mixed The decoded JSON string
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Domain\+Exception} & Provided string was invalid JSON \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{class_firebase_1_1_j_w_t_1_1_j_w_t_a55253d93e077c6898d27a5557322bb66}\label{class_firebase_1_1_j_w_t_1_1_j_w_t_a55253d93e077c6898d27a5557322bb66} 
+\index{JWT@{JWT}!jsonEncode@{jsonEncode}}
+\index{jsonEncode@{jsonEncode}!JWT@{JWT}}
+\doxysubsubsection{\texorpdfstring{jsonEncode()}{jsonEncode()}}
+{\footnotesize\ttfamily static json\+Encode (\begin{DoxyParamCaption}\item[{array}]{\$input }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Encode a PHP array into a JSON string.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em array$<$mixed$>$} & \$input A PHP array\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+string JSON representation of the PHP array
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Domain\+Exception} & Provided object could not be encoded to valid JSON \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{class_firebase_1_1_j_w_t_1_1_j_w_t_ab3def13b731b09f9520d51e9106ba024}\label{class_firebase_1_1_j_w_t_1_1_j_w_t_ab3def13b731b09f9520d51e9106ba024} 
+\index{JWT@{JWT}!sign@{sign}}
+\index{sign@{sign}!JWT@{JWT}}
+\doxysubsubsection{\texorpdfstring{sign()}{sign()}}
+{\footnotesize\ttfamily static sign (\begin{DoxyParamCaption}\item[{string}]{\$msg,  }\item[{}]{\$key,  }\item[{string}]{\$alg }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Sign a string with a given key and algorithm.
+
+
+\begin{DoxyParams}[1]{Paramètres}
+string & {\em \$msg} & The message to sign \\
+\hline
+string | resource | Open\+SSLAsymmetric\+Key | Open\+SSLCertificate & {\em \$key} & The secret key. \\
+\hline
+string & {\em \$alg} & Supported algorithms are \textquotesingle{}ES384\textquotesingle{},\textquotesingle{}ES256\textquotesingle{}, \textquotesingle{}ES256K\textquotesingle{}, \textquotesingle{}HS256\textquotesingle{}, \textquotesingle{}HS384\textquotesingle{}, \textquotesingle{}HS512\textquotesingle{}, \textquotesingle{}RS256\textquotesingle{}, \textquotesingle{}RS384\textquotesingle{}, and \textquotesingle{}RS512\textquotesingle{}\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+string An encrypted message
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Domain\+Exception} & Unsupported algorithm or bad key was specified \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{class_firebase_1_1_j_w_t_1_1_j_w_t_a43e5fe7515f84b0d57a69c87b9ced2f3}\label{class_firebase_1_1_j_w_t_1_1_j_w_t_a43e5fe7515f84b0d57a69c87b9ced2f3} 
+\index{JWT@{JWT}!urlsafeB64Decode@{urlsafeB64Decode}}
+\index{urlsafeB64Decode@{urlsafeB64Decode}!JWT@{JWT}}
+\doxysubsubsection{\texorpdfstring{urlsafeB64Decode()}{urlsafeB64Decode()}}
+{\footnotesize\ttfamily static urlsafe\+B64\+Decode (\begin{DoxyParamCaption}\item[{string}]{\$input }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Decode a string with URL-\/safe Base64.
+
+
+\begin{DoxyParams}[1]{Paramètres}
+string & {\em \$input} & A Base64 encoded string\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+string A decoded string
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Invalid\+Argument\+Exception} & invalid base64 characters \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{class_firebase_1_1_j_w_t_1_1_j_w_t_a2bef61399b876f3482a1c8c42ecc5791}\label{class_firebase_1_1_j_w_t_1_1_j_w_t_a2bef61399b876f3482a1c8c42ecc5791} 
+\index{JWT@{JWT}!urlsafeB64Encode@{urlsafeB64Encode}}
+\index{urlsafeB64Encode@{urlsafeB64Encode}!JWT@{JWT}}
+\doxysubsubsection{\texorpdfstring{urlsafeB64Encode()}{urlsafeB64Encode()}}
+{\footnotesize\ttfamily static urlsafe\+B64\+Encode (\begin{DoxyParamCaption}\item[{string}]{\$input }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Encode a string with URL-\/safe Base64.
+
+
+\begin{DoxyParams}[1]{Paramètres}
+string & {\em \$input} & The string you want encoded\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+string The base64 encode of what you passed in 
+\end{DoxyReturn}
+
+
+\doxysubsection{Documentation des champs}
+\Hypertarget{class_firebase_1_1_j_w_t_1_1_j_w_t_ae016d9c791204699779d7d7af0cfa02d}\label{class_firebase_1_1_j_w_t_1_1_j_w_t_ae016d9c791204699779d7d7af0cfa02d} 
+\index{JWT@{JWT}!\$leeway@{\$leeway}}
+\index{\$leeway@{\$leeway}!JWT@{JWT}}
+\doxysubsubsection{\texorpdfstring{\$leeway}{\$leeway}}
+{\footnotesize\ttfamily \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{leeway}} = 0\hspace{0.3cm}{\ttfamily [static]}}
+
+\Hypertarget{class_firebase_1_1_j_w_t_1_1_j_w_t_adcc57819be535c2f254bc8cc787eb335}\label{class_firebase_1_1_j_w_t_1_1_j_w_t_adcc57819be535c2f254bc8cc787eb335} 
+\index{JWT@{JWT}!\$supported\_algs@{\$supported\_algs}}
+\index{\$supported\_algs@{\$supported\_algs}!JWT@{JWT}}
+\doxysubsubsection{\texorpdfstring{\$supported\_algs}{\$supported\_algs}}
+{\footnotesize\ttfamily \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{supported\+\_\+algs}}\hspace{0.3cm}{\ttfamily [static]}}
+
+{\bfseries Valeur initiale \+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ [}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{'ES384'}\ =>\ [\textcolor{stringliteral}{'openssl'},\ \textcolor{stringliteral}{'SHA384'}],}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{'ES256'}\ =>\ [\textcolor{stringliteral}{'openssl'},\ \textcolor{stringliteral}{'SHA256'}],}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{'ES256K'}\ =>\ [\textcolor{stringliteral}{'openssl'},\ \textcolor{stringliteral}{'SHA256'}],}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{'HS256'}\ =>\ [\textcolor{stringliteral}{'hash\_hmac'},\ \textcolor{stringliteral}{'SHA256'}],}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{'HS384'}\ =>\ [\textcolor{stringliteral}{'hash\_hmac'},\ \textcolor{stringliteral}{'SHA384'}],}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{'HS512'}\ =>\ [\textcolor{stringliteral}{'hash\_hmac'},\ \textcolor{stringliteral}{'SHA512'}],}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{'RS256'}\ =>\ [\textcolor{stringliteral}{'openssl'},\ \textcolor{stringliteral}{'SHA256'}],}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{'RS384'}\ =>\ [\textcolor{stringliteral}{'openssl'},\ \textcolor{stringliteral}{'SHA384'}],}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{'RS512'}\ =>\ [\textcolor{stringliteral}{'openssl'},\ \textcolor{stringliteral}{'SHA512'}],}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{'EdDSA'}\ =>\ [\textcolor{stringliteral}{'sodium\_crypto'},\ \textcolor{stringliteral}{'EdDSA'}],}
+\DoxyCodeLine{\ \ \ \ ]}
+
+\end{DoxyCode}
+\Hypertarget{class_firebase_1_1_j_w_t_1_1_j_w_t_a2b69de9676dd97c675cd4d9bcceb684c}\label{class_firebase_1_1_j_w_t_1_1_j_w_t_a2b69de9676dd97c675cd4d9bcceb684c} 
+\index{JWT@{JWT}!\$timestamp@{\$timestamp}}
+\index{\$timestamp@{\$timestamp}!JWT@{JWT}}
+\doxysubsubsection{\texorpdfstring{\$timestamp}{\$timestamp}}
+{\footnotesize\ttfamily \$timestamp = null\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+La documentation de cette classe a été générée à partir du fichier suivant \+:\begin{DoxyCompactItemize}
+\item 
+public/glpi/vendor/firebase/php-\/jwt/src/\mbox{\hyperlink{_j_w_t_8php}{JWT.\+php}}\end{DoxyCompactItemize}

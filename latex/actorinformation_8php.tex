@@ -1,0 +1,107 @@
+\doxysection{Référence du fichier public/glpi/ajax/actorinformation.php}
+\hypertarget{actorinformation_8php}{}\label{actorinformation_8php}\index{public/glpi/ajax/actorinformation.php@{public/glpi/ajax/actorinformation.php}}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{actorinformation_8php_ae65138ea0da687641773455a90f1bb83}{\$only\+\_\+number}} = \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{boolval}}(\$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\+\_\+\+REQUEST}}\mbox{[}\textquotesingle{}\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{only\+\_\+number}}\textquotesingle{}\mbox{]} ?? false)
+\item 
+\mbox{\hyperlink{actorinformation_8php_a5b6273e1afe3f1c4e5d374600e791b24}{\$actor\+\_\+keys}} = \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{preg\+\_\+grep}}(\textquotesingle{}/\texorpdfstring{$^\wedge$}{\string^}(\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{users}}\texorpdfstring{$\vert$}{|}\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{groups}}\texorpdfstring{$\vert$}{|}\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{suppliers}})\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\+\_\+id\+\_\+}}(.\texorpdfstring{$\ast$}{*})\$/\textquotesingle{}, array\+\_\+keys(\$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\+\_\+\+REQUEST}}))
+\item 
+\mbox{\hyperlink{dropdown_location_8php_a52332c22f84432520971794825a5a8e7}{if}}(count(\$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{actor\+\_\+keys}}) !==1) \mbox{\hyperlink{actorinformation_8php_a0848854e8c6f2c710c9cbf0b10d8456a}{\$actor\+\_\+key}} = reset(\$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{actor\+\_\+keys}})
+\item 
+\mbox{\hyperlink{actorinformation_8php_af25555b353a5a0f5a79fc2d9c4b7865c}{\$actor\+\_\+id}} = (int)\$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\+\_\+\+REQUEST}}\mbox{[}\$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{actor\+\_\+key}}\mbox{]}
+\item 
+\mbox{\hyperlink{dropdown_location_8php_a52332c22f84432520971794825a5a8e7}{if}}( \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{actor\+\_\+id}} !=Session\+::get\+Login\+User\+ID()) \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{switch}}(\$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{actor\+\_\+key}}) \mbox{\hyperlink{actorinformation_8php_a235dfa294dc759e14312809dbeacad95}{\$options2}}
+\item 
+\mbox{\hyperlink{actorinformation_8php_abf7832c7c53a3be2ca8a8fc305006bb0}{\$ticket}} = \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{new}} \mbox{\hyperlink{class_ticket}{Ticket}}()
+\item 
+\mbox{\hyperlink{actorinformation_8php_acf215f34a917d014776ce684a9ee8909}{\$url}} = \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{ticket}}-\/$>$get\+Search\+URL() . "{}?"{} . \mbox{\hyperlink{class_toolbox_ad50280b7166f71c7e5fbabb05274b730}{Toolbox\+::append\+\_\+params}}(\$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{options2}}, \textquotesingle{}\&\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{amp}};\textquotesingle{})
+\item 
+\mbox{\hyperlink{actorinformation_8php_a6a0639ee5f0757e1964b1f0603b7c4bd}{\$nb}} = \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{ticket}}-\/$>$\{\$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{method}}\}(\$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{actor\+\_\+id}})
+\item 
+\mbox{\hyperlink{dropdown_location_8php_a52332c22f84432520971794825a5a8e7}{if}}(\$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{only\+\_\+number}}) \mbox{\hyperlink{actorinformation_8php_a261cb4406f3e438761eb84a7d2102c75}{else}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Documentation des variables}
+\Hypertarget{actorinformation_8php_af25555b353a5a0f5a79fc2d9c4b7865c}\label{actorinformation_8php_af25555b353a5a0f5a79fc2d9c4b7865c} 
+\index{actorinformation.php@{actorinformation.php}!\$actor\_id@{\$actor\_id}}
+\index{\$actor\_id@{\$actor\_id}!actorinformation.php@{actorinformation.php}}
+\doxysubsubsection{\texorpdfstring{\$actor\_id}{\$actor\_id}}
+{\footnotesize\ttfamily \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{actor\+\_\+id}} = (int)\$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\+\_\+\+REQUEST}}\mbox{[}\$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{actor\+\_\+key}}\mbox{]}}
+
+\Hypertarget{actorinformation_8php_a0848854e8c6f2c710c9cbf0b10d8456a}\label{actorinformation_8php_a0848854e8c6f2c710c9cbf0b10d8456a} 
+\index{actorinformation.php@{actorinformation.php}!\$actor\_key@{\$actor\_key}}
+\index{\$actor\_key@{\$actor\_key}!actorinformation.php@{actorinformation.php}}
+\doxysubsubsection{\texorpdfstring{\$actor\_key}{\$actor\_key}}
+{\footnotesize\ttfamily \mbox{\hyperlink{dropdown_location_8php_a52332c22f84432520971794825a5a8e7}{if}} (count( \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{actor\+\_\+keys}}) !==1) \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{actor\+\_\+key}} = reset(\$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{actor\+\_\+keys}})}
+
+\Hypertarget{actorinformation_8php_a5b6273e1afe3f1c4e5d374600e791b24}\label{actorinformation_8php_a5b6273e1afe3f1c4e5d374600e791b24} 
+\index{actorinformation.php@{actorinformation.php}!\$actor\_keys@{\$actor\_keys}}
+\index{\$actor\_keys@{\$actor\_keys}!actorinformation.php@{actorinformation.php}}
+\doxysubsubsection{\texorpdfstring{\$actor\_keys}{\$actor\_keys}}
+{\footnotesize\ttfamily \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{actor\+\_\+keys}} = \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{preg\+\_\+grep}}(\textquotesingle{}/\texorpdfstring{$^\wedge$}{\string^}(\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{users}}\texorpdfstring{$\vert$}{|}\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{groups}}\texorpdfstring{$\vert$}{|}\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{suppliers}})\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\+\_\+id\+\_\+}}(.\texorpdfstring{$\ast$}{*})\$/\textquotesingle{}, array\+\_\+keys(\$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\+\_\+\+REQUEST}}))}
+
+\Hypertarget{actorinformation_8php_a6a0639ee5f0757e1964b1f0603b7c4bd}\label{actorinformation_8php_a6a0639ee5f0757e1964b1f0603b7c4bd} 
+\index{actorinformation.php@{actorinformation.php}!\$nb@{\$nb}}
+\index{\$nb@{\$nb}!actorinformation.php@{actorinformation.php}}
+\doxysubsubsection{\texorpdfstring{\$nb}{\$nb}}
+{\footnotesize\ttfamily \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{nb}} = \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{ticket}}-\/$>$\{\$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{method}}\}(\$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{actor\+\_\+id}})}
+
+\Hypertarget{actorinformation_8php_ae65138ea0da687641773455a90f1bb83}\label{actorinformation_8php_ae65138ea0da687641773455a90f1bb83} 
+\index{actorinformation.php@{actorinformation.php}!\$only\_number@{\$only\_number}}
+\index{\$only\_number@{\$only\_number}!actorinformation.php@{actorinformation.php}}
+\doxysubsubsection{\texorpdfstring{\$only\_number}{\$only\_number}}
+{\footnotesize\ttfamily \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{only\+\_\+number}} = \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{boolval}}(\$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\+\_\+\+REQUEST}}\mbox{[}\textquotesingle{}\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{only\+\_\+number}}\textquotesingle{}\mbox{]} ?? false)}
+
+\Hypertarget{actorinformation_8php_a235dfa294dc759e14312809dbeacad95}\label{actorinformation_8php_a235dfa294dc759e14312809dbeacad95} 
+\index{actorinformation.php@{actorinformation.php}!\$options2@{\$options2}}
+\index{\$options2@{\$options2}!actorinformation.php@{actorinformation.php}}
+\doxysubsubsection{\texorpdfstring{\$options2}{\$options2}}
+{\footnotesize\ttfamily \mbox{\hyperlink{dropdown_location_8php_a52332c22f84432520971794825a5a8e7}{if}}(\$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{actor\+\_\+id}} !=Session\+::get\+Login\+User\+ID()) \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{switch}} ( \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{actor\+\_\+key}}) \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{options2}}}
+
+{\bfseries Valeur initiale \+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ [}
+\DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{'criteria'}\ =>\ [}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ [}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{'field'}\ \ \ \ \ \ =>\ \mbox{\hyperlink{dropdown_fields_blacklist_8php_a83e4d6721f3491a4fd780dbd3ce1a3c0}{\$field}},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{'searchtype'}\ =>\ \textcolor{stringliteral}{'equals'},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{'value'}\ \ \ \ \ \ =>\ \mbox{\hyperlink{actorinformation_8php_af25555b353a5a0f5a79fc2d9c4b7865c}{\$actor\_id}},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{'link'}\ \ \ \ \ \ \ =>\ \textcolor{stringliteral}{'AND'},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ ],}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ [}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{'field'}\ \ \ \ \ \ =>\ 12,\ }
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{'searchtype'}\ =>\ \textcolor{stringliteral}{'equals'},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{'value'}\ \ \ \ \ \ =>\ \textcolor{stringliteral}{'notold'},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{'link'}\ \ \ \ \ \ \ =>\ \textcolor{stringliteral}{'AND'},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ ],}
+\DoxyCodeLine{\ \ \ \ ],}
+\DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{'reset'}\ =>\ \textcolor{stringliteral}{'reset'},}
+\DoxyCodeLine{]}
+
+\end{DoxyCode}
+\Hypertarget{actorinformation_8php_abf7832c7c53a3be2ca8a8fc305006bb0}\label{actorinformation_8php_abf7832c7c53a3be2ca8a8fc305006bb0} 
+\index{actorinformation.php@{actorinformation.php}!\$ticket@{\$ticket}}
+\index{\$ticket@{\$ticket}!actorinformation.php@{actorinformation.php}}
+\doxysubsubsection{\texorpdfstring{\$ticket}{\$ticket}}
+{\footnotesize\ttfamily \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{ticket}} = \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{new}} \mbox{\hyperlink{class_ticket}{Ticket}}()}
+
+\Hypertarget{actorinformation_8php_acf215f34a917d014776ce684a9ee8909}\label{actorinformation_8php_acf215f34a917d014776ce684a9ee8909} 
+\index{actorinformation.php@{actorinformation.php}!\$url@{\$url}}
+\index{\$url@{\$url}!actorinformation.php@{actorinformation.php}}
+\doxysubsubsection{\texorpdfstring{\$url}{\$url}}
+{\footnotesize\ttfamily \$url = \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{ticket}}-\/$>$get\+Search\+URL() . "{}?"{} . \mbox{\hyperlink{class_toolbox_ad50280b7166f71c7e5fbabb05274b730}{Toolbox\+::append\+\_\+params}}(\$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{options2}}, \textquotesingle{}\&\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{amp}};\textquotesingle{})}
+
+\Hypertarget{actorinformation_8php_a261cb4406f3e438761eb84a7d2102c75}\label{actorinformation_8php_a261cb4406f3e438761eb84a7d2102c75} 
+\index{actorinformation.php@{actorinformation.php}!else@{else}}
+\index{else@{else}!actorinformation.php@{actorinformation.php}}
+\doxysubsubsection{\texorpdfstring{else}{else}}
+{\footnotesize\ttfamily \mbox{\hyperlink{dropdown_location_8php_a52332c22f84432520971794825a5a8e7}{if}} ( \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{only\+\_\+number}}) else}
+
+{\bfseries Valeur initiale \+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{echo}}\ \textcolor{stringliteral}{"{}\&nbsp;<a\ href='\$url'\ title=\(\backslash\)"{}"{}}\ .\ \mbox{\hyperlink{autoload_8function_8php_a00370b448958fc4d545e649de32d26fa}{\_\_s}}(\textcolor{stringliteral}{'Processing'})\ .\ \textcolor{stringliteral}{"{}\(\backslash\)"{}>("{}}}
+
+\end{DoxyCode}

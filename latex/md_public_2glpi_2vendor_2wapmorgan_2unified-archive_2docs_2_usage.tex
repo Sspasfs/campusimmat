@@ -1,0 +1,157 @@
+\chapter{Usage}
+\hypertarget{md_public_2glpi_2vendor_2wapmorgan_2unified-archive_2docs_2_usage}{}\label{md_public_2glpi_2vendor_2wapmorgan_2unified-archive_2docs_2_usage}\index{Usage@{Usage}}
+\label{md_public_2glpi_2vendor_2wapmorgan_2unified-archive_2docs_2_usage_autotoc_md7503}%
+\Hypertarget{md_public_2glpi_2vendor_2wapmorgan_2unified-archive_2docs_2_usage_autotoc_md7503}%
+
+\begin{DoxyItemize}
+\item \doxylink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{Reading and extraction}
+\item \doxylink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{Archive modification}
+\item \doxylink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{Archiving}
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2wapmorgan_2unified-archive_2docs_2_usage_autotoc_md7504}{}\doxysection{\texorpdfstring{Reading and extraction}{Reading and extraction}}\label{md_public_2glpi_2vendor_2wapmorgan_2unified-archive_2docs_2_usage_autotoc_md7504}
+
+\begin{DoxyEnumerate}
+\item Open the file with automatic detection of a format by name or content. In case of successful, an {\ttfamily Unified\+Archive} object will be returned. In case of failure -\/ {\itshape null} will be returned.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{require}}\ \textcolor{stringliteral}{'vendor/autoload.php'};}
+\DoxyCodeLine{\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{use\ \(\backslash\)wapmorgan\(\backslash\)UnifiedArchive\(\backslash\)UnifiedArchive}};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\$archive\ =\ UnifiedArchive::open(\textcolor{stringliteral}{'filename.rar'});}
+\DoxyCodeLine{\textcolor{comment}{//\ or}}
+\DoxyCodeLine{\$archive\ =\ UnifiedArchive::open(\textcolor{stringliteral}{'filename.zip'},\ \textcolor{keyword}{null},\ \textcolor{stringliteral}{'password'});}
+\DoxyCodeLine{\textcolor{comment}{//\ or}}
+\DoxyCodeLine{\$archive\ =\ UnifiedArchive::open(\textcolor{stringliteral}{'filename.tar'},\ [}
+\DoxyCodeLine{\ \ \ \ \(\backslash\)\mbox{\hyperlink{namespacewapmorgan}{wapmorgan}}\(\backslash\)UnifiedArchive\(\backslash\)Drivers\(\backslash\)Basic\(\backslash\)BasicDriver::EXTRACT\_CONTENT,}
+\DoxyCodeLine{\ \ \ \ \(\backslash\)\mbox{\hyperlink{namespacewapmorgan}{wapmorgan}}\(\backslash\)UnifiedArchive\(\backslash\)Drivers\(\backslash\)Basic\(\backslash\)BasicDriver::STREAM\_CONTENT,}
+\DoxyCodeLine{\ \ \ \ \(\backslash\)\mbox{\hyperlink{namespacewapmorgan}{wapmorgan}}\(\backslash\)UnifiedArchive\(\backslash\)Drivers\(\backslash\)Basic\(\backslash\)BasicDriver::APPEND,}
+\DoxyCodeLine{]);}
+\DoxyCodeLine{\textcolor{comment}{//\ or}}
+\DoxyCodeLine{\$archive\ =\ UnifiedArchive::open(\textcolor{stringliteral}{'filename.7z'},\ \textcolor{keyword}{null},\ \textcolor{stringliteral}{'password'});}
+
+\end{DoxyCode}
+
+\item Read the list of files of archive or check that file is in archive.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordflow}{foreach}(\$archive-\/>getFiles()\ \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{as}}\ \$filename)\ \{\ \textcolor{comment}{//\ ['file',\ 'file2',\ 'file3',\ ...]}}
+\DoxyCodeLine{\ \ \ \ \ \textcolor{comment}{//\ ...}}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordflow}{foreach}(\$archive-\/>getFiles(\textcolor{stringliteral}{'*.txt'})\ \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{as}}\ \$filename)\ \{\ \textcolor{comment}{//\ ['README.txt',\ 'doc.txt',\ ...]}}
+\DoxyCodeLine{\ \ \ \ \ \textcolor{comment}{//\ ...}}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordflow}{foreach}\ (\$archive\ \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{as}}\ \$filename)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \textcolor{comment}{//\ ...}}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordflow}{if}\ (\$archive-\/>hasFile(\textcolor{stringliteral}{'README.md'}))\ \{}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ some\ operations}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+\item To get common information about concrete file use {\ttfamily get\+File\+Data()} method. This method returns \href{API.md\#ArchiveEntry}{\texttt{ an {\ttfamily Archive\+Entry} instance}}. To get raw file contents use {\ttfamily get\+File\+Content()} method, to get stream for file use {\ttfamily get\+File\+Stream()} method.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{comment}{//\ file\ meta}}
+\DoxyCodeLine{\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\$file\_data}}\ =\ \$archive-\/>getFileData(\textcolor{stringliteral}{'README.md'}));\ \textcolor{comment}{//\ ArchiveEntry\ with\ file\ information}}
+\DoxyCodeLine{\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{echo}}\ \textcolor{stringliteral}{'Original\ size\ is\ '}\ .\ \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\$file\_data}}-\/>uncompressedSize.PHP\_EOL;}
+\DoxyCodeLine{\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{echo}}\ \textcolor{stringliteral}{'Modification\ datetime\ is\ '}\ .\ date(\textcolor{charliteral}{'r'},\ \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\$file\_data}}-\/>modificationTime).PHP\_EOL;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ raw\ file\ content}}
+\DoxyCodeLine{\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\$file\_content}}\ =\ \$archive-\/>getFileContent(\textcolor{stringliteral}{'README.md'}));\ \textcolor{comment}{//\ string}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ pass\ stream\ to\ standard\ output}}
+\DoxyCodeLine{fpassthru(\$archive-\/>getFileStream(\textcolor{stringliteral}{'README.md'}));}
+
+\end{DoxyCode}
+
+\item Unpack all archive or specific files on a disk -\/ {\ttfamily extract()}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{comment}{//\ to\ unpack\ all\ contents\ of\ archive\ to\ "{}output"{}\ folder}}
+\DoxyCodeLine{\$archive-\/>extract(\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\_\_DIR\_\_}}.\textcolor{stringliteral}{'/output'});}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ to\ unpack\ specific\ files\ (README.md\ and\ composer.json)\ from\ archive\ to\ "{}output"{}\ folder}}
+\DoxyCodeLine{\$archive-\/>extract(\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\_\_DIR\_\_}}.\textcolor{stringliteral}{'/output'},\ [\textcolor{stringliteral}{'README.md'},\ \textcolor{stringliteral}{'composer.json'}]);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ to\ unpack\ the\ "{}src"{}\ catalog\ with\ all\ content\ from\ archive\ into\ the\ "{}sources"{}\ catalog\ on\ a\ disk}}
+\DoxyCodeLine{\$archive-\/>extract(\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\_\_DIR\_\_}}.\textcolor{stringliteral}{'/output'},\ \textcolor{stringliteral}{'src/'},\ \textcolor{keyword}{true});}
+
+\end{DoxyCode}
+
+\end{DoxyEnumerate}\hypertarget{md_public_2glpi_2vendor_2wapmorgan_2unified-archive_2docs_2_usage_autotoc_md7505}{}\doxysection{\texorpdfstring{Archive modification}{Archive modification}}\label{md_public_2glpi_2vendor_2wapmorgan_2unified-archive_2docs_2_usage_autotoc_md7505}
+Only few archive formats support modification\+: (zip, 7z, tar) -\/ it depends on low-\/level driver -\/ see {\bfseries{Formats}} page for details.
+
+
+\begin{DoxyEnumerate}
+\item \href{API.md\#UnifiedArchive--delete}{\texttt{ Delete files}} from archive
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{comment}{//\ Delete\ a\ single\ file}}
+\DoxyCodeLine{\$archive-\/>delete(\textcolor{stringliteral}{'README.md'});}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ Delete\ multiple\ files}}
+\DoxyCodeLine{\$archive-\/>delete([\textcolor{stringliteral}{'README.md'},\ \textcolor{stringliteral}{'MANIFEST.MF'}]);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ Delete\ directory\ with\ full\ content}}
+\DoxyCodeLine{\$archive-\/>delete(\textcolor{stringliteral}{'src/'},\ \textcolor{keyword}{true});}
+
+\end{DoxyCode}
+
+
+In case of success the number of successfully deleted files will be returned.
+\item \href{API.md\#UnifiedArchive--add}{\texttt{ Add files}} to archive
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{comment}{//\ Add\ a\ catalog\ with\ all\ contents\ with\ full\ paths}}
+\DoxyCodeLine{\$archive-\/>add(\textcolor{stringliteral}{'/var/log/'});}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ To\ add\ one\ file\ (will\ be\ stored\ as\ one\ file\ "{}syslog"{})}}
+\DoxyCodeLine{\$archive-\/>add(\textcolor{stringliteral}{'/var/log/syslog'});}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ To\ add\ some\ files\ or\ catalogs\ (all\ catalogs\ structure\ in\ paths\ will\ be\ kept)}}
+\DoxyCodeLine{\$archive-\/>add([\$directory,\ \mbox{\hyperlink{aealarabiya_8php_aa1bfbd27060176201b271918dff57e8f}{\$file}},\ \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\$file2}},\ ...]);}
+
+\end{DoxyCode}
+
+\end{DoxyEnumerate}\hypertarget{md_public_2glpi_2vendor_2wapmorgan_2unified-archive_2docs_2_usage_autotoc_md7506}{}\doxysection{\texorpdfstring{Archiving}{Archiving}}\label{md_public_2glpi_2vendor_2wapmorgan_2unified-archive_2docs_2_usage_autotoc_md7506}
+Only few archive formats support modification\+: zip, 7z, tar (with restrictions).
+
+To pack completely the catalog with all attached files and subdirectories in new archive\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{preprocessor}{\#\ archive\ all\ folder\ content}}
+\DoxyCodeLine{UnifiedArchive::archive(\textcolor{stringliteral}{'/var/log'},\ \textcolor{stringliteral}{'Archive.zip'});}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{preprocessor}{\#\ archive\ one\ file}}
+\DoxyCodeLine{UnifiedArchive::archive(\textcolor{stringliteral}{'/var/log/syslog'},\ \textcolor{stringliteral}{'Archive.zip'});}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{preprocessor}{\#\ archive\ few\ files\ /\ folders}}
+\DoxyCodeLine{UnifiedArchive::archive([\$directory,\ \mbox{\hyperlink{aealarabiya_8php_aa1bfbd27060176201b271918dff57e8f}{\$file}},\ \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\$file2}},\ ...],\ \textcolor{stringliteral}{'Archive.zip'});}
+
+\end{DoxyCode}
+
+
+Also, there is \href{API.md\#UnifiedArchive--archive}{\texttt{ extended syntax}} for {\ttfamily add()} and {\ttfamily \doxylink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{archive()}}\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{UnifiedArchive::archive([}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{'abc.log'}\ =>\ \textcolor{stringliteral}{'/var/www/site/abc.log'},\ \ \ \textcolor{comment}{//\ stored\ as\ 'abc.log'}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{'/var/www/site/abc.log'},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ stored\ as\ '/var/www/site/abc.log'}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{'logs'}\ =>\ \textcolor{stringliteral}{'/var/www/site/runtime/logs'},\ \textcolor{comment}{//\ directory\ content\ stored\ in\ 'logs'\ dir}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{'/var/www/site/runtime/logs'},\ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ stored\ as\ '/var/www/site/runtime/logs'}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{''}\ =>\ [\textcolor{stringliteral}{'/home/user1/docs'},\ \textcolor{stringliteral}{'/home/user2/docs'}],\ \textcolor{comment}{//\ user1\ and\ user2\ docs\ stored\ in\ archive\ root}}
+\DoxyCodeLine{\ \ \ \ ],\ \textcolor{stringliteral}{'archive.zip'});}
+
+\end{DoxyCode}
+ 

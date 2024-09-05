@@ -1,0 +1,58 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_install_2migrations_2update__10_80_85__to__10_80_86_2rule_8php" xml:lang="fr">
+<title>Référence du fichier public/glpi/install/migrations/update_10.0.5_to_10.0.6/rule.php</title>
+<indexterm><primary>public/glpi/install/migrations/update_10.0.5_to_10.0.6/rule.php</primary></indexterm>
+<simplesect>
+    <title>Variables    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_install_2migrations_2update__10_80_85__to__10_80_86_2rule_8php_1a7ad64c5561a74f7716ec1177c40741c7">$subType</link></para>
+</listitem>
+            <listitem><para><link linkend="_install_2migrations_2update__10_80_85__to__10_80_86_2rule_8php_1a112ef069ddc0454086e3d1e6d8d55d07">$result</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Documentation des variables</title>
+<anchor xml:id="_install_2migrations_2update__10_80_85__to__10_80_86_2rule_8php_1a112ef069ddc0454086e3d1e6d8d55d07"/><section>
+    <title>$result</title>
+<indexterm><primary>$result</primary><secondary>rule.php</secondary></indexterm>
+<indexterm><primary>rule.php</primary><secondary>$result</secondary></indexterm>
+<para><computeroutput>$result</computeroutput></para><emphasis role="strong">Valeur initiale :</emphasis><programlisting linenumbering="unnumbered">=&#32;<link linkend="_dropdown_connect_network_port_8php_1afb8f39c26f5fd4c7fd0f68203d7e96b1">$DB</link>-&gt;request(
+&#32;&#32;&#32;&#32;[
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&apos;SELECT&apos;</emphasis>&#32;&#32;&#32;&#32;=&gt;&#32;[
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&apos;glpi_rulecriterias.id&#32;AS&#32;criteria_id&apos;</emphasis>&#32;,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&apos;glpi_rulecriterias.criteria&apos;</emphasis>&#32;,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&apos;glpi_rules.sub_type&apos;</emphasis>&#32;,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;],
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&apos;FROM&apos;</emphasis>&#32;&#32;&#32;&#32;&#32;&#32;=&gt;&#32;<emphasis role="stringliteral">&apos;glpi_rulecriterias&apos;</emphasis>,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&apos;LEFT&#32;JOIN&apos;</emphasis>&#32;=&gt;&#32;[
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&apos;glpi_rules&apos;</emphasis>&#32;=&gt;&#32;[
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&apos;FKEY&apos;</emphasis>&#32;=&gt;&#32;[
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&apos;glpi_rulecriterias&apos;</emphasis>&#32;&#32;&#32;=&gt;&#32;<emphasis role="stringliteral">&apos;rules_id&apos;</emphasis>,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&apos;glpi_rules&apos;</emphasis>&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;=&gt;&#32;<emphasis role="stringliteral">&apos;id&apos;</emphasis>,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;]
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;]
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;],
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&apos;WHERE&apos;</emphasis>&#32;&#32;&#32;&#32;&#32;=&gt;&#32;[
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&apos;glpi_rulecriterias.criteria&apos;</emphasis>&#32;&#32;&#32;&#32;&#32;&#32;=&gt;&#32;<emphasis role="stringliteral">&apos;name&apos;</emphasis>,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&apos;glpi_rules.sub_type&apos;</emphasis>&#32;=&gt;&#32;array_values(<link linkend="_install_2migrations_2update__10_80_85__to__10_80_86_2rule_8php_1a7ad64c5561a74f7716ec1177c40741c7">$subType</link>)
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;],
+&#32;&#32;&#32;&#32;]
+)
+</programlisting></section>
+<anchor xml:id="_install_2migrations_2update__10_80_85__to__10_80_86_2rule_8php_1a7ad64c5561a74f7716ec1177c40741c7"/><section>
+    <title>$subType</title>
+<indexterm><primary>$subType</primary><secondary>rule.php</secondary></indexterm>
+<indexterm><primary>rule.php</primary><secondary>$subType</secondary></indexterm>
+<para><computeroutput>$<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">subType</link></computeroutput></para><emphasis role="strong">Valeur initiale :</emphasis><programlisting linenumbering="unnumbered">=&#32;[
+&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&apos;servicepack_name&apos;</emphasis>&#32;=&gt;&#32;<emphasis role="stringliteral">&apos;RuleDictionnaryOperatingSystemServicePack&apos;</emphasis>,
+&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&apos;os_edition&apos;</emphasis>&#32;=&gt;&#32;<emphasis role="stringliteral">&apos;RuleDictionnaryOperatingSystemEdition&apos;</emphasis>,
+&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&apos;arch_name&apos;</emphasis>&#32;=&gt;&#32;<emphasis role="stringliteral">&apos;RuleDictionnaryOperatingSystemArchitecture&apos;</emphasis>,
+&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&apos;os_version&apos;</emphasis>&#32;=&gt;&#32;<emphasis role="stringliteral">&apos;RuleDictionnaryOperatingSystemVersion&apos;</emphasis>,
+&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&apos;os_name&apos;</emphasis>&#32;=&gt;&#32;<emphasis role="stringliteral">&apos;RuleDictionnaryOperatingSystem&apos;</emphasis>,
+]
+</programlisting>
+<para>Rename &apos;name&apos; criteria in dictionnaries </para>
+</section>
+</section>
+</section>

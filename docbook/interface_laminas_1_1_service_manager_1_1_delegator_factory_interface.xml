@@ -1,0 +1,121 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_interface_laminas_1_1_service_manager_1_1_delegator_factory_interface" xml:lang="fr">
+<title>Référence de l&apos;interface DelegatorFactoryInterface</title>
+<indexterm><primary>DelegatorFactoryInterface</primary></indexterm>
+Graphe d&apos;héritage de DelegatorFactoryInterface:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="interface_laminas_1_1_service_manager_1_1_delegator_factory_interface__inherit__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Graphe de collaboration de DelegatorFactoryInterface:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="interface_laminas_1_1_service_manager_1_1_delegator_factory_interface__coll__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Fonctions membres publiques    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_interface_laminas_1_1_service_manager_1_1_delegator_factory_interface_1aa987b785eb021a15f13103f395b4a66d">createDelegatorWithName</link> (<link linkend="_interface_laminas_1_1_service_manager_1_1_service_locator_interface">ServiceLocatorInterface</link> $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">serviceLocator</link>, $name, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">requestedName</link>, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">callback</link>)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+Fonctions membres publiques hérités de <link linkend="_interface_laminas_1_1_service_manager_1_1_factory_1_1_delegator_factory_interface">DelegatorFactoryInterface</link>        <itemizedlist>
+            <listitem><para><link linkend="_interface_laminas_1_1_service_manager_1_1_factory_1_1_delegator_factory_interface_1a67d7f11cb132fb6d4d3546155ce705b6">__invoke</link> (<link linkend="_interface_interop_1_1_container_1_1_container_interface">ContainerInterface</link> $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">container</link>, $name, <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">callable</link> $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">callback</link>, ?array $options=null)</para>
+</listitem>
+        </itemizedlist>
+<section>
+<title>Description détaillée</title>
+
+<para>Backwards-compatibility shim for DelegatorFactoryInterface.</para>
+
+<para>Implementations should update to implement only Laminas\ServiceManager\Factory\DelegatorFactoryInterface.</para>
+
+<para>If upgrading from v2, take the following steps:</para>
+
+<para><itemizedlist>
+<listitem>
+<para>rename the method <computeroutput>createDelegatorWithName()</computeroutput> to <computeroutput>__invoke()</computeroutput>, and:<itemizedlist>
+<listitem>
+<para>rename the <computeroutput>$serviceLocator</computeroutput> argument to <computeroutput>$container</computeroutput>, and change the typehint to <computeroutput>Interop\Container\ContainerInterface</computeroutput></para>
+</listitem><listitem>
+<para>merge the <computeroutput>$name</computeroutput> and <computeroutput>$requestedName</computeroutput> arguments</para>
+</listitem><listitem>
+<para>add the <computeroutput>callable</computeroutput> typehint to the <computeroutput>$callback</computeroutput> argument</para>
+</listitem><listitem>
+<para>add the optional <computeroutput>array $options = null</computeroutput> argument as a final argument</para>
+</listitem></itemizedlist>
+</para>
+</listitem><listitem>
+<para>create a <computeroutput>createDelegatorWithName()</computeroutput> method as defined in this interface, and have it proxy to <computeroutput>__invoke()</computeroutput>, passing <computeroutput>$requestedName</computeroutput> as the second argument.</para>
+</listitem></itemizedlist>
+</para>
+
+<para>Once you have tested your code, you can then update your class to only implement Laminas\ServiceManager\Factory\DelegatorFactoryInterface, and remove the <computeroutput>createDelegatorWithName()</computeroutput> method.</para>
+
+<para><para><link linkend="_deprecated_1_deprecated000076">Obsolète</link> 
+<para>Use Laminas\ServiceManager\Factory\DelegatorFactoryInterface instead. </para>
+</para></para>
+</section>
+<section>
+<title>Documentation des fonctions membres</title>
+<anchor xml:id="_interface_laminas_1_1_service_manager_1_1_delegator_factory_interface_1aa987b785eb021a15f13103f395b4a66d"/><section>
+    <title>createDelegatorWithName()</title>
+<indexterm><primary>createDelegatorWithName</primary><secondary>DelegatorFactoryInterface</secondary></indexterm>
+<indexterm><primary>DelegatorFactoryInterface</primary><secondary>createDelegatorWithName</secondary></indexterm>
+<para><computeroutput>createDelegatorWithName (<link linkend="_interface_laminas_1_1_service_manager_1_1_service_locator_interface">ServiceLocatorInterface</link> $serviceLocator,  $name,  $requestedName,  $callback)</computeroutput></para>
+<para>A factory that creates delegates of a given service</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>ServiceLocatorInterface</entry><entry>$serviceLocator</entry><entry>
+<para>the service locator which requested the service </para>
+</entry>
+                            </row>
+                            <row>
+<entry>string</entry><entry>$name</entry><entry>
+<para>the normalized service name </para>
+</entry>
+                            </row>
+                            <row>
+<entry>string</entry><entry>$requestedName</entry><entry>
+<para>the requested service name </para>
+</entry>
+                            </row>
+                            <row>
+<entry>callable</entry><entry>$callback</entry><entry>
+<para>the callback that is responsible for creating the service </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>mixed </para>
+</formalpara>
+</para>
+</section>
+<para>
+La documentation de cette interface a été générée à partir du fichier suivant :</para>
+public/glpi/vendor/laminas/laminas-servicemanager/src/<link linkend="__delegator_factory_interface_8php">DelegatorFactoryInterface.php</link></section>
+</section>

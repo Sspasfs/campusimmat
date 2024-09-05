@@ -1,0 +1,124 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_psr_1_1_log_1_1_null_logger" xml:lang="fr">
+<title>Référence de la classe NullLogger</title>
+<indexterm><primary>NullLogger</primary></indexterm>
+Graphe d&apos;héritage de NullLogger:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_psr_1_1_log_1_1_null_logger__inherit__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Graphe de collaboration de NullLogger:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_psr_1_1_log_1_1_null_logger__coll__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Fonctions membres publiques    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_psr_1_1_log_1_1_null_logger_1a142f6bf4e86dc16e0bae4cff1de0dd44">log</link> ($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">level</link>, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">message</link>, array $context=array())</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+Fonctions membres publiques hérités de <link linkend="_class_psr_1_1_log_1_1_abstract_logger">AbstractLogger</link>        <itemizedlist>
+            <listitem><para><link linkend="_class_psr_1_1_log_1_1_abstract_logger_1afb086b1f95759b162cd55ba2b6fa38ae">emergency</link> ($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">message</link>, array $context=array())</para>
+</listitem>
+            <listitem><para><link linkend="_class_psr_1_1_log_1_1_abstract_logger_1a4e65637c3b36b015b513fb9267ae375f">alert</link> ($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">message</link>, array $context=array())</para>
+</listitem>
+            <listitem><para><link linkend="_class_psr_1_1_log_1_1_abstract_logger_1a14ebc4ac3658a6054caade4a30587cd3">critical</link> ($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">message</link>, array $context=array())</para>
+</listitem>
+            <listitem><para><link linkend="_class_psr_1_1_log_1_1_abstract_logger_1a1cd5faee8fb5d0ddc73bca6d6bde78a1">error</link> ($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">message</link>, array $context=array())</para>
+</listitem>
+            <listitem><para><link linkend="_class_psr_1_1_log_1_1_abstract_logger_1aa9f94dcb1a687e36bc7f838a8801feec">warning</link> ($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">message</link>, array $context=array())</para>
+</listitem>
+            <listitem><para><link linkend="_class_psr_1_1_log_1_1_abstract_logger_1ae0f18fe657e53af89a1edca20cab8089">notice</link> ($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">message</link>, array $context=array())</para>
+</listitem>
+            <listitem><para><link linkend="_class_psr_1_1_log_1_1_abstract_logger_1a080c4e103f83f253391f134962c3bb0f">info</link> ($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">message</link>, array $context=array())</para>
+</listitem>
+            <listitem><para><link linkend="_class_psr_1_1_log_1_1_abstract_logger_1a9f1fbd09fa3d7fc7d6564fb7c6dfc87a">debug</link> ($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">message</link>, array $context=array())</para>
+</listitem>
+        </itemizedlist>
+<section>
+<title>Description détaillée</title>
+
+<para>This Logger can be used to avoid conditional log calls.</para>
+
+<para>Logging should always be optional, and if no logger is provided to your library creating a NullLogger instance to have something to throw logs at is a good way to avoid littering your code with <computeroutput>if ($this-&gt;logger) { }</computeroutput> blocks. </para>
+</section>
+<section>
+<title>Documentation des fonctions membres</title>
+<anchor xml:id="_class_psr_1_1_log_1_1_null_logger_1a142f6bf4e86dc16e0bae4cff1de0dd44"/><section>
+    <title>log()</title>
+<indexterm><primary>log</primary><secondary>NullLogger</secondary></indexterm>
+<indexterm><primary>NullLogger</primary><secondary>log</secondary></indexterm>
+<para><computeroutput>log ( $level,  $message, array $context = <computeroutput>array()</computeroutput>
+)</computeroutput></para>
+<para>Logs with an arbitrary level.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>mixed</entry><entry>$level</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>string</entry><entry>$message</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>array</entry><entry>$context</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>void</para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry></entry>
+<entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                Psr\Log\InvalidArgumentException </para>
+<para>
+Implémente <link linkend="_interface_psr_1_1_log_1_1_logger_interface_1a142f6bf4e86dc16e0bae4cff1de0dd44">LoggerInterface</link>.</para>
+</section>
+<para>
+La documentation de cette classe a été générée à partir du fichier suivant :</para>
+public/glpi/vendor/psr/log/Psr/Log/<link linkend="__null_logger_8php">NullLogger.php</link></section>
+</section>

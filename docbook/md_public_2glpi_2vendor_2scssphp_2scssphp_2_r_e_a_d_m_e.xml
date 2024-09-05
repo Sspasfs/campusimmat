@@ -1,0 +1,76 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_md_public_2glpi_2vendor_2scssphp_2scssphp_2_r_e_a_d_m_e" xml:lang="fr">
+<title>scssphp</title>
+<indexterm><primary>scssphp</primary></indexterm>
+
+<para><anchor xml:id="_md_public_2glpi_2vendor_2scssphp_2scssphp_2_r_e_a_d_m_e_1autotoc_md7110"/></para>
+<section xml:id="_md_public_2glpi_2vendor_2scssphp_2scssphp_2_r_e_a_d_m_e_1autotoc_md7111">
+<title><title><link xlink:href="https://scssphp.github.io/scssphp">https://scssphp.github.io/scssphp</link></title></title>
+
+<para> <link xlink:href="https://packagist.org/packages/scssphp/scssphp"></link></para>
+
+<para><computeroutput>scssphp</computeroutput> is a compiler for SCSS written in PHP.</para>
+
+<para>Checkout the homepage, <link xlink:href="https://scssphp.github.io/scssphp">https://scssphp.github.io/scssphp</link>, for directions on how to use.</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2scssphp_2scssphp_2_r_e_a_d_m_e_1autotoc_md7112">
+<title><title>Running Tests</title></title>
+
+<para><computeroutput>scssphp</computeroutput> uses <link xlink:href="https://github.com/sebastianbergmann/phpunit">PHPUnit</link> for testing.</para>
+
+<para>Run the following command from the root directory to run every test: <literallayout><computeroutput>vendor/bin/phpunit tests
+</computeroutput></literallayout> There are several tests in the <computeroutput>tests/</computeroutput> directory:</para>
+
+<para><itemizedlist>
+<listitem>
+<para><computeroutput>ApiTest.php</computeroutput> contains various unit tests that test the PHP interface.</para>
+</listitem><listitem>
+<para><computeroutput>ExceptionTest.php</computeroutput> contains unit tests that test for exceptions thrown by the parser and compiler.</para>
+</listitem><listitem>
+<para><computeroutput>FailingTest.php</computeroutput> contains tests reported in Github issues that demonstrate compatibility bugs.</para>
+</listitem><listitem>
+<para><computeroutput>InputTest.php</computeroutput> compiles every <computeroutput>.scss</computeroutput> file in the <computeroutput>tests/inputs</computeroutput> directory then compares to the respective <computeroutput>.css</computeroutput> file in the <computeroutput>tests/outputs</computeroutput> directory.</para>
+</listitem><listitem>
+<para><computeroutput>SassSpecTest.php</computeroutput> extracts tests from the <computeroutput>sass/sass-spec</computeroutput> repository.</para>
+</listitem></itemizedlist>
+</para>
+
+<para>When changing any of the tests in <computeroutput>tests/inputs</computeroutput>, the tests will most likely fail because the output has changed. Once you verify that the output is correct you can run the following command to rebuild all the tests: <literallayout><computeroutput>BUILD=1 vendor/bin/phpunit tests
+</computeroutput></literallayout> This will compile all the tests, and save results into <computeroutput>tests/outputs</computeroutput>. It also updates the list of excluded specs from sass-spec.</para>
+
+<para>To enable the full <computeroutput>sass-spec</computeroutput> compatibility tests: <literallayout><computeroutput>TEST_SASS_SPEC=1 vendor/bin/phpunit tests
+</computeroutput></literallayout> </para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2scssphp_2scssphp_2_r_e_a_d_m_e_1autotoc_md7113">
+<title><title>Coding Standard</title></title>
+
+<para><computeroutput>scssphp</computeroutput> source conforms to <link xlink:href="https://www.php-fig.org/psr/psr-12/">PSR12</link>.</para>
+
+<para>Run the following command from the root directory to check the code for &quot;sniffs&quot;. <literallayout><computeroutput>vendor/bin/phpcs --standard=PSR12 --extensions=php bin src tests *.php
+</computeroutput></literallayout> </para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2scssphp_2scssphp_2_r_e_a_d_m_e_1autotoc_md7114">
+<title><title>Static Analysis</title></title>
+
+<para><computeroutput>scssphp</computeroutput> uses <link xlink:href="https://phpstan.org/">phpstan</link> for static analysis.</para>
+
+<para>Run the following command from the root directory to analyse the codebase: <literallayout><computeroutput>make phpstan
+</computeroutput></literallayout> As most of the codebase is composed of legacy code which cannot be type-checked fully, the setup contains a baseline file with all errors we want to ignore. In particular, we ignore all errors related to not specifying the types inside arrays when these arrays correspond to the representation of Sass values and Sass AST nodes in the parser and compiler. When contributing, the proper process to deal with static analysis is the following:</para>
+
+<para><orderedlist>
+<listitem>
+<para>Make your change in the codebase</para>
+</listitem><listitem>
+<para>Run <computeroutput>make phpstan</computeroutput></para>
+</listitem><listitem>
+<para>Fix errors reported by phpstan when possible</para>
+</listitem><listitem>
+<para>Repeat step 2 and 3 until nothing gets fixed anymore at step 3</para>
+</listitem><listitem>
+<para>Run <computeroutput>make phpstan-baseline</computeroutput> to regenerate the phpstan baseline</para>
+</listitem></orderedlist>
+</para>
+
+<para>Additions to the baseline will be reviewed to avoid ignoring errors that should have been fixed. </para>
+</section>
+</section>

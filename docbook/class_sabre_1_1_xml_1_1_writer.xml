@@ -1,0 +1,354 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_sabre_1_1_xml_1_1_writer" xml:lang="fr">
+<title>Référence de la classe Writer</title>
+<indexterm><primary>Writer</primary></indexterm>
+Graphe d&apos;héritage de Writer:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_sabre_1_1_xml_1_1_writer__inherit__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Graphe de collaboration de Writer:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_sabre_1_1_xml_1_1_writer__coll__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Fonctions membres publiques    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_sabre_1_1_xml_1_1_writer_1aa438eeb4ffc5f1897b4ad42be429cef1">write</link> ($value)</para>
+</listitem>
+            <listitem><para><link linkend="_class_sabre_1_1_xml_1_1_writer_1ae3c239a73b3b77a9ae8f4e5c398676fc">startElement</link> ($name)</para>
+</listitem>
+            <listitem><para><link linkend="_class_sabre_1_1_xml_1_1_writer_1ad4e290d2e8ccd36032ddf13242b9bf03">writeElement</link> ($name, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">content</link>=null)</para>
+</listitem>
+            <listitem><para><link linkend="_class_sabre_1_1_xml_1_1_writer_1a4622fefb02a9ed84569184dbc340f6c8">writeAttributes</link> (array $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">attributes</link>)</para>
+</listitem>
+            <listitem><para><link linkend="_class_sabre_1_1_xml_1_1_writer_1af7d06329e3f9eacc42a525422c5ec300">writeAttribute</link> ($name, $value)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Attributs protégés    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_sabre_1_1_xml_1_1_writer_1a666ef6d035637e8235cc9134e52b7d3a">$adhocNamespaces</link> = []</para>
+</listitem>
+            <listitem><para><link linkend="_class_sabre_1_1_xml_1_1_writer_1a4e940dd32f672bdde10bd426e7112c11">$namespacesWritten</link> = false</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Description détaillée</title>
+
+<para>The <link linkend="_class_x_m_l">XML</link> Writer class.</para>
+
+<para>This class works exactly as PHP&apos;s built-in XMLWriter, with a few additions.</para>
+
+<para>Namespaces can be registered beforehand, globally. When the first element is written, namespaces will automatically be declared.</para>
+
+<para>The writeAttribute, startElement and writeElement can now take a clark-notation element name (example: {<link xlink:href="http://www.w3.org/2005/Atom">http://www.w3.org/2005/Atom</link>}link).</para>
+
+<para>If, when writing the namespace is a known one a prefix will automatically be selected, otherwise a random prefix will be generated.</para>
+
+<para>Instead of standard string values, the writer can take Element classes (as defined by this library) to delegate the serialization.</para>
+
+<para>The write() method can take array structures to quickly write out simple xml trees.</para>
+
+<para><formalpara><title>Copyright</title>
+
+<para>Copyright (C) 2009-2015 fruux GmbH (<link xlink:href="https://fruux.com/">https://fruux.com/</link>). </para>
+</formalpara>
+<formalpara><title>Auteur</title>
+
+<para>Evert Pot (<link xlink:href="http://evertpot.com/">http://evertpot.com/</link>) @license <link xlink:href="http://sabre.io/license/">http://sabre.io/license/</link> Modified BSD License </para>
+</formalpara>
+</para>
+</section>
+<section>
+<title>Documentation des fonctions membres</title>
+<anchor xml:id="_class_sabre_1_1_xml_1_1_writer_1ae3c239a73b3b77a9ae8f4e5c398676fc"/><section>
+    <title>startElement()</title>
+<indexterm><primary>startElement</primary><secondary>Writer</secondary></indexterm>
+<indexterm><primary>Writer</primary><secondary>startElement</secondary></indexterm>
+<para><computeroutput>startElement ( $name)</computeroutput></para>
+<para>Opens a new element.</para>
+
+<para>You can either just use a local elementname, or you can use clark- notation to start a new element.</para>
+
+<para>Example: <literallayout><computeroutput>$writer-&gt;startElement(&apos;{http://www.w3.org/2005/Atom}entry&apos;);
+</computeroutput></literallayout> Would result in something like: <literallayout><computeroutput>&lt;entry xmlns=&quot;http://w3.org/2005/Atom&quot;&gt;
+</computeroutput></literallayout> Note: this function doesn&apos;t have the string typehint, because PHP&apos;s XMLWriter::startElement doesn&apos;t either.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$name</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_sabre_1_1_xml_1_1_writer_ae3c239a73b3b77a9ae8f4e5c398676fc_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_sabre_1_1_xml_1_1_writer_ae3c239a73b3b77a9ae8f4e5c398676fc_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_sabre_1_1_xml_1_1_writer_1aa438eeb4ffc5f1897b4ad42be429cef1"/><section>
+    <title>write()</title>
+<indexterm><primary>write</primary><secondary>Writer</secondary></indexterm>
+<indexterm><primary>Writer</primary><secondary>write</secondary></indexterm>
+<para><computeroutput>write ( $value)</computeroutput></para>
+<para>Writes a value to the output stream.</para>
+
+<para>The following values are supported:<orderedlist>
+<listitem>
+<para>Scalar values will be written as-is, as text.</para>
+</listitem><listitem>
+<para>Null values will be skipped (resulting in a short xml tag).</para>
+</listitem><listitem>
+<para>If a value is an instance of an Element class, writing will be delegated to the object.</para>
+</listitem><listitem>
+<para>If a value is an array, two formats are supported.</para>
+</listitem></orderedlist>
+</para>
+
+<para>Array format 1: [ &quot;{namespace}name1&quot; =&gt; &quot;..&quot;, &quot;{namespace}name2&quot; =&gt; &quot;..&quot;, ]</para>
+
+<para>One element will be created for each key in this array. The values of this array support any format this method supports (this method is called recursively).</para>
+
+<para>Array format 2:</para>
+
+<para>[ [ &quot;name&quot; =&gt; &quot;{namespace}name1&quot; &quot;value&quot; =&gt; &quot;..&quot;, &quot;attributes&quot; =&gt; [ &quot;attr&quot; =&gt; &quot;attribute value&quot;, ] ], [ &quot;name&quot; =&gt; &quot;{namespace}name1&quot; &quot;value&quot; =&gt; &quot;..&quot;, &quot;attributes&quot; =&gt; [ &quot;attr&quot; =&gt; &quot;attribute value&quot;, ] ] ]</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>mixed</entry><entry>$value</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_sabre_1_1_xml_1_1_writer_aa438eeb4ffc5f1897b4ad42be429cef1_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_sabre_1_1_xml_1_1_writer_aa438eeb4ffc5f1897b4ad42be429cef1_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_sabre_1_1_xml_1_1_writer_1af7d06329e3f9eacc42a525422c5ec300"/><section>
+    <title>writeAttribute()</title>
+<indexterm><primary>writeAttribute</primary><secondary>Writer</secondary></indexterm>
+<indexterm><primary>Writer</primary><secondary>writeAttribute</secondary></indexterm>
+<para><computeroutput>writeAttribute ( $name,  $value)</computeroutput></para>
+<para>Writes a new attribute.</para>
+
+<para>The name may be specified in clark-notation.</para>
+
+<para>Returns true when successful.</para>
+
+<para>Note: this function doesn&apos;t have typehints, because for some reason PHP&apos;s XMLWriter::writeAttribute doesn&apos;t either.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$name</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>string</entry><entry>$value</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_sabre_1_1_xml_1_1_writer_af7d06329e3f9eacc42a525422c5ec300_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_sabre_1_1_xml_1_1_writer_af7d06329e3f9eacc42a525422c5ec300_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_sabre_1_1_xml_1_1_writer_1a4622fefb02a9ed84569184dbc340f6c8"/><section>
+    <title>writeAttributes()</title>
+<indexterm><primary>writeAttributes</primary><secondary>Writer</secondary></indexterm>
+<indexterm><primary>Writer</primary><secondary>writeAttributes</secondary></indexterm>
+<para><computeroutput>writeAttributes (array $attributes)</computeroutput></para>
+<para>Writes a list of attributes.</para>
+
+<para>Attributes are specified as a key-&gt;value array.</para>
+
+<para>The key is an attribute name. If the key is a &apos;localName&apos;, the current xml namespace is assumed. If it&apos;s a &apos;clark notation key&apos;, this namespace will be used instead. </para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_sabre_1_1_xml_1_1_writer_a4622fefb02a9ed84569184dbc340f6c8_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_sabre_1_1_xml_1_1_writer_1ad4e290d2e8ccd36032ddf13242b9bf03"/><section>
+    <title>writeElement()</title>
+<indexterm><primary>writeElement</primary><secondary>Writer</secondary></indexterm>
+<indexterm><primary>Writer</primary><secondary>writeElement</secondary></indexterm>
+<para><computeroutput>writeElement ( $name,  $content = <computeroutput>null</computeroutput>
+)</computeroutput></para>
+<para>Write a full element tag and it&apos;s contents.</para>
+
+<para>This method automatically closes the element as well.</para>
+
+<para>The element name may be specified in clark-notation.</para>
+
+<para>Examples:</para>
+
+<para>$writer-&gt;writeElement(&apos;{<link xlink:href="http://www.w3.org/2005/Atom">http://www.w3.org/2005/Atom</link>}author&apos;,null); becomes: &lt;author xmlns=&quot;http://www.w3.org/2005&quot; &gt;</para>
+
+<para>$writer-&gt;writeElement(&apos;{<link xlink:href="http://www.w3.org/2005/Atom">http://www.w3.org/2005/Atom</link>}author&apos;, [ &apos;{<link xlink:href="http://www.w3.org/2005/Atom">http://www.w3.org/2005/Atom</link>}name&apos; =&gt; &apos;Evert Pot&apos;, ]); becomes: &lt;author xmlns=&quot;http://www.w3.org/2005&quot; &gt;&lt;name&gt;Evert Pot&lt;/name&gt;&lt;/author&gt;</para>
+
+<para>Note: this function doesn&apos;t have the string typehint, because PHP&apos;s XMLWriter::startElement doesn&apos;t either.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>array | string | object | null</entry><entry>$content</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_sabre_1_1_xml_1_1_writer_ad4e290d2e8ccd36032ddf13242b9bf03_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_sabre_1_1_xml_1_1_writer_ad4e290d2e8ccd36032ddf13242b9bf03_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+</section>
+<section>
+<title>Documentation des champs</title>
+<anchor xml:id="_class_sabre_1_1_xml_1_1_writer_1a666ef6d035637e8235cc9134e52b7d3a"/><section>
+    <title>$adhocNamespaces</title>
+<indexterm><primary>$adhocNamespaces</primary><secondary>Writer</secondary></indexterm>
+<indexterm><primary>Writer</primary><secondary>$adhocNamespaces</secondary></indexterm>
+<para><computeroutput>$<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">adhocNamespaces</link> = []<computeroutput>[protected]</computeroutput></computeroutput></para></section>
+<anchor xml:id="_class_sabre_1_1_xml_1_1_writer_1a4e940dd32f672bdde10bd426e7112c11"/><section>
+    <title>$namespacesWritten</title>
+<indexterm><primary>$namespacesWritten</primary><secondary>Writer</secondary></indexterm>
+<indexterm><primary>Writer</primary><secondary>$namespacesWritten</secondary></indexterm>
+<para><computeroutput>$<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">namespacesWritten</link> = false<computeroutput>[protected]</computeroutput></computeroutput></para></section>
+<para>
+La documentation de cette classe a été générée à partir du fichier suivant :</para>
+public/glpi/vendor/sabre/xml/lib/<link linkend="_sabre_2xml_2lib_2_writer_8php">Writer.php</link></section>
+</section>

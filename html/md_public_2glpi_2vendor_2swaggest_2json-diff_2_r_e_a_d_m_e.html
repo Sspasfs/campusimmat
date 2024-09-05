@@ -1,0 +1,318 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.10.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>CampusImmat: JSON diff/rearrange/patch/pointer library for PHP</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">CampusImmat
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.10.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+</div><!-- top -->
+<div><div class="header">
+  <div class="headertitle"><div class="title">JSON diff/rearrange/patch/pointer library for PHP</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><p><a class="anchor" id="autotoc_md7238"></a> A PHP implementation for finding unordered diff between two <code>JSON</code> documents.</p>
+<p><a href="https://travis-ci.org/swaggest/json-diff"><img src="https://travis-ci.org/swaggest/json-diff.svg?branch=master" alt="Build Status" style="pointer-events: none;" class="inline"/></a> <a href="https://scrutinizer-ci.com/g/swaggest/json-diff/?branch=master"><img src="https://scrutinizer-ci.com/g/swaggest/json-diff/badges/quality-score.png?b=master" alt="Scrutinizer Code Quality" class="inline"/></a> <a href="https://codeclimate.com/github/swaggest/json-diff"><img src="https://codeclimate.com/github/swaggest/json-diff/badges/gpa.svg" alt="Code Climate" style="pointer-events: none;" class="inline"/></a> <a href="https://scrutinizer-ci.com/g/swaggest/json-diff/code-structure/master/code-coverage"><img src="https://scrutinizer-ci.com/g/swaggest/json-diff/badges/coverage.png?b=master" alt="Code Coverage" class="inline"/></a> <a href="https://wakatime.com/badge/github/swaggest/json-diff"><img src="https://wakatime.com/badge/github/swaggest/json-diff.svg" alt="time tracker" style="pointer-events: none;" class="inline"/></a></p>
+<h1><a class="anchor" id="autotoc_md7239"></a>
+Purpose</h1>
+<ul>
+<li>To simplify changes review between two <code>JSON</code> files you can use a standard <code>diff</code> tool on rearranged pretty-printed <code>JSON</code>.</li>
+<li>To detect breaking changes by analyzing removals and changes from original <code>JSON</code>.</li>
+<li>To keep original order of object sets (for example <code>swagger.json</code> <a href="https://swagger.io/docs/specification/describing-parameters/">parameters</a> list).</li>
+<li>To <a class="el" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">make</a> and <a class="el" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">apply</a> JSON Patches, specified in <a href="https://datatracker.ietf.org/doc/html/rfc6902">RFC 6902</a> from the IETF.</li>
+<li>To <a class="el" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">make</a> and <a class="el" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">apply</a> JSON Merge Patches, specified in <a href="https://datatracker.ietf.org/doc/html/rfc7386">RFC 7386</a> from the IETF.</li>
+<li>To retrieve and modify data by <a href="https://datatracker.ietf.org/doc/html/rfc6901">JSON Pointer</a>.</li>
+<li>To recursively replace by JSON value.</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md7240"></a>
+Installation</h1>
+<h2><a class="anchor" id="autotoc_md7241"></a>
+Library</h2>
+<div class="fragment"><div class="line">git clone https://github.com/swaggest/json-diff.git</div>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md7242"></a>
+Composer</h2>
+<p><a href="https://getcomposer.org/doc/00-intro.md">Install PHP Composer</a></p>
+<div class="fragment"><div class="line">composer require swaggest/json-diff</div>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md7243"></a>
+Library usage</h1>
+<h2><a class="anchor" id="autotoc_md7244"></a>
+<code>JsonDiff</code></h2>
+<p>Create <code>JsonDiff</code> object from two values (<code>original</code> and <code>new</code>).</p>
+<div class="fragment"><div class="line">$r = <span class="keyword">new</span> JsonDiff(json_decode(<a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">$originalJson</a>), json_decode(<a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">$newJson</a>));</div>
+<div class="ttc" id="areport_8contract_8php_html_a77b973d137fb33212e018b042df6e3e7"><div class="ttname"><a href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">$y</a></div><div class="ttdeci">$y</div><div class="ttdef"><b>Definition</b> report.contract.php:71</div></div>
+</div><!-- fragment --><p>On construction <code>JsonDiff</code> will build <code>rearranged</code> value of <code>new</code> recursively keeping <code>original</code> keys order where possible. Keys that are missing in <code>original</code> will be appended to the end of <code>rearranged</code> value in same order they had in <code>new</code> value.</p>
+<p>If two values are arrays of objects, <code>JsonDiff</code> will try to find a common unique field in those objects and use it as criteria for rearranging. You can enable this behaviour with <code>JsonDiff::REARRANGE_ARRAYS</code> option: </p><div class="fragment"><div class="line">$r = <span class="keyword">new</span> JsonDiff(</div>
+<div class="line">    json_decode(<a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">$originalJson</a>), </div>
+<div class="line">    json_decode(<a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">$newJson</a>),</div>
+<div class="line">    JsonDiff::REARRANGE_ARRAYS</div>
+<div class="line">);</div>
+</div><!-- fragment --><p>Available options:</p><ul>
+<li><code>REARRANGE_ARRAYS</code> is an option to enable <a class="el" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">arrays rearrangement</a> to minimize the difference.</li>
+<li><code>STOP_ON_DIFF</code> is an option to improve performance by stopping comparison when a difference is found.</li>
+<li><code>JSON_URI_FRAGMENT_ID</code> is an option to use URI Fragment Identifier Representation (example: "#/c%25d"). If not set default JSON String Representation (example: "/c%d").</li>
+<li><code>SKIP_JSON_PATCH</code> is an option to improve performance by not building JsonPatch for this diff.</li>
+<li><code>SKIP_JSON_MERGE_PATCH</code> is an option to improve performance by not building JSON Merge Patch value for this diff.</li>
+<li><code>TOLERATE_ASSOCIATIVE_ARRAYS</code> is an option to allow associative arrays to mimic JSON objects (not recommended).</li>
+<li><code>COLLECT_MODIFIED_DIFF</code> is an option to enable <a class="el" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">getModifiedDiff</a>.</li>
+</ul>
+<p>Options can be combined, e.g. <code>JsonDiff::REARRANGE_ARRAYS + JsonDiff::STOP_ON_DIFF</code>.</p>
+<h3><a class="anchor" id="autotoc_md7245"></a>
+<code>getDiffCnt</code></h3>
+<p>Returns total number of differences</p>
+<h3><a class="anchor" id="autotoc_md7246"></a>
+<code>getPatch</code></h3>
+<p>Returns <a class="el" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">`JsonPatch`</a> of difference</p>
+<h3><a class="anchor" id="autotoc_md7247"></a>
+<code>getMergePatch</code></h3>
+<p>Returns <a href="https://datatracker.ietf.org/doc/html/rfc7386">JSON Merge Patch</a> value of difference</p>
+<h3><a class="anchor" id="autotoc_md7248"></a>
+<code>getRearranged</code></h3>
+<p>Returns new value, rearranged with original order.</p>
+<h3><a class="anchor" id="autotoc_md7249"></a>
+<code>getRemoved</code></h3>
+<p>Returns removals as partial value of original.</p>
+<h3><a class="anchor" id="autotoc_md7250"></a>
+<code>getRemovedPaths</code></h3>
+<p>Returns list of <code>JSON</code> paths that were removed from original.</p>
+<h3><a class="anchor" id="autotoc_md7251"></a>
+<code>getRemovedCnt</code></h3>
+<p>Returns number of removals.</p>
+<h3><a class="anchor" id="autotoc_md7252"></a>
+<code>getAdded</code></h3>
+<p>Returns additions as partial value of new.</p>
+<h3><a class="anchor" id="autotoc_md7253"></a>
+<code>getAddedPaths</code></h3>
+<p>Returns list of <code>JSON</code> paths that were added to new.</p>
+<h3><a class="anchor" id="autotoc_md7254"></a>
+<code>getAddedCnt</code></h3>
+<p>Returns number of additions.</p>
+<h3><a class="anchor" id="autotoc_md7255"></a>
+<code>getModifiedOriginal</code></h3>
+<p>Returns modifications as partial value of original.</p>
+<h3><a class="anchor" id="autotoc_md7256"></a>
+<code>getModifiedNew</code></h3>
+<p>Returns modifications as partial value of new.</p>
+<h3><a class="anchor" id="autotoc_md7257"></a>
+<code>getModifiedDiff</code></h3>
+<p>Returns list of <a href="src/ModifiedPathDiff.php"><code>ModifiedPathDiff</code></a> containing paths with original and new values.</p>
+<p>Not collected by default, requires <code>JsonDiff::COLLECT_MODIFIED_DIFF</code> option.</p>
+<h3><a class="anchor" id="autotoc_md7258"></a>
+<code>getModifiedPaths</code></h3>
+<p>Returns list of <code>JSON</code> paths that were modified from original to new.</p>
+<h3><a class="anchor" id="autotoc_md7259"></a>
+<code>getModifiedCnt</code></h3>
+<p>Returns number of modifications.</p>
+<h2><a class="anchor" id="autotoc_md7260"></a>
+<code>JsonPatch</code></h2>
+<h3><a class="anchor" id="autotoc_md7261"></a>
+<code>import</code></h3>
+<p>Creates <code>JsonPatch</code> instance from <code>JSON</code>-decoded data.</p>
+<h3><a class="anchor" id="autotoc_md7262"></a>
+<code>export</code></h3>
+<p>Creates patch data from <code>JsonPatch</code> object.</p>
+<h3><a class="anchor" id="autotoc_md7263"></a>
+<code>op</code></h3>
+<p>Adds operation to <code>JsonPatch</code>.</p>
+<h3><a class="anchor" id="autotoc_md7264"></a>
+<code>apply</code></h3>
+<p>Applies patch to <code>JSON</code>-decoded data.</p>
+<h3><a class="anchor" id="autotoc_md7265"></a>
+<code>setFlags</code></h3>
+<p>Alters default behavior.</p>
+<p>Available flags:</p>
+<ul>
+<li><code>JsonPatch::STRICT_MODE</code> Disallow converting empty array to object for key creation.</li>
+<li><code>JsonPatch::TOLERATE_ASSOCIATIVE_ARRAYS</code> Allow associative arrays to mimic JSON objects (not recommended).</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md7266"></a>
+<code>JsonPointer</code></h2>
+<h3><a class="anchor" id="autotoc_md7267"></a>
+<code>escapeSegment</code></h3>
+<p>Escapes path segment.</p>
+<h3><a class="anchor" id="autotoc_md7268"></a>
+<code>splitPath</code></h3>
+<p>Creates array of unescaped segments from <code>JSON Pointer</code> string.</p>
+<h3><a class="anchor" id="autotoc_md7269"></a>
+<code>buildPath</code></h3>
+<p>Creates <code>JSON Pointer</code> string from array of unescaped segments.</p>
+<h3><a class="anchor" id="autotoc_md7270"></a>
+<code>add</code></h3>
+<p>Adds value to data at path specified by segments.</p>
+<h3><a class="anchor" id="autotoc_md7271"></a>
+<code>get</code></h3>
+<p>Gets value from data at path specified by segments.</p>
+<h3><a class="anchor" id="autotoc_md7272"></a>
+<code>getByPointer</code></h3>
+<p>Gets value from data at path specified <code>JSON Pointer</code> string.</p>
+<h3><a class="anchor" id="autotoc_md7273"></a>
+<code>remove</code></h3>
+<p>Removes value from data at path specified by segments.</p>
+<h2><a class="anchor" id="autotoc_md7274"></a>
+<code>JsonMergePatch</code></h2>
+<h3><a class="anchor" id="autotoc_md7275"></a>
+<code>apply</code></h3>
+<p>Applies patch to <code>JSON</code>-decoded data.</p>
+<h2><a class="anchor" id="autotoc_md7276"></a>
+<code>JsonValueReplace</code></h2>
+<h3><a class="anchor" id="autotoc_md7277"></a>
+<code>process</code></h3>
+<p>Recursively replaces all nodes equal to <code>search</code> value with <code>replace</code> value.</p>
+<h1><a class="anchor" id="autotoc_md7278"></a>
+Example</h1>
+<div class="fragment"><div class="line"><a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">$originalJson</a> = &lt;&lt;&lt;<span class="stringliteral">&#39;JSON&#39;</span></div>
+<div class="line">{</div>
+<div class="line">    <span class="stringliteral">&quot;key1&quot;</span>: [4, 1, 2, 3],</div>
+<div class="line">    <span class="stringliteral">&quot;key2&quot;</span>: 2,</div>
+<div class="line">    <span class="stringliteral">&quot;key3&quot;</span>: {</div>
+<div class="line">        <span class="stringliteral">&quot;sub0&quot;</span>: 0,</div>
+<div class="line">        <span class="stringliteral">&quot;sub1&quot;</span>: <span class="stringliteral">&quot;a&quot;</span>,</div>
+<div class="line">        <span class="stringliteral">&quot;sub2&quot;</span>: <span class="stringliteral">&quot;b&quot;</span></div>
+<div class="line">    },</div>
+<div class="line">    <span class="stringliteral">&quot;key4&quot;</span>: [</div>
+<div class="line">        {<span class="stringliteral">&quot;a&quot;</span>:1, <span class="stringliteral">&quot;b&quot;</span>:<span class="keyword">true</span>, <span class="stringliteral">&quot;subs&quot;</span>: [{<span class="stringliteral">&quot;s&quot;</span>:1}, {<span class="stringliteral">&quot;s&quot;</span>:2}, {<span class="stringliteral">&quot;s&quot;</span>:3}]}, {<span class="stringliteral">&quot;a&quot;</span>:2, <span class="stringliteral">&quot;b&quot;</span>:<span class="keyword">false</span>}, {<span class="stringliteral">&quot;a&quot;</span>:3}</div>
+<div class="line">    ]</div>
+<div class="line">}</div>
+<div class="line">JSON;</div>
+<div class="line"> </div>
+<div class="line"><a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">$newJson</a> = &lt;&lt;&lt;<span class="stringliteral">&#39;JSON&#39;</span></div>
+<div class="line">{</div>
+<div class="line">    <span class="stringliteral">&quot;key5&quot;</span>: <span class="stringliteral">&quot;wat&quot;</span>,</div>
+<div class="line">    <span class="stringliteral">&quot;key1&quot;</span>: [5, 1, 2, 3],</div>
+<div class="line">    <span class="stringliteral">&quot;key4&quot;</span>: [</div>
+<div class="line">        {<span class="stringliteral">&quot;c&quot;</span>:<span class="keyword">false</span>, <span class="stringliteral">&quot;a&quot;</span>:2}, {<span class="stringliteral">&quot;a&quot;</span>:1, <span class="stringliteral">&quot;b&quot;</span>:<span class="keyword">true</span>, <span class="stringliteral">&quot;subs&quot;</span>: [{<span class="stringliteral">&quot;s&quot;</span>:3, <span class="stringliteral">&quot;add&quot;</span>: <span class="keyword">true</span>}, {<span class="stringliteral">&quot;s&quot;</span>:2}, {<span class="stringliteral">&quot;s&quot;</span>:1}]}, {<span class="stringliteral">&quot;c&quot;</span>:1, <span class="stringliteral">&quot;a&quot;</span>:3}</div>
+<div class="line">    ],</div>
+<div class="line">    <span class="stringliteral">&quot;key3&quot;</span>: {</div>
+<div class="line">        <span class="stringliteral">&quot;sub3&quot;</span>: 0,</div>
+<div class="line">        <span class="stringliteral">&quot;sub2&quot;</span>: <span class="keyword">false</span>,</div>
+<div class="line">        <span class="stringliteral">&quot;sub1&quot;</span>: <span class="stringliteral">&quot;c&quot;</span></div>
+<div class="line">    }</div>
+<div class="line">}</div>
+<div class="line">JSON;</div>
+<div class="line"> </div>
+<div class="line"><a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">$patchJson</a> = &lt;&lt;&lt;<span class="stringliteral">&#39;JSON&#39;</span></div>
+<div class="line">[</div>
+<div class="line">    {<span class="stringliteral">&quot;value&quot;</span>:4,<span class="stringliteral">&quot;op&quot;</span>:<span class="stringliteral">&quot;test&quot;</span>,<span class="stringliteral">&quot;path&quot;</span>:<span class="stringliteral">&quot;/key1/0&quot;</span>},</div>
+<div class="line">    {<span class="stringliteral">&quot;value&quot;</span>:5,<span class="stringliteral">&quot;op&quot;</span>:<span class="stringliteral">&quot;replace&quot;</span>,<span class="stringliteral">&quot;path&quot;</span>:<span class="stringliteral">&quot;/key1/0&quot;</span>},</div>
+<div class="line">    </div>
+<div class="line">    {<span class="stringliteral">&quot;op&quot;</span>:<span class="stringliteral">&quot;remove&quot;</span>,<span class="stringliteral">&quot;path&quot;</span>:<span class="stringliteral">&quot;/key2&quot;</span>},</div>
+<div class="line">    </div>
+<div class="line">    {<span class="stringliteral">&quot;op&quot;</span>:<span class="stringliteral">&quot;remove&quot;</span>,<span class="stringliteral">&quot;path&quot;</span>:<span class="stringliteral">&quot;/key3/sub0&quot;</span>},</div>
+<div class="line">    </div>
+<div class="line">    {<span class="stringliteral">&quot;value&quot;</span>:<span class="stringliteral">&quot;a&quot;</span>,<span class="stringliteral">&quot;op&quot;</span>:<span class="stringliteral">&quot;test&quot;</span>,<span class="stringliteral">&quot;path&quot;</span>:<span class="stringliteral">&quot;/key3/sub1&quot;</span>},</div>
+<div class="line">    {<span class="stringliteral">&quot;value&quot;</span>:<span class="stringliteral">&quot;c&quot;</span>,<span class="stringliteral">&quot;op&quot;</span>:<span class="stringliteral">&quot;replace&quot;</span>,<span class="stringliteral">&quot;path&quot;</span>:<span class="stringliteral">&quot;/key3/sub1&quot;</span>},</div>
+<div class="line">    </div>
+<div class="line">    {<span class="stringliteral">&quot;value&quot;</span>:<span class="stringliteral">&quot;b&quot;</span>,<span class="stringliteral">&quot;op&quot;</span>:<span class="stringliteral">&quot;test&quot;</span>,<span class="stringliteral">&quot;path&quot;</span>:<span class="stringliteral">&quot;/key3/sub2&quot;</span>},</div>
+<div class="line">    {<span class="stringliteral">&quot;value&quot;</span>:<span class="keyword">false</span>,<span class="stringliteral">&quot;op&quot;</span>:<span class="stringliteral">&quot;replace&quot;</span>,<span class="stringliteral">&quot;path&quot;</span>:<span class="stringliteral">&quot;/key3/sub2&quot;</span>},</div>
+<div class="line">    </div>
+<div class="line">    {<span class="stringliteral">&quot;value&quot;</span>:0,<span class="stringliteral">&quot;op&quot;</span>:<span class="stringliteral">&quot;add&quot;</span>,<span class="stringliteral">&quot;path&quot;</span>:<span class="stringliteral">&quot;/key3/sub3&quot;</span>},</div>
+<div class="line"> </div>
+<div class="line">    {<span class="stringliteral">&quot;value&quot;</span>:<span class="keyword">true</span>,<span class="stringliteral">&quot;op&quot;</span>:<span class="stringliteral">&quot;add&quot;</span>,<span class="stringliteral">&quot;path&quot;</span>:<span class="stringliteral">&quot;/key4/0/subs/2/add&quot;</span>},</div>
+<div class="line">    </div>
+<div class="line">    {<span class="stringliteral">&quot;op&quot;</span>:<span class="stringliteral">&quot;remove&quot;</span>,<span class="stringliteral">&quot;path&quot;</span>:<span class="stringliteral">&quot;/key4/1/b&quot;</span>},</div>
+<div class="line">    </div>
+<div class="line">    {<span class="stringliteral">&quot;value&quot;</span>:<span class="keyword">false</span>,<span class="stringliteral">&quot;op&quot;</span>:<span class="stringliteral">&quot;add&quot;</span>,<span class="stringliteral">&quot;path&quot;</span>:<span class="stringliteral">&quot;/key4/1/c&quot;</span>},</div>
+<div class="line">    </div>
+<div class="line">    {<span class="stringliteral">&quot;value&quot;</span>:1,<span class="stringliteral">&quot;op&quot;</span>:<span class="stringliteral">&quot;add&quot;</span>,<span class="stringliteral">&quot;path&quot;</span>:<span class="stringliteral">&quot;/key4/2/c&quot;</span>},</div>
+<div class="line">    </div>
+<div class="line">    {<span class="stringliteral">&quot;value&quot;</span>:<span class="stringliteral">&quot;wat&quot;</span>,<span class="stringliteral">&quot;op&quot;</span>:<span class="stringliteral">&quot;add&quot;</span>,<span class="stringliteral">&quot;path&quot;</span>:<span class="stringliteral">&quot;/key5&quot;</span>}</div>
+<div class="line">]</div>
+<div class="line">JSON;</div>
+<div class="line"> </div>
+<div class="line"><a class="code hl_variable" href="compare_kb_revisions_8php.html#a054557295caacf1b6e4a2b8809418221">$diff</a> = <span class="keyword">new</span> JsonDiff(json_decode(<a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">$originalJson</a>), json_decode(<a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">$newJson</a>), JsonDiff::REARRANGE_ARRAYS);</div>
+<div class="line">$this-&gt;<a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">assertEquals</a>(json_decode(<a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">$patchJson</a>), <a class="code hl_variable" href="compare_kb_revisions_8php.html#a054557295caacf1b6e4a2b8809418221">$diff</a>-&gt;getPatch()-&gt;jsonSerialize());</div>
+<div class="line"> </div>
+<div class="line">$original = json_decode(<a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">$originalJson</a>);</div>
+<div class="line"><a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">$patch</a> = JsonPatch::import(json_decode(<a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">$patchJson</a>));</div>
+<div class="line"><a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">$patch</a>-&gt;apply($original);</div>
+<div class="line">$this-&gt;<a class="code hl_variable" href="report_8contract_8php.html#a77b973d137fb33212e018b042df6e3e7">assertEquals</a>(<a class="code hl_variable" href="compare_kb_revisions_8php.html#a054557295caacf1b6e4a2b8809418221">$diff</a>-&gt;getRearranged(), $original);</div>
+<div class="ttc" id="acompare_kb_revisions_8php_html_a054557295caacf1b6e4a2b8809418221"><div class="ttname"><a href="compare_kb_revisions_8php.html#a054557295caacf1b6e4a2b8809418221">$diff</a></div><div class="ttdeci">$diff</div><div class="ttdef"><b>Definition</b> compareKbRevisions.php:70</div></div>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md7279"></a>
+PHP Classes as JSON objects</h1>
+<p>Due to magical methods and other restrictions PHP classes can not be reliably mapped to/from JSON objects. There is support for objects of PHP classes in <code>JsonPointer</code> with limitations:</p><ul>
+<li><code>null</code> is equal to non-existent</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md7280"></a>
+Arrays Rearrangement</h1>
+<p>When <code>JsonDiff::REARRANGE_ARRAYS</code> option is enabled, array items are ordered to match the original array.</p>
+<p>If arrays contain homogenous objects, and those objects have a common property with unique values, array is ordered to match placement of items with same value of such property in the original array.</p>
+<p>Example: original </p><div class="fragment"><div class="line">[{&quot;name&quot;: &quot;Alex&quot;, &quot;height&quot;: 180},{&quot;name&quot;: &quot;Joe&quot;, &quot;height&quot;: 179},{&quot;name&quot;: &quot;Jane&quot;, &quot;height&quot;: 165}]</div>
+</div><!-- fragment --><p> vs new </p><div class="fragment"><div class="line">[{&quot;name&quot;: &quot;Joe&quot;, &quot;height&quot;: 179},{&quot;name&quot;: &quot;Jane&quot;, &quot;height&quot;: 168},{&quot;name&quot;: &quot;Alex&quot;, &quot;height&quot;: 180}]</div>
+</div><!-- fragment --><p> would produce a patch: </p><div class="fragment"><div class="line">[{&quot;value&quot;:165,&quot;op&quot;:&quot;test&quot;,&quot;path&quot;:&quot;/2/height&quot;},{&quot;value&quot;:168,&quot;op&quot;:&quot;replace&quot;,&quot;path&quot;:&quot;/2/height&quot;}]</div>
+</div><!-- fragment --><p>If qualifying indexing property is not found, rearrangement is done based on items equality.</p>
+<p>Example: original </p><div class="fragment"><div class="line">{&quot;data&quot;: [{&quot;A&quot;: 1, &quot;C&quot;: [1, 2, 3]}, {&quot;B&quot;: 2}]}</div>
+</div><!-- fragment --><p> vs new </p><div class="fragment"><div class="line">{&quot;data&quot;: [{&quot;B&quot;: 2}, {&quot;A&quot;: 1, &quot;C&quot;: [3, 2, 1]}]}</div>
+</div><!-- fragment --><p> would produce no difference.</p>
+<h1><a class="anchor" id="autotoc_md7281"></a>
+CLI tool</h1>
+<p>Moved to <a href="https://github.com/swaggest/json-cli"><code>swaggest/json-cli</code></a> </p>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0
+</small></address>
+</body>
+</html>

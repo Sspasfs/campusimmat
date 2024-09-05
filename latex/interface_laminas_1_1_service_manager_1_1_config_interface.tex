@@ -1,0 +1,102 @@
+\doxysection{Référence de l\textquotesingle{}interface Config\+Interface}
+\hypertarget{interface_laminas_1_1_service_manager_1_1_config_interface}{}\label{interface_laminas_1_1_service_manager_1_1_config_interface}\index{ConfigInterface@{ConfigInterface}}
+
+
+Graphe d\textquotesingle{}héritage de Config\+Interface\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{interface_laminas_1_1_service_manager_1_1_config_interface__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Graphe de collaboration de Config\+Interface\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=251pt]{interface_laminas_1_1_service_manager_1_1_config_interface__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{interface_laminas_1_1_service_manager_1_1_config_interface_a20e884e94db10ffe0d862e6883160fa0}{configure\+Service\+Manager}} (\mbox{\hyperlink{class_laminas_1_1_service_manager_1_1_service_manager}{Service\+Manager}} \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{service\+Manager}})
+\item 
+\mbox{\hyperlink{interface_laminas_1_1_service_manager_1_1_config_interface_a658defb34762c8f40085aec87e16ba1a}{to\+Array}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+\begin{DoxySeeAlso}{Voir également}
+Container\+Interface 
+
+Array\+Access
+\end{DoxySeeAlso}
+@psalm-\/type Abstract\+Factories\+Configuration\+Type = array\texorpdfstring{$<$}{<} array-\/key, (class-\/string\texorpdfstring{$<$}{<}Factory\textbackslash{}\+Abstract\+Factory\+Interface\texorpdfstring{$>$}{>}\texorpdfstring{$\vert$}{|}\+Factory\textbackslash{}\+Abstract\+Factory\+Interface) \begin{quote}
+ \end{quote}
+@psalm-\/type Delegators\+Configuration\+Type = array\texorpdfstring{$<$}{<} string, array\texorpdfstring{$<$}{<} array-\/key, (class-\/string\texorpdfstring{$<$}{<}Factory\textbackslash{}\+Delegator\+Factory\+Interface\texorpdfstring{$>$}{>}\texorpdfstring{$\vert$}{|}\+Factory\textbackslash{}\+Delegator\+Factory\+Interface) \texorpdfstring{$\vert$}{|}callable(Container\+Interface,string,\doxylink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{callable()}\+:object,array$<$mixed$>$\texorpdfstring{$\vert$}{|}null)\+:object \texorpdfstring{$>$}{>} \begin{quote}
+ \end{quote}
+@psalm-\/type Factories\+Configuration\+Type = array\texorpdfstring{$<$}{<} string, (class-\/string\texorpdfstring{$<$}{<}Factory\textbackslash{}\+Factory\+Interface\texorpdfstring{$>$}{>}\texorpdfstring{$\vert$}{|}\+Factory\textbackslash{}\+Factory\+Interface) \texorpdfstring{$\vert$}{|}callable(Container\+Interface,string,array$<$mixed$>$\texorpdfstring{$\vert$}{|}null) \begin{quote}
+ \end{quote}
+@psalm-\/type Initializers\+Configuration\+Type = array\texorpdfstring{$<$}{<} array-\/key, (class-\/string\texorpdfstring{$<$}{<}Initializer\textbackslash{}\+Initializer\+Interface\texorpdfstring{$>$}{>}\texorpdfstring{$\vert$}{|}\+Initializer\textbackslash{}\+Initializer\+Interface) \texorpdfstring{$\vert$}{|}callable(Container\+Interface,object)\+:void \begin{quote}
+ \end{quote}
+@psalm-\/type Lazy\+Services\+Configuration\+Type = array\{ class\+\_\+map?\+:array\texorpdfstring{$<$}{<}string,class-\/string\texorpdfstring{$>$}{>}, proxies\+\_\+namespace?\+:non-\/empty-\/string, proxies\+\_\+target\+\_\+dir?\+:non-\/empty-\/string, write\+\_\+proxy\+\_\+files?\+:bool \} @psalm-\/type Service\+Manager\+Configuration\+Type = array\{ abstract\+\_\+factories?\+: Abstract\+Factories\+Configuration\+Type, aliases?\+: array$<$string,string$>$, delegators?\+: Delegators\+Configuration\+Type, factories?\+: Factories\+Configuration\+Type, initializers?\+: Initializers\+Configuration\+Type, invokables?\+: array$<$string,string$>$, lazy\+\_\+services?\+: Lazy\+Services\+Configuration\+Type, services?\+: array\texorpdfstring{$<$}{<}string,object\texorpdfstring{$\vert$}{|}array\texorpdfstring{$>$}{>}, shared?\+:array$<$string,bool$>$ \} 
+
+\doxysubsection{Documentation des fonctions membres}
+\Hypertarget{interface_laminas_1_1_service_manager_1_1_config_interface_a20e884e94db10ffe0d862e6883160fa0}\label{interface_laminas_1_1_service_manager_1_1_config_interface_a20e884e94db10ffe0d862e6883160fa0} 
+\index{ConfigInterface@{ConfigInterface}!configureServiceManager@{configureServiceManager}}
+\index{configureServiceManager@{configureServiceManager}!ConfigInterface@{ConfigInterface}}
+\doxysubsubsection{\texorpdfstring{configureServiceManager()}{configureServiceManager()}}
+{\footnotesize\ttfamily configure\+Service\+Manager (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_laminas_1_1_service_manager_1_1_service_manager}{Service\+Manager}}}]{\$service\+Manager }\end{DoxyParamCaption})}
+
+Configure a service manager.
+
+Implementations should pull configuration from somewhere (typically local properties) and pass it to a Service\+Manager\textquotesingle{}s \doxylink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{with\+Config()} method, returning a new instance.
+
+\begin{DoxyReturn}{Renvoie}
+Service\+Manager 
+\end{DoxyReturn}
+
+
+Implémenté dans \mbox{\hyperlink{class_laminas_1_1_i18n_1_1_view_1_1_helper_config_a20e884e94db10ffe0d862e6883160fa0}{Helper\+Config}}, et \mbox{\hyperlink{class_laminas_1_1_service_manager_1_1_config_a20e884e94db10ffe0d862e6883160fa0}{Config}}.
+
+\Hypertarget{interface_laminas_1_1_service_manager_1_1_config_interface_a658defb34762c8f40085aec87e16ba1a}\label{interface_laminas_1_1_service_manager_1_1_config_interface_a658defb34762c8f40085aec87e16ba1a} 
+\index{ConfigInterface@{ConfigInterface}!toArray@{toArray}}
+\index{toArray@{toArray}!ConfigInterface@{ConfigInterface}}
+\doxysubsubsection{\texorpdfstring{toArray()}{toArray()}}
+{\footnotesize\ttfamily to\+Array (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Return configuration for a service manager instance as an array.
+
+Implementations MUST return an array compatible with Service\+Manager\+::configure, containing one or more of the following keys\+:
+
+
+\begin{DoxyItemize}
+\item abstract\+\_\+factories
+\item aliases
+\item delegators
+\item factories
+\item initializers
+\item invokables
+\item lazy\+\_\+services
+\item services
+\item shared
+\end{DoxyItemize}
+
+In other words, this should return configuration that can be used to instantiate a service manager or plugin manager, or pass to its {\ttfamily \doxylink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{with\+Config()}} method.
+
+\begin{DoxyReturn}{Renvoie}
+array @psalm-\/return Service\+Manager\+Configuration\+Type 
+\end{DoxyReturn}
+
+
+Implémenté dans \mbox{\hyperlink{class_laminas_1_1_i18n_1_1_view_1_1_helper_config_a658defb34762c8f40085aec87e16ba1a}{Helper\+Config}}, et \mbox{\hyperlink{class_laminas_1_1_service_manager_1_1_config_a658defb34762c8f40085aec87e16ba1a}{Config}}.
+
+
+
+La documentation de cette interface a été générée à partir du fichier suivant \+:\begin{DoxyCompactItemize}
+\item 
+public/glpi/vendor/laminas/laminas-\/servicemanager/src/\mbox{\hyperlink{_config_interface_8php}{Config\+Interface.\+php}}\end{DoxyCompactItemize}

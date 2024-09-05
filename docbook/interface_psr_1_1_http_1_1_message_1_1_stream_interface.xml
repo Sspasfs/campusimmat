@@ -1,0 +1,442 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_interface_psr_1_1_http_1_1_message_1_1_stream_interface" xml:lang="fr">
+<title>Référence de l&apos;interface StreamInterface</title>
+<indexterm><primary>StreamInterface</primary></indexterm>
+Graphe d&apos;héritage de StreamInterface:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="interface_psr_1_1_http_1_1_message_1_1_stream_interface__inherit__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Graphe de collaboration de StreamInterface:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="interface_psr_1_1_http_1_1_message_1_1_stream_interface__coll__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Fonctions membres publiques    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_interface_psr_1_1_http_1_1_message_1_1_stream_interface_1a7516ca30af0db3cdbf9a7739b48ce91d">__toString</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_interface_psr_1_1_http_1_1_message_1_1_stream_interface_1aa69c8bf1f1dcf4e72552efff1fe3e87e">close</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_interface_psr_1_1_http_1_1_message_1_1_stream_interface_1aa4c7e8ce5147b0a22d6f2543c017a937">detach</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_interface_psr_1_1_http_1_1_message_1_1_stream_interface_1a75cce10cdf81be6dc84881c28b3379b7">getSize</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_interface_psr_1_1_http_1_1_message_1_1_stream_interface_1a8153e55ed7b27a62988843a2dd66c845">tell</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_interface_psr_1_1_http_1_1_message_1_1_stream_interface_1ada3799f740f09e3689d0054629e87feb">eof</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_interface_psr_1_1_http_1_1_message_1_1_stream_interface_1a1fba032525b1840361a44bc001252693">isSeekable</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_interface_psr_1_1_http_1_1_message_1_1_stream_interface_1aec81000bbf4711592c0a6c38a863a946">seek</link> (int $offset, int $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">whence</link>=SEEK_SET)</para>
+</listitem>
+            <listitem><para><link linkend="_interface_psr_1_1_http_1_1_message_1_1_stream_interface_1ae619dcf2218c21549cb65d875bbc6c9c">rewind</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_interface_psr_1_1_http_1_1_message_1_1_stream_interface_1a63ce3bd392eed625d7e91db404b6fa3c">isWritable</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_interface_psr_1_1_http_1_1_message_1_1_stream_interface_1af6abac2c663eb36b0ef28c5b5ba3f5ab">write</link> (string $string)</para>
+</listitem>
+            <listitem><para><link linkend="_interface_psr_1_1_http_1_1_message_1_1_stream_interface_1a40c3664bb217c4922a289cc97e9cdceb">isReadable</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_interface_psr_1_1_http_1_1_message_1_1_stream_interface_1a47037d4dc0348b96ea3cb58b87ee9363">read</link> (int $length)</para>
+</listitem>
+            <listitem><para><link linkend="_interface_psr_1_1_http_1_1_message_1_1_stream_interface_1a14814e04b348120748912692645f3a75">getContents</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_interface_psr_1_1_http_1_1_message_1_1_stream_interface_1ab0988c961a2e56b5b171b5e2421b34a0">getMetadata</link> (?string $key=null)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Description détaillée</title>
+
+<para>Describes a data stream.</para>
+
+<para>Typically, an instance will wrap a PHP stream; this interface provides a wrapper around the most common operations, including serialization of the entire stream to a string. </para>
+</section>
+<section>
+<title>Documentation des fonctions membres</title>
+<anchor xml:id="_interface_psr_1_1_http_1_1_message_1_1_stream_interface_1a7516ca30af0db3cdbf9a7739b48ce91d"/><section>
+    <title>__toString()</title>
+<indexterm><primary>__toString</primary><secondary>StreamInterface</secondary></indexterm>
+<indexterm><primary>StreamInterface</primary><secondary>__toString</secondary></indexterm>
+<para><computeroutput>__toString ( )</computeroutput></para>
+<para>Reads all data from the stream into a string, from the beginning to end.</para>
+
+<para>This method MUST attempt to seek to the beginning of the stream before reading data and read the stream until the end is reached.</para>
+
+<para>Warning: This could attempt to load a large amount of data into memory.</para>
+
+<para>This method MUST NOT raise an exception in order to conform with PHP&apos;s string casting operations.</para>
+
+<para><formalpara><title>Voir également</title>
+
+<para><link xlink:href="http://php.net/manual/en/language.oop5.magic.php#object.tostring">http://php.net/manual/en/language.oop5.magic.php#object.tostring</link> </para>
+</formalpara>
+<formalpara><title>Renvoie</title>
+
+<para>string </para>
+</formalpara>
+</para>
+<para>
+Implémenté dans <link linkend="_class_guzzle_http_1_1_psr7_1_1_append_stream_1a7516ca30af0db3cdbf9a7739b48ce91d">AppendStream</link>, <link linkend="_class_guzzle_http_1_1_psr7_1_1_buffer_stream_1a7516ca30af0db3cdbf9a7739b48ce91d">BufferStream</link>, <link linkend="_class_guzzle_http_1_1_psr7_1_1_fn_stream_1a7516ca30af0db3cdbf9a7739b48ce91d">FnStream</link>, <link linkend="_class_guzzle_http_1_1_psr7_1_1_pump_stream_1a7516ca30af0db3cdbf9a7739b48ce91d">PumpStream</link>, et <link linkend="_class_guzzle_http_1_1_psr7_1_1_stream_1a7516ca30af0db3cdbf9a7739b48ce91d">Stream</link>.</para>
+</section>
+<anchor xml:id="_interface_psr_1_1_http_1_1_message_1_1_stream_interface_1aa69c8bf1f1dcf4e72552efff1fe3e87e"/><section>
+    <title>close()</title>
+<indexterm><primary>close</primary><secondary>StreamInterface</secondary></indexterm>
+<indexterm><primary>StreamInterface</primary><secondary>close</secondary></indexterm>
+<para><computeroutput>close ( )</computeroutput></para>
+<para>Closes the stream and any underlying resources.</para>
+
+<para><formalpara><title>Renvoie</title>
+
+<para>void </para>
+</formalpara>
+</para>
+<para>
+Implémenté dans <link linkend="_class_guzzle_http_1_1_psr7_1_1_append_stream_1aa69c8bf1f1dcf4e72552efff1fe3e87e">AppendStream</link>, <link linkend="_class_guzzle_http_1_1_psr7_1_1_buffer_stream_1aa69c8bf1f1dcf4e72552efff1fe3e87e">BufferStream</link>, <link linkend="_class_guzzle_http_1_1_psr7_1_1_caching_stream_1aa69c8bf1f1dcf4e72552efff1fe3e87e">CachingStream</link>, <link linkend="_class_guzzle_http_1_1_psr7_1_1_fn_stream_1aa69c8bf1f1dcf4e72552efff1fe3e87e">FnStream</link>, <link linkend="_class_guzzle_http_1_1_psr7_1_1_pump_stream_1aa69c8bf1f1dcf4e72552efff1fe3e87e">PumpStream</link>, et <link linkend="_class_guzzle_http_1_1_psr7_1_1_stream_1aa69c8bf1f1dcf4e72552efff1fe3e87e">Stream</link>.</para>
+</section>
+<anchor xml:id="_interface_psr_1_1_http_1_1_message_1_1_stream_interface_1aa4c7e8ce5147b0a22d6f2543c017a937"/><section>
+    <title>detach()</title>
+<indexterm><primary>detach</primary><secondary>StreamInterface</secondary></indexterm>
+<indexterm><primary>StreamInterface</primary><secondary>detach</secondary></indexterm>
+<para><computeroutput>detach ( )</computeroutput></para>
+<para>Separates any underlying resources from the stream.</para>
+
+<para>After the stream has been detached, the stream is in an unusable state.</para>
+
+<para><formalpara><title>Renvoie</title>
+
+<para>resource|null Underlying PHP stream, if any </para>
+</formalpara>
+</para>
+<para>
+Implémenté dans <link linkend="_class_guzzle_http_1_1_psr7_1_1_append_stream_1aa4c7e8ce5147b0a22d6f2543c017a937">AppendStream</link>, <link linkend="_class_guzzle_http_1_1_psr7_1_1_buffer_stream_1aa4c7e8ce5147b0a22d6f2543c017a937">BufferStream</link>, <link linkend="_class_guzzle_http_1_1_psr7_1_1_fn_stream_1aa4c7e8ce5147b0a22d6f2543c017a937">FnStream</link>, <link linkend="_class_guzzle_http_1_1_psr7_1_1_pump_stream_1aa4c7e8ce5147b0a22d6f2543c017a937">PumpStream</link>, et <link linkend="_class_guzzle_http_1_1_psr7_1_1_stream_1aa4c7e8ce5147b0a22d6f2543c017a937">Stream</link>.</para>
+</section>
+<anchor xml:id="_interface_psr_1_1_http_1_1_message_1_1_stream_interface_1ada3799f740f09e3689d0054629e87feb"/><section>
+    <title>eof()</title>
+<indexterm><primary>eof</primary><secondary>StreamInterface</secondary></indexterm>
+<indexterm><primary>StreamInterface</primary><secondary>eof</secondary></indexterm>
+<para><computeroutput>eof ( )</computeroutput></para>
+<para>Returns true if the stream is at the end of the stream.</para>
+
+<para><formalpara><title>Renvoie</title>
+
+<para>bool </para>
+</formalpara>
+</para>
+<para>
+Implémenté dans <link linkend="_class_guzzle_http_1_1_psr7_1_1_append_stream_1ada3799f740f09e3689d0054629e87feb">AppendStream</link>, <link linkend="_class_guzzle_http_1_1_psr7_1_1_buffer_stream_1ada3799f740f09e3689d0054629e87feb">BufferStream</link>, <link linkend="_class_guzzle_http_1_1_psr7_1_1_caching_stream_1ada3799f740f09e3689d0054629e87feb">CachingStream</link>, <link linkend="_class_guzzle_http_1_1_psr7_1_1_fn_stream_1ada3799f740f09e3689d0054629e87feb">FnStream</link>, <link linkend="_class_guzzle_http_1_1_psr7_1_1_limit_stream_1ada3799f740f09e3689d0054629e87feb">LimitStream</link>, <link linkend="_class_guzzle_http_1_1_psr7_1_1_pump_stream_1ada3799f740f09e3689d0054629e87feb">PumpStream</link>, et <link linkend="_class_guzzle_http_1_1_psr7_1_1_stream_1ada3799f740f09e3689d0054629e87feb">Stream</link>.</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="interface_psr_1_1_http_1_1_message_1_1_stream_interface_ada3799f740f09e3689d0054629e87feb_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_interface_psr_1_1_http_1_1_message_1_1_stream_interface_1a14814e04b348120748912692645f3a75"/><section>
+    <title>getContents()</title>
+<indexterm><primary>getContents</primary><secondary>StreamInterface</secondary></indexterm>
+<indexterm><primary>StreamInterface</primary><secondary>getContents</secondary></indexterm>
+<para><computeroutput>getContents ( )</computeroutput></para>
+<para>Returns the remaining contents in a string</para>
+
+<para><formalpara><title>Renvoie</title>
+
+<para>string </para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry></entry>
+<entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                RuntimeException if unable to read or an error occurs while reading. </para>
+<para>
+Implémenté dans <link linkend="_class_guzzle_http_1_1_psr7_1_1_append_stream_1a14814e04b348120748912692645f3a75">AppendStream</link>, <link linkend="_class_guzzle_http_1_1_psr7_1_1_buffer_stream_1a14814e04b348120748912692645f3a75">BufferStream</link>, <link linkend="_class_guzzle_http_1_1_psr7_1_1_fn_stream_1a14814e04b348120748912692645f3a75">FnStream</link>, <link linkend="_class_guzzle_http_1_1_psr7_1_1_pump_stream_1a14814e04b348120748912692645f3a75">PumpStream</link>, et <link linkend="_class_guzzle_http_1_1_psr7_1_1_stream_1a14814e04b348120748912692645f3a75">Stream</link>.</para>
+</section>
+<anchor xml:id="_interface_psr_1_1_http_1_1_message_1_1_stream_interface_1ab0988c961a2e56b5b171b5e2421b34a0"/><section>
+    <title>getMetadata()</title>
+<indexterm><primary>getMetadata</primary><secondary>StreamInterface</secondary></indexterm>
+<indexterm><primary>StreamInterface</primary><secondary>getMetadata</secondary></indexterm>
+<para><computeroutput>getMetadata (?string $key = <computeroutput>null</computeroutput>
+)</computeroutput></para>
+<para>Get stream metadata as an associative array or retrieve a specific key.</para>
+
+<para>The keys returned are identical to the keys returned from PHP&apos;s stream_get_meta_data() function.</para>
+
+<para><link linkend="_">string|null $key Specific metadata to retrieve.  array|mixed|null Returns an associative array if no key is provided. Returns a specific key value if a key is provided and the value is found, or null if the key is not found. </link></para>
+</section>
+<anchor xml:id="_interface_psr_1_1_http_1_1_message_1_1_stream_interface_1a75cce10cdf81be6dc84881c28b3379b7"/><section>
+    <title>getSize()</title>
+<indexterm><primary>getSize</primary><secondary>StreamInterface</secondary></indexterm>
+<indexterm><primary>StreamInterface</primary><secondary>getSize</secondary></indexterm>
+<para><computeroutput>getSize ( )</computeroutput></para>
+<para>Get the size of the stream if known.</para>
+
+<para><formalpara><title>Renvoie</title>
+
+<para>int|null Returns the size in bytes if known, or null if unknown. </para>
+</formalpara>
+</para>
+<para>
+Implémenté dans <link linkend="_class_guzzle_http_1_1_psr7_1_1_append_stream_1a75cce10cdf81be6dc84881c28b3379b7">AppendStream</link>, <link linkend="_class_guzzle_http_1_1_psr7_1_1_buffer_stream_1a75cce10cdf81be6dc84881c28b3379b7">BufferStream</link>, <link linkend="_class_guzzle_http_1_1_psr7_1_1_caching_stream_1a75cce10cdf81be6dc84881c28b3379b7">CachingStream</link>, <link linkend="_class_guzzle_http_1_1_psr7_1_1_fn_stream_1a75cce10cdf81be6dc84881c28b3379b7">FnStream</link>, <link linkend="_class_guzzle_http_1_1_psr7_1_1_limit_stream_1a75cce10cdf81be6dc84881c28b3379b7">LimitStream</link>, <link linkend="_class_guzzle_http_1_1_psr7_1_1_pump_stream_1a75cce10cdf81be6dc84881c28b3379b7">PumpStream</link>, et <link linkend="_class_guzzle_http_1_1_psr7_1_1_stream_1a75cce10cdf81be6dc84881c28b3379b7">Stream</link>.</para>
+</section>
+<anchor xml:id="_interface_psr_1_1_http_1_1_message_1_1_stream_interface_1a40c3664bb217c4922a289cc97e9cdceb"/><section>
+    <title>isReadable()</title>
+<indexterm><primary>isReadable</primary><secondary>StreamInterface</secondary></indexterm>
+<indexterm><primary>StreamInterface</primary><secondary>isReadable</secondary></indexterm>
+<para><computeroutput>isReadable ( )</computeroutput></para>
+<para>Returns whether or not the stream is readable.</para>
+
+<para><formalpara><title>Renvoie</title>
+
+<para>bool </para>
+</formalpara>
+</para>
+<para>
+Implémenté dans <link linkend="_class_guzzle_http_1_1_psr7_1_1_append_stream_1a40c3664bb217c4922a289cc97e9cdceb">AppendStream</link>, <link linkend="_class_guzzle_http_1_1_psr7_1_1_buffer_stream_1a40c3664bb217c4922a289cc97e9cdceb">BufferStream</link>, <link linkend="_class_guzzle_http_1_1_psr7_1_1_fn_stream_1a40c3664bb217c4922a289cc97e9cdceb">FnStream</link>, <link linkend="_class_guzzle_http_1_1_psr7_1_1_pump_stream_1a40c3664bb217c4922a289cc97e9cdceb">PumpStream</link>, et <link linkend="_class_guzzle_http_1_1_psr7_1_1_stream_1a40c3664bb217c4922a289cc97e9cdceb">Stream</link>.</para>
+</section>
+<anchor xml:id="_interface_psr_1_1_http_1_1_message_1_1_stream_interface_1a1fba032525b1840361a44bc001252693"/><section>
+    <title>isSeekable()</title>
+<indexterm><primary>isSeekable</primary><secondary>StreamInterface</secondary></indexterm>
+<indexterm><primary>StreamInterface</primary><secondary>isSeekable</secondary></indexterm>
+<para><computeroutput>isSeekable ( )</computeroutput></para>
+<para>Returns whether or not the stream is seekable.</para>
+
+<para><formalpara><title>Renvoie</title>
+
+<para>bool </para>
+</formalpara>
+</para>
+<para>
+Implémenté dans <link linkend="_class_guzzle_http_1_1_psr7_1_1_append_stream_1a1fba032525b1840361a44bc001252693">AppendStream</link>, <link linkend="_class_guzzle_http_1_1_psr7_1_1_buffer_stream_1a1fba032525b1840361a44bc001252693">BufferStream</link>, <link linkend="_class_guzzle_http_1_1_psr7_1_1_fn_stream_1a1fba032525b1840361a44bc001252693">FnStream</link>, <link linkend="_class_guzzle_http_1_1_psr7_1_1_no_seek_stream_1a1fba032525b1840361a44bc001252693">NoSeekStream</link>, <link linkend="_class_guzzle_http_1_1_psr7_1_1_pump_stream_1a1fba032525b1840361a44bc001252693">PumpStream</link>, et <link linkend="_class_guzzle_http_1_1_psr7_1_1_stream_1a1fba032525b1840361a44bc001252693">Stream</link>.</para>
+</section>
+<anchor xml:id="_interface_psr_1_1_http_1_1_message_1_1_stream_interface_1a63ce3bd392eed625d7e91db404b6fa3c"/><section>
+    <title>isWritable()</title>
+<indexterm><primary>isWritable</primary><secondary>StreamInterface</secondary></indexterm>
+<indexterm><primary>StreamInterface</primary><secondary>isWritable</secondary></indexterm>
+<para><computeroutput>isWritable ( )</computeroutput></para>
+<para>Returns whether or not the stream is writable.</para>
+
+<para><formalpara><title>Renvoie</title>
+
+<para>bool </para>
+</formalpara>
+</para>
+<para>
+Implémenté dans <link linkend="_class_guzzle_http_1_1_psr7_1_1_append_stream_1a63ce3bd392eed625d7e91db404b6fa3c">AppendStream</link>, <link linkend="_class_guzzle_http_1_1_psr7_1_1_buffer_stream_1a63ce3bd392eed625d7e91db404b6fa3c">BufferStream</link>, <link linkend="_class_guzzle_http_1_1_psr7_1_1_fn_stream_1a63ce3bd392eed625d7e91db404b6fa3c">FnStream</link>, <link linkend="_class_guzzle_http_1_1_psr7_1_1_multipart_stream_1a63ce3bd392eed625d7e91db404b6fa3c">MultipartStream</link>, <link linkend="_class_guzzle_http_1_1_psr7_1_1_pump_stream_1a63ce3bd392eed625d7e91db404b6fa3c">PumpStream</link>, et <link linkend="_class_guzzle_http_1_1_psr7_1_1_stream_1a63ce3bd392eed625d7e91db404b6fa3c">Stream</link>.</para>
+</section>
+<anchor xml:id="_interface_psr_1_1_http_1_1_message_1_1_stream_interface_1a47037d4dc0348b96ea3cb58b87ee9363"/><section>
+    <title>read()</title>
+<indexterm><primary>read</primary><secondary>StreamInterface</secondary></indexterm>
+<indexterm><primary>StreamInterface</primary><secondary>read</secondary></indexterm>
+<para><computeroutput>read (int $length)</computeroutput></para>
+<para>Read data from the stream.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>int</entry><entry>$length</entry><entry>
+<para>Read up to $length bytes from the object and return them. Fewer than $length bytes may be returned if underlying stream call returns fewer bytes. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>string Returns the data read from the stream, or an empty string if no bytes are available. </para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry></entry>
+<entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                RuntimeException if an error occurs. </para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="interface_psr_1_1_http_1_1_message_1_1_stream_interface_a47037d4dc0348b96ea3cb58b87ee9363_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_interface_psr_1_1_http_1_1_message_1_1_stream_interface_1ae619dcf2218c21549cb65d875bbc6c9c"/><section>
+    <title>rewind()</title>
+<indexterm><primary>rewind</primary><secondary>StreamInterface</secondary></indexterm>
+<indexterm><primary>StreamInterface</primary><secondary>rewind</secondary></indexterm>
+<para><computeroutput>rewind ( )</computeroutput></para>
+<para>Seek to the beginning of the stream.</para>
+
+<para>If the stream is not seekable, this method will raise an exception; otherwise, it will perform a seek(0).</para>
+
+<para><formalpara><title>Voir également</title>
+
+<para>seek() <link linkend="_">on failure. </link></para>
+</formalpara>
+</para>
+<para>
+Implémenté dans <link linkend="_class_guzzle_http_1_1_psr7_1_1_append_stream_1ae619dcf2218c21549cb65d875bbc6c9c">AppendStream</link>, <link linkend="_class_guzzle_http_1_1_psr7_1_1_buffer_stream_1ae619dcf2218c21549cb65d875bbc6c9c">BufferStream</link>, <link linkend="_class_guzzle_http_1_1_psr7_1_1_caching_stream_1ae619dcf2218c21549cb65d875bbc6c9c">CachingStream</link>, <link linkend="_class_guzzle_http_1_1_psr7_1_1_fn_stream_1ae619dcf2218c21549cb65d875bbc6c9c">FnStream</link>, <link linkend="_class_guzzle_http_1_1_psr7_1_1_pump_stream_1ae619dcf2218c21549cb65d875bbc6c9c">PumpStream</link>, et <link linkend="_class_guzzle_http_1_1_psr7_1_1_stream_1ae619dcf2218c21549cb65d875bbc6c9c">Stream</link>.</para>
+</section>
+<anchor xml:id="_interface_psr_1_1_http_1_1_message_1_1_stream_interface_1aec81000bbf4711592c0a6c38a863a946"/><section>
+    <title>seek()</title>
+<indexterm><primary>seek</primary><secondary>StreamInterface</secondary></indexterm>
+<indexterm><primary>StreamInterface</primary><secondary>seek</secondary></indexterm>
+<para><computeroutput>seek (int $offset, int $whence = <computeroutput>SEEK_SET</computeroutput>
+)</computeroutput></para>
+<para>Seek to a position in the stream.</para>
+
+<para><link linkend="_">int $offset Stream offset  int $whence Specifies how the cursor position will be calculated based on the seek offset. Valid values are identical to the built-in PHP $whence values for <computeroutput>fseek()</computeroutput>. SEEK_SET: Set position equal to offset bytes SEEK_CUR: Set position to current location plus offset SEEK_END: Set position to end-of-stream plus offset.   on failure. </link></para>
+</section>
+<anchor xml:id="_interface_psr_1_1_http_1_1_message_1_1_stream_interface_1a8153e55ed7b27a62988843a2dd66c845"/><section>
+    <title>tell()</title>
+<indexterm><primary>tell</primary><secondary>StreamInterface</secondary></indexterm>
+<indexterm><primary>StreamInterface</primary><secondary>tell</secondary></indexterm>
+<para><computeroutput>tell ( )</computeroutput></para>
+<para>Returns the current position of the file read/write pointer</para>
+
+<para><formalpara><title>Renvoie</title>
+
+<para>int Position of the file pointer </para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry></entry>
+<entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                RuntimeException on error. </para>
+<para>
+Implémenté dans <link linkend="_class_guzzle_http_1_1_psr7_1_1_append_stream_1a8153e55ed7b27a62988843a2dd66c845">AppendStream</link>, <link linkend="_class_guzzle_http_1_1_psr7_1_1_buffer_stream_1a8153e55ed7b27a62988843a2dd66c845">BufferStream</link>, <link linkend="_class_guzzle_http_1_1_psr7_1_1_fn_stream_1a8153e55ed7b27a62988843a2dd66c845">FnStream</link>, <link linkend="_class_guzzle_http_1_1_psr7_1_1_limit_stream_1a8153e55ed7b27a62988843a2dd66c845">LimitStream</link>, <link linkend="_class_guzzle_http_1_1_psr7_1_1_pump_stream_1a8153e55ed7b27a62988843a2dd66c845">PumpStream</link>, et <link linkend="_class_guzzle_http_1_1_psr7_1_1_stream_1a8153e55ed7b27a62988843a2dd66c845">Stream</link>.</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="interface_psr_1_1_http_1_1_message_1_1_stream_interface_a8153e55ed7b27a62988843a2dd66c845_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_interface_psr_1_1_http_1_1_message_1_1_stream_interface_1af6abac2c663eb36b0ef28c5b5ba3f5ab"/><section>
+    <title>write()</title>
+<indexterm><primary>write</primary><secondary>StreamInterface</secondary></indexterm>
+<indexterm><primary>StreamInterface</primary><secondary>write</secondary></indexterm>
+<para><computeroutput>write (string $string)</computeroutput></para>
+<para>Write data to the stream.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$string</entry><entry>
+<para>The string that is to be written. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>int Returns the number of bytes written to the stream. </para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry></entry>
+<entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                RuntimeException on failure. </para>
+</section>
+<para>
+La documentation de cette interface a été générée à partir du fichier suivant :</para>
+public/glpi/vendor/psr/http-message/src/<link linkend="__stream_interface_8php">StreamInterface.php</link></section>
+</section>

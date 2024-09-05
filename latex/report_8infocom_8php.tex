@@ -1,0 +1,114 @@
+\doxysection{Référence du fichier public/glpi/front/report.infocom.\+php}
+\hypertarget{report_8infocom_8php}{}\label{report_8infocom_8php}\index{public/glpi/front/report.infocom.php@{public/glpi/front/report.infocom.php}}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{global}} \mbox{\hyperlink{report_8infocom_8php_a2e00a61703ee4673cdfb5eb376a9b295}{\$\+CFG\+\_\+\+GLPI}}
+\item 
+\mbox{\hyperlink{dropdown_location_8php_a52332c22f84432520971794825a5a8e7}{if}}(\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{empty}}( \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\+\_\+\+POST}}\mbox{[}"{}date1"{}\mbox{]}) \&\&\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{empty}}( \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\+\_\+\+POST}}\mbox{[}"{}date2"{}\mbox{]})) \mbox{\hyperlink{dropdown_location_8php_a52332c22f84432520971794825a5a8e7}{if}}(!\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{empty}}(\$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\+\_\+\+POST}}\mbox{[}"{}date1"{}\mbox{]}) \&\&!\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{empty}}(\$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\+\_\+\+POST}}\mbox{[}"{}date2"{}\mbox{]}) \&\&(strcmp(\$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\+\_\+\+POST}}\mbox{[}"{}date2"{}\mbox{]}, \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\+\_\+\+POST}}\mbox{[}"{}date1"{}\mbox{]})$<$ 0)) \mbox{\hyperlink{report_8infocom_8php_a08b9278c1cbf5daa917642e4d1f4d8e8}{\$stat}} = \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{new}} \mbox{\hyperlink{class_stat}{Stat}}()
+\item 
+\mbox{\hyperlink{report_8infocom_8php_a858caef5434b0f28a1049808aaf4d505}{\$chart\+\_\+opts}}
+\item 
+\mbox{\hyperlink{report_8infocom_8php_ace87c03f84793407d930918f18a0276b}{\$valeurtot}} = 0
+\item 
+\mbox{\hyperlink{report_8infocom_8php_a4879129322703793bf6edf29a36c41f5}{\$valeurnettetot}} = 0
+\item 
+\mbox{\hyperlink{report_8infocom_8php_a7c5e63ea38f8f23a6a6831a07721af84}{\$valeurnettegraphtot}} = \mbox{[}$\,$\mbox{]}
+\item 
+\mbox{\hyperlink{report_8infocom_8php_a4c4cd27ae7e725f83981aed8ee43ef74}{\$valeurgraphtot}} = \mbox{[}$\,$\mbox{]}
+\item 
+\mbox{\hyperlink{report_8infocom_8php_a92d70a97331cc6fc0a79d9da50895be8}{\$types}} = \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{CFG\+\_\+\+GLPI}}\mbox{[}"{}infocom\+\_\+types"{}\mbox{]}
+\item 
+\mbox{\hyperlink{report_8infocom_8php_a83018d9153d17d91fbcf3bc10158d34f}{\$i}} = 0
+\item 
+\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{while}}(count( \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{types}}) $>$ 0) \mbox{\hyperlink{report_8infocom_8php_a593ee7079dc1ea3e6837a9a96f8b3467}{if}} (( \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{i}} \% 2)==0)
+\item 
+\mbox{\hyperlink{report_8infocom_8php_a260846614192bc376d43d209b6d76cb5}{\$tmpmsg}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Documentation des variables}
+\Hypertarget{report_8infocom_8php_a2e00a61703ee4673cdfb5eb376a9b295}\label{report_8infocom_8php_a2e00a61703ee4673cdfb5eb376a9b295} 
+\index{report.infocom.php@{report.infocom.php}!\$CFG\_GLPI@{\$CFG\_GLPI}}
+\index{\$CFG\_GLPI@{\$CFG\_GLPI}!report.infocom.php@{report.infocom.php}}
+\doxysubsubsection{\texorpdfstring{\$CFG\_GLPI}{\$CFG\_GLPI}}
+{\footnotesize\ttfamily \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{global}} \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{CFG\+\_\+\+GLPI}}}
+
+\Hypertarget{report_8infocom_8php_a858caef5434b0f28a1049808aaf4d505}\label{report_8infocom_8php_a858caef5434b0f28a1049808aaf4d505} 
+\index{report.infocom.php@{report.infocom.php}!\$chart\_opts@{\$chart\_opts}}
+\index{\$chart\_opts@{\$chart\_opts}!report.infocom.php@{report.infocom.php}}
+\doxysubsubsection{\texorpdfstring{\$chart\_opts}{\$chart\_opts}}
+{\footnotesize\ttfamily \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{chart\+\_\+opts}}}
+
+{\bfseries Valeur initiale \+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ \ [}
+\DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{'width'}\ \ =>\ \textcolor{stringliteral}{'90\%'},}
+\DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{'legend'}\ =>\ \textcolor{keyword}{false},}
+\DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{'title'}\ \ =>\ \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\_\_}}(\textcolor{stringliteral}{'Value'}),}
+\DoxyCodeLine{]}
+
+\end{DoxyCode}
+\Hypertarget{report_8infocom_8php_a83018d9153d17d91fbcf3bc10158d34f}\label{report_8infocom_8php_a83018d9153d17d91fbcf3bc10158d34f} 
+\index{report.infocom.php@{report.infocom.php}!\$i@{\$i}}
+\index{\$i@{\$i}!report.infocom.php@{report.infocom.php}}
+\doxysubsubsection{\texorpdfstring{\$i}{\$i}}
+{\footnotesize\ttfamily \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{i}} = 0}
+
+\Hypertarget{report_8infocom_8php_a08b9278c1cbf5daa917642e4d1f4d8e8}\label{report_8infocom_8php_a08b9278c1cbf5daa917642e4d1f4d8e8} 
+\index{report.infocom.php@{report.infocom.php}!\$stat@{\$stat}}
+\index{\$stat@{\$stat}!report.infocom.php@{report.infocom.php}}
+\doxysubsubsection{\texorpdfstring{\$stat}{\$stat}}
+{\footnotesize\ttfamily \mbox{\hyperlink{dropdown_location_8php_a52332c22f84432520971794825a5a8e7}{if}}(\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{empty}}(\$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\+\_\+\+POST}}\mbox{[}"{}date1"{}\mbox{]}) \&\&\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{empty}}(\$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\+\_\+\+POST}}\mbox{[}"{}date2"{}\mbox{]})) \mbox{\hyperlink{dropdown_location_8php_a52332c22f84432520971794825a5a8e7}{if}} (!\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{empty}}( \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\+\_\+\+POST}}\mbox{[}"{}date1"{}\mbox{]}) \&\&!\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{empty}}( \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\+\_\+\+POST}}\mbox{[}"{}date2"{}\mbox{]}) \&\&(strcmp( \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\+\_\+\+POST}}\mbox{[}"{}date2"{}\mbox{]}, \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\+\_\+\+POST}}\mbox{[}"{}date1"{}\mbox{]})$<$ 0)) \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{stat}} = \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{new}} \mbox{\hyperlink{class_stat}{Stat}}()}
+
+\Hypertarget{report_8infocom_8php_a260846614192bc376d43d209b6d76cb5}\label{report_8infocom_8php_a260846614192bc376d43d209b6d76cb5} 
+\index{report.infocom.php@{report.infocom.php}!\$tmpmsg@{\$tmpmsg}}
+\index{\$tmpmsg@{\$tmpmsg}!report.infocom.php@{report.infocom.php}}
+\doxysubsubsection{\texorpdfstring{\$tmpmsg}{\$tmpmsg}}
+{\footnotesize\ttfamily \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{tmpmsg}}}
+
+{\bfseries Valeur initiale \+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ sprintf(}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\_\_}}(\textcolor{stringliteral}{'Total:\ Value=\%1\$s\ -\/\ Account\ net\ value=\%2\$s'}),}
+\DoxyCodeLine{\ \ \ \ Html::formatNumber(\mbox{\hyperlink{report_8infocom_8php_ace87c03f84793407d930918f18a0276b}{\$valeurtot}}),}
+\DoxyCodeLine{\ \ \ \ Html::formatNumber(\mbox{\hyperlink{report_8infocom_8php_a4879129322703793bf6edf29a36c41f5}{\$valeurnettetot}})}
+\DoxyCodeLine{)}
+
+\end{DoxyCode}
+\Hypertarget{report_8infocom_8php_a92d70a97331cc6fc0a79d9da50895be8}\label{report_8infocom_8php_a92d70a97331cc6fc0a79d9da50895be8} 
+\index{report.infocom.php@{report.infocom.php}!\$types@{\$types}}
+\index{\$types@{\$types}!report.infocom.php@{report.infocom.php}}
+\doxysubsubsection{\texorpdfstring{\$types}{\$types}}
+{\footnotesize\ttfamily \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{types}} = \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{CFG\+\_\+\+GLPI}}\mbox{[}"{}infocom\+\_\+types"{}\mbox{]}}
+
+\Hypertarget{report_8infocom_8php_a4c4cd27ae7e725f83981aed8ee43ef74}\label{report_8infocom_8php_a4c4cd27ae7e725f83981aed8ee43ef74} 
+\index{report.infocom.php@{report.infocom.php}!\$valeurgraphtot@{\$valeurgraphtot}}
+\index{\$valeurgraphtot@{\$valeurgraphtot}!report.infocom.php@{report.infocom.php}}
+\doxysubsubsection{\texorpdfstring{\$valeurgraphtot}{\$valeurgraphtot}}
+{\footnotesize\ttfamily \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{valeurgraphtot}} = \mbox{[}$\,$\mbox{]}}
+
+\Hypertarget{report_8infocom_8php_a7c5e63ea38f8f23a6a6831a07721af84}\label{report_8infocom_8php_a7c5e63ea38f8f23a6a6831a07721af84} 
+\index{report.infocom.php@{report.infocom.php}!\$valeurnettegraphtot@{\$valeurnettegraphtot}}
+\index{\$valeurnettegraphtot@{\$valeurnettegraphtot}!report.infocom.php@{report.infocom.php}}
+\doxysubsubsection{\texorpdfstring{\$valeurnettegraphtot}{\$valeurnettegraphtot}}
+{\footnotesize\ttfamily \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{valeurnettegraphtot}} = \mbox{[}$\,$\mbox{]}}
+
+\Hypertarget{report_8infocom_8php_a4879129322703793bf6edf29a36c41f5}\label{report_8infocom_8php_a4879129322703793bf6edf29a36c41f5} 
+\index{report.infocom.php@{report.infocom.php}!\$valeurnettetot@{\$valeurnettetot}}
+\index{\$valeurnettetot@{\$valeurnettetot}!report.infocom.php@{report.infocom.php}}
+\doxysubsubsection{\texorpdfstring{\$valeurnettetot}{\$valeurnettetot}}
+{\footnotesize\ttfamily \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{valeurnettetot}} = 0}
+
+\Hypertarget{report_8infocom_8php_ace87c03f84793407d930918f18a0276b}\label{report_8infocom_8php_ace87c03f84793407d930918f18a0276b} 
+\index{report.infocom.php@{report.infocom.php}!\$valeurtot@{\$valeurtot}}
+\index{\$valeurtot@{\$valeurtot}!report.infocom.php@{report.infocom.php}}
+\doxysubsubsection{\texorpdfstring{\$valeurtot}{\$valeurtot}}
+{\footnotesize\ttfamily \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{valeurtot}} = 0}
+
+\Hypertarget{report_8infocom_8php_a593ee7079dc1ea3e6837a9a96f8b3467}\label{report_8infocom_8php_a593ee7079dc1ea3e6837a9a96f8b3467} 
+\index{report.infocom.php@{report.infocom.php}!if@{if}}
+\index{if@{if}!report.infocom.php@{report.infocom.php}}
+\doxysubsubsection{\texorpdfstring{if}{if}}
+{\footnotesize\ttfamily \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{while}}(count(\$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{types}}) $>$ 0) if((\$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{i}} \% 2)==0) (\begin{DoxyParamCaption}\item[{( \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{i}} \% 2)}]{ = {\ttfamily =~0} }\end{DoxyParamCaption})}
+

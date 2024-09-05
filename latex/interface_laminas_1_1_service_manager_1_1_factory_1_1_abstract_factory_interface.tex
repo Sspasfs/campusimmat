@@ -1,0 +1,65 @@
+\doxysection{Référence de l\textquotesingle{}interface Abstract\+Factory\+Interface}
+\hypertarget{interface_laminas_1_1_service_manager_1_1_factory_1_1_abstract_factory_interface}{}\label{interface_laminas_1_1_service_manager_1_1_factory_1_1_abstract_factory_interface}\index{AbstractFactoryInterface@{AbstractFactoryInterface}}
+
+
+Graphe d\textquotesingle{}héritage de Abstract\+Factory\+Interface\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{interface_laminas_1_1_service_manager_1_1_factory_1_1_abstract_factory_interface__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Graphe de collaboration de Abstract\+Factory\+Interface\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=228pt]{interface_laminas_1_1_service_manager_1_1_factory_1_1_abstract_factory_interface__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{interface_laminas_1_1_service_manager_1_1_factory_1_1_abstract_factory_interface_a31d2a9a970cd65e6d610b34dcec9fd54}{can\+Create}} (\mbox{\hyperlink{interface_interop_1_1_container_1_1_container_interface}{Container\+Interface}} \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{container}}, \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{requested\+Name}})
+\end{DoxyCompactItemize}
+\doxysubsection*{Fonctions membres publiques hérités de \mbox{\hyperlink{interface_laminas_1_1_service_manager_1_1_factory_1_1_factory_interface}{Factory\+Interface}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{interface_laminas_1_1_service_manager_1_1_factory_1_1_factory_interface_ab386f3c76f2a4819824f98962352df18}{\+\_\+\+\_\+invoke}} (\mbox{\hyperlink{interface_interop_1_1_container_1_1_container_interface}{Container\+Interface}} \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{container}}, \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{requested\+Name}}, ?array \$options=null)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Interface for an abstract factory.
+
+An abstract factory extends the factory interface, but also has an additional "{}can\+Create"{} method, which is called to check if the abstract factory has the ability to create an instance for the given service. You should limit the number of abstract factories to ensure good performance. Starting from Service\+Manager v3, remember that you can also attach multiple names to the same factory, which reduces the need for abstract factories. 
+
+\doxysubsection{Documentation des fonctions membres}
+\Hypertarget{interface_laminas_1_1_service_manager_1_1_factory_1_1_abstract_factory_interface_a31d2a9a970cd65e6d610b34dcec9fd54}\label{interface_laminas_1_1_service_manager_1_1_factory_1_1_abstract_factory_interface_a31d2a9a970cd65e6d610b34dcec9fd54} 
+\index{AbstractFactoryInterface@{AbstractFactoryInterface}!canCreate@{canCreate}}
+\index{canCreate@{canCreate}!AbstractFactoryInterface@{AbstractFactoryInterface}}
+\doxysubsubsection{\texorpdfstring{canCreate()}{canCreate()}}
+{\footnotesize\ttfamily can\+Create (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{interface_interop_1_1_container_1_1_container_interface}{Container\+Interface}}}]{\$container,  }\item[{}]{\$requested\+Name }\end{DoxyParamCaption})}
+
+Can the factory create an instance for the service?
+
+
+\begin{DoxyParams}[1]{Paramètres}
+string & {\em \$requested\+Name} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+bool 
+\end{DoxyReturn}
+
+
+Implémenté dans \mbox{\hyperlink{class_laminas_1_1_service_manager_1_1_abstract_factory_1_1_config_abstract_factory_a31d2a9a970cd65e6d610b34dcec9fd54}{Config\+Abstract\+Factory}}, et \mbox{\hyperlink{class_laminas_1_1_service_manager_1_1_abstract_factory_1_1_reflection_based_abstract_factory_a31d2a9a970cd65e6d610b34dcec9fd54}{Reflection\+Based\+Abstract\+Factory}}.
+
+
+
+La documentation de cette interface a été générée à partir du fichier suivant \+:\begin{DoxyCompactItemize}
+\item 
+public/glpi/vendor/laminas/laminas-\/servicemanager/src/\+Factory/\mbox{\hyperlink{_factory_2_abstract_factory_interface_8php}{Abstract\+Factory\+Interface.\+php}}\end{DoxyCompactItemize}

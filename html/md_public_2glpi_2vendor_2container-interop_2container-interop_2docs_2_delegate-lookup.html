@@ -1,0 +1,111 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.10.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>CampusImmat: Delegate lookup feature</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">CampusImmat
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.10.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+</div><!-- top -->
+<div><div class="header">
+  <div class="headertitle"><div class="title">Delegate lookup feature</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><p>This document describes a standard for dependency injection containers.</p>
+<p>The goal set by the <em>delegate lookup</em> feature is to allow several containers to share entries. Containers implementing this feature can perform dependency lookups in other containers.</p>
+<p>Containers implementing this feature will offer a greater lever of interoperability with other containers. Implementation of this feature is therefore RECOMMENDED.</p>
+<p>The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this document are to be interpreted as described in <a href="http://tools.ietf.org/html/rfc2119">RFC 2119</a>.</p>
+<p>The word <code>implementor</code> in this document is to be interpreted as someone implementing the delegate lookup feature in a dependency injection-related library or framework. Users of dependency injections containers (DIC) are referred to as <code>user</code>.</p>
+<h1><a class="anchor" id="autotoc_md5733"></a>
+1. Vocabulary</h1>
+<p>In a dependency injection container, the container is used to fetch entries. Entries can have dependencies on other entries. Usually, these other entries are fetched by the container.</p>
+<p>The <em>delegate lookup</em> feature is the ability for a container to fetch dependencies in another container. In the rest of the document, the word "container" will reference the container implemented by the implementor. The word "delegate container" will reference the container we are fetching the dependencies from.</p>
+<h1><a class="anchor" id="autotoc_md5734"></a>
+2. Specification</h1>
+<p>A container implementing the <em>delegate lookup</em> feature:</p>
+<ul>
+<li>MUST implement the <a class="el" href="md_public_2glpi_2vendor_2container-interop_2container-interop_2docs_2_container_interface.html"><code>ContainerInterface</code></a></li>
+<li>MUST provide a way to register a delegate container (using a constructor parameter, or a setter, or any possible way). The delegate container MUST implement the <a class="el" href="md_public_2glpi_2vendor_2container-interop_2container-interop_2docs_2_container_interface.html"><code>ContainerInterface</code></a>.</li>
+</ul>
+<p>When a container is configured to use a delegate container for dependencies:</p>
+<ul>
+<li>Calls to the <code>get</code> method should only return an entry if the entry is part of the container. If the entry is not part of the container, an exception should be thrown (as requested by the <a class="el" href="md_public_2glpi_2vendor_2container-interop_2container-interop_2docs_2_container_interface.html"><code>ContainerInterface</code></a>).</li>
+<li>Calls to the <code>has</code> method should only return <code>true</code> if the entry is part of the container. If the entry is not part of the container, <code>false</code> should be returned.</li>
+<li>If the fetched entry has dependencies, <b>instead</b> of performing the dependency lookup in the container, the lookup is performed on the <em>delegate container</em>.</li>
+</ul>
+<p>Important: By default, the dependency lookups SHOULD be performed on the delegate container <b>only</b>, not on the container itself.</p>
+<p>It is however allowed for containers to provide exception cases for special entries, and a way to lookup into the same container (or another container) instead of the delegate container.</p>
+<h1><a class="anchor" id="autotoc_md5735"></a>
+3. Package / Interface</h1>
+<p>This feature is not tied to any code, interface or package. </p>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0
+</small></address>
+</body>
+</html>

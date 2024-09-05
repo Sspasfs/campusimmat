@@ -1,0 +1,163 @@
+\doxysection{Référence du fichier public/glpi/front/locale.php}
+\hypertarget{locale_8php}{}\label{locale_8php}\index{public/glpi/front/locale.php@{public/glpi/front/locale.php}}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{global}} \mbox{\hyperlink{locale_8php_a2e00a61703ee4673cdfb5eb376a9b295}{\$\+CFG\+\_\+\+GLPI}}
+\item 
+\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{global}} \mbox{\hyperlink{locale_8php_ac3ee6578f0e8350144ba075a32698bf2}{\$\+TRANSLATE}}
+\item 
+\mbox{\hyperlink{locale_8php_a803992d20070f8b025dcc9ea32ff1ebb}{\$\+SECURITY\+\_\+\+STRATEGY}} = \textquotesingle{}\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{no\+\_\+check}}\textquotesingle{}
+\item 
+\mbox{\hyperlink{locale_8php_a11ae9d4abdbf8a2a1d82a62942535a04}{\$\+\_\+\+GET}} \mbox{[}\textquotesingle{}\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{donotcheckversion}}\textquotesingle{}\mbox{]} = true
+\item 
+\mbox{\hyperlink{locale_8php_a6a909f28613bf24c695795c051be8cdf}{\$dont\+\_\+check\+\_\+maintenance\+\_\+mode}} = true
+\item 
+\mbox{\hyperlink{locale_8php_a0346bc6079fc99bf975480bc2bb8583c}{\$is\+\_\+cacheable}} = !\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{isset}}(\$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\+\_\+\+GET}}\mbox{[}\textquotesingle{}debug\textquotesingle{}\mbox{]})
+\item 
+\mbox{\hyperlink{dropdown_location_8php_a52332c22f84432520971794825a5a8e7}{if}}(!\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{Update\+::is\+Db\+Up\+To\+Date}}()) \mbox{\hyperlink{dropdown_location_8php_a52332c22f84432520971794825a5a8e7}{if}}(\$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{is\+\_\+cacheable}}) \mbox{\hyperlink{locale_8php_a7dfa3535d1144fb3a7ea40d579128c53}{\$default\+\_\+response}}
+\item 
+\mbox{\hyperlink{locale_8php_a21a183f927a6d243fe6b4ba3a6c4d4c8}{\$messages}} = null
+\item 
+\mbox{\hyperlink{locale_8php_abe4cc9788f52e49485473dc699537388}{try}}
+\item 
+\mbox{\hyperlink{ajax_2massiveaction_8php_a1779b58e59344448e6f0077de3112b24}{catch}}(\textbackslash{}Throwable \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{e}}) \mbox{\hyperlink{dropdown_location_8php_a52332c22f84432520971794825a5a8e7}{if}}(!(\$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{messages}} \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{instanceof}} \textbackslash{}\mbox{\hyperlink{class_laminas_1_1_i18n_1_1_translator_1_1_text_domain}{Laminas\textbackslash{}\+I18n\textbackslash{}\+Translator\textbackslash{}\+Text\+Domain}})) \mbox{\hyperlink{locale_8php_a5411f95ac8f576eca0051e760e46b45c}{\$po\+\_\+file}}
+\item 
+\mbox{\hyperlink{locale_8php_a009f451e9329581ca07d33b96ffb69a5}{\$po\+\_\+file\+\_\+handle}}
+\item 
+\mbox{\hyperlink{dropdown_location_8php_a52332c22f84432520971794825a5a8e7}{if}}(false===\$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{po\+\_\+file\+\_\+handle}}) \mbox{\hyperlink{locale_8php_a214068c0746795330f3172d1752e4ae2}{\$in\+\_\+headers}} = false
+\item 
+\mbox{\hyperlink{locale_8php_a52500036ee807241b8b4b7e2367c49ef}{\$headers}} = \mbox{[}$\,$\mbox{]}
+\item 
+\mbox{\hyperlink{locale_8php_a0deffe91e00639aea85482b358da66a2}{\$header\+\_\+keys}} = \mbox{[}\textquotesingle{}\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{language}}\textquotesingle{}, \textquotesingle{}\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{plural}}-\/\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{forms}}\textquotesingle{}\mbox{]}
+\item 
+\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{while}}(false !==( \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{line}}=fgets( \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{po\+\_\+file\+\_\+handle}}))) \mbox{\hyperlink{dropdown_location_8php_a52332c22f84432520971794825a5a8e7}{if}}(count(\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{array\+\_\+diff}}(\$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{header\+\_\+keys}}, array\+\_\+keys(\$headers))) $>$ 0) \mbox{\hyperlink{locale_8php_a8bdbe14a64455591689850b98cec6fc0}{\$messages}} \mbox{[}\textquotesingle{}\textquotesingle{}\mbox{]} = \$headers
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Documentation des variables}
+\Hypertarget{locale_8php_a11ae9d4abdbf8a2a1d82a62942535a04}\label{locale_8php_a11ae9d4abdbf8a2a1d82a62942535a04} 
+\index{locale.php@{locale.php}!\$\_GET@{\$\_GET}}
+\index{\$\_GET@{\$\_GET}!locale.php@{locale.php}}
+\doxysubsubsection{\texorpdfstring{\$\_GET}{\$\_GET}}
+{\footnotesize\ttfamily \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\+\_\+\+GET}}\mbox{[} \textquotesingle{}\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{donotcheckversion}}\textquotesingle{}\mbox{]} = true}
+
+\Hypertarget{locale_8php_a2e00a61703ee4673cdfb5eb376a9b295}\label{locale_8php_a2e00a61703ee4673cdfb5eb376a9b295} 
+\index{locale.php@{locale.php}!\$CFG\_GLPI@{\$CFG\_GLPI}}
+\index{\$CFG\_GLPI@{\$CFG\_GLPI}!locale.php@{locale.php}}
+\doxysubsubsection{\texorpdfstring{\$CFG\_GLPI}{\$CFG\_GLPI}}
+{\footnotesize\ttfamily \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{global}} \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{CFG\+\_\+\+GLPI}}}
+
+\Hypertarget{locale_8php_a7dfa3535d1144fb3a7ea40d579128c53}\label{locale_8php_a7dfa3535d1144fb3a7ea40d579128c53} 
+\index{locale.php@{locale.php}!\$default\_response@{\$default\_response}}
+\index{\$default\_response@{\$default\_response}!locale.php@{locale.php}}
+\doxysubsubsection{\texorpdfstring{\$default\_response}{\$default\_response}}
+{\footnotesize\ttfamily \mbox{\hyperlink{dropdown_location_8php_a52332c22f84432520971794825a5a8e7}{if}}(!\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{Update\+::is\+Db\+Up\+To\+Date}}()) \mbox{\hyperlink{dropdown_location_8php_a52332c22f84432520971794825a5a8e7}{if}} ( \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{is\+\_\+cacheable}}) \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{default\+\_\+response}}}
+
+{\bfseries Valeur initiale \+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ json\_encode(}
+\DoxyCodeLine{\ \ \ \ [}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{''}\ =>\ [}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{'language'}\ \ \ \ \ =>\ \mbox{\hyperlink{locale_8php_a2e00a61703ee4673cdfb5eb376a9b295}{\$CFG\_GLPI}}[\textcolor{stringliteral}{'languages'}][\mbox{\hyperlink{ajax_2knowbase_8php_a8d51972dab0856e7ed5db52b906de613}{\$\_SESSION}}[\textcolor{stringliteral}{'glpilanguage'}]][1],}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{'plural-\/forms'}\ =>\ \textcolor{stringliteral}{'nplurals=2;\ plural=(n\ !=\ 1);'},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ ],}
+\DoxyCodeLine{\ \ \ \ ]}
+\DoxyCodeLine{)}
+
+\end{DoxyCode}
+\Hypertarget{locale_8php_a6a909f28613bf24c695795c051be8cdf}\label{locale_8php_a6a909f28613bf24c695795c051be8cdf} 
+\index{locale.php@{locale.php}!\$dont\_check\_maintenance\_mode@{\$dont\_check\_maintenance\_mode}}
+\index{\$dont\_check\_maintenance\_mode@{\$dont\_check\_maintenance\_mode}!locale.php@{locale.php}}
+\doxysubsubsection{\texorpdfstring{\$dont\_check\_maintenance\_mode}{\$dont\_check\_maintenance\_mode}}
+{\footnotesize\ttfamily \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{dont\+\_\+check\+\_\+maintenance\+\_\+mode}} = true}
+
+\Hypertarget{locale_8php_a0deffe91e00639aea85482b358da66a2}\label{locale_8php_a0deffe91e00639aea85482b358da66a2} 
+\index{locale.php@{locale.php}!\$header\_keys@{\$header\_keys}}
+\index{\$header\_keys@{\$header\_keys}!locale.php@{locale.php}}
+\doxysubsubsection{\texorpdfstring{\$header\_keys}{\$header\_keys}}
+{\footnotesize\ttfamily \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{header\+\_\+keys}} = \mbox{[}\textquotesingle{}\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{language}}\textquotesingle{}, \textquotesingle{}\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{plural}}-\/\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{forms}}\textquotesingle{}\mbox{]}}
+
+\Hypertarget{locale_8php_a52500036ee807241b8b4b7e2367c49ef}\label{locale_8php_a52500036ee807241b8b4b7e2367c49ef} 
+\index{locale.php@{locale.php}!\$headers@{\$headers}}
+\index{\$headers@{\$headers}!locale.php@{locale.php}}
+\doxysubsubsection{\texorpdfstring{\$headers}{\$headers}}
+{\footnotesize\ttfamily \$headers = \mbox{[}$\,$\mbox{]}}
+
+\Hypertarget{locale_8php_a214068c0746795330f3172d1752e4ae2}\label{locale_8php_a214068c0746795330f3172d1752e4ae2} 
+\index{locale.php@{locale.php}!\$in\_headers@{\$in\_headers}}
+\index{\$in\_headers@{\$in\_headers}!locale.php@{locale.php}}
+\doxysubsubsection{\texorpdfstring{\$in\_headers}{\$in\_headers}}
+{\footnotesize\ttfamily \mbox{\hyperlink{dropdown_location_8php_a52332c22f84432520971794825a5a8e7}{if}} (false===\$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{po\+\_\+file\+\_\+handle}}) \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{in\+\_\+headers}} = false}
+
+\Hypertarget{locale_8php_a0346bc6079fc99bf975480bc2bb8583c}\label{locale_8php_a0346bc6079fc99bf975480bc2bb8583c} 
+\index{locale.php@{locale.php}!\$is\_cacheable@{\$is\_cacheable}}
+\index{\$is\_cacheable@{\$is\_cacheable}!locale.php@{locale.php}}
+\doxysubsubsection{\texorpdfstring{\$is\_cacheable}{\$is\_cacheable}}
+{\footnotesize\ttfamily \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{is\+\_\+cacheable}} = !\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{isset}}(\$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\+\_\+\+GET}}\mbox{[}\textquotesingle{}debug\textquotesingle{}\mbox{]})}
+
+\Hypertarget{locale_8php_a21a183f927a6d243fe6b4ba3a6c4d4c8}\label{locale_8php_a21a183f927a6d243fe6b4ba3a6c4d4c8} 
+\index{locale.php@{locale.php}!\$messages@{\$messages}}
+\index{\$messages@{\$messages}!locale.php@{locale.php}}
+\doxysubsubsection{\texorpdfstring{\$messages}{\$messages}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{messages}} = null}
+
+\Hypertarget{locale_8php_a8bdbe14a64455591689850b98cec6fc0}\label{locale_8php_a8bdbe14a64455591689850b98cec6fc0} 
+\index{locale.php@{locale.php}!\$messages@{\$messages}}
+\index{\$messages@{\$messages}!locale.php@{locale.php}}
+\doxysubsubsection{\texorpdfstring{\$messages}{\$messages}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{while}}(false !==(\$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{line}}=fgets(\$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{po\+\_\+file\+\_\+handle}}))) \mbox{\hyperlink{dropdown_location_8php_a52332c22f84432520971794825a5a8e7}{if}} (count(\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{array\+\_\+diff}}( \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{header\+\_\+keys}}, array\+\_\+keys( \$headers))) $>$ 0) \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{messages}}\mbox{[}\textquotesingle{}\textquotesingle{}\mbox{]} = \$headers}
+
+\Hypertarget{locale_8php_a5411f95ac8f576eca0051e760e46b45c}\label{locale_8php_a5411f95ac8f576eca0051e760e46b45c} 
+\index{locale.php@{locale.php}!\$po\_file@{\$po\_file}}
+\index{\$po\_file@{\$po\_file}!locale.php@{locale.php}}
+\doxysubsubsection{\texorpdfstring{\$po\_file}{\$po\_file}}
+{\footnotesize\ttfamily \mbox{\hyperlink{ajax_2massiveaction_8php_a1779b58e59344448e6f0077de3112b24}{catch}}(\textbackslash{}Throwable \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{e}}) \mbox{\hyperlink{dropdown_location_8php_a52332c22f84432520971794825a5a8e7}{if}} (!( \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{messages}} \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{instanceof}} \textbackslash{}\mbox{\hyperlink{class_laminas_1_1_i18n_1_1_translator_1_1_text_domain}{Laminas\textbackslash{}\+I18n\textbackslash{}\+Translator\textbackslash{}\+Text\+Domain}})) \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{po\+\_\+file}}}
+
+{\bfseries Valeur initiale \+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ \mbox{\hyperlink{apirest_8php_af6315dcee605fda09b6c3109c1b739b1}{GLPI\_ROOT}}\ .\ \textcolor{stringliteral}{'/locales/'}\ .\ preg\_replace(}
+\DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{'/\(\backslash\).mo\$/'},}
+\DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{'.po'},}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{locale_8php_a2e00a61703ee4673cdfb5eb376a9b295}{\$CFG\_GLPI}}[\textcolor{stringliteral}{'languages'}][\mbox{\hyperlink{ajax_2knowbase_8php_a8d51972dab0856e7ed5db52b906de613}{\$\_SESSION}}[\textcolor{stringliteral}{'glpilanguage'}]][1]}
+\DoxyCodeLine{)}
+
+\end{DoxyCode}
+\Hypertarget{locale_8php_a009f451e9329581ca07d33b96ffb69a5}\label{locale_8php_a009f451e9329581ca07d33b96ffb69a5} 
+\index{locale.php@{locale.php}!\$po\_file\_handle@{\$po\_file\_handle}}
+\index{\$po\_file\_handle@{\$po\_file\_handle}!locale.php@{locale.php}}
+\doxysubsubsection{\texorpdfstring{\$po\_file\_handle}{\$po\_file\_handle}}
+{\footnotesize\ttfamily \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{po\+\_\+file\+\_\+handle}}}
+
+{\bfseries Valeur initiale \+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ fopen(}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{locale_8php_a5411f95ac8f576eca0051e760e46b45c}{\$po\_file}},}
+\DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{'rb'}}
+\DoxyCodeLine{)}
+
+\end{DoxyCode}
+\Hypertarget{locale_8php_a803992d20070f8b025dcc9ea32ff1ebb}\label{locale_8php_a803992d20070f8b025dcc9ea32ff1ebb} 
+\index{locale.php@{locale.php}!\$SECURITY\_STRATEGY@{\$SECURITY\_STRATEGY}}
+\index{\$SECURITY\_STRATEGY@{\$SECURITY\_STRATEGY}!locale.php@{locale.php}}
+\doxysubsubsection{\texorpdfstring{\$SECURITY\_STRATEGY}{\$SECURITY\_STRATEGY}}
+{\footnotesize\ttfamily \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{SECURITY\+\_\+\+STRATEGY}} = \textquotesingle{}\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{no\+\_\+check}}\textquotesingle{}}
+
+\Hypertarget{locale_8php_ac3ee6578f0e8350144ba075a32698bf2}\label{locale_8php_ac3ee6578f0e8350144ba075a32698bf2} 
+\index{locale.php@{locale.php}!\$TRANSLATE@{\$TRANSLATE}}
+\index{\$TRANSLATE@{\$TRANSLATE}!locale.php@{locale.php}}
+\doxysubsubsection{\texorpdfstring{\$TRANSLATE}{\$TRANSLATE}}
+{\footnotesize\ttfamily Laminas I18n Translator Translator\+Interface \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{TRANSLATE}}}
+
+\Hypertarget{locale_8php_abe4cc9788f52e49485473dc699537388}\label{locale_8php_abe4cc9788f52e49485473dc699537388} 
+\index{locale.php@{locale.php}!try@{try}}
+\index{try@{try}!locale.php@{locale.php}}
+\doxysubsubsection{\texorpdfstring{try}{try}}
+{\footnotesize\ttfamily try}
+
+{\bfseries Valeur initiale \+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{locale_8php_a21a183f927a6d243fe6b4ba3a6c4d4c8}{\$messages}}\ =\ \mbox{\hyperlink{locale_8php_ac3ee6578f0e8350144ba075a32698bf2}{\$TRANSLATE}}-\/>getAllMessages(\mbox{\hyperlink{locale_8php_a11ae9d4abdbf8a2a1d82a62942535a04}{\$\_GET}}[\textcolor{stringliteral}{'domain'}])}
+
+\end{DoxyCode}

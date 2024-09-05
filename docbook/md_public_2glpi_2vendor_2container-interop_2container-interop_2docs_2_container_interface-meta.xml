@@ -1,0 +1,163 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_md_public_2glpi_2vendor_2container-interop_2container-interop_2docs_2_container_interface-meta" xml:lang="fr">
+<title>ContainerInterface Meta Document</title>
+<indexterm><primary>ContainerInterface Meta Document</primary></indexterm>
+
+<para><anchor xml:id="_md_public_2glpi_2vendor_2container-interop_2container-interop_2docs_2_container_interface-meta_1autotoc_md5701"/> </para>
+<section xml:id="_md_public_2glpi_2vendor_2container-interop_2container-interop_2docs_2_container_interface-meta_1autotoc_md5702">
+<title><title>Introduction</title></title>
+
+<para>This document describes the process and discussions that lead to the <computeroutput>ContainerInterface</computeroutput>. Its goal is to explain the reasons behind each decision.</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2container-interop_2container-interop_2docs_2_container_interface-meta_1autotoc_md5703">
+<title><title>Goal</title></title>
+
+<para>The goal set by <computeroutput>ContainerInterface</computeroutput> is to standardize how frameworks and libraries make use of a container to obtain objects and parameters.</para>
+
+<para>By standardizing such a behavior, frameworks and libraries using the <computeroutput>ContainerInterface</computeroutput> could work with any compatible container. That would allow end users to choose their own container based on their own preferences.</para>
+
+<para>It is important to distinguish the two usages of a container:</para>
+
+<para><itemizedlist>
+<listitem>
+<para>configuring entries</para>
+</listitem><listitem>
+<para>fetching entries</para>
+</listitem></itemizedlist>
+</para>
+
+<para>Most of the time, those two sides are not used by the same party. While it is often end users who tend to configure entries, it is generally the framework that fetch entries to build the application.</para>
+
+<para>This is why this interface focuses only on how entries can be fetched from a container.</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2container-interop_2container-interop_2docs_2_container_interface-meta_1autotoc_md5704">
+<title><title>Interface name</title></title>
+
+<para>The interface name has been thoroughly discussed and was decided by a vote.</para>
+
+<para>The list of options considered with their respective votes are:</para>
+
+<para><itemizedlist>
+<listitem>
+<para><computeroutput>ContainerInterface</computeroutput>: +8</para>
+</listitem><listitem>
+<para><computeroutput>ProviderInterface</computeroutput>: +2</para>
+</listitem><listitem>
+<para><computeroutput>LocatorInterface</computeroutput>: 0</para>
+</listitem><listitem>
+<para><computeroutput>ReadableContainerInterface</computeroutput>: -5</para>
+</listitem><listitem>
+<para><computeroutput>ServiceLocatorInterface</computeroutput>: -6</para>
+</listitem><listitem>
+<para><computeroutput>ObjectFactory</computeroutput>: -6</para>
+</listitem><listitem>
+<para><computeroutput>ObjectStore</computeroutput>: -8</para>
+</listitem><listitem>
+<para><computeroutput>ConsumerInterface</computeroutput>: -9</para>
+</listitem></itemizedlist>
+</para>
+
+<para><link xlink:href="https://github.com/container-interop/container-interop/wiki/%231-interface-name:-Vote">Full results of the vote</link></para>
+
+<para>The complete discussion can be read in <link xlink:href="https://github.com/container-interop/container-interop/issues/1">the issue #1</link>.</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2container-interop_2container-interop_2docs_2_container_interface-meta_1autotoc_md5705">
+<title><title>Interface methods</title></title>
+
+<para>The choice of which methods the interface would contain was made after a statistical analysis of existing containers. The results of this analysis are available <link xlink:href="https://gist.github.com/mnapoli/6159681">in this document</link>.</para>
+
+<para>The summary of the analysis showed that:</para>
+
+<para><itemizedlist>
+<listitem>
+<para>all containers offer a method to get an entry by its id</para>
+</listitem><listitem>
+<para>a large majority name such method <computeroutput>get()</computeroutput></para>
+</listitem><listitem>
+<para>for all containers, the <computeroutput>get()</computeroutput> method has 1 mandatory parameter of type string</para>
+</listitem><listitem>
+<para>some containers have an optional additional argument for <computeroutput>get()</computeroutput>, but it doesn&apos;t have the same purpose between containers</para>
+</listitem><listitem>
+<para>a large majority of the containers offer a method to test if it can return an entry by its id</para>
+</listitem><listitem>
+<para>a majority name such method <computeroutput>has()</computeroutput></para>
+</listitem><listitem>
+<para>for all containers offering <computeroutput>has()</computeroutput>, the method has exactly 1 parameter of type string</para>
+</listitem><listitem>
+<para>a large majority of the containers throw an exception rather than returning null when an entry is not found in <computeroutput>get()</computeroutput></para>
+</listitem><listitem>
+<para>a large majority of the containers don&apos;t implement <computeroutput>ArrayAccess</computeroutput></para>
+</listitem></itemizedlist>
+</para>
+
+<para>The question of whether to include methods to define entries has been discussed in <link xlink:href="https://github.com/container-interop/container-interop/issues/1">issue #1</link>. It has been judged that such methods do not belong in the interface described here because it is out of its scope (see the &quot;Goal&quot; section).</para>
+
+<para>As a result, the <computeroutput>ContainerInterface</computeroutput> contains two methods:</para>
+
+<para><itemizedlist>
+<listitem>
+<para><computeroutput>get()</computeroutput>, returning anything, with one mandatory string parameter. Should throw an exception if the entry is not found.</para>
+</listitem><listitem>
+<para><computeroutput>has()</computeroutput>, returning a boolean, with one mandatory string parameter.</para>
+</listitem></itemizedlist>
+</para>
+<section xml:id="_md_public_2glpi_2vendor_2container-interop_2container-interop_2docs_2_container_interface-meta_1autotoc_md5706">
+<title><title>Number of parameters in <computeroutput>get()</computeroutput> method</title></title>
+
+<para>While <computeroutput>ContainerInterface</computeroutput> only defines one mandatory parameter in <computeroutput>get()</computeroutput>, it is not incompatible with existing containers that have additional optional parameters. PHP allows an implementation to offer more parameters as long as they are optional, because the implementation <emphasis>does</emphasis> satisfy the interface.</para>
+
+<para>This issue has been discussed in <link xlink:href="https://github.com/container-interop/container-interop/issues/6">issue #6</link>.</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2container-interop_2container-interop_2docs_2_container_interface-meta_1autotoc_md5707">
+<title><title>Type of the <computeroutput>$id</computeroutput> parameter</title></title>
+
+<para>The type of the <computeroutput>$id</computeroutput> parameter in <computeroutput>get()</computeroutput> and <computeroutput>has()</computeroutput> has been discussed in <link xlink:href="https://github.com/container-interop/container-interop/issues/6">issue #6</link>. While <computeroutput>string</computeroutput> is used in all the containers that were analyzed, it was suggested that allowing anything (such as objects) could allow containers to offer a more advanced query API.</para>
+
+<para>An example given was to use the container as an object builder. The <computeroutput>$id</computeroutput> parameter would then be an object that would describe how to create an instance.</para>
+
+<para>The conclusion of the discussion was that this was beyond the scope of getting entries from a container without knowing how the container provided them, and it was more fit for a factory.</para>
+</section>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2container-interop_2container-interop_2docs_2_container_interface-meta_1autotoc_md5708">
+<title><title>Contributors</title></title>
+
+<para>Are listed here all people that contributed in the discussions or votes, by alphabetical order:</para>
+
+<para><itemizedlist>
+<listitem>
+<para><link xlink:href="https://github.com/AmyStephen">Amy Stephen</link></para>
+</listitem><listitem>
+<para><link xlink:href="https://github.com/moufmouf">David Négrier</link></para>
+</listitem><listitem>
+<para><link xlink:href="https://github.com/dongilbert">Don Gilbert</link></para>
+</listitem><listitem>
+<para><link xlink:href="https://github.com/judgej">Jason Judge</link></para>
+</listitem><listitem>
+<para><link xlink:href="https://github.com/jeremeamia">Jeremy Lindblom</link></para>
+</listitem><listitem>
+<para><link xlink:href="https://github.com/Ocramius">Marco Pivetta</link></para>
+</listitem><listitem>
+<para><link xlink:href="https://github.com/mnapoli">Matthieu Napoli</link></para>
+</listitem><listitem>
+<para><link xlink:href="https://github.com/pmjones">Paul M. Jones</link></para>
+</listitem><listitem>
+<para><link xlink:href="https://github.com/shochdoerfer">Stephan Hochdörfer</link></para>
+</listitem><listitem>
+<para><link xlink:href="https://github.com/taylorotwell">Taylor Otwell</link></para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2container-interop_2container-interop_2docs_2_container_interface-meta_1autotoc_md5709">
+<title><title>Relevant links</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para><link xlink:href="https://github.com/container-interop/container-interop/blob/master/src/Interop/Container/ContainerInterface.php"><computeroutput>ContainerInterface.php</computeroutput></link></para>
+</listitem><listitem>
+<para><link xlink:href="https://github.com/container-interop/container-interop/issues?labels=ContainerInterface&amp;milestone=&amp;page=1&amp;state=closed">List of all issues</link></para>
+</listitem><listitem>
+<para><link xlink:href="https://github.com/container-interop/container-interop/wiki/%231-interface-name:-Vote">Vote for the interface name</link> </para>
+</listitem></itemizedlist>
+</para>
+</section>
+</section>

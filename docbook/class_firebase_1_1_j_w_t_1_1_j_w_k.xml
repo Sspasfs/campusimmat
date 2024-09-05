@@ -1,0 +1,177 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_firebase_1_1_j_w_t_1_1_j_w_k" xml:lang="fr">
+<title>Référence de la classe JWK</title>
+<indexterm><primary>JWK</primary></indexterm>
+Graphe de collaboration de JWK:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_firebase_1_1_j_w_t_1_1_j_w_k__coll__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Fonctions membres publiques statiques    </title>
+        <itemizedlist>
+            <listitem><para>static <link linkend="_class_firebase_1_1_j_w_t_1_1_j_w_k_1ada93ed9d8150fee3304fa59e759d277c">parseKeySet</link> (array $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">jwks</link>, string $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">defaultAlg</link>=null)</para>
+</listitem>
+            <listitem><para>static <link linkend="_class_firebase_1_1_j_w_t_1_1_j_w_k_1a5f77c786513afa2cf043f2e57e1d6e1d">parseKey</link> (array $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">jwk</link>, string $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">defaultAlg</link>=null)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Documentation des fonctions membres</title>
+<anchor xml:id="_class_firebase_1_1_j_w_t_1_1_j_w_k_1a5f77c786513afa2cf043f2e57e1d6e1d"/><section>
+    <title>parseKey()</title>
+<indexterm><primary>parseKey</primary><secondary>JWK</secondary></indexterm>
+<indexterm><primary>JWK</primary><secondary>parseKey</secondary></indexterm>
+<para><computeroutput>static parseKey (array $jwk, string $defaultAlg = <computeroutput>null</computeroutput>
+)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>Parse a JWK key</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry></entry><entry>array&lt;mixed&gt;</entry><entry>
+<para>$jwk An individual JWK </para>
+</entry>
+                            </row>
+                            <row>
+<entry>string</entry><entry>$defaultAlg</entry><entry>
+<para>The algorithm for the Key object if &quot;alg&quot; is not set in the JSON Web Key Set</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>Key The key object for the JWK</para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>InvalidArgumentException</entry><entry>
+<para>Provided JWK is empty </para>
+</entry>
+                            </row>
+                            <row>
+<entry>UnexpectedValueException</entry><entry>
+<para>Provided JWK was invalid </para>
+</entry>
+                            </row>
+                            <row>
+<entry>DomainException</entry><entry>
+<para>OpenSSL failure</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                @uses createPemFromModulusAndExponent </para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_firebase_1_1_j_w_t_1_1_j_w_k_a5f77c786513afa2cf043f2e57e1d6e1d_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_firebase_1_1_j_w_t_1_1_j_w_k_1ada93ed9d8150fee3304fa59e759d277c"/><section>
+    <title>parseKeySet()</title>
+<indexterm><primary>parseKeySet</primary><secondary>JWK</secondary></indexterm>
+<indexterm><primary>JWK</primary><secondary>parseKeySet</secondary></indexterm>
+<para><computeroutput>static parseKeySet (array $jwks, string $defaultAlg = <computeroutput>null</computeroutput>
+)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>Parse a set of JWK keys</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry></entry><entry>array&lt;mixed&gt;</entry><entry>
+<para>$jwks The JSON Web Key Set as an associative array </para>
+</entry>
+                            </row>
+                            <row>
+<entry>string</entry><entry>$defaultAlg</entry><entry>
+<para>The algorithm for the Key object if &quot;alg&quot; is not set in the JSON Web Key Set</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>array&lt;string, Key&gt; An associative array of key IDs (kid) to Key objects</para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>InvalidArgumentException</entry><entry>
+<para>Provided JWK Set is empty </para>
+</entry>
+                            </row>
+                            <row>
+<entry>UnexpectedValueException</entry><entry>
+<para>Provided JWK Set was invalid </para>
+</entry>
+                            </row>
+                            <row>
+<entry>DomainException</entry><entry>
+<para>OpenSSL failure</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                @uses parseKey </para>
+</section>
+<para>
+La documentation de cette classe a été générée à partir du fichier suivant :</para>
+public/glpi/vendor/firebase/php-jwt/src/<link linkend="__j_w_k_8php">JWK.php</link></section>
+</section>

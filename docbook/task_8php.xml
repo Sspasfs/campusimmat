@@ -1,0 +1,76 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_task_8php" xml:lang="fr">
+<title>Référence du fichier public/glpi/ajax/task.php</title>
+<indexterm><primary>public/glpi/ajax/task.php</primary></indexterm>
+<simplesect>
+    <title>Variables    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_task_8php_1a552d3624f6937978f96deed2b8b13fdc">$AJAX_INCLUDE</link> = 1</para>
+</listitem>
+            <listitem><para><link linkend="_task_8php_1a30542fc7f5f484e3fa9503dca7904799">$tasktemplates_id</link> = $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">_POST</link>[&apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">tasktemplates_id</link>&apos;] ?? null</para>
+</listitem>
+            <listitem><para><link linkend="_dropdown_location_8php_1a52332c22f84432520971794825a5a8e7">if</link>( $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">tasktemplates_id</link>===null) <link linkend="_actorinformation_8php_1a261cb4406f3e438761eb84a7d2102c75">else</link> <link linkend="_dropdown_location_8php_1a52332c22f84432520971794825a5a8e7">if</link>($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">tasktemplates_id</link>==0) <link linkend="_task_8php_1a82a45cc9e532ad85920d0f6dcd604151">$parents_id</link> = $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">_POST</link>[&apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">items_id</link>&apos;] ?? 0</para>
+</listitem>
+            <listitem><para><link linkend="_dropdown_location_8php_1a52332c22f84432520971794825a5a8e7">if</link>(! $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">parents_id</link>) <link linkend="_task_8php_1a1008faec09327de2796c96457fb8d5c5">$parents_itemtype</link> = $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">_POST</link>[&apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">itemtype</link>&apos;] ?? &apos;&apos;</para>
+</listitem>
+            <listitem><para><link linkend="_dropdown_location_8php_1a52332c22f84432520971794825a5a8e7">if</link>(<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">empty</link>($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">parents_itemtype</link>)||!is_subclass_of($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">parents_itemtype</link>, <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">CommonITILObject::class</link>)) <link linkend="_task_8php_1ae6d46796200bb084bf0b277152a47a42">$template</link> = <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">new</link> <link linkend="_class_task_template">TaskTemplate</link>()</para>
+</listitem>
+            <listitem><para><link linkend="_dropdown_location_8php_1a52332c22f84432520971794825a5a8e7">if</link>(! $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">template</link>-&gt;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">getFromDB</link>($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">tasktemplates_id</link>)) <link linkend="_task_8php_1aeedfdb645cc50427afcc0b9eb63868e0">$parent</link> = <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">new</link> $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">parents_itemtype</link>()</para>
+</listitem>
+            <listitem><para><link linkend="_dropdown_location_8php_1a52332c22f84432520971794825a5a8e7">if</link>(! $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">parent</link>-&gt;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">getFromDB</link>($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">parents_id</link>)) $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">template</link> <link linkend="_task_8php_1a17a7e302f481c3bba8c3c5cce540260f">fields</link> [&apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">content</link>&apos;] = $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">template</link>-&gt;getRenderedContent($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">parent</link>)</para>
+</listitem>
+            <listitem><para>$<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">template</link> <link linkend="_task_8php_1ace1f84e9f98b24b9e8fa5290c720b944">fields</link> [&apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">taskcategories_name</link>&apos;] = &quot;&quot;</para>
+</listitem>
+            <listitem><para><link linkend="_task_8php_1ac0450864132bce4837102cdced313dd2">if</link> ( $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">template</link>-&gt;<link linkend="_dropdown_fields_blacklist_8php_1a5c75a53080fde91f4f343f206474308d">fields</link>[ &apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">taskcategories_id</link>&apos;])</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Documentation des variables</title>
+<anchor xml:id="_task_8php_1a552d3624f6937978f96deed2b8b13fdc"/><section>
+    <title>$AJAX_INCLUDE</title>
+<indexterm><primary>$AJAX_INCLUDE</primary><secondary>task.php</secondary></indexterm>
+<indexterm><primary>task.php</primary><secondary>$AJAX_INCLUDE</secondary></indexterm>
+<para><computeroutput>$<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">AJAX_INCLUDE</link> = 1</computeroutput></para></section>
+<anchor xml:id="_task_8php_1aeedfdb645cc50427afcc0b9eb63868e0"/><section>
+    <title>$parent</title>
+<indexterm><primary>$parent</primary><secondary>task.php</secondary></indexterm>
+<indexterm><primary>task.php</primary><secondary>$parent</secondary></indexterm>
+<para><computeroutput><link linkend="_dropdown_location_8php_1a52332c22f84432520971794825a5a8e7">if</link> (! $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">template</link>-&gt;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">getFromDB</link>( $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">tasktemplates_id</link>)) $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">parent</link> = <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">new</link> $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">parents_itemtype</link>()</computeroutput></para></section>
+<anchor xml:id="_task_8php_1a82a45cc9e532ad85920d0f6dcd604151"/><section>
+    <title>$parents_id</title>
+<indexterm><primary>$parents_id</primary><secondary>task.php</secondary></indexterm>
+<indexterm><primary>task.php</primary><secondary>$parents_id</secondary></indexterm>
+<para><computeroutput><link linkend="_dropdown_location_8php_1a52332c22f84432520971794825a5a8e7">if</link>($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">tasktemplates_id</link>===null) <link linkend="_actorinformation_8php_1a261cb4406f3e438761eb84a7d2102c75">else</link> <link linkend="_dropdown_location_8php_1a52332c22f84432520971794825a5a8e7">if</link> ( $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">tasktemplates_id</link>==0) $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">parents_id</link> = $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">_POST</link>[&apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">items_id</link>&apos;] ?? 0</computeroutput></para></section>
+<anchor xml:id="_task_8php_1a1008faec09327de2796c96457fb8d5c5"/><section>
+    <title>$parents_itemtype</title>
+<indexterm><primary>$parents_itemtype</primary><secondary>task.php</secondary></indexterm>
+<indexterm><primary>task.php</primary><secondary>$parents_itemtype</secondary></indexterm>
+<para><computeroutput><link linkend="_dropdown_location_8php_1a52332c22f84432520971794825a5a8e7">if</link> (! $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">parents_id</link>) $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">parents_itemtype</link> = $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">_POST</link>[&apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">itemtype</link>&apos;] ?? &apos;&apos;</computeroutput></para></section>
+<anchor xml:id="_task_8php_1a30542fc7f5f484e3fa9503dca7904799"/><section>
+    <title>$tasktemplates_id</title>
+<indexterm><primary>$tasktemplates_id</primary><secondary>task.php</secondary></indexterm>
+<indexterm><primary>task.php</primary><secondary>$tasktemplates_id</secondary></indexterm>
+<para><computeroutput>$<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">tasktemplates_id</link> = $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">_POST</link>[&apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">tasktemplates_id</link>&apos;] ?? null</computeroutput></para></section>
+<anchor xml:id="_task_8php_1ae6d46796200bb084bf0b277152a47a42"/><section>
+    <title>$template</title>
+<indexterm><primary>$template</primary><secondary>task.php</secondary></indexterm>
+<indexterm><primary>task.php</primary><secondary>$template</secondary></indexterm>
+<para><computeroutput><link linkend="_dropdown_location_8php_1a52332c22f84432520971794825a5a8e7">if</link> (<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">empty</link>( $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">parents_itemtype</link>)||!is_subclass_of( $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">parents_itemtype</link>, <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">CommonITILObject::class</link>)) $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">template</link> = <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">new</link> <link linkend="_class_task_template">TaskTemplate</link>()</computeroutput></para></section>
+<anchor xml:id="_task_8php_1a17a7e302f481c3bba8c3c5cce540260f"/><section>
+    <title>fields<computeroutput>[1/2]</computeroutput></title>
+<indexterm><primary>fields</primary><secondary>task.php</secondary></indexterm>
+<indexterm><primary>task.php</primary><secondary>fields</secondary></indexterm>
+<para><computeroutput><link linkend="_dropdown_location_8php_1a52332c22f84432520971794825a5a8e7">if</link> (! $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">parent</link>-&gt;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">getFromDB</link>( $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">parents_id</link>)) $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">template</link> fields[ &apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">content</link>&apos;] = $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">template</link>-&gt;getRenderedContent($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">parent</link>)</computeroutput></para></section>
+<anchor xml:id="_task_8php_1ace1f84e9f98b24b9e8fa5290c720b944"/><section>
+    <title>fields<computeroutput>[2/2]</computeroutput></title>
+<indexterm><primary>fields</primary><secondary>task.php</secondary></indexterm>
+<indexterm><primary>task.php</primary><secondary>fields</secondary></indexterm>
+<para><computeroutput>$<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">template</link> fields[ &apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">taskcategories_name</link>&apos;] = &quot;&quot;</computeroutput></para></section>
+<anchor xml:id="_task_8php_1ac0450864132bce4837102cdced313dd2"/><section>
+    <title>if</title>
+<indexterm><primary>if</primary><secondary>task.php</secondary></indexterm>
+<indexterm><primary>task.php</primary><secondary>if</secondary></indexterm>
+<para><computeroutput>if($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">template</link>-&gt;<link linkend="_dropdown_fields_blacklist_8php_1a5c75a53080fde91f4f343f206474308d">fields</link>[&apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">taskcategories_id</link>&apos;]) ( $template-&gt;[ &apos;taskcategories_id&apos;])</computeroutput></para></section>
+</section>
+</section>

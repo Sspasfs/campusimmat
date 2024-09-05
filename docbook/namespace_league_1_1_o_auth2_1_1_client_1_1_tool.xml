@@ -1,0 +1,609 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_namespace_league_1_1_o_auth2_1_1_client_1_1_tool" xml:lang="fr">
+<title>Référence de l&apos;espace de nommage League\OAuth2\Client\Tool</title>
+<indexterm><primary>League\OAuth2\Client\Tool</primary></indexterm>
+<simplesect>
+    <title>Structures de données    </title>
+        <itemizedlist>
+            <listitem><para>class <link linkend="_class_league_1_1_o_auth2_1_1_client_1_1_tool_1_1_request_factory">RequestFactory</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Fonctions    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_namespace_league_1_1_o_auth2_1_1_client_1_1_tool_1abce2808169f5caa834425fa5f3a537ea">fillProperties</link> (array $options=[])</para>
+</listitem>
+            <listitem><para><link linkend="_namespace_league_1_1_o_auth2_1_1_client_1_1_tool_1a81bc25556068d1094a1a5d74ca460547">getGuarded</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_namespace_league_1_1_o_auth2_1_1_client_1_1_tool_1ae34b759b97cfe01ec06326c72ae4ed7d">isGuarded</link> ($property)</para>
+</listitem>
+            <listitem><para><link linkend="_namespace_league_1_1_o_auth2_1_1_client_1_1_tool_1ab19232dd43f86498e880517d80327e13">getMacSignature</link> ($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">id</link>, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">ts</link>, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">nonce</link>)</para>
+</listitem>
+            <listitem><para><link linkend="_namespace_league_1_1_o_auth2_1_1_client_1_1_tool_1abf8544520d60025e4931d68242b638e0">getRandomState</link> ($length=32)</para>
+</listitem>
+            <listitem><para><link linkend="_namespace_league_1_1_o_auth2_1_1_client_1_1_tool_1ae6e9cbc764115b3a2ea02c42dadf9c19">getAuthorizationHeaders</link> ($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">token</link>=null)</para>
+</listitem>
+            <listitem><para><link linkend="_namespace_league_1_1_o_auth2_1_1_client_1_1_tool_1a9616f4a294491c4787006ee585eab82d">followRequestRedirects</link> (<link linkend="_interface_psr_1_1_http_1_1_message_1_1_request_interface">RequestInterface</link> $request)</para>
+</listitem>
+            <listitem><para><link linkend="_namespace_league_1_1_o_auth2_1_1_client_1_1_tool_1a2d33da7f4c2414bdeb504f772d9f5bf8">getHttpClient</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_namespace_league_1_1_o_auth2_1_1_client_1_1_tool_1ad2b0ac69ced0e7a10403ee9bb7ce3b09">getRedirectLimit</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_namespace_league_1_1_o_auth2_1_1_client_1_1_tool_1af59c219f65321f33f460c22d5661b751">isRedirect</link> (<link linkend="_interface_psr_1_1_http_1_1_message_1_1_response_interface">ResponseInterface</link> $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">response</link>)</para>
+</listitem>
+            <listitem><para><link linkend="_namespace_league_1_1_o_auth2_1_1_client_1_1_tool_1a3349ca4c9c94047641c9913a671b3940">getResponse</link> (<link linkend="_interface_psr_1_1_http_1_1_message_1_1_request_interface">RequestInterface</link> $request)</para>
+</listitem>
+            <listitem><para><link linkend="_namespace_league_1_1_o_auth2_1_1_client_1_1_tool_1ac35bf0b137946f56af1a9fe64ce0652e">setRedirectLimit</link> ($limit)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Variables    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">trait</link> <link linkend="_namespace_league_1_1_o_auth2_1_1_client_1_1_tool_1ae426e72801c811d5dd3684af1febed61">GuardedPropertyTrait</link></para>
+</listitem>
+            <listitem><para><link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">trait</link> <link linkend="_namespace_league_1_1_o_auth2_1_1_client_1_1_tool_1a1304b0cc8d9b6070ab5c7934e0fb9284">MacAuthorizationTrait</link></para>
+</listitem>
+            <listitem><para><link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">trait</link> <link linkend="_namespace_league_1_1_o_auth2_1_1_client_1_1_tool_1a3c2c44d5190fea8f0a8b9fe4da4d492e">ProviderRedirectTrait</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Description détaillée</title>
+
+<para>This file is part of the league/oauth2-client library</para>
+
+<para>For the full copyright and license information, please view the LICENSE file that was distributed with this source code.</para>
+
+<para><formalpara><title>Copyright</title>
+
+<para>Copyright (c) Alex Bilbie <link xlink:href="mailto:hello@alexbilbie.com">hello@alexbilbie.com</link> @license <link xlink:href="http://opensource.org/licenses/MIT">http://opensource.org/licenses/MIT</link> MIT <link linkend="_">Documentation  <link xlink:href="https://packagist.org/packages/league/oauth2-client">https://packagist.org/packages/league/oauth2-client</link> Packagist  <link xlink:href="https://github.com/thephpleague/oauth2-client">https://github.com/thephpleague/oauth2-client</link> GitHub </link></para>
+</formalpara>
+</para>
+</section>
+<section>
+<title>Documentation des fonctions</title>
+<anchor xml:id="_namespace_league_1_1_o_auth2_1_1_client_1_1_tool_1abce2808169f5caa834425fa5f3a537ea"/><section>
+    <title>fillProperties()</title>
+<indexterm><primary>fillProperties</primary><secondary>League\OAuth2\Client\Tool</secondary></indexterm>
+<indexterm><primary>League\OAuth2\Client\Tool</primary><secondary>fillProperties</secondary></indexterm>
+<para><computeroutput>fillProperties (array $options = <computeroutput>[]</computeroutput>
+)<computeroutput>[protected]</computeroutput></computeroutput></para>
+<para>Attempts to mass assign the given options to explicitly defined properties, skipping over any properties that are defined in the guarded array.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>array</entry><entry>$options</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>mixed </para>
+</formalpara>
+</para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="namespace_league_1_1_o_auth2_1_1_client_1_1_tool_abce2808169f5caa834425fa5f3a537ea_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_namespace_league_1_1_o_auth2_1_1_client_1_1_tool_1a9616f4a294491c4787006ee585eab82d"/><section>
+    <title>followRequestRedirects()</title>
+<indexterm><primary>followRequestRedirects</primary><secondary>League\OAuth2\Client\Tool</secondary></indexterm>
+<indexterm><primary>League\OAuth2\Client\Tool</primary><secondary>followRequestRedirects</secondary></indexterm>
+<para><computeroutput>followRequestRedirects (<link linkend="_interface_psr_1_1_http_1_1_message_1_1_request_interface">RequestInterface</link> $request)<computeroutput>[protected]</computeroutput></computeroutput></para>
+<para>Retrieves a response for a given request and retrieves subsequent responses, with authorization headers, if a redirect is detected.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>RequestInterface</entry><entry>$request</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>ResponseInterface </para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>BadResponseException</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="namespace_league_1_1_o_auth2_1_1_client_1_1_tool_a9616f4a294491c4787006ee585eab82d_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="namespace_league_1_1_o_auth2_1_1_client_1_1_tool_a9616f4a294491c4787006ee585eab82d_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_namespace_league_1_1_o_auth2_1_1_client_1_1_tool_1ae6e9cbc764115b3a2ea02c42dadf9c19"/><section>
+    <title>getAuthorizationHeaders()</title>
+<indexterm><primary>getAuthorizationHeaders</primary><secondary>League\OAuth2\Client\Tool</secondary></indexterm>
+<indexterm><primary>League\OAuth2\Client\Tool</primary><secondary>getAuthorizationHeaders</secondary></indexterm>
+<para><computeroutput>getAuthorizationHeaders ( $token = <computeroutput>null</computeroutput>
+)<computeroutput>[protected]</computeroutput></computeroutput></para>
+<para>Returns the authorization headers for the &apos;mac&apos; grant.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>AccessTokenInterface | string | null</entry><entry>$token</entry><entry>
+<para>Either a string or an access token instance </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>array @codeCoverageIgnore</para>
+</formalpara>
+<para><link linkend="_todo_1_todo000030">A faire</link> 
+<para>This is currently untested and provided only as an example. If you complete the implementation, please create a pull request for <link xlink:href="https://github.com/thephpleague/oauth2-client">https://github.com/thephpleague/oauth2-client</link> </para>
+</para></para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="namespace_league_1_1_o_auth2_1_1_client_1_1_tool_ae6e9cbc764115b3a2ea02c42dadf9c19_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_namespace_league_1_1_o_auth2_1_1_client_1_1_tool_1a81bc25556068d1094a1a5d74ca460547"/><section>
+    <title>getGuarded()</title>
+<indexterm><primary>getGuarded</primary><secondary>League\OAuth2\Client\Tool</secondary></indexterm>
+<indexterm><primary>League\OAuth2\Client\Tool</primary><secondary>getGuarded</secondary></indexterm>
+<para><computeroutput>getGuarded ( )</computeroutput></para>
+<para>Returns current guarded properties.</para>
+
+<para><formalpara><title>Renvoie</title>
+
+<para>array </para>
+</formalpara>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="namespace_league_1_1_o_auth2_1_1_client_1_1_tool_a81bc25556068d1094a1a5d74ca460547_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_namespace_league_1_1_o_auth2_1_1_client_1_1_tool_1a2d33da7f4c2414bdeb504f772d9f5bf8"/><section>
+    <title>getHttpClient()</title>
+<indexterm><primary>getHttpClient</primary><secondary>League\OAuth2\Client\Tool</secondary></indexterm>
+<indexterm><primary>League\OAuth2\Client\Tool</primary><secondary>getHttpClient</secondary></indexterm>
+<para><computeroutput>getHttpClient ( )<computeroutput>[abstract]</computeroutput></computeroutput></para>
+<para>Returns the HTTP client instance.</para>
+
+<para><formalpara><title>Renvoie</title>
+
+<para><link linkend="_namespace_guzzle_http">GuzzleHttp</link>\ClientInterface </para>
+</formalpara>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="namespace_league_1_1_o_auth2_1_1_client_1_1_tool_a2d33da7f4c2414bdeb504f772d9f5bf8_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_namespace_league_1_1_o_auth2_1_1_client_1_1_tool_1ab19232dd43f86498e880517d80327e13"/><section>
+    <title>getMacSignature()</title>
+<indexterm><primary>getMacSignature</primary><secondary>League\OAuth2\Client\Tool</secondary></indexterm>
+<indexterm><primary>League\OAuth2\Client\Tool</primary><secondary>getMacSignature</secondary></indexterm>
+<para><computeroutput>getMacSignature ( $id,  $ts,  $nonce)<computeroutput>[abstract]</computeroutput>, <computeroutput>[protected]</computeroutput></computeroutput></para>
+<para>Returns the MAC signature for the current request.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$id</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>integer</entry><entry>$ts</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>string</entry><entry>$nonce</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>string </para>
+</formalpara>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="namespace_league_1_1_o_auth2_1_1_client_1_1_tool_ab19232dd43f86498e880517d80327e13_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_namespace_league_1_1_o_auth2_1_1_client_1_1_tool_1abf8544520d60025e4931d68242b638e0"/><section>
+    <title>getRandomState()</title>
+<indexterm><primary>getRandomState</primary><secondary>League\OAuth2\Client\Tool</secondary></indexterm>
+<indexterm><primary>League\OAuth2\Client\Tool</primary><secondary>getRandomState</secondary></indexterm>
+<para><computeroutput>getRandomState ( $length = <computeroutput>32</computeroutput>
+)<computeroutput>[abstract]</computeroutput>, <computeroutput>[protected]</computeroutput></computeroutput></para>
+<para>Returns a new random string to use as the state parameter in an authorization flow.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>int</entry><entry>$length</entry><entry>
+<para>Length of the random string to be generated. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>string </para>
+</formalpara>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="namespace_league_1_1_o_auth2_1_1_client_1_1_tool_abf8544520d60025e4931d68242b638e0_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_namespace_league_1_1_o_auth2_1_1_client_1_1_tool_1ad2b0ac69ced0e7a10403ee9bb7ce3b09"/><section>
+    <title>getRedirectLimit()</title>
+<indexterm><primary>getRedirectLimit</primary><secondary>League\OAuth2\Client\Tool</secondary></indexterm>
+<indexterm><primary>League\OAuth2\Client\Tool</primary><secondary>getRedirectLimit</secondary></indexterm>
+<para><computeroutput>getRedirectLimit ( )</computeroutput></para>
+<para>Retrieves current redirect limit.</para>
+
+<para><formalpara><title>Renvoie</title>
+
+<para>integer </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_namespace_league_1_1_o_auth2_1_1_client_1_1_tool_1a3349ca4c9c94047641c9913a671b3940"/><section>
+    <title>getResponse()</title>
+<indexterm><primary>getResponse</primary><secondary>League\OAuth2\Client\Tool</secondary></indexterm>
+<indexterm><primary>League\OAuth2\Client\Tool</primary><secondary>getResponse</secondary></indexterm>
+<para><computeroutput>getResponse (<link linkend="_interface_psr_1_1_http_1_1_message_1_1_request_interface">RequestInterface</link> $request)</computeroutput></para>
+<para>Sends a request instance and returns a response instance.</para>
+
+<para>WARNING: This method does not attempt to catch exceptions caused by HTTP errors! It is recommended to wrap this method in a try/catch block.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>RequestInterface</entry><entry>$request</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>ResponseInterface </para>
+</formalpara>
+</para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="namespace_league_1_1_o_auth2_1_1_client_1_1_tool_a3349ca4c9c94047641c9913a671b3940_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_namespace_league_1_1_o_auth2_1_1_client_1_1_tool_1ae34b759b97cfe01ec06326c72ae4ed7d"/><section>
+    <title>isGuarded()</title>
+<indexterm><primary>isGuarded</primary><secondary>League\OAuth2\Client\Tool</secondary></indexterm>
+<indexterm><primary>League\OAuth2\Client\Tool</primary><secondary>isGuarded</secondary></indexterm>
+<para><computeroutput>isGuarded ( $property)</computeroutput></para>
+<para>Determines if the given property is guarded.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$property</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>bool </para>
+</formalpara>
+</para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="namespace_league_1_1_o_auth2_1_1_client_1_1_tool_ae34b759b97cfe01ec06326c72ae4ed7d_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="namespace_league_1_1_o_auth2_1_1_client_1_1_tool_ae34b759b97cfe01ec06326c72ae4ed7d_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_namespace_league_1_1_o_auth2_1_1_client_1_1_tool_1af59c219f65321f33f460c22d5661b751"/><section>
+    <title>isRedirect()</title>
+<indexterm><primary>isRedirect</primary><secondary>League\OAuth2\Client\Tool</secondary></indexterm>
+<indexterm><primary>League\OAuth2\Client\Tool</primary><secondary>isRedirect</secondary></indexterm>
+<para><computeroutput>isRedirect (<link linkend="_interface_psr_1_1_http_1_1_message_1_1_response_interface">ResponseInterface</link> $response)<computeroutput>[protected]</computeroutput></computeroutput></para>
+<para>Determines if a given response is a redirect.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>ResponseInterface</entry><entry>$response</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>boolean </para>
+</formalpara>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="namespace_league_1_1_o_auth2_1_1_client_1_1_tool_af59c219f65321f33f460c22d5661b751_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_namespace_league_1_1_o_auth2_1_1_client_1_1_tool_1ac35bf0b137946f56af1a9fe64ce0652e"/><section>
+    <title>setRedirectLimit()</title>
+<indexterm><primary>setRedirectLimit</primary><secondary>League\OAuth2\Client\Tool</secondary></indexterm>
+<indexterm><primary>League\OAuth2\Client\Tool</primary><secondary>setRedirectLimit</secondary></indexterm>
+<para><computeroutput>setRedirectLimit ( $limit)</computeroutput></para>
+<para>Updates the redirect limit.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>integer</entry><entry>$limit</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>League\OAuth2\Client\Provider\AbstractProvider </para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>InvalidArgumentException</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
+</section>
+<section>
+<title>Documentation des variables</title>
+<anchor xml:id="_namespace_league_1_1_o_auth2_1_1_client_1_1_tool_1ae426e72801c811d5dd3684af1febed61"/><section>
+    <title>GuardedPropertyTrait</title>
+<indexterm><primary>GuardedPropertyTrait</primary><secondary>League\OAuth2\Client\Tool</secondary></indexterm>
+<indexterm><primary>League\OAuth2\Client\Tool</primary><secondary>GuardedPropertyTrait</secondary></indexterm>
+<para><computeroutput><link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">trait</link> GuardedPropertyTrait</computeroutput></para><emphasis role="strong">Valeur initiale :</emphasis><programlisting linenumbering="unnumbered">{
+&#32;&#32;&#32;&#32;
+&#32;&#32;&#32;&#32;<emphasis role="keyword">protected</emphasis>&#32;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">$guarded</link>&#32;=&#32;[]
+</programlisting>
+<para>Provides support for blacklisting explicit properties from the mass assignment behavior. </para>
+</section>
+<anchor xml:id="_namespace_league_1_1_o_auth2_1_1_client_1_1_tool_1a1304b0cc8d9b6070ab5c7934e0fb9284"/><section>
+    <title>MacAuthorizationTrait</title>
+<indexterm><primary>MacAuthorizationTrait</primary><secondary>League\OAuth2\Client\Tool</secondary></indexterm>
+<indexterm><primary>League\OAuth2\Client\Tool</primary><secondary>MacAuthorizationTrait</secondary></indexterm>
+<para><computeroutput><link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">trait</link> MacAuthorizationTrait</computeroutput></para><emphasis role="strong">Valeur initiale :</emphasis><programlisting linenumbering="unnumbered">{
+&#32;&#32;&#32;&#32;
+&#32;&#32;&#32;&#32;<emphasis role="keyword">abstract</emphasis>&#32;<emphasis role="keyword">protected</emphasis>&#32;<emphasis role="keyword">function</emphasis>&#32;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">getTokenId</link>(AccessToken&#32;$token)
+</programlisting>
+<para>Enables <computeroutput>MAC</computeroutput> header authorization for providers.</para>
+
+<para><link linkend="_">Message Authentication Code (MAC) Tokens </link></para>
+</section>
+<anchor xml:id="_namespace_league_1_1_o_auth2_1_1_client_1_1_tool_1a3c2c44d5190fea8f0a8b9fe4da4d492e"/><section>
+    <title>ProviderRedirectTrait</title>
+<indexterm><primary>ProviderRedirectTrait</primary><secondary>League\OAuth2\Client\Tool</secondary></indexterm>
+<indexterm><primary>League\OAuth2\Client\Tool</primary><secondary>ProviderRedirectTrait</secondary></indexterm>
+<para><computeroutput><link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">trait</link> ProviderRedirectTrait</computeroutput></para><emphasis role="strong">Valeur initiale :</emphasis><programlisting linenumbering="unnumbered">{
+&#32;&#32;&#32;&#32;
+&#32;&#32;&#32;&#32;<emphasis role="keyword">protected</emphasis>&#32;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">$redirectLimit</link>&#32;=&#32;2
+</programlisting></section>
+</section>
+</section>

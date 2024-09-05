@@ -1,0 +1,478 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_sabre_1_1_xml_1_1_service" xml:lang="fr">
+<title>Référence de la classe Service</title>
+<indexterm><primary>Service</primary></indexterm>
+Graphe d&apos;héritage de Service:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_sabre_1_1_xml_1_1_service__inherit__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Graphe de collaboration de Service:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_sabre_1_1_xml_1_1_service__coll__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Fonctions membres publiques    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_sabre_1_1_xml_1_1_service_1ad87b8ca2e14cf640d965378bb62d6f57">getReader</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_class_sabre_1_1_xml_1_1_service_1a1a069840521c65ac74b357310f9eb325">getWriter</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_class_sabre_1_1_xml_1_1_service_1adce7c672f9e548e7ba4ff94795fac188">parse</link> ($input, string $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">contextUri</link>=null, string &amp;$<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">rootElementName</link>=null)</para>
+</listitem>
+            <listitem><para><link linkend="_class_sabre_1_1_xml_1_1_service_1a5ce61c239e154a2ac2e71090522eff11">expect</link> ($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">rootElementName</link>, $input, string $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">contextUri</link>=null)</para>
+</listitem>
+            <listitem><para><link linkend="_class_sabre_1_1_xml_1_1_service_1ab7a35068493cf25c4f95150fd835db3c">write</link> (string $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">rootElementName</link>, $value, string $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">contextUri</link>=null)</para>
+</listitem>
+            <listitem><para><link linkend="_class_sabre_1_1_xml_1_1_service_1a8b71793c9b40f04d0090b4f7c91b3436">mapValueObject</link> (string $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">elementName</link>, string $className)</para>
+</listitem>
+            <listitem><para><link linkend="_class_sabre_1_1_xml_1_1_service_1a9097ded928f110305bb6b323b529db13">writeValueObject</link> ($object, string $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">contextUri</link>=null)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Fonctions membres publiques statiques    </title>
+        <itemizedlist>
+            <listitem><para>static <link linkend="_class_sabre_1_1_xml_1_1_service_1a7eb132733b9ff43392f40d78db7f49ed">parseClarkNotation</link> (string $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">str</link>)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Champs de données    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_sabre_1_1_xml_1_1_service_1a4cc4ac010402e1701d96d30bfb044b6a">$elementMap</link> = []</para>
+</listitem>
+            <listitem><para><link linkend="_class_sabre_1_1_xml_1_1_service_1a7926bbf282e5188d4af8dcff882788ac">$namespaceMap</link> = []</para>
+</listitem>
+            <listitem><para><link linkend="_class_sabre_1_1_xml_1_1_service_1adc083f7e1f2dd14ca2ddbaa63c2faf46">$classMap</link> = []</para>
+</listitem>
+            <listitem><para><link linkend="_class_sabre_1_1_xml_1_1_service_1a011800c63ece4cbbfa77136a20607023">$options</link> = 0</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Attributs protégés    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_sabre_1_1_xml_1_1_service_1a47dd942f5577724bd7d44828c32fb0a6">$valueObjectMap</link> = []</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Description détaillée</title>
+
+<para><link linkend="_class_x_m_l">XML</link> parsing and writing service.</para>
+
+<para>You are encouraged to make an instance of this for your application and potentially extend it, as a central API point for dealing with xml and configuring the reader and writer.</para>
+
+<para><formalpara><title>Copyright</title>
+
+<para>Copyright (C) 2009-2015 fruux GmbH (<link xlink:href="https://fruux.com/">https://fruux.com/</link>). </para>
+</formalpara>
+<formalpara><title>Auteur</title>
+
+<para>Evert Pot (<link xlink:href="http://evertpot.com/">http://evertpot.com/</link>) @license <link xlink:href="http://sabre.io/license/">http://sabre.io/license/</link> Modified BSD License </para>
+</formalpara>
+</para>
+</section>
+<section>
+<title>Documentation des fonctions membres</title>
+<anchor xml:id="_class_sabre_1_1_xml_1_1_service_1a5ce61c239e154a2ac2e71090522eff11"/><section>
+    <title>expect()</title>
+<indexterm><primary>expect</primary><secondary>Service</secondary></indexterm>
+<indexterm><primary>Service</primary><secondary>expect</secondary></indexterm>
+<para><computeroutput>expect ( $rootElementName,  $input, string $contextUri = <computeroutput>null</computeroutput>
+)</computeroutput></para>
+<para>Parses a document in full, and specify what the expected root element name is.</para>
+
+<para>This function works similar to parse, but the difference is that the user can specify what the expected name of the root element should be, in clark notation.</para>
+
+<para>This is useful in cases where you expected a specific document to be passed, and reduces the amount of if statements.</para>
+
+<para>It&apos;s also possible to pass an array of expected rootElements if your code may expect more than one document type.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string | string[]</entry><entry>$rootElementName</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>string | resource</entry><entry>$input</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>ParseException</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>array|object|string </para>
+</formalpara>
+</para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_sabre_1_1_xml_1_1_service_a5ce61c239e154a2ac2e71090522eff11_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_sabre_1_1_xml_1_1_service_1ad87b8ca2e14cf640d965378bb62d6f57"/><section>
+    <title>getReader()</title>
+<indexterm><primary>getReader</primary><secondary>Service</secondary></indexterm>
+<indexterm><primary>Service</primary><secondary>getReader</secondary></indexterm>
+<para><computeroutput>getReader ( )</computeroutput></para>
+<para>Returns a fresh <link linkend="_class_x_m_l">XML</link> Reader. </para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_sabre_1_1_xml_1_1_service_ad87b8ca2e14cf640d965378bb62d6f57_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_sabre_1_1_xml_1_1_service_1a1a069840521c65ac74b357310f9eb325"/><section>
+    <title>getWriter()</title>
+<indexterm><primary>getWriter</primary><secondary>Service</secondary></indexterm>
+<indexterm><primary>Service</primary><secondary>getWriter</secondary></indexterm>
+<para><computeroutput>getWriter ( )</computeroutput></para>
+<para>Returns a fresh xml writer. </para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_sabre_1_1_xml_1_1_service_a1a069840521c65ac74b357310f9eb325_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_sabre_1_1_xml_1_1_service_1a8b71793c9b40f04d0090b4f7c91b3436"/><section>
+    <title>mapValueObject()</title>
+<indexterm><primary>mapValueObject</primary><secondary>Service</secondary></indexterm>
+<indexterm><primary>Service</primary><secondary>mapValueObject</secondary></indexterm>
+<para><computeroutput>mapValueObject (string $elementName, string $className)</computeroutput></para>
+<para>Map an <link linkend="_class_x_m_l">XML</link> element to a PHP class.</para>
+
+<para>Calling this function will automatically set up the Reader and Writer classes to turn a specific <link linkend="_class_x_m_l">XML</link> element to a PHP class.</para>
+
+<para>For example, given a class such as :</para>
+
+<para>class Author { public $firstName; public $lastName; }</para>
+
+<para>and an <link linkend="_class_x_m_l">XML</link> element such as:</para>
+
+<para>&lt;author xmlns=&quot;http://example.org/ns&quot;&gt; &lt;firstName&gt;...&lt;/firstName&gt; &lt;lastName&gt;...&lt;/lastName&gt; &lt;/author&gt;</para>
+
+<para>These can easily be mapped by calling:</para>
+
+<para>$service-&gt;mapValueObject(&apos;{<link xlink:href="http://example.org">http://example.org</link>}author&apos;, &apos;Author&apos;); </para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_sabre_1_1_xml_1_1_service_a8b71793c9b40f04d0090b4f7c91b3436_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_sabre_1_1_xml_1_1_service_1adce7c672f9e548e7ba4ff94795fac188"/><section>
+    <title>parse()</title>
+<indexterm><primary>parse</primary><secondary>Service</secondary></indexterm>
+<indexterm><primary>Service</primary><secondary>parse</secondary></indexterm>
+<para><computeroutput>parse ( $input, string $contextUri = <computeroutput>null</computeroutput>
+, string &amp; $rootElementName = <computeroutput>null</computeroutput>
+)</computeroutput></para>
+<para>Parses a document in full.</para>
+
+<para>Input may be specified as a string or readable stream resource. The returned value is the value of the root document.</para>
+
+<para>Specifying the $contextUri allows the parser to figure out what the URI of the document was. This allows relative URIs within the document to be expanded easily.</para>
+
+<para>The $rootElementName is specified by reference and will be populated with the root element name of the document.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string | resource</entry><entry>$input</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>ParseException</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>array|object|string </para>
+</formalpara>
+</para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_sabre_1_1_xml_1_1_service_adce7c672f9e548e7ba4ff94795fac188_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_sabre_1_1_xml_1_1_service_1a7eb132733b9ff43392f40d78db7f49ed"/><section>
+    <title>parseClarkNotation()</title>
+<indexterm><primary>parseClarkNotation</primary><secondary>Service</secondary></indexterm>
+<indexterm><primary>Service</primary><secondary>parseClarkNotation</secondary></indexterm>
+<para><computeroutput>static parseClarkNotation (string $str)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>Parses a clark-notation string, and returns the namespace and element name components.</para>
+
+<para>If the string was invalid, it will throw an InvalidArgumentException.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry></entry>
+<entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                InvalidArgumentException </para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_sabre_1_1_xml_1_1_service_a7eb132733b9ff43392f40d78db7f49ed_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_sabre_1_1_xml_1_1_service_1ab7a35068493cf25c4f95150fd835db3c"/><section>
+    <title>write()</title>
+<indexterm><primary>write</primary><secondary>Service</secondary></indexterm>
+<indexterm><primary>Service</primary><secondary>write</secondary></indexterm>
+<para><computeroutput>write (string $rootElementName,  $value, string $contextUri = <computeroutput>null</computeroutput>
+)</computeroutput></para>
+<para>Generates an <link linkend="_class_x_m_l">XML</link> document in one go.</para>
+
+<para>The $rootElement must be specified in clark notation. The value must be a string, an array or an object implementing XmlSerializable. Basically, anything that&apos;s supported by the Writer object.</para>
+
+<para>$contextUri can be used to specify a sort of &apos;root&apos; of the PHP application, in case the xml document is used as a http response.</para>
+
+<para>This allows an implementor to easily create URI&apos;s relative to the root of the domain.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string | array | object | XmlSerializable</entry><entry>$value</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>string </para>
+</formalpara>
+</para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_sabre_1_1_xml_1_1_service_ab7a35068493cf25c4f95150fd835db3c_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_sabre_1_1_xml_1_1_service_ab7a35068493cf25c4f95150fd835db3c_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_sabre_1_1_xml_1_1_service_1a9097ded928f110305bb6b323b529db13"/><section>
+    <title>writeValueObject()</title>
+<indexterm><primary>writeValueObject</primary><secondary>Service</secondary></indexterm>
+<indexterm><primary>Service</primary><secondary>writeValueObject</secondary></indexterm>
+<para><computeroutput>writeValueObject ( $object, string $contextUri = <computeroutput>null</computeroutput>
+)</computeroutput></para>
+<para>Writes a value object.</para>
+
+<para>This function largely behaves similar to write(), except that it&apos;s intended specifically to serialize a Value Object into an <link linkend="_class_x_m_l">XML</link> document.</para>
+
+<para>The ValueObject must have been previously registered using mapValueObject().</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>object</entry><entry>$object</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry></entry>
+<entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                InvalidArgumentException </para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_sabre_1_1_xml_1_1_service_a9097ded928f110305bb6b323b529db13_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+</section>
+<section>
+<title>Documentation des champs</title>
+<anchor xml:id="_class_sabre_1_1_xml_1_1_service_1adc083f7e1f2dd14ca2ddbaa63c2faf46"/><section>
+    <title>$classMap</title>
+<indexterm><primary>$classMap</primary><secondary>Service</secondary></indexterm>
+<indexterm><primary>Service</primary><secondary>$classMap</secondary></indexterm>
+<para><computeroutput>$<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">classMap</link> = []</computeroutput></para></section>
+<anchor xml:id="_class_sabre_1_1_xml_1_1_service_1a4cc4ac010402e1701d96d30bfb044b6a"/><section>
+    <title>$elementMap</title>
+<indexterm><primary>$elementMap</primary><secondary>Service</secondary></indexterm>
+<indexterm><primary>Service</primary><secondary>$elementMap</secondary></indexterm>
+<para><computeroutput>$<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">elementMap</link> = []</computeroutput></para></section>
+<anchor xml:id="_class_sabre_1_1_xml_1_1_service_1a7926bbf282e5188d4af8dcff882788ac"/><section>
+    <title>$namespaceMap</title>
+<indexterm><primary>$namespaceMap</primary><secondary>Service</secondary></indexterm>
+<indexterm><primary>Service</primary><secondary>$namespaceMap</secondary></indexterm>
+<para><computeroutput>$<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">namespaceMap</link> = []</computeroutput></para></section>
+<anchor xml:id="_class_sabre_1_1_xml_1_1_service_1a011800c63ece4cbbfa77136a20607023"/><section>
+    <title>$options</title>
+<indexterm><primary>$options</primary><secondary>Service</secondary></indexterm>
+<indexterm><primary>Service</primary><secondary>$options</secondary></indexterm>
+<para><computeroutput>$options = 0</computeroutput></para></section>
+<anchor xml:id="_class_sabre_1_1_xml_1_1_service_1a47dd942f5577724bd7d44828c32fb0a6"/><section>
+    <title>$valueObjectMap</title>
+<indexterm><primary>$valueObjectMap</primary><secondary>Service</secondary></indexterm>
+<indexterm><primary>Service</primary><secondary>$valueObjectMap</secondary></indexterm>
+<para><computeroutput>$<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">valueObjectMap</link> = []<computeroutput>[protected]</computeroutput></computeroutput></para>
+<para>A list of classes and which <link linkend="_class_x_m_l">XML</link> elements they map to. </para>
+</section>
+<para>
+La documentation de cette classe a été générée à partir du fichier suivant :</para>
+public/glpi/vendor/sabre/xml/lib/<link linkend="_xml_2lib_2_service_8php">Service.php</link></section>
+</section>

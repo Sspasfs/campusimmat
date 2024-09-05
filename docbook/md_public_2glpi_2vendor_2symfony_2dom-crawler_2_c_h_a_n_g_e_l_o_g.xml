@@ -1,0 +1,166 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_md_public_2glpi_2vendor_2symfony_2dom-crawler_2_c_h_a_n_g_e_l_o_g" xml:lang="fr">
+<title>CHANGELOG</title>
+<indexterm><primary>CHANGELOG</primary></indexterm>
+<section xml:id="_md_public_2glpi_2vendor_2symfony_2dom-crawler_2_c_h_a_n_g_e_l_o_g_1autotoc_md7385">
+<title><title>5.4</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Add <computeroutput>Crawler::innerText</computeroutput> method.</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2symfony_2dom-crawler_2_c_h_a_n_g_e_l_o_g_1autotoc_md7386">
+<title><title>5.3</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>The <computeroutput>parents()</computeroutput> method is deprecated. Use <computeroutput>ancestors()</computeroutput> instead.</para>
+</listitem><listitem>
+<para>Marked the <computeroutput>containsOption()</computeroutput>, <computeroutput>availableOptionValues()</computeroutput>, and <computeroutput>disableValidation()</computeroutput> methods of the <computeroutput>ChoiceFormField</computeroutput> class as internal</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2symfony_2dom-crawler_2_c_h_a_n_g_e_l_o_g_1autotoc_md7387">
+<title><title>5.1.0</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Added an internal cache layer on top of the CssSelectorConverter</para>
+</listitem><listitem>
+<para>Added <computeroutput>UriResolver</computeroutput> to resolve an URI according to a base URI</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2symfony_2dom-crawler_2_c_h_a_n_g_e_l_o_g_1autotoc_md7388">
+<title><title>5.0.0</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Added argument <computeroutput>$selector</computeroutput> to <computeroutput>Crawler::children()</computeroutput></para>
+</listitem><listitem>
+<para>Added argument <computeroutput>$default</computeroutput> to <computeroutput>Crawler::text()</computeroutput> and <computeroutput>html()</computeroutput></para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2symfony_2dom-crawler_2_c_h_a_n_g_e_l_o_g_1autotoc_md7389">
+<title><title>4.4.0</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Added <computeroutput>Form::getName()</computeroutput> method.</para>
+</listitem><listitem>
+<para>Added <computeroutput>Crawler::matches()</computeroutput> method.</para>
+</listitem><listitem>
+<para>Added <computeroutput>Crawler::closest()</computeroutput> method.</para>
+</listitem><listitem>
+<para>Added <computeroutput>Crawler::outerHtml()</computeroutput> method.</para>
+</listitem><listitem>
+<para>Added an argument to the <computeroutput>Crawler::text()</computeroutput> method to opt-in normalizing whitespaces.</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2symfony_2dom-crawler_2_c_h_a_n_g_e_l_o_g_1autotoc_md7390">
+<title><title>4.3.0</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Added PHPUnit constraints: <computeroutput>CrawlerSelectorAttributeValueSame</computeroutput>, <computeroutput>CrawlerSelectorExists</computeroutput>, <computeroutput>CrawlerSelectorTextContains</computeroutput> and <computeroutput>CrawlerSelectorTextSame</computeroutput></para>
+</listitem><listitem>
+<para>Added return of element name (<computeroutput>_name</computeroutput>) in <computeroutput>extract()</computeroutput> method.</para>
+</listitem><listitem>
+<para>Added ability to return a default value in <computeroutput>text()</computeroutput> and <computeroutput>html()</computeroutput> instead of throwing an exception when node is empty.</para>
+</listitem><listitem>
+<para>When available, the <link xlink:href="https://github.com/Masterminds/html5-php">html5-php library</link> is used to parse HTML added to a Crawler for better support of HTML5 tags.</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2symfony_2dom-crawler_2_c_h_a_n_g_e_l_o_g_1autotoc_md7391">
+<title><title>4.2.0</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>The <computeroutput>$currentUri</computeroutput> constructor argument of the <computeroutput>AbstractUriElement</computeroutput>, <computeroutput><link linkend="_class_link">Link</link></computeroutput> and <computeroutput>Image</computeroutput> classes is now optional.</para>
+</listitem><listitem>
+<para>The <computeroutput>Crawler::children()</computeroutput> method will have a new <computeroutput>$selector</computeroutput> argument in version 5.0, not defining it is deprecated.</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2symfony_2dom-crawler_2_c_h_a_n_g_e_l_o_g_1autotoc_md7392">
+<title><title>3.1.0</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>All the URI parsing logic have been abstracted in the <computeroutput>AbstractUriElement</computeroutput> class. The <computeroutput><link linkend="_class_link">Link</link></computeroutput> class is now a child of <computeroutput>AbstractUriElement</computeroutput>.</para>
+</listitem><listitem>
+<para>Added an <computeroutput>Image</computeroutput> class to crawl images and parse their <computeroutput>src</computeroutput> attribute, and <computeroutput>selectImage</computeroutput>, <computeroutput>image</computeroutput>, <computeroutput>images</computeroutput> methods in the <computeroutput>Crawler</computeroutput> (the image version of the equivalent <computeroutput>link</computeroutput> methods).</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2symfony_2dom-crawler_2_c_h_a_n_g_e_l_o_g_1autotoc_md7393">
+<title><title>2.5.0</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>[BC BREAK] The default value for checkbox and radio inputs without a value attribute have changed from &apos;1&apos; to &apos;on&apos; to match the HTML specification.</para>
+</listitem><listitem>
+<para>[BC BREAK] The typehints on the <computeroutput><link linkend="_class_link">Link</link></computeroutput>, <computeroutput>Form</computeroutput> and <computeroutput>FormField</computeroutput> classes have been changed from <computeroutput>\DOMNode</computeroutput> to <computeroutput>DOMElement</computeroutput>. Using any other type of <computeroutput>DOMNode</computeroutput> was triggering fatal errors in previous versions. Code extending these classes will need to update the typehints when overwriting these methods.</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2symfony_2dom-crawler_2_c_h_a_n_g_e_l_o_g_1autotoc_md7394">
+<title><title>2.4.0</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para><computeroutput>Crawler::addXmlContent()</computeroutput> removes the default document namespace again if it&apos;s an only namespace.</para>
+</listitem><listitem>
+<para>added support for automatic discovery and explicit registration of document namespaces for <computeroutput>Crawler::filterXPath()</computeroutput> and <computeroutput>Crawler::filter()</computeroutput></para>
+</listitem><listitem>
+<para>improved content type guessing in <computeroutput>Crawler::addContent()</computeroutput></para>
+</listitem><listitem>
+<para>[BC BREAK] <computeroutput>Crawler::addXmlContent()</computeroutput> no longer removes the default document namespace</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2symfony_2dom-crawler_2_c_h_a_n_g_e_l_o_g_1autotoc_md7395">
+<title><title>2.3.0</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>added Crawler::html()</para>
+</listitem><listitem>
+<para>[BC BREAK] Crawler::each() and Crawler::reduce() now return Crawler instances instead of DomElement instances</para>
+</listitem><listitem>
+<para>added schema relative URL support to links</para>
+</listitem><listitem>
+<para>added support for HTML5 &apos;form&apos; attribute</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2symfony_2dom-crawler_2_c_h_a_n_g_e_l_o_g_1autotoc_md7396">
+<title><title>2.2.0</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>added a way to set raw path to the file in FileFormField - necessary for simulating HTTP requests</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2symfony_2dom-crawler_2_c_h_a_n_g_e_l_o_g_1autotoc_md7397">
+<title><title>2.1.0</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>added support for the HTTP PATCH method</para>
+</listitem><listitem>
+<para>refactored the Form class internals to support multi-dimensional fields (the public API is backward compatible)</para>
+</listitem><listitem>
+<para>added a way to get parsing errors for Crawler::addHtmlContent() and Crawler::addXmlContent() via libxml functions</para>
+</listitem><listitem>
+<para>added support for submitting a form without a submit button </para>
+</listitem></itemizedlist>
+</para>
+</section>
+</section>

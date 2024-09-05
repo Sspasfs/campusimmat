@@ -1,0 +1,150 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_monolog_1_1_processor_1_1_web_processor" xml:lang="fr">
+<title>Référence de la classe WebProcessor</title>
+<indexterm><primary>WebProcessor</primary></indexterm>
+Graphe d&apos;héritage de WebProcessor:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_monolog_1_1_processor_1_1_web_processor__inherit__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Graphe de collaboration de WebProcessor:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_monolog_1_1_processor_1_1_web_processor__coll__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Fonctions membres publiques    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_monolog_1_1_processor_1_1_web_processor_1a76e6207b563612a95f7c9b5761123047">__construct</link> ($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">serverData</link>=null, array $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">extraFields</link>=null)</para>
+</listitem>
+            <listitem><para><link linkend="_class_monolog_1_1_processor_1_1_web_processor_1af6bdfd8d87fb85ab75b06b34a3f3c1af">__invoke</link> (array $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">record</link>)</para>
+</listitem>
+            <listitem><para><link linkend="_class_monolog_1_1_processor_1_1_web_processor_1aae0e572d2bedb4aa0af049c07d813cd2">addExtraField</link> (string $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">extraName</link>, string $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">serverName</link>)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Attributs protégés    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_monolog_1_1_processor_1_1_web_processor_1a6f16692663cf52942db3e7a25ee9f4c8">$serverData</link></para>
+</listitem>
+            <listitem><para><link linkend="_class_monolog_1_1_processor_1_1_web_processor_1aa538d431942d99bc6aab145efadc5670">$extraFields</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Description détaillée</title>
+
+<para>Injects url/method and remote IP of the current web request in all records</para>
+
+<para><formalpara><title>Auteur</title>
+
+<para>Jordi Boggiano <link xlink:href="mailto:j.boggiano@seld.be">j.boggiano@seld.be</link> </para>
+</formalpara>
+</para>
+</section>
+<section>
+<title>Documentation des constructeurs et destructeur</title>
+<anchor xml:id="_class_monolog_1_1_processor_1_1_web_processor_1a76e6207b563612a95f7c9b5761123047"/><section>
+    <title>__construct()</title>
+<indexterm><primary>__construct</primary><secondary>WebProcessor</secondary></indexterm>
+<indexterm><primary>WebProcessor</primary><secondary>__construct</secondary></indexterm>
+<para><computeroutput>__construct ( $serverData = <computeroutput>null</computeroutput>
+, array $extraFields = <computeroutput>null</computeroutput>
+)</computeroutput></para>
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>array&lt;string, mixed&gt;|</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                ArrayAccess&lt;string, mixed&gt;|null $serverData Array or object w/ ArrayAccess that provides access to the $_SERVER data 
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>array&lt;string, string&gt;|array&lt;string&gt;|null</entry><entry>
+<para>$extraFields Field names and the related key inside $serverData to be added (or just a list of field names to use the default configured $serverData mapping). If not provided it defaults to: [url, ip, http_method, server, referrer] + unique_id if present in server data </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
+</section>
+<section>
+<title>Documentation des fonctions membres</title>
+<anchor xml:id="_class_monolog_1_1_processor_1_1_web_processor_1af6bdfd8d87fb85ab75b06b34a3f3c1af"/><section>
+    <title>__invoke()</title>
+<indexterm><primary>__invoke</primary><secondary>WebProcessor</secondary></indexterm>
+<indexterm><primary>WebProcessor</primary><secondary>__invoke</secondary></indexterm>
+<para><computeroutput>__invoke (array $record)</computeroutput></para>
+<para>
+<para><formalpara><title>Renvoie</title>
+
+<para>array The processed record</para>
+</formalpara>
+@phpstan-param Record $record @phpstan-return Record</para>
+ </para>
+<para>
+Implémente <link linkend="_interface_monolog_1_1_processor_1_1_processor_interface_1af6bdfd8d87fb85ab75b06b34a3f3c1af">ProcessorInterface</link>.</para>
+</section>
+<anchor xml:id="_class_monolog_1_1_processor_1_1_web_processor_1aae0e572d2bedb4aa0af049c07d813cd2"/><section>
+    <title>addExtraField()</title>
+<indexterm><primary>addExtraField</primary><secondary>WebProcessor</secondary></indexterm>
+<indexterm><primary>WebProcessor</primary><secondary>addExtraField</secondary></indexterm>
+<para><computeroutput>addExtraField (string $extraName, string $serverName)</computeroutput></para></section>
+</section>
+<section>
+<title>Documentation des champs</title>
+<anchor xml:id="_class_monolog_1_1_processor_1_1_web_processor_1aa538d431942d99bc6aab145efadc5670"/><section>
+    <title>$extraFields</title>
+<indexterm><primary>$extraFields</primary><secondary>WebProcessor</secondary></indexterm>
+<indexterm><primary>WebProcessor</primary><secondary>$extraFields</secondary></indexterm>
+<para><computeroutput>$<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">extraFields</link><computeroutput>[protected]</computeroutput></computeroutput></para><emphasis role="strong">Valeur initiale :</emphasis><programlisting linenumbering="unnumbered">=&#32;[
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&apos;url&apos;</emphasis>&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;=&gt;&#32;<emphasis role="stringliteral">&apos;REQUEST_URI&apos;</emphasis>,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&apos;ip&apos;</emphasis>&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;=&gt;&#32;<emphasis role="stringliteral">&apos;REMOTE_ADDR&apos;</emphasis>,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&apos;http_method&apos;</emphasis>&#32;=&gt;&#32;<emphasis role="stringliteral">&apos;REQUEST_METHOD&apos;</emphasis>,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&apos;server&apos;</emphasis>&#32;&#32;&#32;&#32;&#32;&#32;=&gt;&#32;<emphasis role="stringliteral">&apos;SERVER_NAME&apos;</emphasis>,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&apos;referrer&apos;</emphasis>&#32;&#32;&#32;&#32;=&gt;&#32;<emphasis role="stringliteral">&apos;HTTP_REFERER&apos;</emphasis>,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&apos;user_agent&apos;</emphasis>&#32;&#32;=&gt;&#32;<emphasis role="stringliteral">&apos;HTTP_USER_AGENT&apos;</emphasis>,
+&#32;&#32;&#32;&#32;]
+</programlisting></section>
+<anchor xml:id="_class_monolog_1_1_processor_1_1_web_processor_1a6f16692663cf52942db3e7a25ee9f4c8"/><section>
+    <title>$serverData</title>
+<indexterm><primary>$serverData</primary><secondary>WebProcessor</secondary></indexterm>
+<indexterm><primary>WebProcessor</primary><secondary>$serverData</secondary></indexterm>
+<para><computeroutput>$<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">serverData</link><computeroutput>[protected]</computeroutput></computeroutput></para></section>
+<para>
+La documentation de cette classe a été générée à partir du fichier suivant :</para>
+public/glpi/vendor/monolog/monolog/src/Monolog/Processor/<link linkend="__web_processor_8php">WebProcessor.php</link></section>
+</section>

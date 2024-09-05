@@ -1,0 +1,840 @@
+\chapter{Original XML specification}
+\hypertarget{md_public_2glpi_2vendor_2glpi-project_2inventory__format_2original}{}\label{md_public_2glpi_2vendor_2glpi-project_2inventory__format_2original}\index{Original XML specification@{Original XML specification}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{<!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{REQUEST}\ (\textcolor{keyword}{CONTENT},\ \textcolor{keyword}{DEVICEID},\ \textcolor{keyword}{QUERY})>}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{CONTENT}\ (\textcolor{keyword}{ACCESSLOG},\ \textcolor{keyword}{BIOS},\ \textcolor{keyword}{HARDWARE},\ \textcolor{keyword}{OPERATINGSYSTEM},\ \textcolor{keyword}{ANTIVIRUS}+,}
+\DoxyCodeLine{\ \ \textcolor{keyword}{BATTERIES}+,\ \textcolor{keyword}{CONTROLLERS}+,\ \textcolor{keyword}{CPUS}+,\ \textcolor{keyword}{DRIVES}+,\ \textcolor{keyword}{ENVS}+,\ \textcolor{keyword}{FIREWALL},\ \textcolor{keyword}{INPUTS}+,\ \textcolor{keyword}{LICENSEINFOS}+,}
+\DoxyCodeLine{\ \ \textcolor{keyword}{LOCAL\_GROUPS}+,\ \textcolor{keyword}{LOCAL\_USERS}+,\ \textcolor{keyword}{LOGICAL\_VOLUMES}+,\ \textcolor{keyword}{MEMORIES}+,\ \textcolor{keyword}{MODEMS}+,\ \textcolor{keyword}{FIRMWARES}+,}
+\DoxyCodeLine{\ \ \textcolor{keyword}{MONITORS}+,\ \textcolor{keyword}{NETWORKS}+,\ \textcolor{keyword}{PHYSICAL\_VOLUMES}+,\ \textcolor{keyword}{PORTS}+,\ \textcolor{keyword}{PRINTERS}+,\ \textcolor{keyword}{PROCESSES}+,\ \textcolor{keyword}{SLOTS}+,}
+\DoxyCodeLine{\ \ \textcolor{keyword}{SOFTWARES}+,\ \textcolor{keyword}{USERS}+,\ \textcolor{keyword}{STORAGES}+,\ \textcolor{keyword}{VIDEOS}+,\ \textcolor{keyword}{SOUNDS}+,\ \textcolor{keyword}{VIRTUALMACHINES}+,\ \textcolor{keyword}{USBDEVICES}+,}
+\DoxyCodeLine{\ \ \textcolor{keyword}{VOLUME\_GROUPS}+,\ \textcolor{keyword}{REMOTE\_MGMT}+,\ \textcolor{keyword}{SIMCARDS}+,\ \textcolor{keyword}{SENSORS}+,\ \textcolor{keyword}{POWERSUPPLIES}+,\ \textcolor{keyword}{REGISTRY},}
+\DoxyCodeLine{\ \ \textcolor{keyword}{RUDDER},\ \textcolor{keyword}{CAMERAS}+)>}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{BIOS}\ (\textcolor{keyword}{SMODEL},\ \textcolor{keyword}{SMANUFACTURER},\ \textcolor{keyword}{SSN},\ \textcolor{keyword}{BDATE},\ \textcolor{keyword}{BVERSION},}
+\DoxyCodeLine{\ \ \ \ \ \textcolor{keyword}{BMANUFACTURER},\ \textcolor{keyword}{MMANUFACTURER},\ \textcolor{keyword}{MSN},\ \textcolor{keyword}{MMODEL},\ \textcolor{keyword}{ASSETTAG},\ \textcolor{keyword}{ENCLOSURESERIAL},}
+\DoxyCodeLine{\ \ \ \ \ \textcolor{keyword}{BIOSSERIAL},\ \textcolor{keyword}{TYPE},\ \textcolor{keyword}{SKUNUMBER})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ System\ model\ (string)\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{SMODEL}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ System\ manufacturer\ (string)\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{SMANUFACTURER}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ System\ Serial\ number\ (string)\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{SSN}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ BIOS\ release\ date,\ in\ MM/DD/YYYY\ format\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{BDATE}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ BIOS\ version\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{BVERSION}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ BIOS\ manufacturer\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{BMANUFACTURER}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{BIOSSERIAL}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ Motherboard\ manufacturer\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{MMANUFACTURER}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ Motherboard\ Serial\ number\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{MSN}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ Motherboard\ model\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{MMODEL}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ asset\ tag\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{ASSETTAG}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{ENCLOSURESERIAL}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ obsoleted\ by\ HARDWARE/CHASSIS\_TYPE\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{TYPE}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{SKUNUMBER}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{HARDWARE}\ (\textcolor{keyword}{USERID},\ \textcolor{keyword}{OSVERSION},\ \textcolor{keyword}{PROCESSORN},\ \textcolor{keyword}{OSCOMMENTS},\ \textcolor{keyword}{CHECKSUM},}
+\DoxyCodeLine{\ \ \ \ \ \textcolor{keyword}{PROCESSORT},\ \textcolor{keyword}{NAME},\ \textcolor{keyword}{PROCESSORS},\ \textcolor{keyword}{SWAP},\ \textcolor{keyword}{ETIME},\ \textcolor{keyword}{TYPE},\ \textcolor{keyword}{OSNAME},\ \textcolor{keyword}{IPADDR},}
+\DoxyCodeLine{\ \ \ \ \ \textcolor{keyword}{WORKGROUP},\ \textcolor{keyword}{DESCRIPTION},\ \textcolor{keyword}{MEMORY},\ \textcolor{keyword}{UUID},\ \textcolor{keyword}{DNS},\ \textcolor{keyword}{LASTLOGGEDUSER},}
+\DoxyCodeLine{\ \ \ \ \ \textcolor{keyword}{USERDOMAIN},\ \textcolor{keyword}{DATELASTLOGGEDUSER},\ \textcolor{keyword}{DEFAULTGATEWAY},\ \textcolor{keyword}{VMSYSTEM},\ \textcolor{keyword}{WINOWNER},}
+\DoxyCodeLine{\ \ \ \ \ \textcolor{keyword}{WINPRODID},\ \textcolor{keyword}{WINPRODKEY},\ \textcolor{keyword}{WINCOMPANY},\ \textcolor{keyword}{WINLANG},\ \textcolor{keyword}{CHASSIS\_TYPE},\ \textcolor{keyword}{VMNAME},}
+\DoxyCodeLine{\ \ \ \ \ \textcolor{keyword}{VMHOSTSERIAL},\ \textcolor{keyword}{ARCHNAME})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ current\ user\ list\ ('/'\ as\ delimiter,\ obsoleted\ by\ USERS)\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{USERID}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ operating\ system\ version\ number\ (obsoleted\ by}}
+\DoxyCodeLine{\textcolor{comment}{\ \ \ \ \ \ \ \ \ \ OPERATINGSYSTEM/VERSION\ and\ OPERATINGSYSTEM/KERNEL\_VERSION)\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{OSVERSION}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ operating\ system\ revision\ number\ (Service\ Pack\ on\ Windows,\ kernel}}
+\DoxyCodeLine{\textcolor{comment}{\ \ \ \ \ \ \ \ \ \ build\ date\ on\ Linux)\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{OSCOMMENTS}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ operating\ system\ full\ name\ (obsoleted\ by\ OPERATINGSYSTEM/NAME\ or}}
+\DoxyCodeLine{\textcolor{comment}{\ \ \ \ \ \ \ \ \ \ OPERATINGSYSTEM/FULL\_NAME)\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{OSNAME}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ deprecated\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{CHECKSUM}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ obsoleted\ by\ CPUS\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{PROCESSORT}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ obsoleted\ by\ CPUS\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{PROCESSORN}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ obsoleted\ by\ CPUS\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{PROCESSORS}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{NAME}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ swap\ memory\ in\ MB\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{SWAP}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ Total\ system\ memory\ in\ MB\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{MEMORY}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ time\ needed\ to\ run\ the\ inventory\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{ETIME}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{TYPE}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ computer\ chassis\ format,\ ie\ 'Notebook',\ 'Laptop',\ 'Server',\ etc.}}
+\DoxyCodeLine{\textcolor{comment}{\ \ \ \ \ \ \ \ \ \ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{CHASSIS\_TYPE}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{IPADDR}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{WORKGROUP}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ computer\ description\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{DESCRIPTION}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ computer\ unique\ identifier\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{UUID}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{DNS}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ last\ logged\ user\ login\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{LASTLOGGEDUSER}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ obsoleted\ by\ USERS\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{USERDOMAIN}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{DATELASTLOGGEDUSER}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{DEFAULTGATEWAY}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ virtualization\ technology}}
+\DoxyCodeLine{\textcolor{comment}{\ \ \ \ \ \ \ \ \ \ (Physical|Xen|VirtualBox|Virtual\ Machine|VMware|QEMU|SolarisZone|}}
+\DoxyCodeLine{\textcolor{comment}{\ \ \ \ \ \ \ \ \ \ VServer|OpenVZ|BSDJail|Parallels|Hyper-\/V|AIX\_LPAR)}}
+\DoxyCodeLine{\textcolor{comment}{\ \ \ \ \ \ \ \ \ \ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{VMSYSTEM}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ virtual\ machine\ name\ the\ hypervisor\ (VM\ only)\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{VMNAME}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{WINOWNER}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{WINPRODID}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{WINPRODKEY}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{WINCOMPANY}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ Language\ code\ (Windows\ only)\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{WINLANG}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{VMHOSTSERIAL}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{ARCHNAME}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{OPERATINGSYSTEM}\ (\textcolor{keyword}{KERNEL\_NAME},\ \textcolor{keyword}{KERNEL\_VERSION},\ \textcolor{keyword}{NAME},\ \textcolor{keyword}{VERSION},}
+\DoxyCodeLine{\ \ \ \ \ \textcolor{keyword}{FULL\_NAME},\ \textcolor{keyword}{SERVICE\_PACK},\ \textcolor{keyword}{INSTALL\_DATE},\ \textcolor{keyword}{FQDN},\ \textcolor{keyword}{DNS\_DOMAIN},\ \textcolor{keyword}{SSH\_KEY},\ \textcolor{keyword}{ARCH},}
+\DoxyCodeLine{\ \ \ \ \ \textcolor{keyword}{BOOT\_TIME},\ \textcolor{keyword}{TIMEZONE},\ \textcolor{keyword}{HOSTID})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ kernel\ name,\ ie\ 'freebsd',\ 'linux',\ 'hpux',\ 'win32',\ etc.\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{KERNEL\_NAME}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ kernel\ version,\ ie\ '2.6.32'\ on\ Linux,\ '5.2.x.y'\ on\ Windows}}
+\DoxyCodeLine{\textcolor{comment}{\ \ \ \ \ \ \ \ \ \ Server\ 2003,\ etc.\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{KERNEL\_VERSION}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ operating\ system\ name\ ("{}Distributor\ ID"{}\ in\ LSB\ terms),\ ie}}
+\DoxyCodeLine{\textcolor{comment}{\ \ \ \ \ \ \ \ \ \ 'Debian',\ 'Ubuntu',\ 'CentOS',\ 'SUSE\ LINUX',\ 'Windows',\ 'OS\ X',}}
+\DoxyCodeLine{\textcolor{comment}{\ \ \ \ \ \ \ \ \ \ 'FreeBSD',\ 'AIX',\ 'Android',\ etc.\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{NAME}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ operating\ system\ full\ name,\ ie\ 'Debian\ GNU/Linux\ unstable\ (sid)',}}
+\DoxyCodeLine{\textcolor{comment}{\ \ \ \ \ \ \ \ \ \ 'Microsoft(R)\ Windows(R)\ Server\ 2003,\ Enterprise\ Edition\ x64',\ etc.}}
+\DoxyCodeLine{\textcolor{comment}{\ \ \ \ \ \ \ \ \ \ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{FULL\_NAME}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ operating\ system\ version\ ("{}Release"{}\ in\ LSB\ terms),\ ie\ '11.04'\ on}}
+\DoxyCodeLine{\textcolor{comment}{\ \ \ \ \ \ \ \ \ \ Ubuntu\ natty,\ '5.0.8'\ on\ Debian\ Lenny,\ '5.4'\ on\ CentOS\ 5.4,\ '2003'}}
+\DoxyCodeLine{\textcolor{comment}{\ \ \ \ \ \ \ \ \ \ for\ Windows\ Server\ 2003,\ etc.\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{VERSION}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ operating\ system\ minor\ version\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{SERVICE\_PACK}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ operating\ system\ installation\ date\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{INSTALL\_DATE}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{FQDN}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{DNS\_DOMAIN}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{HOSTID}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{SSH\_KEY}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ operating\ system\ architecture\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{ARCH}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ computer\ boot\ date,\ ie\ '2012-\/12-\/09\ 15:58:20'\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{BOOT\_TIME}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ operating\ system\ time\ zone\ information-\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{TIMEZONE}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ time\ zone\ name,\ ie\ 'Europe/Paris'\ or\ 'CEST'\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{NAME}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ time\ zone\ offset\ to\ UTC,\ ie\ '+0200'\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{OFFSET}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{ACCESSLOG}\ (\textcolor{keyword}{USERID},\ \textcolor{keyword}{LOGDATE})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{USERID}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{LOGDATE}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{ANTIVIRUS}\ (\textcolor{keyword}{COMPANY},\ \textcolor{keyword}{NAME},\ \textcolor{keyword}{GUID},\ \textcolor{keyword}{ENABLED},\ \textcolor{keyword}{UPTODATE},\ \textcolor{keyword}{VERSION},}
+\DoxyCodeLine{\ \ \ \ \ \textcolor{keyword}{EXPIRATION},\ \textcolor{keyword}{BASE\_CREATION},\ \textcolor{keyword}{BASE\_VERSION})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ company\ name\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{COMPANY}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{NAME}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ unique\ ID\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{GUID}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ wether\ the\ antivirus\ is\ enabled\ (0|1)\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{ENABLED}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ wether\ the\ antivirus\ is\ up\ to\ date\ (0|1)\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{UPTODATE}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{VERSION}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ License\ expiration\ date,\ in\ DD/MM/YYYY\ format\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{EXPIRATION}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ signatures\ base\ creation\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{BASE\_CREATION}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ signatures\ base\ version\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{BASE\_VERSION}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{BATTERIES}\ (\textcolor{keyword}{CAPACITY},\ \textcolor{keyword}{CHEMISTRY},\ \textcolor{keyword}{DATE},\ \textcolor{keyword}{NAME},\ \textcolor{keyword}{SERIAL},}
+\DoxyCodeLine{\ \ \ \ \ \textcolor{keyword}{MANUFACTURER},\ \textcolor{keyword}{VOLTAGE})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{CHEMISTRY}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ manufacturing\ date,\ in\ DD/MM/YYYY\ format\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{DATE}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ battery\ name\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{NAME}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ battery\ serial\ number\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{SERIAL}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ battery\ manufacturer\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{MANUFACTURER}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ battery\ max\ capacity\ (the\ maximum\ capacity\ by\ design),\ in\ mWh\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{CAPACITY}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ battery\ real\ max\ capacity\ (decreases\ as\ the\ battery\ gets\ old),\ in\ mWh\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{REAL\_CAPACITY}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ battery\ voltage,\ in\ mV\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{VOLTAGE}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{CONTROLLERS}\ (\textcolor{keyword}{CAPTION},\ \textcolor{keyword}{DRIVER},\ \textcolor{keyword}{NAME},\ \textcolor{keyword}{MANUFACTURER},\ \textcolor{keyword}{PCICLASS},}
+\DoxyCodeLine{\ \ \ \ \ \textcolor{keyword}{VENDORID},\ \textcolor{keyword}{PRODUCTID},\ \textcolor{keyword}{PCISUBSYSTEMID},\ \textcolor{keyword}{PCISLOT},\ \textcolor{keyword}{TYPE},\ \textcolor{keyword}{REV})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{DRIVER}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ device\ name\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{NAME}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ device\ caption\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{CAPTION}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ manifacturer\ name\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{MANUFACTURER}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ device\ model\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{MODEL}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ device\ serial\ number\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{SERIAL}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ device\ PCI\ class\ ID\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{PCICLASS}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ device\ PCI\ vendor\ ID\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{VENDORID}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ device\ PCI\ product\ ID\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{PRODUCTID}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ device\ PCI\ subsystem\ ID,\ ie\ '8086:2a40'\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{PCISUBSYSTEMID}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ device\ PCI\ slot,\ ie\ '00:02.1'\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{PCISLOT}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{TYPE}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ controller\ revision,\ ie\ 'rev\ 02'\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{REV}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{CPUS}\ (\textcolor{keyword}{CACHE},\ \textcolor{keyword}{CORE},\ \textcolor{keyword}{DESCRIPTION},\ \textcolor{keyword}{MANUFACTURER},\ \textcolor{keyword}{NAME},\ \textcolor{keyword}{THREAD},}
+\DoxyCodeLine{\ \ \ \ \ \textcolor{keyword}{SERIAL},\ \textcolor{keyword}{STEPPING},\ \textcolor{keyword}{FAMILYNAME},\ \textcolor{keyword}{FAMILYNUMBER},\ \textcolor{keyword}{MODEL},\ \textcolor{keyword}{SPEED},\ \textcolor{keyword}{ID},}
+\DoxyCodeLine{\ \ \ \ \ \textcolor{keyword}{EXTERNAL\_CLOCK},\ \textcolor{keyword}{ARCH},\ \textcolor{keyword}{CORECOUNT})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ total\ CPU\ cache\ size,\ in\ KB\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{CACHE}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ cores\ number\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{CORE}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ total\ available\ cores,as\ CORE\ only\ reports\ enabled\ count\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{CORECOUNT}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{DESCRIPTION}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ CPU\ manufacturer,\ ie\ 'Intel',\ 'AMD',\ etc.\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{MANUFACTURER}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ CPU\ name,\ ie\ 'Intel(R)\ Core(TM)2\ Duo\ CPU\ P8600\ \ @\ 2.40GHz'\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{NAME}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ threads\ per\ core\ number\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{THREAD}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ CPU\ serial\ number\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{SERIAL}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ stepping\ value\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{STEPPING}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ family\ name\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{FAMILYNAME}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ family\ value\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{FAMILYNUMBER}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ model\ value\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{MODEL}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ CPU\ frequency,\ in\ MHz\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{SPEED}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ CPU\ ID\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{ID}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{EXTERNAL\_CLOCK}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ CPU\ architecture}}
+\DoxyCodeLine{\textcolor{comment}{\ \ \ \ \ \ \ \ \ \ (MIPS|MIPS64|Alpha|SPARC|SPARC64|m68k|i386|x86\_64|PowerPC|}}
+\DoxyCodeLine{\textcolor{comment}{\ \ \ \ \ \ \ \ \ \ PowerPC64|ARM|AArch64)}}
+\DoxyCodeLine{\textcolor{comment}{\ \ \ \ \ \ \ \ \ \ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{ARCH}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \textcolor{comment}{<!-\/-\/\ a\ filesystem\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{DRIVES}\ (\textcolor{keyword}{CREATEDATE},\ \textcolor{keyword}{DESCRIPTION},\ \textcolor{keyword}{FREE},\ \textcolor{keyword}{FILESYSTEM},\ \textcolor{keyword}{LABEL},}
+\DoxyCodeLine{\ \ \ \ \ \textcolor{keyword}{LETTER},\ \textcolor{keyword}{SERIAL},\ \textcolor{keyword}{SYSTEMDRIVE},\ \textcolor{keyword}{TOTAL},\ \textcolor{keyword}{TYPE},\ \textcolor{keyword}{VOLUMN},\ \textcolor{keyword}{ENCRYPT\_NAME},}
+\DoxyCodeLine{\ \ \ \ \ \textcolor{keyword}{ENCRYPT\_ALGO},\ \textcolor{keyword}{ENCRYPT\_STATUS},\ \textcolor{keyword}{ENCRYPT\_TYPE})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ creation\ date,\ in\ DD/MM/YYYY\ format\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{CREATEDATE}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{DESCRIPTION}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ free\ space,\ in\ MB\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{FREE}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ total\ space,\ in\ MB\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{TOTAL}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ filesystem\ type,\ ie\ 'ext3'\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{FILESYSTEM}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ filesystem\ user\ name\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{LABEL}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ filesystem\ system\ name,\ ie\ '/dev/sda1'\ or\ 'host:/path'\ for\ NFS}}
+\DoxyCodeLine{\textcolor{comment}{\ \ \ \ \ \ \ \ \ \ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{VOLUMN}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ filesystem\ letter\ (Windows\ only)\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{LETTER}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ filesystem\ serial\ number\ or\ UUID\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{SERIAL}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ wether\ it\ is\ the\ system\ partition\ (0|1)\ (Windows\ only)\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{SYSTEMDRIVE}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ filesystem\ mount\ point\ (Unix\ only)\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{TYPE}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ supported\ encryption:\ BitLocker,\ cryptsetup,\ FileVault,\ ...\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{ENCRYPT\_NAME}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ encryption\ algorithm:\ AES\_128,\ AES\_256,\ HARDWARE\_ENCRYPTION,\ ...\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{ENCRYPT\_ALGO}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ encryption\ status:\ Yes,\ No,\ Partially,\ ...\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{ENCRYPT\_STATUS}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ encryption\ type:\ hardware,\ software,\ ...\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{ENCRYPT\_TYPE}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{ENVS}\ (\textcolor{keyword}{KEY},\ \textcolor{keyword}{VAL})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{KEY}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{VAL}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \textcolor{comment}{<!-\/-\/\ Firewall\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{FIREWALL}\ (\textcolor{keyword}{DESCRIPTION}\ \textcolor{keyword}{IPADDRESS}\ \textcolor{keyword}{IPADDRESS6}\ \textcolor{keyword}{PROFILE}\ \textcolor{keyword}{STATUS})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ active\ connection's\ interface\ (Windows\ only)\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{DESCRIPTION}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ active\ connection's\ ip\ (Windows\ only)\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{IPADDRESS}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ active\ connection's\ ip\ v6\ (Windows\ only)\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{IPADDRESS6}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ firewall\ profile\ (Windows\ only)\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{PROFILE}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ firewall\ status\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{STATUS}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{INPUTS}\ (\textcolor{keyword}{NAME},\ \textcolor{keyword}{MANUFACTURER},\ \textcolor{keyword}{CAPTION},\ \textcolor{keyword}{DESCRIPTION},\ \textcolor{keyword}{INTERFACE},}
+\DoxyCodeLine{\ \ \ \ \ \textcolor{keyword}{LAYOUT},\ \textcolor{keyword}{POINTINGTYPE},\ \textcolor{keyword}{TYPE})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{NAME}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{MANUFACTURER}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{CAPTION}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{DESCRIPTION}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{INTERFACE}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{LAYOUT}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{POINTINGTYPE}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{TYPE}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \textcolor{comment}{<!-\/-\/\ a\ license\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{LICENSEINFOS}\ (\textcolor{keyword}{NAME},\ \textcolor{keyword}{FULLNAME},\ \textcolor{keyword}{KEY},\ \textcolor{keyword}{COMPONENTS},\ \textcolor{keyword}{TRIAL},\ \textcolor{keyword}{UPDATE},}
+\DoxyCodeLine{\ \ \ \ \ \textcolor{keyword}{OEM},\ \textcolor{keyword}{ACTIVATION\_DATE},\ \textcolor{keyword}{PRODUCTID})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ name\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{NAME}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ full\ name\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{FULLNAME}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ registration\ key\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{KEY}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ components\ covered\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{COMPONENTS}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{TRIAL}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{UPDATE}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{OEM}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{ACTIVATION\_DATE}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ installation\ ID\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{PRODUCTID}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{LOCAL\_GROUPS}\ (\textcolor{keyword}{ID},\ \textcolor{keyword}{NAME},\ \textcolor{keyword}{MEMBER}+)>}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{NAME}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{ID}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{MEMBER}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{LOCAL\_USERS}\ (\textcolor{keyword}{HOME},\ \textcolor{keyword}{ID},\ \textcolor{keyword}{LOGIN},\ \textcolor{keyword}{NAME},\ \textcolor{keyword}{SHELL})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{LOGIN}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{NAME}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{ID}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{HOME}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{SHELL}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \textcolor{comment}{<!-\/-\/\ a\ LVM\ logical\ volume\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{LOGICAL\_VOLUMES}\ (\textcolor{keyword}{LV\_NAME},\ \textcolor{keyword}{VG\_NAME},\ \textcolor{keyword}{ATTR},\ \textcolor{keyword}{SIZE},\ \textcolor{keyword}{LV\_UUID},}
+\DoxyCodeLine{\ \ \ \ \ \textcolor{keyword}{SEG\_COUNT},\ \textcolor{keyword}{VG\_UUID})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ name\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{LV\_NAME}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ UUID\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{LV\_UUID}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ attributes\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{ATTR}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ size,\ in\ MB\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{SIZE}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{SEG\_COUNT}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ volume\ group\ name\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{VG\_NAME}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ volume\ group\ UUID\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{VG\_UUID}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{MEMORIES}\ (\textcolor{keyword}{CAPACITY},\ \textcolor{keyword}{CAPTION},\ \textcolor{keyword}{FORMFACTOR},\ \textcolor{keyword}{REMOVABLE},\ \textcolor{keyword}{PURPOSE},}
+\DoxyCodeLine{\ \ \ \ \ \textcolor{keyword}{SPEED},\ \textcolor{keyword}{SERIALNUMBER},\ \textcolor{keyword}{TYPE},\ \textcolor{keyword}{DESCRIPTION},\ \textcolor{keyword}{NUMSLOTS},\ \textcolor{keyword}{MEMORYCORRECTION},}
+\DoxyCodeLine{\ \ \ \ \ \textcolor{keyword}{MANUFACTURER})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ memory\ capacity,\ in\ MB\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{CAPACITY}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{CAPTION}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ See\ Win32\_PhysicalMemory\ documentation\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{FORMFACTOR}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{REMOVABLE}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ See\ Win32\_PhysicalMemory\ documentation\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{PURPOSE}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ memory\ frequency,\ in\ Mhz\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{SPEED}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ memory\ serial\ number\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{SERIALNUMBER}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ memory\ model\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{MODEL}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{TYPE}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{DESCRIPTION}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ memory\ slot\ number\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{NUMSLOTS}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{MEMORYCORRECTION}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{MANUFACTURER}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{MODEMS}\ (\textcolor{keyword}{NAME},\ \textcolor{keyword}{DESCRIPTION},\ \textcolor{keyword}{TYPE},\ \textcolor{keyword}{MODEL},\ \textcolor{keyword}{MANUFACTURER},\ \textcolor{keyword}{SERIAL},\ \textcolor{keyword}{IMEI}+)>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ modem\ name\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{NAME}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ modem\ description\ if\ available\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{DESCRIPTION}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ modem\ type\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{TYPE}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ modem\ model\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{MODEL}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ modem\ manufacturer\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{MANUFACTURER}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ modem\ serial\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{SERIAL}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ IMEI\ information\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{IMEI}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \textcolor{comment}{<!-\/-\/\ component\ firmwares\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{FIRMWARES}\ (\textcolor{keyword}{NAME},\ \textcolor{keyword}{DESCRIPTION},\ \textcolor{keyword}{TYPE},\ \textcolor{keyword}{VERSION},\ \textcolor{keyword}{DATE},\ \textcolor{keyword}{MANUFACTURER})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ component\ name\ using\ the\ firmware\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{NAME}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ firmware\ description\ if\ available\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{DESCRIPTION}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ short\ description\ of\ firmware\ type:\ modem,\ bios,\ ...\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{TYPE}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ full\ firmware\ version\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{VERSION}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ firmware\ date\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{DATE}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ firmware\ manufacturer\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{MANUFACTURER}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{MONITORS}\ (\textcolor{keyword}{BASE64},\ \textcolor{keyword}{CAPTION},\ \textcolor{keyword}{DESCRIPTION},\ \textcolor{keyword}{MANUFACTURER},\ \textcolor{keyword}{SERIAL},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{keyword}{ALTSERIAL}?,\ \textcolor{keyword}{PORT}?,\ \textcolor{keyword}{UUENCODE})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ uuencoded\ EDID\ trame\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{BASE64}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{CAPTION}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{DESCRIPTION}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ monitor\ manufacturer\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{MANUFACTURER}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ monitor\ serial\ number\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{SERIAL}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ alternative\ monitor\ serial\ number\ computed\ from\ known\ manufacter}}
+\DoxyCodeLine{\textcolor{comment}{\ \ \ \ \ \ \ \ \ \ formula\ and\ if\ different\ from\ SERIAL\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{ALTSERIAL}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ Used\ port\ to\ connect\ the\ device\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{PORT}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ uuencoded\ EDID\ trame\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{UUENCODE}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{NAME}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{TYPE}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \textcolor{comment}{<!-\/-\/\ a\ network\ configuration,\ ie\ a\ combination\ of\ an\ interface\ and\ an}}
+\DoxyCodeLine{\textcolor{comment}{\ \ \ \ \ \ \ IP\ address\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{NETWORKS}\ (\textcolor{keyword}{DESCRIPTION},\ \textcolor{keyword}{MANUFACTURER},\ \textcolor{keyword}{MODEL},\ \textcolor{keyword}{MANAGEMENT},\ \textcolor{keyword}{TYPE},}
+\DoxyCodeLine{\ \ \ \ \ \textcolor{keyword}{VIRTUALDEV},\ \textcolor{keyword}{MACADDR},\ \textcolor{keyword}{WWN},\ \textcolor{keyword}{DRIVER},\ \textcolor{keyword}{FIRMWARE},\ \textcolor{keyword}{PCIID},\ \textcolor{keyword}{PCISLOT},\ \textcolor{keyword}{PNPDEVICEID},}
+\DoxyCodeLine{\ \ \ \ \ \textcolor{keyword}{MTU},\ \textcolor{keyword}{SPEED},\ \textcolor{keyword}{STATUS},\ \textcolor{keyword}{SLAVES},\ \textcolor{keyword}{BASE},\ \textcolor{keyword}{IPADDRESS},\ \textcolor{keyword}{IPSUBNET},\ \textcolor{keyword}{IPMASK},\ \textcolor{keyword}{IPDHCP},}
+\DoxyCodeLine{\ \ \ \ \ \textcolor{keyword}{IPGATEWAY},\ \textcolor{keyword}{IPADDRESS6},\ \textcolor{keyword}{IPSUBNET6},\ \textcolor{keyword}{IPMASK6},\ \textcolor{keyword}{WIFI\_BSSID},\ \textcolor{keyword}{WIFI\_SSID},}
+\DoxyCodeLine{\ \ \ \ \ \textcolor{keyword}{WIFI\_MODE},\ \textcolor{keyword}{WIFI\_VERSION})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ interface\ name,\ ie\ 'eth0'\ on\ Linux,\ 'AMD\ PCNET\ Family\ Ethernet}}
+\DoxyCodeLine{\textcolor{comment}{\ \ \ \ \ \ \ Adapter'\ on\ Windows\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{DESCRIPTION}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ interface\ manufacturer\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{MANUFACTURER}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ interface\ model\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{MODEL}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ wether\ it\ is\ a\ remote\ management\ interface\ such\ as\ HP\ iLO,\ Sun}}
+\DoxyCodeLine{\textcolor{comment}{\ \ \ \ \ \ \ \ \ \ SC,\ HP\ MP\ (0|1)\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{MANAGEMENT}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ interface\ type}}
+\DoxyCodeLine{\textcolor{comment}{\ \ \ \ \ \ \ \ \ \ (ethernet|wifi|infiniband|aggregate|alias|dialup|loopback|bridge|fibrechannel)}}
+\DoxyCodeLine{\textcolor{comment}{\ \ \ \ \ \ \ \ \ \ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{TYPE}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ wether\ it\ is\ a\ virtual\ interface\ (0|1)\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{VIRTUALDEV}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{MACADDR}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ World\ Wide\ Name\ http://fr.wikipedia.org/wiki/World\_Wide\_Name\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{WWN}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ driver\ name\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{DRIVER}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{FIRMWARE}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ PCI\ slot\ name\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{PCISLOT}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ PCI\ device\ ID\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{PCIID}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ PCI\ device\ ID\ (windows\ only)\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{PNPDEVICEID}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{MTU}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ interface\ speed,\ in\ Mb/s\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{SPEED}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ interface\ status\ (up|down)\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{STATUS}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ list\ of\ component\ interfaces,\ for\ aggregate\ and\ bridges,\ with}}
+\DoxyCodeLine{\textcolor{comment}{\ \ \ \ \ \ \ \ \ \ ','\ as\ delimiter\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{SLAVES}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ actual\ interface\ for\ aliases\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{BASE}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ IPv4\ address\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{IPADDRESS}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{IPSUBNET}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{IPMASK}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ DHCP\ server\ IP\ address\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{IPDHCP}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ gateway\ IP\ address\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{IPGATEWAY}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ IPv6\ address\ of\ the\ interface\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{IPADDRESS6}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{IPSUBNET6}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{IPMASK6}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ wifi\ access\ point\ name\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{WIFI\_SSID}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ wifi\ access\ point\ MAC\ address\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{WIFI\_BSSID}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ wifi\ mode\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{WIFI\_MODE}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ wifi\ protocol\ version\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{WIFI\_VERSION}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \textcolor{comment}{<!-\/-\/\ a\ LVM\ physical\ volume\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{PHYSICAL\_VOLUMES}\ (\textcolor{keyword}{DEVICE},\ \textcolor{keyword}{PV\_PE\_COUNT},\ \textcolor{keyword}{PV\_UUID},\ \textcolor{keyword}{FORMAT},\ \textcolor{keyword}{ATTR},}
+\DoxyCodeLine{\ \ \ \ \ \textcolor{keyword}{SIZE},\ \textcolor{keyword}{FREE},\ \textcolor{keyword}{PE\_SIZE},\ \textcolor{keyword}{VG\_UUID})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ UUID\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{PV\_UUID}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ device\ name,\ ie\ '/dev/sda1'\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{DEVICE}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{PV\_PE\_COUNT}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ format,\ ie\ 'lvm2'\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{FORMAT}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ attributes\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{ATTR}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ size,\ in\ MB\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{SIZE}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{FREE}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{PE\_SIZE}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{VG\_UUID}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{PORTS}\ (\textcolor{keyword}{CAPTION},\ \textcolor{keyword}{DESCRIPTION},\ \textcolor{keyword}{NAME},\ \textcolor{keyword}{TYPE})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{CAPTION}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{DESCRIPTION}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{NAME}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{TYPE}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{PRINTERS}\ (\textcolor{keyword}{COMMENT},\ \textcolor{keyword}{DESCRIPTION},\ \textcolor{keyword}{DRIVER},\ \textcolor{keyword}{NAME},\ \textcolor{keyword}{NETWORK},\ \textcolor{keyword}{PORT},}
+\DoxyCodeLine{\ \ \ \ \ \textcolor{keyword}{RESOLUTION},\ \textcolor{keyword}{SHARED},\ \textcolor{keyword}{STATUS},\ \textcolor{keyword}{ERRSTATUS},\ \textcolor{keyword}{SERVERNAME},\ \textcolor{keyword}{SHARENAME},}
+\DoxyCodeLine{\ \ \ \ \ \textcolor{keyword}{PRINTPROCESSOR},\ \textcolor{keyword}{SERIAL})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{COMMENT}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{DESCRIPTION}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{DRIVER}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{NAME}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ wether\ it\ is\ a\ network\ printer\ (0|1)\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{NETWORK}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{PORT}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ printer\ resolution,\ ie\ '600x600'\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{RESOLUTION}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ wether\ it\ is\ a\ shared\ printer\ (0|1)\ (Windows\ only)\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{SHARED}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{STATUS}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{ERRSTATUS}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{SERVERNAME}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{SHARENAME}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{PRINTPROCESSOR}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ printer\ serial\ number\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{SERIAL}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{PROCESSES}\ (\textcolor{keyword}{USER},\ \textcolor{keyword}{PID},\ \textcolor{keyword}{CPUUSAGE},\ \textcolor{keyword}{MEM},\ \textcolor{keyword}{VIRTUALMEMORY},\ \textcolor{keyword}{TTY},}
+\DoxyCodeLine{\ \ \ \ \ \textcolor{keyword}{STARTED},\ \textcolor{keyword}{CMD})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ process\ owner\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{USER}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ process\ ID\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{PID}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ CPU\ usage\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{CPUUSAGE}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ memory\ usage\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{MEM}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{VIRTUALMEMORY}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{TTY}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ process\ start\ time,\ in\ YYYY/MM/DD\ HH:MM\ format\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{STARTED}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ process\ command\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{CMD}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{REGISTRY}\ (\textcolor{keyword}{NAME},\ \textcolor{keyword}{REGVALUE},\ \textcolor{keyword}{HIVE})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{NAME}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{REGVALUE}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{HIVE}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{RUDDER}\ (\textcolor{keyword}{AGENT},\ \textcolor{keyword}{UUID},\ \textcolor{keyword}{HOSTNAME},\ \textcolor{keyword}{SERVER\_ROLES},\ \textcolor{keyword}{AGENT\_CAPABILITIES})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{AGENT}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{UUID}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{HOSTNAME}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{SERVER\_ROLES}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{AGENT\_CAPABILITIES}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \textcolor{comment}{<!-\/-\/\ a\ physical\ connection\ points\ including\ ports,\ motherboard\ slots}}
+\DoxyCodeLine{\textcolor{comment}{\ \ \ \ \ and\ peripherals,\ and\ proprietary\ connection\ points\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{SLOTS}\ (\textcolor{keyword}{DESCRIPTION},\ \textcolor{keyword}{DESIGNATION},\ \textcolor{keyword}{NAME},\ \textcolor{keyword}{STATUS})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ bus\ type\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{DESCRIPTION}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{DESIGNATION}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ slot\ identifier\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{NAME}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ slot\ usage\ status\ (free|used)\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{STATUS}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{SOFTWARES}\ (\textcolor{keyword}{COMMENTS},\ \textcolor{keyword}{FILESIZE},\ \textcolor{keyword}{FOLDER},\ \textcolor{keyword}{FROM},\ \textcolor{keyword}{HELPLINK},}
+\DoxyCodeLine{\ \ \ \ \ \textcolor{keyword}{INSTALLDATE},\ \textcolor{keyword}{NAME},\ \textcolor{keyword}{NO\_REMOVE},\ \textcolor{keyword}{RELEASE\_TYPE},\ \textcolor{keyword}{PUBLISHER},}
+\DoxyCodeLine{\ \ \ \ \ \textcolor{keyword}{UNINSTALL\_STRING},\ \textcolor{keyword}{URL\_INFO\_ABOUT},\ \textcolor{keyword}{VERSION},\ \textcolor{keyword}{VERSION\_MINOR},}
+\DoxyCodeLine{\ \ \ \ \ \textcolor{keyword}{VERSION\_MAJOR},\ \textcolor{keyword}{GUID},\ \textcolor{keyword}{ARCH},\ \textcolor{keyword}{USERNAME},\ \textcolor{keyword}{USERID},\ \textcolor{keyword}{SYSTEM\_CATEGORY})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{COMMENTS}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{FILESIZE}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{FOLDER}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!-\/-\/\ \textcolor{keyword}{information}\ \textcolor{keyword}{source},\ \textcolor{keyword}{ie}\ \textcolor{stringliteral}{'registry'},\ \textcolor{stringliteral}{'rpm'},\ \textcolor{stringliteral}{'deb'},\ \textcolor{keyword}{etc.}\ -\/>}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{FROM}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{HELPLINK}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ installation\ date,\ in\ DD/MM/YYYY\ format\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{INSTALLDATE}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{NAME}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ wether\ the\ software\ can\ be\ uninstalled\ (0|1)\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{NO\_REMOVE}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{RELEASE\_TYPE}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{PUBLISHER}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{UNINSTALL\_STRING}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{URL\_INFO\_ABOUT}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{VERSION}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{VERSION\_MINOR}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{VERSION\_MAJOR}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ software\ GUID\ (Windows\ only)\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{GUID}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ software\ architecture\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{ARCH}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ software\ owner\ name\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{USERNAME}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ software\ owner\ ID\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{USERID}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ software\ system\ category\ \ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{SYSTEM\_CATEGORY}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{SOUNDS}\ (\textcolor{keyword}{CAPTION},\ \textcolor{keyword}{DESCRIPTION},\ \textcolor{keyword}{MANUFACTURER},\ \textcolor{keyword}{NAME})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{CAPTION}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{DESCRIPTION}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{MANUFACTURER}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{NAME}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{STORAGES}\ (\textcolor{keyword}{DESCRIPTION},\ \textcolor{keyword}{DISKSIZE},\ \textcolor{keyword}{INTERFACE},\ \textcolor{keyword}{MANUFACTURER},}
+\DoxyCodeLine{\ \ \ \ \ \textcolor{keyword}{MODEL},\ \textcolor{keyword}{NAME},\ \textcolor{keyword}{TYPE},\ \textcolor{keyword}{SERIAL},\ \textcolor{keyword}{SERIALNUMBER},\ \textcolor{keyword}{FIRMWARE},\ \textcolor{keyword}{SCSI\_COID},}
+\DoxyCodeLine{\ \ \ \ \ \textcolor{keyword}{SCSI\_CHID},\ \textcolor{keyword}{SCSI\_UNID},\ \textcolor{keyword}{SCSI\_LUN},\ \textcolor{keyword}{WWN},\ \textcolor{keyword}{ENCRYPT\_NAME},\ \textcolor{keyword}{ENCRYPT\_ALGO},}
+\DoxyCodeLine{\ \ \ \ \ \textcolor{keyword}{ENCRYPT\_STATUS},\ \textcolor{keyword}{ENCRYPT\_TYPE})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ device\ name,\ ie\ 'hda'\ on\ Linux,\ '\(\backslash\)\(\backslash\).\(\backslash\)PHYSICALDRIVE0'\ on\ Windows}}
+\DoxyCodeLine{\textcolor{comment}{\ \ \ \ \ \ \ \ \ \ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{NAME}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ device\ description\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{DESCRIPTION}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ device\ size,\ in\ MB\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{DISKSIZE}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ device\ interface\ type\ (SCSI|HDC|IDE|USB|1394|serial-\/ATA|SAS)\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{INTERFACE}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{MANUFACTURER}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{MODEL}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{TYPE}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ device\ serial\ number\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{SERIAL}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ device\ serial\ number,\ obsoleted\ by\ SERIAL\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{SERIALNUMBER}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{FIRMWARE}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{SCSI\_COID}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{SCSI\_CHID}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{SCSI\_UNID}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{SCSI\_LUN}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ World\ Wide\ Name\ http://fr.wikipedia.org/wiki/World\_Wide\_Name\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{WWN}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ supported\ encryption\ name\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{ENCRYPT\_NAME}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ encryption\ algorithme\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{ENCRYPT\_ALGO}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ encryption\ status\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{ENCRYPT\_STATUS}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ encryption\ type\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{ENCRYPT\_TYPE}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{VIDEOS}\ (\textcolor{keyword}{CHIPSET},\ \textcolor{keyword}{MEMORY},\ \textcolor{keyword}{NAME},\ \textcolor{keyword}{RESOLUTION},\ \textcolor{keyword}{PCISLOT})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{CHIPSET}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ video\ card\ memory,\ in\ MB\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{MEMORY}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{NAME}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ video\ card\ resolution,\ ie\ '1024x768'\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{RESOLUTION}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ video\ card\ PCI\ slot\ ID\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{PCISLOT}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{USBDEVICES}\ (\textcolor{keyword}{VENDORID},\ \textcolor{keyword}{PRODUCTID},\ \textcolor{keyword}{MANUFACTURER},\ \textcolor{keyword}{CAPTION},}
+\DoxyCodeLine{\ \ \ \ \ \textcolor{keyword}{SERIAL},\ \textcolor{keyword}{CLASS},\ \textcolor{keyword}{SUBCLASS},\ \textcolor{keyword}{NAME})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ device\ USB\ vendor\ ID\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{VENDORID}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ device\ USB\ product\ ID\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{PRODUCTID}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ device\ manufacturer\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{MANUFACTURER}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ device\ caption\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{CAPTION}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ device\ serial\ number\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{SERIAL}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ device\ USB\ class\ ID\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{CLASS}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ device\ USB\ subclass\ ID\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{SUBCLASS}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ device\ name\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{NAME}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{USERS}\ (\textcolor{keyword}{LOGIN},\ \textcolor{keyword}{DOMAIN})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{LOGIN}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ user\ domain\ (Windows\ only)\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{DOMAIN}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{VIRTUALMACHINES}\ (\textcolor{keyword}{MEMORY},\ \textcolor{keyword}{NAME},\ \textcolor{keyword}{UUID},\ \textcolor{keyword}{STATUS},\ \textcolor{keyword}{SUBSYSTEM},}
+\DoxyCodeLine{\ \ \ \ \ \textcolor{keyword}{VMTYPE},\ \textcolor{keyword}{VCPU},\ \textcolor{keyword}{VMID},\ \textcolor{keyword}{MAC},\ \textcolor{keyword}{COMMENT},\ \textcolor{keyword}{OWNER},\ \textcolor{keyword}{SERIAL},\ \textcolor{keyword}{IMAGE})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ name\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{NAME}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ UUID\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{UUID}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ status}}
+\DoxyCodeLine{\textcolor{comment}{\ \ \ \ \ \ \ \ \ \ (running|blocked|idle|paused|shutdown|crashed|dying|off)}}
+\DoxyCodeLine{\textcolor{comment}{\ \ \ \ \ \ \ \ \ \ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{STATUS}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ virtualisation\ software,\ ie\ 'VmWare\ ESX'\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{SUBSYSTEM}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!-\/\ \textcolor{keyword}{virtualisation}\ \textcolor{keyword}{technology}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ (\textcolor{keyword}{Physical}|\textcolor{keyword}{Xen}|\textcolor{keyword}{VirtualBox}|\textcolor{keyword}{Virtual}\ \textcolor{keyword}{Machine}|\textcolor{keyword}{VMware}|\textcolor{keyword}{QEMU}|\textcolor{keyword}{SolarisZone}|}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{VServer}|\textcolor{keyword}{OpenVZ}|\textcolor{keyword}{BSDJail}|\textcolor{keyword}{Parallels}|\textcolor{keyword}{Hyper-\/V}|\textcolor{keyword}{AIX\_LPAR}|\textcolor{keyword}{Docker})}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ -\/-\/>}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{VMTYPE}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ memory\ size,\ in\ MB\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{MEMORY}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ CPU\ numbers\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{VCPU}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ ID\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{VMID}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ list\ of\ the\ MAC\ addresses\ of\ the\ virtual\ machine,\ with\ '/'\ as}}
+\DoxyCodeLine{\textcolor{comment}{\ \ \ \ \ \ \ \ \ \ delimiter\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{MAC}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{COMMENT}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{OWNER}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{SERIAL}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ image\ used\ for\ creation\ (Docker\ image\ for\ instance)\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{IMAGE}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \textcolor{comment}{<!-\/-\/\ a\ LVM\ logical\ volume\ group\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{VOLUME\_GROUPS}\ (\textcolor{keyword}{VG\_NAME},\ \textcolor{keyword}{PV\_COUNT},\ \textcolor{keyword}{LV\_COUNT},\ \textcolor{keyword}{ATTR},\ \textcolor{keyword}{SIZE},\ \textcolor{keyword}{FREE},}
+\DoxyCodeLine{\ \ \ \ \ \textcolor{keyword}{VG\_UUID},\ \textcolor{keyword}{VG\_EXTENT\_SIZE})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ name\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{VG\_NAME}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ UUID\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{VG\_UUID}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{PV\_COUNT}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{LV\_COUNT}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ attributes\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{ATTR}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ size,\ in\ MB\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{SIZE}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ free\ space\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{FREE}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{VG\_EXTENT\_SIZE}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{REMOTE\_MGMT}\ (\textcolor{keyword}{ID},\ \textcolor{keyword}{TYPE})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ id\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{ID}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ type}}
+\DoxyCodeLine{\textcolor{comment}{\ \ \ \ \ \ \ \ \ \ (teamviewer)}}
+\DoxyCodeLine{\textcolor{comment}{\ \ \ \ \ \ \ \ \ \ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{TYPE}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{SIMCARDS}\ (\textcolor{keyword}{IMSI},\ \textcolor{keyword}{PHONE\_NUMBER},\ \textcolor{keyword}{ICCID},\ \textcolor{keyword}{STATE},\ \textcolor{keyword}{COUNTRY},\ \textcolor{keyword}{OPERATOR\_CODE},}
+\DoxyCodeLine{\ \ \ \ \ \textcolor{keyword}{OPERATOR\_NAME})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ IMSI\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{IMSI}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ Phone\ number\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{PHONE\_NUMBER}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ ICCID\ (serial\ number)\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{ICCID}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ State\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{STATE}(\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ Country\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{COUNTRY}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ Operator\ code\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{OPERATOR\_CODE}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ Operator\ Name\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{OPERATOR\_NAME}(\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{SENSORS}\ (\textcolor{keyword}{NAME},\ \textcolor{keyword}{MANUFACTURER},\ \textcolor{keyword}{TYPE},\ \textcolor{keyword}{VERSION})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ Name\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{NAME}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ MANUFACTURER\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{MANUFACTURER}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ version\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{VERSION}\ (\#\textcolor{keyword}{PCDATA})>>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ type\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{TYPE}\ (\#\textcolor{keyword}{PCDATA})>>}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{POWERSUPPLIES}\ (\textcolor{keyword}{NAME},\ \textcolor{keyword}{POWER\_MAX},\ \textcolor{keyword}{SERIALNUMBER},\ \textcolor{keyword}{PARTNUM}}
+\DoxyCodeLine{\ \ \ \ \ \textcolor{keyword}{MANUFACTURER},\ \textcolor{keyword}{MODEL},\ \textcolor{keyword}{HOTREPLACEABLE},\ \textcolor{keyword}{PLUGGED},\ \textcolor{keyword}{STATUS})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ powersupply\ name\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{NAME}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ powersupply\ max\ power\ in\ Watt\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{POWER\_MAX}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ powersupply\ serial\ number\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{SERIALNUMBER}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ powersupply\ manufacturer\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{MANUFACTURER}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ powersupply\ Part\ Number\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{PARTNUM}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ powersupply\ model\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{MODEL}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ powersupply\ hotreplaceable\ feature\ (Yes|No)\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{HOTREPLACEABLE}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ powersupply\ plugged\ status\ (Yes|No)\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{PLUGGED}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ powersupply\ status\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{STATUS}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ powersupply\ location\ in\ computer\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{LOCATION}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{CAMERAS}\ (\textcolor{keyword}{RESOLUTION},\ \textcolor{keyword}{LENSFACING},\ \textcolor{keyword}{FLASHUNIT},}
+\DoxyCodeLine{\ \ \ \ \ \textcolor{keyword}{IMAGEFORMATS}+,\ \textcolor{keyword}{ORIENTATION},\ \textcolor{keyword}{FOCALLENGHT},\ \textcolor{keyword}{SENSORSIZE},\ \textcolor{keyword}{MANUFACTURER},}
+\DoxyCodeLine{\ \ \ \ \ \textcolor{keyword}{RESOLUTIONVIDEO},\ \textcolor{keyword}{MODEL},\ \textcolor{keyword}{SUPPORTS}+)>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ Camera\ resolution,\ ie\ '1200x800'\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{RESOLUTION}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ Direction\ the\ camera\ faces,\ relative\ to\ device\ screen\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{LENSFACING}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ Whether\ this\ camera\ device\ has\ a\ flash\ unit\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{FLASHUNIT}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ Image\ output\ formats\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{IMAGEFORMATS}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ Orientation\ camera\ -\/\ Degrees\ of\ clockwise\ rotation\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{ORIENTATION}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ List\ of\ focal\ lengths\ -\/\ Units\ in\ Millimeters\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{FOCALLENGHT}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ This\ is\ the\ physical\ size\ of\ the\ sensor\ -\/\ Units\ in\ Millimeters\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{SENSORSIZE}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ Name\ of\ the\ Manufacturer\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{MANUFACTURER}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ \ Video\ Camera\ resolution,\ ie\ '1200x800'\ \ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{RESOLUTIONVIDEO}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ Name\ of\ the\ Model\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{MODEL}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \textcolor{comment}{<!-\/-\/\ List\ of\ intefaces\ and\ protocols\ about\ Camera\ -\/-\/>}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{SUPPORTS}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \textcolor{comment}{<!-\/-\/\ agent\ ID\ (string)\ -\/-\/>}}
+\DoxyCodeLine{\ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{DEVICEID}\ (\#\textcolor{keyword}{PCDATA})>}
+\DoxyCodeLine{\ \ \textcolor{comment}{<!-\/-\/\ message\ type,\ ie\ "{}SNMPQUERY"{}\ -\/-\/>}}
+\DoxyCodeLine{\ \ <!\textcolor{keyword}{ELEMENT}\ \textcolor{keyword}{QUERY}\ (\#\textcolor{keyword}{PCDATA})>}
+
+\end{DoxyCode}
+ 

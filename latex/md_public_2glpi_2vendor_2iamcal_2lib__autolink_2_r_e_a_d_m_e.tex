@@ -1,0 +1,29 @@
+\chapter{lib\+\_\+autolink -\/ PHP HTML link formatting library}
+\hypertarget{md_public_2glpi_2vendor_2iamcal_2lib__autolink_2_r_e_a_d_m_e}{}\label{md_public_2glpi_2vendor_2iamcal_2lib__autolink_2_r_e_a_d_m_e}\index{lib\_autolink -\/ PHP HTML link formatting library@{lib\_autolink -\/ PHP HTML link formatting library}}
+\label{md_public_2glpi_2vendor_2iamcal_2lib__autolink_2_r_e_a_d_m_e_autotoc_md6277}%
+\Hypertarget{md_public_2glpi_2vendor_2iamcal_2lib__autolink_2_r_e_a_d_m_e_autotoc_md6277}%
+ \href{http://travis-ci.org/iamcal/lib_autolink}{\texttt{ }}
+
+Find URLs in HTML that are not already links, and make them into links.\hypertarget{md_public_2glpi_2vendor_2iamcal_2lib__autolink_2_r_e_a_d_m_e_autotoc_md6278}{}\doxysection{\texorpdfstring{Usage}{Usage}}\label{md_public_2glpi_2vendor_2iamcal_2lib__autolink_2_r_e_a_d_m_e_autotoc_md6278}
+\begin{DoxyVerb}include('lib_autolink.php');
+
+
+# simple mode
+$html = autolink($html);
+
+# truncate URLs longer than 20 characters
+$html = autolink($html, 20);
+
+# insert some magic into the <a> tags
+$html = autolink($html, 30, ' class="mylink"');
+
+# By default if the display url is truncated, a title attribute is added to the link, if you don't want this, add a 4th parameter of false
+$html = autolink($html, 30, ' class="mylink"', false);
+
+# link up email address
+$html = autolink_email($html);
+\end{DoxyVerb}
+\hypertarget{md_public_2glpi_2vendor_2iamcal_2lib__autolink_2_r_e_a_d_m_e_autotoc_md6279}{}\doxysection{\texorpdfstring{Testing}{Testing}}\label{md_public_2glpi_2vendor_2iamcal_2lib__autolink_2_r_e_a_d_m_e_autotoc_md6279}
+If you have perl\textquotesingle{}s \href{http://search.cpan.org/dist/Test-Harness/}{\texttt{ Test\+::\+Harness}} installed (you almost certainly do), you can run the tests using\+: \begin{DoxyVerb}prove --exec 'php' t/*.t
+\end{DoxyVerb}
+ 

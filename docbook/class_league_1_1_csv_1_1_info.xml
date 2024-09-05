@@ -1,0 +1,123 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_league_1_1_csv_1_1_info" xml:lang="fr">
+<title>Référence de la classe Info</title>
+<indexterm><primary>Info</primary></indexterm>
+Graphe d&apos;héritage de Info:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_league_1_1_csv_1_1_info__inherit__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Graphe de collaboration de Info:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_league_1_1_csv_1_1_info__coll__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Fonctions membres publiques statiques    </title>
+        <itemizedlist>
+            <listitem><para>static <link linkend="_class_league_1_1_csv_1_1_info_1a2a101e62a955016792355a630286924e">fetchBOMSequence</link> (string $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">str</link>)</para>
+</listitem>
+            <listitem><para>static <link linkend="_class_league_1_1_csv_1_1_info_1ac0cedad775c6a978b1c6165d3724e557">getDelimiterStats</link> (<link linkend="_class_league_1_1_csv_1_1_reader">Reader</link> $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">csv</link>, array $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">delimiters</link>, int $limit=1)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Membres hérités additionnels    </title>
+Champs de données hérités de <link linkend="_interface_league_1_1_csv_1_1_byte_sequence">ByteSequence</link>        <itemizedlist>
+            <listitem><para>const <link linkend="_interface_league_1_1_csv_1_1_byte_sequence_1a458389d060685faf9969cd89d2cac617">BOM_UTF8</link> = &quot;\xEF\xBB\xBF&quot;</para>
+</listitem>
+            <listitem><para>const <link linkend="_interface_league_1_1_csv_1_1_byte_sequence_1ae85be824a31c62fa3b4d27a3e93a09ef">BOM_UTF16_BE</link> = &quot;\xFE\xFF&quot;</para>
+</listitem>
+            <listitem><para>const <link linkend="_interface_league_1_1_csv_1_1_byte_sequence_1a0afb720bd9c2d86f31ac8e8486c337de">BOM_UTF16_LE</link> = &quot;\xFF\xFE&quot;</para>
+</listitem>
+            <listitem><para>const <link linkend="_interface_league_1_1_csv_1_1_byte_sequence_1a45bb835652fc76d2a5b5a6e5d21a1698">BOM_UTF32_BE</link> = &quot;\x00\x00\xFE\xFF&quot;</para>
+</listitem>
+            <listitem><para>const <link linkend="_interface_league_1_1_csv_1_1_byte_sequence_1a082112a779b5db656d6971bd5f21b6d5">BOM_UTF32_LE</link> = &quot;\xFF\xFE\x00\x00&quot;</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Documentation des fonctions membres</title>
+<anchor xml:id="_class_league_1_1_csv_1_1_info_1a2a101e62a955016792355a630286924e"/><section>
+    <title>fetchBOMSequence()</title>
+<indexterm><primary>fetchBOMSequence</primary><secondary>Info</secondary></indexterm>
+<indexterm><primary>Info</primary><secondary>fetchBOMSequence</secondary></indexterm>
+<para><computeroutput>static fetchBOMSequence (string $str)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>Returns the BOM sequence found at the start of the string.</para>
+
+<para>If no valid BOM sequence is found an empty string is returned </para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_league_1_1_csv_1_1_info_a2a101e62a955016792355a630286924e_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_league_1_1_csv_1_1_info_1ac0cedad775c6a978b1c6165d3724e557"/><section>
+    <title>getDelimiterStats()</title>
+<indexterm><primary>getDelimiterStats</primary><secondary>Info</secondary></indexterm>
+<indexterm><primary>Info</primary><secondary>getDelimiterStats</secondary></indexterm>
+<para><computeroutput>static getDelimiterStats (<link linkend="_class_league_1_1_csv_1_1_reader">Reader</link> $csv, array $delimiters, int $limit = <computeroutput>1</computeroutput>
+)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>Detect Delimiters usage in a <computeroutput><link linkend="_">Reader</link></computeroutput> object.</para>
+
+<para>Returns a associative array where each key represents a submitted delimiter and each value the number CSV fields found when processing at most $limit CSV records with the given delimiter</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string[]</entry><entry>$delimiters</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>array&lt;string, int&gt; </para>
+</formalpara>
+</para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_league_1_1_csv_1_1_info_ac0cedad775c6a978b1c6165d3724e557_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_league_1_1_csv_1_1_info_ac0cedad775c6a978b1c6165d3724e557_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<para>
+La documentation de cette classe a été générée à partir du fichier suivant :</para>
+public/glpi/vendor/league/csv/src/<link linkend="__info_8php">Info.php</link></section>
+</section>

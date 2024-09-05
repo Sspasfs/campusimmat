@@ -1,0 +1,359 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_md_public_2glpi_2vendor_2swaggest_2json-diff_2_r_e_a_d_m_e" xml:lang="fr">
+<title>JSON diff/rearrange/patch/pointer library for PHP</title>
+<indexterm><primary>JSON diff/rearrange/patch/pointer library for PHP</primary></indexterm>
+
+<para><anchor xml:id="_md_public_2glpi_2vendor_2swaggest_2json-diff_2_r_e_a_d_m_e_1autotoc_md7238"/> A PHP implementation for finding unordered diff between two <computeroutput>JSON</computeroutput> documents.</para>
+
+<para><link xlink:href="https://travis-ci.org/swaggest/json-diff"></link> <link xlink:href="https://scrutinizer-ci.com/g/swaggest/json-diff/?branch=master"></link> <link xlink:href="https://codeclimate.com/github/swaggest/json-diff"></link> <link xlink:href="https://scrutinizer-ci.com/g/swaggest/json-diff/code-structure/master/code-coverage"></link> <link xlink:href="https://wakatime.com/badge/github/swaggest/json-diff"></link></para>
+<section xml:id="_md_public_2glpi_2vendor_2swaggest_2json-diff_2_r_e_a_d_m_e_1autotoc_md7239">
+<title><title>Purpose</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>To simplify changes review between two <computeroutput>JSON</computeroutput> files you can use a standard <computeroutput>diff</computeroutput> tool on rearranged pretty-printed <computeroutput>JSON</computeroutput>.</para>
+</listitem><listitem>
+<para>To detect breaking changes by analyzing removals and changes from original <computeroutput>JSON</computeroutput>.</para>
+</listitem><listitem>
+<para>To keep original order of object sets (for example <computeroutput>swagger.json</computeroutput> <link xlink:href="https://swagger.io/docs/specification/describing-parameters/">parameters</link> list).</para>
+</listitem><listitem>
+<para>To <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">make</link> and <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">apply</link> JSON Patches, specified in <link xlink:href="https://datatracker.ietf.org/doc/html/rfc6902">RFC 6902</link> from the IETF.</para>
+</listitem><listitem>
+<para>To <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">make</link> and <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">apply</link> JSON Merge Patches, specified in <link xlink:href="https://datatracker.ietf.org/doc/html/rfc7386">RFC 7386</link> from the IETF.</para>
+</listitem><listitem>
+<para>To retrieve and modify data by <link xlink:href="https://datatracker.ietf.org/doc/html/rfc6901">JSON Pointer</link>.</para>
+</listitem><listitem>
+<para>To recursively replace by JSON value.</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2swaggest_2json-diff_2_r_e_a_d_m_e_1autotoc_md7240">
+<title><title>Installation</title></title>
+<section xml:id="_md_public_2glpi_2vendor_2swaggest_2json-diff_2_r_e_a_d_m_e_1autotoc_md7241">
+<title><title>Library</title></title>
+
+<para><literallayout><computeroutput>git&#32;clone&#32;https://github.com/swaggest/json-diff.git
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2swaggest_2json-diff_2_r_e_a_d_m_e_1autotoc_md7242">
+<title><title>Composer</title></title>
+
+<para><link xlink:href="https://getcomposer.org/doc/00-intro.md">Install PHP Composer</link></para>
+
+<para><literallayout><computeroutput>composer&#32;require&#32;swaggest/json-diff
+</computeroutput></literallayout></para>
+</section>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2swaggest_2json-diff_2_r_e_a_d_m_e_1autotoc_md7243">
+<title><title>Library usage</title></title>
+<section xml:id="_md_public_2glpi_2vendor_2swaggest_2json-diff_2_r_e_a_d_m_e_1autotoc_md7244">
+<title><title><computeroutput>JsonDiff</computeroutput></title></title>
+
+<para>Create <computeroutput>JsonDiff</computeroutput> object from two values (<computeroutput>original</computeroutput> and <computeroutput>new</computeroutput>).</para>
+
+<para><literallayout><computeroutput>$r&#32;=&#32;new&#32;JsonDiff(json_decode($originalJson),&#32;json_decode($newJson));
+</computeroutput></literallayout></para>
+
+<para>On construction <computeroutput>JsonDiff</computeroutput> will build <computeroutput>rearranged</computeroutput> value of <computeroutput>new</computeroutput> recursively keeping <computeroutput>original</computeroutput> keys order where possible. Keys that are missing in <computeroutput>original</computeroutput> will be appended to the end of <computeroutput>rearranged</computeroutput> value in same order they had in <computeroutput>new</computeroutput> value.</para>
+
+<para>If two values are arrays of objects, <computeroutput>JsonDiff</computeroutput> will try to find a common unique field in those objects and use it as criteria for rearranging. You can enable this behaviour with <computeroutput>JsonDiff::REARRANGE_ARRAYS</computeroutput> option: <literallayout><computeroutput>$r&#32;=&#32;new&#32;JsonDiff(
+&#32;&#32;&#32;&#32;json_decode($originalJson),&#32;
+&#32;&#32;&#32;&#32;json_decode($newJson),
+&#32;&#32;&#32;&#32;JsonDiff::REARRANGE_ARRAYS
+);
+</computeroutput></literallayout></para>
+
+<para>Available options:<itemizedlist>
+<listitem>
+<para><computeroutput>REARRANGE_ARRAYS</computeroutput> is an option to enable <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">arrays rearrangement</link> to minimize the difference.</para>
+</listitem><listitem>
+<para><computeroutput>STOP_ON_DIFF</computeroutput> is an option to improve performance by stopping comparison when a difference is found.</para>
+</listitem><listitem>
+<para><computeroutput>JSON_URI_FRAGMENT_ID</computeroutput> is an option to use URI Fragment Identifier Representation (example: &quot;#/c%25d&quot;). If not set default JSON String Representation (example: &quot;/c%d&quot;).</para>
+</listitem><listitem>
+<para><computeroutput>SKIP_JSON_PATCH</computeroutput> is an option to improve performance by not building JsonPatch for this diff.</para>
+</listitem><listitem>
+<para><computeroutput>SKIP_JSON_MERGE_PATCH</computeroutput> is an option to improve performance by not building JSON Merge Patch value for this diff.</para>
+</listitem><listitem>
+<para><computeroutput>TOLERATE_ASSOCIATIVE_ARRAYS</computeroutput> is an option to allow associative arrays to mimic JSON objects (not recommended).</para>
+</listitem><listitem>
+<para><computeroutput>COLLECT_MODIFIED_DIFF</computeroutput> is an option to enable <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">getModifiedDiff</link>.</para>
+</listitem></itemizedlist>
+</para>
+
+<para>Options can be combined, e.g. <computeroutput>JsonDiff::REARRANGE_ARRAYS + JsonDiff::STOP_ON_DIFF</computeroutput>.</para>
+<section xml:id="_md_public_2glpi_2vendor_2swaggest_2json-diff_2_r_e_a_d_m_e_1autotoc_md7245">
+<title><title><computeroutput>getDiffCnt</computeroutput></title></title>
+
+<para>Returns total number of differences</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2swaggest_2json-diff_2_r_e_a_d_m_e_1autotoc_md7246">
+<title><title><computeroutput>getPatch</computeroutput></title></title>
+
+<para>Returns <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">`JsonPatch`</link> of difference</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2swaggest_2json-diff_2_r_e_a_d_m_e_1autotoc_md7247">
+<title><title><computeroutput>getMergePatch</computeroutput></title></title>
+
+<para>Returns <link xlink:href="https://datatracker.ietf.org/doc/html/rfc7386">JSON Merge Patch</link> value of difference</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2swaggest_2json-diff_2_r_e_a_d_m_e_1autotoc_md7248">
+<title><title><computeroutput>getRearranged</computeroutput></title></title>
+
+<para>Returns new value, rearranged with original order.</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2swaggest_2json-diff_2_r_e_a_d_m_e_1autotoc_md7249">
+<title><title><computeroutput>getRemoved</computeroutput></title></title>
+
+<para>Returns removals as partial value of original.</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2swaggest_2json-diff_2_r_e_a_d_m_e_1autotoc_md7250">
+<title><title><computeroutput>getRemovedPaths</computeroutput></title></title>
+
+<para>Returns list of <computeroutput>JSON</computeroutput> paths that were removed from original.</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2swaggest_2json-diff_2_r_e_a_d_m_e_1autotoc_md7251">
+<title><title><computeroutput>getRemovedCnt</computeroutput></title></title>
+
+<para>Returns number of removals.</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2swaggest_2json-diff_2_r_e_a_d_m_e_1autotoc_md7252">
+<title><title><computeroutput>getAdded</computeroutput></title></title>
+
+<para>Returns additions as partial value of new.</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2swaggest_2json-diff_2_r_e_a_d_m_e_1autotoc_md7253">
+<title><title><computeroutput>getAddedPaths</computeroutput></title></title>
+
+<para>Returns list of <computeroutput>JSON</computeroutput> paths that were added to new.</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2swaggest_2json-diff_2_r_e_a_d_m_e_1autotoc_md7254">
+<title><title><computeroutput>getAddedCnt</computeroutput></title></title>
+
+<para>Returns number of additions.</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2swaggest_2json-diff_2_r_e_a_d_m_e_1autotoc_md7255">
+<title><title><computeroutput>getModifiedOriginal</computeroutput></title></title>
+
+<para>Returns modifications as partial value of original.</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2swaggest_2json-diff_2_r_e_a_d_m_e_1autotoc_md7256">
+<title><title><computeroutput>getModifiedNew</computeroutput></title></title>
+
+<para>Returns modifications as partial value of new.</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2swaggest_2json-diff_2_r_e_a_d_m_e_1autotoc_md7257">
+<title><title><computeroutput>getModifiedDiff</computeroutput></title></title>
+
+<para>Returns list of <link xlink:href="src/ModifiedPathDiff.php"><computeroutput>ModifiedPathDiff</computeroutput></link> containing paths with original and new values.</para>
+
+<para>Not collected by default, requires <computeroutput>JsonDiff::COLLECT_MODIFIED_DIFF</computeroutput> option.</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2swaggest_2json-diff_2_r_e_a_d_m_e_1autotoc_md7258">
+<title><title><computeroutput>getModifiedPaths</computeroutput></title></title>
+
+<para>Returns list of <computeroutput>JSON</computeroutput> paths that were modified from original to new.</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2swaggest_2json-diff_2_r_e_a_d_m_e_1autotoc_md7259">
+<title><title><computeroutput>getModifiedCnt</computeroutput></title></title>
+
+<para>Returns number of modifications.</para>
+</section>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2swaggest_2json-diff_2_r_e_a_d_m_e_1autotoc_md7260">
+<title><title><computeroutput>JsonPatch</computeroutput></title></title>
+<section xml:id="_md_public_2glpi_2vendor_2swaggest_2json-diff_2_r_e_a_d_m_e_1autotoc_md7261">
+<title><title><computeroutput>import</computeroutput></title></title>
+
+<para>Creates <computeroutput>JsonPatch</computeroutput> instance from <computeroutput>JSON</computeroutput>-decoded data.</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2swaggest_2json-diff_2_r_e_a_d_m_e_1autotoc_md7262">
+<title><title><computeroutput>export</computeroutput></title></title>
+
+<para>Creates patch data from <computeroutput>JsonPatch</computeroutput> object.</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2swaggest_2json-diff_2_r_e_a_d_m_e_1autotoc_md7263">
+<title><title><computeroutput>op</computeroutput></title></title>
+
+<para>Adds operation to <computeroutput>JsonPatch</computeroutput>.</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2swaggest_2json-diff_2_r_e_a_d_m_e_1autotoc_md7264">
+<title><title><computeroutput>apply</computeroutput></title></title>
+
+<para>Applies patch to <computeroutput>JSON</computeroutput>-decoded data.</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2swaggest_2json-diff_2_r_e_a_d_m_e_1autotoc_md7265">
+<title><title><computeroutput>setFlags</computeroutput></title></title>
+
+<para>Alters default behavior.</para>
+
+<para>Available flags:</para>
+
+<para><itemizedlist>
+<listitem>
+<para><computeroutput>JsonPatch::STRICT_MODE</computeroutput> Disallow converting empty array to object for key creation.</para>
+</listitem><listitem>
+<para><computeroutput>JsonPatch::TOLERATE_ASSOCIATIVE_ARRAYS</computeroutput> Allow associative arrays to mimic JSON objects (not recommended).</para>
+</listitem></itemizedlist>
+</para>
+</section>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2swaggest_2json-diff_2_r_e_a_d_m_e_1autotoc_md7266">
+<title><title><computeroutput>JsonPointer</computeroutput></title></title>
+<section xml:id="_md_public_2glpi_2vendor_2swaggest_2json-diff_2_r_e_a_d_m_e_1autotoc_md7267">
+<title><title><computeroutput>escapeSegment</computeroutput></title></title>
+
+<para>Escapes path segment.</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2swaggest_2json-diff_2_r_e_a_d_m_e_1autotoc_md7268">
+<title><title><computeroutput>splitPath</computeroutput></title></title>
+
+<para>Creates array of unescaped segments from <computeroutput>JSON Pointer</computeroutput> string.</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2swaggest_2json-diff_2_r_e_a_d_m_e_1autotoc_md7269">
+<title><title><computeroutput>buildPath</computeroutput></title></title>
+
+<para>Creates <computeroutput>JSON Pointer</computeroutput> string from array of unescaped segments.</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2swaggest_2json-diff_2_r_e_a_d_m_e_1autotoc_md7270">
+<title><title><computeroutput>add</computeroutput></title></title>
+
+<para>Adds value to data at path specified by segments.</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2swaggest_2json-diff_2_r_e_a_d_m_e_1autotoc_md7271">
+<title><title><computeroutput>get</computeroutput></title></title>
+
+<para>Gets value from data at path specified by segments.</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2swaggest_2json-diff_2_r_e_a_d_m_e_1autotoc_md7272">
+<title><title><computeroutput>getByPointer</computeroutput></title></title>
+
+<para>Gets value from data at path specified <computeroutput>JSON Pointer</computeroutput> string.</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2swaggest_2json-diff_2_r_e_a_d_m_e_1autotoc_md7273">
+<title><title><computeroutput>remove</computeroutput></title></title>
+
+<para>Removes value from data at path specified by segments.</para>
+</section>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2swaggest_2json-diff_2_r_e_a_d_m_e_1autotoc_md7274">
+<title><title><computeroutput>JsonMergePatch</computeroutput></title></title>
+<section xml:id="_md_public_2glpi_2vendor_2swaggest_2json-diff_2_r_e_a_d_m_e_1autotoc_md7275">
+<title><title><computeroutput>apply</computeroutput></title></title>
+
+<para>Applies patch to <computeroutput>JSON</computeroutput>-decoded data.</para>
+</section>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2swaggest_2json-diff_2_r_e_a_d_m_e_1autotoc_md7276">
+<title><title><computeroutput>JsonValueReplace</computeroutput></title></title>
+<section xml:id="_md_public_2glpi_2vendor_2swaggest_2json-diff_2_r_e_a_d_m_e_1autotoc_md7277">
+<title><title><computeroutput>process</computeroutput></title></title>
+
+<para>Recursively replaces all nodes equal to <computeroutput>search</computeroutput> value with <computeroutput>replace</computeroutput> value.</para>
+</section>
+</section>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2swaggest_2json-diff_2_r_e_a_d_m_e_1autotoc_md7278">
+<title><title>Example</title></title>
+
+<para><literallayout><computeroutput>$originalJson&#32;=&#32;&lt;&lt;&lt;&apos;JSON&apos;
+{
+&#32;&#32;&#32;&#32;&quot;key1&quot;:&#32;[4,&#32;1,&#32;2,&#32;3],
+&#32;&#32;&#32;&#32;&quot;key2&quot;:&#32;2,
+&#32;&#32;&#32;&#32;&quot;key3&quot;:&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&quot;sub0&quot;:&#32;0,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&quot;sub1&quot;:&#32;&quot;a&quot;,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&quot;sub2&quot;:&#32;&quot;b&quot;
+&#32;&#32;&#32;&#32;},
+&#32;&#32;&#32;&#32;&quot;key4&quot;:&#32;[
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{&quot;a&quot;:1,&#32;&quot;b&quot;:true,&#32;&quot;subs&quot;:&#32;[{&quot;s&quot;:1},&#32;{&quot;s&quot;:2},&#32;{&quot;s&quot;:3}]},&#32;{&quot;a&quot;:2,&#32;&quot;b&quot;:false},&#32;{&quot;a&quot;:3}
+&#32;&#32;&#32;&#32;]
+}
+JSON;
+
+$newJson&#32;=&#32;&lt;&lt;&lt;&apos;JSON&apos;
+{
+&#32;&#32;&#32;&#32;&quot;key5&quot;:&#32;&quot;wat&quot;,
+&#32;&#32;&#32;&#32;&quot;key1&quot;:&#32;[5,&#32;1,&#32;2,&#32;3],
+&#32;&#32;&#32;&#32;&quot;key4&quot;:&#32;[
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{&quot;c&quot;:false,&#32;&quot;a&quot;:2},&#32;{&quot;a&quot;:1,&#32;&quot;b&quot;:true,&#32;&quot;subs&quot;:&#32;[{&quot;s&quot;:3,&#32;&quot;add&quot;:&#32;true},&#32;{&quot;s&quot;:2},&#32;{&quot;s&quot;:1}]},&#32;{&quot;c&quot;:1,&#32;&quot;a&quot;:3}
+&#32;&#32;&#32;&#32;],
+&#32;&#32;&#32;&#32;&quot;key3&quot;:&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&quot;sub3&quot;:&#32;0,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&quot;sub2&quot;:&#32;false,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&quot;sub1&quot;:&#32;&quot;c&quot;
+&#32;&#32;&#32;&#32;}
+}
+JSON;
+
+$patchJson&#32;=&#32;&lt;&lt;&lt;&apos;JSON&apos;
+[
+&#32;&#32;&#32;&#32;{&quot;value&quot;:4,&quot;op&quot;:&quot;test&quot;,&quot;path&quot;:&quot;/key1/0&quot;},
+&#32;&#32;&#32;&#32;{&quot;value&quot;:5,&quot;op&quot;:&quot;replace&quot;,&quot;path&quot;:&quot;/key1/0&quot;},
+&#32;&#32;&#32;&#32;
+&#32;&#32;&#32;&#32;{&quot;op&quot;:&quot;remove&quot;,&quot;path&quot;:&quot;/key2&quot;},
+&#32;&#32;&#32;&#32;
+&#32;&#32;&#32;&#32;{&quot;op&quot;:&quot;remove&quot;,&quot;path&quot;:&quot;/key3/sub0&quot;},
+&#32;&#32;&#32;&#32;
+&#32;&#32;&#32;&#32;{&quot;value&quot;:&quot;a&quot;,&quot;op&quot;:&quot;test&quot;,&quot;path&quot;:&quot;/key3/sub1&quot;},
+&#32;&#32;&#32;&#32;{&quot;value&quot;:&quot;c&quot;,&quot;op&quot;:&quot;replace&quot;,&quot;path&quot;:&quot;/key3/sub1&quot;},
+&#32;&#32;&#32;&#32;
+&#32;&#32;&#32;&#32;{&quot;value&quot;:&quot;b&quot;,&quot;op&quot;:&quot;test&quot;,&quot;path&quot;:&quot;/key3/sub2&quot;},
+&#32;&#32;&#32;&#32;{&quot;value&quot;:false,&quot;op&quot;:&quot;replace&quot;,&quot;path&quot;:&quot;/key3/sub2&quot;},
+&#32;&#32;&#32;&#32;
+&#32;&#32;&#32;&#32;{&quot;value&quot;:0,&quot;op&quot;:&quot;add&quot;,&quot;path&quot;:&quot;/key3/sub3&quot;},
+
+&#32;&#32;&#32;&#32;{&quot;value&quot;:true,&quot;op&quot;:&quot;add&quot;,&quot;path&quot;:&quot;/key4/0/subs/2/add&quot;},
+&#32;&#32;&#32;&#32;
+&#32;&#32;&#32;&#32;{&quot;op&quot;:&quot;remove&quot;,&quot;path&quot;:&quot;/key4/1/b&quot;},
+&#32;&#32;&#32;&#32;
+&#32;&#32;&#32;&#32;{&quot;value&quot;:false,&quot;op&quot;:&quot;add&quot;,&quot;path&quot;:&quot;/key4/1/c&quot;},
+&#32;&#32;&#32;&#32;
+&#32;&#32;&#32;&#32;{&quot;value&quot;:1,&quot;op&quot;:&quot;add&quot;,&quot;path&quot;:&quot;/key4/2/c&quot;},
+&#32;&#32;&#32;&#32;
+&#32;&#32;&#32;&#32;{&quot;value&quot;:&quot;wat&quot;,&quot;op&quot;:&quot;add&quot;,&quot;path&quot;:&quot;/key5&quot;}
+]
+JSON;
+
+$diff&#32;=&#32;new&#32;JsonDiff(json_decode($originalJson),&#32;json_decode($newJson),&#32;JsonDiff::REARRANGE_ARRAYS);
+$this-&gt;assertEquals(json_decode($patchJson),&#32;$diff-&gt;getPatch()-&gt;jsonSerialize());
+
+$original&#32;=&#32;json_decode($originalJson);
+$patch&#32;=&#32;JsonPatch::import(json_decode($patchJson));
+$patch-&gt;apply($original);
+$this-&gt;assertEquals($diff-&gt;getRearranged(),&#32;$original);
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2swaggest_2json-diff_2_r_e_a_d_m_e_1autotoc_md7279">
+<title><title>PHP Classes as JSON objects</title></title>
+
+<para>Due to magical methods and other restrictions PHP classes can not be reliably mapped to/from JSON objects. There is support for objects of PHP classes in <computeroutput>JsonPointer</computeroutput> with limitations:<itemizedlist>
+<listitem>
+<para><computeroutput>null</computeroutput> is equal to non-existent</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2swaggest_2json-diff_2_r_e_a_d_m_e_1autotoc_md7280">
+<title><title>Arrays Rearrangement</title></title>
+
+<para>When <computeroutput>JsonDiff::REARRANGE_ARRAYS</computeroutput> option is enabled, array items are ordered to match the original array.</para>
+
+<para>If arrays contain homogenous objects, and those objects have a common property with unique values, array is ordered to match placement of items with same value of such property in the original array.</para>
+
+<para>Example: original <literallayout><computeroutput>[{&quot;name&quot;:&#32;&quot;Alex&quot;,&#32;&quot;height&quot;:&#32;180},{&quot;name&quot;:&#32;&quot;Joe&quot;,&#32;&quot;height&quot;:&#32;179},{&quot;name&quot;:&#32;&quot;Jane&quot;,&#32;&quot;height&quot;:&#32;165}]
+</computeroutput></literallayout> vs new <literallayout><computeroutput>[{&quot;name&quot;:&#32;&quot;Joe&quot;,&#32;&quot;height&quot;:&#32;179},{&quot;name&quot;:&#32;&quot;Jane&quot;,&#32;&quot;height&quot;:&#32;168},{&quot;name&quot;:&#32;&quot;Alex&quot;,&#32;&quot;height&quot;:&#32;180}]
+</computeroutput></literallayout> would produce a patch: <literallayout><computeroutput>[{&quot;value&quot;:165,&quot;op&quot;:&quot;test&quot;,&quot;path&quot;:&quot;/2/height&quot;},{&quot;value&quot;:168,&quot;op&quot;:&quot;replace&quot;,&quot;path&quot;:&quot;/2/height&quot;}]
+</computeroutput></literallayout></para>
+
+<para>If qualifying indexing property is not found, rearrangement is done based on items equality.</para>
+
+<para>Example: original <literallayout><computeroutput>{&quot;data&quot;:&#32;[{&quot;A&quot;:&#32;1,&#32;&quot;C&quot;:&#32;[1,&#32;2,&#32;3]},&#32;{&quot;B&quot;:&#32;2}]}
+</computeroutput></literallayout> vs new <literallayout><computeroutput>{&quot;data&quot;:&#32;[{&quot;B&quot;:&#32;2},&#32;{&quot;A&quot;:&#32;1,&#32;&quot;C&quot;:&#32;[3,&#32;2,&#32;1]}]}
+</computeroutput></literallayout> would produce no difference.</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2swaggest_2json-diff_2_r_e_a_d_m_e_1autotoc_md7281">
+<title><title>CLI tool</title></title>
+
+<para>Moved to <link xlink:href="https://github.com/swaggest/json-cli"><computeroutput>swaggest/json-cli</computeroutput></link> </para>
+</section>
+</section>

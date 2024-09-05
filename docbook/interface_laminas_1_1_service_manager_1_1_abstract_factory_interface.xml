@@ -1,0 +1,164 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_interface_laminas_1_1_service_manager_1_1_abstract_factory_interface" xml:lang="fr">
+<title>Référence de l&apos;interface AbstractFactoryInterface</title>
+<indexterm><primary>AbstractFactoryInterface</primary></indexterm>
+Graphe d&apos;héritage de AbstractFactoryInterface:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="interface_laminas_1_1_service_manager_1_1_abstract_factory_interface__inherit__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Graphe de collaboration de AbstractFactoryInterface:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="interface_laminas_1_1_service_manager_1_1_abstract_factory_interface__coll__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Fonctions membres publiques    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_interface_laminas_1_1_service_manager_1_1_abstract_factory_interface_1a1d0fc532ae73ef1bf4533157c9552f9b">canCreateServiceWithName</link> (<link linkend="_interface_laminas_1_1_service_manager_1_1_service_locator_interface">ServiceLocatorInterface</link> $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">serviceLocator</link>, $name, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">requestedName</link>)</para>
+</listitem>
+            <listitem><para><link linkend="_interface_laminas_1_1_service_manager_1_1_abstract_factory_interface_1a565e0fa5dd24a813eb82c594b204af72">createServiceWithName</link> (<link linkend="_interface_laminas_1_1_service_manager_1_1_service_locator_interface">ServiceLocatorInterface</link> $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">serviceLocator</link>, $name, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">requestedName</link>)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+Fonctions membres publiques hérités de <link linkend="_interface_laminas_1_1_service_manager_1_1_factory_1_1_abstract_factory_interface">AbstractFactoryInterface</link>        <itemizedlist>
+            <listitem><para><link linkend="_interface_laminas_1_1_service_manager_1_1_factory_1_1_abstract_factory_interface_1a31d2a9a970cd65e6d610b34dcec9fd54">canCreate</link> (<link linkend="_interface_interop_1_1_container_1_1_container_interface">ContainerInterface</link> $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">container</link>, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">requestedName</link>)</para>
+</listitem>
+        </itemizedlist>
+Fonctions membres publiques hérités de <link linkend="_interface_laminas_1_1_service_manager_1_1_factory_1_1_factory_interface">FactoryInterface</link>        <itemizedlist>
+            <listitem><para><link linkend="_interface_laminas_1_1_service_manager_1_1_factory_1_1_factory_interface_1ab386f3c76f2a4819824f98962352df18">__invoke</link> (<link linkend="_interface_interop_1_1_container_1_1_container_interface">ContainerInterface</link> $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">container</link>, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">requestedName</link>, ?array $options=null)</para>
+</listitem>
+        </itemizedlist>
+<section>
+<title>Description détaillée</title>
+
+<para>Backwards-compatibility shim for AbstractFactoryInterface.</para>
+
+<para>Implementations should update to implement only Laminas\ServiceManager\Factory\AbstractFactoryInterface.</para>
+
+<para>If upgrading from v2, take the following steps:</para>
+
+<para><itemizedlist>
+<listitem>
+<para>rename the method <computeroutput>canCreateServiceWithName()</computeroutput> to <computeroutput>canCreate()</computeroutput>, and:<itemizedlist>
+<listitem>
+<para>rename the <computeroutput>$serviceLocator</computeroutput> argument to <computeroutput>$container</computeroutput>, and change the typehint to <computeroutput>Interop\Container\ContainerInterface</computeroutput></para>
+</listitem><listitem>
+<para>merge the <computeroutput>$name</computeroutput> and <computeroutput>$requestedName</computeroutput> arguments</para>
+</listitem></itemizedlist>
+</para>
+</listitem><listitem>
+<para>rename the method <computeroutput>createServiceWithName()</computeroutput> to <computeroutput>__invoke()</computeroutput>, and:<itemizedlist>
+<listitem>
+<para>rename the <computeroutput>$serviceLocator</computeroutput> argument to <computeroutput>$container</computeroutput>, and change the typehint to <computeroutput>Interop\Container\ContainerInterface</computeroutput></para>
+</listitem><listitem>
+<para>merge the <computeroutput>$name</computeroutput> and <computeroutput>$requestedName</computeroutput> arguments</para>
+</listitem><listitem>
+<para>add the optional <computeroutput>array $options = null</computeroutput> argument.</para>
+</listitem></itemizedlist>
+</para>
+</listitem><listitem>
+<para>create a <computeroutput>canCreateServiceWithName()</computeroutput> method as defined in this interface, and have it proxy to <computeroutput>canCreate()</computeroutput>, passing <computeroutput>$requestedName</computeroutput> as the second argument.</para>
+</listitem><listitem>
+<para>create a <computeroutput>createServiceWithName()</computeroutput> method as defined in this interface, and have it proxy to <computeroutput>__invoke()</computeroutput>, passing <computeroutput>$requestedName</computeroutput> as the second argument.</para>
+</listitem></itemizedlist>
+</para>
+
+<para>Once you have tested your code, you can then update your class to only implement Laminas\ServiceManager\Factory\AbstractFactoryInterface, and remove the <computeroutput>canCreateServiceWithName()</computeroutput> and <computeroutput>createServiceWithName()</computeroutput> methods.</para>
+
+<para><para><link linkend="_deprecated_1_deprecated000074">Obsolète</link> 
+<para>Use Laminas\ServiceManager\Factory\AbstractFactoryInterface instead. </para>
+</para></para>
+</section>
+<section>
+<title>Documentation des fonctions membres</title>
+<anchor xml:id="_interface_laminas_1_1_service_manager_1_1_abstract_factory_interface_1a1d0fc532ae73ef1bf4533157c9552f9b"/><section>
+    <title>canCreateServiceWithName()</title>
+<indexterm><primary>canCreateServiceWithName</primary><secondary>AbstractFactoryInterface</secondary></indexterm>
+<indexterm><primary>AbstractFactoryInterface</primary><secondary>canCreateServiceWithName</secondary></indexterm>
+<para><computeroutput>canCreateServiceWithName (<link linkend="_interface_laminas_1_1_service_manager_1_1_service_locator_interface">ServiceLocatorInterface</link> $serviceLocator,  $name,  $requestedName)</computeroutput></para>
+<para>Determine if we can create a service with name</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$name</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>string</entry><entry>$requestedName</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>bool </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_interface_laminas_1_1_service_manager_1_1_abstract_factory_interface_1a565e0fa5dd24a813eb82c594b204af72"/><section>
+    <title>createServiceWithName()</title>
+<indexterm><primary>createServiceWithName</primary><secondary>AbstractFactoryInterface</secondary></indexterm>
+<indexterm><primary>AbstractFactoryInterface</primary><secondary>createServiceWithName</secondary></indexterm>
+<para><computeroutput>createServiceWithName (<link linkend="_interface_laminas_1_1_service_manager_1_1_service_locator_interface">ServiceLocatorInterface</link> $serviceLocator,  $name,  $requestedName)</computeroutput></para>
+<para>Create service with name</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$name</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>string</entry><entry>$requestedName</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>mixed </para>
+</formalpara>
+</para>
+</section>
+<para>
+La documentation de cette interface a été générée à partir du fichier suivant :</para>
+public/glpi/vendor/laminas/laminas-servicemanager/src/<link linkend="__abstract_factory_interface_8php">AbstractFactoryInterface.php</link></section>
+</section>

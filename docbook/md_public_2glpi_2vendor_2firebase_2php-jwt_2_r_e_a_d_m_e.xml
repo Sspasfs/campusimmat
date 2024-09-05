@@ -1,0 +1,247 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_md_public_2glpi_2vendor_2firebase_2php-jwt_2_r_e_a_d_m_e" xml:lang="fr">
+<title>README</title>
+<indexterm><primary>README</primary></indexterm>
+
+<para> <link xlink:href="https://packagist.org/packages/firebase/php-jwt"></link> <link xlink:href="https://packagist.org/packages/firebase/php-jwt"></link> <link xlink:href="https://packagist.org/packages/firebase/php-jwt"></link></para>
+<section xml:id="_md_public_2glpi_2vendor_2firebase_2php-jwt_2_r_e_a_d_m_e_1autotoc_md5788">
+<title><title>PHP-JWT</title></title>
+
+<para>A simple library to encode and decode JSON Web Tokens (JWT) in PHP, conforming to <link xlink:href="https://tools.ietf.org/html/rfc7519">RFC 7519</link>.</para>
+<section xml:id="_md_public_2glpi_2vendor_2firebase_2php-jwt_2_r_e_a_d_m_e_1autotoc_md5789">
+<title><title>Installation</title></title>
+
+<para>Use composer to manage your dependencies and download PHP-JWT:</para>
+
+<para><literallayout><computeroutput>composer&#32;require&#32;firebase/php-jwt
+</computeroutput></literallayout></para>
+
+<para>Optionally, install the <computeroutput>paragonie/sodium_compat</computeroutput> package from composer if your php is &lt; 7.2 or does not have libsodium installed:</para>
+
+<para><literallayout><computeroutput>composer&#32;require&#32;paragonie/sodium_compat
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2firebase_2php-jwt_2_r_e_a_d_m_e_1autotoc_md5790">
+<title><title>Example</title></title>
+
+<para><literallayout><computeroutput>use&#32;Firebase\JWT\JWT;
+use&#32;Firebase\JWT\Key;
+
+$key&#32;=&#32;&apos;example_key&apos;;
+$payload&#32;=&#32;[
+&#32;&#32;&#32;&#32;&apos;iss&apos;&#32;=&gt;&#32;&apos;http://example.org&apos;,
+&#32;&#32;&#32;&#32;&apos;aud&apos;&#32;=&gt;&#32;&apos;http://example.com&apos;,
+&#32;&#32;&#32;&#32;&apos;iat&apos;&#32;=&gt;&#32;1356999524,
+&#32;&#32;&#32;&#32;&apos;nbf&apos;&#32;=&gt;&#32;1357000000
+];
+
+/**
+&#32;*&#32;IMPORTANT:
+&#32;*&#32;You&#32;must&#32;specify&#32;supported&#32;algorithms&#32;for&#32;your&#32;application.&#32;See
+&#32;*&#32;https://tools.ietf.org/html/draft-ietf-jose-json-web-algorithms-40
+&#32;*&#32;for&#32;a&#32;list&#32;of&#32;spec-compliant&#32;algorithms.
+&#32;*/
+$jwt&#32;=&#32;JWT::encode($payload,&#32;$key,&#32;&apos;HS256&apos;);
+$decoded&#32;=&#32;JWT::decode($jwt,&#32;new&#32;Key($key,&#32;&apos;HS256&apos;));
+
+print_r($decoded);
+
+/*
+&#32;NOTE:&#32;This&#32;will&#32;now&#32;be&#32;an&#32;object&#32;instead&#32;of&#32;an&#32;associative&#32;array.&#32;To&#32;get
+&#32;an&#32;associative&#32;array,&#32;you&#32;will&#32;need&#32;to&#32;cast&#32;it&#32;as&#32;such:
+*/
+
+$decoded_array&#32;=&#32;(array)&#32;$decoded;
+
+/**
+&#32;*&#32;You&#32;can&#32;add&#32;a&#32;leeway&#32;to&#32;account&#32;for&#32;when&#32;there&#32;is&#32;a&#32;clock&#32;skew&#32;times&#32;between
+&#32;*&#32;the&#32;signing&#32;and&#32;verifying&#32;servers.&#32;It&#32;is&#32;recommended&#32;that&#32;this&#32;leeway&#32;should
+&#32;*&#32;not&#32;be&#32;bigger&#32;than&#32;a&#32;few&#32;minutes.
+&#32;*
+&#32;*&#32;Source:&#32;http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html#nbfDef
+&#32;*/
+JWT::$leeway&#32;=&#32;60;&#32;//&#32;$leeway&#32;in&#32;seconds
+$decoded&#32;=&#32;JWT::decode($jwt,&#32;new&#32;Key($key,&#32;&apos;HS256&apos;));
+</computeroutput></literallayout> </para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2firebase_2php-jwt_2_r_e_a_d_m_e_1autotoc_md5791">
+<title><title>Example with RS256 (openssl)</title></title>
+
+<para><literallayout><computeroutput>use&#32;Firebase\JWT\JWT;
+use&#32;Firebase\JWT\Key;
+
+$privateKey&#32;=&#32;&lt;&lt;&lt;EOD
+-----BEGIN&#32;RSA&#32;PRIVATE&#32;KEY-----
+MIICXAIBAAKBgQC8kGa1pSjbSYZVebtTRBLxBz5H4i2p/llLCrEeQhta5kaQu/Rn
+vuER4W8oDH3+3iuIYW4VQAzyqFpwuzjkDI+17t5t0tyazyZ8JXw+KgXTxldMPEL9
+5+qVhgXvwtihXC1c5oGbRlEDvDF6Sa53rcFVsYJ4ehde/zUxo6UvS7UrBQIDAQAB
+AoGAb/MXV46XxCFRxNuB8LyAtmLDgi/xRnTAlMHjSACddwkyKem8//8eZtw9fzxz
+bWZ/1/doQOuHBGYZU8aDzzj59FZ78dyzNFoF91hbvZKkg+6wGyd/LrGVEB+Xre0J
+Nil0GReM2AHDNZUYRv+HYJPIOrB0CRczLQsgFJ8K6aAD6F0CQQDzbpjYdx10qgK1
+cP59UHiHjPZYC0loEsk7s+hUmT3QHerAQJMZWC11Qrn2N+ybwwNblDKv+s5qgMQ5
+5tNoQ9IfAkEAxkyffU6ythpg/H0Ixe1I2rd0GbF05biIzO/i77Det3n4YsJVlDck
+ZkcvY3SK2iRIL4c9yY6hlIhs+K9wXTtGWwJBAO9Dskl48mO7woPR9uD22jDpNSwe
+k90OMepTjzSvlhjbfuPN1IdhqvSJTDychRwn1kIJ7LQZgQ8fVz9OCFZ/6qMCQGOb
+qaGwHmUK6xzpUbbacnYrIM6nLSkXgOAwv7XXCojvY614ILTK3iXiLBOxPu5Eu13k
+eUz9sHyD6vkgZzjtxXECQAkp4Xerf5TGfQXGXhxIX52yH+N2LtujCdkQZjXAsGdm
+B2zNzvrlgRmgBrklMTrMYgm1NPcW+bRLGcwgW2PTvNM=
+-----END&#32;RSA&#32;PRIVATE&#32;KEY-----
+EOD;
+
+$publicKey&#32;=&#32;&lt;&lt;&lt;EOD
+-----BEGIN&#32;PUBLIC&#32;KEY-----
+MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQC8kGa1pSjbSYZVebtTRBLxBz5H
+4i2p/llLCrEeQhta5kaQu/RnvuER4W8oDH3+3iuIYW4VQAzyqFpwuzjkDI+17t5t
+0tyazyZ8JXw+KgXTxldMPEL95+qVhgXvwtihXC1c5oGbRlEDvDF6Sa53rcFVsYJ4
+ehde/zUxo6UvS7UrBQIDAQAB
+-----END&#32;PUBLIC&#32;KEY-----
+EOD;
+
+$payload&#32;=&#32;[
+&#32;&#32;&#32;&#32;&apos;iss&apos;&#32;=&gt;&#32;&apos;example.org&apos;,
+&#32;&#32;&#32;&#32;&apos;aud&apos;&#32;=&gt;&#32;&apos;example.com&apos;,
+&#32;&#32;&#32;&#32;&apos;iat&apos;&#32;=&gt;&#32;1356999524,
+&#32;&#32;&#32;&#32;&apos;nbf&apos;&#32;=&gt;&#32;1357000000
+];
+
+$jwt&#32;=&#32;JWT::encode($payload,&#32;$privateKey,&#32;&apos;RS256&apos;);
+echo&#32;&quot;Encode:\n&quot;&#32;.&#32;print_r($jwt,&#32;true)&#32;.&#32;&quot;\n&quot;;
+
+$decoded&#32;=&#32;JWT::decode($jwt,&#32;new&#32;Key($publicKey,&#32;&apos;RS256&apos;));
+
+/*
+&#32;NOTE:&#32;This&#32;will&#32;now&#32;be&#32;an&#32;object&#32;instead&#32;of&#32;an&#32;associative&#32;array.&#32;To&#32;get
+&#32;an&#32;associative&#32;array,&#32;you&#32;will&#32;need&#32;to&#32;cast&#32;it&#32;as&#32;such:
+*/
+
+$decoded_array&#32;=&#32;(array)&#32;$decoded;
+echo&#32;&quot;Decode:\n&quot;&#32;.&#32;print_r($decoded_array,&#32;true)&#32;.&#32;&quot;\n&quot;;
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2firebase_2php-jwt_2_r_e_a_d_m_e_1autotoc_md5792">
+<title><title>Example with a passphrase</title></title>
+
+<para><literallayout><computeroutput>use&#32;Firebase\JWT\JWT;
+use&#32;Firebase\JWT\Key;
+
+//&#32;Your&#32;passphrase
+$passphrase&#32;=&#32;&apos;[YOUR_PASSPHRASE]&apos;;
+
+//&#32;Your&#32;private&#32;key&#32;file&#32;with&#32;passphrase
+//&#32;Can&#32;be&#32;generated&#32;with&#32;&quot;ssh-keygen&#32;-t&#32;rsa&#32;-m&#32;pem&quot;
+$privateKeyFile&#32;=&#32;&apos;/path/to/key-with-passphrase.pem&apos;;
+
+//&#32;Create&#32;a&#32;private&#32;key&#32;of&#32;type&#32;&quot;resource&quot;
+$privateKey&#32;=&#32;openssl_pkey_get_private(
+&#32;&#32;&#32;&#32;file_get_contents($privateKeyFile),
+&#32;&#32;&#32;&#32;$passphrase
+);
+
+$payload&#32;=&#32;[
+&#32;&#32;&#32;&#32;&apos;iss&apos;&#32;=&gt;&#32;&apos;example.org&apos;,
+&#32;&#32;&#32;&#32;&apos;aud&apos;&#32;=&gt;&#32;&apos;example.com&apos;,
+&#32;&#32;&#32;&#32;&apos;iat&apos;&#32;=&gt;&#32;1356999524,
+&#32;&#32;&#32;&#32;&apos;nbf&apos;&#32;=&gt;&#32;1357000000
+];
+
+$jwt&#32;=&#32;JWT::encode($payload,&#32;$privateKey,&#32;&apos;RS256&apos;);
+echo&#32;&quot;Encode:\n&quot;&#32;.&#32;print_r($jwt,&#32;true)&#32;.&#32;&quot;\n&quot;;
+
+//&#32;Get&#32;public&#32;key&#32;from&#32;the&#32;private&#32;key,&#32;or&#32;pull&#32;from&#32;from&#32;a&#32;file.
+$publicKey&#32;=&#32;openssl_pkey_get_details($privateKey)[&apos;key&apos;];
+
+$decoded&#32;=&#32;JWT::decode($jwt,&#32;new&#32;Key($publicKey,&#32;&apos;RS256&apos;));
+echo&#32;&quot;Decode:\n&quot;&#32;.&#32;print_r((array)&#32;$decoded,&#32;true)&#32;.&#32;&quot;\n&quot;;
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2firebase_2php-jwt_2_r_e_a_d_m_e_1autotoc_md5793">
+<title><title>Example with EdDSA (libsodium and Ed25519 signature)</title></title>
+
+<para><literallayout><computeroutput>use&#32;Firebase\JWT\JWT;
+use&#32;Firebase\JWT\Key;
+
+//&#32;Public&#32;and&#32;private&#32;keys&#32;are&#32;expected&#32;to&#32;be&#32;Base64&#32;encoded.&#32;The&#32;last
+//&#32;non-empty&#32;line&#32;is&#32;used&#32;so&#32;that&#32;keys&#32;can&#32;be&#32;generated&#32;with
+//&#32;sodium_crypto_sign_keypair().&#32;The&#32;secret&#32;keys&#32;generated&#32;by&#32;other&#32;tools&#32;may
+//&#32;need&#32;to&#32;be&#32;adjusted&#32;to&#32;match&#32;the&#32;input&#32;expected&#32;by&#32;libsodium.
+
+$keyPair&#32;=&#32;sodium_crypto_sign_keypair();
+
+$privateKey&#32;=&#32;base64_encode(sodium_crypto_sign_secretkey($keyPair));
+
+$publicKey&#32;=&#32;base64_encode(sodium_crypto_sign_publickey($keyPair));
+
+$payload&#32;=&#32;[
+&#32;&#32;&#32;&#32;&apos;iss&apos;&#32;=&gt;&#32;&apos;example.org&apos;,
+&#32;&#32;&#32;&#32;&apos;aud&apos;&#32;=&gt;&#32;&apos;example.com&apos;,
+&#32;&#32;&#32;&#32;&apos;iat&apos;&#32;=&gt;&#32;1356999524,
+&#32;&#32;&#32;&#32;&apos;nbf&apos;&#32;=&gt;&#32;1357000000
+];
+
+$jwt&#32;=&#32;JWT::encode($payload,&#32;$privateKey,&#32;&apos;EdDSA&apos;);
+echo&#32;&quot;Encode:\n&quot;&#32;.&#32;print_r($jwt,&#32;true)&#32;.&#32;&quot;\n&quot;;
+
+$decoded&#32;=&#32;JWT::decode($jwt,&#32;new&#32;Key($publicKey,&#32;&apos;EdDSA&apos;));
+echo&#32;&quot;Decode:\n&quot;&#32;.&#32;print_r((array)&#32;$decoded,&#32;true)&#32;.&#32;&quot;\n&quot;;
+````
+
+Using&#32;JWKs
+----------
+</computeroutput></literallayout> php use Firebase\JWT\JWK; use Firebase\JWT\JWT;</para>
+
+<para>// Set of keys. The &quot;keys&quot; key is required. For example, the JSON response to // this endpoint: <link xlink:href="https://www.gstatic.com/iap/verify/public_key-jwk">https://www.gstatic.com/iap/verify/public_key-jwk</link> $jwks = [&apos;keys&apos; =&gt; []];</para>
+
+<para>// JWK::parseKeySet($jwks) returns an associative array of <emphasis role="bold">kid</emphasis> to Firebase\JWT\Key // objects. Pass this as the second parameter to JWT::decode. JWT::decode($payload, JWK::parseKeySet($jwks)); <literallayout><computeroutput>Using&#32;Cached&#32;Key&#32;Sets
+---------------------
+
+The&#32;`CachedKeySet`&#32;class&#32;can&#32;be&#32;used&#32;to&#32;fetch&#32;and&#32;cache&#32;JWKS&#32;(JSON&#32;Web&#32;Key&#32;Sets)&#32;from&#32;a&#32;public&#32;URI.
+This&#32;has&#32;the&#32;following&#32;advantages:
+
+1.&#32;The&#32;results&#32;are&#32;cached&#32;for&#32;performance.
+2.&#32;If&#32;an&#32;unrecognized&#32;key&#32;is&#32;requested,&#32;the&#32;cache&#32;is&#32;refreshed,&#32;to&#32;accomodate&#32;for&#32;key&#32;rotation.
+3.&#32;If&#32;rate&#32;limiting&#32;is&#32;enabled,&#32;the&#32;JWKS&#32;URI&#32;will&#32;not&#32;make&#32;more&#32;than&#32;10&#32;requests&#32;a&#32;second.
+</computeroutput></literallayout> php use Firebase\JWT\CachedKeySet; use Firebase\JWT\JWT;</para>
+
+<para>// The URI for the JWKS you wish to cache the results from $jwksUri = &apos;<link xlink:href="https://www.gstatic.com/iap/verify/public_key-jwk&apos;;">https://www.gstatic.com/iap/verify/public_key-jwk&apos;;</link></para>
+
+<para>// Create an HTTP client (can be any PSR-7 compatible HTTP client) $httpClient = new <link linkend="_namespace_guzzle_http">GuzzleHttp</link>\Client();</para>
+
+<para>// Create an HTTP request factory (can be any PSR-17 compatible HTTP request factory) $httpFactory = new <link linkend="_namespace_guzzle_http">GuzzleHttp</link>\Psr\HttpFactory();</para>
+
+<para>// Create a cache item pool (can be any PSR-6 compatible cache item pool) $cacheItemPool = Phpfastcache\CacheManager::getInstance(&apos;files&apos;);</para>
+
+<para>$keySet = new CachedKeySet( $jwksUri, $httpClient, $httpFactory, $cacheItemPool, null, // $expiresAfter int seconds to set the JWKS to expire true // $rateLimit true to enable rate limit of 10 RPS on lookup of invalid keys );</para>
+
+<para>$jwt = &apos;eyJhbGci...&apos;; // Some JWT signed by a key from the $jwkUri above $decoded = JWT::decode($jwt, $keySet); <literallayout><computeroutput>Miscellaneous
+-------------
+
+####&#32;Exception&#32;Handling
+
+When&#32;a&#32;call&#32;to&#32;`JWT::decode`&#32;is&#32;invalid,&#32;it&#32;will&#32;throw&#32;one&#32;of&#32;the&#32;following&#32;exceptions:
+</computeroutput></literallayout> php use Firebase\JWT\JWT; use Firebase\JWT\SignatureInvalidException; use Firebase\JWT\BeforeValidException; use Firebase\JWT\ExpiredException; use DomainException; use InvalidArgumentException; use UnexpectedValueException;</para>
+
+<para>try { $decoded = JWT::decode($payload, $keys); } catch (InvalidArgumentException $e) { // provided key/key-array is empty or malformed. } catch (DomainException $e) { // provided algorithm is unsupported OR // provided key is invalid OR // unknown error thrown in openSSL or libsodium OR // libsodium is required but not available. } catch (SignatureInvalidException $e) { // provided JWT signature verification failed. } catch (BeforeValidException $e) { // provided JWT is trying to be used before &quot;nbf&quot; claim OR // provided JWT is trying to be used before &quot;iat&quot; claim. } catch (ExpiredException $e) { // provided JWT is trying to be used after &quot;exp&quot; claim. } catch (UnexpectedValueException $e) { // provided JWT is malformed OR // provided JWT is missing an algorithm / using an unsupported algorithm OR // provided JWT algorithm does not match provided key OR // provided key ID in key/key-array is empty or invalid. } <literallayout><computeroutput>All&#32;exceptions&#32;in&#32;the&#32;`Firebase\JWT`&#32;namespace&#32;extend&#32;`UnexpectedValueException`,&#32;and&#32;can&#32;be&#32;simplified
+like&#32;this:
+</computeroutput></literallayout> php try { $decoded = JWT::decode($payload, $keys); } catch (LogicException $e) { // errors having to do with environmental setup or malformed JWT Keys } catch (UnexpectedValueException $e) { // errors having to do with JWT signature and claims } <literallayout><computeroutput>####&#32;Casting&#32;to&#32;array
+
+The&#32;return&#32;value&#32;of&#32;`JWT::decode`&#32;is&#32;the&#32;generic&#32;PHP&#32;object&#32;`stdClass`.&#32;If&#32;you&apos;d&#32;like&#32;to&#32;handle&#32;with&#32;arrays
+instead,&#32;you&#32;can&#32;do&#32;the&#32;following:
+</computeroutput></literallayout> php // return type is stdClass $decoded = JWT::decode($payload, $keys);</para>
+
+<para>// cast to array $decoded = json_decode(json_encode($decoded), true); <literallayout><computeroutput>Tests
+-----
+Run&#32;the&#32;tests&#32;using&#32;phpunit:
+</computeroutput></literallayout> bash $ pear install PHPUnit $ phpunit &#8211;configuration phpunit.xml.dist PHPUnit 3.7.10 by Sebastian Bergmann. ..... Time: 0 seconds, Memory: 2.50Mb OK (5 tests, 5 assertions) ```</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2firebase_2php-jwt_2_r_e_a_d_m_e_1autotoc_md5794">
+<title><title>New Lines in private keys</title></title>
+
+<para>If your private key contains <computeroutput>\n</computeroutput> characters, be sure to wrap it in double quotes <computeroutput>&quot;&quot;</computeroutput> and not single quotes &#8216;&#8217;&apos;` in order to properly interpret the escaped characters.</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2firebase_2php-jwt_2_r_e_a_d_m_e_1autotoc_md5795">
+<title><title>License</title></title>
+
+<para><link xlink:href="http://opensource.org/licenses/BSD-3-Clause">3-Clause BSD</link>. </para>
+</section>
+</section>
+</section>

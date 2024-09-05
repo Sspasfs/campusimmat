@@ -1,0 +1,120 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_interface_scss_php_1_1_scss_php_1_1_logger_1_1_logger_interface" xml:lang="fr">
+<title>Référence de l&apos;interface LoggerInterface</title>
+<indexterm><primary>LoggerInterface</primary></indexterm>
+Graphe d&apos;héritage de LoggerInterface:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="interface_scss_php_1_1_scss_php_1_1_logger_1_1_logger_interface__inherit__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Graphe de collaboration de LoggerInterface:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="interface_scss_php_1_1_scss_php_1_1_logger_1_1_logger_interface__coll__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Fonctions membres publiques    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_interface_scss_php_1_1_scss_php_1_1_logger_1_1_logger_interface_1a7ba747e1e8543cb73c925d10b9eefbd2">warn</link> ($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">message</link>, $deprecation=false)</para>
+</listitem>
+            <listitem><para><link linkend="_interface_scss_php_1_1_scss_php_1_1_logger_1_1_logger_interface_1a568d49c8c4f47314610017c56d159482">debug</link> ($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">message</link>)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Description détaillée</title>
+
+<para>Interface implemented by loggers for warnings and debug messages.</para>
+
+<para>The official Sass implementation recommends that loggers report the messages immediately rather than waiting for the end of the compilation, to provide a better debugging experience when the compilation does not end (error or infinite loop after the warning for instance). </para>
+</section>
+<section>
+<title>Documentation des fonctions membres</title>
+<anchor xml:id="_interface_scss_php_1_1_scss_php_1_1_logger_1_1_logger_interface_1a568d49c8c4f47314610017c56d159482"/><section>
+    <title>debug()</title>
+<indexterm><primary>debug</primary><secondary>LoggerInterface</secondary></indexterm>
+<indexterm><primary>LoggerInterface</primary><secondary>debug</secondary></indexterm>
+<para><computeroutput>debug ( $message)</computeroutput></para>
+<para>Emits a debugging message.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$message</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>void </para>
+</formalpara>
+</para>
+<para>
+Implémenté dans <link linkend="_class_scss_php_1_1_scss_php_1_1_logger_1_1_quiet_logger_1a568d49c8c4f47314610017c56d159482">QuietLogger</link>, et <link linkend="_class_scss_php_1_1_scss_php_1_1_logger_1_1_stream_logger_1a568d49c8c4f47314610017c56d159482">StreamLogger</link>.</para>
+</section>
+<anchor xml:id="_interface_scss_php_1_1_scss_php_1_1_logger_1_1_logger_interface_1a7ba747e1e8543cb73c925d10b9eefbd2"/><section>
+    <title>warn()</title>
+<indexterm><primary>warn</primary><secondary>LoggerInterface</secondary></indexterm>
+<indexterm><primary>LoggerInterface</primary><secondary>warn</secondary></indexterm>
+<para><computeroutput>warn ( $message,  $deprecation = <computeroutput>false</computeroutput>
+)</computeroutput></para>
+<para>Emits a warning with the given message.</para>
+
+<para>If $deprecation is true, it indicates that this is a deprecation warning. Implementations should surface all this information to the end user.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$message</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>bool</entry><entry>$deprecation</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>void </para>
+</formalpara>
+</para>
+<para>
+Implémenté dans <link linkend="_class_scss_php_1_1_scss_php_1_1_logger_1_1_quiet_logger_1a7ba747e1e8543cb73c925d10b9eefbd2">QuietLogger</link>, et <link linkend="_class_scss_php_1_1_scss_php_1_1_logger_1_1_stream_logger_1a7ba747e1e8543cb73c925d10b9eefbd2">StreamLogger</link>.</para>
+</section>
+<para>
+La documentation de cette interface a été générée à partir du fichier suivant :</para>
+public/glpi/vendor/scssphp/scssphp/src/Logger/<link linkend="_scssphp_2scssphp_2src_2_logger_2_logger_interface_8php">LoggerInterface.php</link></section>
+</section>

@@ -1,0 +1,171 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_namespace_sabre_1_1_xml_1_1_deserializer" xml:lang="fr">
+<title>Référence de l&apos;espace de nommage Sabre\Xml\Deserializer</title>
+<indexterm><primary>Sabre\Xml\Deserializer</primary></indexterm>
+<simplesect>
+    <title>Fonctions    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_namespace_sabre_1_1_xml_1_1_deserializer_1a465fbb38cd6a3f2c8447308581a0a853">keyValue</link> (<link linkend="_class_sabre_1_1_xml_1_1_reader">Reader</link> $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">reader</link>, string $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">namespace</link>=null)</para>
+</listitem>
+            <listitem><para><link linkend="_namespace_sabre_1_1_xml_1_1_deserializer_1ac9001a01703a7a0711dfb11f77a5085c">enum</link> (<link linkend="_class_sabre_1_1_xml_1_1_reader">Reader</link> $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">reader</link>, string $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">namespace</link>=null)</para>
+</listitem>
+            <listitem><para><link linkend="_namespace_sabre_1_1_xml_1_1_deserializer_1a14886b7b6247c611457a9ce9621b2d87">valueObject</link> (<link linkend="_class_sabre_1_1_xml_1_1_reader">Reader</link> $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">reader</link>, string $className, string $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">namespace</link>)</para>
+</listitem>
+            <listitem><para><link linkend="_namespace_sabre_1_1_xml_1_1_deserializer_1abf0220d63e8f67b8497c1e06a3506618">repeatingElements</link> (<link linkend="_class_sabre_1_1_xml_1_1_reader">Reader</link> $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">reader</link>, string $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">childElementName</link>)</para>
+</listitem>
+            <listitem><para><link linkend="_namespace_sabre_1_1_xml_1_1_deserializer_1aa5a5ec9adbb8d81c07271dec3a647467">mixedContent</link> (<link linkend="_class_sabre_1_1_xml_1_1_reader">Reader</link> $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">reader</link>)</para>
+</listitem>
+            <listitem><para><link linkend="_namespace_sabre_1_1_xml_1_1_deserializer_1a5ccf9409078e8b508efa586c4fc9f789">functionCaller</link> (<link linkend="_class_sabre_1_1_xml_1_1_reader">Reader</link> $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">reader</link>, <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">callable</link> $func, string $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">namespace</link>)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Documentation des fonctions</title>
+<anchor xml:id="_namespace_sabre_1_1_xml_1_1_deserializer_1ac9001a01703a7a0711dfb11f77a5085c"/><section>
+    <title>enum()</title>
+<indexterm><primary>enum</primary><secondary>Sabre\Xml\Deserializer</secondary></indexterm>
+<indexterm><primary>Sabre\Xml\Deserializer</primary><secondary>enum</secondary></indexterm>
+<para><computeroutput>enum (<link linkend="_class_sabre_1_1_xml_1_1_reader">Reader</link> $reader, string $namespace = <computeroutput>null</computeroutput>
+)</computeroutput></para>
+<para>The &apos;enum&apos; deserializer parses elements into a simple list without values or attributes.</para>
+
+<para>For example, Elements will parse:</para>
+
+<para>&lt;?xml version=&quot;1.0&quot;? &gt; &lt;s:root xmlns:s=&quot;http://sabredav.org/ns&quot;&gt; &lt;s:elem1 /&gt; &lt;s:elem2 /&gt; &lt;s:elem3 /&gt; &lt;s:elem4&gt;content&lt;/s:elem4&gt; &lt;s:elem5 attr=&quot;val&quot; /&gt; &lt;/s:root&gt;</para>
+
+<para>Into:</para>
+
+<para>[ &quot;{http://sabredav.org/ns}elem1&quot;, &quot;{http://sabredav.org/ns}elem2&quot;, &quot;{http://sabredav.org/ns}elem3&quot;, &quot;{http://sabredav.org/ns}elem4&quot;, &quot;{http://sabredav.org/ns}elem5&quot;, ];</para>
+
+<para>This is useful for &apos;enum&apos;-like structures.</para>
+
+<para>If the $namespace argument is specified, it will strip the namespace for all elements that match that.</para>
+
+<para>For example,</para>
+
+<para>enum($reader, &apos;<link xlink:href="http://sabredav.org/ns&apos;">http://sabredav.org/ns&apos;</link>)</para>
+
+<para>would return:</para>
+
+<para>[ &quot;elem1&quot;, &quot;elem2&quot;, &quot;elem3&quot;, &quot;elem4&quot;, &quot;elem5&quot;, ];</para>
+
+<para><formalpara><title>Renvoie</title>
+
+<para>string[] </para>
+</formalpara>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="namespace_sabre_1_1_xml_1_1_deserializer_ac9001a01703a7a0711dfb11f77a5085c_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_namespace_sabre_1_1_xml_1_1_deserializer_1a5ccf9409078e8b508efa586c4fc9f789"/><section>
+    <title>functionCaller()</title>
+<indexterm><primary>functionCaller</primary><secondary>Sabre\Xml\Deserializer</secondary></indexterm>
+<indexterm><primary>Sabre\Xml\Deserializer</primary><secondary>functionCaller</secondary></indexterm>
+<para><computeroutput>functionCaller (<link linkend="_class_sabre_1_1_xml_1_1_reader">Reader</link> $reader, <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">callable</link> $func, string $namespace)</computeroutput></para>
+<para>The functionCaller deserializer turns an xml element into whatever your callable return.</para>
+
+<para>You can use, e.g., a named constructor (factory method) to create an object using this function.</para>
+
+<para><formalpara><title>Renvoie</title>
+
+<para>mixed </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_namespace_sabre_1_1_xml_1_1_deserializer_1a465fbb38cd6a3f2c8447308581a0a853"/><section>
+    <title>keyValue()</title>
+<indexterm><primary>keyValue</primary><secondary>Sabre\Xml\Deserializer</secondary></indexterm>
+<indexterm><primary>Sabre\Xml\Deserializer</primary><secondary>keyValue</secondary></indexterm>
+<para><computeroutput>keyValue (<link linkend="_class_sabre_1_1_xml_1_1_reader">Reader</link> $reader, string $namespace = <computeroutput>null</computeroutput>
+)</computeroutput></para>
+<para>This class provides a number of &apos;deserializer&apos; helper functions. These can be used to easily specify custom deserializers for specific <link linkend="_class_x_m_l">XML</link> elements.</para>
+
+<para>You can either use these functions from within the $elementMap in the Service or Reader class, or you can call them from within your own deserializer functions. The &apos;keyValue&apos; deserializer parses all child elements, and outputs them as a &quot;key=&gt;value&quot; array.</para>
+
+<para>For example, keyvalue will parse:</para>
+
+<para>&lt;?xml version=&quot;1.0&quot;?&gt; &lt;s:root xmlns:s=&quot;http://sabredav.org/ns&quot;&gt; &lt;s:elem1&gt;value1&lt;/s:elem1&gt; &lt;s:elem2&gt;value2&lt;/s:elem2&gt; &lt;s:elem3 /&gt; &lt;/s:root&gt;</para>
+
+<para>Into:</para>
+
+<para>[ &quot;{http://sabredav.org/ns}elem1&quot; =&gt; &quot;value1&quot;, &quot;{http://sabredav.org/ns}elem2&quot; =&gt; &quot;value2&quot;, &quot;{http://sabredav.org/ns}elem3&quot; =&gt; null, ];</para>
+
+<para>If you specify the &apos;namespace&apos; argument, the deserializer will remove the namespaces of the keys that match that namespace.</para>
+
+<para>For example, if you call keyValue like this:</para>
+
+<para>keyValue($reader, &apos;<link xlink:href="http://sabredav.org/ns&apos;">http://sabredav.org/ns&apos;</link>)</para>
+
+<para>it&apos;s output will instead be:</para>
+
+<para>[ &quot;elem1&quot; =&gt; &quot;value1&quot;, &quot;elem2&quot; =&gt; &quot;value2&quot;, &quot;elem3&quot; =&gt; null, ];</para>
+
+<para>Attributes will be removed from the top-level elements. If elements with the same name appear twice in the list, only the last one will be kept. </para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="namespace_sabre_1_1_xml_1_1_deserializer_a465fbb38cd6a3f2c8447308581a0a853_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_namespace_sabre_1_1_xml_1_1_deserializer_1aa5a5ec9adbb8d81c07271dec3a647467"/><section>
+    <title>mixedContent()</title>
+<indexterm><primary>mixedContent</primary><secondary>Sabre\Xml\Deserializer</secondary></indexterm>
+<indexterm><primary>Sabre\Xml\Deserializer</primary><secondary>mixedContent</secondary></indexterm>
+<para><computeroutput>mixedContent (<link linkend="_class_sabre_1_1_xml_1_1_reader">Reader</link> $reader)</computeroutput></para>
+<para>This deserializer helps you to deserialize structures which contain mixed content like this:.</para>
+
+<para>some text &lt;extref&gt;and a inline tag&lt;/extref&gt;and even more text</para>
+
+<para>The above example will return</para>
+
+<para>[ &apos;some text&apos;, [ &apos;name&apos; =&gt; &apos;{}extref&apos;, &apos;value&apos; =&gt; &apos;and a inline tag&apos;, &apos;attributes&apos; =&gt; [] ], &apos;and even more text&apos; ]</para>
+
+<para>In strict <link linkend="_class_x_m_l">XML</link> documents you wont find this kind of markup but in html this is a quite common pattern. </para>
+</section>
+<anchor xml:id="_namespace_sabre_1_1_xml_1_1_deserializer_1abf0220d63e8f67b8497c1e06a3506618"/><section>
+    <title>repeatingElements()</title>
+<indexterm><primary>repeatingElements</primary><secondary>Sabre\Xml\Deserializer</secondary></indexterm>
+<indexterm><primary>Sabre\Xml\Deserializer</primary><secondary>repeatingElements</secondary></indexterm>
+<para><computeroutput>repeatingElements (<link linkend="_class_sabre_1_1_xml_1_1_reader">Reader</link> $reader, string $childElementName)</computeroutput></para>
+<para>This deserializer helps you deserialize xml structures that look like this:.</para>
+
+<para>&lt;collection&gt; ... ... ... &lt;/collection&gt;</para>
+
+<para>Many <link linkend="_class_x_m_l">XML</link> documents use patterns like that, and this deserializer allow you to get all the &apos;items&apos; as an array.</para>
+
+<para>In that previous example, you would register the deserializer as such:</para>
+
+<para>$reader-&gt;elementMap[&apos;{}collection&apos;] = function($reader) { return repeatingElements($reader, &apos;{}item&apos;); }</para>
+
+<para>The repeatingElements deserializer simply returns everything as an array.</para>
+
+<para>$childElementName must either be a a clark-notation element name, or if no namespace is used, the bare element name. </para>
+</section>
+<anchor xml:id="_namespace_sabre_1_1_xml_1_1_deserializer_1a14886b7b6247c611457a9ce9621b2d87"/><section>
+    <title>valueObject()</title>
+<indexterm><primary>valueObject</primary><secondary>Sabre\Xml\Deserializer</secondary></indexterm>
+<indexterm><primary>Sabre\Xml\Deserializer</primary><secondary>valueObject</secondary></indexterm>
+<para><computeroutput>valueObject (<link linkend="_class_sabre_1_1_xml_1_1_reader">Reader</link> $reader, string $className, string $namespace)</computeroutput></para>
+<para>The valueObject deserializer turns an xml element into a PHP object of a specific class.</para>
+
+<para>This is primarily used by the mapValueObject function from the Service class, but it can also easily be used for more specific situations.</para>
+
+<para><formalpara><title>Renvoie</title>
+
+<para>object </para>
+</formalpara>
+</para>
+</section>
+</section>
+</section>

@@ -1,0 +1,104 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_guzzle_http_1_1_psr7_1_1_query" xml:lang="fr">
+<title>Référence de la classe Query</title>
+<indexterm><primary>Query</primary></indexterm>
+Graphe de collaboration de Query:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_guzzle_http_1_1_psr7_1_1_query__coll__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Fonctions membres publiques statiques    </title>
+        <itemizedlist>
+            <listitem><para>static <link linkend="_class_guzzle_http_1_1_psr7_1_1_query_1a2f8bccccdc7bf909fa4e9fa2009ddcb1">parse</link> (string $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">str</link>, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">urlEncoding</link>=true)</para>
+</listitem>
+            <listitem><para>static <link linkend="_class_guzzle_http_1_1_psr7_1_1_query_1a7fbbb1758892fcf526f6d4bfc40dbf89">build</link> (array $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">params</link>, $encoding=<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">PHP_QUERY_RFC3986</link>)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Documentation des fonctions membres</title>
+<anchor xml:id="_class_guzzle_http_1_1_psr7_1_1_query_1a7fbbb1758892fcf526f6d4bfc40dbf89"/><section>
+    <title>build()</title>
+<indexterm><primary>build</primary><secondary>Query</secondary></indexterm>
+<indexterm><primary>Query</primary><secondary>build</secondary></indexterm>
+<para><computeroutput>static build (array $params,  $encoding = <computeroutput><link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">PHP_QUERY_RFC3986</link></computeroutput>
+)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>Build a query string from an array of key value pairs.</para>
+
+<para>This function can use the return value of <computeroutput>parse()</computeroutput> to build a query string. This function does not modify the provided keys when an array is encountered (like <computeroutput>http_build_query()</computeroutput> would).</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>array</entry><entry>$params</entry><entry>
+<para>Query string parameters. </para>
+</entry>
+                            </row>
+                            <row>
+<entry>int | false</entry><entry>$encoding</entry><entry>
+<para>Set to false to not encode, PHP_QUERY_RFC3986 to encode using RFC3986, or PHP_QUERY_RFC1738 to encode using RFC1738. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
+<anchor xml:id="_class_guzzle_http_1_1_psr7_1_1_query_1a2f8bccccdc7bf909fa4e9fa2009ddcb1"/><section>
+    <title>parse()</title>
+<indexterm><primary>parse</primary><secondary>Query</secondary></indexterm>
+<indexterm><primary>Query</primary><secondary>parse</secondary></indexterm>
+<para><computeroutput>static parse (string $str,  $urlEncoding = <computeroutput>true</computeroutput>
+)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>Parse a query string into an associative array.</para>
+
+<para>If multiple values are found for the same key, the value of that key value pair will become an array. This function does not parse nested PHP style arrays into an associative array (e.g., <computeroutput>foo[a]=1&amp;foo[b]=2</computeroutput> will be parsed into &#8216;[&apos;foo[a]&#8217; =&gt; &apos;1&apos;, &apos;foo[b]&apos; =&gt; &apos;2&apos;])`.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$str</entry><entry>
+<para>Query string to parse </para>
+</entry>
+                            </row>
+                            <row>
+<entry>int | bool</entry><entry>$urlEncoding</entry><entry>
+<para>How the query string is encoded </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
+<para>
+La documentation de cette classe a été générée à partir du fichier suivant :</para>
+public/glpi/vendor/guzzlehttp/psr7/src/<link linkend="__query_8php">Query.php</link></section>
+</section>

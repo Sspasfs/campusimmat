@@ -1,0 +1,102 @@
+\doxysection{Référence de l\textquotesingle{}interface IExtended\+Collection}
+\hypertarget{interface_sabre_1_1_d_a_v_1_1_i_extended_collection}{}\label{interface_sabre_1_1_d_a_v_1_1_i_extended_collection}\index{IExtendedCollection@{IExtendedCollection}}
+
+
+Graphe d\textquotesingle{}héritage de IExtended\+Collection\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{interface_sabre_1_1_d_a_v_1_1_i_extended_collection__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Graphe de collaboration de IExtended\+Collection\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=209pt]{interface_sabre_1_1_d_a_v_1_1_i_extended_collection__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_i_extended_collection_acc2505cdc0e3b05f482b34cda52068ac}{create\+Extended\+Collection}} (\$name, \mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_mk_col}{Mk\+Col}} \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{mk\+Col}})
+\end{DoxyCompactItemize}
+\doxysubsection*{Fonctions membres publiques hérités de \mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_i_collection}{ICollection}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_i_collection_a4135c8ffb4787bd20d7409ad699d8e0d}{create\+File}} (\$name, \$data=null)
+\item 
+\mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_i_collection_ad2c87f2e1012d1860d1d343a9ee54fa1}{create\+Directory}} (\$name)
+\item 
+\mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_i_collection_a1cfdba129d25b04b73af8290f58ba7c1}{get\+Child}} (\$name)
+\item 
+\mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_i_collection_a8650a4f6150ed357d88fa043f1685ac5}{get\+Children}} ()
+\item 
+\mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_i_collection_a9c5c664f8f1e4a514235a31837de9988}{child\+Exists}} (\$name)
+\end{DoxyCompactItemize}
+\doxysubsection*{Fonctions membres publiques hérités de \mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_i_node}{INode}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_i_node_a13bdffdd926f26b825ea57066334ff01}{delete}} ()
+\item 
+\mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_i_node_a3d0963e68bb313b163a73f2803c64600}{get\+Name}} ()
+\item 
+\mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_i_node_a2fe666694997d047711d7653eca2f132}{set\+Name}} (\$name)
+\item 
+\mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_i_node_aa388e2fda4fe702e8953c1a731868f18}{get\+Last\+Modified}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+The IExtended\+Collection interface.
+
+This interface can be used to create special-\/type of collection-\/resources as defined by RFC 5689.
+
+\begin{DoxyCopyright}{Copyright}
+Copyright (C) fruux GmbH (\href{https://fruux.com/}{\texttt{ https\+://fruux.\+com/}}) 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Auteur}
+Evert Pot (\href{http://evertpot.com/}{\texttt{ http\+://evertpot.\+com/}}) @license \href{http://sabre.io/license/}{\texttt{ http\+://sabre.\+io/license/}} Modified BSD License 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Documentation des fonctions membres}
+\Hypertarget{interface_sabre_1_1_d_a_v_1_1_i_extended_collection_acc2505cdc0e3b05f482b34cda52068ac}\label{interface_sabre_1_1_d_a_v_1_1_i_extended_collection_acc2505cdc0e3b05f482b34cda52068ac} 
+\index{IExtendedCollection@{IExtendedCollection}!createExtendedCollection@{createExtendedCollection}}
+\index{createExtendedCollection@{createExtendedCollection}!IExtendedCollection@{IExtendedCollection}}
+\doxysubsubsection{\texorpdfstring{createExtendedCollection()}{createExtendedCollection()}}
+{\footnotesize\ttfamily create\+Extended\+Collection (\begin{DoxyParamCaption}\item[{}]{\$name,  }\item[{\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_mk_col}{Mk\+Col}}}]{\$mk\+Col }\end{DoxyParamCaption})}
+
+Creates a new collection.
+
+This method will receive a Mk\+Col object with all the information about the new collection that\textquotesingle{}s being created.
+
+The Mk\+Col object contains information about the resource\+Type of the new collection. If you don\textquotesingle{}t support the specified resource\+Type, you should throw Exception\textbackslash{}\+Invalid\+Resource\+Type.
+
+The object also contains a list of Web\+DAV properties for the new collection.
+
+You should call the handle() method on this object to specify exactly which properties you are storing. This allows the system to figure out exactly which properties you didn\textquotesingle{}t store, which in turn allows other plugins (such as the propertystorage plugin) to handle storing the property for you.
+
+
+\begin{DoxyParams}[1]{Paramètres}
+string & {\em \$name} & \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Exception} & \\
+\hline
+\end{DoxyExceptions}
+Invalid\+Resource\+Type 
+
+Implémenté dans \mbox{\hyperlink{class_sabre_1_1_cal_d_a_v_1_1_calendar_home_acc2505cdc0e3b05f482b34cda52068ac}{Calendar\+Home}}, \mbox{\hyperlink{class_sabre_1_1_card_d_a_v_1_1_address_book_home_acc2505cdc0e3b05f482b34cda52068ac}{Address\+Book\+Home}}, et \mbox{\hyperlink{class_sabre_1_1_d_a_v_a_c_l_1_1_principal_collection_acc2505cdc0e3b05f482b34cda52068ac}{Principal\+Collection}}.
+
+
+
+La documentation de cette interface a été générée à partir du fichier suivant \+:\begin{DoxyCompactItemize}
+\item 
+public/glpi/vendor/sabre/dav/lib/\+DAV/\mbox{\hyperlink{_i_extended_collection_8php}{IExtended\+Collection.\+php}}\end{DoxyCompactItemize}

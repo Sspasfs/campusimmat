@@ -1,0 +1,137 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_locale_8php" xml:lang="fr">
+<title>Référence du fichier public/glpi/front/locale.php</title>
+<indexterm><primary>public/glpi/front/locale.php</primary></indexterm>
+<simplesect>
+    <title>Variables    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">global</link> <link linkend="_locale_8php_1a2e00a61703ee4673cdfb5eb376a9b295">$CFG_GLPI</link></para>
+</listitem>
+            <listitem><para><link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">global</link> <link linkend="_locale_8php_1ac3ee6578f0e8350144ba075a32698bf2">$TRANSLATE</link></para>
+</listitem>
+            <listitem><para><link linkend="_locale_8php_1a803992d20070f8b025dcc9ea32ff1ebb">$SECURITY_STRATEGY</link> = &apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">no_check</link>&apos;</para>
+</listitem>
+            <listitem><para><link linkend="_locale_8php_1a11ae9d4abdbf8a2a1d82a62942535a04">$_GET</link> [&apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">donotcheckversion</link>&apos;] = true</para>
+</listitem>
+            <listitem><para><link linkend="_locale_8php_1a6a909f28613bf24c695795c051be8cdf">$dont_check_maintenance_mode</link> = true</para>
+</listitem>
+            <listitem><para><link linkend="_locale_8php_1a0346bc6079fc99bf975480bc2bb8583c">$is_cacheable</link> = !<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">isset</link>($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">_GET</link>[&apos;debug&apos;])</para>
+</listitem>
+            <listitem><para><link linkend="_dropdown_location_8php_1a52332c22f84432520971794825a5a8e7">if</link>(!<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">Update::isDbUpToDate</link>()) <link linkend="_dropdown_location_8php_1a52332c22f84432520971794825a5a8e7">if</link>($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">is_cacheable</link>) <link linkend="_locale_8php_1a7dfa3535d1144fb3a7ea40d579128c53">$default_response</link></para>
+</listitem>
+            <listitem><para><link linkend="_locale_8php_1a21a183f927a6d243fe6b4ba3a6c4d4c8">$messages</link> = null</para>
+</listitem>
+            <listitem><para><link linkend="_locale_8php_1abe4cc9788f52e49485473dc699537388">try</link></para>
+</listitem>
+            <listitem><para><link linkend="_ajax_2massiveaction_8php_1a1779b58e59344448e6f0077de3112b24">catch</link>(\Throwable $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">e</link>) <link linkend="_dropdown_location_8php_1a52332c22f84432520971794825a5a8e7">if</link>(!($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">messages</link> <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">instanceof</link> \<link linkend="_class_laminas_1_1_i18n_1_1_translator_1_1_text_domain">Laminas\I18n\Translator\TextDomain</link>)) <link linkend="_locale_8php_1a5411f95ac8f576eca0051e760e46b45c">$po_file</link></para>
+</listitem>
+            <listitem><para><link linkend="_locale_8php_1a009f451e9329581ca07d33b96ffb69a5">$po_file_handle</link></para>
+</listitem>
+            <listitem><para><link linkend="_dropdown_location_8php_1a52332c22f84432520971794825a5a8e7">if</link>(false===$<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">po_file_handle</link>) <link linkend="_locale_8php_1a214068c0746795330f3172d1752e4ae2">$in_headers</link> = false</para>
+</listitem>
+            <listitem><para><link linkend="_locale_8php_1a52500036ee807241b8b4b7e2367c49ef">$headers</link> = []</para>
+</listitem>
+            <listitem><para><link linkend="_locale_8php_1a0deffe91e00639aea85482b358da66a2">$header_keys</link> = [&apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">language</link>&apos;, &apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">plural</link>-<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">forms</link>&apos;]</para>
+</listitem>
+            <listitem><para><link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">while</link>(false !==( $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">line</link>=fgets( $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">po_file_handle</link>))) <link linkend="_dropdown_location_8php_1a52332c22f84432520971794825a5a8e7">if</link>(count(<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">array_diff</link>($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">header_keys</link>, array_keys($headers))) &gt; 0) <link linkend="_locale_8php_1a8bdbe14a64455591689850b98cec6fc0">$messages</link> [&apos;&apos;] = $headers</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Documentation des variables</title>
+<anchor xml:id="_locale_8php_1a11ae9d4abdbf8a2a1d82a62942535a04"/><section>
+    <title>$_GET</title>
+<indexterm><primary>$_GET</primary><secondary>locale.php</secondary></indexterm>
+<indexterm><primary>locale.php</primary><secondary>$_GET</secondary></indexterm>
+<para><computeroutput>$<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">_GET</link>[ &apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">donotcheckversion</link>&apos;] = true</computeroutput></para></section>
+<anchor xml:id="_locale_8php_1a2e00a61703ee4673cdfb5eb376a9b295"/><section>
+    <title>$CFG_GLPI</title>
+<indexterm><primary>$CFG_GLPI</primary><secondary>locale.php</secondary></indexterm>
+<indexterm><primary>locale.php</primary><secondary>$CFG_GLPI</secondary></indexterm>
+<para><computeroutput><link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">global</link> $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">CFG_GLPI</link></computeroutput></para></section>
+<anchor xml:id="_locale_8php_1a7dfa3535d1144fb3a7ea40d579128c53"/><section>
+    <title>$default_response</title>
+<indexterm><primary>$default_response</primary><secondary>locale.php</secondary></indexterm>
+<indexterm><primary>locale.php</primary><secondary>$default_response</secondary></indexterm>
+<para><computeroutput><link linkend="_dropdown_location_8php_1a52332c22f84432520971794825a5a8e7">if</link>(!<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">Update::isDbUpToDate</link>()) <link linkend="_dropdown_location_8php_1a52332c22f84432520971794825a5a8e7">if</link> ( $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">is_cacheable</link>) $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">default_response</link></computeroutput></para><emphasis role="strong">Valeur initiale :</emphasis><programlisting linenumbering="unnumbered">=&#32;json_encode(
+&#32;&#32;&#32;&#32;[
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&apos;&apos;</emphasis>&#32;=&gt;&#32;[
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&apos;language&apos;</emphasis>&#32;&#32;&#32;&#32;&#32;=&gt;&#32;<link linkend="_locale_8php_1a2e00a61703ee4673cdfb5eb376a9b295">$CFG_GLPI</link>[<emphasis role="stringliteral">&apos;languages&apos;</emphasis>][<link linkend="_ajax_2knowbase_8php_1a8d51972dab0856e7ed5db52b906de613">$_SESSION</link>[<emphasis role="stringliteral">&apos;glpilanguage&apos;</emphasis>]][1],
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&apos;plural-forms&apos;</emphasis>&#32;=&gt;&#32;<emphasis role="stringliteral">&apos;nplurals=2;&#32;plural=(n&#32;!=&#32;1);&apos;</emphasis>,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;],
+&#32;&#32;&#32;&#32;]
+)
+</programlisting></section>
+<anchor xml:id="_locale_8php_1a6a909f28613bf24c695795c051be8cdf"/><section>
+    <title>$dont_check_maintenance_mode</title>
+<indexterm><primary>$dont_check_maintenance_mode</primary><secondary>locale.php</secondary></indexterm>
+<indexterm><primary>locale.php</primary><secondary>$dont_check_maintenance_mode</secondary></indexterm>
+<para><computeroutput>$<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">dont_check_maintenance_mode</link> = true</computeroutput></para></section>
+<anchor xml:id="_locale_8php_1a0deffe91e00639aea85482b358da66a2"/><section>
+    <title>$header_keys</title>
+<indexterm><primary>$header_keys</primary><secondary>locale.php</secondary></indexterm>
+<indexterm><primary>locale.php</primary><secondary>$header_keys</secondary></indexterm>
+<para><computeroutput>$<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">header_keys</link> = [&apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">language</link>&apos;, &apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">plural</link>-<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">forms</link>&apos;]</computeroutput></para></section>
+<anchor xml:id="_locale_8php_1a52500036ee807241b8b4b7e2367c49ef"/><section>
+    <title>$headers</title>
+<indexterm><primary>$headers</primary><secondary>locale.php</secondary></indexterm>
+<indexterm><primary>locale.php</primary><secondary>$headers</secondary></indexterm>
+<para><computeroutput>$headers = []</computeroutput></para></section>
+<anchor xml:id="_locale_8php_1a214068c0746795330f3172d1752e4ae2"/><section>
+    <title>$in_headers</title>
+<indexterm><primary>$in_headers</primary><secondary>locale.php</secondary></indexterm>
+<indexterm><primary>locale.php</primary><secondary>$in_headers</secondary></indexterm>
+<para><computeroutput><link linkend="_dropdown_location_8php_1a52332c22f84432520971794825a5a8e7">if</link> (false===$<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">po_file_handle</link>) $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">in_headers</link> = false</computeroutput></para></section>
+<anchor xml:id="_locale_8php_1a0346bc6079fc99bf975480bc2bb8583c"/><section>
+    <title>$is_cacheable</title>
+<indexterm><primary>$is_cacheable</primary><secondary>locale.php</secondary></indexterm>
+<indexterm><primary>locale.php</primary><secondary>$is_cacheable</secondary></indexterm>
+<para><computeroutput>$<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">is_cacheable</link> = !<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">isset</link>($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">_GET</link>[&apos;debug&apos;])</computeroutput></para></section>
+<anchor xml:id="_locale_8php_1a21a183f927a6d243fe6b4ba3a6c4d4c8"/><section>
+    <title>$messages<computeroutput>[1/2]</computeroutput></title>
+<indexterm><primary>$messages</primary><secondary>locale.php</secondary></indexterm>
+<indexterm><primary>locale.php</primary><secondary>$messages</secondary></indexterm>
+<para><computeroutput>$<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">messages</link> = null</computeroutput></para></section>
+<anchor xml:id="_locale_8php_1a8bdbe14a64455591689850b98cec6fc0"/><section>
+    <title>$messages<computeroutput>[2/2]</computeroutput></title>
+<indexterm><primary>$messages</primary><secondary>locale.php</secondary></indexterm>
+<indexterm><primary>locale.php</primary><secondary>$messages</secondary></indexterm>
+<para><computeroutput><link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">while</link>(false !==($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">line</link>=fgets($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">po_file_handle</link>))) <link linkend="_dropdown_location_8php_1a52332c22f84432520971794825a5a8e7">if</link> (count(<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">array_diff</link>( $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">header_keys</link>, array_keys( $headers))) &gt; 0) $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">messages</link>[&apos;&apos;] = $headers</computeroutput></para></section>
+<anchor xml:id="_locale_8php_1a5411f95ac8f576eca0051e760e46b45c"/><section>
+    <title>$po_file</title>
+<indexterm><primary>$po_file</primary><secondary>locale.php</secondary></indexterm>
+<indexterm><primary>locale.php</primary><secondary>$po_file</secondary></indexterm>
+<para><computeroutput><link linkend="_ajax_2massiveaction_8php_1a1779b58e59344448e6f0077de3112b24">catch</link>(\Throwable $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">e</link>) <link linkend="_dropdown_location_8php_1a52332c22f84432520971794825a5a8e7">if</link> (!( $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">messages</link> <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">instanceof</link> \<link linkend="_class_laminas_1_1_i18n_1_1_translator_1_1_text_domain">Laminas\I18n\Translator\TextDomain</link>)) $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">po_file</link></computeroutput></para><emphasis role="strong">Valeur initiale :</emphasis><programlisting linenumbering="unnumbered">=&#32;<link linkend="_apirest_8php_1af6315dcee605fda09b6c3109c1b739b1">GLPI_ROOT</link>&#32;.&#32;<emphasis role="stringliteral">&apos;/locales/&apos;</emphasis>&#32;.&#32;preg_replace(
+&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&apos;/\.mo$/&apos;</emphasis>,
+&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&apos;.po&apos;</emphasis>,
+&#32;&#32;&#32;&#32;<link linkend="_locale_8php_1a2e00a61703ee4673cdfb5eb376a9b295">$CFG_GLPI</link>[<emphasis role="stringliteral">&apos;languages&apos;</emphasis>][<link linkend="_ajax_2knowbase_8php_1a8d51972dab0856e7ed5db52b906de613">$_SESSION</link>[<emphasis role="stringliteral">&apos;glpilanguage&apos;</emphasis>]][1]
+)
+</programlisting></section>
+<anchor xml:id="_locale_8php_1a009f451e9329581ca07d33b96ffb69a5"/><section>
+    <title>$po_file_handle</title>
+<indexterm><primary>$po_file_handle</primary><secondary>locale.php</secondary></indexterm>
+<indexterm><primary>locale.php</primary><secondary>$po_file_handle</secondary></indexterm>
+<para><computeroutput>$<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">po_file_handle</link></computeroutput></para><emphasis role="strong">Valeur initiale :</emphasis><programlisting linenumbering="unnumbered">=&#32;fopen(
+&#32;&#32;&#32;&#32;<link linkend="_locale_8php_1a5411f95ac8f576eca0051e760e46b45c">$po_file</link>,
+&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&apos;rb&apos;</emphasis>
+)
+</programlisting></section>
+<anchor xml:id="_locale_8php_1a803992d20070f8b025dcc9ea32ff1ebb"/><section>
+    <title>$SECURITY_STRATEGY</title>
+<indexterm><primary>$SECURITY_STRATEGY</primary><secondary>locale.php</secondary></indexterm>
+<indexterm><primary>locale.php</primary><secondary>$SECURITY_STRATEGY</secondary></indexterm>
+<para><computeroutput>$<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">SECURITY_STRATEGY</link> = &apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">no_check</link>&apos;</computeroutput></para></section>
+<anchor xml:id="_locale_8php_1ac3ee6578f0e8350144ba075a32698bf2"/><section>
+    <title>$TRANSLATE</title>
+<indexterm><primary>$TRANSLATE</primary><secondary>locale.php</secondary></indexterm>
+<indexterm><primary>locale.php</primary><secondary>$TRANSLATE</secondary></indexterm>
+<para><computeroutput>Laminas I18n Translator TranslatorInterface $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">TRANSLATE</link></computeroutput></para></section>
+<anchor xml:id="_locale_8php_1abe4cc9788f52e49485473dc699537388"/><section>
+    <title>try</title>
+<indexterm><primary>try</primary><secondary>locale.php</secondary></indexterm>
+<indexterm><primary>locale.php</primary><secondary>try</secondary></indexterm>
+<para><computeroutput>try</computeroutput></para><emphasis role="strong">Valeur initiale :</emphasis><programlisting linenumbering="unnumbered">{
+&#32;&#32;&#32;&#32;<link linkend="_locale_8php_1a21a183f927a6d243fe6b4ba3a6c4d4c8">$messages</link>&#32;=&#32;<link linkend="_locale_8php_1ac3ee6578f0e8350144ba075a32698bf2">$TRANSLATE</link>-&gt;getAllMessages(<link linkend="_locale_8php_1a11ae9d4abdbf8a2a1d82a62942535a04">$_GET</link>[<emphasis role="stringliteral">&apos;domain&apos;</emphasis>])
+</programlisting></section>
+</section>
+</section>

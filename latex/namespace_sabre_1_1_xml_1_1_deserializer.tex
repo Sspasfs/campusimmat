@@ -1,0 +1,153 @@
+\doxysection{Référence de l\textquotesingle{}espace de nommage Sabre\textbackslash{}Xml\textbackslash{}Deserializer}
+\hypertarget{namespace_sabre_1_1_xml_1_1_deserializer}{}\label{namespace_sabre_1_1_xml_1_1_deserializer}\index{Sabre\textbackslash{}Xml\textbackslash{}Deserializer@{Sabre\textbackslash{}Xml\textbackslash{}Deserializer}}
+\doxysubsubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespace_sabre_1_1_xml_1_1_deserializer_a465fbb38cd6a3f2c8447308581a0a853}{key\+Value}} (\mbox{\hyperlink{class_sabre_1_1_xml_1_1_reader}{Reader}} \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{reader}}, string \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{namespace}}=null)
+\item 
+\mbox{\hyperlink{namespace_sabre_1_1_xml_1_1_deserializer_ac9001a01703a7a0711dfb11f77a5085c}{enum}} (\mbox{\hyperlink{class_sabre_1_1_xml_1_1_reader}{Reader}} \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{reader}}, string \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{namespace}}=null)
+\item 
+\mbox{\hyperlink{namespace_sabre_1_1_xml_1_1_deserializer_a14886b7b6247c611457a9ce9621b2d87}{value\+Object}} (\mbox{\hyperlink{class_sabre_1_1_xml_1_1_reader}{Reader}} \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{reader}}, string \$class\+Name, string \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{namespace}})
+\item 
+\mbox{\hyperlink{namespace_sabre_1_1_xml_1_1_deserializer_abf0220d63e8f67b8497c1e06a3506618}{repeating\+Elements}} (\mbox{\hyperlink{class_sabre_1_1_xml_1_1_reader}{Reader}} \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{reader}}, string \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{child\+Element\+Name}})
+\item 
+\mbox{\hyperlink{namespace_sabre_1_1_xml_1_1_deserializer_aa5a5ec9adbb8d81c07271dec3a647467}{mixed\+Content}} (\mbox{\hyperlink{class_sabre_1_1_xml_1_1_reader}{Reader}} \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{reader}})
+\item 
+\mbox{\hyperlink{namespace_sabre_1_1_xml_1_1_deserializer_a5ccf9409078e8b508efa586c4fc9f789}{function\+Caller}} (\mbox{\hyperlink{class_sabre_1_1_xml_1_1_reader}{Reader}} \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{reader}}, \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{callable}} \$func, string \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{namespace}})
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Documentation des fonctions}
+\Hypertarget{namespace_sabre_1_1_xml_1_1_deserializer_ac9001a01703a7a0711dfb11f77a5085c}\label{namespace_sabre_1_1_xml_1_1_deserializer_ac9001a01703a7a0711dfb11f77a5085c} 
+\index{Sabre\textbackslash{}Xml\textbackslash{}Deserializer@{Sabre\textbackslash{}Xml\textbackslash{}Deserializer}!enum@{enum}}
+\index{enum@{enum}!Sabre\textbackslash{}Xml\textbackslash{}Deserializer@{Sabre\textbackslash{}Xml\textbackslash{}Deserializer}}
+\doxysubsubsection{\texorpdfstring{enum()}{enum()}}
+{\footnotesize\ttfamily enum (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_sabre_1_1_xml_1_1_reader}{Reader}}}]{\$reader,  }\item[{string}]{\$namespace = {\ttfamily null} }\end{DoxyParamCaption})}
+
+The \textquotesingle{}enum\textquotesingle{} deserializer parses elements into a simple list without values or attributes.
+
+For example, Elements will parse\+:
+
+\texorpdfstring{$<$}{<}?xml version="{}1.\+0"{}? \texorpdfstring{$>$}{>} \texorpdfstring{$<$}{<}s\+:root xmlns\+:s="{}http\+://sabredav.\+org/ns"{}\texorpdfstring{$>$}{>} \texorpdfstring{$<$}{<}s\+:elem1 /\texorpdfstring{$>$}{>} \texorpdfstring{$<$}{<}s\+:elem2 /\texorpdfstring{$>$}{>} \texorpdfstring{$<$}{<}s\+:elem3 /\texorpdfstring{$>$}{>} \texorpdfstring{$<$}{<}s\+:elem4\texorpdfstring{$>$}{>}content\texorpdfstring{$<$}{<}/s\+:elem4\texorpdfstring{$>$}{>} \texorpdfstring{$<$}{<}s\+:elem5 attr="{}val"{} /\texorpdfstring{$>$}{>} \texorpdfstring{$<$}{<}/s\+:root\texorpdfstring{$>$}{>}
+
+Into\+:
+
+\mbox{[} "{}\{http\+://sabredav.\+org/ns\}elem1"{}, "{}\{http\+://sabredav.\+org/ns\}elem2"{}, "{}\{http\+://sabredav.\+org/ns\}elem3"{}, "{}\{http\+://sabredav.\+org/ns\}elem4"{}, "{}\{http\+://sabredav.\+org/ns\}elem5"{}, \mbox{]};
+
+This is useful for \textquotesingle{}enum\textquotesingle{}-\/like structures.
+
+If the \$namespace argument is specified, it will strip the namespace for all elements that match that.
+
+For example,
+
+enum(\$reader, \textquotesingle{}\href{http://sabredav.org/ns'}{\texttt{ http\+://sabredav.\+org/ns\textquotesingle{}}})
+
+would return\+:
+
+\mbox{[} "{}elem1"{}, "{}elem2"{}, "{}elem3"{}, "{}elem4"{}, "{}elem5"{}, \mbox{]};
+
+\begin{DoxyReturn}{Renvoie}
+string\mbox{[}\mbox{]} 
+\end{DoxyReturn}
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=301pt]{namespace_sabre_1_1_xml_1_1_deserializer_ac9001a01703a7a0711dfb11f77a5085c_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{namespace_sabre_1_1_xml_1_1_deserializer_a5ccf9409078e8b508efa586c4fc9f789}\label{namespace_sabre_1_1_xml_1_1_deserializer_a5ccf9409078e8b508efa586c4fc9f789} 
+\index{Sabre\textbackslash{}Xml\textbackslash{}Deserializer@{Sabre\textbackslash{}Xml\textbackslash{}Deserializer}!functionCaller@{functionCaller}}
+\index{functionCaller@{functionCaller}!Sabre\textbackslash{}Xml\textbackslash{}Deserializer@{Sabre\textbackslash{}Xml\textbackslash{}Deserializer}}
+\doxysubsubsection{\texorpdfstring{functionCaller()}{functionCaller()}}
+{\footnotesize\ttfamily function\+Caller (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_sabre_1_1_xml_1_1_reader}{Reader}}}]{\$reader,  }\item[{\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{callable}}}]{\$func,  }\item[{string}]{\$namespace }\end{DoxyParamCaption})}
+
+The function\+Caller deserializer turns an xml element into whatever your callable return.
+
+You can use, e.\+g., a named constructor (factory method) to create an object using this function.
+
+\begin{DoxyReturn}{Renvoie}
+mixed 
+\end{DoxyReturn}
+\Hypertarget{namespace_sabre_1_1_xml_1_1_deserializer_a465fbb38cd6a3f2c8447308581a0a853}\label{namespace_sabre_1_1_xml_1_1_deserializer_a465fbb38cd6a3f2c8447308581a0a853} 
+\index{Sabre\textbackslash{}Xml\textbackslash{}Deserializer@{Sabre\textbackslash{}Xml\textbackslash{}Deserializer}!keyValue@{keyValue}}
+\index{keyValue@{keyValue}!Sabre\textbackslash{}Xml\textbackslash{}Deserializer@{Sabre\textbackslash{}Xml\textbackslash{}Deserializer}}
+\doxysubsubsection{\texorpdfstring{keyValue()}{keyValue()}}
+{\footnotesize\ttfamily key\+Value (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_sabre_1_1_xml_1_1_reader}{Reader}}}]{\$reader,  }\item[{string}]{\$namespace = {\ttfamily null} }\end{DoxyParamCaption})}
+
+This class provides a number of \textquotesingle{}deserializer\textquotesingle{} helper functions. These can be used to easily specify custom deserializers for specific \doxylink{class_x_m_l}{XML} elements.
+
+You can either use these functions from within the \$element\+Map in the Service or Reader class, or you can call them from within your own deserializer functions. The \textquotesingle{}key\+Value\textquotesingle{} deserializer parses all child elements, and outputs them as a "{}key=$>$value"{} array.
+
+For example, keyvalue will parse\+:
+
+\texorpdfstring{$<$}{<}?xml version="{}1.\+0"{}?\texorpdfstring{$>$}{>} \texorpdfstring{$<$}{<}s\+:root xmlns\+:s="{}http\+://sabredav.\+org/ns"{}\texorpdfstring{$>$}{>} \texorpdfstring{$<$}{<}s\+:elem1\texorpdfstring{$>$}{>}value1\texorpdfstring{$<$}{<}/s\+:elem1\texorpdfstring{$>$}{>} \texorpdfstring{$<$}{<}s\+:elem2\texorpdfstring{$>$}{>}value2\texorpdfstring{$<$}{<}/s\+:elem2\texorpdfstring{$>$}{>} \texorpdfstring{$<$}{<}s\+:elem3 /\texorpdfstring{$>$}{>} \texorpdfstring{$<$}{<}/s\+:root\texorpdfstring{$>$}{>}
+
+Into\+:
+
+\mbox{[} "{}\{http\+://sabredav.\+org/ns\}elem1"{} =\texorpdfstring{$>$}{>} "{}value1"{}, "{}\{http\+://sabredav.\+org/ns\}elem2"{} =\texorpdfstring{$>$}{>} "{}value2"{}, "{}\{http\+://sabredav.\+org/ns\}elem3"{} =\texorpdfstring{$>$}{>} null, \mbox{]};
+
+If you specify the \textquotesingle{}namespace\textquotesingle{} argument, the deserializer will remove the namespaces of the keys that match that namespace.
+
+For example, if you call key\+Value like this\+:
+
+key\+Value(\$reader, \textquotesingle{}\href{http://sabredav.org/ns'}{\texttt{ http\+://sabredav.\+org/ns\textquotesingle{}}})
+
+it\textquotesingle{}s output will instead be\+:
+
+\mbox{[} "{}elem1"{} =\texorpdfstring{$>$}{>} "{}value1"{}, "{}elem2"{} =\texorpdfstring{$>$}{>} "{}value2"{}, "{}elem3"{} =\texorpdfstring{$>$}{>} null, \mbox{]};
+
+Attributes will be removed from the top-\/level elements. If elements with the same name appear twice in the list, only the last one will be kept. Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespace_sabre_1_1_xml_1_1_deserializer_a465fbb38cd6a3f2c8447308581a0a853_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{namespace_sabre_1_1_xml_1_1_deserializer_aa5a5ec9adbb8d81c07271dec3a647467}\label{namespace_sabre_1_1_xml_1_1_deserializer_aa5a5ec9adbb8d81c07271dec3a647467} 
+\index{Sabre\textbackslash{}Xml\textbackslash{}Deserializer@{Sabre\textbackslash{}Xml\textbackslash{}Deserializer}!mixedContent@{mixedContent}}
+\index{mixedContent@{mixedContent}!Sabre\textbackslash{}Xml\textbackslash{}Deserializer@{Sabre\textbackslash{}Xml\textbackslash{}Deserializer}}
+\doxysubsubsection{\texorpdfstring{mixedContent()}{mixedContent()}}
+{\footnotesize\ttfamily mixed\+Content (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_sabre_1_1_xml_1_1_reader}{Reader}}}]{\$reader }\end{DoxyParamCaption})}
+
+This deserializer helps you to deserialize structures which contain mixed content like this\+:.
+
+some text $<$extref$>$and a inline tag$<$/extref$>$and even more text
+
+The above example will return
+
+\mbox{[} \textquotesingle{}some text\textquotesingle{}, \mbox{[} \textquotesingle{}name\textquotesingle{} =\texorpdfstring{$>$}{>} \textquotesingle{}\{\}extref\textquotesingle{}, \textquotesingle{}value\textquotesingle{} =\texorpdfstring{$>$}{>} \textquotesingle{}and a inline tag\textquotesingle{}, \textquotesingle{}attributes\textquotesingle{} =\texorpdfstring{$>$}{>} \mbox{[}\mbox{]} \mbox{]}, \textquotesingle{}and even more text\textquotesingle{} \mbox{]}
+
+In strict \doxylink{class_x_m_l}{XML} documents you wont find this kind of markup but in html this is a quite common pattern. \Hypertarget{namespace_sabre_1_1_xml_1_1_deserializer_abf0220d63e8f67b8497c1e06a3506618}\label{namespace_sabre_1_1_xml_1_1_deserializer_abf0220d63e8f67b8497c1e06a3506618} 
+\index{Sabre\textbackslash{}Xml\textbackslash{}Deserializer@{Sabre\textbackslash{}Xml\textbackslash{}Deserializer}!repeatingElements@{repeatingElements}}
+\index{repeatingElements@{repeatingElements}!Sabre\textbackslash{}Xml\textbackslash{}Deserializer@{Sabre\textbackslash{}Xml\textbackslash{}Deserializer}}
+\doxysubsubsection{\texorpdfstring{repeatingElements()}{repeatingElements()}}
+{\footnotesize\ttfamily repeating\+Elements (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_sabre_1_1_xml_1_1_reader}{Reader}}}]{\$reader,  }\item[{string}]{\$child\+Element\+Name }\end{DoxyParamCaption})}
+
+This deserializer helps you deserialize xml structures that look like this\+:.
+
+$<$collection$>$ ... ... ... $<$/collection$>$
+
+Many \doxylink{class_x_m_l}{XML} documents use patterns like that, and this deserializer allow you to get all the \textquotesingle{}items\textquotesingle{} as an array.
+
+In that previous example, you would register the deserializer as such\+:
+
+\$reader-\/\texorpdfstring{$>$}{>}element\+Map\mbox{[}\textquotesingle{}\{\}collection\textquotesingle{}\mbox{]} = function(\$reader) \{ return repeating\+Elements(\$reader, \textquotesingle{}\{\}item\textquotesingle{}); \}
+
+The repeating\+Elements deserializer simply returns everything as an array.
+
+\$child\+Element\+Name must either be a a clark-\/notation element name, or if no namespace is used, the bare element name. \Hypertarget{namespace_sabre_1_1_xml_1_1_deserializer_a14886b7b6247c611457a9ce9621b2d87}\label{namespace_sabre_1_1_xml_1_1_deserializer_a14886b7b6247c611457a9ce9621b2d87} 
+\index{Sabre\textbackslash{}Xml\textbackslash{}Deserializer@{Sabre\textbackslash{}Xml\textbackslash{}Deserializer}!valueObject@{valueObject}}
+\index{valueObject@{valueObject}!Sabre\textbackslash{}Xml\textbackslash{}Deserializer@{Sabre\textbackslash{}Xml\textbackslash{}Deserializer}}
+\doxysubsubsection{\texorpdfstring{valueObject()}{valueObject()}}
+{\footnotesize\ttfamily value\+Object (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_sabre_1_1_xml_1_1_reader}{Reader}}}]{\$reader,  }\item[{string}]{\$class\+Name,  }\item[{string}]{\$namespace }\end{DoxyParamCaption})}
+
+The value\+Object deserializer turns an xml element into a PHP object of a specific class.
+
+This is primarily used by the map\+Value\+Object function from the Service class, but it can also easily be used for more specific situations.
+
+\begin{DoxyReturn}{Renvoie}
+object 
+\end{DoxyReturn}

@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_md_public_2glpi_2vendor_2symfony_2deprecation-contracts_2_r_e_a_d_m_e" xml:lang="fr">
+<title>Symfony Deprecation Contracts</title>
+<indexterm><primary>Symfony Deprecation Contracts</primary></indexterm>
+
+<para>A generic function and convention to trigger deprecation notices.</para>
+
+<para>This package provides a single global function named <computeroutput><link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">trigger_deprecation()</link></computeroutput> that triggers silenced deprecation notices.</para>
+
+<para>By using a custom PHP error handler such as the one provided by the Symfony ErrorHandler component, the triggered deprecations can be caught and logged for later discovery, both on dev and prod environments.</para>
+
+<para>The function requires at least 3 arguments:<itemizedlist>
+<listitem>
+<para>the name of the <link linkend="_namespace_composer">Composer</link> package that is triggering the deprecation</para>
+</listitem><listitem>
+<para>the version of the package that introduced the deprecation</para>
+</listitem><listitem>
+<para>the message of the deprecation</para>
+</listitem><listitem>
+<para>more arguments can be provided: they will be inserted in the message using <computeroutput><link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">printf()</link></computeroutput> formatting</para>
+</listitem></itemizedlist>
+</para>
+
+<para>Example: <literallayout><computeroutput>trigger_deprecation(&apos;symfony/blockchain&apos;,&#32;&apos;8.9&apos;,&#32;&apos;Using&#32;&quot;%s&quot;&#32;is&#32;deprecated,&#32;use&#32;&quot;%s&quot;&#32;instead.&apos;,&#32;&apos;bitcoin&apos;,&#32;&apos;fabcoin&apos;);
+</computeroutput></literallayout></para>
+
+<para>This will generate the following message: <computeroutput>Since symfony/blockchain 8.9: Using &quot;bitcoin&quot; is deprecated, use &quot;fabcoin&quot; instead.</computeroutput></para>
+
+<para>While not necessarily recommended, the deprecation notices can be completely ignored by declaring an empty <computeroutput>function <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">trigger_deprecation()</link> {}</computeroutput> in your application. </para>
+</section>

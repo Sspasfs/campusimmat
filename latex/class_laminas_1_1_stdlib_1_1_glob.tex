@@ -1,0 +1,225 @@
+\doxysection{Référence de la classe Glob}
+\hypertarget{class_laminas_1_1_stdlib_1_1_glob}{}\label{class_laminas_1_1_stdlib_1_1_glob}\index{Glob@{Glob}}
+
+
+Graphe de collaboration de Glob\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=242pt]{class_laminas_1_1_stdlib_1_1_glob__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Fonctions membres publiques statiques}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_laminas_1_1_stdlib_1_1_glob_a3df60390c2f272eba4cea0fe74e6d9db}{glob}} (\$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{pattern}}, \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{flags}}=0, \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{force\+Fallback}}=false)
+\item 
+static \mbox{\hyperlink{class_laminas_1_1_stdlib_1_1_glob_ad155eec90fd03ab2dc2f2fa2fd804828}{flags\+Is\+Equal\+To}} (int \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{flags}}, int \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{other\+Flags}})
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Champs de données}
+\begin{DoxyCompactItemize}
+\item 
+const \mbox{\hyperlink{class_laminas_1_1_stdlib_1_1_glob_aa05bf3bc84ded8dd4dd44688c323a8b4}{GLOB\+\_\+\+MARK}} = 0x01
+\item 
+const \mbox{\hyperlink{class_laminas_1_1_stdlib_1_1_glob_a04910aa2d9873f71c426ffac10008eee}{GLOB\+\_\+\+NOSORT}} = 0x02
+\item 
+const \mbox{\hyperlink{class_laminas_1_1_stdlib_1_1_glob_a364ce3c8f57618c4f5337e279355405a}{GLOB\+\_\+\+NOCHECK}} = 0x04
+\item 
+const \mbox{\hyperlink{class_laminas_1_1_stdlib_1_1_glob_a78a3945c1ca5bea477a92720b09ecb4f}{GLOB\+\_\+\+NOESCAPE}} = 0x08
+\item 
+const \mbox{\hyperlink{class_laminas_1_1_stdlib_1_1_glob_abfee7255363f087bbcc9d34abb0f00c8}{GLOB\+\_\+\+BRACE}} = 0x10
+\item 
+const \mbox{\hyperlink{class_laminas_1_1_stdlib_1_1_glob_ad014b90db2a1ffa262c6e1a6053bcce9}{GLOB\+\_\+\+ONLYDIR}} = 0x20
+\item 
+const \mbox{\hyperlink{class_laminas_1_1_stdlib_1_1_glob_a11f90bfa5150ea079631e8466c752e37}{GLOB\+\_\+\+ERR}} = 0x40
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Fonctions membres protégées statiques}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_laminas_1_1_stdlib_1_1_glob_afe70f43829b109e3acbc33b94d3418e0}{system\+Glob}} (\$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{pattern}}, \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{flags}})
+\item 
+static \mbox{\hyperlink{class_laminas_1_1_stdlib_1_1_glob_affc98fc3a6def306c7a58fceb06a1af9}{fallback\+Glob}} (\$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{pattern}}, \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{flags}})
+\item 
+static \mbox{\hyperlink{class_laminas_1_1_stdlib_1_1_glob_a599ca94c2369f0ddc02045e52ac43554}{next\+Brace\+Sub}} (\$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{pattern}}, \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{begin}}, \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{flags}})
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Wrapper for glob with fallback if GLOB\+\_\+\+BRACE is not available. 
+
+\doxysubsection{Documentation des fonctions membres}
+\Hypertarget{class_laminas_1_1_stdlib_1_1_glob_affc98fc3a6def306c7a58fceb06a1af9}\label{class_laminas_1_1_stdlib_1_1_glob_affc98fc3a6def306c7a58fceb06a1af9} 
+\index{Glob@{Glob}!fallbackGlob@{fallbackGlob}}
+\index{fallbackGlob@{fallbackGlob}!Glob@{Glob}}
+\doxysubsubsection{\texorpdfstring{fallbackGlob()}{fallbackGlob()}}
+{\footnotesize\ttfamily static fallback\+Glob (\begin{DoxyParamCaption}\item[{}]{\$pattern,  }\item[{}]{\$flags }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Expand braces manually, then use the system glob.
+
+
+\begin{DoxyParams}[1]{Paramètres}
+string & {\em \$pattern} & \\
+\hline
+int & {\em \$flags} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+array 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Exception} & \\
+\hline
+\end{DoxyExceptions}
+Runtime\+Exception \Hypertarget{class_laminas_1_1_stdlib_1_1_glob_ad155eec90fd03ab2dc2f2fa2fd804828}\label{class_laminas_1_1_stdlib_1_1_glob_ad155eec90fd03ab2dc2f2fa2fd804828} 
+\index{Glob@{Glob}!flagsIsEqualTo@{flagsIsEqualTo}}
+\index{flagsIsEqualTo@{flagsIsEqualTo}!Glob@{Glob}}
+\doxysubsubsection{\texorpdfstring{flagsIsEqualTo()}{flagsIsEqualTo()}}
+{\footnotesize\ttfamily static flags\+Is\+Equal\+To (\begin{DoxyParamCaption}\item[{int}]{\$flags,  }\item[{int}]{\$other\+Flags }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=274pt]{class_laminas_1_1_stdlib_1_1_glob_ad155eec90fd03ab2dc2f2fa2fd804828_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_laminas_1_1_stdlib_1_1_glob_a3df60390c2f272eba4cea0fe74e6d9db}\label{class_laminas_1_1_stdlib_1_1_glob_a3df60390c2f272eba4cea0fe74e6d9db} 
+\index{Glob@{Glob}!glob@{glob}}
+\index{glob@{glob}!Glob@{Glob}}
+\doxysubsubsection{\texorpdfstring{glob()}{glob()}}
+{\footnotesize\ttfamily static glob (\begin{DoxyParamCaption}\item[{}]{\$pattern,  }\item[{}]{\$flags = {\ttfamily 0},  }\item[{}]{\$force\+Fallback = {\ttfamily false} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\#-\/ Find pathnames matching a pattern.
+
+\begin{DoxySeeAlso}{Voir également}
+\href{http://docs.php.net/glob}{\texttt{ http\+://docs.\+php.\+net/glob}}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}[1]{Paramètres}
+string & {\em \$pattern} & \\
+\hline
+int & {\em \$flags} & \\
+\hline
+bool & {\em \$force\+Fallback} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+array 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Exception} & \\
+\hline
+\end{DoxyExceptions}
+Runtime\+Exception \Hypertarget{class_laminas_1_1_stdlib_1_1_glob_a599ca94c2369f0ddc02045e52ac43554}\label{class_laminas_1_1_stdlib_1_1_glob_a599ca94c2369f0ddc02045e52ac43554} 
+\index{Glob@{Glob}!nextBraceSub@{nextBraceSub}}
+\index{nextBraceSub@{nextBraceSub}!Glob@{Glob}}
+\doxysubsubsection{\texorpdfstring{nextBraceSub()}{nextBraceSub()}}
+{\footnotesize\ttfamily static next\+Brace\+Sub (\begin{DoxyParamCaption}\item[{}]{\$pattern,  }\item[{}]{\$begin,  }\item[{}]{\$flags }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Find the end of the sub-\/pattern in a brace expression.
+
+
+\begin{DoxyParams}[1]{Paramètres}
+string & {\em \$pattern} & \\
+\hline
+int & {\em \$begin} & \\
+\hline
+int & {\em \$flags} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+int\texorpdfstring{$\vert$}{|}null 
+\end{DoxyReturn}
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=274pt]{class_laminas_1_1_stdlib_1_1_glob_a599ca94c2369f0ddc02045e52ac43554_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_laminas_1_1_stdlib_1_1_glob_afe70f43829b109e3acbc33b94d3418e0}\label{class_laminas_1_1_stdlib_1_1_glob_afe70f43829b109e3acbc33b94d3418e0} 
+\index{Glob@{Glob}!systemGlob@{systemGlob}}
+\index{systemGlob@{systemGlob}!Glob@{Glob}}
+\doxysubsubsection{\texorpdfstring{systemGlob()}{systemGlob()}}
+{\footnotesize\ttfamily static system\+Glob (\begin{DoxyParamCaption}\item[{}]{\$pattern,  }\item[{}]{\$flags }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Use the glob function provided by the system.
+
+
+\begin{DoxyParams}[1]{Paramètres}
+string & {\em \$pattern} & \\
+\hline
+int & {\em \$flags} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+array 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Exception} & \\
+\hline
+\end{DoxyExceptions}
+Runtime\+Exception Voici le graphe d\textquotesingle{}appel pour cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=345pt]{class_laminas_1_1_stdlib_1_1_glob_afe70f43829b109e3acbc33b94d3418e0_cgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Documentation des champs}
+\Hypertarget{class_laminas_1_1_stdlib_1_1_glob_abfee7255363f087bbcc9d34abb0f00c8}\label{class_laminas_1_1_stdlib_1_1_glob_abfee7255363f087bbcc9d34abb0f00c8} 
+\index{Glob@{Glob}!GLOB\_BRACE@{GLOB\_BRACE}}
+\index{GLOB\_BRACE@{GLOB\_BRACE}!Glob@{Glob}}
+\doxysubsubsection{\texorpdfstring{GLOB\_BRACE}{GLOB\_BRACE}}
+{\footnotesize\ttfamily const GLOB\+\_\+\+BRACE = 0x10}
+
+\Hypertarget{class_laminas_1_1_stdlib_1_1_glob_a11f90bfa5150ea079631e8466c752e37}\label{class_laminas_1_1_stdlib_1_1_glob_a11f90bfa5150ea079631e8466c752e37} 
+\index{Glob@{Glob}!GLOB\_ERR@{GLOB\_ERR}}
+\index{GLOB\_ERR@{GLOB\_ERR}!Glob@{Glob}}
+\doxysubsubsection{\texorpdfstring{GLOB\_ERR}{GLOB\_ERR}}
+{\footnotesize\ttfamily const GLOB\+\_\+\+ERR = 0x40}
+
+\Hypertarget{class_laminas_1_1_stdlib_1_1_glob_aa05bf3bc84ded8dd4dd44688c323a8b4}\label{class_laminas_1_1_stdlib_1_1_glob_aa05bf3bc84ded8dd4dd44688c323a8b4} 
+\index{Glob@{Glob}!GLOB\_MARK@{GLOB\_MARK}}
+\index{GLOB\_MARK@{GLOB\_MARK}!Glob@{Glob}}
+\doxysubsubsection{\texorpdfstring{GLOB\_MARK}{GLOB\_MARK}}
+{\footnotesize\ttfamily const GLOB\+\_\+\+MARK = 0x01}
+
+\#+ Glob constants. \Hypertarget{class_laminas_1_1_stdlib_1_1_glob_a364ce3c8f57618c4f5337e279355405a}\label{class_laminas_1_1_stdlib_1_1_glob_a364ce3c8f57618c4f5337e279355405a} 
+\index{Glob@{Glob}!GLOB\_NOCHECK@{GLOB\_NOCHECK}}
+\index{GLOB\_NOCHECK@{GLOB\_NOCHECK}!Glob@{Glob}}
+\doxysubsubsection{\texorpdfstring{GLOB\_NOCHECK}{GLOB\_NOCHECK}}
+{\footnotesize\ttfamily const GLOB\+\_\+\+NOCHECK = 0x04}
+
+\Hypertarget{class_laminas_1_1_stdlib_1_1_glob_a78a3945c1ca5bea477a92720b09ecb4f}\label{class_laminas_1_1_stdlib_1_1_glob_a78a3945c1ca5bea477a92720b09ecb4f} 
+\index{Glob@{Glob}!GLOB\_NOESCAPE@{GLOB\_NOESCAPE}}
+\index{GLOB\_NOESCAPE@{GLOB\_NOESCAPE}!Glob@{Glob}}
+\doxysubsubsection{\texorpdfstring{GLOB\_NOESCAPE}{GLOB\_NOESCAPE}}
+{\footnotesize\ttfamily const GLOB\+\_\+\+NOESCAPE = 0x08}
+
+\Hypertarget{class_laminas_1_1_stdlib_1_1_glob_a04910aa2d9873f71c426ffac10008eee}\label{class_laminas_1_1_stdlib_1_1_glob_a04910aa2d9873f71c426ffac10008eee} 
+\index{Glob@{Glob}!GLOB\_NOSORT@{GLOB\_NOSORT}}
+\index{GLOB\_NOSORT@{GLOB\_NOSORT}!Glob@{Glob}}
+\doxysubsubsection{\texorpdfstring{GLOB\_NOSORT}{GLOB\_NOSORT}}
+{\footnotesize\ttfamily const GLOB\+\_\+\+NOSORT = 0x02}
+
+\Hypertarget{class_laminas_1_1_stdlib_1_1_glob_ad014b90db2a1ffa262c6e1a6053bcce9}\label{class_laminas_1_1_stdlib_1_1_glob_ad014b90db2a1ffa262c6e1a6053bcce9} 
+\index{Glob@{Glob}!GLOB\_ONLYDIR@{GLOB\_ONLYDIR}}
+\index{GLOB\_ONLYDIR@{GLOB\_ONLYDIR}!Glob@{Glob}}
+\doxysubsubsection{\texorpdfstring{GLOB\_ONLYDIR}{GLOB\_ONLYDIR}}
+{\footnotesize\ttfamily const GLOB\+\_\+\+ONLYDIR = 0x20}
+
+
+
+La documentation de cette classe a été générée à partir du fichier suivant \+:\begin{DoxyCompactItemize}
+\item 
+public/glpi/vendor/laminas/laminas-\/stdlib/src/\mbox{\hyperlink{_glob_8php}{Glob.\+php}}\end{DoxyCompactItemize}

@@ -1,0 +1,122 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_interface_monolog_1_1_handler_1_1_processable_handler_interface" xml:lang="fr">
+<title>Référence de l&apos;interface ProcessableHandlerInterface</title>
+<indexterm><primary>ProcessableHandlerInterface</primary></indexterm>
+Graphe d&apos;héritage de ProcessableHandlerInterface:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="interface_monolog_1_1_handler_1_1_processable_handler_interface__inherit__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Graphe de collaboration de ProcessableHandlerInterface:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="interface_monolog_1_1_handler_1_1_processable_handler_interface__coll__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Fonctions membres publiques    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_interface_monolog_1_1_handler_1_1_processable_handler_interface_1a14c91c0ddce4f5cb91bc031e68c00453">pushProcessor</link> (<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">callable</link> $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">callback</link>)</para>
+</listitem>
+            <listitem><para><link linkend="_interface_monolog_1_1_handler_1_1_processable_handler_interface_1aece5018a30e181b7c02b82a8470b5017">popProcessor</link> ()</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Description détaillée</title>
+
+<para>Interface to describe loggers that have processors</para>
+
+<para><formalpara><title>Auteur</title>
+
+<para>Jordi Boggiano <link xlink:href="mailto:j.boggiano@seld.be">j.boggiano@seld.be</link></para>
+</formalpara>
+@phpstan-import-type Record from \Monolog\Logger </para>
+</section>
+<section>
+<title>Documentation des fonctions membres</title>
+<anchor xml:id="_interface_monolog_1_1_handler_1_1_processable_handler_interface_1aece5018a30e181b7c02b82a8470b5017"/><section>
+    <title>popProcessor()</title>
+<indexterm><primary>popProcessor</primary><secondary>ProcessableHandlerInterface</secondary></indexterm>
+<indexterm><primary>ProcessableHandlerInterface</primary><secondary>popProcessor</secondary></indexterm>
+<para><computeroutput>popProcessor ( )</computeroutput></para>
+<para>Removes the processor on top of the stack and returns it.</para>
+
+<para>@psalm-return ProcessorInterface|callable(Record): Record $callback</para>
+
+<para>
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry></entry>
+<entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                LogicException In case the processor stack is empty <formalpara><title>Renvoie</title>
+
+<para>callable|ProcessorInterface </para>
+</formalpara>
+</para>
+<para>
+Implémenté dans <link linkend="_class_monolog_1_1_handler_1_1_handler_wrapper_1aece5018a30e181b7c02b82a8470b5017">HandlerWrapper</link>.</para>
+</section>
+<anchor xml:id="_interface_monolog_1_1_handler_1_1_processable_handler_interface_1a14c91c0ddce4f5cb91bc031e68c00453"/><section>
+    <title>pushProcessor()</title>
+<indexterm><primary>pushProcessor</primary><secondary>ProcessableHandlerInterface</secondary></indexterm>
+<indexterm><primary>ProcessableHandlerInterface</primary><secondary>pushProcessor</secondary></indexterm>
+<para><computeroutput>pushProcessor (<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">callable</link> $callback)</computeroutput></para>
+<para>Adds a processor in the stack.</para>
+
+<para>@psalm-param ProcessorInterface|callable(Record): Record $callback</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>ProcessorInterface | callable</entry><entry>$callback</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>HandlerInterface self </para>
+</formalpara>
+</para>
+<para>
+Implémenté dans <link linkend="_class_monolog_1_1_handler_1_1_handler_wrapper_1a14c91c0ddce4f5cb91bc031e68c00453">HandlerWrapper</link>.</para>
+</section>
+<para>
+La documentation de cette interface a été générée à partir du fichier suivant :</para>
+public/glpi/vendor/monolog/monolog/src/Monolog/Handler/<link linkend="__processable_handler_interface_8php">ProcessableHandlerInterface.php</link></section>
+</section>

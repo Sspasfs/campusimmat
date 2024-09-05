@@ -1,0 +1,223 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_md_public_2glpi_2vendor_2mexitek_2phpcolors_2_r_e_a_d_m_e" xml:lang="fr">
+<title>PHPColors &lt;a href=&quot;https://travis-ci.org/mexitek/phpColors&quot; &gt;&lt;img src=&quot;https://travis-ci.org/mexitek/phpColors.svg?branch=master&quot; alt=&quot;Build Status&quot;/&gt;&lt;/a&gt;</title>
+<indexterm><primary>PHPColors &lt;a href=&quot;https://travis-ci.org/mexitek/phpColors&quot; &gt;&lt;img src=&quot;https://travis-ci.org/mexitek/phpColors.svg?branch=master&quot; alt=&quot;Build Status&quot;/&gt;&lt;/a&gt;</primary></indexterm>
+
+<para><anchor xml:id="_md_public_2glpi_2vendor_2mexitek_2phpcolors_2_r_e_a_d_m_e_1autotoc_md6758"/> <blockquote>
+<para>&#8205;A series of methods that let you manipulate colors. Just incase you ever need different shades of one color on the fly. </para>
+</blockquote></para>
+<section xml:id="_md_public_2glpi_2vendor_2mexitek_2phpcolors_2_r_e_a_d_m_e_1autotoc_md6759">
+<title><title>Requirements</title></title>
+
+<para>PHPColors requires PHP version 7.2.0 or greater.</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2mexitek_2phpcolors_2_r_e_a_d_m_e_1autotoc_md6760">
+<title><title>Installation</title></title>
+<section xml:id="_md_public_2glpi_2vendor_2mexitek_2phpcolors_2_r_e_a_d_m_e_1autotoc_md6761">
+<title><title>Composer</title></title>
+
+<para>Simply add <computeroutput>mexitek/phpcolors</computeroutput> to <computeroutput>composer.json</computeroutput> using <computeroutput>dev-master</computeroutput>.</para>
+
+<para><literallayout><computeroutput>composer&#32;require&#32;mexitek/phpcolors:dev-master
+</computeroutput></literallayout></para>
+</section>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2mexitek_2phpcolors_2_r_e_a_d_m_e_1autotoc_md6762">
+<title><title>How it works</title></title>
+
+<para>Instantiate an object of the color class with a hex color string <computeroutput>$foo = new Color(&quot;336699&quot;)</computeroutput>. That&apos;s it! Now, call the methods you need for different color variants.</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2mexitek_2phpcolors_2_r_e_a_d_m_e_1autotoc_md6763">
+<title><title>Available Methods</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para><emphasis role="bold">darken( [$amount] )</emphasis> : Allows you to obtain a darker shade of your color. Optionally you can decide to darken using a desired percentage.</para>
+</listitem><listitem>
+<para><emphasis role="bold">lighten( [$amount] )</emphasis> : Allows you to obtain a lighter shade of your color. Optionally you can decide to lighten using a desired percentage.</para>
+</listitem><listitem>
+<para><emphasis role="bold">mix($hex, [$amount] )</emphasis> : Allows you to mix another color to your color. Optionally you can decide to set the percent of second color or original color amount is ranged -100...0...100.</para>
+</listitem><listitem>
+<para><emphasis role="bold">isLight( [$hex] )</emphasis> : Determins whether your color (or the provide param) is considered a &quot;light&quot; color. Returns <computeroutput>TRUE</computeroutput> if color is light.</para>
+</listitem><listitem>
+<para><emphasis role="bold">isDark( [$hex] )</emphasis> : Determins whether your color (or the provide param) is considered a &quot;dark&quot; color. Returns <computeroutput>TRUE</computeroutput> if color is dark.</para>
+</listitem><listitem>
+<para><emphasis role="bold">makeGradient( [$amount] )</emphasis> : Returns an array with 2 indices <computeroutput>light</computeroutput> and <computeroutput>dark</computeroutput>, the initial color will either be selected for <computeroutput>light</computeroutput> or <computeroutput>dark</computeroutput> depending on its brightness, then the other color will be generated. The optional param allows for a static lighten or darkened amount.</para>
+</listitem><listitem>
+<para><emphasis role="bold">complementary()</emphasis> : Returns the color &quot;opposite&quot; or complementary to your color.</para>
+</listitem><listitem>
+<para><emphasis role="bold">getHex()</emphasis> : Returns the original hex color.</para>
+</listitem><listitem>
+<para><emphasis role="bold">getHsl()</emphasis> : Returns HSL array for your color.</para>
+</listitem><listitem>
+<para><emphasis role="bold">getRgb()</emphasis> : Returns RGB array for your color.</para>
+</listitem></itemizedlist>
+</para>
+
+<para><blockquote>
+<para>&#8205;Auto lightens/darkens by 10% for sexily-subtle gradients </para>
+</blockquote><literallayout><computeroutput>/**
+&#32;*&#32;Using&#32;The&#32;Class
+&#32;*/
+
+use&#32;Mexitek\PHPColors\Color;
+
+//&#32;Initialize&#32;my&#32;color
+$myBlue&#32;=&#32;new&#32;Color(&quot;#336699&quot;);
+
+echo&#32;$myBlue-&gt;darken();
+//&#32;1a334d
+
+echo&#32;$myBlue-&gt;lighten();
+//&#32;8cb3d9
+
+echo&#32;$myBlue-&gt;isLight();
+//&#32;false
+
+echo&#32;$myBlue-&gt;isDark();
+//&#32;true
+
+echo&#32;$myBlue-&gt;complementary();
+//&#32;996633
+
+echo&#32;$myBlue-&gt;getHex();
+//&#32;336699
+
+print_r(&#32;$myBlue-&gt;getHsl()&#32;);
+//&#32;array(&#32;&quot;H&quot;=&gt;&#32;210,&#32;&quot;S&quot;=&gt;&#32;0.5,&#32;&quot;L&quot;=&gt;0.4&#32;);
+
+print_r(&#32;$myBlue-&gt;getRgb()&#32;);
+//&#32;array(&#32;&quot;R&quot;=&gt;&#32;51,&#32;&quot;G&quot;=&gt;&#32;102,&#32;&quot;B&quot;=&gt;153&#32;);
+
+print_r($myBlue-&gt;makeGradient());
+//&#32;array(&#32;&quot;light&quot;=&gt;&quot;8cb3d9&quot;&#32;,&quot;dark&quot;=&gt;&quot;336699&quot;&#32;)
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2mexitek_2phpcolors_2_r_e_a_d_m_e_1autotoc_md6764">
+<title><title>Static Methods</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para><emphasis role="bold">hslToHex( $hsl )</emphasis> : Convert a HSL array to a HEX string.</para>
+</listitem><listitem>
+<para><emphasis role="bold">hexToHsl( $hex )</emphasis> : Convert a HEX string into an HSL array.</para>
+</listitem><listitem>
+<para><emphasis role="bold">hexToRgb( $hex )</emphasis> : Convert a HEX string into an RGB array.</para>
+</listitem><listitem>
+<para><emphasis role="bold">rgbToHex( $rgb )</emphasis> : Convert an RGB array into a HEX string.</para>
+</listitem></itemizedlist>
+</para>
+
+<para><literallayout><computeroutput>/**
+&#32;*&#32;On&#32;The&#32;Fly&#32;Custom&#32;Calculations
+&#32;*/
+
+use&#32;Mexitek\PHPColors\Color;
+
+&#32;//&#32;Convert&#32;my&#32;HEX
+&#32;$myBlue&#32;=&#32;Color::hexToHsl(&quot;#336699&quot;);
+
+&#32;//&#32;Get&#32;crazy&#32;with&#32;the&#32;HUE
+&#32;$myBlue[&quot;H&quot;]&#32;=&#32;295;
+
+&#32;//&#32;Gimme&#32;my&#32;new&#32;color!!
+&#32;echo&#32;Color::hslToHex($myBlue);
+&#32;//&#32;913399
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2mexitek_2phpcolors_2_r_e_a_d_m_e_1autotoc_md6765">
+<title><title>CSS Helpers</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para><emphasis role="bold">getCssGradient( [$amount] [, $vintageBrowsers] )</emphasis> : Generates the CSS3 gradients for safari, chrome, opera, firefox and IE10. Optional percentage amount for lighter/darker shade. Optional boolean for older gradient CSS support.</para>
+</listitem></itemizedlist>
+</para>
+
+<para><blockquote>
+<para>&#8205;Would like to add support to custom gradient stops </para>
+</blockquote><literallayout><computeroutput>use&#32;Mexitek\PHPColors\Color;
+
+//&#32;Initialize&#32;my&#32;color
+$myBlue&#32;=&#32;new&#32;Color(&quot;#336699&quot;);
+
+//&#32;Get&#32;CSS
+echo&#32;$myBlue-&gt;getCssGradient();
+/*&#32;-&#32;Actual&#32;output&#32;doesn&apos;t&#32;have&#32;comments&#32;and&#32;is&#32;single&#32;line
+
+&#32;&#32;//&#32;fallback&#32;background
+&#32;&#32;background:&#32;#336699;
+
+&#32;&#32;//&#32;IE&#32;Browsers
+&#32;&#32;filter:&#32;progid:DXImageTransform.Microsoft.gradient(startColorstr=&apos;#8cb3d9&apos;,&#32;endColorstr=&apos;#336699&apos;);
+
+&#32;&#32;//&#32;Safari&#32;5.1+,&#32;Mobile&#32;Safari,&#32;Chrome&#32;10+
+&#32;&#32;background-image:&#32;-webkit-linear-gradient(top,&#32;#8cb3d9,&#32;#336699);
+
+&#32;&#32;//&#32;Standards
+&#32;&#32;background-image:&#32;linear-gradient(to&#32;bottom,&#32;#8cb3d9,&#32;#336699);
+
+*/
+</computeroutput></literallayout></para>
+
+<para>However, if you want to support the ancient browsers (which has negligible market share and almost died out), you can set the second parameter to <computeroutput>TRUE</computeroutput>. This will output:</para>
+
+<para><literallayout><computeroutput>use&#32;Mexitek\PHPColors\Color;
+$myBlue&#32;=&#32;new&#32;Color(&quot;#336699&quot;);
+
+//&#32;Get&#32;CSS
+echo&#32;$myBlue-&gt;getCssGradient(10,&#32;TRUE);
+/*&#32;-&#32;Actual&#32;output&#32;doesn&apos;t&#32;have&#32;comments&#32;and&#32;is&#32;single&#32;line
+
+&#32;&#32;background:&#32;#336699;&#32;//&#32;fallback&#32;background
+&#32;&#32;filter:&#32;progid:DXImageTransform.Microsoft.gradient(startColorstr=&apos;#8cb3d9&apos;,&#32;endColorstr=&apos;#336699&apos;);&#32;//&#32;IE&#32;Browsers
+&#32;&#32;background-image:&#32;-webkit-gradient(linear,&#32;0%&#32;0%,&#32;0%&#32;100%,&#32;from(#8cb3d9),&#32;to(#336699));&#32;//&#32;Safari&#32;4+,&#32;Chrome&#32;1-9
+&#32;&#32;background-image:&#32;-webkit-linear-gradient(top,&#32;#8cb3d9,&#32;#336699);&#32;//&#32;Safari&#32;5.1+,&#32;Mobile&#32;Safari,&#32;Chrome&#32;10+
+&#32;&#32;background-image:&#32;-moz-linear-gradient(top,&#32;#8cb3d9,&#32;#336699);&#32;//&#32;Firefox&#32;3.6+
+&#32;&#32;background-image:&#32;-o-linear-gradient(top,&#32;#8cb3d9,&#32;#336699);&#32;//&#32;Opera&#32;11.10+
+&#32;&#32;background-image:&#32;linear-gradient(to&#32;bottom,&#32;#8cb3d9,&#32;#336699);&#32;//&#32;Standards
+
+*/
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2mexitek_2phpcolors_2_r_e_a_d_m_e_1autotoc_md6766">
+<title><title>Github Contributors</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>mexitek</para>
+</listitem><listitem>
+<para>danielpataki</para>
+</listitem><listitem>
+<para>alexmglover</para>
+</listitem><listitem>
+<para>intuxicated</para>
+</listitem><listitem>
+<para>pborreli</para>
+</listitem><listitem>
+<para>curtisgibby</para>
+</listitem><listitem>
+<para>matthewpatterson</para>
+</listitem><listitem>
+<para>there4</para>
+</listitem><listitem>
+<para>alex-humphreys</para>
+</listitem><listitem>
+<para>zaher</para>
+</listitem><listitem>
+<para>primozcigler</para>
+</listitem><listitem>
+<para>thedavidmeister</para>
+</listitem><listitem>
+<para>tylercd100</para>
+</listitem><listitem>
+<para>Braunson</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2mexitek_2phpcolors_2_r_e_a_d_m_e_1autotoc_md6767">
+<title><title>License</title></title>
+
+<para>See LICENSE file or <link xlink:href="http://arlo.mit-license.org">arlo.mit-license.org</link> </para>
+</section>
+</section>

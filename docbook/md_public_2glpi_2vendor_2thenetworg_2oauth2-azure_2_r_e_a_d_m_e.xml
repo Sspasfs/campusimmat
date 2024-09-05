@@ -1,0 +1,364 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_md_public_2glpi_2vendor_2thenetworg_2oauth2-azure_2_r_e_a_d_m_e" xml:lang="fr">
+<title>Azure Active Directory Provider for OAuth 2.0 Client</title>
+<indexterm><primary>Azure Active Directory Provider for OAuth 2.0 Client</primary></indexterm>
+
+<para><anchor xml:id="_md_public_2glpi_2vendor_2thenetworg_2oauth2-azure_2_r_e_a_d_m_e_1autotoc_md7423"/><link xlink:href="https://github.com/thenetworg/oauth2-azure/releases"></link> <link xlink:href="https://packagist.org/packages/thenetworg/oauth2-azure"></link> <link linkend="_md_public_2glpi_2vendor_2thenetworg_2oauth2-azure_2_l_i_c_e_n_s_e"></link></para>
+
+<para>This package provides <link xlink:href="https://azure.microsoft.com/en-us/services/active-directory/">Azure Active Directory</link> OAuth 2.0 support for the PHP League&apos;s <link xlink:href="https://github.com/thephpleague/oauth2-client">OAuth 2.0 Client</link>.</para>
+<section xml:id="_md_public_2glpi_2vendor_2thenetworg_2oauth2-azure_2_r_e_a_d_m_e_1autotoc_md7424">
+<title><title>Table of Contents</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para><link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">Installation</link></para>
+</listitem><listitem>
+<para><link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">Usage</link><itemizedlist>
+<listitem>
+<para><link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">Authorization Code Flow</link><itemizedlist>
+<listitem>
+<para><link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">Advanced flow</link></para>
+</listitem><listitem>
+<para><link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">Using custom parameters</link></para>
+</listitem><listitem>
+<para><link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">**NEW** - Call on behalf of a token provided by another app</link></para>
+</listitem></itemizedlist>
+</para>
+</listitem><listitem>
+<para><link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">**NEW** - Logging out</link></para>
+</listitem></itemizedlist>
+</para>
+</listitem><listitem>
+<para><link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">Making API Requests</link><itemizedlist>
+<listitem>
+<para><link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">Variables</link></para>
+</listitem></itemizedlist>
+</para>
+</listitem><listitem>
+<para><link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">Resource Owner</link></para>
+</listitem><listitem>
+<para><link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">**UPDATED** - Microsoft Graph</link></para>
+</listitem><listitem>
+<para><link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">**NEW** - Protecting your API - *experimental*</link></para>
+</listitem><listitem>
+<para><link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">Azure Active Directory B2C - *experimental*</link></para>
+</listitem><listitem>
+<para><link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">Multipurpose refresh tokens - *experimental*</link></para>
+</listitem><listitem>
+<para><link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">Known users</link></para>
+</listitem><listitem>
+<para><link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">Contributing</link></para>
+</listitem><listitem>
+<para><link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">Credits</link></para>
+</listitem><listitem>
+<para><link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">Support</link></para>
+</listitem><listitem>
+<para><link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">License</link></para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2thenetworg_2oauth2-azure_2_r_e_a_d_m_e_1autotoc_md7425">
+<title><title>Installation</title></title>
+
+<para>To install, use composer:</para>
+
+<para><literallayout><computeroutput>composer&#32;require&#32;thenetworg/oauth2-azure
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2thenetworg_2oauth2-azure_2_r_e_a_d_m_e_1autotoc_md7426">
+<title><title>Usage</title></title>
+
+<para>Usage is the same as The League&apos;s OAuth client, using <computeroutput>\TheNetworg\OAuth2\Client\Provider\Azure</computeroutput> as the provider.</para>
+<section xml:id="_md_public_2glpi_2vendor_2thenetworg_2oauth2-azure_2_r_e_a_d_m_e_1autotoc_md7427">
+<title><title>Authorization Code Flow</title></title>
+
+<para><literallayout><computeroutput>$provider&#32;=&#32;new&#32;TheNetworg\OAuth2\Client\Provider\Azure([
+&#32;&#32;&#32;&#32;&apos;clientId&apos;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;=&gt;&#32;&apos;{azure-client-id}&apos;,
+&#32;&#32;&#32;&#32;&apos;clientSecret&apos;&#32;&#32;&#32;&#32;&#32;&#32;=&gt;&#32;&apos;{azure-client-secret}&apos;,
+&#32;&#32;&#32;&#32;&apos;redirectUri&apos;&#32;&#32;&#32;&#32;&#32;&#32;&#32;=&gt;&#32;&apos;https://example.com/callback-url&apos;,
+&#32;&#32;&#32;&#32;//Optional
+&#32;&#32;&#32;&#32;&apos;scopes&apos;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;=&gt;&#32;[&apos;openid&apos;],
+&#32;&#32;&#32;&#32;//Optional
+&#32;&#32;&#32;&#32;&apos;defaultEndPointVersion&apos;&#32;=&gt;&#32;&apos;2.0&apos;
+]);
+
+//&#32;Set&#32;to&#32;use&#32;v2&#32;API,&#32;skip&#32;the&#32;line&#32;or&#32;set&#32;the&#32;value&#32;to&#32;Azure::ENDPOINT_VERSION_1_0&#32;if&#32;willing&#32;to&#32;use&#32;v1&#32;API
+$provider-&gt;defaultEndPointVersion&#32;=&#32;TheNetworg\OAuth2\Client\Provider\Azure::ENDPOINT_VERSION_2_0;
+
+$baseGraphUri&#32;=&#32;$provider-&gt;getRootMicrosoftGraphUri(null);
+$provider-&gt;scope&#32;=&#32;&apos;openid&#32;profile&#32;email&#32;offline_access&#32;&apos;&#32;.&#32;$baseGraphUri&#32;.&#32;&apos;/User.Read&apos;;
+
+if&#32;(isset($_GET[&apos;code&apos;])&#32;&amp;&amp;&#32;isset($_SESSION[&apos;OAuth2.state&apos;])&#32;&amp;&amp;&#32;isset($_GET[&apos;state&apos;]))&#32;{
+&#32;&#32;&#32;&#32;if&#32;($_GET[&apos;state&apos;]&#32;==&#32;$_SESSION[&apos;OAuth2.state&apos;])&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;unset($_SESSION[&apos;OAuth2.state&apos;]);
+
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;//&#32;Try&#32;to&#32;get&#32;an&#32;access&#32;token&#32;(using&#32;the&#32;authorization&#32;code&#32;grant)
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;/**&#32;@var&#32;AccessToken&#32;$token&#32;*/
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;$token&#32;=&#32;$provider-&gt;getAccessToken(&apos;authorization_code&apos;,&#32;[
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&apos;scope&apos;&#32;=&gt;&#32;$provider-&gt;scope,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&apos;code&apos;&#32;=&gt;&#32;$_GET[&apos;code&apos;],
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;]);
+
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;//&#32;Verify&#32;token
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;//&#32;Save&#32;it&#32;to&#32;local&#32;server&#32;session&#32;data
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;return&#32;$token-&gt;getToken();
+&#32;&#32;&#32;&#32;}&#32;else&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;echo&#32;&apos;Invalid&#32;state&apos;;
+
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;return&#32;null;
+&#32;&#32;&#32;&#32;}
+}&#32;else&#32;{
+&#32;&#32;&#32;&#32;//&#32;//&#32;Check&#32;local&#32;server&apos;s&#32;session&#32;data&#32;for&#32;a&#32;token
+&#32;&#32;&#32;&#32;//&#32;//&#32;and&#32;verify&#32;if&#32;still&#32;valid&#32;
+&#32;&#32;&#32;&#32;//&#32;/**&#32;@var&#32;?AccessToken&#32;$token&#32;*/
+&#32;&#32;&#32;&#32;//&#32;$token&#32;=&#32;//&#32;token&#32;cached&#32;in&#32;session&#32;data,&#32;null&#32;if&#32;not&#32;found;
+&#32;&#32;&#32;&#32;//
+&#32;&#32;&#32;&#32;//&#32;if&#32;(isset($token))&#32;{
+&#32;&#32;&#32;&#32;//&#32;&#32;&#32;&#32;$me&#32;=&#32;$provider-&gt;get($provider-&gt;getRootMicrosoftGraphUri($token)&#32;.&#32;&apos;/v1.0/me&apos;,&#32;$token);
+&#32;&#32;&#32;&#32;//&#32;&#32;&#32;&#32;$userEmail&#32;=&#32;$me[&apos;mail&apos;];
+&#32;&#32;&#32;&#32;//
+&#32;&#32;&#32;&#32;//&#32;&#32;&#32;&#32;if&#32;($token-&gt;hasExpired())&#32;{
+&#32;&#32;&#32;&#32;//&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;if&#32;(!is_null($token-&gt;getRefreshToken()))&#32;{
+&#32;&#32;&#32;&#32;//&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;$token&#32;=&#32;$provider-&gt;getAccessToken(&apos;refresh_token&apos;,&#32;[
+&#32;&#32;&#32;&#32;//&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&apos;scope&apos;&#32;=&gt;&#32;$provider-&gt;scope,
+&#32;&#32;&#32;&#32;//&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&apos;refresh_token&apos;&#32;=&gt;&#32;$token-&gt;getRefreshToken()
+&#32;&#32;&#32;&#32;//&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;]);
+&#32;&#32;&#32;&#32;//&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}&#32;else&#32;{
+&#32;&#32;&#32;&#32;//&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;$token&#32;=&#32;null;
+&#32;&#32;&#32;&#32;//&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+&#32;&#32;&#32;&#32;//&#32;&#32;&#32;&#32;}
+&#32;&#32;&#32;&#32;//}
+&#32;&#32;&#32;&#32;//
+&#32;&#32;&#32;&#32;//&#32;If&#32;the&#32;token&#32;is&#32;not&#32;found&#32;in&#32;
+&#32;&#32;&#32;&#32;//&#32;if&#32;(!isset($token))&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;$authorizationUrl&#32;=&#32;$provider-&gt;getAuthorizationUrl([&apos;scope&apos;&#32;=&gt;&#32;$provider-&gt;scope]);
+
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;$_SESSION[&apos;OAuth2.state&apos;]&#32;=&#32;$provider-&gt;getState();
+
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;header(&apos;Location:&#32;&apos;&#32;.&#32;$authorizationUrl);
+
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;exit;
+&#32;&#32;&#32;&#32;//&#32;}
+
+&#32;&#32;&#32;&#32;return&#32;$token-&gt;getToken();
+}
+</computeroutput></literallayout></para>
+<section xml:id="_md_public_2glpi_2vendor_2thenetworg_2oauth2-azure_2_r_e_a_d_m_e_1autotoc_md7428">
+<title><title>Advanced flow</title></title>
+
+<para>The <link xlink:href="https://msdn.microsoft.com/en-us/library/azure/dn645542.aspx">Authorization Code Grant Flow</link> is a little bit different for Azure Active Directory. Instead of scopes, you specify the resource which you would like to access - there is a param <computeroutput>$provider-&gt;authWithResource</computeroutput> which will automatically populate the <computeroutput>resource</computeroutput> param of request with the value of either <computeroutput>$provider-&gt;resource</computeroutput> or <computeroutput>$provider-&gt;urlAPI</computeroutput>. This feature is mostly intended for v2.0 endpoint of Azure AD (see more <link xlink:href="https://docs.microsoft.com/en-us/azure/active-directory/develop/azure-ad-endpoint-comparison#scopes-not-resources">here</link>).</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2thenetworg_2oauth2-azure_2_r_e_a_d_m_e_1autotoc_md7429">
+<title><title>Using custom parameters</title></title>
+
+<para>With <link xlink:href="https://github.com/thephpleague/oauth2-client">oauth2-client</link> of version 1.3.0 and higher, it is now possible to specify custom parameters for the authorization URL, so you can now make use of options like <computeroutput>prompt</computeroutput>, <computeroutput>login_hint</computeroutput> and similar. See the following example of obtaining an authorization URL which will force the user to reauthenticate: <literallayout><computeroutput>$authUrl&#32;=&#32;$provider-&gt;getAuthorizationUrl([
+&#32;&#32;&#32;&#32;&apos;prompt&apos;&#32;=&gt;&#32;&apos;login&apos;
+]);
+</computeroutput></literallayout> You can find additional parameters <link xlink:href="https://msdn.microsoft.com/en-us/library/azure/dn645542.aspx">here</link>.</para>
+</section>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2thenetworg_2oauth2-azure_2_r_e_a_d_m_e_1autotoc_md7430">
+<title><title>Logging out</title></title>
+
+<para>If you need to quickly generate a logout URL for the user, you can do following: <literallayout><computeroutput>//&#32;Assuming&#32;you&#32;have&#32;provider&#32;properly&#32;initialized.
+$post_logout_redirect_uri&#32;=&#32;&apos;https://www.msn.com&apos;;&#32;//&#32;The&#32;logout&#32;destination&#32;after&#32;the&#32;user&#32;is&#32;logged&#32;out&#32;from&#32;their&#32;account.
+$logoutUrl&#32;=&#32;$provider-&gt;getLogoutUrl($post_logout_redirect_uri);
+header(&apos;Location:&#32;&apos;.$logoutUrl);&#32;//&#32;Redirect&#32;the&#32;user&#32;to&#32;the&#32;generated&#32;URL
+</computeroutput></literallayout></para>
+<section xml:id="_md_public_2glpi_2vendor_2thenetworg_2oauth2-azure_2_r_e_a_d_m_e_1autotoc_md7431">
+<title><title>Call on behalf of a token provided by another app</title></title>
+
+<para><literallayout><computeroutput>//&#32;Use&#32;token&#32;provided&#32;by&#32;the&#32;other&#32;app
+//&#32;Make&#32;sure&#32;the&#32;other&#32;app&#32;mentioned&#32;this&#32;app&#32;in&#32;the&#32;scope&#32;when&#32;requesting&#32;the&#32;token
+$suppliedToken&#32;=&#32;&apos;&apos;;&#32;&#32;
+
+$provider&#32;=&#32;xxxxx;//&#32;Initialize&#32;provider
+
+//&#32;Call&#32;this&#32;to&#32;get&#32;claims
+//&#32;$claims&#32;=&#32;$provider-&gt;validateAccessToken($suppliedToken);
+
+/**&#32;@var&#32;AccessToken&#32;$token&#32;*/
+$token&#32;=&#32;$provider-&gt;getAccessToken(&apos;jwt_bearer&apos;,&#32;[
+&#32;&#32;&#32;&#32;&apos;scope&apos;&#32;=&gt;&#32;$provider-&gt;scope,
+&#32;&#32;&#32;&#32;&apos;assertion&apos;&#32;=&gt;&#32;$suppliedToken,
+&#32;&#32;&#32;&#32;&apos;requested_token_use&apos;&#32;=&gt;&#32;&apos;on_behalf_of&apos;,
+]);
+</computeroutput></literallayout></para>
+</section>
+</section>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2thenetworg_2oauth2-azure_2_r_e_a_d_m_e_1autotoc_md7432">
+<title><title>Making API Requests</title></title>
+
+<para>This library also provides easy interface to make it easier to interact with <link xlink:href="https://msdn.microsoft.com/en-us/library/azure/hh974476.aspx">Azure Graph API</link> and <link xlink:href="http://graph.microsoft.io">Microsoft Graph</link>, the following methods are available on <computeroutput>provider</computeroutput> object (it also handles automatic token refresh flow should it be needed during making the request):</para>
+
+<para><itemizedlist>
+<listitem>
+<para><computeroutput>get($ref, $accessToken, $headers = [])</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>post($ref, $body, $accessToken, $headers = [])</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>put($ref, $body, $accessToken, $headers = [])</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>delete($ref, $body, $accessToken, $headers = [])</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>patch($ref, $body, $accessToken, $headers = [])</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>getObjects($tenant, $ref, $accessToken, $headers = [])</computeroutput> This is used for example for listing large amount of data - where you need to list all users for example - it automatically follows <computeroutput>odata.nextLink</computeroutput> until the end.<itemizedlist>
+<listitem>
+<para><computeroutput>$tenant</computeroutput> tenant has to be provided since the <computeroutput>odata.nextLink</computeroutput> doesn&apos;t contain it.</para>
+</listitem></itemizedlist>
+</para>
+</listitem><listitem>
+<para><computeroutput>request($method, $ref, $accessToken, $options = [])</computeroutput> See <link xlink:href="https://github.com/TheNetworg/oauth2-azure/issues/36">#36</link> for use case.</para>
+</listitem></itemizedlist>
+</para>
+
+<para><emphasis>Please note that if you need to create a custom request, the method getAuthenticatedRequest and getResponse can still be used.</emphasis></para>
+<section xml:id="_md_public_2glpi_2vendor_2thenetworg_2oauth2-azure_2_r_e_a_d_m_e_1autotoc_md7433">
+<title><title>Variables</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para><computeroutput>$ref</computeroutput> The URL reference without the leading <computeroutput>/</computeroutput>, for example <computeroutput>myOrganization/groups</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>$body</computeroutput> The contents of the request, make has to be either string (so make sure to use <computeroutput>json_encode</computeroutput> to encode the request)s or stream (see <link xlink:href="http://docs.guzzlephp.org/en/latest/request-options.html#body">Guzzle HTTP</link>)</para>
+</listitem><listitem>
+<para><computeroutput>$accessToken</computeroutput> The access token object obtained by using <computeroutput>getAccessToken</computeroutput> method</para>
+</listitem><listitem>
+<para><computeroutput>$headers</computeroutput> Ability to set custom headers for the request (see <link xlink:href="http://docs.guzzlephp.org/en/latest/request-options.html#headers">Guzzle HTTP</link>)</para>
+</listitem></itemizedlist>
+</para>
+</section>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2thenetworg_2oauth2-azure_2_r_e_a_d_m_e_1autotoc_md7434">
+<title><title>Resource Owner</title></title>
+
+<para>With version 1.1.0 and onward, the Resource Owner information is parsed from the JWT passed in <computeroutput>access_token</computeroutput> by Azure Active Directory. It exposes few attributes and one function.</para>
+
+<para><emphasis role="bold">Example:</emphasis> <literallayout><computeroutput>$resourceOwner&#32;=&#32;$provider-&gt;getResourceOwner($token);
+echo&#32;&apos;Hello,&#32;&apos;.$resourceOwner-&gt;getFirstName().&apos;!&apos;;
+</computeroutput></literallayout> The exposed attributes and function are:<itemizedlist>
+<listitem>
+<para><computeroutput>getId()</computeroutput> - Gets user&apos;s object id - unique for each user</para>
+</listitem><listitem>
+<para><computeroutput>getFirstName()</computeroutput> - Gets user&apos;s first name</para>
+</listitem><listitem>
+<para><computeroutput>getLastName()</computeroutput> - Gets user&apos;s family name/surname</para>
+</listitem><listitem>
+<para><computeroutput>getTenantId()</computeroutput> - Gets id of tenant which the user is member of</para>
+</listitem><listitem>
+<para><computeroutput>getUpn()</computeroutput> - Gets user&apos;s <link linkend="_class_user">User</link> Principal Name, which can be also used as user&apos;s e-mail address</para>
+</listitem><listitem>
+<para><computeroutput>claim($name)</computeroutput> - Gets any other claim (specified as <computeroutput>$name</computeroutput>) from the JWT, full list can be found <link xlink:href="https://azure.microsoft.com/en-us/documentation/articles/active-directory-token-and-claims/">here</link></para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2thenetworg_2oauth2-azure_2_r_e_a_d_m_e_1autotoc_md7435">
+<title><title>Microsoft Graph</title></title>
+
+<para>Calling <link xlink:href="http://graph.microsoft.io/">Microsoft Graph</link> is very simple with this library. After provider initialization simply change the API URL followingly (replace <computeroutput>v1.0</computeroutput> with your desired version): <literallayout><computeroutput>//&#32;Mention&#32;Microsoft&#32;Graph&#32;scope&#32;when&#32;initializing&#32;the&#32;provider&#32;
+$baseGraphUri&#32;=&#32;$provider-&gt;getRootMicrosoftGraphUri(null);
+$provider-&gt;scope&#32;=&#32;&apos;your&#32;scope&#32;&apos;&#32;.&#32;$baseGraphUri&#32;.&#32;&apos;/User.Read&apos;;
+
+//&#32;Call&#32;a&#32;query
+$provider-&gt;get($provider-&gt;getRootMicrosoftGraphUri($token)&#32;.&#32;&apos;/v1.0/me&apos;,&#32;$token);
+</computeroutput></literallayout> After that, when requesting access token, refresh token or so, provide the <computeroutput>resource</computeroutput> with value <computeroutput><link xlink:href="https://graph.microsoft.com/">https://graph.microsoft.com/</link></computeroutput> in order to be able to make calls to the Graph (see more about <computeroutput>resource</computeroutput> <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">here</link>).</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2thenetworg_2oauth2-azure_2_r_e_a_d_m_e_1autotoc_md7436">
+<title><title>Protecting your API - <emphasis>experimental</emphasis></title></title>
+
+<para>With version 1.2.0 you can now use this library to protect your API with Azure Active Directory authentication very easily. The Provider now also exposes <computeroutput>validateAccessToken(string $token)</computeroutput> which lets you pass an access token inside which you for example received in the <computeroutput>Authorization</computeroutput> header of the request on your API. You can use the function followingly (in vanilla PHP): <literallayout><computeroutput>//&#32;Assuming&#32;you&#32;have&#32;already&#32;initialized&#32;the&#32;$provider
+
+//&#32;Obtain&#32;the&#32;accessToken&#32;-&#32;in&#32;this&#32;case,&#32;we&#32;are&#32;getting&#32;it&#32;from&#32;Authorization&#32;header
+$headers&#32;=&#32;getallheaders();
+//&#32;Assuming&#32;you&#32;got&#32;the&#32;value&#32;of&#32;Authorization&#32;header&#32;as&#32;&quot;Bearer&#32;[the_access_token]&quot;&#32;we&#32;parse&#32;it
+$authorization&#32;=&#32;explode(&apos;&#32;&apos;,&#32;$headers[&apos;Authorization&apos;]);
+$accessToken&#32;=&#32;$authorization[1];
+
+try&#32;{
+&#32;&#32;&#32;&#32;$claims&#32;=&#32;$provider-&gt;validateAccessToken($accessToken);
+}&#32;catch&#32;(Exception&#32;$e)&#32;{
+&#32;&#32;&#32;&#32;//&#32;Something&#32;happened,&#32;handle&#32;the&#32;error
+}
+
+//&#32;The&#32;access&#32;token&#32;is&#32;valid,&#32;you&#32;can&#32;now&#32;proceed&#32;with&#32;your&#32;code.&#32;You&#32;can&#32;also&#32;access&#32;the&#32;$claims&#32;as&#32;defined&#32;in&#32;JWT&#32;-&#32;for&#32;example&#32;roles,&#32;group&#32;memberships&#32;etc.
+</computeroutput></literallayout></para>
+
+<para>You may also need to access some other resource from the API like the Microsoft Graph to get some additional information. In order to do that, there is <computeroutput>urn:ietf:params:oauth:grant-type:jwt-bearer</computeroutput> grant available (<link xlink:href="https://tools.ietf.org/html/draft-jones-oauth-jwt-bearer-03">RFC</link>). An example (assuming you have the code above working and you have the required permissions configured correctly in the Azure AD application): <literallayout><computeroutput>$graphAccessToken&#32;=&#32;$provider-&gt;getAccessToken(&apos;jwt_bearer&apos;,&#32;[
+&#32;&#32;&#32;&#32;&apos;resource&apos;&#32;=&gt;&#32;&apos;https://graph.microsoft.com/v1.0/&apos;,
+&#32;&#32;&#32;&#32;&apos;assertion&apos;&#32;=&gt;&#32;$accessToken,
+&#32;&#32;&#32;&#32;&apos;requested_token_use&apos;&#32;=&gt;&#32;&apos;on_behalf_of&apos;
+]);
+
+$me&#32;=&#32;$provider-&gt;get(&apos;https://graph.microsoft.com/v1.0/me&apos;,&#32;$graphAccessToken);
+print_r($me);
+</computeroutput></literallayout> Just to make it easier so you don&apos;t have to remember entire name for <computeroutput>grant_type</computeroutput> (<computeroutput>urn:ietf:params:oauth:grant-type:jwt-bearer</computeroutput>), you just use short <computeroutput>jwt_bearer</computeroutput> instead.</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2thenetworg_2oauth2-azure_2_r_e_a_d_m_e_1autotoc_md7437">
+<title><title>Azure Active Directory B2C - <emphasis>experimental</emphasis></title></title>
+
+<para>You can also now very simply make use of <link xlink:href="https://azure.microsoft.com/en-us/documentation/articles/active-directory-b2c-reference-oauth-code/">Azure Active Directory B2C</link>. Before authentication, change the endpoints using <computeroutput>pathAuthorize</computeroutput>, <computeroutput>pathToken</computeroutput> and <computeroutput>scope</computeroutput> and additionally specify your <link xlink:href="https://azure.microsoft.com/en-gb/documentation/articles/active-directory-b2c-reference-policies/">login policy</link>. <emphasis role="bold">Please note that the B2C support is still experimental and wasn&apos;t fully tested.</emphasis> <literallayout><computeroutput>$provider-&gt;pathAuthorize&#32;=&#32;&quot;/oauth2/v2.0/authorize&quot;;
+$provider-&gt;pathToken&#32;=&#32;&quot;/oauth2/v2.0/token&quot;;
+$provider-&gt;scope&#32;=&#32;[&quot;idtoken&quot;];
+
+//&#32;Specify&#32;custom&#32;policy&#32;in&#32;our&#32;authorization&#32;URL
+$authUrl&#32;=&#32;$provider-&gt;getAuthorizationUrl([
+&#32;&#32;&#32;&#32;&apos;p&apos;&#32;=&gt;&#32;&apos;b2c_1_siup&apos;
+]);
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2thenetworg_2oauth2-azure_2_r_e_a_d_m_e_1autotoc_md7438">
+<title><title>Multipurpose refresh tokens - <emphasis>experimental</emphasis></title></title>
+
+<para>In cause that you need to access multiple resources (like your API and Microsoft Graph), you can use multipurpose <link xlink:href="https://msdn.microsoft.com/en-us/library/azure/dn645538.aspx">refresh tokens</link>. Once obtaining a token for first resource, you can simply request another token for different resource like so: <literallayout><computeroutput>$accessToken2&#32;=&#32;$provider-&gt;getAccessToken(&apos;refresh_token&apos;,&#32;[
+&#32;&#32;&#32;&#32;&apos;refresh_token&apos;&#32;=&gt;&#32;$accessToken1-&gt;getRefreshToken(),
+&#32;&#32;&#32;&#32;&apos;resource&apos;&#32;=&gt;&#32;&apos;http://urlOfYourSecondResource&apos;
+]);
+</computeroutput></literallayout> At the moment, there is one issue: When you make a call to your API and the token has expired, it will have the value of <computeroutput>$provider-&gt;urlAPI</computeroutput> which is obviously wrong for <computeroutput>$accessToken2</computeroutput>. The solution is very simple - set the <computeroutput>$provider-&gt;urlAPI</computeroutput> to the resource which you want to call. This issue will be addressed in future release. <emphasis role="bold">Please note that this is experimental and wasn&apos;t fully tested.</emphasis></para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2thenetworg_2oauth2-azure_2_r_e_a_d_m_e_1autotoc_md7439">
+<title><title>Known users</title></title>
+
+<para>If you are using this library and would like to be listed here, please let us know!<itemizedlist>
+<listitem>
+<para><link xlink:href="https://github.com/thenetworg/dreamspark-sso">TheNetworg/DreamSpark-SSO</link></para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2thenetworg_2oauth2-azure_2_r_e_a_d_m_e_1autotoc_md7440">
+<title><title>Contributing</title></title>
+
+<para>We accept contributions via <link xlink:href="https://github.com/thenetworg/oauth2-azure">Pull Requests on Github</link>.</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2thenetworg_2oauth2-azure_2_r_e_a_d_m_e_1autotoc_md7441">
+<title><title>Credits</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para><link xlink:href="https://github.com/hajekj">Jan Hajek</link> (<link xlink:href="https://thenetw.org">TheNetw.org</link>)</para>
+</listitem><listitem>
+<para><link xlink:href="https://github.com/vibronet">Vittorio Bertocci</link> (Microsoft)<itemizedlist>
+<listitem>
+<para>Thanks for the splendid support while implementing #16</para>
+</listitem></itemizedlist>
+</para>
+</listitem><listitem>
+<para><link xlink:href="https://github.com/mcetkovsky">Martin Cetkovský</link> (<link xlink:href="https://www.cetkovsky.eu">cetkovsky.eu</link>]</para>
+</listitem><listitem>
+<para><link xlink:href="https://github.com/thenetworg/oauth2-azure/contributors">All Contributors</link></para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2thenetworg_2oauth2-azure_2_r_e_a_d_m_e_1autotoc_md7442">
+<title><title>Support</title></title>
+
+<para>If you find a bug or encounter any issue or have a problem/question with this library please create a <link xlink:href="https://github.com/TheNetworg/oauth2-azure/issues">new issue</link>.</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2thenetworg_2oauth2-azure_2_r_e_a_d_m_e_1autotoc_md7443">
+<title><title>License</title></title>
+
+<para>The MIT License (MIT). Please see <link xlink:href="https://github.com/thenetworg/oauth2-azure/blob/master/LICENSE">License File</link> for more information. </para>
+</section>
+</section>

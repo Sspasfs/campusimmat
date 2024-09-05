@@ -1,0 +1,273 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_md_public_2glpi_2vendor_2container-interop_2container-interop_2docs_2_delegate-lookup-meta" xml:lang="fr">
+<title>Delegate lookup feature Meta Document</title>
+<indexterm><primary>Delegate lookup feature Meta Document</primary></indexterm>
+<section xml:id="_md_public_2glpi_2vendor_2container-interop_2container-interop_2docs_2_delegate-lookup-meta_1autotoc_md5719">
+<title><title>1. Summary</title></title>
+
+<para>This document describes the <emphasis>delegate lookup feature</emphasis>. Containers are not required to implement this feature to respect the <computeroutput>ContainerInterface</computeroutput>. However, containers implementing this feature will offer a greater lever of interoperability with other containers, allowing multiple containers to share entries in the same application. Implementation of this feature is therefore recommanded.</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2container-interop_2container-interop_2docs_2_delegate-lookup-meta_1autotoc_md5720">
+<title><title>2. Why Bother?</title></title>
+
+<para>The <link xlink:href="../src/Interop/Container/ContainerInterface.php"><computeroutput>ContainerInterface</computeroutput></link> (<link linkend="_md_public_2glpi_2vendor_2container-interop_2container-interop_2docs_2_container_interface">meta doc</link>) standardizes how frameworks and libraries make use of a container to obtain objects and parameters.</para>
+
+<para>By standardizing such a behavior, frameworks and libraries relying on the <computeroutput>ContainerInterface</computeroutput> could work with any compatible container. That would allow end users to choose their own container based on their own preferences.</para>
+
+<para>The <computeroutput>ContainerInterface</computeroutput> is also enough if we want to have several containers side-by-side in the same application. For instance, this is what the <link xlink:href="https://github.com/jeremeamia/acclimate-container/blob/master/src/CompositeContainer.php">CompositeContainer</link> class of <link xlink:href="https://github.com/jeremeamia/acclimate-container">Acclimate</link> is designed for:</para>
+
+<para></para>
+
+<para>However, an instance in container 1 cannot reference an instance in container 2.</para>
+
+<para>It would be better if an instance of container 1 could reference an instance in container 2, and the opposite should be true.</para>
+
+<para></para>
+
+<para>In the sample above, entry 1 in container 1 is referencing entry 3 in container 2.</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2container-interop_2container-interop_2docs_2_delegate-lookup-meta_1autotoc_md5721">
+<title><title>3. Scope</title></title>
+<section xml:id="_md_public_2glpi_2vendor_2container-interop_2container-interop_2docs_2_delegate-lookup-meta_1autotoc_md5722">
+<title><title>3.1 Goals</title></title>
+
+<para>The goal of the <emphasis>delegate lookup</emphasis> feature is to allow several containers to share entries.</para>
+</section>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2container-interop_2container-interop_2docs_2_delegate-lookup-meta_1autotoc_md5723">
+<title><title>4. Approaches</title></title>
+<section xml:id="_md_public_2glpi_2vendor_2container-interop_2container-interop_2docs_2_delegate-lookup-meta_1autotoc_md5724">
+<title><title>4.1 Chosen Approach</title></title>
+
+<para>Containers implementing this feature can perform dependency lookups in other containers.</para>
+
+<para>A container implementing this feature:</para>
+
+<para><itemizedlist>
+<listitem>
+<para>must implement the <computeroutput>ContainerInterface</computeroutput></para>
+</listitem><listitem>
+<para>must provide a way to register a <emphasis>delegate container</emphasis> (using a constructor parameter, or a setter, or any possible way). The <emphasis>delegate container</emphasis> must implement the <computeroutput>ContainerInterface</computeroutput>.</para>
+</listitem></itemizedlist>
+</para>
+
+<para>When a <emphasis>delegate container</emphasis> is configured on a container:</para>
+
+<para><itemizedlist>
+<listitem>
+<para>Calls to the <computeroutput>get</computeroutput> method should only return an entry if the entry is part of the container. If the entry is not part of the container, an exception should be thrown (as required in the <computeroutput>ContainerInterface</computeroutput>).</para>
+</listitem><listitem>
+<para>Calls to the <computeroutput>has</computeroutput> method should only return <emphasis>true</emphasis> if the entry is part of the container. If the entry is not part of the container, <emphasis>false</emphasis> should be returned.<itemizedlist>
+<listitem>
+<para>Finally, the important part: if the entry we are fetching has dependencies, <emphasis role="bold">instead</emphasis> of perfoming the dependency lookup in the container, the lookup is performed on the <emphasis>delegate container</emphasis>.</para>
+</listitem></itemizedlist>
+</para>
+</listitem></itemizedlist>
+</para>
+
+<para>Important! By default, the lookup should be performed on the delegate container <emphasis role="bold">only</emphasis>, not on the container itself.</para>
+
+<para>It is however allowed for containers to provide exception cases for special entries, and a way to lookup into the same container (or another container) instead of the delegate container.</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2container-interop_2container-interop_2docs_2_delegate-lookup-meta_1autotoc_md5725">
+<title><title>4.2 Typical usage</title></title>
+
+<para>The <emphasis>delegate container</emphasis> will usually be a composite container. A composite container is a container that contains several other containers. When performing a lookup on a composite container, the inner containers are queried until one container returns an entry. An inner container implementing the <emphasis>delegate lookup feature</emphasis> will return entries it contains, but if these entries have dependencies, the dependencies lookup calls will be performed on the composite container, giving a chance to all containers to answer.</para>
+
+<para>Interestingly enough, the order in which containers are added in the composite container matters. Indeed, the first containers to be added in the composite container can &quot;override&quot; the entries of containers with lower priority.</para>
+
+<para></para>
+
+<para>In the example above, &quot;container 2&quot; contains a controller &quot;myController&quot; and the controller is referencing an &quot;entityManager&quot; entry. &quot;Container 1&quot; contains also an entry named &quot;entityManager&quot;. Without the <emphasis>delegate lookup</emphasis> feature, when requesting the &quot;myController&quot; instance to container 2, it would take in charge the instanciation of both entries.</para>
+
+<para>However, using the <emphasis>delegate lookup</emphasis> feature, here is what happens when we ask the composite container for the &quot;myController&quot; instance:</para>
+
+<para><itemizedlist>
+<listitem>
+<para>The composite container asks container 1 if if contains the &quot;myController&quot; instance. The answer is no.</para>
+</listitem><listitem>
+<para>The composite container asks container 2 if if contains the &quot;myController&quot; instance. The answer is yes.</para>
+</listitem><listitem>
+<para>The composite container performs a <computeroutput>get</computeroutput> call on container 2 for the &quot;myController&quot; instance.</para>
+</listitem><listitem>
+<para>Container 2 sees that &quot;myController&quot; has a dependency on &quot;entityManager&quot;.</para>
+</listitem><listitem>
+<para>Container 2 delegates the lookup of &quot;entityManager&quot; to the composite container.</para>
+</listitem><listitem>
+<para>The composite container asks container 1 if if contains the &quot;entityManager&quot; instance. The answer is yes.</para>
+</listitem><listitem>
+<para>The composite container performs a <computeroutput>get</computeroutput> call on container 1 for the &quot;entityManager&quot; instance.</para>
+</listitem></itemizedlist>
+</para>
+
+<para>In the end, we get a controller instanciated by container 2 that references an entityManager instanciated by container 1.</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2container-interop_2container-interop_2docs_2_delegate-lookup-meta_1autotoc_md5726">
+<title><title>4.3 Alternative: the fallback strategy</title></title>
+
+<para>The first proposed approach we tried was to perform all the lookups in the &quot;local&quot; container, and if a lookup fails in the container, to use the delegate container. In this scenario, the delegate container is used in &quot;fallback&quot; mode.</para>
+
+<para>This strategy has been described in @moufmouf blog post: <link xlink:href="http://mouf-php.com/container-interop-whats-next">http://mouf-php.com/container-interop-whats-next</link> (solution 1). It was also discussed <link xlink:href="https://github.com/container-interop/container-interop/pull/8#issuecomment-33570697">here</link> and <link xlink:href="https://github.com/container-interop/container-interop/pull/20#issuecomment-56599631">here</link>.</para>
+
+<para>Problems with this strategy:</para>
+
+<para><itemizedlist>
+<listitem>
+<para>Heavy problem regarding infinite loops</para>
+</listitem><listitem>
+<para>Unable to overload a container entry with the delegate container entry</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2container-interop_2container-interop_2docs_2_delegate-lookup-meta_1autotoc_md5727">
+<title><title>4.4 Alternative: force implementing an interface</title></title>
+
+<para>The first proposed approach was to develop a <computeroutput>ParentAwareContainerInterface</computeroutput> interface. It was proposed here: <link xlink:href="https://github.com/container-interop/container-interop/pull/8">https://github.com/container-interop/container-interop/pull/8</link></para>
+
+<para>The interface would have had the behaviour of the delegate lookup feature but would have forced the addition of a <computeroutput>setParentContainter</computeroutput> method:</para>
+
+<para><literallayout><computeroutput>interface&#32;ParentAwareContainerInterface&#32;extends&#32;ReadableContainerInterface&#32;{
+&#32;&#32;&#32;&#32;/**
+&#32;&#32;&#32;&#32;&#32;*&#32;Sets&#32;the&#32;parent&#32;container&#32;associated&#32;to&#32;that&#32;container.&#32;This&#32;container&#32;will&#32;call
+&#32;&#32;&#32;&#32;&#32;*&#32;the&#32;parent&#32;container&#32;to&#32;fetch&#32;dependencies.
+&#32;&#32;&#32;&#32;&#32;*
+&#32;&#32;&#32;&#32;&#32;*&#32;@param&#32;ContainerInterface&#32;$container
+&#32;&#32;&#32;&#32;&#32;*/
+&#32;&#32;&#32;&#32;public&#32;function&#32;setParentContainer(ContainerInterface&#32;$container);
+}
+</computeroutput></literallayout></para>
+
+<para>The interface idea was first questioned by @Ocramius <link xlink:href="https://github.com/container-interop/container-interop/pull/8#issuecomment-51721777">here</link>. @Ocramius expressed the idea that an interface should not contain setters, otherwise, it is forcing implementation details on the class implementing the interface. Then @mnapoli made a proposal for a &quot;convention&quot; <link xlink:href="https://github.com/container-interop/container-interop/pull/8#issuecomment-51841079">here</link>, this idea was further discussed until all participants in the discussion agreed to remove the interface idea and replace it with a &quot;standard&quot; feature.</para>
+
+<para><emphasis role="bold">Pros:</emphasis></para>
+
+<para>If we had had an interface, we could have delegated the registration of the delegate/composite container to the the delegate/composite container itself. For instance:</para>
+
+<para><literallayout><computeroutput>$containerA&#32;=&#32;new&#32;ContainerA();
+$containerB&#32;=&#32;new&#32;ContainerB();
+
+$compositeContainer&#32;=&#32;new&#32;CompositeContainer([$containerA,&#32;$containerB]);
+
+//&#32;The&#32;call&#32;to&#32;&apos;setParentContainer&apos;&#32;is&#32;delegated&#32;to&#32;the&#32;CompositeContainer
+//&#32;It&#32;is&#32;not&#32;the&#32;responsibility&#32;of&#32;the&#32;user&#32;anymore.
+class&#32;CompositeContainer&#32;{
+&#32;&#32;&#32;&#32;...
+&#32;&#32;&#32;&#32;
+&#32;&#32;&#32;&#32;public&#32;function&#32;__construct($containers)&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;foreach&#32;($containers&#32;as&#32;$container)&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;if&#32;($container&#32;instanceof&#32;ParentAwareContainerInterface)&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;$container-&gt;setParentContainer($this);
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;...
+&#32;&#32;&#32;&#32;}
+}
+</computeroutput></literallayout></para>
+
+<para><emphasis role="bold">Cons:</emphasis></para>
+
+<para>Cons have been extensively discussed <link xlink:href="https://github.com/container-interop/container-interop/pull/8#issuecomment-51721777">here</link>. Basically, forcing a setter into an interface is a bad idea. Setters are similar to constructor arguments, and it&apos;s a bad idea to standardize a constructor: how the delegate container is configured into a container is an implementation detail. This outweights the benefits of the interface.</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2container-interop_2container-interop_2docs_2_delegate-lookup-meta_1autotoc_md5728">
+<title><title>4.4 Alternative: no exception case for delegate lookups</title></title>
+
+<para>Originally, the proposed wording for delegate lookup calls was:</para>
+
+<para><blockquote>
+<para>&#8205;Important! The lookup MUST be performed on the delegate container <emphasis role="bold">only</emphasis>, not on the container itself. </para>
+</blockquote>This was later replaced by:</para>
+
+<para><blockquote>
+<para>&#8205;Important! By default, the lookup SHOULD be performed on the delegate container <emphasis role="bold">only</emphasis>, not on the container itself.</para>
+
+<para>It is however allowed for containers to provide exception cases for special entries, and a way to lookup into the same container (or another container) instead of the delegate container. </para>
+</blockquote>Exception cases have been allowed to avoid breaking dependencies with some services that must be provided by the container (on @njasm proposal). This was proposed here: <link xlink:href="https://github.com/container-interop/container-interop/pull/20#issuecomment-56597235">https://github.com/container-interop/container-interop/pull/20#issuecomment-56597235</link></para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2container-interop_2container-interop_2docs_2_delegate-lookup-meta_1autotoc_md5729">
+<title><title>4.5 Alternative: having one of the containers act as the composite container</title></title>
+
+<para>In real-life scenarios, we usually have a big framework (Symfony 2, Zend Framework 2, etc...) and we want to add another DI container to this container. Most of the time, the &quot;big&quot; framework will be responsible for creating the controller&apos;s instances, using it&apos;s own DI container. Until <emphasis>container-interop</emphasis> is fully adopted, the &quot;big&quot; framework will not be aware of the existence of a composite container that it should use instead of its own container.</para>
+
+<para>For this real-life use cases, @mnapoli and @moufmouf proposed to extend the &quot;big&quot; framework&apos;s DI container to make it act as a composite container.</para>
+
+<para>This has been discussed <link xlink:href="https://github.com/container-interop/container-interop/pull/8#issuecomment-40367194">here</link> and <link xlink:href="http://mouf-php.com/container-interop-whats-next#solution4">here</link>.</para>
+
+<para>This was implemented in Symfony 2 using:</para>
+
+<para><itemizedlist>
+<listitem>
+<para><link xlink:href="https://github.com/thecodingmachine/interop.symfony.di/tree/v0.1.0">interop.symfony.di</link></para>
+</listitem><listitem>
+<para><link xlink:href="https://github.com/mnapoli/framework-interop/">framework interop</link></para>
+</listitem></itemizedlist>
+</para>
+
+<para>This was implemented in Silex using:</para>
+
+<para><itemizedlist>
+<listitem>
+<para><link xlink:href="https://github.com/thecodingmachine/interop.silex.di">interop.silex.di</link></para>
+</listitem></itemizedlist>
+</para>
+
+<para>Having a container act as the composite container is not part of the delegate lookup standard because it is simply a temporary design pattern used to make existing frameworks that do not support yet ContainerInterop play nice with other DI containers.</para>
+</section>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2container-interop_2container-interop_2docs_2_delegate-lookup-meta_1autotoc_md5730">
+<title><title>5. Implementations</title></title>
+
+<para>The following projects already implement the delegate lookup feature:</para>
+
+<para><itemizedlist>
+<listitem>
+<para><link xlink:href="http://mouf-php.com">Mouf</link>, through the <link xlink:href="https://github.com/thecodingmachine/mouf/blob/2.0/src/Mouf/MoufManager.php#L2120"><computeroutput>setDelegateLookupContainer</computeroutput> method</link></para>
+</listitem><listitem>
+<para><link xlink:href="http://php-di.org/">PHP-DI</link>, through the <link xlink:href="https://github.com/mnapoli/PHP-DI/blob/master/src/DI/Container.php#L72"><computeroutput>$wrapperContainer</computeroutput> parameter of the constructor</link></para>
+</listitem><listitem>
+<para><link xlink:href="https://github.com/moufmouf/pimple-interop">pimple-interop</link>, through the <link xlink:href="https://github.com/moufmouf/pimple-interop/blob/master/src/Interop/Container/Pimple/PimpleInterop.php#L62"><computeroutput>$container</computeroutput> parameter of the constructor</link></para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2container-interop_2container-interop_2docs_2_delegate-lookup-meta_1autotoc_md5731">
+<title><title>6. People</title></title>
+
+<para>Are listed here all people that contributed in the discussions, by alphabetical order:</para>
+
+<para><itemizedlist>
+<listitem>
+<para><link xlink:href="https://github.com/drealecs">Alexandru Pătrănescu</link></para>
+</listitem><listitem>
+<para><link xlink:href="https://github.com/potherca">Ben Peachey</link></para>
+</listitem><listitem>
+<para><link xlink:href="https://github.com/moufmouf">David Négrier</link></para>
+</listitem><listitem>
+<para><link xlink:href="https://github.com/jeremeamia">Jeremy Lindblom</link></para>
+</listitem><listitem>
+<para><link xlink:href="https://github.com/Ocramius">Marco Pivetta</link></para>
+</listitem><listitem>
+<para><link xlink:href="https://github.com/mnapoli">Matthieu Napoli</link></para>
+</listitem><listitem>
+<para><link xlink:href="https://github.com/njasm">Nelson J Morais</link></para>
+</listitem><listitem>
+<para><link xlink:href="https://github.com/philsturgeon">Phil Sturgeon</link></para>
+</listitem><listitem>
+<para><link xlink:href="https://github.com/shochdoerfer">Stephan Hochdörfer</link></para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2container-interop_2container-interop_2docs_2_delegate-lookup-meta_1autotoc_md5732">
+<title><title>7. Relevant Links</title></title>
+
+<para><emphasis><emphasis role="bold">Note:</emphasis> Order descending chronologically.</emphasis></para>
+
+<para><itemizedlist>
+<listitem>
+<para><link xlink:href="https://github.com/container-interop/container-interop/pull/20">Pull request on the delegate lookup feature</link></para>
+</listitem><listitem>
+<para><link xlink:href="https://github.com/container-interop/container-interop/pull/8">Pull request on the interface idea</link></para>
+</listitem><listitem>
+<para><link xlink:href="http://mouf-php.com/container-interop-whats-next">Original article exposing the delegate lookup idea along many others</link> </para>
+</listitem></itemizedlist>
+</para>
+</section>
+</section>

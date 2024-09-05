@@ -1,0 +1,739 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_md_public_2glpi_2vendor_2sabre_2http_2_r_e_a_d_m_e" xml:lang="fr">
+<title>sabre/http</title>
+<indexterm><primary>sabre/http</primary></indexterm>
+
+<para>This library provides a toolkit to make working with the <link xlink:href="https://tools.ietf.org/html/rfc2616">HTTP protocol</link> easier.</para>
+
+<para>Most PHP scripts run within a HTTP request but accessing information about the HTTP request is cumbersome at least.</para>
+
+<para>There&apos;s bad practices, inconsistencies and confusion. This library is effectively a wrapper around the following PHP constructs:</para>
+
+<para>For Input:</para>
+
+<para><itemizedlist>
+<listitem>
+<para><computeroutput>$_GET</computeroutput>,</para>
+</listitem><listitem>
+<para><computeroutput>$_POST</computeroutput>,</para>
+</listitem><listitem>
+<para><computeroutput>$_SERVER</computeroutput>,</para>
+</listitem><listitem>
+<para><computeroutput>php://input</computeroutput> or <computeroutput>$HTTP_RAW_POST_DATA</computeroutput>.</para>
+</listitem></itemizedlist>
+</para>
+
+<para>For output:</para>
+
+<para><itemizedlist>
+<listitem>
+<para><computeroutput>php://output</computeroutput> or <computeroutput>echo</computeroutput>,</para>
+</listitem><listitem>
+<para><computeroutput>header()</computeroutput>.</para>
+</listitem></itemizedlist>
+</para>
+
+<para>What this library provides, is a <computeroutput>Request</computeroutput> object, and a <computeroutput>Response</computeroutput> object.</para>
+
+<para>The objects are extendable and easily mockable.</para>
+<section xml:id="_md_public_2glpi_2vendor_2sabre_2http_2_r_e_a_d_m_e_1autotoc_md7089">
+<title><title>Build status</title></title>
+
+<para><informaltable frame="all">
+    <tgroup cols="2" align="left" colsep="1" rowsep="1">
+      <colspec colname='c1'/>
+      <colspec colname='c2'/>
+<thead>
+      <row  class='markdownTableHead'>
+<entry>
+<para>branch   </para>
+</entry><entry>
+<para>status    </para>
+</entry></row>
+</thead><tbody>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para>master   </para>
+</entry><entry>
+<para><link xlink:href="https://travis-ci.org/sabre-io/http"></link>    </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para>4.2   </para>
+</entry><entry>
+<para><link xlink:href="https://travis-ci.org/sabre-io/http"></link>    </para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para>3.0   </para>
+</entry><entry>
+<para><link xlink:href="https://travis-ci.org/sabre-io/http"></link>   </para>
+</entry></row>
+    </tbody>
+    </tgroup>
+</informaltable>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2sabre_2http_2_r_e_a_d_m_e_1autotoc_md7090">
+<title><title>Installation</title></title>
+
+<para>Make sure you have <link xlink:href="http://getcomposer.org/">composer</link> installed. In your project directory, create, or edit a <computeroutput>composer.json</computeroutput> file, and make sure it contains something like this:</para>
+
+<para><literallayout><computeroutput>{
+&#32;&#32;&#32;&#32;&quot;require&quot;&#32;:&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&quot;sabre/http&quot;&#32;:&#32;&quot;~5.0.0&quot;
+&#32;&#32;&#32;&#32;}
+}
+</computeroutput></literallayout></para>
+
+<para>After that, just hit <computeroutput>composer install</computeroutput> and you should be rolling.</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2sabre_2http_2_r_e_a_d_m_e_1autotoc_md7091">
+<title><title>Quick history</title></title>
+
+<para>This library came to existence in 2009, as a part of the <link xlink:href="http://sabre.io/"><computeroutput>sabre/dav</computeroutput></link> project, which uses it heavily.</para>
+
+<para>It got split off into a separate library to make it easier to manage releases and hopefully giving it use outside of the scope of just <computeroutput>sabre/dav</computeroutput>.</para>
+
+<para>Although completely independently developed, this library has a LOT of overlap with <link xlink:href="https://github.com/symfony/HttpFoundation">Symfony&apos;s <computeroutput>HttpFoundation</computeroutput></link>.</para>
+
+<para>Said library does a lot more stuff and is significantly more popular, so if you are looking for something to fulfill this particular requirement, I&apos;d recommend also considering <link xlink:href="https://github.com/symfony/HttpFoundation"><computeroutput>HttpFoundation</computeroutput></link>.</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2sabre_2http_2_r_e_a_d_m_e_1autotoc_md7092">
+<title><title>Getting started</title></title>
+
+<para>First and foremost, this library wraps the superglobals. The easiest way to instantiate a request object is as follows:</para>
+
+<para><literallayout><computeroutput>use&#32;Sabre\HTTP;
+
+include&#32;&apos;vendor/autoload.php&apos;;
+
+$request&#32;=&#32;HTTP\Sapi::getRequest();
+</computeroutput></literallayout></para>
+
+<para>This line should only happen once in your entire application. Everywhere else you should pass this request object around using dependency injection.</para>
+
+<para>You should always typehint on its interface:</para>
+
+<para><literallayout><computeroutput>function&#32;handleRequest(HTTP\RequestInterface&#32;$request)&#32;{
+
+&#32;&#32;&#32;&#32;//&#32;Do&#32;something&#32;with&#32;this&#32;request&#32;:)
+
+}
+</computeroutput></literallayout></para>
+
+<para>A response object you can just create as such:</para>
+
+<para><literallayout><computeroutput>use&#32;Sabre\HTTP;
+
+include&#32;&apos;vendor/autoload.php&apos;;
+
+$response&#32;=&#32;new&#32;HTTP\Response();
+$response-&gt;setStatus(201);&#32;//&#32;created&#32;!
+$response-&gt;setHeader(&apos;X-Foo&apos;,&#32;&apos;bar&apos;);
+$response-&gt;setBody(
+&#32;&#32;&#32;&#32;&apos;success!&apos;
+);
+</computeroutput></literallayout></para>
+
+<para>After you fully constructed your response, you must call:</para>
+
+<para><literallayout><computeroutput>HTTP\Sapi::sendResponse($response);
+</computeroutput></literallayout></para>
+
+<para>This line should generally also appear once in your application (at the very end).</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2sabre_2http_2_r_e_a_d_m_e_1autotoc_md7093">
+<title><title>Decorators</title></title>
+
+<para>It may be useful to extend the <computeroutput>Request</computeroutput> and <computeroutput>Response</computeroutput> objects in your application, if you for example would like them to carry a bit more information about the current request.</para>
+
+<para>For instance, you may want to add an <computeroutput>isLoggedIn</computeroutput> method to the Request object.</para>
+
+<para>Simply extending Request and Response may pose some problems:</para>
+
+<para><orderedlist>
+<listitem>
+<para>You may want to extend the objects with new behaviors differently, in different subsystems of your application,</para>
+</listitem><listitem>
+<para>The <computeroutput>Sapi::getRequest</computeroutput> factory always returns an instance of <computeroutput>Request</computeroutput> so you would have to override the factory method as well,</para>
+</listitem><listitem>
+<para>By controlling the instantiation and depend on specific <computeroutput>Request</computeroutput> and <computeroutput>Response</computeroutput> instances in your library or application, you make it harder to work with other applications which also use <computeroutput>sabre/http</computeroutput>.</para>
+</listitem></orderedlist>
+</para>
+
+<para>In short: it would be bad design. Instead, it&apos;s recommended to use the <link xlink:href="http://en.wikipedia.org/wiki/Decorator_pattern">decorator pattern</link> to add new behavior where you need it. <computeroutput>sabre/http</computeroutput> provides helper classes to quickly do this.</para>
+
+<para>Example:</para>
+
+<para><literallayout><computeroutput>use&#32;Sabre\HTTP;
+
+class&#32;MyRequest&#32;extends&#32;HTTP\RequestDecorator&#32;{
+
+&#32;&#32;&#32;&#32;function&#32;isLoggedIn()&#32;{
+
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;return&#32;true;
+
+&#32;&#32;&#32;&#32;}
+
+}
+</computeroutput></literallayout></para>
+
+<para>Our application assumes that the true <computeroutput>Request</computeroutput> object was instantiated somewhere else, by some other subsystem. This could simply be a call like <computeroutput>$request = Sapi::getRequest()</computeroutput> at the top of your application, but could also be somewhere in a unit test.</para>
+
+<para>All we know in the current subsystem, is that we received a <computeroutput>$request</computeroutput> and that it implements <computeroutput>Sabre\HTTP\RequestInterface</computeroutput>. To decorate this object, all we need to do is:</para>
+
+<para><literallayout><computeroutput>$request&#32;=&#32;new&#32;MyRequest($request);
+</computeroutput></literallayout></para>
+
+<para>And that&apos;s it, we now have an <computeroutput>isLoggedIn</computeroutput> method, without having to mess with the core instances.</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2sabre_2http_2_r_e_a_d_m_e_1autotoc_md7094">
+<title><title>Client</title></title>
+
+<para>This package also contains a simple wrapper around <link xlink:href="http://php.net/curl">cURL</link>, which will allow you to write simple clients, using the <computeroutput>Request</computeroutput> and <computeroutput>Response</computeroutput> objects you&apos;re already familiar with.</para>
+
+<para>It&apos;s by no means a replacement for something like <link xlink:href="http://guzzlephp.org/">Guzzle</link>, but it provides a simple and lightweight API for making the occasional API call.</para>
+<section xml:id="_md_public_2glpi_2vendor_2sabre_2http_2_r_e_a_d_m_e_1autotoc_md7095">
+<title><title>Usage</title></title>
+
+<para><literallayout><computeroutput>use&#32;Sabre\HTTP;
+
+$request&#32;=&#32;new&#32;HTTP\Request(&apos;GET&apos;,&#32;&apos;http://example.org/&apos;);
+$request-&gt;setHeader(&apos;X-Foo&apos;,&#32;&apos;Bar&apos;);
+
+$client&#32;=&#32;new&#32;HTTP\Client();
+$response&#32;=&#32;$client-&gt;send($request);
+
+echo&#32;$response-&gt;getBodyAsString();
+</computeroutput></literallayout></para>
+
+<para>The client emits 3 event using <link xlink:href="https://github.com/fruux/sabre-event"><computeroutput>sabre/event</computeroutput></link>. <computeroutput>beforeRequest</computeroutput>, <computeroutput>afterRequest</computeroutput> and <computeroutput>error</computeroutput>.</para>
+
+<para><literallayout><computeroutput>$client&#32;=&#32;new&#32;HTTP\Client();
+$client-&gt;on(&apos;beforeRequest&apos;,&#32;function($request)&#32;{
+
+&#32;&#32;&#32;&#32;//&#32;You&#32;could&#32;use&#32;beforeRequest&#32;to&#32;for&#32;example&#32;inject&#32;a&#32;few&#32;extra&#32;headers.
+&#32;&#32;&#32;&#32;//&#32;into&#32;the&#32;Request&#32;object.
+
+});
+
+$client-&gt;on(&apos;afterRequest&apos;,&#32;function($request,&#32;$response)&#32;{
+
+&#32;&#32;&#32;&#32;//&#32;The&#32;afterRequest&#32;event&#32;could&#32;be&#32;a&#32;good&#32;time&#32;to&#32;do&#32;some&#32;logging,&#32;or
+&#32;&#32;&#32;&#32;//&#32;do&#32;some&#32;rewriting&#32;in&#32;the&#32;response.
+
+});
+
+$client-&gt;on(&apos;error&apos;,&#32;function($request,&#32;$response,&#32;&amp;$retry,&#32;$retryCount)&#32;{
+
+&#32;&#32;&#32;&#32;//&#32;The&#32;error&#32;event&#32;is&#32;triggered&#32;for&#32;every&#32;response&#32;with&#32;a&#32;HTTP&#32;code&#32;higher
+&#32;&#32;&#32;&#32;//&#32;than&#32;399.
+
+});
+
+$client-&gt;on(&apos;error:401&apos;,&#32;function($request,&#32;$response,&#32;&amp;$retry,&#32;$retryCount)&#32;{
+
+&#32;&#32;&#32;&#32;//&#32;You&#32;can&#32;also&#32;listen&#32;for&#32;specific&#32;error&#32;codes.&#32;This&#32;example&#32;shows&#32;how
+&#32;&#32;&#32;&#32;//&#32;to&#32;inject&#32;HTTP&#32;authentication&#32;headers&#32;if&#32;a&#32;401&#32;was&#32;returned.
+
+&#32;&#32;&#32;&#32;if&#32;($retryCount&#32;&gt;&#32;1)&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;//&#32;We&apos;re&#32;only&#32;going&#32;to&#32;retry&#32;exactly&#32;once.
+&#32;&#32;&#32;&#32;}
+
+&#32;&#32;&#32;&#32;$request-&gt;setHeader(&apos;Authorization&apos;,&#32;&apos;Basic&#32;xxxxxxxxxx&apos;);
+&#32;&#32;&#32;&#32;$retry&#32;=&#32;true;
+
+});
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2sabre_2http_2_r_e_a_d_m_e_1autotoc_md7096">
+<title><title>Asynchronous requests</title></title>
+
+<para>The <computeroutput>Client</computeroutput> also supports doing asynchronous requests. This is especially handy if you need to perform a number of requests, that are allowed to be executed in parallel.</para>
+
+<para>The underlying system for this is simply <link xlink:href="http://php.net/curl_multi_init">cURL&apos;s multi request handler</link>, but this provides a much nicer API to handle this.</para>
+
+<para>Sample usage:</para>
+
+<para><literallayout><computeroutput>use&#32;Sabre\HTTP;
+
+$request&#32;=&#32;new&#32;Request(&apos;GET&apos;,&#32;&apos;http://localhost/&apos;);
+$client&#32;=&#32;new&#32;Client();
+
+//&#32;Executing&#32;1000&#32;requests
+for&#32;($i&#32;=&#32;0;&#32;$i&#32;&lt;&#32;1000;&#32;$i++)&#32;{
+&#32;&#32;&#32;&#32;$client-&gt;sendAsync(
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;$request,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;function(ResponseInterface&#32;$response)&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;//&#32;Success&#32;handler
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;},
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;function($error)&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;//&#32;Error&#32;handler
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+&#32;&#32;&#32;&#32;);&#32;
+}
+
+//&#32;Wait&#32;for&#32;all&#32;requests&#32;to&#32;get&#32;a&#32;result.
+$client-&gt;wait();
+</computeroutput></literallayout></para>
+
+<para>Check out <computeroutput>examples/asyncclient.php</computeroutput> for more information.</para>
+</section>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2sabre_2http_2_r_e_a_d_m_e_1autotoc_md7097">
+<title><title>Writing a reverse proxy</title></title>
+
+<para>With all these tools combined, it becomes very easy to write a simple reverse http proxy.</para>
+
+<para><literallayout><computeroutput>use
+&#32;&#32;&#32;&#32;Sabre\HTTP\Sapi,
+&#32;&#32;&#32;&#32;Sabre\HTTP\Client;
+
+//&#32;The&#32;url&#32;we&apos;re&#32;proxying&#32;to.
+$remoteUrl&#32;=&#32;&apos;http://example.org/&apos;;
+
+//&#32;The&#32;url&#32;we&apos;re&#32;proxying&#32;from.&#32;Please&#32;note&#32;that&#32;this&#32;must&#32;be&#32;a&#32;relative&#32;url,
+//&#32;and&#32;basically&#32;acts&#32;as&#32;the&#32;base&#32;url.
+//
+//&#32;If&#32;your&#32;$remoteUrl&#32;doesn&apos;t&#32;end&#32;with&#32;a&#32;slash,&#32;this&#32;one&#32;probably&#32;shouldn&apos;t
+//&#32;either.
+$myBaseUrl&#32;=&#32;&apos;/reverseproxy.php&apos;;
+//&#32;$myBaseUrl&#32;=&#32;&apos;/~evert/sabre/http/examples/reverseproxy.php/&apos;;
+
+$request&#32;=&#32;Sapi::getRequest();
+$request-&gt;setBaseUrl($myBaseUrl);
+
+$subRequest&#32;=&#32;clone&#32;$request;
+
+//&#32;Removing&#32;the&#32;Host&#32;header.
+$subRequest-&gt;removeHeader(&apos;Host&apos;);
+
+//&#32;Rewriting&#32;the&#32;url.
+$subRequest-&gt;setUrl($remoteUrl&#32;.&#32;$request-&gt;getPath());
+
+$client&#32;=&#32;new&#32;Client();
+
+//&#32;Sends&#32;the&#32;HTTP&#32;request&#32;to&#32;the&#32;server
+$response&#32;=&#32;$client-&gt;send($subRequest);
+
+//&#32;Sends&#32;the&#32;response&#32;back&#32;to&#32;the&#32;client&#32;that&#32;connected&#32;to&#32;the&#32;proxy.
+Sapi::sendResponse($response);
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2sabre_2http_2_r_e_a_d_m_e_1autotoc_md7098">
+<title><title>The Request and Response API&apos;s</title></title>
+<section xml:id="_md_public_2glpi_2vendor_2sabre_2http_2_r_e_a_d_m_e_1autotoc_md7099">
+<title><title>Request</title></title>
+
+<para><literallayout><computeroutput>/**
+&#32;*&#32;Creates&#32;the&#32;request&#32;object
+&#32;*
+&#32;*&#32;@param&#32;string&#32;$method
+&#32;*&#32;@param&#32;string&#32;$url
+&#32;*&#32;@param&#32;array&#32;$headers
+&#32;*&#32;@param&#32;resource&#32;$body
+&#32;*/
+public&#32;function&#32;__construct($method&#32;=&#32;null,&#32;$url&#32;=&#32;null,&#32;array&#32;$headers&#32;=&#32;null,&#32;$body&#32;=&#32;null);
+
+/**
+&#32;*&#32;Returns&#32;the&#32;current&#32;HTTP&#32;method
+&#32;*
+&#32;*&#32;@return&#32;string
+&#32;*/
+function&#32;getMethod();
+
+/**
+&#32;*&#32;Sets&#32;the&#32;HTTP&#32;method
+&#32;*
+&#32;*&#32;@param&#32;string&#32;$method
+&#32;*&#32;@return&#32;void
+&#32;*/
+function&#32;setMethod($method);
+
+/**
+&#32;*&#32;Returns&#32;the&#32;request&#32;url.
+&#32;*
+&#32;*&#32;@return&#32;string
+&#32;*/
+function&#32;getUrl();
+
+/**
+&#32;*&#32;Sets&#32;the&#32;request&#32;url.
+&#32;*
+&#32;*&#32;@param&#32;string&#32;$url
+&#32;*&#32;@return&#32;void
+&#32;*/
+function&#32;setUrl($url);
+
+/**
+&#32;*&#32;Returns&#32;the&#32;absolute&#32;url.
+&#32;*
+&#32;*&#32;@return&#32;string
+&#32;*/
+function&#32;getAbsoluteUrl();
+
+/**
+&#32;*&#32;Sets&#32;the&#32;absolute&#32;url.
+&#32;*
+&#32;*&#32;@param&#32;string&#32;$url
+&#32;*&#32;@return&#32;void
+&#32;*/
+function&#32;setAbsoluteUrl($url);
+
+/**
+&#32;*&#32;Returns&#32;the&#32;current&#32;base&#32;url.
+&#32;*
+&#32;*&#32;@return&#32;string
+&#32;*/
+function&#32;getBaseUrl();
+
+/**
+&#32;*&#32;Sets&#32;a&#32;base&#32;url.
+&#32;*
+&#32;*&#32;This&#32;url&#32;is&#32;used&#32;for&#32;relative&#32;path&#32;calculations.
+&#32;*
+&#32;*&#32;The&#32;base&#32;url&#32;should&#32;default&#32;to&#32;/
+&#32;*
+&#32;*&#32;@param&#32;string&#32;$url
+&#32;*&#32;@return&#32;void
+&#32;*/
+function&#32;setBaseUrl($url);
+
+/**
+&#32;*&#32;Returns&#32;the&#32;relative&#32;path.
+&#32;*
+&#32;*&#32;This&#32;is&#32;being&#32;calculated&#32;using&#32;the&#32;base&#32;url.&#32;This&#32;path&#32;will&#32;not&#32;start
+&#32;*&#32;with&#32;a&#32;slash,&#32;so&#32;it&#32;will&#32;always&#32;return&#32;something&#32;like
+&#32;*&#32;&apos;example/path.html&apos;.
+&#32;*
+&#32;*&#32;If&#32;the&#32;full&#32;path&#32;is&#32;equal&#32;to&#32;the&#32;base&#32;url,&#32;this&#32;method&#32;will&#32;return&#32;an
+&#32;*&#32;empty&#32;string.
+&#32;*
+&#32;*&#32;This&#32;method&#32;will&#32;also&#32;urldecode&#32;the&#32;path,&#32;and&#32;if&#32;the&#32;url&#32;was&#32;encoded&#32;as
+&#32;*&#32;ISO-8859-1,&#32;it&#32;will&#32;convert&#32;it&#32;to&#32;UTF-8.
+&#32;*
+&#32;*&#32;If&#32;the&#32;path&#32;is&#32;outside&#32;the&#32;base&#32;url,&#32;a&#32;LogicException&#32;will&#32;be&#32;thrown.
+&#32;*
+&#32;*&#32;@return&#32;string
+&#32;*/
+function&#32;getPath();
+
+/**
+&#32;*&#32;Returns&#32;the&#32;list&#32;of&#32;query&#32;parameters.
+&#32;*
+&#32;*&#32;This&#32;is&#32;equivalent&#32;to&#32;PHP&apos;s&#32;$_GET&#32;superglobal.
+&#32;*
+&#32;*&#32;@return&#32;array
+&#32;*/
+function&#32;getQueryParameters();
+
+/**
+&#32;*&#32;Returns&#32;the&#32;POST&#32;data.
+&#32;*
+&#32;*&#32;This&#32;is&#32;equivalent&#32;to&#32;PHP&apos;s&#32;$_POST&#32;superglobal.
+&#32;*
+&#32;*&#32;@return&#32;array
+&#32;*/
+function&#32;getPostData();
+
+/**
+&#32;*&#32;Sets&#32;the&#32;post&#32;data.
+&#32;*
+&#32;*&#32;This&#32;is&#32;equivalent&#32;to&#32;PHP&apos;s&#32;$_POST&#32;superglobal.
+&#32;*
+&#32;*&#32;This&#32;would&#32;not&#32;have&#32;been&#32;needed,&#32;if&#32;POST&#32;data&#32;was&#32;accessible&#32;as
+&#32;*&#32;php://input,&#32;but&#32;unfortunately&#32;we&#32;need&#32;to&#32;special&#32;case&#32;it.
+&#32;*
+&#32;*&#32;@param&#32;array&#32;$postData
+&#32;*&#32;@return&#32;void
+&#32;*/
+function&#32;setPostData(array&#32;$postData);
+
+/**
+&#32;*&#32;Returns&#32;an&#32;item&#32;from&#32;the&#32;_SERVER&#32;array.
+&#32;*
+&#32;*&#32;If&#32;the&#32;value&#32;does&#32;not&#32;exist&#32;in&#32;the&#32;array,&#32;null&#32;is&#32;returned.
+&#32;*
+&#32;*&#32;@param&#32;string&#32;$valueName
+&#32;*&#32;@return&#32;string|null
+&#32;*/
+function&#32;getRawServerValue($valueName);
+
+/**
+&#32;*&#32;Sets&#32;the&#32;_SERVER&#32;array.
+&#32;*
+&#32;*&#32;@param&#32;array&#32;$data
+&#32;*&#32;@return&#32;void
+&#32;*/
+function&#32;setRawServerData(array&#32;$data);
+
+/**
+&#32;*&#32;Returns&#32;the&#32;body&#32;as&#32;a&#32;readable&#32;stream&#32;resource.
+&#32;*
+&#32;*&#32;Note&#32;that&#32;the&#32;stream&#32;may&#32;not&#32;be&#32;rewindable,&#32;and&#32;therefore&#32;may&#32;only&#32;be
+&#32;*&#32;read&#32;once.
+&#32;*
+&#32;*&#32;@return&#32;resource
+&#32;*/
+function&#32;getBodyAsStream();
+
+/**
+&#32;*&#32;Returns&#32;the&#32;body&#32;as&#32;a&#32;string.
+&#32;*
+&#32;*&#32;Note&#32;that&#32;because&#32;the&#32;underlying&#32;data&#32;may&#32;be&#32;based&#32;on&#32;a&#32;stream,&#32;this
+&#32;*&#32;method&#32;could&#32;only&#32;work&#32;correctly&#32;the&#32;first&#32;time.
+&#32;*
+&#32;*&#32;@return&#32;string
+&#32;*/
+function&#32;getBodyAsString();
+
+/**
+&#32;*&#32;Returns&#32;the&#32;message&#32;body,&#32;as&#32;its&#32;internal&#32;representation.
+&#32;*
+&#32;*&#32;This&#32;could&#32;be&#32;either&#32;a&#32;string&#32;or&#32;a&#32;stream.
+&#32;*
+&#32;*&#32;@return&#32;resource|string
+&#32;*/
+function&#32;getBody();
+
+/**
+&#32;*&#32;Updates&#32;the&#32;body&#32;resource&#32;with&#32;a&#32;new&#32;stream.
+&#32;*
+&#32;*&#32;@param&#32;resource&#32;$body
+&#32;*&#32;@return&#32;void
+&#32;*/
+function&#32;setBody($body);
+
+/**
+&#32;*&#32;Returns&#32;all&#32;the&#32;HTTP&#32;headers&#32;as&#32;an&#32;array.
+&#32;*
+&#32;*&#32;@return&#32;array
+&#32;*/
+function&#32;getHeaders();
+
+/**
+&#32;*&#32;Returns&#32;a&#32;specific&#32;HTTP&#32;header,&#32;based&#32;on&#32;its&#32;name.
+&#32;*
+&#32;*&#32;The&#32;name&#32;must&#32;be&#32;treated&#32;as&#32;case-insensitive.
+&#32;*
+&#32;*&#32;If&#32;the&#32;header&#32;does&#32;not&#32;exist,&#32;this&#32;method&#32;must&#32;return&#32;null.
+&#32;*
+&#32;*&#32;@param&#32;string&#32;$name
+&#32;*&#32;@return&#32;string|null
+&#32;*/
+function&#32;getHeader($name);
+
+/**
+&#32;*&#32;Updates&#32;a&#32;HTTP&#32;header.
+&#32;*
+&#32;*&#32;The&#32;case-sensitivity&#32;of&#32;the&#32;name&#32;value&#32;must&#32;be&#32;retained&#32;as-is.
+&#32;*
+&#32;*&#32;@param&#32;string&#32;$name
+&#32;*&#32;@param&#32;string&#32;$value
+&#32;*&#32;@return&#32;void
+&#32;*/
+function&#32;setHeader($name,&#32;$value);
+
+/**
+&#32;*&#32;Resets&#32;HTTP&#32;headers
+&#32;*
+&#32;*&#32;This&#32;method&#32;overwrites&#32;all&#32;existing&#32;HTTP&#32;headers
+&#32;*
+&#32;*&#32;@param&#32;array&#32;$headers
+&#32;*&#32;@return&#32;void
+&#32;*/
+function&#32;setHeaders(array&#32;$headers);
+
+/**
+&#32;*&#32;Adds&#32;a&#32;new&#32;set&#32;of&#32;HTTP&#32;headers.
+&#32;*
+&#32;*&#32;Any&#32;header&#32;specified&#32;in&#32;the&#32;array&#32;that&#32;already&#32;exists&#32;will&#32;be
+&#32;*&#32;overwritten,&#32;but&#32;any&#32;other&#32;existing&#32;headers&#32;will&#32;be&#32;retained.
+&#32;*
+&#32;*&#32;@param&#32;array&#32;$headers
+&#32;*&#32;@return&#32;void
+&#32;*/
+function&#32;addHeaders(array&#32;$headers);
+
+/**
+&#32;*&#32;Removes&#32;a&#32;HTTP&#32;header.
+&#32;*
+&#32;*&#32;The&#32;specified&#32;header&#32;name&#32;must&#32;be&#32;treated&#32;as&#32;case-insensitive.
+&#32;*&#32;This&#32;method&#32;should&#32;return&#32;true&#32;if&#32;the&#32;header&#32;was&#32;successfully&#32;deleted,
+&#32;*&#32;and&#32;false&#32;if&#32;the&#32;header&#32;did&#32;not&#32;exist.
+&#32;*
+&#32;*&#32;@return&#32;bool
+&#32;*/
+function&#32;removeHeader($name);
+
+/**
+&#32;*&#32;Sets&#32;the&#32;HTTP&#32;version.
+&#32;*
+&#32;*&#32;Should&#32;be&#32;1.0,&#32;1.1&#32;or&#32;2.0.
+&#32;*
+&#32;*&#32;@param&#32;string&#32;$version
+&#32;*&#32;@return&#32;void
+&#32;*/
+function&#32;setHttpVersion($version);
+
+/**
+&#32;*&#32;Returns&#32;the&#32;HTTP&#32;version.
+&#32;*
+&#32;*&#32;@return&#32;string
+&#32;*/
+function&#32;getHttpVersion();
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2sabre_2http_2_r_e_a_d_m_e_1autotoc_md7100">
+<title><title>Response</title></title>
+
+<para><literallayout><computeroutput>/**
+&#32;*&#32;Returns&#32;the&#32;current&#32;HTTP&#32;status.
+&#32;*
+&#32;*&#32;This&#32;is&#32;the&#32;status-code&#32;as&#32;well&#32;as&#32;the&#32;human-readable&#32;string.
+&#32;*
+&#32;*&#32;@return&#32;string
+&#32;*/
+function&#32;getStatus();
+
+/**
+&#32;*&#32;Sets&#32;the&#32;HTTP&#32;status&#32;code.
+&#32;*
+&#32;*&#32;This&#32;can&#32;be&#32;either&#32;the&#32;full&#32;HTTP&#32;status&#32;code&#32;with&#32;human-readable&#32;string,
+&#32;*&#32;for&#32;example:&#32;&quot;403&#32;I&#32;can&apos;t&#32;let&#32;you&#32;do&#32;that,&#32;Dave&quot;.
+&#32;*
+&#32;*&#32;Or&#32;just&#32;the&#32;code,&#32;in&#32;which&#32;case&#32;the&#32;appropriate&#32;default&#32;message&#32;will&#32;be
+&#32;*&#32;added.
+&#32;*
+&#32;*&#32;@param&#32;string|int&#32;$status
+&#32;*&#32;@throws&#32;\InvalidArgumentExeption
+&#32;*&#32;@return&#32;void
+&#32;*/
+function&#32;setStatus($status);
+
+/**
+&#32;*&#32;Returns&#32;the&#32;body&#32;as&#32;a&#32;readable&#32;stream&#32;resource.
+&#32;*
+&#32;*&#32;Note&#32;that&#32;the&#32;stream&#32;may&#32;not&#32;be&#32;rewindable,&#32;and&#32;therefore&#32;may&#32;only&#32;be
+&#32;*&#32;read&#32;once.
+&#32;*
+&#32;*&#32;@return&#32;resource
+&#32;*/
+function&#32;getBodyAsStream();
+
+/**
+&#32;*&#32;Returns&#32;the&#32;body&#32;as&#32;a&#32;string.
+&#32;*
+&#32;*&#32;Note&#32;that&#32;because&#32;the&#32;underlying&#32;data&#32;may&#32;be&#32;based&#32;on&#32;a&#32;stream,&#32;this
+&#32;*&#32;method&#32;could&#32;only&#32;work&#32;correctly&#32;the&#32;first&#32;time.
+&#32;*
+&#32;*&#32;@return&#32;string
+&#32;*/
+function&#32;getBodyAsString();
+
+/**
+&#32;*&#32;Returns&#32;the&#32;message&#32;body,&#32;as&#32;its&#32;internal&#32;representation.
+&#32;*
+&#32;*&#32;This&#32;could&#32;be&#32;either&#32;a&#32;string&#32;or&#32;a&#32;stream.
+&#32;*
+&#32;*&#32;@return&#32;resource|string
+&#32;*/
+function&#32;getBody();
+
+
+/**
+&#32;*&#32;Updates&#32;the&#32;body&#32;resource&#32;with&#32;a&#32;new&#32;stream.
+&#32;*
+&#32;*&#32;@param&#32;resource&#32;$body
+&#32;*&#32;@return&#32;void
+&#32;*/
+function&#32;setBody($body);
+
+/**
+&#32;*&#32;Returns&#32;all&#32;the&#32;HTTP&#32;headers&#32;as&#32;an&#32;array.
+&#32;*
+&#32;*&#32;@return&#32;array
+&#32;*/
+function&#32;getHeaders();
+
+/**
+&#32;*&#32;Returns&#32;a&#32;specific&#32;HTTP&#32;header,&#32;based&#32;on&#32;its&#32;name.
+&#32;*
+&#32;*&#32;The&#32;name&#32;must&#32;be&#32;treated&#32;as&#32;case-insensitive.
+&#32;*
+&#32;*&#32;If&#32;the&#32;header&#32;does&#32;not&#32;exist,&#32;this&#32;method&#32;must&#32;return&#32;null.
+&#32;*
+&#32;*&#32;@param&#32;string&#32;$name
+&#32;*&#32;@return&#32;string|null
+&#32;*/
+function&#32;getHeader($name);
+
+/**
+&#32;*&#32;Updates&#32;a&#32;HTTP&#32;header.
+&#32;*
+&#32;*&#32;The&#32;case-sensitivity&#32;of&#32;the&#32;name&#32;value&#32;must&#32;be&#32;retained&#32;as-is.
+&#32;*
+&#32;*&#32;@param&#32;string&#32;$name
+&#32;*&#32;@param&#32;string&#32;$value
+&#32;*&#32;@return&#32;void
+&#32;*/
+function&#32;setHeader($name,&#32;$value);
+
+/**
+&#32;*&#32;Resets&#32;HTTP&#32;headers
+&#32;*
+&#32;*&#32;This&#32;method&#32;overwrites&#32;all&#32;existing&#32;HTTP&#32;headers
+&#32;*
+&#32;*&#32;@param&#32;array&#32;$headers
+&#32;*&#32;@return&#32;void
+&#32;*/
+function&#32;setHeaders(array&#32;$headers);
+
+/**
+&#32;*&#32;Adds&#32;a&#32;new&#32;set&#32;of&#32;HTTP&#32;headers.
+&#32;*
+&#32;*&#32;Any&#32;header&#32;specified&#32;in&#32;the&#32;array&#32;that&#32;already&#32;exists&#32;will&#32;be
+&#32;*&#32;overwritten,&#32;but&#32;any&#32;other&#32;existing&#32;headers&#32;will&#32;be&#32;retained.
+&#32;*
+&#32;*&#32;@param&#32;array&#32;$headers
+&#32;*&#32;@return&#32;void
+&#32;*/
+function&#32;addHeaders(array&#32;$headers);
+
+/**
+&#32;*&#32;Removes&#32;a&#32;HTTP&#32;header.
+&#32;*
+&#32;*&#32;The&#32;specified&#32;header&#32;name&#32;must&#32;be&#32;treated&#32;as&#32;case-insensitive.
+&#32;*&#32;This&#32;method&#32;should&#32;return&#32;true&#32;if&#32;the&#32;header&#32;was&#32;successfully&#32;deleted,
+&#32;*&#32;and&#32;false&#32;if&#32;the&#32;header&#32;did&#32;not&#32;exist.
+&#32;*
+&#32;*&#32;@return&#32;bool
+&#32;*/
+function&#32;removeHeader($name);
+
+/**
+&#32;*&#32;Sets&#32;the&#32;HTTP&#32;version.
+&#32;*
+&#32;*&#32;Should&#32;be&#32;1.0,&#32;1.1&#32;or&#32;2.0.
+&#32;*
+&#32;*&#32;@param&#32;string&#32;$version
+&#32;*&#32;@return&#32;void
+&#32;*/
+function&#32;setHttpVersion($version);
+
+/**
+&#32;*&#32;Returns&#32;the&#32;HTTP&#32;version.
+&#32;*
+&#32;*&#32;@return&#32;string
+&#32;*/
+function&#32;getHttpVersion();
+</computeroutput></literallayout></para>
+</section>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2sabre_2http_2_r_e_a_d_m_e_1autotoc_md7101">
+<title><title>Made at fruux</title></title>
+
+<para>This library is being developed by <link xlink:href="https://fruux.com/">fruux</link>. Drop us a line for commercial services or enterprise support. </para>
+</section>
+</section>

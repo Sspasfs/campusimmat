@@ -1,0 +1,161 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_interface_sabre_1_1_d_a_v_1_1_locks_1_1_backend_1_1_backend_interface" xml:lang="fr">
+<title>Référence de l&apos;interface BackendInterface</title>
+<indexterm><primary>BackendInterface</primary></indexterm>
+Graphe d&apos;héritage de BackendInterface:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="interface_sabre_1_1_d_a_v_1_1_locks_1_1_backend_1_1_backend_interface__inherit__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Graphe de collaboration de BackendInterface:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="interface_sabre_1_1_d_a_v_1_1_locks_1_1_backend_1_1_backend_interface__coll__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Fonctions membres publiques    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_interface_sabre_1_1_d_a_v_1_1_locks_1_1_backend_1_1_backend_interface_1a31f3021e5b754764e8a8fc9a30879760">getLocks</link> ($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">uri</link>, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">returnChildLocks</link>)</para>
+</listitem>
+            <listitem><para><link linkend="_interface_sabre_1_1_d_a_v_1_1_locks_1_1_backend_1_1_backend_interface_1ac95bb7419230a597f99f6858c62a6c40">lock</link> ($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">uri</link>, <link linkend="_class_sabre_1_1_d_a_v_1_1_locks_1_1_lock_info">Locks\LockInfo</link> $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">lockInfo</link>)</para>
+</listitem>
+            <listitem><para><link linkend="_interface_sabre_1_1_d_a_v_1_1_locks_1_1_backend_1_1_backend_interface_1a86e763d661929d11405b3e45aa908534">unlock</link> ($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">uri</link>, <link linkend="_class_sabre_1_1_d_a_v_1_1_locks_1_1_lock_info">Locks\LockInfo</link> $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">lockInfo</link>)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Description détaillée</title>
+
+<para>If you are defining your own Locks backend, you must implement this interface.</para>
+
+<para><formalpara><title>Copyright</title>
+
+<para>Copyright (C) fruux GmbH (<link xlink:href="https://fruux.com/">https://fruux.com/</link>) </para>
+</formalpara>
+<formalpara><title>Auteur</title>
+
+<para>Evert Pot (<link xlink:href="http://evertpot.com/">http://evertpot.com/</link>) @license <link xlink:href="http://sabre.io/license/">http://sabre.io/license/</link> Modified BSD License </para>
+</formalpara>
+</para>
+</section>
+<section>
+<title>Documentation des fonctions membres</title>
+<anchor xml:id="_interface_sabre_1_1_d_a_v_1_1_locks_1_1_backend_1_1_backend_interface_1a31f3021e5b754764e8a8fc9a30879760"/><section>
+    <title>getLocks()</title>
+<indexterm><primary>getLocks</primary><secondary>BackendInterface</secondary></indexterm>
+<indexterm><primary>BackendInterface</primary><secondary>getLocks</secondary></indexterm>
+<para><computeroutput>getLocks ( $uri,  $returnChildLocks)</computeroutput></para>
+<para>Returns a list of Sabre\DAV\Locks\LockInfo objects.</para>
+
+<para>This method should return all the locks for a particular uri, including locks that might be set on a parent uri.</para>
+
+<para>If returnChildLocks is set to true, this method should also look for any locks in the subtree of the uri for locks.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$uri</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>bool</entry><entry>$returnChildLocks</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>array </para>
+</formalpara>
+</para>
+<para>
+Implémenté dans <link linkend="_class_sabre_1_1_d_a_v_1_1_locks_1_1_backend_1_1_file_1a31f3021e5b754764e8a8fc9a30879760">File</link>, et <link linkend="_class_sabre_1_1_d_a_v_1_1_locks_1_1_backend_1_1_p_d_o_1a31f3021e5b754764e8a8fc9a30879760">PDO</link>.</para>
+</section>
+<anchor xml:id="_interface_sabre_1_1_d_a_v_1_1_locks_1_1_backend_1_1_backend_interface_1ac95bb7419230a597f99f6858c62a6c40"/><section>
+    <title>lock()</title>
+<indexterm><primary>lock</primary><secondary>BackendInterface</secondary></indexterm>
+<indexterm><primary>BackendInterface</primary><secondary>lock</secondary></indexterm>
+<para><computeroutput>lock ( $uri, <link linkend="_class_sabre_1_1_d_a_v_1_1_locks_1_1_lock_info">Locks\LockInfo</link> $lockInfo)</computeroutput></para>
+<para>Locks a uri.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$uri</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>bool </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_interface_sabre_1_1_d_a_v_1_1_locks_1_1_backend_1_1_backend_interface_1a86e763d661929d11405b3e45aa908534"/><section>
+    <title>unlock()</title>
+<indexterm><primary>unlock</primary><secondary>BackendInterface</secondary></indexterm>
+<indexterm><primary>BackendInterface</primary><secondary>unlock</secondary></indexterm>
+<para><computeroutput>unlock ( $uri, <link linkend="_class_sabre_1_1_d_a_v_1_1_locks_1_1_lock_info">Locks\LockInfo</link> $lockInfo)</computeroutput></para>
+<para>Removes a lock from a uri.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$uri</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>bool </para>
+</formalpara>
+</para>
+</section>
+<para>
+La documentation de cette interface a été générée à partir du fichier suivant :</para>
+public/glpi/vendor/sabre/dav/lib/DAV/Locks/Backend/<link linkend="__d_a_v_2_locks_2_backend_2_backend_interface_8php">BackendInterface.php</link></section>
+</section>

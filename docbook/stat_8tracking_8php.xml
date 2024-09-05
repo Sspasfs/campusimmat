@@ -1,0 +1,142 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_stat_8tracking_8php" xml:lang="fr">
+<title>Référence du fichier public/glpi/front/stat.tracking.php</title>
+<indexterm><primary>public/glpi/front/stat.tracking.php</primary></indexterm>
+<simplesect>
+    <title>Variables    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">global</link> <link linkend="_stat_8tracking_8php_1a2e00a61703ee4673cdfb5eb376a9b295">$CFG_GLPI</link></para>
+</listitem>
+            <listitem><para><link linkend="_dropdown_location_8php_1a52332c22f84432520971794825a5a8e7">if</link>(! $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">item</link>=<link linkend="_db_8function_8php_1a5bb7668a0ab5705035e0608178fabcba">getItemForItemtype</link>( $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">_GET</link>[ &apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">itemtype</link>&apos;])) <link linkend="_dropdown_location_8php_1a52332c22f84432520971794825a5a8e7">if</link>(<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">empty</link>($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">_GET</link>[&quot;type&quot;])) <link linkend="_stat_8tracking_8php_1a0e013355a19cbc6efc95480844d251a0">else</link></para>
+</listitem>
+            <listitem><para><link linkend="_stat_8tracking_8php_1af30efc7bba1c5f2377b960d4532c04d9">$stat</link> = <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">new</link> <link linkend="_class_stat">Stat</link>()</para>
+</listitem>
+            <listitem><para><link linkend="_stat_8tracking_8php_1ae3fbe538393375a3e05c1eccf0141d3c">$requester</link></para>
+</listitem>
+            <listitem><para><link linkend="_stat_8tracking_8php_1aa01e206a8e759cec4a7f799f700fd737">$caract</link></para>
+</listitem>
+            <listitem><para><link linkend="_dropdown_location_8php_1a52332c22f84432520971794825a5a8e7">if</link>($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">_GET</link>[&apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">itemtype</link>&apos;]==&apos;<link linkend="_class_ticket">Ticket</link>&apos;) <link linkend="_stat_8tracking_8php_1ab48f9df067da8ca98ace7d949eae6ebd">$items</link></para>
+</listitem>
+            <listitem><para><link linkend="_stat_8tracking_8php_1affc45c6ace2eeb3f300b054dbf9592b6">$values</link> = []</para>
+</listitem>
+            <listitem><para><link linkend="_stat_8tracking_8php_1afc9465cf4a7b9bbca31e3d9a6f6d9c1c">foreach</link> ( $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">items</link> <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">as</link> $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">label</link>=&gt; $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">tab</link>)</para>
+</listitem>
+            <listitem><para><link linkend="_stat_8tracking_8php_1aac81a74a7b30767af29bfd9a695636df">$val</link></para>
+</listitem>
+            <listitem><para><link linkend="_stat_8tracking_8php_1afe68e6fbe7acfbffc0af0c84a1996466">$params</link></para>
+</listitem>
+            <listitem><para><link linkend="_stat_8tracking_8php_1a87f6f708eb390120f3b042e531f72f04">$data_params</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Documentation des variables</title>
+<anchor xml:id="_stat_8tracking_8php_1aa01e206a8e759cec4a7f799f700fd737"/><section>
+    <title>$caract</title>
+<indexterm><primary>$caract</primary><secondary>stat.tracking.php</secondary></indexterm>
+<indexterm><primary>stat.tracking.php</primary><secondary>$caract</secondary></indexterm>
+<para><computeroutput>$<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">caract</link></computeroutput></para><emphasis role="strong">Valeur initiale :</emphasis><programlisting linenumbering="unnumbered">=&#32;[<emphasis role="stringliteral">&apos;itilcategories_id&apos;</emphasis>&#32;&#32;&#32;=&gt;&#32;[<emphasis role="stringliteral">&apos;title&apos;</emphasis>&#32;=&gt;&#32;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">_n</link>(<emphasis role="stringliteral">&apos;Category&apos;</emphasis>,&#32;<emphasis role="stringliteral">&apos;Categories&apos;</emphasis>,&#32;1)],
+&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&apos;itilcategories_tree&apos;</emphasis>&#32;=&gt;&#32;[<emphasis role="stringliteral">&apos;title&apos;</emphasis>&#32;=&gt;&#32;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">__</link>(<emphasis role="stringliteral">&apos;Category&#32;tree&apos;</emphasis>)],
+&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&apos;urgency&apos;</emphasis>&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;=&gt;&#32;[<emphasis role="stringliteral">&apos;title&apos;</emphasis>&#32;=&gt;&#32;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">__</link>(<emphasis role="stringliteral">&apos;Urgency&apos;</emphasis>)],
+&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&apos;impact&apos;</emphasis>&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;=&gt;&#32;[<emphasis role="stringliteral">&apos;title&apos;</emphasis>&#32;=&gt;&#32;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">__</link>(<emphasis role="stringliteral">&apos;Impact&apos;</emphasis>)],
+&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&apos;priority&apos;</emphasis>&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;=&gt;&#32;[<emphasis role="stringliteral">&apos;title&apos;</emphasis>&#32;=&gt;&#32;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">__</link>(<emphasis role="stringliteral">&apos;Priority&apos;</emphasis>)],
+&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&apos;solutiontypes_id&apos;</emphasis>&#32;&#32;&#32;&#32;=&gt;&#32;[<emphasis role="stringliteral">&apos;title&apos;</emphasis>&#32;=&gt;&#32;<link linkend="_class_solution_type_1ad85cd59496993b8ba622266fe36807ef">SolutionType::getTypeName</link>(1)]
+]
+</programlisting></section>
+<anchor xml:id="_stat_8tracking_8php_1a2e00a61703ee4673cdfb5eb376a9b295"/><section>
+    <title>$CFG_GLPI</title>
+<indexterm><primary>$CFG_GLPI</primary><secondary>stat.tracking.php</secondary></indexterm>
+<indexterm><primary>stat.tracking.php</primary><secondary>$CFG_GLPI</secondary></indexterm>
+<para><computeroutput><link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">global</link> $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">CFG_GLPI</link></computeroutput></para></section>
+<anchor xml:id="_stat_8tracking_8php_1a87f6f708eb390120f3b042e531f72f04"/><section>
+    <title>$data_params</title>
+<indexterm><primary>$data_params</primary><secondary>stat.tracking.php</secondary></indexterm>
+<indexterm><primary>stat.tracking.php</primary><secondary>$data_params</secondary></indexterm>
+<para><computeroutput>$<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">data_params</link></computeroutput></para><emphasis role="strong">Valeur initiale :</emphasis><programlisting linenumbering="unnumbered">=&#32;[
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&apos;itemtype&apos;</emphasis>&#32;=&gt;&#32;<link linkend="_common_8tabs_8php_1a7b2772071c2b50e11742306f5abe68e3">$_GET</link>[<emphasis role="stringliteral">&apos;itemtype&apos;</emphasis>],
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&apos;type&apos;</emphasis>&#32;&#32;&#32;&#32;&#32;=&gt;&#32;<link linkend="_common_8tabs_8php_1a7b2772071c2b50e11742306f5abe68e3">$_GET</link>[<emphasis role="stringliteral">&quot;type&quot;</emphasis>],
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&apos;date1&apos;</emphasis>&#32;&#32;&#32;&#32;=&gt;&#32;<link linkend="_common_8tabs_8php_1a7b2772071c2b50e11742306f5abe68e3">$_GET</link>[<emphasis role="stringliteral">&apos;date1&apos;</emphasis>],
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&apos;date2&apos;</emphasis>&#32;&#32;&#32;&#32;=&gt;&#32;<link linkend="_common_8tabs_8php_1a7b2772071c2b50e11742306f5abe68e3">$_GET</link>[<emphasis role="stringliteral">&apos;date2&apos;</emphasis>],
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&apos;start&apos;</emphasis>&#32;&#32;&#32;&#32;=&gt;&#32;<link linkend="_common_8tabs_8php_1a7b2772071c2b50e11742306f5abe68e3">$_GET</link>[<emphasis role="stringliteral">&apos;start&apos;</emphasis>],
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&apos;val&apos;</emphasis>&#32;&#32;&#32;&#32;&#32;&#32;=&gt;&#32;<link linkend="_stat_8tracking_8php_1aac81a74a7b30767af29bfd9a695636df">$val</link>,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&apos;value2&apos;</emphasis>&#32;&#32;&#32;=&gt;&#32;<link linkend="_common_8tabs_8php_1a7b2772071c2b50e11742306f5abe68e3">$_GET</link>[<emphasis role="stringliteral">&apos;value2&apos;</emphasis>],
+&#32;&#32;&#32;&#32;]
+</programlisting></section>
+<anchor xml:id="_stat_8tracking_8php_1ab48f9df067da8ca98ace7d949eae6ebd"/><section>
+    <title>$items</title>
+<indexterm><primary>$items</primary><secondary>stat.tracking.php</secondary></indexterm>
+<indexterm><primary>stat.tracking.php</primary><secondary>$items</secondary></indexterm>
+<para><computeroutput><link linkend="_dropdown_location_8php_1a52332c22f84432520971794825a5a8e7">if</link> ( $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">_GET</link>[ &apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">itemtype</link>&apos;]==&apos;<link linkend="_class_ticket">Ticket</link>&apos;) $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">items</link></computeroutput></para><emphasis role="strong">Valeur initiale :</emphasis><programlisting linenumbering="unnumbered">=&#32;[<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">_n</link>(<emphasis role="stringliteral">&apos;Requester&apos;</emphasis>,&#32;<emphasis role="stringliteral">&apos;Requesters&apos;</emphasis>,&#32;1)&#32;&#32;&#32;&#32;&#32;&#32;&#32;=&gt;&#32;<link linkend="_stat_8tracking_8php_1ae3fbe538393375a3e05c1eccf0141d3c">$requester</link>,
+&#32;&#32;&#32;&#32;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">__</link>(<emphasis role="stringliteral">&apos;Characteristics&apos;</emphasis>)&#32;=&gt;&#32;<link linkend="_stat_8tracking_8php_1aa01e206a8e759cec4a7f799f700fd737">$caract</link>,
+&#32;&#32;&#32;&#32;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">__</link>(<emphasis role="stringliteral">&apos;Assigned&#32;to&apos;</emphasis>)&#32;&#32;&#32;&#32;&#32;=&gt;&#32;[<emphasis role="stringliteral">&apos;technicien&apos;</emphasis>
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;=&gt;&#32;[<emphasis role="stringliteral">&apos;title&apos;</emphasis>&#32;=&gt;&#32;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">__</link>(<emphasis role="stringliteral">&apos;Technician&#32;as&#32;assigned&apos;</emphasis>)],
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&apos;technicien_followup&apos;</emphasis>
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;=&gt;&#32;[<emphasis role="stringliteral">&apos;title&apos;</emphasis>&#32;=&gt;&#32;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">__</link>(<emphasis role="stringliteral">&apos;Technician&#32;in&#32;tasks&apos;</emphasis>)],
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&apos;groups_id_assign&apos;</emphasis>
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;=&gt;&#32;[<emphasis role="stringliteral">&apos;title&apos;</emphasis>&#32;=&gt;&#32;Group::getTypeName(1)],
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&apos;groups_tree_assign&apos;</emphasis>
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;=&gt;&#32;[<emphasis role="stringliteral">&apos;title&apos;</emphasis>&#32;=&gt;&#32;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">__</link>(<emphasis role="stringliteral">&apos;Group&#32;tree&apos;</emphasis>)],
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&apos;suppliers_id_assign&apos;</emphasis>
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;=&gt;&#32;[<emphasis role="stringliteral">&apos;title&apos;</emphasis>&#32;=&gt;&#32;Supplier::getTypeName(1)]
+&#32;&#32;&#32;&#32;]
+]
+</programlisting></section>
+<anchor xml:id="_stat_8tracking_8php_1afe68e6fbe7acfbffc0af0c84a1996466"/><section>
+    <title>$params</title>
+<indexterm><primary>$params</primary><secondary>stat.tracking.php</secondary></indexterm>
+<indexterm><primary>stat.tracking.php</primary><secondary>$params</secondary></indexterm>
+<para><computeroutput>$<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">params</link></computeroutput></para><emphasis role="strong">Valeur initiale :</emphasis><programlisting linenumbering="unnumbered">=&#32;[<emphasis role="stringliteral">&apos;type&apos;</emphasis>&#32;&#32;&#32;=&gt;&#32;<link linkend="_common_8tabs_8php_1a7b2772071c2b50e11742306f5abe68e3">$_GET</link>[<emphasis role="stringliteral">&quot;type&quot;</emphasis>],
+&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&apos;date1&apos;</emphasis>&#32;&#32;=&gt;&#32;<link linkend="_common_8tabs_8php_1a7b2772071c2b50e11742306f5abe68e3">$_GET</link>[<emphasis role="stringliteral">&quot;date1&quot;</emphasis>],
+&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&apos;date2&apos;</emphasis>&#32;&#32;=&gt;&#32;<link linkend="_common_8tabs_8php_1a7b2772071c2b50e11742306f5abe68e3">$_GET</link>[<emphasis role="stringliteral">&quot;date2&quot;</emphasis>],
+&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&apos;value2&apos;</emphasis>&#32;=&gt;&#32;<link linkend="_common_8tabs_8php_1a7b2772071c2b50e11742306f5abe68e3">$_GET</link>[<emphasis role="stringliteral">&quot;value2&quot;</emphasis>],
+&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&apos;start&apos;</emphasis>&#32;&#32;=&gt;&#32;<link linkend="_common_8tabs_8php_1a7b2772071c2b50e11742306f5abe68e3">$_GET</link>[<emphasis role="stringliteral">&quot;start&quot;</emphasis>]
+]
+</programlisting></section>
+<anchor xml:id="_stat_8tracking_8php_1ae3fbe538393375a3e05c1eccf0141d3c"/><section>
+    <title>$requester</title>
+<indexterm><primary>$requester</primary><secondary>stat.tracking.php</secondary></indexterm>
+<indexterm><primary>stat.tracking.php</primary><secondary>$requester</secondary></indexterm>
+<para><computeroutput>$<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">requester</link></computeroutput></para><emphasis role="strong">Valeur initiale :</emphasis><programlisting linenumbering="unnumbered">=&#32;[<emphasis role="stringliteral">&apos;user&apos;</emphasis>&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;=&gt;&#32;[<emphasis role="stringliteral">&apos;title&apos;</emphasis>&#32;=&gt;&#32;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">_n</link>(<emphasis role="stringliteral">&apos;Requester&apos;</emphasis>,&#32;<emphasis role="stringliteral">&apos;Requesters&apos;</emphasis>,&#32;1)],
+&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&apos;users_id_recipient&apos;</emphasis>&#32;=&gt;&#32;[<emphasis role="stringliteral">&apos;title&apos;</emphasis>&#32;=&gt;&#32;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">__</link>(<emphasis role="stringliteral">&apos;Writer&apos;</emphasis>)],
+&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&apos;group&apos;</emphasis>&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;=&gt;&#32;[<emphasis role="stringliteral">&apos;title&apos;</emphasis>&#32;=&gt;&#32;Group::getTypeName(1)],
+&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&apos;group_tree&apos;</emphasis>&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;=&gt;&#32;[<emphasis role="stringliteral">&apos;title&apos;</emphasis>&#32;=&gt;&#32;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">__</link>(<emphasis role="stringliteral">&apos;Group&#32;tree&apos;</emphasis>)],
+&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&apos;usertitles_id&apos;</emphasis>&#32;&#32;&#32;&#32;&#32;&#32;=&gt;&#32;[<emphasis role="stringliteral">&apos;title&apos;</emphasis>&#32;=&gt;&#32;<link linkend="_autoload_8function_8php_1a2111ba1b23d22b49aee91462961bda8a">_x</link>(<emphasis role="stringliteral">&apos;person&apos;</emphasis>,&#32;<emphasis role="stringliteral">&apos;Title&apos;</emphasis>)],
+&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&apos;usercategories_id&apos;</emphasis>&#32;&#32;=&gt;&#32;[<emphasis role="stringliteral">&apos;title&apos;</emphasis>&#32;=&gt;&#32;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">_n</link>(<emphasis role="stringliteral">&apos;Category&apos;</emphasis>,&#32;<emphasis role="stringliteral">&apos;Categories&apos;</emphasis>,&#32;1)]
+]
+</programlisting></section>
+<anchor xml:id="_stat_8tracking_8php_1af30efc7bba1c5f2377b960d4532c04d9"/><section>
+    <title>$stat</title>
+<indexterm><primary>$stat</primary><secondary>stat.tracking.php</secondary></indexterm>
+<indexterm><primary>stat.tracking.php</primary><secondary>$stat</secondary></indexterm>
+<para><computeroutput>$<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">stat</link> = <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">new</link> <link linkend="_class_stat">Stat</link>()</computeroutput></para></section>
+<anchor xml:id="_stat_8tracking_8php_1aac81a74a7b30767af29bfd9a695636df"/><section>
+    <title>$val</title>
+<indexterm><primary>$val</primary><secondary>stat.tracking.php</secondary></indexterm>
+<indexterm><primary>stat.tracking.php</primary><secondary>$val</secondary></indexterm>
+<para><computeroutput>$<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">val</link></computeroutput></para><emphasis role="strong">Valeur initiale :</emphasis><programlisting linenumbering="unnumbered">=&#32;Stat::getItems(
+&#32;&#32;&#32;&#32;<link linkend="_common_8tabs_8php_1a7b2772071c2b50e11742306f5abe68e3">$_GET</link>[<emphasis role="stringliteral">&quot;itemtype&quot;</emphasis>],
+&#32;&#32;&#32;&#32;<link linkend="_common_8tabs_8php_1a7b2772071c2b50e11742306f5abe68e3">$_GET</link>[<emphasis role="stringliteral">&quot;date1&quot;</emphasis>],
+&#32;&#32;&#32;&#32;<link linkend="_common_8tabs_8php_1a7b2772071c2b50e11742306f5abe68e3">$_GET</link>[<emphasis role="stringliteral">&quot;date2&quot;</emphasis>],
+&#32;&#32;&#32;&#32;<link linkend="_common_8tabs_8php_1a7b2772071c2b50e11742306f5abe68e3">$_GET</link>[<emphasis role="stringliteral">&quot;type&quot;</emphasis>],
+&#32;&#32;&#32;&#32;<link linkend="_common_8tabs_8php_1a7b2772071c2b50e11742306f5abe68e3">$_GET</link>[<emphasis role="stringliteral">&quot;value2&quot;</emphasis>]
+)
+</programlisting></section>
+<anchor xml:id="_stat_8tracking_8php_1affc45c6ace2eeb3f300b054dbf9592b6"/><section>
+    <title>$values</title>
+<indexterm><primary>$values</primary><secondary>stat.tracking.php</secondary></indexterm>
+<indexterm><primary>stat.tracking.php</primary><secondary>$values</secondary></indexterm>
+<para><computeroutput>$<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">values</link> = []</computeroutput></para></section>
+<anchor xml:id="_stat_8tracking_8php_1a0e013355a19cbc6efc95480844d251a0"/><section>
+    <title>else</title>
+<indexterm><primary>else</primary><secondary>stat.tracking.php</secondary></indexterm>
+<indexterm><primary>stat.tracking.php</primary><secondary>else</secondary></indexterm>
+<para><computeroutput><link linkend="_dropdown_location_8php_1a52332c22f84432520971794825a5a8e7">if</link> (! $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">_GET</link>[ &apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">showgraph</link>&apos;]) else</computeroutput></para><emphasis role="strong">Valeur initiale :</emphasis><programlisting linenumbering="unnumbered">{
+&#32;&#32;&#32;&#32;<link linkend="_common_8tabs_8php_1a7b2772071c2b50e11742306f5abe68e3">$_GET</link>[<emphasis role="stringliteral">&quot;type&quot;</emphasis>]&#32;=&#32;(string)<link linkend="_common_8tabs_8php_1a7b2772071c2b50e11742306f5abe68e3">$_GET</link>[<emphasis role="stringliteral">&quot;type&quot;</emphasis>]
+</programlisting></section>
+<anchor xml:id="_stat_8tracking_8php_1afc9465cf4a7b9bbca31e3d9a6f6d9c1c"/><section>
+    <title>foreach</title>
+<indexterm><primary>foreach</primary><secondary>stat.tracking.php</secondary></indexterm>
+<indexterm><primary>stat.tracking.php</primary><secondary>foreach</secondary></indexterm>
+<para><computeroutput>foreach($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">items</link> <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">as</link> $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">label</link>=&gt; $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">tab</link>) ( $items as,  $tab)</computeroutput></para></section>
+</section>
+</section>

@@ -1,0 +1,203 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_league_1_1_o_auth2_1_1_client_1_1_tool_1_1_request_factory" xml:lang="fr">
+<title>Référence de la classe RequestFactory</title>
+<indexterm><primary>RequestFactory</primary></indexterm>
+Graphe de collaboration de RequestFactory:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_league_1_1_o_auth2_1_1_client_1_1_tool_1_1_request_factory__coll__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Fonctions membres publiques    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_league_1_1_o_auth2_1_1_client_1_1_tool_1_1_request_factory_1a55d649930c56416f6756d5f9b497b023">getRequest</link> ( $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">method</link>, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">uri</link>, array $headers=[], $body=null, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">version</link>=&apos;1.1&apos;)</para>
+</listitem>
+            <listitem><para><link linkend="_class_league_1_1_o_auth2_1_1_client_1_1_tool_1_1_request_factory_1a9e75b735f7110218c724a0df95f415b9">getRequestWithOptions</link> ($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">method</link>, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">uri</link>, array $options=[])</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Fonctions membres protégées    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_league_1_1_o_auth2_1_1_client_1_1_tool_1_1_request_factory_1ae527af16554dd2b02efaba9144e80bed">parseOptions</link> (array $options)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Description détaillée</title>
+
+<para>Used to produce PSR-7 Request instances.</para>
+
+<para><link linkend="_">https://github.com/guzzle/guzzle/pull/1101</link></para>
+</section>
+<section>
+<title>Documentation des fonctions membres</title>
+<anchor xml:id="_class_league_1_1_o_auth2_1_1_client_1_1_tool_1_1_request_factory_1a55d649930c56416f6756d5f9b497b023"/><section>
+    <title>getRequest()</title>
+<indexterm><primary>getRequest</primary><secondary>RequestFactory</secondary></indexterm>
+<indexterm><primary>RequestFactory</primary><secondary>getRequest</secondary></indexterm>
+<para><computeroutput>getRequest ( $method,  $uri, array $headers = <computeroutput>[]</computeroutput>
+,  $body = <computeroutput>null</computeroutput>
+,  $version = <computeroutput>&apos;1.1&apos;</computeroutput>
+)</computeroutput></para>
+<para>Creates a PSR-7 Request instance.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>null | string</entry><entry>$method</entry><entry>
+<para>HTTP method for the request. </para>
+</entry>
+                            </row>
+                            <row>
+<entry>null | string</entry><entry>$uri</entry><entry>
+<para>URI for the request. </para>
+</entry>
+                            </row>
+                            <row>
+<entry>array</entry><entry>$headers</entry><entry>
+<para>Headers for the message. </para>
+</entry>
+                            </row>
+                            <row>
+<entry>string | resource | StreamInterface</entry><entry>$body</entry><entry>
+<para>Message body. </para>
+</entry>
+                            </row>
+                            <row>
+<entry>string</entry><entry>$version</entry><entry>
+<para>HTTP protocol version.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>Request </para>
+</formalpara>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_league_1_1_o_auth2_1_1_client_1_1_tool_1_1_request_factory_a55d649930c56416f6756d5f9b497b023_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_league_1_1_o_auth2_1_1_client_1_1_tool_1_1_request_factory_1a9e75b735f7110218c724a0df95f415b9"/><section>
+    <title>getRequestWithOptions()</title>
+<indexterm><primary>getRequestWithOptions</primary><secondary>RequestFactory</secondary></indexterm>
+<indexterm><primary>RequestFactory</primary><secondary>getRequestWithOptions</secondary></indexterm>
+<para><computeroutput>getRequestWithOptions ( $method,  $uri, array $options = <computeroutput>[]</computeroutput>
+)</computeroutput></para>
+<para>Creates a request using a simplified array of options.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>null | string</entry><entry>$method</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>null | string</entry><entry>$uri</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>array</entry><entry>$options</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>Request </para>
+</formalpara>
+</para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_league_1_1_o_auth2_1_1_client_1_1_tool_1_1_request_factory_a9e75b735f7110218c724a0df95f415b9_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_league_1_1_o_auth2_1_1_client_1_1_tool_1_1_request_factory_1ae527af16554dd2b02efaba9144e80bed"/><section>
+    <title>parseOptions()</title>
+<indexterm><primary>parseOptions</primary><secondary>RequestFactory</secondary></indexterm>
+<indexterm><primary>RequestFactory</primary><secondary>parseOptions</secondary></indexterm>
+<para><computeroutput>parseOptions (array $options)<computeroutput>[protected]</computeroutput></computeroutput></para>
+<para>Parses simplified options.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>array</entry><entry>$options</entry><entry>
+<para>Simplified options.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>array Extended options for use with getRequest. </para>
+</formalpara>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_league_1_1_o_auth2_1_1_client_1_1_tool_1_1_request_factory_ae527af16554dd2b02efaba9144e80bed_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<para>
+La documentation de cette classe a été générée à partir du fichier suivant :</para>
+public/glpi/vendor/league/oauth2-client/src/Tool/<link linkend="__request_factory_8php">RequestFactory.php</link></section>
+</section>

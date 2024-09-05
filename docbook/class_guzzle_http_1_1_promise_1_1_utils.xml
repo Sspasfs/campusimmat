@@ -1,0 +1,560 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_guzzle_http_1_1_promise_1_1_utils" xml:lang="fr">
+<title>Référence de la classe Utils</title>
+<indexterm><primary>Utils</primary></indexterm>
+Graphe de collaboration de Utils:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_guzzle_http_1_1_promise_1_1_utils__coll__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Fonctions membres publiques statiques    </title>
+        <itemizedlist>
+            <listitem><para>static <link linkend="_class_guzzle_http_1_1_promise_1_1_utils_1a8efc2ccbadc06be97e2e4130e7f250e9">queue</link> (<link linkend="_interface_guzzle_http_1_1_promise_1_1_task_queue_interface">TaskQueueInterface</link> $assign=null)</para>
+</listitem>
+            <listitem><para>static <link linkend="_class_guzzle_http_1_1_promise_1_1_utils_1a2f8bd02839d3bf8dc37b4a31a4257802">task</link> (<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">callable</link> $task)</para>
+</listitem>
+            <listitem><para>static <link linkend="_class_guzzle_http_1_1_promise_1_1_utils_1a51a2d8f0f35330e29ec578a5e8e7be3c">inspect</link> (<link linkend="_interface_guzzle_http_1_1_promise_1_1_promise_interface">PromiseInterface</link> $promise)</para>
+</listitem>
+            <listitem><para>static <link linkend="_class_guzzle_http_1_1_promise_1_1_utils_1acdf24ea1cc451750ae270d69844a01e6">inspectAll</link> ($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">promises</link>)</para>
+</listitem>
+            <listitem><para>static <link linkend="_class_guzzle_http_1_1_promise_1_1_utils_1a63b9b05f340e77aa7341ab39811df323">unwrap</link> ($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">promises</link>)</para>
+</listitem>
+            <listitem><para>static <link linkend="_class_guzzle_http_1_1_promise_1_1_utils_1a71f13e46c5e5f7a8a66e91ab83a21a62">all</link> ($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">promises</link>, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">recursive</link>=false)</para>
+</listitem>
+            <listitem><para>static <link linkend="_class_guzzle_http_1_1_promise_1_1_utils_1a7e8308a9d6169084841899a46c7f49cd">some</link> ($count, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">promises</link>)</para>
+</listitem>
+            <listitem><para>static <link linkend="_class_guzzle_http_1_1_promise_1_1_utils_1a88e0e2a1eba6c595ab1487886b0fbb96">any</link> ($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">promises</link>)</para>
+</listitem>
+            <listitem><para>static <link linkend="_class_guzzle_http_1_1_promise_1_1_utils_1aea1581aadefbcd6bfd919f9b7dee6189">settle</link> ($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">promises</link>)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Documentation des fonctions membres</title>
+<anchor xml:id="_class_guzzle_http_1_1_promise_1_1_utils_1a71f13e46c5e5f7a8a66e91ab83a21a62"/><section>
+    <title>all()</title>
+<indexterm><primary>all</primary><secondary>Utils</secondary></indexterm>
+<indexterm><primary>Utils</primary><secondary>all</secondary></indexterm>
+<para><computeroutput>static all ( $promises,  $recursive = <computeroutput>false</computeroutput>
+)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>Given an array of promises, return a promise that is fulfilled when all the items in the array are fulfilled.</para>
+
+<para>The promise&apos;s fulfillment value is an array with fulfillment values at respective positions to the original array. If any promise in the array rejects, the returned promise is rejected with the rejection reason.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>mixed</entry><entry>$promises</entry><entry>
+<para>Promises or values. </para>
+</entry>
+                            </row>
+                            <row>
+<entry>bool</entry><entry>$recursive</entry><entry>
+<para>If true, resolves new promises that might have been added to the stack during its own resolution.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>PromiseInterface </para>
+</formalpara>
+</para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_guzzle_http_1_1_promise_1_1_utils_a71f13e46c5e5f7a8a66e91ab83a21a62_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_guzzle_http_1_1_promise_1_1_utils_a71f13e46c5e5f7a8a66e91ab83a21a62_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_guzzle_http_1_1_promise_1_1_utils_1a88e0e2a1eba6c595ab1487886b0fbb96"/><section>
+    <title>any()</title>
+<indexterm><primary>any</primary><secondary>Utils</secondary></indexterm>
+<indexterm><primary>Utils</primary><secondary>any</secondary></indexterm>
+<para><computeroutput>static any ( $promises)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>Like some(), with 1 as count. However, if the promise fulfills, the fulfillment value is not an array of 1 but the value directly.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>mixed</entry><entry>$promises</entry><entry>
+<para>Promises or values.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>PromiseInterface </para>
+</formalpara>
+</para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_guzzle_http_1_1_promise_1_1_utils_a88e0e2a1eba6c595ab1487886b0fbb96_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_guzzle_http_1_1_promise_1_1_utils_a88e0e2a1eba6c595ab1487886b0fbb96_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_guzzle_http_1_1_promise_1_1_utils_1a51a2d8f0f35330e29ec578a5e8e7be3c"/><section>
+    <title>inspect()</title>
+<indexterm><primary>inspect</primary><secondary>Utils</secondary></indexterm>
+<indexterm><primary>Utils</primary><secondary>inspect</secondary></indexterm>
+<para><computeroutput>static inspect (<link linkend="_interface_guzzle_http_1_1_promise_1_1_promise_interface">PromiseInterface</link> $promise)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>Synchronously waits on a promise to resolve and returns an inspection state array.</para>
+
+<para>Returns a state associative array containing a &quot;state&quot; key mapping to a valid promise state. If the state of the promise is &quot;fulfilled&quot;, the array will contain a &quot;value&quot; key mapping to the fulfilled value of the promise. If the promise is rejected, the array will contain a &quot;reason&quot; key mapping to the rejection reason of the promise.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>PromiseInterface</entry><entry>$promise</entry><entry>
+<para>Promise or value.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>array </para>
+</formalpara>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_guzzle_http_1_1_promise_1_1_utils_a51a2d8f0f35330e29ec578a5e8e7be3c_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_guzzle_http_1_1_promise_1_1_utils_1acdf24ea1cc451750ae270d69844a01e6"/><section>
+    <title>inspectAll()</title>
+<indexterm><primary>inspectAll</primary><secondary>Utils</secondary></indexterm>
+<indexterm><primary>Utils</primary><secondary>inspectAll</secondary></indexterm>
+<para><computeroutput>static inspectAll ( $promises)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>Waits on all of the provided promises, but does not unwrap rejected promises as thrown exception.</para>
+
+<para>Returns an array of inspection state arrays.</para>
+
+<para><formalpara><title>Voir également</title>
+
+<para>inspect <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">for</link> <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">the</link> <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">inspection</link> state array format.</para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>PromiseInterface[]</entry><entry>$promises</entry><entry>
+<para>Traversable of promises to wait upon.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>array </para>
+</formalpara>
+</para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_guzzle_http_1_1_promise_1_1_utils_acdf24ea1cc451750ae270d69844a01e6_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_guzzle_http_1_1_promise_1_1_utils_acdf24ea1cc451750ae270d69844a01e6_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_guzzle_http_1_1_promise_1_1_utils_1a8efc2ccbadc06be97e2e4130e7f250e9"/><section>
+    <title>queue()</title>
+<indexterm><primary>queue</primary><secondary>Utils</secondary></indexterm>
+<indexterm><primary>Utils</primary><secondary>queue</secondary></indexterm>
+<para><computeroutput>static queue (<link linkend="_interface_guzzle_http_1_1_promise_1_1_task_queue_interface">TaskQueueInterface</link> $assign = <computeroutput>null</computeroutput>
+)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>Get the global task queue used for promise resolution.</para>
+
+<para>This task queue MUST be run in an event loop in order for promises to be settled asynchronously. It will be automatically run when synchronously waiting on a promise.</para>
+
+<para><computeroutput> while ($eventLoop-&gt;isRunning()) { <link linkend="_namespace_guzzle_http">GuzzleHttp</link>\Promise\Utils::queue()-&gt;run(); } </computeroutput></para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>TaskQueueInterface</entry><entry>$assign</entry><entry>
+<para>Optionally specify a new queue instance.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>TaskQueueInterface </para>
+</formalpara>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_guzzle_http_1_1_promise_1_1_utils_a8efc2ccbadc06be97e2e4130e7f250e9_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_guzzle_http_1_1_promise_1_1_utils_1aea1581aadefbcd6bfd919f9b7dee6189"/><section>
+    <title>settle()</title>
+<indexterm><primary>settle</primary><secondary>Utils</secondary></indexterm>
+<indexterm><primary>Utils</primary><secondary>settle</secondary></indexterm>
+<para><computeroutput>static settle ( $promises)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>Returns a promise that is fulfilled when all of the provided promises have been fulfilled or rejected.</para>
+
+<para>The returned promise is fulfilled with an array of inspection state arrays.</para>
+
+<para><formalpara><title>Voir également</title>
+
+<para>inspect <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">for</link> <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">the</link> <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">inspection</link> state array format.</para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>mixed</entry><entry>$promises</entry><entry>
+<para>Promises or values.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>PromiseInterface </para>
+</formalpara>
+</para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_guzzle_http_1_1_promise_1_1_utils_aea1581aadefbcd6bfd919f9b7dee6189_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_guzzle_http_1_1_promise_1_1_utils_aea1581aadefbcd6bfd919f9b7dee6189_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_guzzle_http_1_1_promise_1_1_utils_1a7e8308a9d6169084841899a46c7f49cd"/><section>
+    <title>some()</title>
+<indexterm><primary>some</primary><secondary>Utils</secondary></indexterm>
+<indexterm><primary>Utils</primary><secondary>some</secondary></indexterm>
+<para><computeroutput>static some ( $count,  $promises)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>Initiate a competitive race between multiple promises or values (values will become immediately fulfilled promises).</para>
+
+<para>When count amount of promises have been fulfilled, the returned promise is fulfilled with an array that contains the fulfillment values of the winners in order of resolution.</para>
+
+<para>This promise is rejected with a {<formalpara><title>Voir également</title>
+
+<para>AggregateException} <link linkend="_dropdown_location_8php_1a52332c22f84432520971794825a5a8e7">if</link> <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">the</link> number of fulfilled <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">promises</link> is <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">less</link> <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">than</link> <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">the</link> <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">desired</link> $count.</para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>int</entry><entry>$count</entry><entry>
+<para>Total number of promises. </para>
+</entry>
+                            </row>
+                            <row>
+<entry>mixed</entry><entry>$promises</entry><entry>
+<para>Promises or values.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>PromiseInterface </para>
+</formalpara>
+</para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_guzzle_http_1_1_promise_1_1_utils_a7e8308a9d6169084841899a46c7f49cd_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_guzzle_http_1_1_promise_1_1_utils_a7e8308a9d6169084841899a46c7f49cd_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_guzzle_http_1_1_promise_1_1_utils_1a2f8bd02839d3bf8dc37b4a31a4257802"/><section>
+    <title>task()</title>
+<indexterm><primary>task</primary><secondary>Utils</secondary></indexterm>
+<indexterm><primary>Utils</primary><secondary>task</secondary></indexterm>
+<para><computeroutput>static task (<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">callable</link> $task)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>Adds a function to run in the task queue when it is next <computeroutput>run()</computeroutput> and returns a promise that is fulfilled or rejected with the result.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>callable</entry><entry>$task</entry><entry>
+<para>Task function to run.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>PromiseInterface </para>
+</formalpara>
+</para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_guzzle_http_1_1_promise_1_1_utils_a2f8bd02839d3bf8dc37b4a31a4257802_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_guzzle_http_1_1_promise_1_1_utils_a2f8bd02839d3bf8dc37b4a31a4257802_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_guzzle_http_1_1_promise_1_1_utils_1a63b9b05f340e77aa7341ab39811df323"/><section>
+    <title>unwrap()</title>
+<indexterm><primary>unwrap</primary><secondary>Utils</secondary></indexterm>
+<indexterm><primary>Utils</primary><secondary>unwrap</secondary></indexterm>
+<para><computeroutput>static unwrap ( $promises)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>Waits on all of the provided promises and returns the fulfilled values.</para>
+
+<para>Returns an array that contains the value of each promise (in the same order the promises were provided). An exception is thrown if any of the promises are rejected.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>iterable&lt;PromiseInterface&gt;</entry><entry>
+<para>$promises Iterable of PromiseInterface objects to wait on.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>array</para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry></entry>
+<entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                Exception on error 
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry></entry>
+<entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                Throwable on error in PHP &gt;=7 </para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_guzzle_http_1_1_promise_1_1_utils_a63b9b05f340e77aa7341ab39811df323_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<para>
+La documentation de cette classe a été générée à partir du fichier suivant :</para>
+public/glpi/vendor/guzzlehttp/promises/src/<link linkend="_guzzlehttp_2promises_2src_2_utils_8php">Utils.php</link></section>
+</section>

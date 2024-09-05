@@ -1,0 +1,327 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.10.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>CampusImmat: Original XML specification (network inventory)</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">CampusImmat
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.10.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+</div><!-- top -->
+<div><div class="header">
+  <div class="headertitle"><div class="title">Original XML specification (network inventory)</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><div class="fragment"><div class="line">&lt;!ELEMENT REQUEST (CONTENT+, DEVICEID, QUERY)&gt;</div>
+<div class="line"> </div>
+<div class="line">  &lt;!ELEMENT CONTENT (DEVICE*, MODULEVERSION, PROCESSNUMBER)&gt;</div>
+<div class="line"> </div>
+<div class="line">    &lt;!-- a device --&gt;</div>
+<div class="line">    &lt;!ELEMENT DEVICE (INFO, PORTS, MODEMS+, FIRMWARES+, SIMCARDS+,</div>
+<div class="line">    PAGECOUNTERS?, CARTRIDGES?)&gt;</div>
+<div class="line"> </div>
+<div class="line">      &lt;!-- generic information --&gt;</div>
+<div class="line">      &lt;!ELEMENT INFO (COMMENTS, CPU, FIRMWARE, ID, IPS, LOCATION, MAC, MEMORY,</div>
+<div class="line">      MODEL, NAME, RAM, SERIAL, TYPE, UPTIME, MANUFACTURER, CONTACT)&gt;</div>
+<div class="line">        &lt;!-- sysdescr (string) --&gt;</div>
+<div class="line">        &lt;!ELEMENT DESCRIPTION (#PCDATA)&gt;</div>
+<div class="line">        &lt;!-- CPU load in % (integer) --&gt;</div>
+<div class="line">        &lt;!ELEMENT CPU (#PCDATA)&gt;</div>
+<div class="line">        &lt;!-- firmware (string) --&gt;</div>
+<div class="line">        &lt;!ELEMENT FIRMWARE (#PCDATA)&gt;</div>
+<div class="line">        &lt;!-- device ID in GLPI (integer) --&gt;</div>
+<div class="line">        &lt;!ELEMENT ID (#PCDATA)&gt;</div>
+<div class="line">        &lt;!-- IP addresses list --&gt;</div>
+<div class="line">        &lt;!ELEMENT IPS (IP+)&gt;</div>
+<div class="line">        &lt;!-- an IP address, either IPv4 or IPv6 (string) --&gt;</div>
+<div class="line">        &lt;!ELEMENT IP (#PCDATA)&gt;</div>
+<div class="line">        &lt;!-- location (string) --&gt;</div>
+<div class="line">        &lt;!ELEMENT LOCATION (#PCDATA)&gt;</div>
+<div class="line">        &lt;!-- mac address (string) --&gt;</div>
+<div class="line">        &lt;!ELEMENT MAC (#PCDATA)&gt;</div>
+<div class="line">        &lt;!-- storage in Mio (integer) --&gt;</div>
+<div class="line">        &lt;!ELEMENT MEMORY (#PCDATA)&gt;</div>
+<div class="line">        &lt;!-- device model (string) --&gt;</div>
+<div class="line">        &lt;!ELEMENT MODEL (#PCDATA)&gt;</div>
+<div class="line">        &lt;!-- device name (string) --&gt;</div>
+<div class="line">        &lt;!ELEMENT NAME (#PCDATA)&gt;</div>
+<div class="line">        &lt;!-- volatile memory in Mio (integer) --&gt;</div>
+<div class="line">        &lt;!ELEMENT RAM (#PCDATA)&gt;</div>
+<div class="line">        &lt;!-- serial number (string) --&gt;</div>
+<div class="line">        &lt;!ELEMENT SERIAL (#PCDATA)&gt;</div>
+<div class="line">        &lt;!-- type</div>
+<div class="line">          (COMPUTER|NETWORKING|PRINTER|STORAGE|POWER|PHONE|VIDEO|KVM) --&gt;</div>
+<div class="line">        &lt;!ELEMENT TYPE (#PCDATA)&gt;</div>
+<div class="line">        &lt;!-- uptime (&quot;X days, HH:MM::SS&quot; format) --&gt;</div>
+<div class="line">        &lt;!ELEMENT UPTIME (#PCDATA)&gt;</div>
+<div class="line">        &lt;!-- device manufacturer --&gt;</div>
+<div class="line">        &lt;!ELEMENT MANUFACTURER (#PCDATA)&gt;</div>
+<div class="line">        &lt;!-- admin contact --&gt;</div>
+<div class="line">        &lt;!ELEMENT CONTACT (#PCDATA)&gt;</div>
+<div class="line"> </div>
+<div class="line">      &lt;!-- ports list --&gt;</div>
+<div class="line">      &lt;!ELEMENT PORTS (PORT*)&gt;</div>
+<div class="line"> </div>
+<div class="line">        &lt;!-- a port --&gt;</div>
+<div class="line">        &lt;!ELEMENT PORT (CONNECTIONS?, AGGREGATE?, IFDESCR, IFINERRORS,</div>
+<div class="line">        IFINOCTETS, IFINTERNALSTATUS, IFLASTCHANGE, IFMTU, IFNAME,</div>
+<div class="line">        IFNUMBER, IFOUTERRORS, IFOUTOCTETS, IFSPEED, IFPORTDUPLEX,</div>
+<div class="line">        IFSTATUS, IFTYPE, MAC, TRUNK, VLANS?)&gt;</div>
+<div class="line"> </div>
+<div class="line">        &lt;!-- connections list --&gt;</div>
+<div class="line">        &lt;!ELEMENT CONNECTIONS (CDP?, CONNECTION*)&gt;</div>
+<div class="line">          &lt;!-- LLDP/CDP connection? (0|1) --&gt;</div>
+<div class="line">          &lt;!ELEMENT CDP (#PCDATA)&gt;</div>
+<div class="line"> </div>
+<div class="line">          &lt;!-- a remote device connection, either as a list of known mac</div>
+<div class="line">          addresses, either as a CDP/LLDP/EDP information block --&gt;</div>
+<div class="line">          &lt;!ELEMENT CONNECTION (MAC+ | (IFNUMBER, SYSMAC, IFDESCR, IP,</div>
+<div class="line">          SYSDESCR, SYSNAME))&gt;</div>
+<div class="line">            &lt;!-- remote device mac address (string) --&gt;</div>
+<div class="line">            &lt;!ELEMENT MAC (#PCDATA)&gt;</div>
+<div class="line">            &lt;!-- remote device ifindex, from CDP/LLDP (integer) --&gt;</div>
+<div class="line">            &lt;!ELEMENT IFNUMBER (#PCDATA)&gt;</div>
+<div class="line">            &lt;!-- remote device mac address, from CDP/LLDP (string) --&gt;</div>
+<div class="line">            &lt;!ELEMENT SYSMAC (#PCDATA)&gt;</div>
+<div class="line">            &lt;!-- remote device port description, from CDP/LLDP (string) --&gt;</div>
+<div class="line">            &lt;!ELEMENT IFDESCR (#PCDATA)&gt;</div>
+<div class="line">            &lt;!-- remote device IP address, from CDP/LLDP (string) --&gt;</div>
+<div class="line">            &lt;!ELEMENT IP (#PCDATA)&gt;</div>
+<div class="line">            &lt;!-- remote device system description, from CDP/LLDP (string) --&gt;</div>
+<div class="line">            &lt;!ELEMENT SYSDESCR (#PCDATA)&gt;</div>
+<div class="line">            &lt;!-- remote device name, from CDP/LLDP (string) --&gt;</div>
+<div class="line">            &lt;!ELEMENT SYSNAME (#PCDATA)&gt;</div>
+<div class="line"> </div>
+<div class="line">        &lt;!-- aggregated ports list --&gt;</div>
+<div class="line">        &lt;!ELEMENT AGGREGATE (PORT+)&gt;</div>
+<div class="line">          &lt;!-- aggregated port ifindex (integer) --&gt;</div>
+<div class="line">          &lt;!ELEMENT PORT (#PCDATA)&gt;</div>
+<div class="line"> </div>
+<div class="line">        &lt;!-- description (string) --&gt;</div>
+<div class="line">        &lt;!ELEMENT IFDESCR (#PCDATA)&gt;</div>
+<div class="line">        &lt;!-- input errors number (integer) --&gt;</div>
+<div class="line">        &lt;!ELEMENT IFINERRORS (#PCDATA)&gt;</div>
+<div class="line">        &lt;!-- input bytes number (integer) --&gt;</div>
+<div class="line">        &lt;!ELEMENT IFINOCTETS (#PCDATA)&gt;</div>
+<div class="line">        &lt;!-- internal status (1|2|3) --&gt;</div>
+<div class="line">        &lt;!ELEMENT IFINTERNALSTATUS (#PCDATA)&gt;</div>
+<div class="line">        &lt;!-- time since last status change (&quot;X days, HH:MM::SS&quot; format) --&gt;</div>
+<div class="line">        &lt;!ELEMENT IFLASTCHANGE (#PCDATA)&gt;</div>
+<div class="line">        &lt;!-- MTU (integer) --&gt;</div>
+<div class="line">        &lt;!ELEMENT IFMTU (#PCDATA)&gt;</div>
+<div class="line">        &lt;!-- name (string) --&gt;</div>
+<div class="line">        &lt;!ELEMENT IFNAME (#PCDATA)&gt;</div>
+<div class="line">        &lt;!-- ifindex (integer) --&gt;</div>
+<div class="line">        &lt;!ELEMENT IFNUMBER (#PCDATA)&gt;</div>
+<div class="line">        &lt;!-- output errors number (integer) --&gt;</div>
+<div class="line">        &lt;!ELEMENT IFOUTERRORS (#PCDATA)&gt;</div>
+<div class="line">        &lt;!-- output bytes number (integer) --&gt;</div>
+<div class="line">        &lt;!ELEMENT IFOUTOCTETS (#PCDATA)&gt;</div>
+<div class="line">        &lt;!-- speed in bytes (integer) --&gt;</div>
+<div class="line">        &lt;!ELEMENT IFSPEED (#PCDATA)&gt;</div>
+<div class="line">        &lt;!-- duplex status (1|2|3)) --&gt;</div>
+<div class="line">        &lt;!ELEMENT IFPORTDUPLEX (#PCDATA)&gt;</div>
+<div class="line">        &lt;!-- port status (1|2) --&gt;</div>
+<div class="line">        &lt;!ELEMENT IFSTATUS (#PCDATA)&gt;</div>
+<div class="line">        &lt;!-- port type (integer) --&gt;</div>
+<div class="line">        &lt;!ELEMENT IFTYPE (#PCDATA)&gt;</div>
+<div class="line">        &lt;!-- mac address (string) --&gt;</div>
+<div class="line">        &lt;!ELEMENT MAC (#PCDATA)&gt;</div>
+<div class="line">        &lt;!-- trunk port flag (0|1) --&gt;</div>
+<div class="line">        &lt;!ELEMENT TRUNK (#PCDATA)&gt;</div>
+<div class="line"> </div>
+<div class="line">        &lt;!-- VLANs list --&gt;</div>
+<div class="line">        &lt;!ELEMENT VLANS (VLAN+)&gt;</div>
+<div class="line">          &lt;!-- a VLAN --&gt;</div>
+<div class="line">          &lt;!ELEMENT VLAN (NAME, NUMBER)&gt;</div>
+<div class="line">            &lt;!-- VLAN name (string) --&gt;</div>
+<div class="line">            &lt;!ELEMENT NAME (#PCDATA)&gt;</div>
+<div class="line">            &lt;!-- VLAN ID (integer) --&gt;</div>
+<div class="line">            &lt;!ELEMENT NUMBER (#PCDATA)&gt;</div>
+<div class="line"> </div>
+<div class="line">      &lt;!ELEMENT MODEMS (NAME, DESCRIPTION, TYPE, MODEL, MANUFACTURER, SERIAL)&gt;</div>
+<div class="line">        &lt;!-- modem name --&gt;</div>
+<div class="line">        &lt;!ELEMENT NAME (#PCDATA)&gt;</div>
+<div class="line">        &lt;!-- modem description if available --&gt;</div>
+<div class="line">        &lt;!ELEMENT DESCRIPTION (#PCDATA)&gt;</div>
+<div class="line">        &lt;!-- modem type --&gt;</div>
+<div class="line">        &lt;!ELEMENT TYPE (#PCDATA)&gt;</div>
+<div class="line">        &lt;!-- modem model --&gt;</div>
+<div class="line">        &lt;!ELEMENT MODEL (#PCDATA)&gt;</div>
+<div class="line">        &lt;!-- modem manufacturer --&gt;</div>
+<div class="line">        &lt;!ELEMENT MANUFACTURER (#PCDATA)&gt;</div>
+<div class="line">        &lt;!-- modem serial --&gt;</div>
+<div class="line">        &lt;!ELEMENT SERIAL (#PCDATA)&gt;</div>
+<div class="line"> </div>
+<div class="line">      &lt;!-- component firmwares --&gt;</div>
+<div class="line">      &lt;!ELEMENT FIRMWARES (NAME, DESCRIPTION, TYPE, VERSION, DATE, MANUFACTURER)&gt;</div>
+<div class="line">        &lt;!-- component name using the firmware --&gt;</div>
+<div class="line">        &lt;!ELEMENT NAME (#PCDATA)&gt;</div>
+<div class="line">        &lt;!-- firmware description if available --&gt;</div>
+<div class="line">        &lt;!ELEMENT DESCRIPTION (#PCDATA)&gt;</div>
+<div class="line">        &lt;!-- short description of firmware type: modem, bios, ... --&gt;</div>
+<div class="line">        &lt;!ELEMENT TYPE (#PCDATA)&gt;</div>
+<div class="line">        &lt;!-- full firmware version --&gt;</div>
+<div class="line">        &lt;!ELEMENT VERSION (#PCDATA)&gt;</div>
+<div class="line">        &lt;!-- firmware date --&gt;</div>
+<div class="line">        &lt;!ELEMENT DATE (#PCDATA)&gt;</div>
+<div class="line">        &lt;!-- firmware manufacturer --&gt;</div>
+<div class="line">        &lt;!ELEMENT MANUFACTURER (#PCDATA)&gt;</div>
+<div class="line"> </div>
+<div class="line">      &lt;!ELEMENT SIMCARDS (IMSI, PHONE_NUMBER, ICCID, STATE, COUNTRY, OPERATOR_CODE,</div>
+<div class="line">      OPERATOR_NAME)&gt;</div>
+<div class="line">        &lt;!-- IMSI --&gt;</div>
+<div class="line">        &lt;!ELEMENT IMSI (#PCDATA)&gt;</div>
+<div class="line">        &lt;!-- Phone number --&gt;</div>
+<div class="line">        &lt;!ELEMENT PHONE_NUMBER (#PCDATA)&gt;</div>
+<div class="line">        &lt;!-- ICCID (serial number) --&gt;</div>
+<div class="line">        &lt;!ELEMENT ICCID (#PCDATA)&gt;</div>
+<div class="line">        &lt;!-- State --&gt;</div>
+<div class="line">        &lt;!ELEMENT STATE (#PCDATA)&gt;</div>
+<div class="line">        &lt;!-- Country --&gt;</div>
+<div class="line">        &lt;!ELEMENT COUNTRY (#PCDATA)&gt;</div>
+<div class="line">        &lt;!-- Operator code --&gt;</div>
+<div class="line">        &lt;!ELEMENT OPERATOR_CODE (#PCDATA)&gt;</div>
+<div class="line">        &lt;!-- Operator Name --&gt;</div>
+<div class="line">        &lt;!ELEMENT OPERATOR_NAME (#PCDATA)&gt;</div>
+<div class="line"> </div>
+<div class="line">      &lt;!ELEMENT PAGECOUNTERS (TOTAL?, BLACK?, COLOR?, RECTOVERSO?, SCANNED?</div>
+<div class="line">      PRINTOTAL?, PRINTBLACK?, PRINTCOLOR?, COPYTOTAL?, COPYBLACK?,</div>
+<div class="line">      COPYCOLOR?, FAXTOTAL?)&gt;</div>
+<div class="line">        &lt;!ELEMENT TOTAL (#PCDATA)&gt;</div>
+<div class="line">        &lt;!ELEMENT BLACK (#PCDATA)&gt;</div>
+<div class="line">        &lt;!ELEMENT COLOR (#PCDATA)&gt;</div>
+<div class="line">        &lt;!ELEMENT RECTOVERSO (#PCDATA)&gt;</div>
+<div class="line">        &lt;!ELEMENT SCANNED (#PCDATA)&gt;</div>
+<div class="line">        &lt;!ELEMENT PRINTOTAL (#PCDATA)&gt;</div>
+<div class="line">        &lt;!ELEMENT PRINTBLACK (#PCDATA)&gt;</div>
+<div class="line">        &lt;!ELEMENT PRINTCOLOR (#PCDATA)&gt;</div>
+<div class="line">        &lt;!ELEMENT COPYTOTAL (#PCDATA)&gt;</div>
+<div class="line">        &lt;!ELEMENT COPYBLACK (#PCDATA)&gt;</div>
+<div class="line">        &lt;!ELEMENT COPYCOLOR (#PCDATA)&gt;</div>
+<div class="line">        &lt;!ELEMENT FAXTOTAL (#PCDATA)&gt;</div>
+<div class="line"> </div>
+<div class="line">      &lt;!-- CARTRIDGES node can content any meaningful printer cartridge info</div>
+<div class="line">      and it is up to the server to interpret given keys and values --&gt;</div>
+<div class="line">      &lt;!-- this element is deprecated, CONSUMABLES should be used instead --&gt;</div>
+<div class="line">      &lt;!ELEMENT CARTRIDGES ANY&gt;</div>
+<div class="line">      &lt;!-- Following lines are well-known samples, so they are kept as comment</div>
+<div class="line">        &lt;!ELEMENT CARTRIDGEBLACK (#PCDATA)&gt;</div>
+<div class="line">        &lt;!ELEMENT CARTRIDGECYAN (#PCDATA)&gt;</div>
+<div class="line">        &lt;!ELEMENT CARTRIDGEMAGENTA (#PCDATA)&gt;</div>
+<div class="line">        &lt;!ELEMENT CARTRIDGEYELLOW (#PCDATA)&gt;</div>
+<div class="line">        &lt;!ELEMENT TONERBLACK (#PCDATA)&gt;</div>
+<div class="line">        &lt;!ELEMENT TONERCYAN (#PCDATA)&gt;</div>
+<div class="line">        &lt;!ELEMENT TONERMAGENTA (#PCDATA)&gt;</div>
+<div class="line">        &lt;!ELEMENT TONERYELLOW (#PCDATA)&gt;</div>
+<div class="line">        &lt;!ELEMENT WASTETONER (#PCDATA)&gt;</div>
+<div class="line">        &lt;!ELEMENT DRUMBLACK (#PCDATA)&gt;</div>
+<div class="line">        &lt;!ELEMENT DRUMCYAN (#PCDATA)&gt;</div>
+<div class="line">        &lt;!ELEMENT DRUMMAGENTA (#PCDATA)&gt;</div>
+<div class="line">        &lt;!ELEMENT DRUMYELLOW (#PCDATA)&gt;</div>
+<div class="line">        &lt;!ELEMENT DEVELOPERBLACK (#PCDATA)&gt;</div>
+<div class="line">        &lt;!ELEMENT DEVELOPERCYAN (#PCDATA)&gt;</div>
+<div class="line">        &lt;!ELEMENT DEVELOPERMAGENTA (#PCDATA)&gt;</div>
+<div class="line">        &lt;!ELEMENT DEVELOPERYELLOW (#PCDATA)&gt;</div>
+<div class="line">        &lt;!ELEMENT MAINTENANCEKIT (#PCDATA)&gt;</div>
+<div class="line">        &lt;!ELEMENT FUSERKIT (#PCDATA)&gt;</div>
+<div class="line">        &lt;!ELEMENT TRANSFERKIT (#PCDATA)&gt;</div>
+<div class="line">        &lt;!ELEMENT CLEANINGKIT (#PCDATA)&gt;</div>
+<div class="line">        &lt;!ELEMENT STAPLES (#PCDATA)&gt;</div>
+<div class="line">        &lt;!ELEMENT CARTRIDGEGRAY (#PCDATA)&gt;</div>
+<div class="line">        &lt;!ELEMENT CARTRIDGEDARKGRAY (#PCDATA)&gt;</div>
+<div class="line">        &lt;!ELEMENT CARTRIDGEMATTEBLACK (#PCDATA)&gt;</div>
+<div class="line">        &lt;!ELEMENT CARTRIDGEPHOTOBLACK (#PCDATA)&gt;</div>
+<div class="line">        End of samples --&gt;</div>
+<div class="line"> </div>
+<div class="line">      &lt;!-- consumables list --&gt;</div>
+<div class="line">      &lt;!ELEMENT CONSUMABLES (CONSUMABLE)+&gt;</div>
+<div class="line"> </div>
+<div class="line">        &lt;!-- a single consumable --&gt;</div>
+<div class="line">        &lt;!ELEMENT CONSUMABLE (TYPE, COLOR, VALUE, UNIT)&gt;</div>
+<div class="line">          &lt;!ELEMENT TYPE (#PCDATA)&gt;</div>
+<div class="line">          &lt;!ELEMENT COLOR (#PCDATA)&gt;</div>
+<div class="line">          &lt;!ELEMENT VALUE (#PCDATA)&gt;</div>
+<div class="line">          &lt;!ELEMENT UNIT (#PCDATA)&gt;</div>
+<div class="line">          &lt;!-- use MAX if available, or assume it&#39;s 100 when UNIT is not set --&gt;</div>
+<div class="line">          &lt;!ELEMENT MAX (#PCDATA)&gt;</div>
+<div class="line"> </div>
+<div class="line">    &lt;!-- netinventory module version(string) --&gt;</div>
+<div class="line">    &lt;!ELEMENT MODULEVERSION (#PCDATA)&gt;</div>
+<div class="line">    &lt;!-- server process ID (integer) --&gt;</div>
+<div class="line">    &lt;!ELEMENT PROCESSNUMBER (#PCDATA)&gt;</div>
+<div class="line"> </div>
+<div class="line">  &lt;!-- agent ID (string) --&gt;</div>
+<div class="line">  &lt;!ELEMENT DEVICEID (#PCDATA)&gt;</div>
+<div class="line">  &lt;!-- message type, ie  &quot;SNMPQUERY&quot; --&gt;</div>
+<div class="line">  &lt;!ELEMENT QUERY (#PCDATA)&gt;</div>
+</div><!-- fragment --> </div></div><!-- contents -->
+</div><!-- PageDoc -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0
+</small></address>
+</body>
+</html>

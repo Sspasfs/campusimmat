@@ -1,0 +1,156 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_seld_1_1_json_lint_1_1_json_parser" xml:lang="fr">
+<title>Référence de la classe JsonParser</title>
+<indexterm><primary>JsonParser</primary></indexterm>
+Graphe de collaboration de JsonParser:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_seld_1_1_json_lint_1_1_json_parser__coll__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Fonctions membres publiques    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_seld_1_1_json_lint_1_1_json_parser_1a712e94fd9cee8772efcc3b40f8569470">lint</link> ($input, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">flags</link>=0)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Champs de données    </title>
+        <itemizedlist>
+            <listitem><para>const <link linkend="_class_seld_1_1_json_lint_1_1_json_parser_1af14032b186e6dba059994e4f27d92aeb">DETECT_KEY_CONFLICTS</link> = 1</para>
+</listitem>
+            <listitem><para>const <link linkend="_class_seld_1_1_json_lint_1_1_json_parser_1ab1a58456cd55f888e134c60132a0bce4">ALLOW_DUPLICATE_KEYS</link> = 2</para>
+</listitem>
+            <listitem><para>const <link linkend="_class_seld_1_1_json_lint_1_1_json_parser_1ab741e4534cf2860d1bff1b4349a5674e">PARSE_TO_ASSOC</link> = 4</para>
+</listitem>
+            <listitem><para>const <link linkend="_class_seld_1_1_json_lint_1_1_json_parser_1a1c283f279c762a08395cffd2ad34918f">ALLOW_COMMENTS</link> = 8</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Fonctions membres protégées    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_seld_1_1_json_lint_1_1_json_parser_1a56a029dec65b6bb7cfd9b864eb375788">parseError</link> ($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">str</link>, $hash=null)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Description détaillée</title>
+
+<para>Parser class</para>
+
+<para>Example:</para>
+
+<para>$parser = new JsonParser(); // returns null if it&apos;s valid json, or an error object $parser-&gt;lint($json); // returns parsed json, like json_decode does, but slower, throws exceptions on failure. $parser-&gt;parse($json);</para>
+
+<para>Ported from <link xlink:href="https://github.com/zaach/jsonlint">https://github.com/zaach/jsonlint</link> </para>
+</section>
+<section>
+<title>Documentation des fonctions membres</title>
+<anchor xml:id="_class_seld_1_1_json_lint_1_1_json_parser_1a712e94fd9cee8772efcc3b40f8569470"/><section>
+    <title>lint()</title>
+<indexterm><primary>lint</primary><secondary>JsonParser</secondary></indexterm>
+<indexterm><primary>JsonParser</primary><secondary>lint</secondary></indexterm>
+<para><computeroutput>lint ( $input,  $flags = <computeroutput>0</computeroutput>
+)</computeroutput></para>
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$input</entry><entry>
+<para>JSON string </para>
+</entry>
+                            </row>
+                            <row>
+<entry>int</entry><entry>$flags</entry><entry>
+<para>Bitmask of parse/lint options (see constants of this class) </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>null|ParsingException null if no error is found, a ParsingException containing all details otherwise</para>
+</formalpara>
+@phpstan-param int-mask-of&lt;self::*&gt; $flags </para>
+</section>
+<anchor xml:id="_class_seld_1_1_json_lint_1_1_json_parser_1a56a029dec65b6bb7cfd9b864eb375788"/><section>
+    <title>parseError()</title>
+<indexterm><primary>parseError</primary><secondary>JsonParser</secondary></indexterm>
+<indexterm><primary>JsonParser</primary><secondary>parseError</secondary></indexterm>
+<para><computeroutput>parseError ( $str,  $hash = <computeroutput>null</computeroutput>
+)<computeroutput>[protected]</computeroutput></computeroutput></para>
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$str</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry></entry><entry>array{text</entry><entry>
+<para>string, token: string|int, line: int, loc: array{first_line: int, first_column: int, last_line: int, last_column: int}, expected: string[]}|null $hash </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>never </para>
+</formalpara>
+</para>
+</section>
+</section>
+<section>
+<title>Documentation des champs</title>
+<anchor xml:id="_class_seld_1_1_json_lint_1_1_json_parser_1a1c283f279c762a08395cffd2ad34918f"/><section>
+    <title>ALLOW_COMMENTS</title>
+<indexterm><primary>ALLOW_COMMENTS</primary><secondary>JsonParser</secondary></indexterm>
+<indexterm><primary>JsonParser</primary><secondary>ALLOW_COMMENTS</secondary></indexterm>
+<para><computeroutput>const ALLOW_COMMENTS = 8</computeroutput></para></section>
+<anchor xml:id="_class_seld_1_1_json_lint_1_1_json_parser_1ab1a58456cd55f888e134c60132a0bce4"/><section>
+    <title>ALLOW_DUPLICATE_KEYS</title>
+<indexterm><primary>ALLOW_DUPLICATE_KEYS</primary><secondary>JsonParser</secondary></indexterm>
+<indexterm><primary>JsonParser</primary><secondary>ALLOW_DUPLICATE_KEYS</secondary></indexterm>
+<para><computeroutput>const ALLOW_DUPLICATE_KEYS = 2</computeroutput></para></section>
+<anchor xml:id="_class_seld_1_1_json_lint_1_1_json_parser_1af14032b186e6dba059994e4f27d92aeb"/><section>
+    <title>DETECT_KEY_CONFLICTS</title>
+<indexterm><primary>DETECT_KEY_CONFLICTS</primary><secondary>JsonParser</secondary></indexterm>
+<indexterm><primary>JsonParser</primary><secondary>DETECT_KEY_CONFLICTS</secondary></indexterm>
+<para><computeroutput>const DETECT_KEY_CONFLICTS = 1</computeroutput></para></section>
+<anchor xml:id="_class_seld_1_1_json_lint_1_1_json_parser_1ab741e4534cf2860d1bff1b4349a5674e"/><section>
+    <title>PARSE_TO_ASSOC</title>
+<indexterm><primary>PARSE_TO_ASSOC</primary><secondary>JsonParser</secondary></indexterm>
+<indexterm><primary>JsonParser</primary><secondary>PARSE_TO_ASSOC</secondary></indexterm>
+<para><computeroutput>const PARSE_TO_ASSOC = 4</computeroutput></para></section>
+<para>
+La documentation de cette classe a été générée à partir du fichier suivant :</para>
+public/glpi/vendor/seld/jsonlint/src/Seld/JsonLint/<link linkend="__json_parser_8php">JsonParser.php</link></section>
+</section>

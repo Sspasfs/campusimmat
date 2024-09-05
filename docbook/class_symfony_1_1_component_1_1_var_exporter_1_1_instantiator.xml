@@ -1,0 +1,114 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_symfony_1_1_component_1_1_var_exporter_1_1_instantiator" xml:lang="fr">
+<title>Référence de la classe Instantiator</title>
+<indexterm><primary>Instantiator</primary></indexterm>
+Graphe de collaboration de Instantiator:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_symfony_1_1_component_1_1_var_exporter_1_1_instantiator__coll__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Fonctions membres publiques statiques    </title>
+        <itemizedlist>
+            <listitem><para>static <link linkend="_class_symfony_1_1_component_1_1_var_exporter_1_1_instantiator_1a7e668ddb06619d09c4e1fcbafe4e5300">instantiate</link> (string $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">class</link>, array $properties=[], array $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">privateProperties</link>=[])</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Description détaillée</title>
+
+<para>A utility class to create objects without calling their constructor.</para>
+
+<para><formalpara><title>Auteur</title>
+
+<para>Nicolas Grekas <link xlink:href="mailto:p@tchwork.com">p@tchwork.com</link> </para>
+</formalpara>
+</para>
+</section>
+<section>
+<title>Documentation des fonctions membres</title>
+<anchor xml:id="_class_symfony_1_1_component_1_1_var_exporter_1_1_instantiator_1a7e668ddb06619d09c4e1fcbafe4e5300"/><section>
+    <title>instantiate()</title>
+<indexterm><primary>instantiate</primary><secondary>Instantiator</secondary></indexterm>
+<indexterm><primary>Instantiator</primary><secondary>instantiate</secondary></indexterm>
+<para><computeroutput>static instantiate (string $class, array $properties = <computeroutput>[]</computeroutput>
+, array $privateProperties = <computeroutput>[]</computeroutput>
+)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>Creates an object and sets its properties without calling its constructor nor any other methods.</para>
+
+<para>For example: <literallayout><computeroutput>// creates an empty instance of Foo
+Instantiator::instantiate(Foo::class);
+
+// creates a Foo instance and sets one of its properties
+Instantiator::instantiate(Foo::class, [&apos;propertyName&apos; =&gt; $propertyValue]);
+
+// creates a Foo instance and sets a private property defined on its parent Bar class
+Instantiator::instantiate(Foo::class, [], [
+    Bar::class =&gt; [&apos;privateBarProperty&apos; =&gt; $propertyValue],
+]);
+</computeroutput></literallayout> Instances of ArrayObject, ArrayIterator and SplObjectStorage can be created by using the special &quot;\0&quot; property name to define their internal value: <literallayout><computeroutput>// creates an SplObjectStorage where $info1 is attached to $obj1, etc.
+Instantiator::instantiate(SplObjectStorage::class, [&quot;\0&quot; =&gt; [$obj1, $info1, $obj2, $info2...]]);
+
+// creates an ArrayObject populated with $inputArray
+Instantiator::instantiate(ArrayObject::class, [&quot;\0&quot; =&gt; [$inputArray]]);
+</computeroutput></literallayout> 
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$class</entry><entry>
+<para>The class of the instance to create </para>
+</entry>
+                            </row>
+                            <row>
+<entry>array</entry><entry>$properties</entry><entry>
+<para>The properties to set on the instance </para>
+</entry>
+                            </row>
+                            <row>
+<entry>array</entry><entry>$privateProperties</entry><entry>
+<para>The private properties to set on the instance, keyed by their declaring class</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>ExceptionInterface</entry><entry>
+<para>When the instance cannot be created </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
+<para>
+La documentation de cette classe a été générée à partir du fichier suivant :</para>
+public/glpi/vendor/symfony/var-exporter/<link linkend="__instantiator_8php">Instantiator.php</link></section>
+</section>

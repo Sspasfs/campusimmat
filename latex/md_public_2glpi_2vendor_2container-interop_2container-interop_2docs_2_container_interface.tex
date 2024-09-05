@@ -1,0 +1,84 @@
+\chapter{Container interface}
+\hypertarget{md_public_2glpi_2vendor_2container-interop_2container-interop_2docs_2_container_interface}{}\label{md_public_2glpi_2vendor_2container-interop_2container-interop_2docs_2_container_interface}\index{Container interface@{Container interface}}
+This document describes a common interface for dependency injection containers.
+
+The goal set by {\ttfamily Container\+Interface} is to standardize how frameworks and libraries make use of a container to obtain objects and parameters (called {\itshape entries} in the rest of this document).
+
+The key words "{}\+MUST"{}, "{}\+MUST NOT"{}, "{}\+REQUIRED"{}, "{}\+SHALL"{}, "{}\+SHALL NOT"{}, "{}\+SHOULD"{}, "{}\+SHOULD NOT"{}, "{}\+RECOMMENDED"{}, "{}\+MAY"{}, and "{}\+OPTIONAL"{} in this document are to be interpreted as described in \href{http://tools.ietf.org/html/rfc2119}{\texttt{ RFC 2119}}.
+
+The word {\ttfamily implementor} in this document is to be interpreted as someone implementing the {\ttfamily Container\+Interface} in a dependency injection-\/related library or framework. Users of dependency injections containers (DIC) are referred to as {\ttfamily user}.\hypertarget{md_public_2glpi_2vendor_2container-interop_2container-interop_2docs_2_container_interface_autotoc_md5710}{}\doxysection{\texorpdfstring{1. Specification}{1. Specification}}\label{md_public_2glpi_2vendor_2container-interop_2container-interop_2docs_2_container_interface_autotoc_md5710}
+\hypertarget{md_public_2glpi_2vendor_2container-interop_2container-interop_2docs_2_container_interface_autotoc_md5711}{}\doxysubsection{\texorpdfstring{1.\+1 Basics}{1.\+1 Basics}}\label{md_public_2glpi_2vendor_2container-interop_2container-interop_2docs_2_container_interface_autotoc_md5711}
+
+\begin{DoxyItemize}
+\item The {\ttfamily Interop\textbackslash{}Container\textbackslash{}Container\+Interface} exposes two methods \+: {\ttfamily get} and {\ttfamily has}.
+\item {\ttfamily get} takes one mandatory parameter\+: an entry identifier. It MUST be a string. A call to {\ttfamily get} can return anything (a {\itshape mixed} value), or throws an exception if the identifier is not known to the container. Two successive calls to {\ttfamily get} with the same identifier SHOULD return the same value. However, depending on the {\ttfamily implementor} design and/or {\ttfamily user} configuration, different values might be returned, so {\ttfamily user} SHOULD NOT rely on getting the same value on 2 successive calls. While {\ttfamily Container\+Interface} only defines one mandatory parameter in {\ttfamily get()}, implementations MAY accept additional optional parameters.
+\item {\ttfamily has} takes one unique parameter\+: an entry identifier. It MUST return {\ttfamily true} if an entry identifier is known to the container and {\ttfamily false} if it is not. {\ttfamily has(\$id)} returning true does not mean that {\ttfamily get(\$id)} will not throw an exception. It does however mean that {\ttfamily get(\$id)} will not throw a {\ttfamily Not\+Found\+Exception}.
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2container-interop_2container-interop_2docs_2_container_interface_autotoc_md5712}{}\doxysubsection{\texorpdfstring{1.\+2 Exceptions}{1.\+2 Exceptions}}\label{md_public_2glpi_2vendor_2container-interop_2container-interop_2docs_2_container_interface_autotoc_md5712}
+Exceptions directly thrown by the container MUST implement the \href{../src/Interop/Container/Exception/ContainerException.php}{\texttt{ {\ttfamily Interop\textbackslash{}Container\textbackslash{}Exception\textbackslash{}Container\+Exception}}}.
+
+A call to the {\ttfamily get} method with a non-\/existing id SHOULD throw a \href{../src/Interop/Container/Exception/NotFoundException.php}{\texttt{ {\ttfamily Interop\textbackslash{}Container\textbackslash{}Exception\textbackslash{}Not\+Found\+Exception}}}.\hypertarget{md_public_2glpi_2vendor_2container-interop_2container-interop_2docs_2_container_interface_autotoc_md5713}{}\doxysubsection{\texorpdfstring{1.\+3 Additional features}{1.\+3 Additional features}}\label{md_public_2glpi_2vendor_2container-interop_2container-interop_2docs_2_container_interface_autotoc_md5713}
+This section describes additional features that MAY be added to a container. Containers are not required to implement these features to respect the Container\+Interface.\hypertarget{md_public_2glpi_2vendor_2container-interop_2container-interop_2docs_2_container_interface_autotoc_md5714}{}\doxysubsubsection{\texorpdfstring{1.\+3.\+1 Delegate lookup feature}{1.\+3.\+1 Delegate lookup feature}}\label{md_public_2glpi_2vendor_2container-interop_2container-interop_2docs_2_container_interface_autotoc_md5714}
+The goal of the {\itshape delegate lookup} feature is to allow several containers to share entries. Containers implementing this feature can perform dependency lookups in other containers.
+
+Containers implementing this feature will offer a greater lever of interoperability with other containers. Implementation of this feature is therefore RECOMMENDED.
+
+A container implementing this feature\+:
+
+
+\begin{DoxyItemize}
+\item MUST implement the {\ttfamily Container\+Interface}
+\item MUST provide a way to register a delegate container (using a constructor parameter, or a setter, or any possible way). The delegate container MUST implement the {\ttfamily Container\+Interface}.
+\end{DoxyItemize}
+
+When a container is configured to use a delegate container for dependencies\+:
+
+
+\begin{DoxyItemize}
+\item Calls to the {\ttfamily get} method should only return an entry if the entry is part of the container. If the entry is not part of the container, an exception should be thrown (as requested by the {\ttfamily Container\+Interface}).
+\item Calls to the {\ttfamily has} method should only return {\ttfamily true} if the entry is part of the container. If the entry is not part of the container, {\ttfamily false} should be returned.
+\item If the fetched entry has dependencies, {\bfseries{instead}} of performing the dependency lookup in the container, the lookup is performed on the {\itshape delegate container}.
+\end{DoxyItemize}
+
+Important! By default, the lookup SHOULD be performed on the delegate container {\bfseries{only}}, not on the container itself.
+
+It is however allowed for containers to provide exception cases for special entries, and a way to lookup into the same container (or another container) instead of the delegate container.\hypertarget{md_public_2glpi_2vendor_2container-interop_2container-interop_2docs_2_container_interface_autotoc_md5715}{}\doxysection{\texorpdfstring{2. Package}{2. Package}}\label{md_public_2glpi_2vendor_2container-interop_2container-interop_2docs_2_container_interface_autotoc_md5715}
+The interfaces and classes described as well as relevant exception are provided as part of the \href{https://packagist.org/packages/container-interop/container-interop}{\texttt{ container-\/interop/container-\/interop}} package.\hypertarget{md_public_2glpi_2vendor_2container-interop_2container-interop_2docs_2_container_interface_autotoc_md5716}{}\doxysection{\texorpdfstring{3. {\ttfamily Interop\textbackslash{}Container\textbackslash{}Container\+Interface}}{3. {\ttfamily Interop\textbackslash{}Container\textbackslash{}Container\+Interface}}}\label{md_public_2glpi_2vendor_2container-interop_2container-interop_2docs_2_container_interface_autotoc_md5716}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{<?\mbox{\hyperlink{namespacephp}{php}}}
+\DoxyCodeLine{\textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespace_interop_1_1_container}{Interop\(\backslash\)Container}};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{use}}\ \mbox{\hyperlink{interface_interop_1_1_container_1_1_exception_1_1_container_exception}{Interop\(\backslash\)Container\(\backslash\)Exception\(\backslash\)ContainerException}};}
+\DoxyCodeLine{\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{use}}\ \mbox{\hyperlink{interface_interop_1_1_container_1_1_exception_1_1_not_found_exception}{Interop\(\backslash\)Container\(\backslash\)Exception\(\backslash\)NotFoundException}};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keyword}{interface\ }ContainerInterface}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{function}\ \textcolor{keyword}{get}(\mbox{\hyperlink{dcroom__size_8php_a486874338c68ffaacd31e2ea5d28495f}{\$id}});}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{function}\ \mbox{\hyperlink{namespace_symfony_1_1_contracts_1_1_service_a967ac33cd3aaf062fd84b40592c9fc3c}{has}}(\mbox{\hyperlink{dcroom__size_8php_a486874338c68ffaacd31e2ea5d28495f}{\$id}});}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\hypertarget{md_public_2glpi_2vendor_2container-interop_2container-interop_2docs_2_container_interface_autotoc_md5717}{}\doxysection{\texorpdfstring{4. {\ttfamily Interop\textbackslash{}Container\textbackslash{}Exception\textbackslash{}Container\+Exception}}{4. {\ttfamily Interop\textbackslash{}Container\textbackslash{}Exception\textbackslash{}Container\+Exception}}}\label{md_public_2glpi_2vendor_2container-interop_2container-interop_2docs_2_container_interface_autotoc_md5717}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{<?\mbox{\hyperlink{namespacephp}{php}}}
+\DoxyCodeLine{\textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespace_interop_1_1_container_1_1_exception}{Interop\(\backslash\)Container\(\backslash\)Exception}};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keyword}{interface\ }ContainerException}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\hypertarget{md_public_2glpi_2vendor_2container-interop_2container-interop_2docs_2_container_interface_autotoc_md5718}{}\doxysection{\texorpdfstring{5. {\ttfamily Interop\textbackslash{}Container\textbackslash{}Exception\textbackslash{}Not\+Found\+Exception}}{5. {\ttfamily Interop\textbackslash{}Container\textbackslash{}Exception\textbackslash{}Not\+Found\+Exception}}}\label{md_public_2glpi_2vendor_2container-interop_2container-interop_2docs_2_container_interface_autotoc_md5718}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{<?\mbox{\hyperlink{namespacephp}{php}}}
+\DoxyCodeLine{\textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespace_interop_1_1_container_1_1_exception}{Interop\(\backslash\)Container\(\backslash\)Exception}};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keyword}{interface\ }NotFoundException\ \textcolor{keyword}{extends}\ ContainerException}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+ 

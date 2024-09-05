@@ -1,0 +1,415 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_interface_r_rule_1_1_r_rule_interface" xml:lang="fr">
+<title>Référence de l&apos;interface RRuleInterface</title>
+<indexterm><primary>RRuleInterface</primary></indexterm>
+Graphe d&apos;héritage de RRuleInterface:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="interface_r_rule_1_1_r_rule_interface__inherit__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Graphe de collaboration de RRuleInterface:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="interface_r_rule_1_1_r_rule_interface__coll__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Fonctions membres publiques    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_interface_r_rule_1_1_r_rule_interface_1a457da2ea3121bce642f26c092041ff29">getOccurrences</link> ($limit=null)</para>
+</listitem>
+            <listitem><para><link linkend="_interface_r_rule_1_1_r_rule_interface_1ab6fbfaaf15a09b4d37c936987780fab5">getOccurrencesBetween</link> ($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">begin</link>, $end, $limit=null)</para>
+</listitem>
+            <listitem><para><link linkend="_interface_r_rule_1_1_r_rule_interface_1aa6fa79fb62dcdacca6e3f7c36ccf8308">getOccurrencesAfter</link> ($date, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">inclusive</link>=false, $limit=null)</para>
+</listitem>
+            <listitem><para><link linkend="_interface_r_rule_1_1_r_rule_interface_1ab061817b2114550b0ca8408ca9ce2e38">getNthOccurrenceAfter</link> ($date, $index)</para>
+</listitem>
+            <listitem><para><link linkend="_interface_r_rule_1_1_r_rule_interface_1ae40a02bc337145c5ab3ca60622add04f">getOccurrencesBefore</link> ($date, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">inclusive</link>=false, $limit=null)</para>
+</listitem>
+            <listitem><para><link linkend="_interface_r_rule_1_1_r_rule_interface_1a1df5e5e35eebd315e5753c49fada9f57">getNthOccurrenceBefore</link> ($date, $index)</para>
+</listitem>
+            <listitem><para><link linkend="_interface_r_rule_1_1_r_rule_interface_1a74a46623787157a2a5f1eca4f7cbb6ff">getNthOccurrenceFrom</link> ($date, $index)</para>
+</listitem>
+            <listitem><para><link linkend="_interface_r_rule_1_1_r_rule_interface_1a6b815d82b45d6b6d337afccd8bf69be3">occursAt</link> ($date)</para>
+</listitem>
+            <listitem><para><link linkend="_interface_r_rule_1_1_r_rule_interface_1ac7714c38afdbcbc02269149a16459904">isFinite</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_interface_r_rule_1_1_r_rule_interface_1a321dc2f76183b7d1f952046efebeb70e">isInfinite</link> ()</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Description détaillée</title>
+
+<para>Common interface for <link linkend="_namespace_r_rule">RRule</link> and RSet objects </para>
+</section>
+<section>
+<title>Documentation des fonctions membres</title>
+<anchor xml:id="_interface_r_rule_1_1_r_rule_interface_1ab061817b2114550b0ca8408ca9ce2e38"/><section>
+    <title>getNthOccurrenceAfter()</title>
+<indexterm><primary>getNthOccurrenceAfter</primary><secondary>RRuleInterface</secondary></indexterm>
+<indexterm><primary>RRuleInterface</primary><secondary>getNthOccurrenceAfter</secondary></indexterm>
+<para><computeroutput>getNthOccurrenceAfter ( $date,  $index)</computeroutput></para>
+<para>Return the Nth occurrences after a date (non inclusive)</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>mixed</entry><entry>$date</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>int</entry><entry>$index</entry><entry>
+<para>The index (starts at 1) </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>DateTimeInterface|null </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_interface_r_rule_1_1_r_rule_interface_1a1df5e5e35eebd315e5753c49fada9f57"/><section>
+    <title>getNthOccurrenceBefore()</title>
+<indexterm><primary>getNthOccurrenceBefore</primary><secondary>RRuleInterface</secondary></indexterm>
+<indexterm><primary>RRuleInterface</primary><secondary>getNthOccurrenceBefore</secondary></indexterm>
+<para><computeroutput>getNthOccurrenceBefore ( $date,  $index)</computeroutput></para>
+<para>Return the Nth occurrences before a date (non inclusive)</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>mixed</entry><entry>$date</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>int</entry><entry>$index</entry><entry>
+<para>The index (starts at 1) </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>DateTimeInterface|null </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_interface_r_rule_1_1_r_rule_interface_1a74a46623787157a2a5f1eca4f7cbb6ff"/><section>
+    <title>getNthOccurrenceFrom()</title>
+<indexterm><primary>getNthOccurrenceFrom</primary><secondary>RRuleInterface</secondary></indexterm>
+<indexterm><primary>RRuleInterface</primary><secondary>getNthOccurrenceFrom</secondary></indexterm>
+<para><computeroutput>getNthOccurrenceFrom ( $date,  $index)</computeroutput></para>
+<para>Return the Nth occurrences before or after a date.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>mixed</entry><entry>$date</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>int</entry><entry>$index</entry><entry>
+<para>0 returns the date, positive integer returns index in the future, negative in the past </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>DateTimeInterface|null </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_interface_r_rule_1_1_r_rule_interface_1a457da2ea3121bce642f26c092041ff29"/><section>
+    <title>getOccurrences()</title>
+<indexterm><primary>getOccurrences</primary><secondary>RRuleInterface</secondary></indexterm>
+<indexterm><primary>RRuleInterface</primary><secondary>getOccurrences</secondary></indexterm>
+<para><computeroutput>getOccurrences ( $limit = <computeroutput>null</computeroutput>
+)</computeroutput></para>
+<para>Return all the occurrences in an array of \DateTime.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>int</entry><entry>$limit</entry><entry>
+<para>Limit the resultset to n occurrences (0, null or false = everything) </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>array An array of \DateTime objects </para>
+</formalpara>
+</para>
+<para>
+Implémenté dans <link linkend="_class_r_rule_1_1_r_set_1a457da2ea3121bce642f26c092041ff29">RSet</link>.</para>
+</section>
+<anchor xml:id="_interface_r_rule_1_1_r_rule_interface_1aa6fa79fb62dcdacca6e3f7c36ccf8308"/><section>
+    <title>getOccurrencesAfter()</title>
+<indexterm><primary>getOccurrencesAfter</primary><secondary>RRuleInterface</secondary></indexterm>
+<indexterm><primary>RRuleInterface</primary><secondary>getOccurrencesAfter</secondary></indexterm>
+<para><computeroutput>getOccurrencesAfter ( $date,  $inclusive = <computeroutput>false</computeroutput>
+,  $limit = <computeroutput>null</computeroutput>
+)</computeroutput></para>
+<para>Return all the occurrences after a date.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>mixed</entry><entry>$date</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>bool</entry><entry>$inclusive</entry><entry>
+<para>Whether or not to include $date (if date is an occurrence) </para>
+</entry>
+                            </row>
+                            <row>
+<entry>int | null</entry><entry>$limit</entry><entry>
+<para>Limit the resultset to n occurrences (0, null or false = everything) </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>array </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_interface_r_rule_1_1_r_rule_interface_1ae40a02bc337145c5ab3ca60622add04f"/><section>
+    <title>getOccurrencesBefore()</title>
+<indexterm><primary>getOccurrencesBefore</primary><secondary>RRuleInterface</secondary></indexterm>
+<indexterm><primary>RRuleInterface</primary><secondary>getOccurrencesBefore</secondary></indexterm>
+<para><computeroutput>getOccurrencesBefore ( $date,  $inclusive = <computeroutput>false</computeroutput>
+,  $limit = <computeroutput>null</computeroutput>
+)</computeroutput></para>
+<para>Return all the occurrences before a date.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>mixed</entry><entry>$date</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>bool</entry><entry>$inclusive</entry><entry>
+<para>Whether or not to include $date (if date is an occurrence) </para>
+</entry>
+                            </row>
+                            <row>
+<entry>int | null</entry><entry>$limit</entry><entry>
+<para>Limit the resultset to n occurrences (0, null or false = everything) </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>array </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_interface_r_rule_1_1_r_rule_interface_1ab6fbfaaf15a09b4d37c936987780fab5"/><section>
+    <title>getOccurrencesBetween()</title>
+<indexterm><primary>getOccurrencesBetween</primary><secondary>RRuleInterface</secondary></indexterm>
+<indexterm><primary>RRuleInterface</primary><secondary>getOccurrencesBetween</secondary></indexterm>
+<para><computeroutput>getOccurrencesBetween ( $begin,  $end,  $limit = <computeroutput>null</computeroutput>
+)</computeroutput></para>
+<para>Return all the ocurrences after a date, before a date, or between two dates.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>mixed</entry><entry>$begin</entry><entry>
+<para>Can be null to return all occurrences before $end </para>
+</entry>
+                            </row>
+                            <row>
+<entry>mixed</entry><entry>$end</entry><entry>
+<para>Can be null to return all occurrences after $begin </para>
+</entry>
+                            </row>
+                            <row>
+<entry>int | null</entry><entry>$limit</entry><entry>
+<para>Limit the resultset to n occurrences (0, null or false = everything) </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>array An array of \DateTime objects </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_interface_r_rule_1_1_r_rule_interface_1ac7714c38afdbcbc02269149a16459904"/><section>
+    <title>isFinite()</title>
+<indexterm><primary>isFinite</primary><secondary>RRuleInterface</secondary></indexterm>
+<indexterm><primary>RRuleInterface</primary><secondary>isFinite</secondary></indexterm>
+<para><computeroutput>isFinite ( )</computeroutput></para>
+<para>Return true if the rrule has an end condition, false otherwise</para>
+
+<para><formalpara><title>Renvoie</title>
+
+<para>bool </para>
+</formalpara>
+</para>
+<para>
+Implémenté dans <link linkend="_class_r_rule_1_1_r_rule_1ac7714c38afdbcbc02269149a16459904">RRule</link>, et <link linkend="_class_r_rule_1_1_r_set_1ac7714c38afdbcbc02269149a16459904">RSet</link>.</para>
+</section>
+<anchor xml:id="_interface_r_rule_1_1_r_rule_interface_1a321dc2f76183b7d1f952046efebeb70e"/><section>
+    <title>isInfinite()</title>
+<indexterm><primary>isInfinite</primary><secondary>RRuleInterface</secondary></indexterm>
+<indexterm><primary>RRuleInterface</primary><secondary>isInfinite</secondary></indexterm>
+<para><computeroutput>isInfinite ( )</computeroutput></para>
+<para>Return true if the rrule has no end condition (infite)</para>
+
+<para><formalpara><title>Renvoie</title>
+
+<para>bool </para>
+</formalpara>
+</para>
+<para>
+Implémenté dans <link linkend="_class_r_rule_1_1_r_rule_1a321dc2f76183b7d1f952046efebeb70e">RRule</link>, et <link linkend="_class_r_rule_1_1_r_set_1a321dc2f76183b7d1f952046efebeb70e">RSet</link>.</para>
+</section>
+<anchor xml:id="_interface_r_rule_1_1_r_rule_interface_1a6b815d82b45d6b6d337afccd8bf69be3"/><section>
+    <title>occursAt()</title>
+<indexterm><primary>occursAt</primary><secondary>RRuleInterface</secondary></indexterm>
+<indexterm><primary>RRuleInterface</primary><secondary>occursAt</secondary></indexterm>
+<para><computeroutput>occursAt ( $date)</computeroutput></para>
+<para>Return true if $date is an occurrence.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>mixed</entry><entry>$date</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>bool </para>
+</formalpara>
+</para>
+<para>
+Implémenté dans <link linkend="_class_r_rule_1_1_r_rule_1a6b815d82b45d6b6d337afccd8bf69be3">RRule</link>, et <link linkend="_class_r_rule_1_1_r_set_1a6b815d82b45d6b6d337afccd8bf69be3">RSet</link>.</para>
+</section>
+<para>
+La documentation de cette interface a été générée à partir du fichier suivant :</para>
+public/glpi/vendor/rlanvin/php-rrule/src/<link linkend="__r_rule_interface_8php">RRuleInterface.php</link></section>
+</section>

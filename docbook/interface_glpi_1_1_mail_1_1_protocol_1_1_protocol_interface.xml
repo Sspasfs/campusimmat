@@ -1,0 +1,145 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_interface_glpi_1_1_mail_1_1_protocol_1_1_protocol_interface" xml:lang="fr">
+<title>Référence de l&apos;interface ProtocolInterface</title>
+<indexterm><primary>ProtocolInterface</primary></indexterm>
+Graphe de collaboration de ProtocolInterface:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="interface_glpi_1_1_mail_1_1_protocol_1_1_protocol_interface__coll__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Fonctions membres publiques    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_interface_glpi_1_1_mail_1_1_protocol_1_1_protocol_interface_1a801d1842a28565ff02993b526ba0c693">setNoValidateCert</link> (bool $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">novalidatecert</link>)</para>
+</listitem>
+            <listitem><para><link linkend="_interface_glpi_1_1_mail_1_1_protocol_1_1_protocol_interface_1ab10ea11736fd728de44d4a1e4284f947">connect</link> ($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">host</link>, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">port</link>=null, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">ssl</link>=false)</para>
+</listitem>
+            <listitem><para><link linkend="_interface_glpi_1_1_mail_1_1_protocol_1_1_protocol_interface_1ae99dd092732ecd5e009bbaf741cbd8f4">login</link> ($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">user</link>, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">password</link>)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Documentation des fonctions membres</title>
+<anchor xml:id="_interface_glpi_1_1_mail_1_1_protocol_1_1_protocol_interface_1ab10ea11736fd728de44d4a1e4284f947"/><section>
+    <title>connect()</title>
+<indexterm><primary>connect</primary><secondary>ProtocolInterface</secondary></indexterm>
+<indexterm><primary>ProtocolInterface</primary><secondary>connect</secondary></indexterm>
+<para><computeroutput>connect ( $host,  $port = <computeroutput>null</computeroutput>
+,  $ssl = <computeroutput>false</computeroutput>
+)</computeroutput></para>
+<para>Open connection to server.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$host</entry><entry>
+<para>hostname or IP address of POP3 server </para>
+</entry>
+                            </row>
+                            <row>
+<entry>int | null</entry><entry>$port</entry><entry>
+<para>server port, null value with fallback to default port </para>
+</entry>
+                            </row>
+                            <row>
+<entry>string | bool</entry><entry>$ssl</entry><entry>
+<para>use &apos;SSL&apos;, &apos;TLS&apos; or false </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
+<anchor xml:id="_interface_glpi_1_1_mail_1_1_protocol_1_1_protocol_interface_1ae99dd092732ecd5e009bbaf741cbd8f4"/><section>
+    <title>login()</title>
+<indexterm><primary>login</primary><secondary>ProtocolInterface</secondary></indexterm>
+<indexterm><primary>ProtocolInterface</primary><secondary>login</secondary></indexterm>
+<para><computeroutput>login ( $user,  $password)</computeroutput></para>
+<para>Login to server.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$user</entry><entry>
+<para>username </para>
+</entry>
+                            </row>
+                            <row>
+<entry>string</entry><entry>$password</entry><entry>
+<para>password</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>bool </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_interface_glpi_1_1_mail_1_1_protocol_1_1_protocol_interface_1a801d1842a28565ff02993b526ba0c693"/><section>
+    <title>setNoValidateCert()</title>
+<indexterm><primary>setNoValidateCert</primary><secondary>ProtocolInterface</secondary></indexterm>
+<indexterm><primary>ProtocolInterface</primary><secondary>setNoValidateCert</secondary></indexterm>
+<para><computeroutput>setNoValidateCert (bool $novalidatecert)</computeroutput></para>
+<para>Do not validate SSL certificate</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>bool</entry><entry>$novalidatecert</entry><entry>
+<para>Set to true to disable certificate validation</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>self </para>
+</formalpara>
+</para>
+</section>
+<para>
+La documentation de cette interface a été générée à partir du fichier suivant :</para>
+public/glpi/src/Mail/Protocol/<link linkend="__protocol_interface_8php">ProtocolInterface.php</link></section>
+</section>

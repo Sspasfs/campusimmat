@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_md_public_2glpi_2vendor_2true_2punycode_2_r_e_a_d_m_e" xml:lang="fr">
+<title>Punycode</title>
+<indexterm><primary>Punycode</primary></indexterm>
+
+<para><anchor xml:id="_md_public_2glpi_2vendor_2true_2punycode_2_r_e_a_d_m_e_1autotoc_md7453"/> <link xlink:href="http://travis-ci.org/true/php-punycode"></link> <link xlink:href="https://scrutinizer-ci.com/g/true/php-punycode/?branch=master"></link> <link xlink:href="https://scrutinizer-ci.com/g/true/php-punycode/?branch=master"></link> <link xlink:href="https://packagist.org/packages/true/punycode"></link></para>
+
+<para>A Bootstring encoding of Unicode for Internationalized <link linkend="_class_domain">Domain</link> Names in Applications (IDNA).</para>
+<section xml:id="_md_public_2glpi_2vendor_2true_2punycode_2_r_e_a_d_m_e_1autotoc_md7454">
+<title><title>Install</title></title>
+
+<para><literallayout><computeroutput>composer&#32;require&#32;true/punycode:~2.0
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2true_2punycode_2_r_e_a_d_m_e_1autotoc_md7455">
+<title><title>Usage</title></title>
+
+<para><literallayout><computeroutput>&lt;?php
+
+//&#32;Import&#32;Punycode
+use&#32;TrueBV\Punycode;
+
+$Punycode&#32;=&#32;new&#32;Punycode();
+var_dump($Punycode-&gt;encode(&apos;renangonçalves.com&apos;));
+//&#32;outputs:&#32;xn--renangonalves-pgb.com
+
+var_dump($Punycode-&gt;decode(&apos;xn--renangonalves-pgb.com&apos;));
+//&#32;outputs:&#32;renangonçalves.com
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2true_2punycode_2_r_e_a_d_m_e_1autotoc_md7456">
+<title><title>FAQ</title></title>
+<section xml:id="_md_public_2glpi_2vendor_2true_2punycode_2_r_e_a_d_m_e_1autotoc_md7457">
+<title><title>1. What is this library for?</title></title>
+
+<para>This library converts a Unicode encoded domain name to a IDNA ASCII form and vice-versa.</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2true_2punycode_2_r_e_a_d_m_e_1autotoc_md7458">
+<title><title>2. Why should I use this instead of <link xlink:href="http://php.net/manual/en/ref.intl.idn.php">PHP&apos;s IDN Functions</link>?</title></title>
+
+<para>If you can compile the needed dependencies (intl, libidn) there is not much difference. But if you want to write portable code between hosts (including Windows and Mac OS), or can&apos;t install PECL extensions, this is the right library for you. </para>
+</section>
+</section>
+</section>

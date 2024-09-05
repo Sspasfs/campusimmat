@@ -1,0 +1,361 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_laminas_1_1_stdlib_1_1_glob" xml:lang="fr">
+<title>Référence de la classe Glob</title>
+<indexterm><primary>Glob</primary></indexterm>
+Graphe de collaboration de Glob:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_laminas_1_1_stdlib_1_1_glob__coll__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Fonctions membres publiques statiques    </title>
+        <itemizedlist>
+            <listitem><para>static <link linkend="_class_laminas_1_1_stdlib_1_1_glob_1a3df60390c2f272eba4cea0fe74e6d9db">glob</link> ($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">pattern</link>, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">flags</link>=0, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">forceFallback</link>=false)</para>
+</listitem>
+            <listitem><para>static <link linkend="_class_laminas_1_1_stdlib_1_1_glob_1ad155eec90fd03ab2dc2f2fa2fd804828">flagsIsEqualTo</link> (int $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">flags</link>, int $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">otherFlags</link>)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Champs de données    </title>
+        <itemizedlist>
+            <listitem><para>const <link linkend="_class_laminas_1_1_stdlib_1_1_glob_1aa05bf3bc84ded8dd4dd44688c323a8b4">GLOB_MARK</link> = 0x01</para>
+</listitem>
+            <listitem><para>const <link linkend="_class_laminas_1_1_stdlib_1_1_glob_1a04910aa2d9873f71c426ffac10008eee">GLOB_NOSORT</link> = 0x02</para>
+</listitem>
+            <listitem><para>const <link linkend="_class_laminas_1_1_stdlib_1_1_glob_1a364ce3c8f57618c4f5337e279355405a">GLOB_NOCHECK</link> = 0x04</para>
+</listitem>
+            <listitem><para>const <link linkend="_class_laminas_1_1_stdlib_1_1_glob_1a78a3945c1ca5bea477a92720b09ecb4f">GLOB_NOESCAPE</link> = 0x08</para>
+</listitem>
+            <listitem><para>const <link linkend="_class_laminas_1_1_stdlib_1_1_glob_1abfee7255363f087bbcc9d34abb0f00c8">GLOB_BRACE</link> = 0x10</para>
+</listitem>
+            <listitem><para>const <link linkend="_class_laminas_1_1_stdlib_1_1_glob_1ad014b90db2a1ffa262c6e1a6053bcce9">GLOB_ONLYDIR</link> = 0x20</para>
+</listitem>
+            <listitem><para>const <link linkend="_class_laminas_1_1_stdlib_1_1_glob_1a11f90bfa5150ea079631e8466c752e37">GLOB_ERR</link> = 0x40</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Fonctions membres protégées statiques    </title>
+        <itemizedlist>
+            <listitem><para>static <link linkend="_class_laminas_1_1_stdlib_1_1_glob_1afe70f43829b109e3acbc33b94d3418e0">systemGlob</link> ($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">pattern</link>, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">flags</link>)</para>
+</listitem>
+            <listitem><para>static <link linkend="_class_laminas_1_1_stdlib_1_1_glob_1affc98fc3a6def306c7a58fceb06a1af9">fallbackGlob</link> ($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">pattern</link>, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">flags</link>)</para>
+</listitem>
+            <listitem><para>static <link linkend="_class_laminas_1_1_stdlib_1_1_glob_1a599ca94c2369f0ddc02045e52ac43554">nextBraceSub</link> ($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">pattern</link>, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">begin</link>, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">flags</link>)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Description détaillée</title>
+
+<para>Wrapper for glob with fallback if GLOB_BRACE is not available. </para>
+</section>
+<section>
+<title>Documentation des fonctions membres</title>
+<anchor xml:id="_class_laminas_1_1_stdlib_1_1_glob_1affc98fc3a6def306c7a58fceb06a1af9"/><section>
+    <title>fallbackGlob()</title>
+<indexterm><primary>fallbackGlob</primary><secondary>Glob</secondary></indexterm>
+<indexterm><primary>Glob</primary><secondary>fallbackGlob</secondary></indexterm>
+<para><computeroutput>static fallbackGlob ( $pattern,  $flags)<computeroutput>[static]</computeroutput>, <computeroutput>[protected]</computeroutput></computeroutput></para>
+<para>Expand braces manually, then use the system glob.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$pattern</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>int</entry><entry>$flags</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>array </para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>Exception</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                RuntimeException </para>
+</section>
+<anchor xml:id="_class_laminas_1_1_stdlib_1_1_glob_1ad155eec90fd03ab2dc2f2fa2fd804828"/><section>
+    <title>flagsIsEqualTo()</title>
+<indexterm><primary>flagsIsEqualTo</primary><secondary>Glob</secondary></indexterm>
+<indexterm><primary>Glob</primary><secondary>flagsIsEqualTo</secondary></indexterm>
+<para><computeroutput>static flagsIsEqualTo (int $flags, int $otherFlags)<computeroutput>[static]</computeroutput></computeroutput></para>Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_laminas_1_1_stdlib_1_1_glob_ad155eec90fd03ab2dc2f2fa2fd804828_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_laminas_1_1_stdlib_1_1_glob_1a3df60390c2f272eba4cea0fe74e6d9db"/><section>
+    <title>glob()</title>
+<indexterm><primary>glob</primary><secondary>Glob</secondary></indexterm>
+<indexterm><primary>Glob</primary><secondary>glob</secondary></indexterm>
+<para><computeroutput>static glob ( $pattern,  $flags = <computeroutput>0</computeroutput>
+,  $forceFallback = <computeroutput>false</computeroutput>
+)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>#- Find pathnames matching a pattern.</para>
+
+<para><formalpara><title>Voir également</title>
+
+<para><link xlink:href="http://docs.php.net/glob">http://docs.php.net/glob</link></para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$pattern</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>int</entry><entry>$flags</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>bool</entry><entry>$forceFallback</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>array </para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>Exception</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                RuntimeException </para>
+</section>
+<anchor xml:id="_class_laminas_1_1_stdlib_1_1_glob_1a599ca94c2369f0ddc02045e52ac43554"/><section>
+    <title>nextBraceSub()</title>
+<indexterm><primary>nextBraceSub</primary><secondary>Glob</secondary></indexterm>
+<indexterm><primary>Glob</primary><secondary>nextBraceSub</secondary></indexterm>
+<para><computeroutput>static nextBraceSub ( $pattern,  $begin,  $flags)<computeroutput>[static]</computeroutput>, <computeroutput>[protected]</computeroutput></computeroutput></para>
+<para>Find the end of the sub-pattern in a brace expression.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$pattern</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>int</entry><entry>$begin</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>int</entry><entry>$flags</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>int|null </para>
+</formalpara>
+</para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_laminas_1_1_stdlib_1_1_glob_a599ca94c2369f0ddc02045e52ac43554_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_laminas_1_1_stdlib_1_1_glob_1afe70f43829b109e3acbc33b94d3418e0"/><section>
+    <title>systemGlob()</title>
+<indexterm><primary>systemGlob</primary><secondary>Glob</secondary></indexterm>
+<indexterm><primary>Glob</primary><secondary>systemGlob</secondary></indexterm>
+<para><computeroutput>static systemGlob ( $pattern,  $flags)<computeroutput>[static]</computeroutput>, <computeroutput>[protected]</computeroutput></computeroutput></para>
+<para>Use the glob function provided by the system.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$pattern</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>int</entry><entry>$flags</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>array </para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>Exception</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                RuntimeException </para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_laminas_1_1_stdlib_1_1_glob_afe70f43829b109e3acbc33b94d3418e0_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+</section>
+<section>
+<title>Documentation des champs</title>
+<anchor xml:id="_class_laminas_1_1_stdlib_1_1_glob_1abfee7255363f087bbcc9d34abb0f00c8"/><section>
+    <title>GLOB_BRACE</title>
+<indexterm><primary>GLOB_BRACE</primary><secondary>Glob</secondary></indexterm>
+<indexterm><primary>Glob</primary><secondary>GLOB_BRACE</secondary></indexterm>
+<para><computeroutput>const GLOB_BRACE = 0x10</computeroutput></para></section>
+<anchor xml:id="_class_laminas_1_1_stdlib_1_1_glob_1a11f90bfa5150ea079631e8466c752e37"/><section>
+    <title>GLOB_ERR</title>
+<indexterm><primary>GLOB_ERR</primary><secondary>Glob</secondary></indexterm>
+<indexterm><primary>Glob</primary><secondary>GLOB_ERR</secondary></indexterm>
+<para><computeroutput>const GLOB_ERR = 0x40</computeroutput></para></section>
+<anchor xml:id="_class_laminas_1_1_stdlib_1_1_glob_1aa05bf3bc84ded8dd4dd44688c323a8b4"/><section>
+    <title>GLOB_MARK</title>
+<indexterm><primary>GLOB_MARK</primary><secondary>Glob</secondary></indexterm>
+<indexterm><primary>Glob</primary><secondary>GLOB_MARK</secondary></indexterm>
+<para><computeroutput>const GLOB_MARK = 0x01</computeroutput></para>
+<para>#+ Glob constants. </para>
+</section>
+<anchor xml:id="_class_laminas_1_1_stdlib_1_1_glob_1a364ce3c8f57618c4f5337e279355405a"/><section>
+    <title>GLOB_NOCHECK</title>
+<indexterm><primary>GLOB_NOCHECK</primary><secondary>Glob</secondary></indexterm>
+<indexterm><primary>Glob</primary><secondary>GLOB_NOCHECK</secondary></indexterm>
+<para><computeroutput>const GLOB_NOCHECK = 0x04</computeroutput></para></section>
+<anchor xml:id="_class_laminas_1_1_stdlib_1_1_glob_1a78a3945c1ca5bea477a92720b09ecb4f"/><section>
+    <title>GLOB_NOESCAPE</title>
+<indexterm><primary>GLOB_NOESCAPE</primary><secondary>Glob</secondary></indexterm>
+<indexterm><primary>Glob</primary><secondary>GLOB_NOESCAPE</secondary></indexterm>
+<para><computeroutput>const GLOB_NOESCAPE = 0x08</computeroutput></para></section>
+<anchor xml:id="_class_laminas_1_1_stdlib_1_1_glob_1a04910aa2d9873f71c426ffac10008eee"/><section>
+    <title>GLOB_NOSORT</title>
+<indexterm><primary>GLOB_NOSORT</primary><secondary>Glob</secondary></indexterm>
+<indexterm><primary>Glob</primary><secondary>GLOB_NOSORT</secondary></indexterm>
+<para><computeroutput>const GLOB_NOSORT = 0x02</computeroutput></para></section>
+<anchor xml:id="_class_laminas_1_1_stdlib_1_1_glob_1ad014b90db2a1ffa262c6e1a6053bcce9"/><section>
+    <title>GLOB_ONLYDIR</title>
+<indexterm><primary>GLOB_ONLYDIR</primary><secondary>Glob</secondary></indexterm>
+<indexterm><primary>Glob</primary><secondary>GLOB_ONLYDIR</secondary></indexterm>
+<para><computeroutput>const GLOB_ONLYDIR = 0x20</computeroutput></para></section>
+<para>
+La documentation de cette classe a été générée à partir du fichier suivant :</para>
+public/glpi/vendor/laminas/laminas-stdlib/src/<link linkend="__glob_8php">Glob.php</link></section>
+</section>

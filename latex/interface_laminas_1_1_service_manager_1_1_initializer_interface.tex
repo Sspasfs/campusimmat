@@ -1,0 +1,79 @@
+\doxysection{Référence de l\textquotesingle{}interface Initializer\+Interface}
+\hypertarget{interface_laminas_1_1_service_manager_1_1_initializer_interface}{}\label{interface_laminas_1_1_service_manager_1_1_initializer_interface}\index{InitializerInterface@{InitializerInterface}}
+
+
+Graphe d\textquotesingle{}héritage de Initializer\+Interface\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=220pt]{interface_laminas_1_1_service_manager_1_1_initializer_interface__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Graphe de collaboration de Initializer\+Interface\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=220pt]{interface_laminas_1_1_service_manager_1_1_initializer_interface__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{interface_laminas_1_1_service_manager_1_1_initializer_interface_a2d3041149a66660d89b3fc9a16c8af46}{initialize}} (\$instance, \mbox{\hyperlink{interface_laminas_1_1_service_manager_1_1_service_locator_interface}{Service\+Locator\+Interface}} \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{service\+Locator}})
+\end{DoxyCompactItemize}
+\doxysubsection*{Fonctions membres publiques hérités de \mbox{\hyperlink{interface_laminas_1_1_service_manager_1_1_initializer_1_1_initializer_interface}{Initializer\+Interface}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{interface_laminas_1_1_service_manager_1_1_initializer_1_1_initializer_interface_a7da5afb1c2dc6e96d74392da47feb1c4}{\+\_\+\+\_\+invoke}} (\mbox{\hyperlink{interface_interop_1_1_container_1_1_container_interface}{Container\+Interface}} \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{container}}, \$instance)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Backwards-\/compatibility shim for Initializer\+Interface.
+
+Implementations should update to implement only Laminas\textbackslash{}\+Service\+Manager\textbackslash{}\+Initializer\textbackslash{}\+Initializer\+Interface.
+
+If upgrading from v2, take the following steps\+:
+
+
+\begin{DoxyItemize}
+\item rename the method {\ttfamily initialize()} to {\ttfamily \+\_\+\+\_\+invoke()}, and\+:
+\begin{DoxyItemize}
+\item rename the {\ttfamily \$service\+Locator} argument to {\ttfamily \$container}, and change the typehint to {\ttfamily Interop\textbackslash{}Container\textbackslash{}Container\+Interface}
+\item swap the order of the arguments (so that {\ttfamily \$instance} comes second)
+\end{DoxyItemize}
+\item create an {\ttfamily initialize()} method as defined in this interface, and have it proxy to {\ttfamily \+\_\+\+\_\+invoke()}, passing the arguments in the new order.
+\end{DoxyItemize}
+
+Once you have tested your code, you can then update your class to only implement Laminas\textbackslash{}\+Service\+Manager\textbackslash{}\+Initializer\textbackslash{}\+Initializer\+Interface, and remove the {\ttfamily initialize()} method.
+
+\begin{DoxyRefDesc}{Obsolète}
+\item[\mbox{\hyperlink{deprecated__deprecated000078}{Obsolète}}]Use Laminas\textbackslash{}\+Service\+Manager\textbackslash{}\+Initializer\textbackslash{}\+Initializer\+Interface instead. \end{DoxyRefDesc}
+
+
+\doxysubsection{Documentation des fonctions membres}
+\Hypertarget{interface_laminas_1_1_service_manager_1_1_initializer_interface_a2d3041149a66660d89b3fc9a16c8af46}\label{interface_laminas_1_1_service_manager_1_1_initializer_interface_a2d3041149a66660d89b3fc9a16c8af46} 
+\index{InitializerInterface@{InitializerInterface}!initialize@{initialize}}
+\index{initialize@{initialize}!InitializerInterface@{InitializerInterface}}
+\doxysubsubsection{\texorpdfstring{initialize()}{initialize()}}
+{\footnotesize\ttfamily initialize (\begin{DoxyParamCaption}\item[{}]{\$instance,  }\item[{\mbox{\hyperlink{interface_laminas_1_1_service_manager_1_1_service_locator_interface}{Service\+Locator\+Interface}}}]{\$service\+Locator }\end{DoxyParamCaption})}
+
+Initialize
+
+
+\begin{DoxyParams}[1]{Paramètres}
+mixed & {\em \$instance} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+mixed 
+\end{DoxyReturn}
+
+
+La documentation de cette interface a été générée à partir du fichier suivant \+:\begin{DoxyCompactItemize}
+\item 
+public/glpi/vendor/laminas/laminas-\/servicemanager/src/\mbox{\hyperlink{_initializer_interface_8php}{Initializer\+Interface.\+php}}\end{DoxyCompactItemize}

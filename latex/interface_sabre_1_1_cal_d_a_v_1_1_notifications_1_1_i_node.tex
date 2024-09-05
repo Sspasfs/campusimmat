@@ -1,0 +1,84 @@
+\doxysection{Référence de l\textquotesingle{}interface INode}
+\hypertarget{interface_sabre_1_1_cal_d_a_v_1_1_notifications_1_1_i_node}{}\label{interface_sabre_1_1_cal_d_a_v_1_1_notifications_1_1_i_node}\index{INode@{INode}}
+
+
+Graphe d\textquotesingle{}héritage de INode\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=247pt]{interface_sabre_1_1_cal_d_a_v_1_1_notifications_1_1_i_node__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Graphe de collaboration de INode\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=188pt]{interface_sabre_1_1_cal_d_a_v_1_1_notifications_1_1_i_node__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{interface_sabre_1_1_cal_d_a_v_1_1_notifications_1_1_i_node_a5cc1c03f264bd6d4c4351f156db75f11}{get\+Notification\+Type}} ()
+\item 
+\mbox{\hyperlink{interface_sabre_1_1_cal_d_a_v_1_1_notifications_1_1_i_node_a255fe68769f6bd6681c2a7e9168c1c98}{get\+ETag}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+This node represents a single notification.
+
+The signature is mostly identical to that of Sabre\textbackslash{}\+DAV\textbackslash{}\+IFile, but the get() method MUST return an xml document that matches the requirements of the \textquotesingle{}caldav-\/notifications.\+txt\textquotesingle{} spec.
+
+For a complete example, check out the \doxylink{class_notification}{Notification} class, which contains some helper functions.
+
+\begin{DoxyCopyright}{Copyright}
+Copyright (C) fruux GmbH (\href{https://fruux.com/}{\texttt{ https\+://fruux.\+com/}}) 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Auteur}
+Evert Pot (\href{http://evertpot.com/}{\texttt{ http\+://evertpot.\+com/}}) @license \href{http://sabre.io/license/}{\texttt{ http\+://sabre.\+io/license/}} Modified BSD License 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Documentation des fonctions membres}
+\Hypertarget{interface_sabre_1_1_cal_d_a_v_1_1_notifications_1_1_i_node_a255fe68769f6bd6681c2a7e9168c1c98}\label{interface_sabre_1_1_cal_d_a_v_1_1_notifications_1_1_i_node_a255fe68769f6bd6681c2a7e9168c1c98} 
+\index{INode@{INode}!getETag@{getETag}}
+\index{getETag@{getETag}!INode@{INode}}
+\doxysubsubsection{\texorpdfstring{getETag()}{getETag()}}
+{\footnotesize\ttfamily get\+ETag (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Returns the etag for the notification.
+
+The etag must be surrounded by literal double-\/quotes.
+
+\begin{DoxyReturn}{Renvoie}
+string 
+\end{DoxyReturn}
+
+
+Implémenté dans \mbox{\hyperlink{class_sabre_1_1_cal_d_a_v_1_1_notifications_1_1_node_a255fe68769f6bd6681c2a7e9168c1c98}{Node}}.
+
+\Hypertarget{interface_sabre_1_1_cal_d_a_v_1_1_notifications_1_1_i_node_a5cc1c03f264bd6d4c4351f156db75f11}\label{interface_sabre_1_1_cal_d_a_v_1_1_notifications_1_1_i_node_a5cc1c03f264bd6d4c4351f156db75f11} 
+\index{INode@{INode}!getNotificationType@{getNotificationType}}
+\index{getNotificationType@{getNotificationType}!INode@{INode}}
+\doxysubsubsection{\texorpdfstring{getNotificationType()}{getNotificationType()}}
+{\footnotesize\ttfamily get\+Notification\+Type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+This method must return an xml element, using the Sabre\textbackslash{}\+Cal\+DAV\textbackslash{}\+Xml\textbackslash{}\+Notification\textbackslash{}\+Notification\+Interface classes.
+
+\begin{DoxyReturn}{Renvoie}
+\doxylink{interface_notification_interface}{Notification\+Interface} 
+\end{DoxyReturn}
+
+
+Implémenté dans \mbox{\hyperlink{class_sabre_1_1_cal_d_a_v_1_1_notifications_1_1_node_a5cc1c03f264bd6d4c4351f156db75f11}{Node}}.
+
+
+
+La documentation de cette interface a été générée à partir du fichier suivant \+:\begin{DoxyCompactItemize}
+\item 
+public/glpi/vendor/sabre/dav/lib/\+Cal\+DAV/\+Notifications/\mbox{\hyperlink{_cal_d_a_v_2_notifications_2_i_node_8php}{INode.\+php}}\end{DoxyCompactItemize}

@@ -1,0 +1,221 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_p_h_p_mailer_1_1_p_h_p_mailer_1_1_o_auth" xml:lang="fr">
+<title>Référence de la classe OAuth</title>
+<indexterm><primary>OAuth</primary></indexterm>
+Graphe d&apos;héritage de OAuth:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_p_h_p_mailer_1_1_p_h_p_mailer_1_1_o_auth__inherit__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Graphe de collaboration de OAuth:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_p_h_p_mailer_1_1_p_h_p_mailer_1_1_o_auth__coll__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Fonctions membres publiques    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_p_h_p_mailer_1_1_p_h_p_mailer_1_1_o_auth_1ae8b8e1144b807ac13f20a916fd073b32">__construct</link> ($options)</para>
+</listitem>
+            <listitem><para><link linkend="_class_p_h_p_mailer_1_1_p_h_p_mailer_1_1_o_auth_1abf4e9198e70e0adf39a7a9a8bcdafa94">getOauth64</link> ()</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Fonctions membres protégées    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_p_h_p_mailer_1_1_p_h_p_mailer_1_1_o_auth_1a8fe9a4826bf27c54d6775782912e9d03">getGrant</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_class_p_h_p_mailer_1_1_p_h_p_mailer_1_1_o_auth_1a211a2979c22afcd7d9056a2bb55aa449">getToken</link> ()</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Attributs protégés    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_p_h_p_mailer_1_1_p_h_p_mailer_1_1_o_auth_1a934c4a71069a9e3bf15bcb8206884031">$provider</link></para>
+</listitem>
+            <listitem><para><link linkend="_class_p_h_p_mailer_1_1_p_h_p_mailer_1_1_o_auth_1a4384216d22db3a9652486d6883d2a9c0">$oauthToken</link></para>
+</listitem>
+            <listitem><para><link linkend="_class_p_h_p_mailer_1_1_p_h_p_mailer_1_1_o_auth_1a3359ff56ce05eb78c59e8355ac364b3c">$oauthUserEmail</link> = &apos;&apos;</para>
+</listitem>
+            <listitem><para><link linkend="_class_p_h_p_mailer_1_1_p_h_p_mailer_1_1_o_auth_1a4308b5fcbfbf6506bc9d4037ef209fe3">$oauthClientSecret</link> = &apos;&apos;</para>
+</listitem>
+            <listitem><para><link linkend="_class_p_h_p_mailer_1_1_p_h_p_mailer_1_1_o_auth_1aa1a35bb757295be723ce1b8abef0a6e1">$oauthClientId</link> = &apos;&apos;</para>
+</listitem>
+            <listitem><para><link linkend="_class_p_h_p_mailer_1_1_p_h_p_mailer_1_1_o_auth_1af5bf1523fe6ca4a42d2aa59a253182f2">$oauthRefreshToken</link> = &apos;&apos;</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Description détaillée</title>
+
+<para>OAuth - OAuth2 authentication wrapper class. Uses the oauth2-client package from the League of Extraordinary Packages.</para>
+
+<para><formalpara><title>Voir également</title>
+
+<para><link xlink:href="http://oauth2-client.thephpleague.com">http://oauth2-client.thephpleague.com</link></para>
+</formalpara>
+<formalpara><title>Auteur</title>
+
+<para>Marcus Bointon (Synchro/coolbru) <link xlink:href="mailto:phpmailer@synchromedia.co.uk">phpmailer@synchromedia.co.uk</link> </para>
+</formalpara>
+</para>
+</section>
+<section>
+<title>Documentation des constructeurs et destructeur</title>
+<anchor xml:id="_class_p_h_p_mailer_1_1_p_h_p_mailer_1_1_o_auth_1ae8b8e1144b807ac13f20a916fd073b32"/><section>
+    <title>__construct()</title>
+<indexterm><primary>__construct</primary><secondary>OAuth</secondary></indexterm>
+<indexterm><primary>OAuth</primary><secondary>__construct</secondary></indexterm>
+<para><computeroutput>__construct ( $options)</computeroutput></para>
+<para>OAuth constructor.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>array</entry><entry>$options</entry><entry>
+<para>Associative array containing <computeroutput>provider</computeroutput>, <computeroutput>userName</computeroutput>, <computeroutput>clientSecret</computeroutput>, <computeroutput>clientId</computeroutput> and <computeroutput>refreshToken</computeroutput> elements </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
+</section>
+<section>
+<title>Documentation des fonctions membres</title>
+<anchor xml:id="_class_p_h_p_mailer_1_1_p_h_p_mailer_1_1_o_auth_1a8fe9a4826bf27c54d6775782912e9d03"/><section>
+    <title>getGrant()</title>
+<indexterm><primary>getGrant</primary><secondary>OAuth</secondary></indexterm>
+<indexterm><primary>OAuth</primary><secondary>getGrant</secondary></indexterm>
+<para><computeroutput>getGrant ( )<computeroutput>[protected]</computeroutput></computeroutput></para>
+<para>Get a new RefreshToken.</para>
+
+<para><formalpara><title>Renvoie</title>
+
+<para>RefreshToken </para>
+</formalpara>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_p_h_p_mailer_1_1_p_h_p_mailer_1_1_o_auth_a8fe9a4826bf27c54d6775782912e9d03_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_p_h_p_mailer_1_1_p_h_p_mailer_1_1_o_auth_1abf4e9198e70e0adf39a7a9a8bcdafa94"/><section>
+    <title>getOauth64()</title>
+<indexterm><primary>getOauth64</primary><secondary>OAuth</secondary></indexterm>
+<indexterm><primary>OAuth</primary><secondary>getOauth64</secondary></indexterm>
+<para><computeroutput>getOauth64 ( )</computeroutput></para>
+<para>Generate a base64-encoded OAuth token.</para>
+
+<para><formalpara><title>Renvoie</title>
+
+<para>string </para>
+</formalpara>
+</para>
+<para>
+Implémente <link linkend="_interface_p_h_p_mailer_1_1_p_h_p_mailer_1_1_o_auth_token_provider_1abf4e9198e70e0adf39a7a9a8bcdafa94">OAuthTokenProvider</link>.</para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_p_h_p_mailer_1_1_p_h_p_mailer_1_1_o_auth_abf4e9198e70e0adf39a7a9a8bcdafa94_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_p_h_p_mailer_1_1_p_h_p_mailer_1_1_o_auth_1a211a2979c22afcd7d9056a2bb55aa449"/><section>
+    <title>getToken()</title>
+<indexterm><primary>getToken</primary><secondary>OAuth</secondary></indexterm>
+<indexterm><primary>OAuth</primary><secondary>getToken</secondary></indexterm>
+<para><computeroutput>getToken ( )<computeroutput>[protected]</computeroutput></computeroutput></para>
+<para>Get a new AccessToken.</para>
+
+<para><formalpara><title>Renvoie</title>
+
+<para>AccessToken </para>
+</formalpara>
+</para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_p_h_p_mailer_1_1_p_h_p_mailer_1_1_o_auth_a211a2979c22afcd7d9056a2bb55aa449_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_p_h_p_mailer_1_1_p_h_p_mailer_1_1_o_auth_a211a2979c22afcd7d9056a2bb55aa449_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+</section>
+<section>
+<title>Documentation des champs</title>
+<anchor xml:id="_class_p_h_p_mailer_1_1_p_h_p_mailer_1_1_o_auth_1aa1a35bb757295be723ce1b8abef0a6e1"/><section>
+    <title>$oauthClientId</title>
+<indexterm><primary>$oauthClientId</primary><secondary>OAuth</secondary></indexterm>
+<indexterm><primary>OAuth</primary><secondary>$oauthClientId</secondary></indexterm>
+<para><computeroutput>$<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">oauthClientId</link> = &apos;&apos;<computeroutput>[protected]</computeroutput></computeroutput></para></section>
+<anchor xml:id="_class_p_h_p_mailer_1_1_p_h_p_mailer_1_1_o_auth_1a4308b5fcbfbf6506bc9d4037ef209fe3"/><section>
+    <title>$oauthClientSecret</title>
+<indexterm><primary>$oauthClientSecret</primary><secondary>OAuth</secondary></indexterm>
+<indexterm><primary>OAuth</primary><secondary>$oauthClientSecret</secondary></indexterm>
+<para><computeroutput>$<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">oauthClientSecret</link> = &apos;&apos;<computeroutput>[protected]</computeroutput></computeroutput></para></section>
+<anchor xml:id="_class_p_h_p_mailer_1_1_p_h_p_mailer_1_1_o_auth_1af5bf1523fe6ca4a42d2aa59a253182f2"/><section>
+    <title>$oauthRefreshToken</title>
+<indexterm><primary>$oauthRefreshToken</primary><secondary>OAuth</secondary></indexterm>
+<indexterm><primary>OAuth</primary><secondary>$oauthRefreshToken</secondary></indexterm>
+<para><computeroutput>$<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">oauthRefreshToken</link> = &apos;&apos;<computeroutput>[protected]</computeroutput></computeroutput></para></section>
+<anchor xml:id="_class_p_h_p_mailer_1_1_p_h_p_mailer_1_1_o_auth_1a4384216d22db3a9652486d6883d2a9c0"/><section>
+    <title>$oauthToken</title>
+<indexterm><primary>$oauthToken</primary><secondary>OAuth</secondary></indexterm>
+<indexterm><primary>OAuth</primary><secondary>$oauthToken</secondary></indexterm>
+<para><computeroutput>$<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">oauthToken</link><computeroutput>[protected]</computeroutput></computeroutput></para></section>
+<anchor xml:id="_class_p_h_p_mailer_1_1_p_h_p_mailer_1_1_o_auth_1a3359ff56ce05eb78c59e8355ac364b3c"/><section>
+    <title>$oauthUserEmail</title>
+<indexterm><primary>$oauthUserEmail</primary><secondary>OAuth</secondary></indexterm>
+<indexterm><primary>OAuth</primary><secondary>$oauthUserEmail</secondary></indexterm>
+<para><computeroutput>$<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">oauthUserEmail</link> = &apos;&apos;<computeroutput>[protected]</computeroutput></computeroutput></para></section>
+<anchor xml:id="_class_p_h_p_mailer_1_1_p_h_p_mailer_1_1_o_auth_1a934c4a71069a9e3bf15bcb8206884031"/><section>
+    <title>$provider</title>
+<indexterm><primary>$provider</primary><secondary>OAuth</secondary></indexterm>
+<indexterm><primary>OAuth</primary><secondary>$provider</secondary></indexterm>
+<para><computeroutput>$provider<computeroutput>[protected]</computeroutput></computeroutput></para></section>
+<para>
+La documentation de cette classe a été générée à partir du fichier suivant :</para>
+public/glpi/vendor/phpmailer/phpmailer/src/<link linkend="__o_auth_8php">OAuth.php</link></section>
+</section>

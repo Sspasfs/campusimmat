@@ -1,0 +1,115 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_laminas_1_1_service_manager_1_1_config" xml:lang="fr">
+<title>Référence de la classe Config</title>
+<indexterm><primary>Config</primary></indexterm>
+Graphe d&apos;héritage de Config:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_laminas_1_1_service_manager_1_1_config__inherit__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Graphe de collaboration de Config:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_laminas_1_1_service_manager_1_1_config__coll__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Fonctions membres publiques    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_laminas_1_1_service_manager_1_1_config_1abfe0ed44b9c821db97c86d87c86904b1">__construct</link> (array $config=[])</para>
+</listitem>
+            <listitem><para><link linkend="_class_laminas_1_1_service_manager_1_1_config_1a20e884e94db10ffe0d862e6883160fa0">configureServiceManager</link> (<link linkend="_class_laminas_1_1_service_manager_1_1_service_manager">ServiceManager</link> $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">serviceManager</link>)</para>
+</listitem>
+            <listitem><para><link linkend="_class_laminas_1_1_service_manager_1_1_config_1a658defb34762c8f40085aec87e16ba1a">toArray</link> ()</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Attributs protégés    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_laminas_1_1_service_manager_1_1_config_1a49c7011be9c979d9174c52a8b83e5d8e">$config</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Description détaillée</title>
+
+<para>Object for defining configuration and configuring an existing service manager instance.</para>
+
+<para>In order to provide configuration merging capabilities, this class implements the same functionality as <computeroutput>Laminas\Stdlib\ArrayUtils::merge()</computeroutput>. That routine allows developers to specifically shape how values are merged:</para>
+
+<para><itemizedlist>
+<listitem>
+<para>A value which is an instance of <computeroutput>MergeRemoveKey</computeroutput> indicates the value should be removed during merge.</para>
+</listitem><listitem>
+<para>A value that is an instance of <computeroutput>MergeReplaceKeyInterface</computeroutput> indicates that the value it contains should be used to replace any previous versions.</para>
+</listitem></itemizedlist>
+</para>
+
+<para>These features are advanced, and not typically used. If you wish to use them, you will need to require the laminas-stdlib package in your application.</para>
+
+<para>@psalm-import-type ServiceManagerConfigurationType from ConfigInterface </para>
+</section>
+<section>
+<title>Documentation des constructeurs et destructeur</title>
+<anchor xml:id="_class_laminas_1_1_service_manager_1_1_config_1abfe0ed44b9c821db97c86d87c86904b1"/><section>
+    <title>__construct()</title>
+<indexterm><primary>__construct</primary><secondary>Config</secondary></indexterm>
+<indexterm><primary>Config</primary><secondary>__construct</secondary></indexterm>
+<para><computeroutput>__construct (array $config = <computeroutput>[]</computeroutput>
+)</computeroutput></para>
+<para>@psalm-param ServiceManagerConfigurationType $config </para>
+
+<para>@psalm-suppress ArgumentTypeCoercion</para>
+</section>
+</section>
+<section>
+<title>Documentation des fonctions membres</title>
+<anchor xml:id="_class_laminas_1_1_service_manager_1_1_config_1a20e884e94db10ffe0d862e6883160fa0"/><section>
+    <title>configureServiceManager()</title>
+<indexterm><primary>configureServiceManager</primary><secondary>Config</secondary></indexterm>
+<indexterm><primary>Config</primary><secondary>configureServiceManager</secondary></indexterm>
+<para><computeroutput>configureServiceManager (<link linkend="_class_laminas_1_1_service_manager_1_1_service_manager">ServiceManager</link> $serviceManager)</computeroutput></para>
+<para>@inheritDoc </para>
+<para>
+Implémente <link linkend="_interface_laminas_1_1_service_manager_1_1_config_interface_1a20e884e94db10ffe0d862e6883160fa0">ConfigInterface</link>.</para>
+</section>
+<anchor xml:id="_class_laminas_1_1_service_manager_1_1_config_1a658defb34762c8f40085aec87e16ba1a"/><section>
+    <title>toArray()</title>
+<indexterm><primary>toArray</primary><secondary>Config</secondary></indexterm>
+<indexterm><primary>Config</primary><secondary>toArray</secondary></indexterm>
+<para><computeroutput>toArray ( )</computeroutput></para>
+<para>@inheritDoc </para>
+<para>
+Implémente <link linkend="_interface_laminas_1_1_service_manager_1_1_config_interface_1a658defb34762c8f40085aec87e16ba1a">ConfigInterface</link>.</para>
+</section>
+</section>
+<section>
+<title>Documentation des champs</title>
+<anchor xml:id="_class_laminas_1_1_service_manager_1_1_config_1a49c7011be9c979d9174c52a8b83e5d8e"/><section>
+    <title>$config</title>
+<indexterm><primary>$config</primary><secondary>Config</secondary></indexterm>
+<indexterm><primary>Config</primary><secondary>$config</secondary></indexterm>
+<para><computeroutput>$config<computeroutput>[protected]</computeroutput></computeroutput></para><emphasis role="strong">Valeur initiale :</emphasis><programlisting linenumbering="unnumbered">=&#32;[
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&apos;abstract_factories&apos;</emphasis>&#32;=&gt;&#32;[],
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&apos;aliases&apos;</emphasis>&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;=&gt;&#32;[],
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&apos;delegators&apos;</emphasis>&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;=&gt;&#32;[],
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&apos;factories&apos;</emphasis>&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;=&gt;&#32;[],
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&apos;initializers&apos;</emphasis>&#32;&#32;&#32;&#32;&#32;&#32;&#32;=&gt;&#32;[],
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&apos;invokables&apos;</emphasis>&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;=&gt;&#32;[],
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&apos;lazy_services&apos;</emphasis>&#32;&#32;&#32;&#32;&#32;&#32;=&gt;&#32;[],
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&apos;services&apos;</emphasis>&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;=&gt;&#32;[],
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&apos;shared&apos;</emphasis>&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;=&gt;&#32;[],
+&#32;&#32;&#32;&#32;]
+</programlisting></section>
+<para>
+La documentation de cette classe a été générée à partir du fichier suivant :</para>
+public/glpi/vendor/laminas/laminas-servicemanager/src/<link linkend="_vendor_2laminas_2laminas-servicemanager_2src_2config_8php">Config.php</link></section>
+</section>

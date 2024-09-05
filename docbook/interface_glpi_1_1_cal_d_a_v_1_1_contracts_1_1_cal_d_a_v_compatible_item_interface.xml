@@ -1,0 +1,182 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_interface_glpi_1_1_cal_d_a_v_1_1_contracts_1_1_cal_d_a_v_compatible_item_interface" xml:lang="fr">
+<title>Référence de l&apos;interface CalDAVCompatibleItemInterface</title>
+<indexterm><primary>CalDAVCompatibleItemInterface</primary></indexterm>
+Graphe d&apos;héritage de CalDAVCompatibleItemInterface:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="interface_glpi_1_1_cal_d_a_v_1_1_contracts_1_1_cal_d_a_v_compatible_item_interface__inherit__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Graphe de collaboration de CalDAVCompatibleItemInterface:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="interface_glpi_1_1_cal_d_a_v_1_1_contracts_1_1_cal_d_a_v_compatible_item_interface__coll__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Fonctions membres publiques    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_interface_glpi_1_1_cal_d_a_v_1_1_contracts_1_1_cal_d_a_v_compatible_item_interface_1a63b4506b8b775709817af588373b6990">getAsVCalendar</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_interface_glpi_1_1_cal_d_a_v_1_1_contracts_1_1_cal_d_a_v_compatible_item_interface_1a07b3d3504728b3a544a034d1bc88fc35">getInputFromVCalendar</link> (<link linkend="_class_sabre_1_1_v_object_1_1_component_1_1_v_calendar">VCalendar</link> $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">vcalendar</link>)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Fonctions membres publiques statiques    </title>
+        <itemizedlist>
+            <listitem><para>static <link linkend="_interface_glpi_1_1_cal_d_a_v_1_1_contracts_1_1_cal_d_a_v_compatible_item_interface_1a9a01cc3dad87f28773cd7d95ff796c06">getGroupItemsAsVCalendars</link> ($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">groups_id</link>)</para>
+</listitem>
+            <listitem><para>static <link linkend="_interface_glpi_1_1_cal_d_a_v_1_1_contracts_1_1_cal_d_a_v_compatible_item_interface_1affe7f5bdca5475429fb3f9bb58a5444f">getUserItemsAsVCalendars</link> ($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">users_id</link>)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Description détaillée</title>
+
+<para>Interface used to define methods that must be implemented by items served by CalDAV server.</para>
+
+<para><formalpara><title>Depuis</title>
+
+<para>9.5.0 </para>
+</formalpara>
+</para>
+</section>
+<section>
+<title>Documentation des fonctions membres</title>
+<anchor xml:id="_interface_glpi_1_1_cal_d_a_v_1_1_contracts_1_1_cal_d_a_v_compatible_item_interface_1a63b4506b8b775709817af588373b6990"/><section>
+    <title>getAsVCalendar()</title>
+<indexterm><primary>getAsVCalendar</primary><secondary>CalDAVCompatibleItemInterface</secondary></indexterm>
+<indexterm><primary>CalDAVCompatibleItemInterface</primary><secondary>getAsVCalendar</secondary></indexterm>
+<para><computeroutput>getAsVCalendar ( )</computeroutput></para>
+<para>Get current item as a VCalendar document.</para>
+
+<para><formalpara><title>Renvoie</title>
+
+<para>null|VCalendar</para>
+</formalpara>
+<formalpara><title>Voir également</title>
+
+<para><link xlink:href="https://tools.ietf.org/html/rfc2445">https://tools.ietf.org/html/rfc2445</link> </para>
+</formalpara>
+</para>
+<para>
+Implémenté dans <link linkend="_class_planning_external_event_1a63b4506b8b775709817af588373b6990">PlanningExternalEvent</link>, et <link linkend="_class_reminder_1a63b4506b8b775709817af588373b6990">Reminder</link>.</para>
+</section>
+<anchor xml:id="_interface_glpi_1_1_cal_d_a_v_1_1_contracts_1_1_cal_d_a_v_compatible_item_interface_1a9a01cc3dad87f28773cd7d95ff796c06"/><section>
+    <title>getGroupItemsAsVCalendars()</title>
+<indexterm><primary>getGroupItemsAsVCalendars</primary><secondary>CalDAVCompatibleItemInterface</secondary></indexterm>
+<indexterm><primary>CalDAVCompatibleItemInterface</primary><secondary>getGroupItemsAsVCalendars</secondary></indexterm>
+<para><computeroutput>static getGroupItemsAsVCalendars ( $groups_id)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>Get group items as VCalendar documents.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>integer</entry><entry>$groups_id</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>VCalendar[] </para>
+</formalpara>
+</para>
+<para>
+Implémenté dans <link linkend="_class_common_i_t_i_l_task_1a9a01cc3dad87f28773cd7d95ff796c06">CommonITILTask</link>, <link linkend="_class_planning_external_event_1a9a01cc3dad87f28773cd7d95ff796c06">PlanningExternalEvent</link>, <link linkend="_class_project_task_1a9a01cc3dad87f28773cd7d95ff796c06">ProjectTask</link>, et <link linkend="_class_reminder_1a9a01cc3dad87f28773cd7d95ff796c06">Reminder</link>.</para>
+</section>
+<anchor xml:id="_interface_glpi_1_1_cal_d_a_v_1_1_contracts_1_1_cal_d_a_v_compatible_item_interface_1a07b3d3504728b3a544a034d1bc88fc35"/><section>
+    <title>getInputFromVCalendar()</title>
+<indexterm><primary>getInputFromVCalendar</primary><secondary>CalDAVCompatibleItemInterface</secondary></indexterm>
+<indexterm><primary>CalDAVCompatibleItemInterface</primary><secondary>getInputFromVCalendar</secondary></indexterm>
+<para><computeroutput>getInputFromVCalendar (<link linkend="_class_sabre_1_1_v_object_1_1_component_1_1_v_calendar">VCalendar</link> $vcalendar)</computeroutput></para>
+<para>Get input array from a VCalendar object.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>VCalendar</entry><entry>$vcalendar</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>array</para>
+</formalpara>
+<formalpara><title>Voir également</title>
+
+<para><link xlink:href="https://tools.ietf.org/html/rfc2445">https://tools.ietf.org/html/rfc2445</link> </para>
+</formalpara>
+</para>
+<para>
+Implémenté dans <link linkend="_class_common_i_t_i_l_task_1a07b3d3504728b3a544a034d1bc88fc35">CommonITILTask</link>, <link linkend="_class_planning_external_event_1a07b3d3504728b3a544a034d1bc88fc35">PlanningExternalEvent</link>, <link linkend="_class_project_task_1a07b3d3504728b3a544a034d1bc88fc35">ProjectTask</link>, et <link linkend="_class_reminder_1a07b3d3504728b3a544a034d1bc88fc35">Reminder</link>.</para>
+</section>
+<anchor xml:id="_interface_glpi_1_1_cal_d_a_v_1_1_contracts_1_1_cal_d_a_v_compatible_item_interface_1affe7f5bdca5475429fb3f9bb58a5444f"/><section>
+    <title>getUserItemsAsVCalendars()</title>
+<indexterm><primary>getUserItemsAsVCalendars</primary><secondary>CalDAVCompatibleItemInterface</secondary></indexterm>
+<indexterm><primary>CalDAVCompatibleItemInterface</primary><secondary>getUserItemsAsVCalendars</secondary></indexterm>
+<para><computeroutput>static getUserItemsAsVCalendars ( $users_id)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>Get user items as VCalendar documents.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>integer</entry><entry>$users_id</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>VCalendar[] </para>
+</formalpara>
+</para>
+<para>
+Implémenté dans <link linkend="_class_common_i_t_i_l_task_1affe7f5bdca5475429fb3f9bb58a5444f">CommonITILTask</link>, <link linkend="_class_planning_external_event_1affe7f5bdca5475429fb3f9bb58a5444f">PlanningExternalEvent</link>, <link linkend="_class_project_task_1affe7f5bdca5475429fb3f9bb58a5444f">ProjectTask</link>, et <link linkend="_class_reminder_1affe7f5bdca5475429fb3f9bb58a5444f">Reminder</link>.</para>
+</section>
+<para>
+La documentation de cette interface a été générée à partir du fichier suivant :</para>
+public/glpi/src/CalDAV/Contracts/<link linkend="__cal_d_a_v_compatible_item_interface_8php">CalDAVCompatibleItemInterface.php</link></section>
+</section>

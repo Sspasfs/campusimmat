@@ -1,0 +1,243 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_laminas_1_1_service_manager_1_1_abstract_factory_1_1_reflection_based_abstract_factory" xml:lang="fr">
+<title>Référence de la classe ReflectionBasedAbstractFactory</title>
+<indexterm><primary>ReflectionBasedAbstractFactory</primary></indexterm>
+Graphe d&apos;héritage de ReflectionBasedAbstractFactory:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_laminas_1_1_service_manager_1_1_abstract_factory_1_1_reflection_based_abstract_factory__inherit__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Graphe de collaboration de ReflectionBasedAbstractFactory:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_laminas_1_1_service_manager_1_1_abstract_factory_1_1_reflection_based_abstract_factory__coll__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Fonctions membres publiques    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_laminas_1_1_service_manager_1_1_abstract_factory_1_1_reflection_based_abstract_factory_1a83dbca34ce2cfbe6f3d97cd11427c6aa">__construct</link> (array $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">aliases</link>=[])</para>
+</listitem>
+            <listitem><para><link linkend="_class_laminas_1_1_service_manager_1_1_abstract_factory_1_1_reflection_based_abstract_factory_1ab386f3c76f2a4819824f98962352df18">__invoke</link> (<link linkend="_interface_interop_1_1_container_1_1_container_interface">ContainerInterface</link> $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">container</link>, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">requestedName</link>, ?array $options=null)</para>
+</listitem>
+            <listitem><para><link linkend="_class_laminas_1_1_service_manager_1_1_abstract_factory_1_1_reflection_based_abstract_factory_1a31d2a9a970cd65e6d610b34dcec9fd54">canCreate</link> (<link linkend="_interface_interop_1_1_container_1_1_container_interface">ContainerInterface</link> $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">container</link>, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">requestedName</link>)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Attributs protégés    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_laminas_1_1_service_manager_1_1_abstract_factory_1_1_reflection_based_abstract_factory_1a7e6d29edbd9ec5d8ec9d478cf98fba03">$aliases</link> = []</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Description détaillée</title>
+
+<para>Reflection-based factory.</para>
+
+<para>To ease development, this factory may be used for classes with type-hinted arguments that resolve to services in the application container; this allows omitting the step of writing a factory for each controller.</para>
+
+<para>You may use it as either an abstract factory:</para>
+
+<para><computeroutput> &apos;service_manager&apos; =&gt; [ &apos;abstract_factories&apos; =&gt; [ ReflectionBasedAbstractFactory::class, ], ], </computeroutput></para>
+
+<para>Or as a factory, mapping a class name to it:</para>
+
+<para><computeroutput> &apos;service_manager&apos; =&gt; [ &apos;factories&apos; =&gt; [ MyClassWithDependencies::class =&gt; ReflectionBasedAbstractFactory::class, ], ], </computeroutput></para>
+
+<para>The latter approach is more explicit, and also more performant.</para>
+
+<para>The factory has the following constraints/features:</para>
+
+<para><itemizedlist>
+<listitem>
+<para>A parameter named <computeroutput>$config</computeroutput> typehinted as an array will receive the application &quot;config&quot; service (i.e., the merged configuration).</para>
+</listitem><listitem>
+<para>Parameters type-hinted against array, but not named <computeroutput>$config</computeroutput> will be injected with an empty array.</para>
+</listitem><listitem>
+<para>Scalar parameters will result in an exception being thrown, unless a default value is present; if the default is present, that will be used.</para>
+</listitem><listitem>
+<para>If a service cannot be found for a given typehint, the factory will raise an exception detailing this.</para>
+</listitem><listitem>
+<para>Some services provided by Laminas components do not have entries based on their class name (for historical reasons); the factory allows defining a map of these class/interface names to the corresponding service name to allow them to resolve.</para>
+</listitem></itemizedlist>
+</para>
+
+<para><computeroutput>$options</computeroutput> passed to the factory are ignored in all cases, as we cannot make assumptions about which <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">argument(s)</link> they might replace.</para>
+
+<para>Based on the LazyControllerAbstractFactory from laminas-mvc. </para>
+</section>
+<section>
+<title>Documentation des constructeurs et destructeur</title>
+<anchor xml:id="_class_laminas_1_1_service_manager_1_1_abstract_factory_1_1_reflection_based_abstract_factory_1a83dbca34ce2cfbe6f3d97cd11427c6aa"/><section>
+    <title>__construct()</title>
+<indexterm><primary>__construct</primary><secondary>ReflectionBasedAbstractFactory</secondary></indexterm>
+<indexterm><primary>ReflectionBasedAbstractFactory</primary><secondary>__construct</secondary></indexterm>
+<para><computeroutput>__construct (array $aliases = <computeroutput>[]</computeroutput>
+)</computeroutput></para>
+<para>Allows overriding the internal list of aliases. These should be of the form <computeroutput>class name =&gt; well-known service name</computeroutput>; see the documentation for the <computeroutput>$aliases</computeroutput> property for details on what is accepted.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string[]</entry><entry>$aliases</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
+</section>
+<section>
+<title>Documentation des fonctions membres</title>
+<anchor xml:id="_class_laminas_1_1_service_manager_1_1_abstract_factory_1_1_reflection_based_abstract_factory_1ab386f3c76f2a4819824f98962352df18"/><section>
+    <title>__invoke()</title>
+<indexterm><primary>__invoke</primary><secondary>ReflectionBasedAbstractFactory</secondary></indexterm>
+<indexterm><primary>ReflectionBasedAbstractFactory</primary><secondary>__invoke</secondary></indexterm>
+<para><computeroutput>__invoke (<link linkend="_interface_interop_1_1_container_1_1_container_interface">ContainerInterface</link> $container,  $requestedName, ?array $options = <computeroutput>null</computeroutput>
+)</computeroutput></para>
+<para>
+<para>Create an object</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$requestedName</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry></entry><entry>null|array&lt;mixed&gt;</entry><entry>
+<para>$options </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>object </para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>ServiceNotFoundException</entry><entry>
+<para>If unable to resolve the service. </para>
+</entry>
+                            </row>
+                            <row>
+<entry>ServiceNotCreatedException</entry><entry>
+<para>If an exception is raised when creating a service. </para>
+</entry>
+                            </row>
+                            <row>
+<entry>ContainerException</entry><entry>
+<para>If any other error occurs.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</para>
+
+<para><formalpara><title>Renvoie</title>
+
+<para>DispatchableInterface </para>
+</formalpara>
+</para>
+<para>
+Implémente <link linkend="_interface_laminas_1_1_service_manager_1_1_factory_1_1_factory_interface_1ab386f3c76f2a4819824f98962352df18">FactoryInterface</link>.</para>
+</section>
+<anchor xml:id="_class_laminas_1_1_service_manager_1_1_abstract_factory_1_1_reflection_based_abstract_factory_1a31d2a9a970cd65e6d610b34dcec9fd54"/><section>
+    <title>canCreate()</title>
+<indexterm><primary>canCreate</primary><secondary>ReflectionBasedAbstractFactory</secondary></indexterm>
+<indexterm><primary>ReflectionBasedAbstractFactory</primary><secondary>canCreate</secondary></indexterm>
+<para><computeroutput>canCreate (<link linkend="_interface_interop_1_1_container_1_1_container_interface">ContainerInterface</link> $container,  $requestedName)</computeroutput></para>
+<para>
+<para>Can the factory create an instance for the service?</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$requestedName</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>bool</para>
+</formalpara>
+</para>
+ </para>
+<para>
+Implémente <link linkend="_interface_laminas_1_1_service_manager_1_1_factory_1_1_abstract_factory_interface_1a31d2a9a970cd65e6d610b34dcec9fd54">AbstractFactoryInterface</link>.</para>
+</section>
+</section>
+<section>
+<title>Documentation des champs</title>
+<anchor xml:id="_class_laminas_1_1_service_manager_1_1_abstract_factory_1_1_reflection_based_abstract_factory_1a7e6d29edbd9ec5d8ec9d478cf98fba03"/><section>
+    <title>$aliases</title>
+<indexterm><primary>$aliases</primary><secondary>ReflectionBasedAbstractFactory</secondary></indexterm>
+<indexterm><primary>ReflectionBasedAbstractFactory</primary><secondary>$aliases</secondary></indexterm>
+<para><computeroutput>$<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">aliases</link> = []<computeroutput>[protected]</computeroutput></computeroutput></para></section>
+<para>
+La documentation de cette classe a été générée à partir du fichier suivant :</para>
+public/glpi/vendor/laminas/laminas-servicemanager/src/AbstractFactory/<link linkend="__reflection_based_abstract_factory_8php">ReflectionBasedAbstractFactory.php</link></section>
+</section>

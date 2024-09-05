@@ -1,0 +1,199 @@
+\doxysection{Référence de la classe HTMLTable\+Entity}
+\hypertarget{class_h_t_m_l_table_entity}{}\label{class_h_t_m_l_table_entity}\index{HTMLTableEntity@{HTMLTableEntity}}
+
+
+Graphe d\textquotesingle{}héritage de HTMLTable\+Entity\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_h_t_m_l_table_entity__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Graphe de collaboration de HTMLTable\+Entity\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=211pt]{class_h_t_m_l_table_entity__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_h_t_m_l_table_entity_a4e32130efb3929795bf8e8dabaefa7f5}{\+\_\+\+\_\+construct}} (\$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{content}})
+\item 
+\mbox{\hyperlink{class_h_t_m_l_table_entity_ad0c02666fcc41e3b4050f6cd55c4557e}{copy\+Attributs\+From}} (\mbox{\hyperlink{class_h_t_m_l_table_entity}{HTMLTable\+Entity}} \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{origin}})
+\item 
+\mbox{\hyperlink{class_h_t_m_l_table_entity_acf96d200aa45c201a773c2ef0440841a}{set\+HTMLID}} (\$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{html\+\_\+id}})
+\item 
+\mbox{\hyperlink{class_h_t_m_l_table_entity_a6d14c6796c9e432203cf0c6c9de7e240}{set\+HTMLStyle}} (\$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{html\+\_\+style}})
+\item 
+\mbox{\hyperlink{class_h_t_m_l_table_entity_ac324f4633e6e91c0055f7c696dfd7200}{set\+HTMLClass}} (\$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{html\+\_\+class}})
+\item 
+\mbox{\hyperlink{class_h_t_m_l_table_entity_af41546650977bf4072f1598a1f7fd548}{display\+Entity\+Attributs}} (array \$options=\mbox{[}$\,$\mbox{]})
+\item 
+\mbox{\hyperlink{class_h_t_m_l_table_entity_a04a5eddb7c3abc7bf31fa25b58f046bf}{set\+Content}} (\$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{content}})
+\item 
+\mbox{\hyperlink{class_h_t_m_l_table_entity_a50185c1a28ebde8018f9c1f824d6e038}{display\+Content}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+\DoxyHorRuler{0}
+
+
+\doxylink{class_g_l_p_i}{GLPI} -\/ Gestionnaire Libre de Parc Informatique
+
+\href{http://glpi-project.org}{\texttt{ http\+://glpi-\/project.\+org}}
+
+\begin{DoxyCopyright}{Copyright}
+2015-\/2024 Teclib\textquotesingle{} and contributors. 
+
+2003-\/2014 by the INDEPNET Development Team. @licence \href{https://www.gnu.org/licenses/gpl-3.0.html}{\texttt{ https\+://www.\+gnu.\+org/licenses/gpl-\/3.\+0.\+html}}
+\end{DoxyCopyright}
+\DoxyHorRuler{0}
+
+
+LICENSE
+
+This file is part of \doxylink{class_g_l_p_i}{GLPI}.
+
+This program is free software\+: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free \doxylink{class_software}{Software} Foundation, either version 3 of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License along with this program. If not, see \href{https://www.gnu.org/licenses/}{\texttt{ https\+://www.\+gnu.\+org/licenses/}}.
+
+\DoxyHorRuler{0}
+ \begin{DoxySince}{Depuis}
+0.\+84
+\end{DoxySince}
+The base entity for the table. The entity is the base of kind of cell (header or not). It provides facilities to manage the cells such as attributs or specific content (mixing of strings and call of method during table display) 
+
+\doxysubsection{Documentation des constructeurs et destructeur}
+\Hypertarget{class_h_t_m_l_table_entity_a4e32130efb3929795bf8e8dabaefa7f5}\label{class_h_t_m_l_table_entity_a4e32130efb3929795bf8e8dabaefa7f5} 
+\index{HTMLTableEntity@{HTMLTableEntity}!\_\_construct@{\_\_construct}}
+\index{\_\_construct@{\_\_construct}!HTMLTableEntity@{HTMLTableEntity}}
+\doxysubsubsection{\texorpdfstring{\_\_construct()}{\_\_construct()}}
+{\footnotesize\ttfamily \+\_\+\+\_\+construct (\begin{DoxyParamCaption}\item[{}]{\$content }\end{DoxyParamCaption})}
+
+Constructor of an entity
+
+
+\begin{DoxyParams}[1]{Paramètres}
+string & {\em \$content} & The content of a cell, header, ... Can simply be a string. But it can also be a call to a specific function during the rendering of the table in case of direct display function (for instance\+: Dropdown\+::show\+Number). A function call is an array containing two elements \+: \textquotesingle{}function\textquotesingle{}, the name the function and \textquotesingle{}parameters\textquotesingle{}, an array of the parameters given to the function. \\
+\hline
+\end{DoxyParams}
+
+
+Réimplémentée dans \mbox{\hyperlink{class_h_t_m_l_table_row_a40c9c4b5e075ad26ed57afdb3174c779}{HTMLTable\+Row}}.
+
+
+
+\doxysubsection{Documentation des fonctions membres}
+\Hypertarget{class_h_t_m_l_table_entity_ad0c02666fcc41e3b4050f6cd55c4557e}\label{class_h_t_m_l_table_entity_ad0c02666fcc41e3b4050f6cd55c4557e} 
+\index{HTMLTableEntity@{HTMLTableEntity}!copyAttributsFrom@{copyAttributsFrom}}
+\index{copyAttributsFrom@{copyAttributsFrom}!HTMLTableEntity@{HTMLTableEntity}}
+\doxysubsubsection{\texorpdfstring{copyAttributsFrom()}{copyAttributsFrom()}}
+{\footnotesize\ttfamily copy\+Attributs\+From (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_h_t_m_l_table_entity}{HTMLTable\+Entity}}}]{\$origin }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Paramètres}
+{\em \$origin} & \\
+\hline
+\end{DoxyParams}
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_h_t_m_l_table_entity_ad0c02666fcc41e3b4050f6cd55c4557e_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_h_t_m_l_table_entity_a50185c1a28ebde8018f9c1f824d6e038}\label{class_h_t_m_l_table_entity_a50185c1a28ebde8018f9c1f824d6e038} 
+\index{HTMLTableEntity@{HTMLTableEntity}!displayContent@{displayContent}}
+\index{displayContent@{displayContent}!HTMLTableEntity@{HTMLTableEntity}}
+\doxysubsubsection{\texorpdfstring{displayContent()}{displayContent()}}
+{\footnotesize\ttfamily display\+Content (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_h_t_m_l_table_entity_a50185c1a28ebde8018f9c1f824d6e038_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_h_t_m_l_table_entity_af41546650977bf4072f1598a1f7fd548}\label{class_h_t_m_l_table_entity_af41546650977bf4072f1598a1f7fd548} 
+\index{HTMLTableEntity@{HTMLTableEntity}!displayEntityAttributs@{displayEntityAttributs}}
+\index{displayEntityAttributs@{displayEntityAttributs}!HTMLTableEntity@{HTMLTableEntity}}
+\doxysubsubsection{\texorpdfstring{displayEntityAttributs()}{displayEntityAttributs()}}
+{\footnotesize\ttfamily display\+Entity\+Attributs (\begin{DoxyParamCaption}\item[{array}]{\$options = {\ttfamily \mbox{[}\mbox{]}} }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Paramètres}
+{\em \$options} & array \\
+\hline
+\end{DoxyParams}
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_h_t_m_l_table_entity_af41546650977bf4072f1598a1f7fd548_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_h_t_m_l_table_entity_a04a5eddb7c3abc7bf31fa25b58f046bf}\label{class_h_t_m_l_table_entity_a04a5eddb7c3abc7bf31fa25b58f046bf} 
+\index{HTMLTableEntity@{HTMLTableEntity}!setContent@{setContent}}
+\index{setContent@{setContent}!HTMLTableEntity@{HTMLTableEntity}}
+\doxysubsubsection{\texorpdfstring{setContent()}{setContent()}}
+{\footnotesize\ttfamily set\+Content (\begin{DoxyParamCaption}\item[{}]{\$content }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Paramètres}
+{\em \$content} & \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_h_t_m_l_table_entity_ac324f4633e6e91c0055f7c696dfd7200}\label{class_h_t_m_l_table_entity_ac324f4633e6e91c0055f7c696dfd7200} 
+\index{HTMLTableEntity@{HTMLTableEntity}!setHTMLClass@{setHTMLClass}}
+\index{setHTMLClass@{setHTMLClass}!HTMLTableEntity@{HTMLTableEntity}}
+\doxysubsubsection{\texorpdfstring{setHTMLClass()}{setHTMLClass()}}
+{\footnotesize\ttfamily set\+HTMLClass (\begin{DoxyParamCaption}\item[{}]{\$html\+\_\+class }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Paramètres}
+{\em \$html\+\_\+class} & \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_h_t_m_l_table_entity_acf96d200aa45c201a773c2ef0440841a}\label{class_h_t_m_l_table_entity_acf96d200aa45c201a773c2ef0440841a} 
+\index{HTMLTableEntity@{HTMLTableEntity}!setHTMLID@{setHTMLID}}
+\index{setHTMLID@{setHTMLID}!HTMLTableEntity@{HTMLTableEntity}}
+\doxysubsubsection{\texorpdfstring{setHTMLID()}{setHTMLID()}}
+{\footnotesize\ttfamily set\+HTMLID (\begin{DoxyParamCaption}\item[{}]{\$html\+\_\+id }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Paramètres}
+{\em \$html\+\_\+id} & \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_h_t_m_l_table_entity_a6d14c6796c9e432203cf0c6c9de7e240}\label{class_h_t_m_l_table_entity_a6d14c6796c9e432203cf0c6c9de7e240} 
+\index{HTMLTableEntity@{HTMLTableEntity}!setHTMLStyle@{setHTMLStyle}}
+\index{setHTMLStyle@{setHTMLStyle}!HTMLTableEntity@{HTMLTableEntity}}
+\doxysubsubsection{\texorpdfstring{setHTMLStyle()}{setHTMLStyle()}}
+{\footnotesize\ttfamily set\+HTMLStyle (\begin{DoxyParamCaption}\item[{}]{\$html\+\_\+style }\end{DoxyParamCaption})}
+
+userfull ? function never called
+
+
+\begin{DoxyParams}{Paramètres}
+{\em \$html\+\_\+style} & \\
+\hline
+\end{DoxyParams}
+
+
+La documentation de cette classe a été générée à partir du fichier suivant \+:\begin{DoxyCompactItemize}
+\item 
+public/glpi/src/\mbox{\hyperlink{_h_t_m_l_table_entity_8php}{HTMLTable\+Entity.\+php}}\end{DoxyCompactItemize}

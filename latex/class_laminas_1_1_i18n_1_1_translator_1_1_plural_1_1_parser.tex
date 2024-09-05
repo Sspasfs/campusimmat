@@ -1,0 +1,396 @@
+\doxysection{Référence de la classe Parser}
+\hypertarget{class_laminas_1_1_i18n_1_1_translator_1_1_plural_1_1_parser}{}\label{class_laminas_1_1_i18n_1_1_translator_1_1_plural_1_1_parser}\index{Parser@{Parser}}
+
+
+Graphe de collaboration de Parser\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=205pt]{class_laminas_1_1_i18n_1_1_translator_1_1_plural_1_1_parser__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_laminas_1_1_i18n_1_1_translator_1_1_plural_1_1_parser_a095c5d389db211932136b53f25f39685}{\+\_\+\+\_\+construct}} ()
+\item 
+\mbox{\hyperlink{class_laminas_1_1_i18n_1_1_translator_1_1_plural_1_1_parser_a8652be52c4455b8ce1a8e79fdb083703}{parse}} (\$string)
+\item 
+\mbox{\hyperlink{class_laminas_1_1_i18n_1_1_translator_1_1_plural_1_1_parser_aa71f67afe7d0aedae4f123a5953ad283}{expression}} (\$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{right\+Binding\+Power}}=0)
+\item 
+\mbox{\hyperlink{class_laminas_1_1_i18n_1_1_translator_1_1_plural_1_1_parser_a460533a495a01994d5d0e2c2b9630dc8}{advance}} (\$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{id}}=null)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Fonctions membres protégées}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_laminas_1_1_i18n_1_1_translator_1_1_plural_1_1_parser_a94e772f731b1a69b4264a71c85bc5594}{populate\+Symbol\+Table}} ()
+\item 
+\mbox{\hyperlink{class_laminas_1_1_i18n_1_1_translator_1_1_plural_1_1_parser_acc69dc879645e6911c3b32a7f8fc68a1}{register\+Left\+Infix\+Symbol}} (\$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{id}}, \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{left\+Binding\+Power}})
+\item 
+\mbox{\hyperlink{class_laminas_1_1_i18n_1_1_translator_1_1_plural_1_1_parser_a1c55bd1b53fbf4036d25c0da1926db99}{register\+Right\+Infix\+Symbol}} (\$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{id}}, \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{left\+Binding\+Power}})
+\item 
+\mbox{\hyperlink{class_laminas_1_1_i18n_1_1_translator_1_1_plural_1_1_parser_a906326dbee9abaef3ed746aaad03fc56}{register\+Prefix\+Symbol}} (\$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{id}}, \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{left\+Binding\+Power}})
+\item 
+\mbox{\hyperlink{class_laminas_1_1_i18n_1_1_translator_1_1_plural_1_1_parser_ad85668962bb5aa8757ecfd8ca9509e8f}{register\+Symbol}} (\$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{id}}, \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{left\+Binding\+Power}}=0)
+\item 
+\mbox{\hyperlink{class_laminas_1_1_i18n_1_1_translator_1_1_plural_1_1_parser_a5bb81e4b5a83ae975016914ced9daaba}{get\+Symbol}} (\$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{id}})
+\item 
+\mbox{\hyperlink{class_laminas_1_1_i18n_1_1_translator_1_1_plural_1_1_parser_a7619eef85cb7cdac49cc330a05cb5b62}{get\+Next\+Token}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Attributs protégés}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_laminas_1_1_i18n_1_1_translator_1_1_plural_1_1_parser_a05bc82187ba145848edd864852f4bd37}{\$string}}
+\item 
+\mbox{\hyperlink{class_laminas_1_1_i18n_1_1_translator_1_1_plural_1_1_parser_a2f3cf1789d42f94605c4185b7d56f8e8}{\$current\+Pos}}
+\item 
+\mbox{\hyperlink{class_laminas_1_1_i18n_1_1_translator_1_1_plural_1_1_parser_a709d45fbb1d8e506cf235f545f48dbef}{\$current\+Token}}
+\item 
+\mbox{\hyperlink{class_laminas_1_1_i18n_1_1_translator_1_1_plural_1_1_parser_ae4cd8a9a7576a3b1ed39b6947fd309bc}{\$symbol\+Table}} = \mbox{[}$\,$\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Plural rule parser.
+
+This plural rule parser is implemented after the article "{}\+Top Down Operator \+Precedence"{} described in \href{http://javascript.crockford.com/tdop/tdop.html}{\texttt{ http\+://javascript.\+crockford.\+com/tdop/tdop.\+html}}. 
+
+\doxysubsection{Documentation des constructeurs et destructeur}
+\Hypertarget{class_laminas_1_1_i18n_1_1_translator_1_1_plural_1_1_parser_a095c5d389db211932136b53f25f39685}\label{class_laminas_1_1_i18n_1_1_translator_1_1_plural_1_1_parser_a095c5d389db211932136b53f25f39685} 
+\index{Parser@{Parser}!\_\_construct@{\_\_construct}}
+\index{\_\_construct@{\_\_construct}!Parser@{Parser}}
+\doxysubsubsection{\texorpdfstring{\_\_construct()}{\_\_construct()}}
+{\footnotesize\ttfamily \+\_\+\+\_\+construct (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Create a new plural parser. Voici le graphe d\textquotesingle{}appel pour cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_laminas_1_1_i18n_1_1_translator_1_1_plural_1_1_parser_a095c5d389db211932136b53f25f39685_cgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Documentation des fonctions membres}
+\Hypertarget{class_laminas_1_1_i18n_1_1_translator_1_1_plural_1_1_parser_a460533a495a01994d5d0e2c2b9630dc8}\label{class_laminas_1_1_i18n_1_1_translator_1_1_plural_1_1_parser_a460533a495a01994d5d0e2c2b9630dc8} 
+\index{Parser@{Parser}!advance@{advance}}
+\index{advance@{advance}!Parser@{Parser}}
+\doxysubsubsection{\texorpdfstring{advance()}{advance()}}
+{\footnotesize\ttfamily advance (\begin{DoxyParamCaption}\item[{}]{\$id = {\ttfamily null} }\end{DoxyParamCaption})}
+
+Advance the current token and optionally check the old token id.
+
+
+\begin{DoxyParams}[1]{Paramètres}
+string & {\em \$id} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+void 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Exception} & \\
+\hline
+\end{DoxyExceptions}
+Parse\+Exception Voici le graphe d\textquotesingle{}appel pour cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=344pt]{class_laminas_1_1_i18n_1_1_translator_1_1_plural_1_1_parser_a460533a495a01994d5d0e2c2b9630dc8_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_laminas_1_1_i18n_1_1_translator_1_1_plural_1_1_parser_aa71f67afe7d0aedae4f123a5953ad283}\label{class_laminas_1_1_i18n_1_1_translator_1_1_plural_1_1_parser_aa71f67afe7d0aedae4f123a5953ad283} 
+\index{Parser@{Parser}!expression@{expression}}
+\index{expression@{expression}!Parser@{Parser}}
+\doxysubsubsection{\texorpdfstring{expression()}{expression()}}
+{\footnotesize\ttfamily expression (\begin{DoxyParamCaption}\item[{}]{\$right\+Binding\+Power = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+Parse an expression.
+
+
+\begin{DoxyParams}[1]{Paramètres}
+int & {\em \$right\+Binding\+Power} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+Symbol 
+\end{DoxyReturn}
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_laminas_1_1_i18n_1_1_translator_1_1_plural_1_1_parser_aa71f67afe7d0aedae4f123a5953ad283_cgraph}
+\end{center}
+\end{figure}
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=219pt]{class_laminas_1_1_i18n_1_1_translator_1_1_plural_1_1_parser_aa71f67afe7d0aedae4f123a5953ad283_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_laminas_1_1_i18n_1_1_translator_1_1_plural_1_1_parser_a7619eef85cb7cdac49cc330a05cb5b62}\label{class_laminas_1_1_i18n_1_1_translator_1_1_plural_1_1_parser_a7619eef85cb7cdac49cc330a05cb5b62} 
+\index{Parser@{Parser}!getNextToken@{getNextToken}}
+\index{getNextToken@{getNextToken}!Parser@{Parser}}
+\doxysubsubsection{\texorpdfstring{getNextToken()}{getNextToken()}}
+{\footnotesize\ttfamily get\+Next\+Token (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+Get the next token.
+
+\begin{DoxyReturn}{Renvoie}
+Symbol 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Exception} & \\
+\hline
+\end{DoxyExceptions}
+Parse\+Exception Voici le graphe d\textquotesingle{}appel pour cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=255pt]{class_laminas_1_1_i18n_1_1_translator_1_1_plural_1_1_parser_a7619eef85cb7cdac49cc330a05cb5b62_cgraph}
+\end{center}
+\end{figure}
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=332pt]{class_laminas_1_1_i18n_1_1_translator_1_1_plural_1_1_parser_a7619eef85cb7cdac49cc330a05cb5b62_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_laminas_1_1_i18n_1_1_translator_1_1_plural_1_1_parser_a5bb81e4b5a83ae975016914ced9daaba}\label{class_laminas_1_1_i18n_1_1_translator_1_1_plural_1_1_parser_a5bb81e4b5a83ae975016914ced9daaba} 
+\index{Parser@{Parser}!getSymbol@{getSymbol}}
+\index{getSymbol@{getSymbol}!Parser@{Parser}}
+\doxysubsubsection{\texorpdfstring{getSymbol()}{getSymbol()}}
+{\footnotesize\ttfamily get\+Symbol (\begin{DoxyParamCaption}\item[{}]{\$id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+Get a new symbol.
+
+
+\begin{DoxyParams}[1]{Paramètres}
+string & {\em \$id} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+Symbol 
+\end{DoxyReturn}
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_laminas_1_1_i18n_1_1_translator_1_1_plural_1_1_parser_a5bb81e4b5a83ae975016914ced9daaba_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_laminas_1_1_i18n_1_1_translator_1_1_plural_1_1_parser_a8652be52c4455b8ce1a8e79fdb083703}\label{class_laminas_1_1_i18n_1_1_translator_1_1_plural_1_1_parser_a8652be52c4455b8ce1a8e79fdb083703} 
+\index{Parser@{Parser}!parse@{parse}}
+\index{parse@{parse}!Parser@{Parser}}
+\doxysubsubsection{\texorpdfstring{parse()}{parse()}}
+{\footnotesize\ttfamily parse (\begin{DoxyParamCaption}\item[{}]{\$string }\end{DoxyParamCaption})}
+
+Parse a string.
+
+
+\begin{DoxyParams}[1]{Paramètres}
+string & {\em \$string} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+Symbol 
+\end{DoxyReturn}
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_laminas_1_1_i18n_1_1_translator_1_1_plural_1_1_parser_a8652be52c4455b8ce1a8e79fdb083703_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_laminas_1_1_i18n_1_1_translator_1_1_plural_1_1_parser_a94e772f731b1a69b4264a71c85bc5594}\label{class_laminas_1_1_i18n_1_1_translator_1_1_plural_1_1_parser_a94e772f731b1a69b4264a71c85bc5594} 
+\index{Parser@{Parser}!populateSymbolTable@{populateSymbolTable}}
+\index{populateSymbolTable@{populateSymbolTable}!Parser@{Parser}}
+\doxysubsubsection{\texorpdfstring{populateSymbolTable()}{populateSymbolTable()}}
+{\footnotesize\ttfamily populate\+Symbol\+Table (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+Populate the symbol table.
+
+\begin{DoxyReturn}{Renvoie}
+void 
+\end{DoxyReturn}
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_laminas_1_1_i18n_1_1_translator_1_1_plural_1_1_parser_a94e772f731b1a69b4264a71c85bc5594_cgraph}
+\end{center}
+\end{figure}
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=292pt]{class_laminas_1_1_i18n_1_1_translator_1_1_plural_1_1_parser_a94e772f731b1a69b4264a71c85bc5594_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_laminas_1_1_i18n_1_1_translator_1_1_plural_1_1_parser_acc69dc879645e6911c3b32a7f8fc68a1}\label{class_laminas_1_1_i18n_1_1_translator_1_1_plural_1_1_parser_acc69dc879645e6911c3b32a7f8fc68a1} 
+\index{Parser@{Parser}!registerLeftInfixSymbol@{registerLeftInfixSymbol}}
+\index{registerLeftInfixSymbol@{registerLeftInfixSymbol}!Parser@{Parser}}
+\doxysubsubsection{\texorpdfstring{registerLeftInfixSymbol()}{registerLeftInfixSymbol()}}
+{\footnotesize\ttfamily register\+Left\+Infix\+Symbol (\begin{DoxyParamCaption}\item[{}]{\$id,  }\item[{}]{\$left\+Binding\+Power }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+Register a left infix symbol.
+
+
+\begin{DoxyParams}[1]{Paramètres}
+string & {\em \$id} & \\
+\hline
+int & {\em \$left\+Binding\+Power} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+void 
+\end{DoxyReturn}
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=314pt]{class_laminas_1_1_i18n_1_1_translator_1_1_plural_1_1_parser_acc69dc879645e6911c3b32a7f8fc68a1_cgraph}
+\end{center}
+\end{figure}
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_laminas_1_1_i18n_1_1_translator_1_1_plural_1_1_parser_acc69dc879645e6911c3b32a7f8fc68a1_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_laminas_1_1_i18n_1_1_translator_1_1_plural_1_1_parser_a906326dbee9abaef3ed746aaad03fc56}\label{class_laminas_1_1_i18n_1_1_translator_1_1_plural_1_1_parser_a906326dbee9abaef3ed746aaad03fc56} 
+\index{Parser@{Parser}!registerPrefixSymbol@{registerPrefixSymbol}}
+\index{registerPrefixSymbol@{registerPrefixSymbol}!Parser@{Parser}}
+\doxysubsubsection{\texorpdfstring{registerPrefixSymbol()}{registerPrefixSymbol()}}
+{\footnotesize\ttfamily register\+Prefix\+Symbol (\begin{DoxyParamCaption}\item[{}]{\$id,  }\item[{}]{\$left\+Binding\+Power }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+Register a prefix symbol.
+
+
+\begin{DoxyParams}[1]{Paramètres}
+string & {\em \$id} & \\
+\hline
+int & {\em \$left\+Binding\+Power} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+void 
+\end{DoxyReturn}
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=304pt]{class_laminas_1_1_i18n_1_1_translator_1_1_plural_1_1_parser_a906326dbee9abaef3ed746aaad03fc56_cgraph}
+\end{center}
+\end{figure}
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_laminas_1_1_i18n_1_1_translator_1_1_plural_1_1_parser_a906326dbee9abaef3ed746aaad03fc56_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_laminas_1_1_i18n_1_1_translator_1_1_plural_1_1_parser_a1c55bd1b53fbf4036d25c0da1926db99}\label{class_laminas_1_1_i18n_1_1_translator_1_1_plural_1_1_parser_a1c55bd1b53fbf4036d25c0da1926db99} 
+\index{Parser@{Parser}!registerRightInfixSymbol@{registerRightInfixSymbol}}
+\index{registerRightInfixSymbol@{registerRightInfixSymbol}!Parser@{Parser}}
+\doxysubsubsection{\texorpdfstring{registerRightInfixSymbol()}{registerRightInfixSymbol()}}
+{\footnotesize\ttfamily register\+Right\+Infix\+Symbol (\begin{DoxyParamCaption}\item[{}]{\$id,  }\item[{}]{\$left\+Binding\+Power }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+Register a right infix symbol.
+
+
+\begin{DoxyParams}[1]{Paramètres}
+string & {\em \$id} & \\
+\hline
+int & {\em \$left\+Binding\+Power} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+void 
+\end{DoxyReturn}
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=321pt]{class_laminas_1_1_i18n_1_1_translator_1_1_plural_1_1_parser_a1c55bd1b53fbf4036d25c0da1926db99_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_laminas_1_1_i18n_1_1_translator_1_1_plural_1_1_parser_ad85668962bb5aa8757ecfd8ca9509e8f}\label{class_laminas_1_1_i18n_1_1_translator_1_1_plural_1_1_parser_ad85668962bb5aa8757ecfd8ca9509e8f} 
+\index{Parser@{Parser}!registerSymbol@{registerSymbol}}
+\index{registerSymbol@{registerSymbol}!Parser@{Parser}}
+\doxysubsubsection{\texorpdfstring{registerSymbol()}{registerSymbol()}}
+{\footnotesize\ttfamily register\+Symbol (\begin{DoxyParamCaption}\item[{}]{\$id,  }\item[{}]{\$left\+Binding\+Power = {\ttfamily 0} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+Register a symbol.
+
+
+\begin{DoxyParams}[1]{Paramètres}
+string & {\em \$id} & \\
+\hline
+int & {\em \$left\+Binding\+Power} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+Symbol 
+\end{DoxyReturn}
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_laminas_1_1_i18n_1_1_translator_1_1_plural_1_1_parser_ad85668962bb5aa8757ecfd8ca9509e8f_icgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Documentation des champs}
+\Hypertarget{class_laminas_1_1_i18n_1_1_translator_1_1_plural_1_1_parser_a2f3cf1789d42f94605c4185b7d56f8e8}\label{class_laminas_1_1_i18n_1_1_translator_1_1_plural_1_1_parser_a2f3cf1789d42f94605c4185b7d56f8e8} 
+\index{Parser@{Parser}!\$currentPos@{\$currentPos}}
+\index{\$currentPos@{\$currentPos}!Parser@{Parser}}
+\doxysubsubsection{\texorpdfstring{\$currentPos}{\$currentPos}}
+{\footnotesize\ttfamily \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{current\+Pos}}\hspace{0.3cm}{\ttfamily [protected]}}
+
+\Hypertarget{class_laminas_1_1_i18n_1_1_translator_1_1_plural_1_1_parser_a709d45fbb1d8e506cf235f545f48dbef}\label{class_laminas_1_1_i18n_1_1_translator_1_1_plural_1_1_parser_a709d45fbb1d8e506cf235f545f48dbef} 
+\index{Parser@{Parser}!\$currentToken@{\$currentToken}}
+\index{\$currentToken@{\$currentToken}!Parser@{Parser}}
+\doxysubsubsection{\texorpdfstring{\$currentToken}{\$currentToken}}
+{\footnotesize\ttfamily \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{current\+Token}}\hspace{0.3cm}{\ttfamily [protected]}}
+
+\Hypertarget{class_laminas_1_1_i18n_1_1_translator_1_1_plural_1_1_parser_a05bc82187ba145848edd864852f4bd37}\label{class_laminas_1_1_i18n_1_1_translator_1_1_plural_1_1_parser_a05bc82187ba145848edd864852f4bd37} 
+\index{Parser@{Parser}!\$string@{\$string}}
+\index{\$string@{\$string}!Parser@{Parser}}
+\doxysubsubsection{\texorpdfstring{\$string}{\$string}}
+{\footnotesize\ttfamily \$string\hspace{0.3cm}{\ttfamily [protected]}}
+
+\Hypertarget{class_laminas_1_1_i18n_1_1_translator_1_1_plural_1_1_parser_ae4cd8a9a7576a3b1ed39b6947fd309bc}\label{class_laminas_1_1_i18n_1_1_translator_1_1_plural_1_1_parser_ae4cd8a9a7576a3b1ed39b6947fd309bc} 
+\index{Parser@{Parser}!\$symbolTable@{\$symbolTable}}
+\index{\$symbolTable@{\$symbolTable}!Parser@{Parser}}
+\doxysubsubsection{\texorpdfstring{\$symbolTable}{\$symbolTable}}
+{\footnotesize\ttfamily \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{symbol\+Table}} = \mbox{[}$\,$\mbox{]}\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+La documentation de cette classe a été générée à partir du fichier suivant \+:\begin{DoxyCompactItemize}
+\item 
+public/glpi/vendor/laminas/laminas-\/i18n/src/\+Translator/\+Plural/\mbox{\hyperlink{laminas_2laminas-i18n_2src_2_translator_2_plural_2_parser_8php}{Parser.\+php}}\end{DoxyCompactItemize}

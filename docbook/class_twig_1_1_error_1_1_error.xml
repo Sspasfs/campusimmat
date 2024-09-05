@@ -1,0 +1,186 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_twig_1_1_error_1_1_error" xml:lang="fr">
+<title>Référence de la classe Error</title>
+<indexterm><primary>Error</primary></indexterm>
+Graphe d&apos;héritage de Error:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_twig_1_1_error_1_1_error__inherit__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Graphe de collaboration de Error:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_twig_1_1_error_1_1_error__coll__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Fonctions membres publiques    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_twig_1_1_error_1_1_error_1a836ac4ca3bbe7e51427b7467497564c7">__construct</link> (string $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">message</link>, int $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">lineno</link>=-1, <link linkend="_class_twig_1_1_source">Source</link> $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">source</link>=null, \Throwable $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">previous</link>=null)</para>
+</listitem>
+            <listitem><para><link linkend="_class_twig_1_1_error_1_1_error_1ae10360028f8c467cf5855bcaf76b091f">getRawMessage</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_class_twig_1_1_error_1_1_error_1abe0a6ba69feb4cba19f4a408462a976e">getTemplateLine</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_class_twig_1_1_error_1_1_error_1afe8d2dac59a362916c5271c17db9f632">setTemplateLine</link> (int $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">lineno</link>)</para>
+</listitem>
+            <listitem><para><link linkend="_class_twig_1_1_error_1_1_error_1a38152512ea69c5f598112d1e1064e4b5">getSourceContext</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_class_twig_1_1_error_1_1_error_1a2edcf352ec13de5e1721c21cffa80ef8">setSourceContext</link> (<link linkend="_class_twig_1_1_source">Source</link> $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">source</link>=null)</para>
+</listitem>
+            <listitem><para><link linkend="_class_twig_1_1_error_1_1_error_1a16664471dad3413d0fb0370b4068d634">guess</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_class_twig_1_1_error_1_1_error_1aea80188b878e626c939e71fa4213d0ac">appendMessage</link> ($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">rawMessage</link>)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Description détaillée</title>
+
+<para><link linkend="_namespace_twig">Twig</link> base exception.</para>
+
+<para>This exception class and its children must only be used when an error occurs during the loading of a template, when a syntax error is detected in a template, or when rendering a template. Other errors must use regular PHP exception classes (like when the template cache directory is not writable for instance).</para>
+
+<para>To help debugging template issues, this class tracks the original template name and line where the error occurred.</para>
+
+<para>Whenever possible, you must set these information (original template name and line number) yourself by passing them to the constructor. If some or all these information are not available from where you throw the exception, then this class will guess them automatically (when the line number is set to -1 and/or the name is set to null). As this is a costly operation, this can be disabled by passing false for both the name and the line number when creating a new instance of this class.</para>
+
+<para><formalpara><title>Auteur</title>
+
+<para>Fabien Potencier <link xlink:href="mailto:fabien@symfony.com">fabien@symfony.com</link> </para>
+</formalpara>
+</para>
+</section>
+<section>
+<title>Documentation des constructeurs et destructeur</title>
+<anchor xml:id="_class_twig_1_1_error_1_1_error_1a836ac4ca3bbe7e51427b7467497564c7"/><section>
+    <title>__construct()</title>
+<indexterm><primary>__construct</primary><secondary>Error</secondary></indexterm>
+<indexterm><primary>Error</primary><secondary>__construct</secondary></indexterm>
+<para><computeroutput>__construct (string $message, int $lineno = <computeroutput>-1</computeroutput>
+, <link linkend="_class_twig_1_1_source">Source</link> $source = <computeroutput>null</computeroutput>
+, \Throwable $previous = <computeroutput>null</computeroutput>
+)</computeroutput></para>
+<para>Constructor.</para>
+
+<para>By default, automatic guessing is enabled.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$message</entry><entry>
+<para>The error message </para>
+</entry>
+                            </row>
+                            <row>
+<entry>int</entry><entry>$lineno</entry><entry>
+<para>The template line where the error occurred </para>
+</entry>
+                            </row>
+                            <row>
+<entry>Source | null</entry><entry>$source</entry><entry>
+<para>The source context where the error occurred </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
+</section>
+<section>
+<title>Documentation des fonctions membres</title>
+<anchor xml:id="_class_twig_1_1_error_1_1_error_1aea80188b878e626c939e71fa4213d0ac"/><section>
+    <title>appendMessage()</title>
+<indexterm><primary>appendMessage</primary><secondary>Error</secondary></indexterm>
+<indexterm><primary>Error</primary><secondary>appendMessage</secondary></indexterm>
+<para><computeroutput>appendMessage ( $rawMessage)</computeroutput></para>Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_twig_1_1_error_1_1_error_aea80188b878e626c939e71fa4213d0ac_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_twig_1_1_error_1_1_error_1ae10360028f8c467cf5855bcaf76b091f"/><section>
+    <title>getRawMessage()</title>
+<indexterm><primary>getRawMessage</primary><secondary>Error</secondary></indexterm>
+<indexterm><primary>Error</primary><secondary>getRawMessage</secondary></indexterm>
+<para><computeroutput>getRawMessage ( )</computeroutput></para>Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_twig_1_1_error_1_1_error_ae10360028f8c467cf5855bcaf76b091f_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_twig_1_1_error_1_1_error_1a38152512ea69c5f598112d1e1064e4b5"/><section>
+    <title>getSourceContext()</title>
+<indexterm><primary>getSourceContext</primary><secondary>Error</secondary></indexterm>
+<indexterm><primary>Error</primary><secondary>getSourceContext</secondary></indexterm>
+<para><computeroutput>getSourceContext ( )</computeroutput></para>Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_twig_1_1_error_1_1_error_a38152512ea69c5f598112d1e1064e4b5_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_twig_1_1_error_1_1_error_1abe0a6ba69feb4cba19f4a408462a976e"/><section>
+    <title>getTemplateLine()</title>
+<indexterm><primary>getTemplateLine</primary><secondary>Error</secondary></indexterm>
+<indexterm><primary>Error</primary><secondary>getTemplateLine</secondary></indexterm>
+<para><computeroutput>getTemplateLine ( )</computeroutput></para>Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_twig_1_1_error_1_1_error_abe0a6ba69feb4cba19f4a408462a976e_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_twig_1_1_error_1_1_error_1a16664471dad3413d0fb0370b4068d634"/><section>
+    <title>guess()</title>
+<indexterm><primary>guess</primary><secondary>Error</secondary></indexterm>
+<indexterm><primary>Error</primary><secondary>guess</secondary></indexterm>
+<para><computeroutput>guess ( )</computeroutput></para></section>
+<anchor xml:id="_class_twig_1_1_error_1_1_error_1a2edcf352ec13de5e1721c21cffa80ef8"/><section>
+    <title>setSourceContext()</title>
+<indexterm><primary>setSourceContext</primary><secondary>Error</secondary></indexterm>
+<indexterm><primary>Error</primary><secondary>setSourceContext</secondary></indexterm>
+<para><computeroutput>setSourceContext (<link linkend="_class_twig_1_1_source">Source</link> $source = <computeroutput>null</computeroutput>
+)</computeroutput></para></section>
+<anchor xml:id="_class_twig_1_1_error_1_1_error_1afe8d2dac59a362916c5271c17db9f632"/><section>
+    <title>setTemplateLine()</title>
+<indexterm><primary>setTemplateLine</primary><secondary>Error</secondary></indexterm>
+<indexterm><primary>Error</primary><secondary>setTemplateLine</secondary></indexterm>
+<para><computeroutput>setTemplateLine (int $lineno)</computeroutput></para></section>
+<para>
+La documentation de cette classe a été générée à partir du fichier suivant :</para>
+public/glpi/vendor/twig/twig/src/Error/<link linkend="_twig_2twig_2src_2_error_2_error_8php">Error.php</link></section>
+</section>

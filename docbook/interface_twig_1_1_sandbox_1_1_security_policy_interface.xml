@@ -1,0 +1,214 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_interface_twig_1_1_sandbox_1_1_security_policy_interface" xml:lang="fr">
+<title>Référence de l&apos;interface SecurityPolicyInterface</title>
+<indexterm><primary>SecurityPolicyInterface</primary></indexterm>
+Graphe d&apos;héritage de SecurityPolicyInterface:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="interface_twig_1_1_sandbox_1_1_security_policy_interface__inherit__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Graphe de collaboration de SecurityPolicyInterface:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="interface_twig_1_1_sandbox_1_1_security_policy_interface__coll__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Fonctions membres publiques    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_interface_twig_1_1_sandbox_1_1_security_policy_interface_1a0cc084f6abef1e1ba223ddd057ddcd2b">checkSecurity</link> ($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">tags</link>, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">filters</link>, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">functions</link>)</para>
+</listitem>
+            <listitem><para><link linkend="_interface_twig_1_1_sandbox_1_1_security_policy_interface_1a90633d7d23e0b157387b886a8ef87a36">checkMethodAllowed</link> ($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">obj</link>, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">method</link>)</para>
+</listitem>
+            <listitem><para><link linkend="_interface_twig_1_1_sandbox_1_1_security_policy_interface_1a182de0b428b216f43d865cbf54ff7c4c">checkPropertyAllowed</link> ($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">obj</link>, $property)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Description détaillée</title>
+
+<para>Interface that all security policy classes must implements.</para>
+
+<para><formalpara><title>Auteur</title>
+
+<para>Fabien Potencier <link xlink:href="mailto:fabien@symfony.com">fabien@symfony.com</link> </para>
+</formalpara>
+</para>
+</section>
+<section>
+<title>Documentation des fonctions membres</title>
+<anchor xml:id="_interface_twig_1_1_sandbox_1_1_security_policy_interface_1a90633d7d23e0b157387b886a8ef87a36"/><section>
+    <title>checkMethodAllowed()</title>
+<indexterm><primary>checkMethodAllowed</primary><secondary>SecurityPolicyInterface</secondary></indexterm>
+<indexterm><primary>SecurityPolicyInterface</primary><secondary>checkMethodAllowed</secondary></indexterm>
+<para><computeroutput>checkMethodAllowed ( $obj,  $method)</computeroutput></para>
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>object</entry><entry>$obj</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>string</entry><entry>$method</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>SecurityNotAllowedMethodError</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Implémenté dans <link linkend="_class_twig_1_1_sandbox_1_1_security_policy_1a90633d7d23e0b157387b886a8ef87a36">SecurityPolicy</link>.</para>
+</section>
+<anchor xml:id="_interface_twig_1_1_sandbox_1_1_security_policy_interface_1a182de0b428b216f43d865cbf54ff7c4c"/><section>
+    <title>checkPropertyAllowed()</title>
+<indexterm><primary>checkPropertyAllowed</primary><secondary>SecurityPolicyInterface</secondary></indexterm>
+<indexterm><primary>SecurityPolicyInterface</primary><secondary>checkPropertyAllowed</secondary></indexterm>
+<para><computeroutput>checkPropertyAllowed ( $obj,  $property)</computeroutput></para>
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>object</entry><entry>$obj</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>string</entry><entry>$property</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>SecurityNotAllowedPropertyError</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Implémenté dans <link linkend="_class_twig_1_1_sandbox_1_1_security_policy_1a182de0b428b216f43d865cbf54ff7c4c">SecurityPolicy</link>.</para>
+</section>
+<anchor xml:id="_interface_twig_1_1_sandbox_1_1_security_policy_interface_1a0cc084f6abef1e1ba223ddd057ddcd2b"/><section>
+    <title>checkSecurity()</title>
+<indexterm><primary>checkSecurity</primary><secondary>SecurityPolicyInterface</secondary></indexterm>
+<indexterm><primary>SecurityPolicyInterface</primary><secondary>checkSecurity</secondary></indexterm>
+<para><computeroutput>checkSecurity ( $tags,  $filters,  $functions)</computeroutput></para>
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string[]</entry><entry>$tags</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>string[]</entry><entry>$filters</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>string[]</entry><entry>$functions</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>SecurityError</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Implémenté dans <link linkend="_class_twig_1_1_sandbox_1_1_security_policy_1a0cc084f6abef1e1ba223ddd057ddcd2b">SecurityPolicy</link>.</para>
+</section>
+<para>
+La documentation de cette interface a été générée à partir du fichier suivant :</para>
+public/glpi/vendor/twig/twig/src/Sandbox/<link linkend="__security_policy_interface_8php">SecurityPolicyInterface.php</link></section>
+</section>

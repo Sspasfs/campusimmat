@@ -1,0 +1,62 @@
+\doxysection{Référence du fichier public/glpi/install/migrations/update\+\_\+10.0.5\+\_\+to\+\_\+10.0.6/rule.php}
+\hypertarget{install_2migrations_2update__10_80_85__to__10_80_86_2rule_8php}{}\label{install_2migrations_2update__10_80_85__to__10_80_86_2rule_8php}\index{public/glpi/install/migrations/update\_10.0.5\_to\_10.0.6/rule.php@{public/glpi/install/migrations/update\_10.0.5\_to\_10.0.6/rule.php}}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{install_2migrations_2update__10_80_85__to__10_80_86_2rule_8php_a7ad64c5561a74f7716ec1177c40741c7}{\$sub\+Type}}
+\item 
+\mbox{\hyperlink{install_2migrations_2update__10_80_85__to__10_80_86_2rule_8php_a112ef069ddc0454086e3d1e6d8d55d07}{\$result}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Documentation des variables}
+\Hypertarget{install_2migrations_2update__10_80_85__to__10_80_86_2rule_8php_a112ef069ddc0454086e3d1e6d8d55d07}\label{install_2migrations_2update__10_80_85__to__10_80_86_2rule_8php_a112ef069ddc0454086e3d1e6d8d55d07} 
+\index{rule.php@{rule.php}!\$result@{\$result}}
+\index{\$result@{\$result}!rule.php@{rule.php}}
+\doxysubsubsection{\texorpdfstring{\$result}{\$result}}
+{\footnotesize\ttfamily \$result}
+
+{\bfseries Valeur initiale \+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ \mbox{\hyperlink{dropdown_connect_network_port_8php_afb8f39c26f5fd4c7fd0f68203d7e96b1}{\$DB}}-\/>request(}
+\DoxyCodeLine{\ \ \ \ [}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{'SELECT'}\ \ \ \ =>\ [}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{'glpi\_rulecriterias.id\ AS\ criteria\_id'}\ ,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{'glpi\_rulecriterias.criteria'}\ ,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{'glpi\_rules.sub\_type'}\ ,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ ],}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{'FROM'}\ \ \ \ \ \ =>\ \textcolor{stringliteral}{'glpi\_rulecriterias'},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{'LEFT\ JOIN'}\ =>\ [}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{'glpi\_rules'}\ =>\ [}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{'FKEY'}\ =>\ [}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{'glpi\_rulecriterias'}\ \ \ =>\ \textcolor{stringliteral}{'rules\_id'},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{'glpi\_rules'}\ \ \ \ \ \ \ \ \ \ \ \ =>\ \textcolor{stringliteral}{'id'},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ]}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ ]}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ ],}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{'WHERE'}\ \ \ \ \ =>\ [}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{'glpi\_rulecriterias.criteria'}\ \ \ \ \ \ =>\ \textcolor{stringliteral}{'name'},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{'glpi\_rules.sub\_type'}\ =>\ array\_values(\mbox{\hyperlink{install_2migrations_2update__10_80_85__to__10_80_86_2rule_8php_a7ad64c5561a74f7716ec1177c40741c7}{\$subType}})}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ ],}
+\DoxyCodeLine{\ \ \ \ ]}
+\DoxyCodeLine{)}
+
+\end{DoxyCode}
+\Hypertarget{install_2migrations_2update__10_80_85__to__10_80_86_2rule_8php_a7ad64c5561a74f7716ec1177c40741c7}\label{install_2migrations_2update__10_80_85__to__10_80_86_2rule_8php_a7ad64c5561a74f7716ec1177c40741c7} 
+\index{rule.php@{rule.php}!\$subType@{\$subType}}
+\index{\$subType@{\$subType}!rule.php@{rule.php}}
+\doxysubsubsection{\texorpdfstring{\$subType}{\$subType}}
+{\footnotesize\ttfamily \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{sub\+Type}}}
+
+{\bfseries Valeur initiale \+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ [}
+\DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{'servicepack\_name'}\ =>\ \textcolor{stringliteral}{'RuleDictionnaryOperatingSystemServicePack'},}
+\DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{'os\_edition'}\ =>\ \textcolor{stringliteral}{'RuleDictionnaryOperatingSystemEdition'},}
+\DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{'arch\_name'}\ =>\ \textcolor{stringliteral}{'RuleDictionnaryOperatingSystemArchitecture'},}
+\DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{'os\_version'}\ =>\ \textcolor{stringliteral}{'RuleDictionnaryOperatingSystemVersion'},}
+\DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{'os\_name'}\ =>\ \textcolor{stringliteral}{'RuleDictionnaryOperatingSystem'},}
+\DoxyCodeLine{]}
+
+\end{DoxyCode}
+Rename \textquotesingle{}name\textquotesingle{} criteria in dictionnaries 

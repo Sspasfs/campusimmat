@@ -1,0 +1,114 @@
+\doxysection{Référence du fichier public/glpi/front/report.infocom.\+conso.\+php}
+\hypertarget{report_8infocom_8conso_8php}{}\label{report_8infocom_8conso_8php}\index{public/glpi/front/report.infocom.conso.php@{public/glpi/front/report.infocom.conso.php}}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{global}} \mbox{\hyperlink{report_8infocom_8conso_8php_a2e00a61703ee4673cdfb5eb376a9b295}{\$\+CFG\+\_\+\+GLPI}}
+\item 
+\mbox{\hyperlink{dropdown_location_8php_a52332c22f84432520971794825a5a8e7}{if}}(\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{empty}}( \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\+\_\+\+POST}}\mbox{[}"{}date1"{}\mbox{]}) \&\&\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{empty}}( \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\+\_\+\+POST}}\mbox{[}"{}date2"{}\mbox{]})) \mbox{\hyperlink{dropdown_location_8php_a52332c22f84432520971794825a5a8e7}{if}}(!\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{empty}}(\$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\+\_\+\+POST}}\mbox{[}"{}date1"{}\mbox{]}) \&\&!\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{empty}}(\$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\+\_\+\+POST}}\mbox{[}"{}date2"{}\mbox{]}) \&\&(strcmp(\$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\+\_\+\+POST}}\mbox{[}"{}date2"{}\mbox{]}, \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\+\_\+\+POST}}\mbox{[}"{}date1"{}\mbox{]})$<$ 0)) \mbox{\hyperlink{report_8infocom_8conso_8php_a13f75730e9a2bde1d0160706f0fe6028}{\$stat}} = \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{new}} \mbox{\hyperlink{class_stat}{Stat}}()
+\item 
+\mbox{\hyperlink{report_8infocom_8conso_8php_a858caef5434b0f28a1049808aaf4d505}{\$chart\+\_\+opts}}
+\item 
+\mbox{\hyperlink{report_8infocom_8conso_8php_a9341be115921447588b787d6034c335d}{\$valeurtot}} = 0
+\item 
+\mbox{\hyperlink{report_8infocom_8conso_8php_a93a7db22796205a974b5e7f4c3ec9321}{\$valeurnettetot}} = 0
+\item 
+\mbox{\hyperlink{report_8infocom_8conso_8php_aec4d4335a476aee013d663da29b94f3f}{\$valeurnettegraphtot}} = \mbox{[}$\,$\mbox{]}
+\item 
+\mbox{\hyperlink{report_8infocom_8conso_8php_aa5d7f6b864404bcb9e03b46f1ef9a910}{\$valeurgraphtot}} = \mbox{[}$\,$\mbox{]}
+\item 
+\mbox{\hyperlink{report_8infocom_8conso_8php_a92d70a97331cc6fc0a79d9da50895be8}{\$types}} = \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{CFG\+\_\+\+GLPI}}\mbox{[}"{}infocom\+\_\+types"{}\mbox{]}
+\item 
+\mbox{\hyperlink{report_8infocom_8conso_8php_a1d562fde1184baaa9fd1d2c9989c207b}{\$i}} = 0
+\item 
+\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{while}}(count( \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{types}}) $>$ 0) \mbox{\hyperlink{report_8infocom_8conso_8php_a593ee7079dc1ea3e6837a9a96f8b3467}{if}} (( \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{i}} \% 2)==0)
+\item 
+\mbox{\hyperlink{report_8infocom_8conso_8php_a260846614192bc376d43d209b6d76cb5}{\$tmpmsg}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Documentation des variables}
+\Hypertarget{report_8infocom_8conso_8php_a2e00a61703ee4673cdfb5eb376a9b295}\label{report_8infocom_8conso_8php_a2e00a61703ee4673cdfb5eb376a9b295} 
+\index{report.infocom.conso.php@{report.infocom.conso.php}!\$CFG\_GLPI@{\$CFG\_GLPI}}
+\index{\$CFG\_GLPI@{\$CFG\_GLPI}!report.infocom.conso.php@{report.infocom.conso.php}}
+\doxysubsubsection{\texorpdfstring{\$CFG\_GLPI}{\$CFG\_GLPI}}
+{\footnotesize\ttfamily \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{global}} \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{CFG\+\_\+\+GLPI}}}
+
+\Hypertarget{report_8infocom_8conso_8php_a858caef5434b0f28a1049808aaf4d505}\label{report_8infocom_8conso_8php_a858caef5434b0f28a1049808aaf4d505} 
+\index{report.infocom.conso.php@{report.infocom.conso.php}!\$chart\_opts@{\$chart\_opts}}
+\index{\$chart\_opts@{\$chart\_opts}!report.infocom.conso.php@{report.infocom.conso.php}}
+\doxysubsubsection{\texorpdfstring{\$chart\_opts}{\$chart\_opts}}
+{\footnotesize\ttfamily \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{chart\+\_\+opts}}}
+
+{\bfseries Valeur initiale \+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ \ [}
+\DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{'width'}\ \ =>\ \textcolor{stringliteral}{'90\%'},}
+\DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{'legend'}\ =>\ \textcolor{keyword}{false},}
+\DoxyCodeLine{\ \ \ \ \textcolor{stringliteral}{'title'}\ \ =>\ \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\_\_}}(\textcolor{stringliteral}{'Value'}),}
+\DoxyCodeLine{]}
+
+\end{DoxyCode}
+\Hypertarget{report_8infocom_8conso_8php_a1d562fde1184baaa9fd1d2c9989c207b}\label{report_8infocom_8conso_8php_a1d562fde1184baaa9fd1d2c9989c207b} 
+\index{report.infocom.conso.php@{report.infocom.conso.php}!\$i@{\$i}}
+\index{\$i@{\$i}!report.infocom.conso.php@{report.infocom.conso.php}}
+\doxysubsubsection{\texorpdfstring{\$i}{\$i}}
+{\footnotesize\ttfamily int \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{i}} = 0}
+
+\Hypertarget{report_8infocom_8conso_8php_a13f75730e9a2bde1d0160706f0fe6028}\label{report_8infocom_8conso_8php_a13f75730e9a2bde1d0160706f0fe6028} 
+\index{report.infocom.conso.php@{report.infocom.conso.php}!\$stat@{\$stat}}
+\index{\$stat@{\$stat}!report.infocom.conso.php@{report.infocom.conso.php}}
+\doxysubsubsection{\texorpdfstring{\$stat}{\$stat}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_stat}{Stat}} \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{stat}} = \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{new}} \mbox{\hyperlink{class_stat}{Stat}}()}
+
+\Hypertarget{report_8infocom_8conso_8php_a260846614192bc376d43d209b6d76cb5}\label{report_8infocom_8conso_8php_a260846614192bc376d43d209b6d76cb5} 
+\index{report.infocom.conso.php@{report.infocom.conso.php}!\$tmpmsg@{\$tmpmsg}}
+\index{\$tmpmsg@{\$tmpmsg}!report.infocom.conso.php@{report.infocom.conso.php}}
+\doxysubsubsection{\texorpdfstring{\$tmpmsg}{\$tmpmsg}}
+{\footnotesize\ttfamily \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{tmpmsg}}}
+
+{\bfseries Valeur initiale \+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ sprintf(}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\_\_}}(\textcolor{stringliteral}{'Total:\ Value=\%1\$s\ -\/\ Account\ net\ value=\%2\$s'}),}
+\DoxyCodeLine{\ \ \ \ Html::formatNumber(\mbox{\hyperlink{report_8infocom_8conso_8php_a9341be115921447588b787d6034c335d}{\$valeurtot}}),}
+\DoxyCodeLine{\ \ \ \ Html::formatNumber(\mbox{\hyperlink{report_8infocom_8conso_8php_a93a7db22796205a974b5e7f4c3ec9321}{\$valeurnettetot}})}
+\DoxyCodeLine{)}
+
+\end{DoxyCode}
+\Hypertarget{report_8infocom_8conso_8php_a92d70a97331cc6fc0a79d9da50895be8}\label{report_8infocom_8conso_8php_a92d70a97331cc6fc0a79d9da50895be8} 
+\index{report.infocom.conso.php@{report.infocom.conso.php}!\$types@{\$types}}
+\index{\$types@{\$types}!report.infocom.conso.php@{report.infocom.conso.php}}
+\doxysubsubsection{\texorpdfstring{\$types}{\$types}}
+{\footnotesize\ttfamily \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{types}} = \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{CFG\+\_\+\+GLPI}}\mbox{[}"{}infocom\+\_\+types"{}\mbox{]}}
+
+\Hypertarget{report_8infocom_8conso_8php_aa5d7f6b864404bcb9e03b46f1ef9a910}\label{report_8infocom_8conso_8php_aa5d7f6b864404bcb9e03b46f1ef9a910} 
+\index{report.infocom.conso.php@{report.infocom.conso.php}!\$valeurgraphtot@{\$valeurgraphtot}}
+\index{\$valeurgraphtot@{\$valeurgraphtot}!report.infocom.conso.php@{report.infocom.conso.php}}
+\doxysubsubsection{\texorpdfstring{\$valeurgraphtot}{\$valeurgraphtot}}
+{\footnotesize\ttfamily array \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{valeurgraphtot}} = \mbox{[}$\,$\mbox{]}}
+
+\Hypertarget{report_8infocom_8conso_8php_aec4d4335a476aee013d663da29b94f3f}\label{report_8infocom_8conso_8php_aec4d4335a476aee013d663da29b94f3f} 
+\index{report.infocom.conso.php@{report.infocom.conso.php}!\$valeurnettegraphtot@{\$valeurnettegraphtot}}
+\index{\$valeurnettegraphtot@{\$valeurnettegraphtot}!report.infocom.conso.php@{report.infocom.conso.php}}
+\doxysubsubsection{\texorpdfstring{\$valeurnettegraphtot}{\$valeurnettegraphtot}}
+{\footnotesize\ttfamily array \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{valeurnettegraphtot}} = \mbox{[}$\,$\mbox{]}}
+
+\Hypertarget{report_8infocom_8conso_8php_a93a7db22796205a974b5e7f4c3ec9321}\label{report_8infocom_8conso_8php_a93a7db22796205a974b5e7f4c3ec9321} 
+\index{report.infocom.conso.php@{report.infocom.conso.php}!\$valeurnettetot@{\$valeurnettetot}}
+\index{\$valeurnettetot@{\$valeurnettetot}!report.infocom.conso.php@{report.infocom.conso.php}}
+\doxysubsubsection{\texorpdfstring{\$valeurnettetot}{\$valeurnettetot}}
+{\footnotesize\ttfamily int \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{valeurnettetot}} = 0}
+
+\Hypertarget{report_8infocom_8conso_8php_a9341be115921447588b787d6034c335d}\label{report_8infocom_8conso_8php_a9341be115921447588b787d6034c335d} 
+\index{report.infocom.conso.php@{report.infocom.conso.php}!\$valeurtot@{\$valeurtot}}
+\index{\$valeurtot@{\$valeurtot}!report.infocom.conso.php@{report.infocom.conso.php}}
+\doxysubsubsection{\texorpdfstring{\$valeurtot}{\$valeurtot}}
+{\footnotesize\ttfamily int \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{valeurtot}} = 0}
+
+\Hypertarget{report_8infocom_8conso_8php_a593ee7079dc1ea3e6837a9a96f8b3467}\label{report_8infocom_8conso_8php_a593ee7079dc1ea3e6837a9a96f8b3467} 
+\index{report.infocom.conso.php@{report.infocom.conso.php}!if@{if}}
+\index{if@{if}!report.infocom.conso.php@{report.infocom.conso.php}}
+\doxysubsubsection{\texorpdfstring{if}{if}}
+{\footnotesize\ttfamily \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{while}}(count(\$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{types}}) $>$ 0) if((\$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{i}} \% 2)==0) (\begin{DoxyParamCaption}\item[{( \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{i}} \% 2)}]{ = {\ttfamily =~0} }\end{DoxyParamCaption})}
+

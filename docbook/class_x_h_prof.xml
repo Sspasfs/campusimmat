@@ -1,0 +1,228 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_x_h_prof" xml:lang="fr">
+<title>Référence de la classe XHProf</title>
+<indexterm><primary>XHProf</primary></indexterm>
+Graphe de collaboration de XHProf:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_x_h_prof__coll__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Fonctions membres publiques    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_x_h_prof_1a8bf5fc293bb167bbce3bbd4a972ccfa1">__construct</link> ($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">msg</link>=&apos;&apos;)</para>
+</listitem>
+            <listitem><para><link linkend="_class_x_h_prof_1a421831a265621325e1fdd19aace0c758">__destruct</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_class_x_h_prof_1ab753f128018ce62558b82f8dad968bb8">start</link> ($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">msg</link>=&apos;&apos;)</para>
+</listitem>
+            <listitem><para><link linkend="_class_x_h_prof_1a8b6fc76a620d7557d06e9a11a9ffb509">stop</link> ()</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Champs de données    </title>
+        <itemizedlist>
+            <listitem><para>const <link linkend="_class_x_h_prof_1af3cd6a20ca232b1881f4bf2ef936dc6e">XHPROF_PATH</link> = &apos;/<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">usr</link>/<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">share</link>/<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">xhprof</link>/<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">xhprof_lib</link>&apos;</para>
+</listitem>
+            <listitem><para>const <link linkend="_class_x_h_prof_1a3a5a45aa1c32b6af2eb399ea43a92ca9">XHPROF_URL</link> = &apos;/<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">xhprof</link>&apos;</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Description détaillée</title>
+
+<para><informaltable frame='bottom'><tgroup cols='1'><colspec align='center'/><tbody><row><entry align='center'>
+</entry></row></tbody></tgroup></informaltable>
+</para>
+
+<para><link linkend="_class_g_l_p_i">GLPI</link> - Gestionnaire Libre de Parc Informatique</para>
+
+<para><link xlink:href="http://glpi-project.org">http://glpi-project.org</link></para>
+
+<para><formalpara><title>Copyright</title>
+
+<para>2015-2024 Teclib&apos; and contributors. </para>
+
+<para>2003-2014 by the INDEPNET Development Team. @licence <link xlink:href="https://www.gnu.org/licenses/gpl-3.0.html">https://www.gnu.org/licenses/gpl-3.0.html</link></para>
+</formalpara>
+<informaltable frame='bottom'><tgroup cols='1'><colspec align='center'/><tbody><row><entry align='center'>
+</entry></row></tbody></tgroup></informaltable>
+</para>
+
+<para>LICENSE</para>
+
+<para>This file is part of <link linkend="_class_g_l_p_i">GLPI</link>.</para>
+
+<para>This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free <link linkend="_class_software">Software</link> Foundation, either version 3 of the License, or (at your option) any later version.</para>
+
+<para>This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.</para>
+
+<para>You should have received a copy of the GNU General Public License along with this program. If not, see <link xlink:href="https://www.gnu.org/licenses/">https://www.gnu.org/licenses/</link>.</para>
+
+<para><informaltable frame='bottom'><tgroup cols='1'><colspec align='center'/><tbody><row><entry align='center'>
+</entry></row></tbody></tgroup></informaltable>
+ class <link linkend="_class_x_h_prof">XHProf</link></para>
+
+<para><formalpara><title>Depuis</title>
+
+<para>0.84</para>
+</formalpara>
+Il you need to &quot;profile&quot; some part of code</para>
+
+<para>Install the pecl/xhprof extension</para>
+
+<para>Add XHPROF_PATH and XHPROF_URL in config/local_define.php (if needed)</para>
+
+<para>Before the code $prof = new <link linkend="_class_x_h_prof">XHProf</link>(&quot;something useful&quot;);</para>
+
+<para>If the code contains an <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">exit()</link> or a redirect() you must also call (before) unset($prof);</para>
+
+<para>php-errors.log will give you the URL of the result. </para>
+</section>
+<section>
+<title>Documentation des constructeurs et destructeur</title>
+<anchor xml:id="_class_x_h_prof_1a8bf5fc293bb167bbce3bbd4a972ccfa1"/><section>
+    <title>__construct()</title>
+<indexterm><primary>__construct</primary><secondary>XHProf</secondary></indexterm>
+<indexterm><primary>XHProf</primary><secondary>__construct</secondary></indexterm>
+<para><computeroutput>__construct ( $msg = <computeroutput>&apos;&apos;</computeroutput>
+)</computeroutput></para>
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>$msg</entry><entry>
+<para>(default &apos;&apos;) </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_x_h_prof_a8bf5fc293bb167bbce3bbd4a972ccfa1_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_x_h_prof_1a421831a265621325e1fdd19aace0c758"/><section>
+    <title>__destruct()</title>
+<indexterm><primary>__destruct</primary><secondary>XHProf</secondary></indexterm>
+<indexterm><primary>XHProf</primary><secondary>__destruct</secondary></indexterm>
+<para><computeroutput>__destruct ( )</computeroutput></para>Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_x_h_prof_a421831a265621325e1fdd19aace0c758_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+</section>
+<section>
+<title>Documentation des fonctions membres</title>
+<anchor xml:id="_class_x_h_prof_1ab753f128018ce62558b82f8dad968bb8"/><section>
+    <title>start()</title>
+<indexterm><primary>start</primary><secondary>XHProf</secondary></indexterm>
+<indexterm><primary>XHProf</primary><secondary>start</secondary></indexterm>
+<para><computeroutput>start ( $msg = <computeroutput>&apos;&apos;</computeroutput>
+)</computeroutput></para>
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>$msg</entry><entry>
+<para>(default &apos;&apos;) </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_x_h_prof_ab753f128018ce62558b82f8dad968bb8_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_x_h_prof_ab753f128018ce62558b82f8dad968bb8_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_x_h_prof_1a8b6fc76a620d7557d06e9a11a9ffb509"/><section>
+    <title>stop()</title>
+<indexterm><primary>stop</primary><secondary>XHProf</secondary></indexterm>
+<indexterm><primary>XHProf</primary><secondary>stop</secondary></indexterm>
+<para><computeroutput>stop ( )</computeroutput></para>Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_x_h_prof_a8b6fc76a620d7557d06e9a11a9ffb509_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_x_h_prof_a8b6fc76a620d7557d06e9a11a9ffb509_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+</section>
+<section>
+<title>Documentation des champs</title>
+<anchor xml:id="_class_x_h_prof_1af3cd6a20ca232b1881f4bf2ef936dc6e"/><section>
+    <title>XHPROF_PATH</title>
+<indexterm><primary>XHPROF_PATH</primary><secondary>XHProf</secondary></indexterm>
+<indexterm><primary>XHProf</primary><secondary>XHPROF_PATH</secondary></indexterm>
+<para><computeroutput>const XHPROF_PATH = &apos;/<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">usr</link>/<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">share</link>/<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">xhprof</link>/<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">xhprof_lib</link>&apos;</computeroutput></para></section>
+<anchor xml:id="_class_x_h_prof_1a3a5a45aa1c32b6af2eb399ea43a92ca9"/><section>
+    <title>XHPROF_URL</title>
+<indexterm><primary>XHPROF_URL</primary><secondary>XHProf</secondary></indexterm>
+<indexterm><primary>XHProf</primary><secondary>XHPROF_URL</secondary></indexterm>
+<para><computeroutput>const XHPROF_URL = &apos;/<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">xhprof</link>&apos;</computeroutput></para></section>
+<para>
+La documentation de cette classe a été générée à partir du fichier suivant :</para>
+public/glpi/src/<link linkend="__x_h_prof_8php">XHProf.php</link></section>
+</section>

@@ -1,0 +1,209 @@
+\doxysection{Référence de la classe Promise}
+\hypertarget{class_sabre_1_1_event_1_1_promise}{}\label{class_sabre_1_1_event_1_1_promise}\index{Promise@{Promise}}
+
+
+Graphe de collaboration de Promise\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=239pt]{class_sabre_1_1_event_1_1_promise__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_sabre_1_1_event_1_1_promise_af2c31cea1745ba58610803bef2912b6f}{\+\_\+\+\_\+construct}} (\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{callable}} \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{executor}}=null)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_event_1_1_promise_a4feb652e6c84c7767347fb21cf496c73}{then}} (\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{callable}} \$on\+Fulfilled=null, \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{callable}} \$on\+Rejected=null)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_event_1_1_promise_a688fdb804610bab573256b55a8b55e7f}{otherwise}} (\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{callable}} \$on\+Rejected)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_event_1_1_promise_ab1360c4ffda67058a7999cce5e9646ee}{fulfill}} (\$value=null)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_event_1_1_promise_affabab07ec5afa282006ca70b768b957}{reject}} (Throwable \$reason)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_event_1_1_promise_a918ab4827f83fa4abb9c445acc36f533}{wait}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Champs de données}
+\begin{DoxyCompactItemize}
+\item 
+const \mbox{\hyperlink{class_sabre_1_1_event_1_1_promise_abaf4facc752f618f7d88aa7e2886c812}{PENDING}} = 0
+\item 
+const \mbox{\hyperlink{class_sabre_1_1_event_1_1_promise_a73fff0d9d3144518678b1df2ff181934}{FULFILLED}} = 1
+\item 
+const \mbox{\hyperlink{class_sabre_1_1_event_1_1_promise_a25be17e5b990d3b083f7ec154287da3d}{REJECTED}} = 2
+\item 
+\mbox{\hyperlink{class_sabre_1_1_event_1_1_promise_ae82306c4f2d17d8dd5c7d8d916b33bed}{\$state}} = self\+::\+PENDING
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Attributs protégés}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_sabre_1_1_event_1_1_promise_ac086ff8a41a6f5d58aa0fa798591a4f1}{\$subscribers}} = \mbox{[}$\,$\mbox{]}
+\item 
+\mbox{\hyperlink{class_sabre_1_1_event_1_1_promise_a0f298096f322952a72a50f98a74c7b60}{\$value}} = null
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+An implementation of the Promise pattern.
+
+A promise represents the result of an asynchronous operation. At any given point a promise can be in one of three states\+:
+
+
+\begin{DoxyEnumerate}
+\item Pending (the promise does not have a result yet).
+\item Fulfilled (the asynchronous operation has completed with a result).
+\item Rejected (the asynchronous operation has completed with an error).
+\end{DoxyEnumerate}
+
+To get a callback when the operation has finished, use the {\ttfamily then} method.
+
+\begin{DoxyCopyright}{Copyright}
+Copyright (C) fruux GmbH (\href{https://fruux.com/}{\texttt{ https\+://fruux.\+com/}}) 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Auteur}
+Evert Pot (\href{http://evertpot.com/}{\texttt{ http\+://evertpot.\+com/}}) @license \href{http://sabre.io/license/}{\texttt{ http\+://sabre.\+io/license/}} Modified BSD License
+\end{DoxyAuthor}
+@psalm-\/template TReturn 
+
+\doxysubsection{Documentation des constructeurs et destructeur}
+\Hypertarget{class_sabre_1_1_event_1_1_promise_af2c31cea1745ba58610803bef2912b6f}\label{class_sabre_1_1_event_1_1_promise_af2c31cea1745ba58610803bef2912b6f} 
+\index{Promise@{Promise}!\_\_construct@{\_\_construct}}
+\index{\_\_construct@{\_\_construct}!Promise@{Promise}}
+\doxysubsubsection{\texorpdfstring{\_\_construct()}{\_\_construct()}}
+{\footnotesize\ttfamily \+\_\+\+\_\+construct (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{callable}}}]{\$executor = {\ttfamily null} }\end{DoxyParamCaption})}
+
+Creates the promise.
+
+The passed argument is the executor. The executor is automatically called with two arguments.
+
+Each are callbacks that map to \$this-\/\texorpdfstring{$>$}{>}fulfill and \$this-\/\texorpdfstring{$>$}{>}reject. Using the executor is optional. 
+
+\doxysubsection{Documentation des fonctions membres}
+\Hypertarget{class_sabre_1_1_event_1_1_promise_ab1360c4ffda67058a7999cce5e9646ee}\label{class_sabre_1_1_event_1_1_promise_ab1360c4ffda67058a7999cce5e9646ee} 
+\index{Promise@{Promise}!fulfill@{fulfill}}
+\index{fulfill@{fulfill}!Promise@{Promise}}
+\doxysubsubsection{\texorpdfstring{fulfill()}{fulfill()}}
+{\footnotesize\ttfamily fulfill (\begin{DoxyParamCaption}\item[{}]{\$value = {\ttfamily null} }\end{DoxyParamCaption})}
+
+Marks this promise as fulfilled and sets its return value.
+
+
+\begin{DoxyParams}[1]{Paramètres}
+mixed & {\em \$value} & \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_sabre_1_1_event_1_1_promise_a688fdb804610bab573256b55a8b55e7f}\label{class_sabre_1_1_event_1_1_promise_a688fdb804610bab573256b55a8b55e7f} 
+\index{Promise@{Promise}!otherwise@{otherwise}}
+\index{otherwise@{otherwise}!Promise@{Promise}}
+\doxysubsubsection{\texorpdfstring{otherwise()}{otherwise()}}
+{\footnotesize\ttfamily otherwise (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{callable}}}]{\$on\+Rejected }\end{DoxyParamCaption})}
+
+Add a callback for when this promise is rejected.
+
+Its usage is identical to then(). However, the otherwise() function is preferred. Voici le graphe d\textquotesingle{}appel pour cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=209pt]{class_sabre_1_1_event_1_1_promise_a688fdb804610bab573256b55a8b55e7f_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_sabre_1_1_event_1_1_promise_affabab07ec5afa282006ca70b768b957}\label{class_sabre_1_1_event_1_1_promise_affabab07ec5afa282006ca70b768b957} 
+\index{Promise@{Promise}!reject@{reject}}
+\index{reject@{reject}!Promise@{Promise}}
+\doxysubsubsection{\texorpdfstring{reject()}{reject()}}
+{\footnotesize\ttfamily reject (\begin{DoxyParamCaption}\item[{Throwable}]{\$reason }\end{DoxyParamCaption})}
+
+Marks this promise as rejected, and set its rejection reason. \Hypertarget{class_sabre_1_1_event_1_1_promise_a4feb652e6c84c7767347fb21cf496c73}\label{class_sabre_1_1_event_1_1_promise_a4feb652e6c84c7767347fb21cf496c73} 
+\index{Promise@{Promise}!then@{then}}
+\index{then@{then}!Promise@{Promise}}
+\doxysubsubsection{\texorpdfstring{then()}{then()}}
+{\footnotesize\ttfamily then (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{callable}}}]{\$on\+Fulfilled = {\ttfamily null},  }\item[{\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{callable}}}]{\$on\+Rejected = {\ttfamily null} }\end{DoxyParamCaption})}
+
+This method allows you to specify the callback that will be called after the promise has been fulfilled or rejected.
+
+Both arguments are optional.
+
+This method returns a new promise, which can be used for chaining. If either the on\+Fulfilled or on\+Rejected callback is called, you may return a result from this callback.
+
+If the result of this callback is yet another promise, the result of {\itshape that} promise will be used to set the result of the returned promise.
+
+If either of the callbacks return any other value, the returned promise is automatically fulfilled with that value.
+
+If either of the callbacks throw an exception, the returned promise will be rejected and the exception will be passed back. Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=209pt]{class_sabre_1_1_event_1_1_promise_a4feb652e6c84c7767347fb21cf496c73_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_sabre_1_1_event_1_1_promise_a918ab4827f83fa4abb9c445acc36f533}\label{class_sabre_1_1_event_1_1_promise_a918ab4827f83fa4abb9c445acc36f533} 
+\index{Promise@{Promise}!wait@{wait}}
+\index{wait@{wait}!Promise@{Promise}}
+\doxysubsubsection{\texorpdfstring{wait()}{wait()}}
+{\footnotesize\ttfamily wait (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Stops execution until this promise is resolved.
+
+This method stops execution completely. If the promise is successful with a value, this method will return this value. If the promise was rejected, this method will throw an exception.
+
+This effectively turns the asynchronous operation into a synchronous one. In PHP it might be useful to call this on the last promise in a chain.
+
+\begin{DoxyReturn}{Renvoie}
+mixed @psalm-\/return TReturn 
+\end{DoxyReturn}
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_sabre_1_1_event_1_1_promise_a918ab4827f83fa4abb9c445acc36f533_cgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Documentation des champs}
+\Hypertarget{class_sabre_1_1_event_1_1_promise_ae82306c4f2d17d8dd5c7d8d916b33bed}\label{class_sabre_1_1_event_1_1_promise_ae82306c4f2d17d8dd5c7d8d916b33bed} 
+\index{Promise@{Promise}!\$state@{\$state}}
+\index{\$state@{\$state}!Promise@{Promise}}
+\doxysubsubsection{\texorpdfstring{\$state}{\$state}}
+{\footnotesize\ttfamily \$state = self\+::\+PENDING}
+
+\Hypertarget{class_sabre_1_1_event_1_1_promise_ac086ff8a41a6f5d58aa0fa798591a4f1}\label{class_sabre_1_1_event_1_1_promise_ac086ff8a41a6f5d58aa0fa798591a4f1} 
+\index{Promise@{Promise}!\$subscribers@{\$subscribers}}
+\index{\$subscribers@{\$subscribers}!Promise@{Promise}}
+\doxysubsubsection{\texorpdfstring{\$subscribers}{\$subscribers}}
+{\footnotesize\ttfamily \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{subscribers}} = \mbox{[}$\,$\mbox{]}\hspace{0.3cm}{\ttfamily [protected]}}
+
+\Hypertarget{class_sabre_1_1_event_1_1_promise_a0f298096f322952a72a50f98a74c7b60}\label{class_sabre_1_1_event_1_1_promise_a0f298096f322952a72a50f98a74c7b60} 
+\index{Promise@{Promise}!\$value@{\$value}}
+\index{\$value@{\$value}!Promise@{Promise}}
+\doxysubsubsection{\texorpdfstring{\$value}{\$value}}
+{\footnotesize\ttfamily \$value = null\hspace{0.3cm}{\ttfamily [protected]}}
+
+\Hypertarget{class_sabre_1_1_event_1_1_promise_a73fff0d9d3144518678b1df2ff181934}\label{class_sabre_1_1_event_1_1_promise_a73fff0d9d3144518678b1df2ff181934} 
+\index{Promise@{Promise}!FULFILLED@{FULFILLED}}
+\index{FULFILLED@{FULFILLED}!Promise@{Promise}}
+\doxysubsubsection{\texorpdfstring{FULFILLED}{FULFILLED}}
+{\footnotesize\ttfamily const FULFILLED = 1}
+
+The asynchronous operation has completed, and has a result. \Hypertarget{class_sabre_1_1_event_1_1_promise_abaf4facc752f618f7d88aa7e2886c812}\label{class_sabre_1_1_event_1_1_promise_abaf4facc752f618f7d88aa7e2886c812} 
+\index{Promise@{Promise}!PENDING@{PENDING}}
+\index{PENDING@{PENDING}!Promise@{Promise}}
+\doxysubsubsection{\texorpdfstring{PENDING}{PENDING}}
+{\footnotesize\ttfamily const PENDING = 0}
+
+The asynchronous operation is pending. \Hypertarget{class_sabre_1_1_event_1_1_promise_a25be17e5b990d3b083f7ec154287da3d}\label{class_sabre_1_1_event_1_1_promise_a25be17e5b990d3b083f7ec154287da3d} 
+\index{Promise@{Promise}!REJECTED@{REJECTED}}
+\index{REJECTED@{REJECTED}!Promise@{Promise}}
+\doxysubsubsection{\texorpdfstring{REJECTED}{REJECTED}}
+{\footnotesize\ttfamily const REJECTED = 2}
+
+The asynchronous operation has completed with an error. 
+
+La documentation de cette classe a été générée à partir du fichier suivant \+:\begin{DoxyCompactItemize}
+\item 
+public/glpi/vendor/sabre/event/lib/\mbox{\hyperlink{sabre_2event_2lib_2_promise_8php}{Promise.\+php}}\end{DoxyCompactItemize}

@@ -1,0 +1,148 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_md_public_2glpi_2vendor_2wapmorgan_2unified-archive_2docs_2_usage" xml:lang="fr">
+<title>Usage</title>
+<indexterm><primary>Usage</primary></indexterm>
+
+<para><anchor xml:id="_md_public_2glpi_2vendor_2wapmorgan_2unified-archive_2docs_2_usage_1autotoc_md7503"/><itemizedlist>
+<listitem>
+<para><link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">Reading and extraction</link></para>
+</listitem><listitem>
+<para><link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">Archive modification</link></para>
+</listitem><listitem>
+<para><link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">Archiving</link></para>
+</listitem></itemizedlist>
+</para>
+<section xml:id="_md_public_2glpi_2vendor_2wapmorgan_2unified-archive_2docs_2_usage_1autotoc_md7504">
+<title><title>Reading and extraction</title></title>
+
+<para><orderedlist>
+<listitem>
+<para>Open the file with automatic detection of a format by name or content. In case of successful, an <computeroutput>UnifiedArchive</computeroutput> object will be returned. In case of failure - <emphasis>null</emphasis> will be returned.</para>
+
+<para><literallayout><computeroutput>require&#32;&apos;vendor/autoload.php&apos;;
+use&#32;\wapmorgan\UnifiedArchive\UnifiedArchive;
+
+$archive&#32;=&#32;UnifiedArchive::open(&apos;filename.rar&apos;);
+//&#32;or
+$archive&#32;=&#32;UnifiedArchive::open(&apos;filename.zip&apos;,&#32;null,&#32;&apos;password&apos;);
+//&#32;or
+$archive&#32;=&#32;UnifiedArchive::open(&apos;filename.tar&apos;,&#32;[
+&#32;&#32;&#32;&#32;\wapmorgan\UnifiedArchive\Drivers\Basic\BasicDriver::EXTRACT_CONTENT,
+&#32;&#32;&#32;&#32;\wapmorgan\UnifiedArchive\Drivers\Basic\BasicDriver::STREAM_CONTENT,
+&#32;&#32;&#32;&#32;\wapmorgan\UnifiedArchive\Drivers\Basic\BasicDriver::APPEND,
+]);
+//&#32;or
+$archive&#32;=&#32;UnifiedArchive::open(&apos;filename.7z&apos;,&#32;null,&#32;&apos;password&apos;);
+</computeroutput></literallayout></para>
+</listitem><listitem>
+<para>Read the list of files of archive or check that file is in archive.</para>
+
+<para><literallayout><computeroutput>foreach($archive-&gt;getFiles()&#32;as&#32;$filename)&#32;{&#32;//&#32;[&apos;file&apos;,&#32;&apos;file2&apos;,&#32;&apos;file3&apos;,&#32;...]
+&#32;&#32;&#32;&#32;&#32;//&#32;...
+}
+
+foreach($archive-&gt;getFiles(&apos;*.txt&apos;)&#32;as&#32;$filename)&#32;{&#32;//&#32;[&apos;README.txt&apos;,&#32;&apos;doc.txt&apos;,&#32;...]
+&#32;&#32;&#32;&#32;&#32;//&#32;...
+}
+
+foreach&#32;($archive&#32;as&#32;$filename)&#32;{
+&#32;&#32;&#32;&#32;&#32;//&#32;...
+}
+
+if&#32;($archive-&gt;hasFile(&apos;README.md&apos;))&#32;{
+&#32;&#32;&#32;&#32;//&#32;some&#32;operations
+}
+</computeroutput></literallayout></para>
+</listitem><listitem>
+<para>To get common information about concrete file use <computeroutput>getFileData()</computeroutput> method. This method returns <link xlink:href="API.md#ArchiveEntry">an <computeroutput>ArchiveEntry</computeroutput> instance</link>. To get raw file contents use <computeroutput>getFileContent()</computeroutput> method, to get stream for file use <computeroutput>getFileStream()</computeroutput> method.</para>
+
+<para><literallayout><computeroutput>//&#32;file&#32;meta
+$file_data&#32;=&#32;$archive-&gt;getFileData(&apos;README.md&apos;));&#32;//&#32;ArchiveEntry&#32;with&#32;file&#32;information
+echo&#32;&apos;Original&#32;size&#32;is&#32;&apos;&#32;.&#32;$file_data-&gt;uncompressedSize.PHP_EOL;
+echo&#32;&apos;Modification&#32;datetime&#32;is&#32;&apos;&#32;.&#32;date(&apos;r&apos;,&#32;$file_data-&gt;modificationTime).PHP_EOL;
+
+//&#32;raw&#32;file&#32;content
+$file_content&#32;=&#32;$archive-&gt;getFileContent(&apos;README.md&apos;));&#32;//&#32;string
+
+//&#32;pass&#32;stream&#32;to&#32;standard&#32;output
+fpassthru($archive-&gt;getFileStream(&apos;README.md&apos;));
+</computeroutput></literallayout></para>
+</listitem><listitem>
+<para>Unpack all archive or specific files on a disk - <computeroutput>extract()</computeroutput>.</para>
+
+<para><literallayout><computeroutput>//&#32;to&#32;unpack&#32;all&#32;contents&#32;of&#32;archive&#32;to&#32;&quot;output&quot;&#32;folder
+$archive-&gt;extract(__DIR__.&apos;/output&apos;);
+
+//&#32;to&#32;unpack&#32;specific&#32;files&#32;(README.md&#32;and&#32;composer.json)&#32;from&#32;archive&#32;to&#32;&quot;output&quot;&#32;folder
+$archive-&gt;extract(__DIR__.&apos;/output&apos;,&#32;[&apos;README.md&apos;,&#32;&apos;composer.json&apos;]);
+
+//&#32;to&#32;unpack&#32;the&#32;&quot;src&quot;&#32;catalog&#32;with&#32;all&#32;content&#32;from&#32;archive&#32;into&#32;the&#32;&quot;sources&quot;&#32;catalog&#32;on&#32;a&#32;disk
+$archive-&gt;extract(__DIR__.&apos;/output&apos;,&#32;&apos;src/&apos;,&#32;true);
+</computeroutput></literallayout></para>
+</listitem></orderedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2wapmorgan_2unified-archive_2docs_2_usage_1autotoc_md7505">
+<title><title>Archive modification</title></title>
+
+<para>Only few archive formats support modification: (zip, 7z, tar) - it depends on low-level driver - see <emphasis role="bold">Formats</emphasis> page for details.</para>
+
+<para><orderedlist>
+<listitem>
+<para><link xlink:href="API.md#UnifiedArchive--delete">Delete files</link> from archive</para>
+
+<para><literallayout><computeroutput>//&#32;Delete&#32;a&#32;single&#32;file
+$archive-&gt;delete(&apos;README.md&apos;);
+
+//&#32;Delete&#32;multiple&#32;files
+$archive-&gt;delete([&apos;README.md&apos;,&#32;&apos;MANIFEST.MF&apos;]);
+
+//&#32;Delete&#32;directory&#32;with&#32;full&#32;content
+$archive-&gt;delete(&apos;src/&apos;,&#32;true);
+</computeroutput></literallayout></para>
+
+<para>In case of success the number of successfully deleted files will be returned.</para>
+</listitem><listitem>
+<para><link xlink:href="API.md#UnifiedArchive--add">Add files</link> to archive</para>
+
+<para><literallayout><computeroutput>//&#32;Add&#32;a&#32;catalog&#32;with&#32;all&#32;contents&#32;with&#32;full&#32;paths
+$archive-&gt;add(&apos;/var/log/&apos;);
+
+//&#32;To&#32;add&#32;one&#32;file&#32;(will&#32;be&#32;stored&#32;as&#32;one&#32;file&#32;&quot;syslog&quot;)
+$archive-&gt;add(&apos;/var/log/syslog&apos;);
+
+//&#32;To&#32;add&#32;some&#32;files&#32;or&#32;catalogs&#32;(all&#32;catalogs&#32;structure&#32;in&#32;paths&#32;will&#32;be&#32;kept)
+$archive-&gt;add([$directory,&#32;$file,&#32;$file2,&#32;...]);
+</computeroutput></literallayout></para>
+</listitem></orderedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2wapmorgan_2unified-archive_2docs_2_usage_1autotoc_md7506">
+<title><title>Archiving</title></title>
+
+<para>Only few archive formats support modification: zip, 7z, tar (with restrictions).</para>
+
+<para>To pack completely the catalog with all attached files and subdirectories in new archive:</para>
+
+<para><literallayout><computeroutput>#&#32;archive&#32;all&#32;folder&#32;content
+UnifiedArchive::archive(&apos;/var/log&apos;,&#32;&apos;Archive.zip&apos;);
+
+#&#32;archive&#32;one&#32;file
+UnifiedArchive::archive(&apos;/var/log/syslog&apos;,&#32;&apos;Archive.zip&apos;);
+
+#&#32;archive&#32;few&#32;files&#32;/&#32;folders
+UnifiedArchive::archive([$directory,&#32;$file,&#32;$file2,&#32;...],&#32;&apos;Archive.zip&apos;);
+</computeroutput></literallayout></para>
+
+<para>Also, there is <link xlink:href="API.md#UnifiedArchive--archive">extended syntax</link> for <computeroutput>add()</computeroutput> and <computeroutput><link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">archive()</link></computeroutput>:</para>
+
+<para><literallayout><computeroutput>UnifiedArchive::archive([
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&apos;abc.log&apos;&#32;=&gt;&#32;&apos;/var/www/site/abc.log&apos;,&#32;&#32;&#32;//&#32;stored&#32;as&#32;&apos;abc.log&apos;
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&apos;/var/www/site/abc.log&apos;,&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;//&#32;stored&#32;as&#32;&apos;/var/www/site/abc.log&apos;
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&apos;logs&apos;&#32;=&gt;&#32;&apos;/var/www/site/runtime/logs&apos;,&#32;//&#32;directory&#32;content&#32;stored&#32;in&#32;&apos;logs&apos;&#32;dir
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&apos;/var/www/site/runtime/logs&apos;,&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;//&#32;stored&#32;as&#32;&apos;/var/www/site/runtime/logs&apos;
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&apos;&apos;&#32;=&gt;&#32;[&apos;/home/user1/docs&apos;,&#32;&apos;/home/user2/docs&apos;],&#32;//&#32;user1&#32;and&#32;user2&#32;docs&#32;stored&#32;in&#32;archive&#32;root
+&#32;&#32;&#32;&#32;],&#32;&apos;archive.zip&apos;);
+</computeroutput></literallayout> </para>
+</section>
+</section>

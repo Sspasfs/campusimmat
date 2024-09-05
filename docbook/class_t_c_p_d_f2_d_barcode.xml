@@ -1,0 +1,527 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_t_c_p_d_f2_d_barcode" xml:lang="fr">
+<title>Référence de la classe TCPDF2DBarcode</title>
+<indexterm><primary>TCPDF2DBarcode</primary></indexterm>
+Graphe de collaboration de TCPDF2DBarcode:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_t_c_p_d_f2_d_barcode__coll__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Fonctions membres publiques    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_t_c_p_d_f2_d_barcode_1a23947e64d0b36065cdf84f685c9eb0d0">__construct</link> ($code, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">type</link>)</para>
+</listitem>
+            <listitem><para><link linkend="_class_t_c_p_d_f2_d_barcode_1a011521cebd4c8b991845d6e24668199e">getBarcodeArray</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_class_t_c_p_d_f2_d_barcode_1ab01d88f30c503fe87573ab484ea99dbe">getBarcodeSVG</link> ($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">w</link>=3, $h=3, $color=&apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">black</link>&apos;)</para>
+</listitem>
+            <listitem><para><link linkend="_class_t_c_p_d_f2_d_barcode_1a22740c7107a9cf4f26f198dfe00f1b27">getBarcodeSVGcode</link> ($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">w</link>=3, $h=3, $color=&apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">black</link>&apos;)</para>
+</listitem>
+            <listitem><para><link linkend="_class_t_c_p_d_f2_d_barcode_1a917879c0db3a2f77ebe81b9ad61b9413">getBarcodeHTML</link> ($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">w</link>=10, $h=10, $color=&apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">black</link>&apos;)</para>
+</listitem>
+            <listitem><para><link linkend="_class_t_c_p_d_f2_d_barcode_1afff4af36eb4d7a1318f221c9146456f4">getBarcodePNG</link> ($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">w</link>=3, $h=3, $color=array(0, 0, 0))</para>
+</listitem>
+            <listitem><para><link linkend="_class_t_c_p_d_f2_d_barcode_1a96488b0f6ae69acf26c064a2bd1815d3">getBarcodePngData</link> ($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">w</link>=3, $h=3, $color=array(0, 0, 0))</para>
+</listitem>
+            <listitem><para><link linkend="_class_t_c_p_d_f2_d_barcode_1a2018878f43819bfa99f35fdc1207ef09">setBarcode</link> ($code, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">type</link>)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Attributs protégés    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_t_c_p_d_f2_d_barcode_1a4895ebca50280ca6c9814246da0ece37">$barcode_array</link> = array()</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Description détaillée</title>
+
+<para>PHP class to creates array representations for 2D barcodes to be used with <link linkend="_class_t_c_p_d_f">TCPDF</link> (<link xlink:href="http://www.tcpdf.org">http://www.tcpdf.org</link>). </para>
+</section>
+<section>
+<title>Documentation des constructeurs et destructeur</title>
+<anchor xml:id="_class_t_c_p_d_f2_d_barcode_1a23947e64d0b36065cdf84f685c9eb0d0"/><section>
+    <title>__construct()</title>
+<indexterm><primary>__construct</primary><secondary>TCPDF2DBarcode</secondary></indexterm>
+<indexterm><primary>TCPDF2DBarcode</primary><secondary>__construct</secondary></indexterm>
+<para><computeroutput>__construct ( $code,  $type)</computeroutput></para>
+<para>This is the class constructor. Return an array representations for 2D barcodes:<itemizedlist>
+<listitem>
+
+<para>$arrcode[&apos;code&apos;] code to be printed on text label </para>
+</listitem>
+<listitem>
+
+<para>$arrcode[&apos;num_rows&apos;] required number of rows </para>
+</listitem>
+<listitem>
+
+<para>$arrcode[&apos;num_cols&apos;] required number of columns </para>
+</listitem>
+<listitem>
+
+<para>$arrcode[&apos;bcode&apos;][$r][$c] value of the cell is $r row and $c column (0 = transparent, 1 = black)</para>
+</listitem>
+</itemizedlist>
+
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$code</entry><entry>
+<para>code to print </para>
+</entry>
+                            </row>
+                            <row>
+<entry>string</entry><entry>$type</entry><entry>
+<para>type of barcode: <itemizedlist>
+<listitem>
+
+<para>DATAMATRIX : <link linkend="_class_datamatrix">Datamatrix</link> (ISO/IEC 16022)</para>
+</listitem>
+<listitem>
+
+<para><link linkend="_class_p_d_f417">PDF417</link> : <link linkend="_class_p_d_f417">PDF417</link> (ISO/IEC 15438:2006)</para>
+</listitem>
+<listitem>
+
+<para><link linkend="_class_p_d_f417">PDF417</link>,a,e,t,s,f,o0,o1,o2,o3,o4,o5,o6 : <link linkend="_class_p_d_f417">PDF417</link> with parameters: a = aspect ratio (width/height); e = error correction level (0-8); t = total number of macro segments; s = macro segment index (0-99998); f = file ID; o0 = File Name (text); o1 = Segment Count (numeric); o2 = Time Stamp (numeric); o3 = Sender (text); o4 = Addressee (text); o5 = File Size (numeric); o6 = Checksum (numeric). NOTES: Parameters t, s and f are required for a Macro Control Block, all other parameters are optional. To use a comma character &apos;,&apos; on text options, replace it with the character 255: &quot;\xff&quot;.</para>
+</listitem>
+<listitem>
+
+<para>QRCODE : <link linkend="_class_q_rcode">QRcode</link> Low error correction</para>
+</listitem>
+<listitem>
+
+<para>QRCODE,L : <link linkend="_class_q_rcode">QRcode</link> Low error correction</para>
+</listitem>
+<listitem>
+
+<para>QRCODE,M : <link linkend="_class_q_rcode">QRcode</link> Medium error correction</para>
+</listitem>
+<listitem>
+
+<para>QRCODE,Q : <link linkend="_class_q_rcode">QRcode</link> Better error correction</para>
+</listitem>
+<listitem>
+
+<para>QRCODE,H : QR-CODE Best error correction</para>
+</listitem>
+<listitem>
+
+<para>RAW: raw mode - comma-separad list of array rows</para>
+</listitem>
+<listitem>
+
+<para>RAW2: raw mode - array rows are surrounded by square parenthesis.</para>
+</listitem>
+<listitem>
+
+<para>TEST : Test matrix</para>
+</listitem>
+</itemizedlist>
+</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_t_c_p_d_f2_d_barcode_a23947e64d0b36065cdf84f685c9eb0d0_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+</section>
+<section>
+<title>Documentation des fonctions membres</title>
+<anchor xml:id="_class_t_c_p_d_f2_d_barcode_1a011521cebd4c8b991845d6e24668199e"/><section>
+    <title>getBarcodeArray()</title>
+<indexterm><primary>getBarcodeArray</primary><secondary>TCPDF2DBarcode</secondary></indexterm>
+<indexterm><primary>TCPDF2DBarcode</primary><secondary>getBarcodeArray</secondary></indexterm>
+<para><computeroutput>getBarcodeArray ( )</computeroutput></para>
+<para>Return an array representations of barcode. <formalpara><title>Renvoie</title>
+
+<para>array </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_class_t_c_p_d_f2_d_barcode_1a917879c0db3a2f77ebe81b9ad61b9413"/><section>
+    <title>getBarcodeHTML()</title>
+<indexterm><primary>getBarcodeHTML</primary><secondary>TCPDF2DBarcode</secondary></indexterm>
+<indexterm><primary>TCPDF2DBarcode</primary><secondary>getBarcodeHTML</secondary></indexterm>
+<para><computeroutput>getBarcodeHTML ( $w = <computeroutput>10</computeroutput>
+,  $h = <computeroutput>10</computeroutput>
+,  $color = <computeroutput>&apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">black</link>&apos;</computeroutput>
+)</computeroutput></para>
+<para>Return an HTML representation of barcode. 
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>int</entry><entry>$w</entry><entry>
+<para>Width of a single rectangle element in pixels. </para>
+</entry>
+                            </row>
+                            <row>
+<entry>int</entry><entry>$h</entry><entry>
+<para>Height of a single rectangle element in pixels. </para>
+</entry>
+                            </row>
+                            <row>
+<entry>string</entry><entry>$color</entry><entry>
+<para>Foreground color for bar elements (background is transparent). </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>string HTML code. </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_class_t_c_p_d_f2_d_barcode_1afff4af36eb4d7a1318f221c9146456f4"/><section>
+    <title>getBarcodePNG()</title>
+<indexterm><primary>getBarcodePNG</primary><secondary>TCPDF2DBarcode</secondary></indexterm>
+<indexterm><primary>TCPDF2DBarcode</primary><secondary>getBarcodePNG</secondary></indexterm>
+<para><computeroutput>getBarcodePNG ( $w = <computeroutput>3</computeroutput>
+,  $h = <computeroutput>3</computeroutput>
+,  $color = <computeroutput>array(0,0,0)</computeroutput>
+)</computeroutput></para>
+<para>Send a PNG image representation of barcode (requires GD or Imagick library). 
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>int</entry><entry>$w</entry><entry>
+<para>Width of a single rectangle element in pixels. </para>
+</entry>
+                            </row>
+                            <row>
+<entry>int</entry><entry>$h</entry><entry>
+<para>Height of a single rectangle element in pixels. </para>
+</entry>
+                            </row>
+                            <row>
+<entry>array</entry><entry>$color</entry><entry>
+<para>RGB (0-255) foreground color for bar elements (background is transparent). </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_t_c_p_d_f2_d_barcode_afff4af36eb4d7a1318f221c9146456f4_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_t_c_p_d_f2_d_barcode_1a96488b0f6ae69acf26c064a2bd1815d3"/><section>
+    <title>getBarcodePngData()</title>
+<indexterm><primary>getBarcodePngData</primary><secondary>TCPDF2DBarcode</secondary></indexterm>
+<indexterm><primary>TCPDF2DBarcode</primary><secondary>getBarcodePngData</secondary></indexterm>
+<para><computeroutput>getBarcodePngData ( $w = <computeroutput>3</computeroutput>
+,  $h = <computeroutput>3</computeroutput>
+,  $color = <computeroutput>array(0,0,0)</computeroutput>
+)</computeroutput></para>
+<para>Return a PNG image representation of barcode (requires GD or Imagick library). 
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>int</entry><entry>$w</entry><entry>
+<para>Width of a single rectangle element in pixels. </para>
+</entry>
+                            </row>
+                            <row>
+<entry>int</entry><entry>$h</entry><entry>
+<para>Height of a single rectangle element in pixels. </para>
+</entry>
+                            </row>
+                            <row>
+<entry>array</entry><entry>$color</entry><entry>
+<para>RGB (0-255) foreground color for bar elements (background is transparent). </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>string|Imagick|false image or false in case of error. </para>
+</formalpara>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_t_c_p_d_f2_d_barcode_a96488b0f6ae69acf26c064a2bd1815d3_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_t_c_p_d_f2_d_barcode_1ab01d88f30c503fe87573ab484ea99dbe"/><section>
+    <title>getBarcodeSVG()</title>
+<indexterm><primary>getBarcodeSVG</primary><secondary>TCPDF2DBarcode</secondary></indexterm>
+<indexterm><primary>TCPDF2DBarcode</primary><secondary>getBarcodeSVG</secondary></indexterm>
+<para><computeroutput>getBarcodeSVG ( $w = <computeroutput>3</computeroutput>
+,  $h = <computeroutput>3</computeroutput>
+,  $color = <computeroutput>&apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">black</link>&apos;</computeroutput>
+)</computeroutput></para>
+<para>Send barcode as SVG image object to the standard output. 
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>int</entry><entry>$w</entry><entry>
+<para>Width of a single rectangle element in user units. </para>
+</entry>
+                            </row>
+                            <row>
+<entry>int</entry><entry>$h</entry><entry>
+<para>Height of a single rectangle element in user units. </para>
+</entry>
+                            </row>
+                            <row>
+<entry>string</entry><entry>$color</entry><entry>
+<para>Foreground color (in SVG format) for bar elements (background is transparent). </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_t_c_p_d_f2_d_barcode_ab01d88f30c503fe87573ab484ea99dbe_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_t_c_p_d_f2_d_barcode_1a22740c7107a9cf4f26f198dfe00f1b27"/><section>
+    <title>getBarcodeSVGcode()</title>
+<indexterm><primary>getBarcodeSVGcode</primary><secondary>TCPDF2DBarcode</secondary></indexterm>
+<indexterm><primary>TCPDF2DBarcode</primary><secondary>getBarcodeSVGcode</secondary></indexterm>
+<para><computeroutput>getBarcodeSVGcode ( $w = <computeroutput>3</computeroutput>
+,  $h = <computeroutput>3</computeroutput>
+,  $color = <computeroutput>&apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">black</link>&apos;</computeroutput>
+)</computeroutput></para>
+<para>Return a SVG string representation of barcode. 
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>int</entry><entry>$w</entry><entry>
+<para>Width of a single rectangle element in user units. </para>
+</entry>
+                            </row>
+                            <row>
+<entry>int</entry><entry>$h</entry><entry>
+<para>Height of a single rectangle element in user units. </para>
+</entry>
+                            </row>
+                            <row>
+<entry>string</entry><entry>$color</entry><entry>
+<para>Foreground color (in SVG format) for bar elements (background is transparent). </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>string SVG code. </para>
+</formalpara>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_t_c_p_d_f2_d_barcode_a22740c7107a9cf4f26f198dfe00f1b27_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_t_c_p_d_f2_d_barcode_1a2018878f43819bfa99f35fdc1207ef09"/><section>
+    <title>setBarcode()</title>
+<indexterm><primary>setBarcode</primary><secondary>TCPDF2DBarcode</secondary></indexterm>
+<indexterm><primary>TCPDF2DBarcode</primary><secondary>setBarcode</secondary></indexterm>
+<para><computeroutput>setBarcode ( $code,  $type)</computeroutput></para>
+<para>Set the barcode. 
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$code</entry><entry>
+<para>code to print </para>
+</entry>
+                            </row>
+                            <row>
+<entry>string</entry><entry>$type</entry><entry>
+<para>type of barcode: <itemizedlist>
+<listitem>
+
+<para>DATAMATRIX : <link linkend="_class_datamatrix">Datamatrix</link> (ISO/IEC 16022)</para>
+</listitem>
+<listitem>
+
+<para><link linkend="_class_p_d_f417">PDF417</link> : <link linkend="_class_p_d_f417">PDF417</link> (ISO/IEC 15438:2006)</para>
+</listitem>
+<listitem>
+
+<para><link linkend="_class_p_d_f417">PDF417</link>,a,e,t,s,f,o0,o1,o2,o3,o4,o5,o6 : <link linkend="_class_p_d_f417">PDF417</link> with parameters: a = aspect ratio (width/height); e = error correction level (0-8); t = total number of macro segments; s = macro segment index (0-99998); f = file ID; o0 = File Name (text); o1 = Segment Count (numeric); o2 = Time Stamp (numeric); o3 = Sender (text); o4 = Addressee (text); o5 = File Size (numeric); o6 = Checksum (numeric). NOTES: Parameters t, s and f are required for a Macro Control Block, all other parameters are optional. To use a comma character &apos;,&apos; on text options, replace it with the character 255: &quot;\xff&quot;.</para>
+</listitem>
+<listitem>
+
+<para>QRCODE : <link linkend="_class_q_rcode">QRcode</link> Low error correction</para>
+</listitem>
+<listitem>
+
+<para>QRCODE,L : <link linkend="_class_q_rcode">QRcode</link> Low error correction</para>
+</listitem>
+<listitem>
+
+<para>QRCODE,M : <link linkend="_class_q_rcode">QRcode</link> Medium error correction</para>
+</listitem>
+<listitem>
+
+<para>QRCODE,Q : <link linkend="_class_q_rcode">QRcode</link> Better error correction</para>
+</listitem>
+<listitem>
+
+<para>QRCODE,H : QR-CODE Best error correction</para>
+</listitem>
+<listitem>
+
+<para>RAW: raw mode - comma-separad list of array rows</para>
+</listitem>
+<listitem>
+
+<para>RAW2: raw mode - array rows are surrounded by square parenthesis.</para>
+</listitem>
+<listitem>
+
+<para>TEST : Test matrix</para>
+</listitem>
+</itemizedlist>
+</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>void </para>
+</formalpara>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_t_c_p_d_f2_d_barcode_a2018878f43819bfa99f35fdc1207ef09_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+</section>
+<section>
+<title>Documentation des champs</title>
+<anchor xml:id="_class_t_c_p_d_f2_d_barcode_1a4895ebca50280ca6c9814246da0ece37"/><section>
+    <title>$barcode_array</title>
+<indexterm><primary>$barcode_array</primary><secondary>TCPDF2DBarcode</secondary></indexterm>
+<indexterm><primary>TCPDF2DBarcode</primary><secondary>$barcode_array</secondary></indexterm>
+<para><computeroutput>$<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">barcode_array</link> = array()<computeroutput>[protected]</computeroutput></computeroutput></para>
+<para>Array representation of barcode. </para>
+</section>
+<para>
+La documentation de cette classe a été générée à partir du fichier suivant :</para>
+public/glpi/vendor/tecnickcom/tcpdf/<link linkend="_tcpdf__barcodes__2d_8php">tcpdf_barcodes_2d.php</link></section>
+</section>

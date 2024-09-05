@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_update__9_85_8x__to__10_80_80_2notifications_8php" xml:lang="fr">
+<title>Référence du fichier public/glpi/install/migrations/update_9.5.x_to_10.0.0/notifications.php</title>
+<indexterm><primary>public/glpi/install/migrations/update_9.5.x_to_10.0.0/notifications.php</primary></indexterm>
+<simplesect>
+    <title>Variables    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_update__9_85_8x__to__10_80_80_2notifications_8php_1aa2493840c9a38a71c812fc559c52f83a">$notification_exists</link> = <link linkend="_db_8function_8php_1a79aa7be8cf7cb17b8049e99ef2dd079b">countElementsInTable</link>(&apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">glpi_notifications</link>&apos;, [&apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">itemtype</link>&apos; =&gt; &apos;<link linkend="_class_ticket">Ticket</link>&apos;, &apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">event</link>&apos; =&gt; &apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">user_mention</link>&apos;]) &gt; 0</para>
+</listitem>
+            <listitem><para><link linkend="_dropdown_location_8php_1a52332c22f84432520971794825a5a8e7">if</link>(! $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">notification_exists</link>) <link linkend="_update__9_85_8x__to__10_80_80_2notifications_8php_1a7ab82c48439e9a60ce29c81a5cc3a8e6">$notifications</link> = <link linkend="_db_8function_8php_1a6c1665314faef61cab7f18df7ec18873">getAllDataFromTable</link>(&apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">glpi_notificationtemplatetranslations</link>&apos;)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Documentation des variables</title>
+<anchor xml:id="_update__9_85_8x__to__10_80_80_2notifications_8php_1aa2493840c9a38a71c812fc559c52f83a"/><section>
+    <title>$notification_exists</title>
+<indexterm><primary>$notification_exists</primary><secondary>notifications.php</secondary></indexterm>
+<indexterm><primary>notifications.php</primary><secondary>$notification_exists</secondary></indexterm>
+<para><computeroutput>$<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">notification_exists</link> = <link linkend="_db_8function_8php_1a79aa7be8cf7cb17b8049e99ef2dd079b">countElementsInTable</link>(&apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">glpi_notifications</link>&apos;, [&apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">itemtype</link>&apos; =&gt; &apos;<link linkend="_class_ticket">Ticket</link>&apos;, &apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">event</link>&apos; =&gt; &apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">user_mention</link>&apos;]) &gt; 0</computeroutput></para>
+<para><link linkend="_class_user">User</link> mention notification </para>
+</section>
+<anchor xml:id="_update__9_85_8x__to__10_80_80_2notifications_8php_1a7ab82c48439e9a60ce29c81a5cc3a8e6"/><section>
+    <title>$notifications</title>
+<indexterm><primary>$notifications</primary><secondary>notifications.php</secondary></indexterm>
+<indexterm><primary>notifications.php</primary><secondary>$notifications</secondary></indexterm>
+<para><computeroutput><link linkend="_dropdown_location_8php_1a52332c22f84432520971794825a5a8e7">if</link> (! $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">notification_exists</link>) $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">notifications</link> = <link linkend="_db_8function_8php_1a6c1665314faef61cab7f18df7ec18873">getAllDataFromTable</link>(&apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">glpi_notificationtemplatetranslations</link>&apos;)</computeroutput></para>
+<para>/User mention notification Fix non encoded notifications </para>
+</section>
+</section>
+</section>

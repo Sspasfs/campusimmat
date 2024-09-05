@@ -1,0 +1,75 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_monolog_1_1_handler_1_1_what_failure_group_handler" xml:lang="fr">
+<title>Référence de la classe WhatFailureGroupHandler</title>
+<indexterm><primary>WhatFailureGroupHandler</primary></indexterm>
+Graphe d&apos;héritage de WhatFailureGroupHandler:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_monolog_1_1_handler_1_1_what_failure_group_handler__inherit__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Graphe de collaboration de WhatFailureGroupHandler:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_monolog_1_1_handler_1_1_what_failure_group_handler__coll__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Membres hérités additionnels    </title>
+Fonctions membres publiques hérités de <link linkend="_class_monolog_1_1_handler_1_1_group_handler">GroupHandler</link>        <itemizedlist>
+            <listitem><para><link linkend="_class_monolog_1_1_handler_1_1_group_handler_1ad47cc95c12f98c0eb447a5f28a3985bc">__construct</link> (array $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">handlers</link>, bool $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">bubble</link>=true)</para>
+</listitem>
+            <listitem><para><link linkend="_class_monolog_1_1_handler_1_1_group_handler_1abbfbbcd3430dea8422ecd3c725737758">isHandling</link> (array $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">record</link>)</para>
+</listitem>
+            <listitem><para><link linkend="_class_monolog_1_1_handler_1_1_group_handler_1a4a20559544fdf4dcb457e258dc976cf8">reset</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_class_monolog_1_1_handler_1_1_group_handler_1aa69c8bf1f1dcf4e72552efff1fe3e87e">close</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_class_monolog_1_1_handler_1_1_group_handler_1a87804f2347dd817752ef1faa1f0dea05">setFormatter</link> (<link linkend="_interface_monolog_1_1_formatter_1_1_formatter_interface">FormatterInterface</link> $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">formatter</link>)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+Fonctions membres publiques hérités de <link linkend="_class_monolog_1_1_handler_1_1_handler">Handler</link>        <itemizedlist>
+            <listitem><para><link linkend="_class_monolog_1_1_handler_1_1_handler_1a944865926b0302ad2d802bea1eec3a57">handleBatch</link> (array $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">records</link>)</para>
+</listitem>
+            <listitem><para><link linkend="_class_monolog_1_1_handler_1_1_handler_1a421831a265621325e1fdd19aace0c758">__destruct</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_class_monolog_1_1_handler_1_1_handler_1aaf11785905da71774e052912d784e3b4">__sleep</link> ()</para>
+</listitem>
+        </itemizedlist>
+Fonctions membres publiques hérités de <link linkend="_interface_monolog_1_1_handler_1_1_handler_interface">HandlerInterface</link>        <itemizedlist>
+            <listitem><para><link linkend="_interface_monolog_1_1_handler_1_1_handler_interface_1ad54b568c673b7b4fc724268a54313603">handle</link> (array $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">record</link>)</para>
+</listitem>
+        </itemizedlist>
+Fonctions membres publiques hérités de <link linkend="_interface_monolog_1_1_handler_1_1_processable_handler_interface">ProcessableHandlerInterface</link>        <itemizedlist>
+            <listitem><para><link linkend="_interface_monolog_1_1_handler_1_1_processable_handler_interface_1a14c91c0ddce4f5cb91bc031e68c00453">pushProcessor</link> (<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">callable</link> $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">callback</link>)</para>
+</listitem>
+            <listitem><para><link linkend="_interface_monolog_1_1_handler_1_1_processable_handler_interface_1aece5018a30e181b7c02b82a8470b5017">popProcessor</link> ()</para>
+</listitem>
+        </itemizedlist>
+Attributs protégés hérités de <link linkend="_class_monolog_1_1_handler_1_1_group_handler">GroupHandler</link>        <itemizedlist>
+            <listitem><para><link linkend="_class_monolog_1_1_handler_1_1_group_handler_1ac01af86047396c863ebae81b8c8f7427">$handlers</link></para>
+</listitem>
+            <listitem><para><link linkend="_class_monolog_1_1_handler_1_1_group_handler_1a9145e898a529a9347d8af930c6c3c60c">$bubble</link></para>
+</listitem>
+        </itemizedlist>
+<section>
+<title>Description détaillée</title>
+
+<para>Forwards records to multiple handlers suppressing failures of each handler and continuing through to give every handler a chance to succeed.</para>
+
+<para><formalpara><title>Auteur</title>
+
+<para>Craig D&apos;Amelio <link xlink:href="mailto:craig@damelio.ca">craig@damelio.ca</link></para>
+</formalpara>
+@phpstan-import-type Record from \Monolog\Logger </para>
+<para>
+La documentation de cette classe a été générée à partir du fichier suivant :</para>
+public/glpi/vendor/monolog/monolog/src/Monolog/Handler/<link linkend="__what_failure_group_handler_8php">WhatFailureGroupHandler.php</link></section>
+</section>

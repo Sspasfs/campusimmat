@@ -1,0 +1,232 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_interface_guzzle_http_1_1_cookie_1_1_cookie_jar_interface" xml:lang="fr">
+<title>Référence de l&apos;interface CookieJarInterface</title>
+<indexterm><primary>CookieJarInterface</primary></indexterm>
+Graphe d&apos;héritage de CookieJarInterface:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="interface_guzzle_http_1_1_cookie_1_1_cookie_jar_interface__inherit__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Graphe de collaboration de CookieJarInterface:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="interface_guzzle_http_1_1_cookie_1_1_cookie_jar_interface__coll__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Fonctions membres publiques    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_interface_guzzle_http_1_1_cookie_1_1_cookie_jar_interface_1a6eebfd395ad6e8bec4e372c668d94cf0">withCookieHeader</link> (<link linkend="_interface_psr_1_1_http_1_1_message_1_1_request_interface">RequestInterface</link> $request)</para>
+</listitem>
+            <listitem><para><link linkend="_interface_guzzle_http_1_1_cookie_1_1_cookie_jar_interface_1ac1c738cf701f4011cbd5aa215a7bd78d">extractCookies</link> (<link linkend="_interface_psr_1_1_http_1_1_message_1_1_request_interface">RequestInterface</link> $request, <link linkend="_interface_psr_1_1_http_1_1_message_1_1_response_interface">ResponseInterface</link> $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">response</link>)</para>
+</listitem>
+            <listitem><para><link linkend="_interface_guzzle_http_1_1_cookie_1_1_cookie_jar_interface_1a5395d249ba8bb2de9e8a834b2b1fd336">setCookie</link> (<link linkend="_class_guzzle_http_1_1_cookie_1_1_set_cookie">SetCookie</link> $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">cookie</link>)</para>
+</listitem>
+            <listitem><para><link linkend="_interface_guzzle_http_1_1_cookie_1_1_cookie_jar_interface_1a9530bdbe1efe57aa33c6966db5e7a94c">clear</link> (?string $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">domain</link>=null, ?string $path=null, ?string $name=null)</para>
+</listitem>
+            <listitem><para><link linkend="_interface_guzzle_http_1_1_cookie_1_1_cookie_jar_interface_1affb6123ae477ee8c0cd2fc5e8f5d9749">clearSessionCookies</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_interface_guzzle_http_1_1_cookie_1_1_cookie_jar_interface_1a658defb34762c8f40085aec87e16ba1a">toArray</link> ()</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Description détaillée</title>
+
+<para>Stores HTTP cookies.</para>
+
+<para>It extracts cookies from HTTP requests, and returns them in HTTP responses. CookieJarInterface instances automatically expire contained cookies when necessary. Subclasses are also responsible for storing and retrieving cookies from a file, database, etc.</para>
+
+<para><link linkend="_">Inspiration </link> </para>
+</section>
+<section>
+<title>Documentation des fonctions membres</title>
+<anchor xml:id="_interface_guzzle_http_1_1_cookie_1_1_cookie_jar_interface_1a9530bdbe1efe57aa33c6966db5e7a94c"/><section>
+    <title>clear()</title>
+<indexterm><primary>clear</primary><secondary>CookieJarInterface</secondary></indexterm>
+<indexterm><primary>CookieJarInterface</primary><secondary>clear</secondary></indexterm>
+<para><computeroutput>clear (?string $domain = <computeroutput>null</computeroutput>
+, ?string $path = <computeroutput>null</computeroutput>
+, ?string $name = <computeroutput>null</computeroutput>
+)</computeroutput></para>
+<para>Remove cookies currently held in the cookie jar.</para>
+
+<para>Invoking this method without arguments will empty the whole cookie jar. If given a $domain argument only cookies belonging to that domain will be removed. If given a $domain and $path argument, cookies belonging to the specified path within that domain are removed. If given all three arguments, then the cookie with the specified name, path and domain is removed.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string | null</entry><entry>$domain</entry><entry>
+<para>Clears cookies matching a domain </para>
+</entry>
+                            </row>
+                            <row>
+<entry>string | null</entry><entry>$path</entry><entry>
+<para>Clears cookies matching a domain and path </para>
+</entry>
+                            </row>
+                            <row>
+<entry>string | null</entry><entry>$name</entry><entry>
+<para>Clears cookies matching a domain, path, and name </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Implémenté dans <link linkend="_class_guzzle_http_1_1_cookie_1_1_cookie_jar_1a9530bdbe1efe57aa33c6966db5e7a94c">CookieJar</link>.</para>
+</section>
+<anchor xml:id="_interface_guzzle_http_1_1_cookie_1_1_cookie_jar_interface_1affb6123ae477ee8c0cd2fc5e8f5d9749"/><section>
+    <title>clearSessionCookies()</title>
+<indexterm><primary>clearSessionCookies</primary><secondary>CookieJarInterface</secondary></indexterm>
+<indexterm><primary>CookieJarInterface</primary><secondary>clearSessionCookies</secondary></indexterm>
+<para><computeroutput>clearSessionCookies ( )</computeroutput></para>
+<para>Discard all sessions cookies.</para>
+
+<para>Removes cookies that don&apos;t have an expire field or a have a discard field set to true. To be called when the user agent shuts down according to RFC 2965. </para>
+<para>
+Implémenté dans <link linkend="_class_guzzle_http_1_1_cookie_1_1_cookie_jar_1affb6123ae477ee8c0cd2fc5e8f5d9749">CookieJar</link>.</para>
+</section>
+<anchor xml:id="_interface_guzzle_http_1_1_cookie_1_1_cookie_jar_interface_1ac1c738cf701f4011cbd5aa215a7bd78d"/><section>
+    <title>extractCookies()</title>
+<indexterm><primary>extractCookies</primary><secondary>CookieJarInterface</secondary></indexterm>
+<indexterm><primary>CookieJarInterface</primary><secondary>extractCookies</secondary></indexterm>
+<para><computeroutput>extractCookies (<link linkend="_interface_psr_1_1_http_1_1_message_1_1_request_interface">RequestInterface</link> $request, <link linkend="_interface_psr_1_1_http_1_1_message_1_1_response_interface">ResponseInterface</link> $response)</computeroutput></para>
+<para>Extract cookies from an HTTP response and store them in the CookieJar.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>RequestInterface</entry><entry>$request</entry><entry>
+<para>Request that was sent </para>
+</entry>
+                            </row>
+                            <row>
+<entry>ResponseInterface</entry><entry>$response</entry><entry>
+<para>Response that was received </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Implémenté dans <link linkend="_class_guzzle_http_1_1_cookie_1_1_cookie_jar_1ac1c738cf701f4011cbd5aa215a7bd78d">CookieJar</link>.</para>
+</section>
+<anchor xml:id="_interface_guzzle_http_1_1_cookie_1_1_cookie_jar_interface_1a5395d249ba8bb2de9e8a834b2b1fd336"/><section>
+    <title>setCookie()</title>
+<indexterm><primary>setCookie</primary><secondary>CookieJarInterface</secondary></indexterm>
+<indexterm><primary>CookieJarInterface</primary><secondary>setCookie</secondary></indexterm>
+<para><computeroutput>setCookie (<link linkend="_class_guzzle_http_1_1_cookie_1_1_set_cookie">SetCookie</link> $cookie)</computeroutput></para>
+<para>Sets a cookie in the cookie jar.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>SetCookie</entry><entry>$cookie</entry><entry>
+<para>Cookie to set.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>bool Returns true on success or false on failure </para>
+</formalpara>
+</para>
+<para>
+Implémenté dans <link linkend="_class_guzzle_http_1_1_cookie_1_1_cookie_jar_1a5395d249ba8bb2de9e8a834b2b1fd336">CookieJar</link>.</para>
+</section>
+<anchor xml:id="_interface_guzzle_http_1_1_cookie_1_1_cookie_jar_interface_1a658defb34762c8f40085aec87e16ba1a"/><section>
+    <title>toArray()</title>
+<indexterm><primary>toArray</primary><secondary>CookieJarInterface</secondary></indexterm>
+<indexterm><primary>CookieJarInterface</primary><secondary>toArray</secondary></indexterm>
+<para><computeroutput>toArray ( )</computeroutput></para>
+<para>Converts the cookie jar to an array. </para>
+<para>
+Implémenté dans <link linkend="_class_guzzle_http_1_1_cookie_1_1_cookie_jar_1a658defb34762c8f40085aec87e16ba1a">CookieJar</link>.</para>
+</section>
+<anchor xml:id="_interface_guzzle_http_1_1_cookie_1_1_cookie_jar_interface_1a6eebfd395ad6e8bec4e372c668d94cf0"/><section>
+    <title>withCookieHeader()</title>
+<indexterm><primary>withCookieHeader</primary><secondary>CookieJarInterface</secondary></indexterm>
+<indexterm><primary>CookieJarInterface</primary><secondary>withCookieHeader</secondary></indexterm>
+<para><computeroutput>withCookieHeader (<link linkend="_interface_psr_1_1_http_1_1_message_1_1_request_interface">RequestInterface</link> $request)</computeroutput></para>
+<para>Create a request with added cookie headers.</para>
+
+<para>If no matching cookies are found in the cookie jar, then no Cookie header is added to the request and the same request is returned.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>RequestInterface</entry><entry>$request</entry><entry>
+<para>Request object to modify.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>RequestInterface returns the modified request. </para>
+</formalpara>
+</para>
+<para>
+Implémenté dans <link linkend="_class_guzzle_http_1_1_cookie_1_1_cookie_jar_1a6eebfd395ad6e8bec4e372c668d94cf0">CookieJar</link>.</para>
+</section>
+<para>
+La documentation de cette interface a été générée à partir du fichier suivant :</para>
+public/glpi/vendor/guzzlehttp/guzzle/src/Cookie/<link linkend="__cookie_jar_interface_8php">CookieJarInterface.php</link></section>
+</section>

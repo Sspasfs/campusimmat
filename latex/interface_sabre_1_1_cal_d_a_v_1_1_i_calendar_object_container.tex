@@ -1,0 +1,95 @@
+\doxysection{Référence de l\textquotesingle{}interface ICalendar\+Object\+Container}
+\hypertarget{interface_sabre_1_1_cal_d_a_v_1_1_i_calendar_object_container}{}\label{interface_sabre_1_1_cal_d_a_v_1_1_i_calendar_object_container}\index{ICalendarObjectContainer@{ICalendarObjectContainer}}
+
+
+Graphe d\textquotesingle{}héritage de ICalendar\+Object\+Container\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{interface_sabre_1_1_cal_d_a_v_1_1_i_calendar_object_container__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Graphe de collaboration de ICalendar\+Object\+Container\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=202pt]{interface_sabre_1_1_cal_d_a_v_1_1_i_calendar_object_container__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{interface_sabre_1_1_cal_d_a_v_1_1_i_calendar_object_container_a655a6ae4342484cae5ef9e8f43592fcf}{calendar\+Query}} (array \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{filters}})
+\end{DoxyCompactItemize}
+\doxysubsection*{Fonctions membres publiques hérités de \mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_i_collection}{ICollection}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_i_collection_a4135c8ffb4787bd20d7409ad699d8e0d}{create\+File}} (\$name, \$data=null)
+\item 
+\mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_i_collection_ad2c87f2e1012d1860d1d343a9ee54fa1}{create\+Directory}} (\$name)
+\item 
+\mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_i_collection_a1cfdba129d25b04b73af8290f58ba7c1}{get\+Child}} (\$name)
+\item 
+\mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_i_collection_a8650a4f6150ed357d88fa043f1685ac5}{get\+Children}} ()
+\item 
+\mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_i_collection_a9c5c664f8f1e4a514235a31837de9988}{child\+Exists}} (\$name)
+\end{DoxyCompactItemize}
+\doxysubsection*{Fonctions membres publiques hérités de \mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_i_node}{INode}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_i_node_a13bdffdd926f26b825ea57066334ff01}{delete}} ()
+\item 
+\mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_i_node_a3d0963e68bb313b163a73f2803c64600}{get\+Name}} ()
+\item 
+\mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_i_node_a2fe666694997d047711d7653eca2f132}{set\+Name}} (\$name)
+\item 
+\mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_i_node_aa388e2fda4fe702e8953c1a731868f18}{get\+Last\+Modified}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+This interface represents a node that may contain calendar objects.
+
+This is the shared parent for both the Inbox collection and calendars resources.
+
+In most cases you will likely want to look at ICalendar instead of this interface.
+
+\begin{DoxyCopyright}{Copyright}
+Copyright (C) fruux GmbH (\href{https://fruux.com/}{\texttt{ https\+://fruux.\+com/}}) 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Auteur}
+Evert Pot (\href{http://evertpot.com/}{\texttt{ http\+://evertpot.\+com/}}) @license \href{http://sabre.io/license/}{\texttt{ http\+://sabre.\+io/license/}} Modified BSD License 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Documentation des fonctions membres}
+\Hypertarget{interface_sabre_1_1_cal_d_a_v_1_1_i_calendar_object_container_a655a6ae4342484cae5ef9e8f43592fcf}\label{interface_sabre_1_1_cal_d_a_v_1_1_i_calendar_object_container_a655a6ae4342484cae5ef9e8f43592fcf} 
+\index{ICalendarObjectContainer@{ICalendarObjectContainer}!calendarQuery@{calendarQuery}}
+\index{calendarQuery@{calendarQuery}!ICalendarObjectContainer@{ICalendarObjectContainer}}
+\doxysubsubsection{\texorpdfstring{calendarQuery()}{calendarQuery()}}
+{\footnotesize\ttfamily calendar\+Query (\begin{DoxyParamCaption}\item[{array}]{\$filters }\end{DoxyParamCaption})}
+
+Performs a calendar-\/query on the contents of this calendar.
+
+The calendar-\/query is defined in RFC4791 \+: Cal\+DAV. Using the calendar-\/query it is possible for a client to request a specific set of object, based on contents of i\+Calendar properties, date-\/ranges and i\+Calendar component types (VTODO, VEVENT).
+
+This method should just return a list of (relative) urls that match this query.
+
+The list of filters are specified as an array. The exact array is documented by \textbackslash{}\+Sabre\textbackslash{}\+Cal\+DAV\textbackslash{}\+Calendar\+Query\+Parser.
+
+\begin{DoxyReturn}{Renvoie}
+array 
+\end{DoxyReturn}
+
+
+Implémenté dans \mbox{\hyperlink{class_sabre_1_1_cal_d_a_v_1_1_calendar_a655a6ae4342484cae5ef9e8f43592fcf}{Calendar}}, et \mbox{\hyperlink{class_sabre_1_1_cal_d_a_v_1_1_schedule_1_1_inbox_a655a6ae4342484cae5ef9e8f43592fcf}{Inbox}}.
+
+
+
+La documentation de cette interface a été générée à partir du fichier suivant \+:\begin{DoxyCompactItemize}
+\item 
+public/glpi/vendor/sabre/dav/lib/\+Cal\+DAV/\mbox{\hyperlink{_i_calendar_object_container_8php}{ICalendar\+Object\+Container.\+php}}\end{DoxyCompactItemize}

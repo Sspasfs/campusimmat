@@ -1,0 +1,35 @@
+\chapter{Delegate lookup feature}
+\hypertarget{md_public_2glpi_2vendor_2container-interop_2container-interop_2docs_2_delegate-lookup}{}\label{md_public_2glpi_2vendor_2container-interop_2container-interop_2docs_2_delegate-lookup}\index{Delegate lookup feature@{Delegate lookup feature}}
+This document describes a standard for dependency injection containers.
+
+The goal set by the {\itshape delegate lookup} feature is to allow several containers to share entries. Containers implementing this feature can perform dependency lookups in other containers.
+
+Containers implementing this feature will offer a greater lever of interoperability with other containers. Implementation of this feature is therefore RECOMMENDED.
+
+The key words "{}\+MUST"{}, "{}\+MUST NOT"{}, "{}\+REQUIRED"{}, "{}\+SHALL"{}, "{}\+SHALL NOT"{}, "{}\+SHOULD"{}, "{}\+SHOULD NOT"{}, "{}\+RECOMMENDED"{}, "{}\+MAY"{}, and "{}\+OPTIONAL"{} in this document are to be interpreted as described in \href{http://tools.ietf.org/html/rfc2119}{\texttt{ RFC 2119}}.
+
+The word {\ttfamily implementor} in this document is to be interpreted as someone implementing the delegate lookup feature in a dependency injection-\/related library or framework. Users of dependency injections containers (DIC) are referred to as {\ttfamily user}.\hypertarget{md_public_2glpi_2vendor_2container-interop_2container-interop_2docs_2_delegate-lookup_autotoc_md5733}{}\doxysection{\texorpdfstring{1. Vocabulary}{1. Vocabulary}}\label{md_public_2glpi_2vendor_2container-interop_2container-interop_2docs_2_delegate-lookup_autotoc_md5733}
+In a dependency injection container, the container is used to fetch entries. Entries can have dependencies on other entries. Usually, these other entries are fetched by the container.
+
+The {\itshape delegate lookup} feature is the ability for a container to fetch dependencies in another container. In the rest of the document, the word "{}container"{} will reference the container implemented by the implementor. The word "{}delegate container"{} will reference the container we are fetching the dependencies from.\hypertarget{md_public_2glpi_2vendor_2container-interop_2container-interop_2docs_2_delegate-lookup_autotoc_md5734}{}\doxysection{\texorpdfstring{2. Specification}{2. Specification}}\label{md_public_2glpi_2vendor_2container-interop_2container-interop_2docs_2_delegate-lookup_autotoc_md5734}
+A container implementing the {\itshape delegate lookup} feature\+:
+
+
+\begin{DoxyItemize}
+\item MUST implement the \doxysectlink{md_public_2glpi_2vendor_2container-interop_2container-interop_2docs_2_container_interface}{{\ttfamily Container\+Interface}}{0}
+\item MUST provide a way to register a delegate container (using a constructor parameter, or a setter, or any possible way). The delegate container MUST implement the \doxysectlink{md_public_2glpi_2vendor_2container-interop_2container-interop_2docs_2_container_interface}{{\ttfamily Container\+Interface}}{0}.
+\end{DoxyItemize}
+
+When a container is configured to use a delegate container for dependencies\+:
+
+
+\begin{DoxyItemize}
+\item Calls to the {\ttfamily get} method should only return an entry if the entry is part of the container. If the entry is not part of the container, an exception should be thrown (as requested by the \doxysectlink{md_public_2glpi_2vendor_2container-interop_2container-interop_2docs_2_container_interface}{{\ttfamily Container\+Interface}}{0}).
+\item Calls to the {\ttfamily has} method should only return {\ttfamily true} if the entry is part of the container. If the entry is not part of the container, {\ttfamily false} should be returned.
+\item If the fetched entry has dependencies, {\bfseries{instead}} of performing the dependency lookup in the container, the lookup is performed on the {\itshape delegate container}.
+\end{DoxyItemize}
+
+Important\+: By default, the dependency lookups SHOULD be performed on the delegate container {\bfseries{only}}, not on the container itself.
+
+It is however allowed for containers to provide exception cases for special entries, and a way to lookup into the same container (or another container) instead of the delegate container.\hypertarget{md_public_2glpi_2vendor_2container-interop_2container-interop_2docs_2_delegate-lookup_autotoc_md5735}{}\doxysection{\texorpdfstring{3. Package / Interface}{3. Package / Interface}}\label{md_public_2glpi_2vendor_2container-interop_2container-interop_2docs_2_delegate-lookup_autotoc_md5735}
+This feature is not tied to any code, interface or package. 

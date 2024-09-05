@@ -1,0 +1,775 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_md_public_2glpi_2vendor_2psr_2http-message_2docs_2_p_s_r7-_interfaces" xml:lang="fr">
+<title>Interfaces</title>
+<indexterm><primary>Interfaces</primary></indexterm>
+
+<para><anchor xml:id="_md_public_2glpi_2vendor_2psr_2http-message_2docs_2_p_s_r7-_interfaces_1autotoc_md6930"/> The purpose of this list is to help in finding the methods when working with PSR-7. This can be considered as a cheatsheet for PSR-7 interfaces.</para>
+
+<para>The interfaces defined in PSR-7 are the following:</para>
+
+<para><informaltable frame="all">
+    <tgroup cols="2" align="left" colsep="1" rowsep="1">
+      <colspec colname='c1'/>
+      <colspec colname='c2'/>
+<thead>
+      <row  class='markdownTableHead'>
+<entry>
+<para>Class Name   </para>
+</entry><entry>
+<para>Description    </para>
+</entry></row>
+</thead><tbody>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><link xlink:href="http://www.php-fig.org/psr/psr-7/#psrhttpmessagemessageinterface">Psr\Http\Message\MessageInterface</link>   </para>
+</entry><entry>
+<para>Representation of a HTTP message    </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para><link xlink:href="http://www.php-fig.org/psr/psr-7/#psrhttpmessagerequestinterface">Psr\Http\Message\RequestInterface</link>   </para>
+</entry><entry>
+<para>Representation of an outgoing, client-side request.    </para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><link xlink:href="http://www.php-fig.org/psr/psr-7/#psrhttpmessageserverrequestinterface">Psr\Http\Message\ServerRequestInterface</link>   </para>
+</entry><entry>
+<para>Representation of an incoming, server-side HTTP request.    </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para><link xlink:href="http://www.php-fig.org/psr/psr-7/#psrhttpmessageresponseinterface">Psr\Http\Message\ResponseInterface</link>   </para>
+</entry><entry>
+<para>Representation of an outgoing, server-side response.    </para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><link xlink:href="http://www.php-fig.org/psr/psr-7/#psrhttpmessagestreaminterface">Psr\Http\Message\StreamInterface</link>   </para>
+</entry><entry>
+<para>Describes a data stream    </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para><link xlink:href="http://www.php-fig.org/psr/psr-7/#psrhttpmessageuriinterface">Psr\Http\Message\UriInterface</link>   </para>
+</entry><entry>
+<para>Value object representing a URI.    </para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><link xlink:href="http://www.php-fig.org/psr/psr-7/#psrhttpmessageuploadedfileinterface">Psr\Http\Message\UploadedFileInterface</link>   </para>
+</entry><entry>
+<para>Value object representing a file uploaded through an HTTP request.   </para>
+</entry></row>
+    </tbody>
+    </tgroup>
+</informaltable>
+</para>
+<section xml:id="_md_public_2glpi_2vendor_2psr_2http-message_2docs_2_p_s_r7-_interfaces_1autotoc_md6931">
+<title><title><computeroutput>Psr\Http\Message\MessageInterface</computeroutput> Methods</title></title>
+
+<para><informaltable frame="all">
+    <tgroup cols="3" align="left" colsep="1" rowsep="1">
+      <colspec colname='c1'/>
+      <colspec colname='c2'/>
+      <colspec colname='c3'/>
+<thead>
+      <row  class='markdownTableHead'>
+<entry>
+<para>Method Name   </para>
+</entry><entry>
+<para>Description   </para>
+</entry><entry>
+<para>Notes    </para>
+</entry></row>
+</thead><tbody>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>getProtocolVersion()</computeroutput>   </para>
+</entry><entry>
+<para>Retrieve HTTP protocol version   </para>
+</entry><entry>
+<para>1.0 or 1.1    </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para><computeroutput>withProtocolVersion($version)</computeroutput>   </para>
+</entry><entry>
+<para>Returns new message instance with given HTTP protocol version   </para>
+</entry><entry>
+<para></para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>getHeaders()</computeroutput>   </para>
+</entry><entry>
+<para>Retrieve all HTTP Headers   </para>
+</entry><entry>
+<para><link xlink:href="https://en.wikipedia.org/wiki/List_of_HTTP_header_fields#Request_fields">Request Header List</link>, <link xlink:href="https://en.wikipedia.org/wiki/List_of_HTTP_header_fields#Response_fields">Response Header List</link>    </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para><computeroutput>hasHeader($name)</computeroutput>   </para>
+</entry><entry>
+<para>Checks if HTTP Header with given name exists   </para>
+</entry><entry>
+<para></para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>getHeader($name)</computeroutput>   </para>
+</entry><entry>
+<para>Retrieves a array with the values for a single header   </para>
+</entry><entry>
+<para></para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para><computeroutput>getHeaderLine($name)</computeroutput>   </para>
+</entry><entry>
+<para>Retrieves a comma-separated string of the values for a single header   </para>
+</entry><entry>
+<para></para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>withHeader($name, $value)</computeroutput>   </para>
+</entry><entry>
+<para>Returns new message instance with given HTTP Header   </para>
+</entry><entry>
+<para>if the header existed in the original instance, replaces the header value from the original message with the value provided when creating the new instance.    </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para><computeroutput>withAddedHeader($name, $value)</computeroutput>   </para>
+</entry><entry>
+<para>Returns new message instance with appended value to given header   </para>
+</entry><entry>
+<para>If header already exists value will be appended, if not a new header will be created    </para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>withoutHeader($name)</computeroutput>   </para>
+</entry><entry>
+<para>Removes HTTP Header with given name   </para>
+</entry><entry>
+<para></para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para><computeroutput>getBody()</computeroutput>   </para>
+</entry><entry>
+<para>Retrieves the HTTP Message Body   </para>
+</entry><entry>
+<para>Returns object implementing <computeroutput>StreamInterface</computeroutput>    </para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>withBody(StreamInterface $body)</computeroutput>   </para>
+</entry><entry>
+<para>Returns new message instance with given HTTP Message Body   </para>
+</entry><entry>
+<para></para>
+</entry></row>
+    </tbody>
+    </tgroup>
+</informaltable>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2psr_2http-message_2docs_2_p_s_r7-_interfaces_1autotoc_md6932">
+<title><title><computeroutput>Psr\Http\Message\RequestInterface</computeroutput> Methods</title></title>
+
+<para>Same methods as <computeroutput>Psr\Http\Message\MessageInterface</computeroutput> + the following methods:</para>
+
+<para><informaltable frame="all">
+    <tgroup cols="3" align="left" colsep="1" rowsep="1">
+      <colspec colname='c1'/>
+      <colspec colname='c2'/>
+      <colspec colname='c3'/>
+<thead>
+      <row  class='markdownTableHead'>
+<entry>
+<para>Method Name   </para>
+</entry><entry>
+<para>Description   </para>
+</entry><entry>
+<para>Notes    </para>
+</entry></row>
+</thead><tbody>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>getRequestTarget()</computeroutput>   </para>
+</entry><entry>
+<para>Retrieves the message&apos;s request target   </para>
+</entry><entry>
+<para>origin-form, absolute-form, authority-form, asterisk-form (<link xlink:href="https://www.rfc-editor.org/rfc/rfc7230.txt">RFC7230</link>)    </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para><computeroutput>withRequestTarget($requestTarget)</computeroutput>   </para>
+</entry><entry>
+<para>Return a new message instance with the specific request-target   </para>
+</entry><entry>
+<para></para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>getMethod()</computeroutput>   </para>
+</entry><entry>
+<para>Retrieves the HTTP method of the request.   </para>
+</entry><entry>
+<para>GET, HEAD, POST, PUT, DELETE, CONNECT, OPTIONS, TRACE (defined in <link xlink:href="https://tools.ietf.org/html/rfc7231">RFC7231</link>), PATCH (defined in <link xlink:href="https://tools.ietf.org/html/rfc5789">RFC5789</link>)    </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para><computeroutput>withMethod($method)</computeroutput>   </para>
+</entry><entry>
+<para>Returns a new message instance with the provided HTTP method   </para>
+</entry><entry>
+<para></para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>getUri()</computeroutput>   </para>
+</entry><entry>
+<para>Retrieves the URI instance   </para>
+</entry><entry>
+<para></para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para><computeroutput>withUri(UriInterface $uri, $preserveHost = false)</computeroutput>   </para>
+</entry><entry>
+<para>Returns a new message instance with the provided URI   </para>
+</entry><entry>
+<para></para>
+</entry></row>
+    </tbody>
+    </tgroup>
+</informaltable>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2psr_2http-message_2docs_2_p_s_r7-_interfaces_1autotoc_md6933">
+<title><title><computeroutput>Psr\Http\Message\ServerRequestInterface</computeroutput> Methods</title></title>
+
+<para>Same methods as <computeroutput>Psr\Http\Message\RequestInterface</computeroutput> + the following methods:</para>
+
+<para><informaltable frame="all">
+    <tgroup cols="3" align="left" colsep="1" rowsep="1">
+      <colspec colname='c1'/>
+      <colspec colname='c2'/>
+      <colspec colname='c3'/>
+<thead>
+      <row  class='markdownTableHead'>
+<entry>
+<para>Method Name   </para>
+</entry><entry>
+<para>Description   </para>
+</entry><entry>
+<para>Notes    </para>
+</entry></row>
+</thead><tbody>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>getServerParams()</computeroutput>   </para>
+</entry><entry>
+<para>Retrieve server parameters   </para>
+</entry><entry>
+<para>Typically derived from <computeroutput>$_SERVER</computeroutput>    </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para><computeroutput>getCookieParams()</computeroutput>   </para>
+</entry><entry>
+<para>Retrieves cookies sent by the client to the server.   </para>
+</entry><entry>
+<para>Typically derived from <computeroutput>$_COOKIES</computeroutput>    </para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>withCookieParams(array $cookies)</computeroutput>   </para>
+</entry><entry>
+<para>Returns a new request instance with the specified cookies   </para>
+</entry><entry>
+<para></para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para><computeroutput>withQueryParams(array $query)</computeroutput>   </para>
+</entry><entry>
+<para>Returns a new request instance with the specified query string arguments   </para>
+</entry><entry>
+<para></para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>getUploadedFiles()</computeroutput>   </para>
+</entry><entry>
+<para>Retrieve normalized file upload data   </para>
+</entry><entry>
+<para></para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para><computeroutput>withUploadedFiles(array $uploadedFiles)</computeroutput>   </para>
+</entry><entry>
+<para>Returns a new request instance with the specified uploaded files   </para>
+</entry><entry>
+<para></para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>getParsedBody()</computeroutput>   </para>
+</entry><entry>
+<para>Retrieve any parameters provided in the request body   </para>
+</entry><entry>
+<para></para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para><computeroutput>withParsedBody($data)</computeroutput>   </para>
+</entry><entry>
+<para>Returns a new request instance with the specified body parameters   </para>
+</entry><entry>
+<para></para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>getAttributes()</computeroutput>   </para>
+</entry><entry>
+<para>Retrieve attributes derived from the request   </para>
+</entry><entry>
+<para></para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para><computeroutput>getAttribute($name, $default = null)</computeroutput>   </para>
+</entry><entry>
+<para>Retrieve a single derived request attribute   </para>
+</entry><entry>
+<para></para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>withAttribute($name, $value)</computeroutput>   </para>
+</entry><entry>
+<para>Returns a new request instance with the specified derived request attribute   </para>
+</entry><entry>
+<para></para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para><computeroutput>withoutAttribute($name)</computeroutput>   </para>
+</entry><entry>
+<para>Returns a new request instance that without the specified derived request attribute   </para>
+</entry><entry>
+<para></para>
+</entry></row>
+    </tbody>
+    </tgroup>
+</informaltable>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2psr_2http-message_2docs_2_p_s_r7-_interfaces_1autotoc_md6934">
+<title><title><computeroutput>Psr\Http\Message\ResponseInterface</computeroutput> Methods:</title></title>
+
+<para>Same methods as <computeroutput>Psr\Http\Message\MessageInterface</computeroutput> + the following methods:</para>
+
+<para><informaltable frame="all">
+    <tgroup cols="3" align="left" colsep="1" rowsep="1">
+      <colspec colname='c1'/>
+      <colspec colname='c2'/>
+      <colspec colname='c3'/>
+<thead>
+      <row  class='markdownTableHead'>
+<entry>
+<para>Method Name   </para>
+</entry><entry>
+<para>Description   </para>
+</entry><entry>
+<para>Notes    </para>
+</entry></row>
+</thead><tbody>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>getStatusCode()</computeroutput>   </para>
+</entry><entry>
+<para>Gets the response status code.   </para>
+</entry><entry>
+<para></para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para>&#8216;withStatus($code, $reasonPhrase = &#8217;&apos;)<computeroutput>\ilinebr &lt;/td&gt; &lt;td class=&quot;markdownTableBodyNone&quot;&gt; Returns a new response instance with the specified status code and, optionally, reason phrase. \ilinebr &lt;/td&gt; &lt;td class=&quot;markdownTableBodyNone&quot;&gt; \ilinebr &lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;markdownTableRowOdd&quot;&gt; &lt;td class=&quot;markdownTableBodyNone&quot;&gt;</computeroutput>getReasonPhrase()`   </para>
+</entry><entry>
+<para>Gets the response reason phrase associated with the status code.   </para>
+</entry><entry>
+<para></para>
+</entry></row>
+    </tbody>
+    </tgroup>
+</informaltable>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2psr_2http-message_2docs_2_p_s_r7-_interfaces_1autotoc_md6935">
+<title><title><computeroutput>Psr\Http\Message\StreamInterface</computeroutput> Methods</title></title>
+
+<para><informaltable frame="all">
+    <tgroup cols="3" align="left" colsep="1" rowsep="1">
+      <colspec colname='c1'/>
+      <colspec colname='c2'/>
+      <colspec colname='c3'/>
+<thead>
+      <row  class='markdownTableHead'>
+<entry>
+<para>Method Name   </para>
+</entry><entry>
+<para>Description   </para>
+</entry><entry>
+<para>Notes    </para>
+</entry></row>
+</thead><tbody>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>__toString()</computeroutput>   </para>
+</entry><entry>
+<para>Reads all data from the stream into a string, from the beginning to end.   </para>
+</entry><entry>
+<para></para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para><computeroutput>close()</computeroutput>   </para>
+</entry><entry>
+<para>Closes the stream and any underlying resources.   </para>
+</entry><entry>
+<para></para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>detach()</computeroutput>   </para>
+</entry><entry>
+<para>Separates any underlying resources from the stream.   </para>
+</entry><entry>
+<para></para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para><computeroutput>getSize()</computeroutput>   </para>
+</entry><entry>
+<para>Get the size of the stream if known.   </para>
+</entry><entry>
+<para></para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>eof()</computeroutput>   </para>
+</entry><entry>
+<para>Returns true if the stream is at the end of the stream.   </para>
+</entry><entry>
+<para></para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para><computeroutput>isSeekable()</computeroutput>   </para>
+</entry><entry>
+<para>Returns whether or not the stream is seekable.   </para>
+</entry><entry>
+<para></para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>seek($offset, $whence = SEEK_SET)</computeroutput>   </para>
+</entry><entry>
+<para>Seek to a position in the stream.   </para>
+</entry><entry>
+<para></para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para><computeroutput>rewind()</computeroutput>   </para>
+</entry><entry>
+<para>Seek to the beginning of the stream.   </para>
+</entry><entry>
+<para></para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>isWritable()</computeroutput>   </para>
+</entry><entry>
+<para>Returns whether or not the stream is writable.   </para>
+</entry><entry>
+<para></para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para><computeroutput>write($string)</computeroutput>   </para>
+</entry><entry>
+<para>Write data to the stream.   </para>
+</entry><entry>
+<para></para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>isReadable()</computeroutput>   </para>
+</entry><entry>
+<para>Returns whether or not the stream is readable.   </para>
+</entry><entry>
+<para></para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para><computeroutput>read($length)</computeroutput>   </para>
+</entry><entry>
+<para>Read data from the stream.   </para>
+</entry><entry>
+<para></para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>getContents()</computeroutput>   </para>
+</entry><entry>
+<para>Returns the remaining contents in a string   </para>
+</entry><entry>
+<para></para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para><computeroutput>getMetadata($key = null)()</computeroutput>   </para>
+</entry><entry>
+<para>Get stream metadata as an associative array or retrieve a specific key.   </para>
+</entry><entry>
+<para></para>
+</entry></row>
+    </tbody>
+    </tgroup>
+</informaltable>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2psr_2http-message_2docs_2_p_s_r7-_interfaces_1autotoc_md6936">
+<title><title><computeroutput>Psr\Http\Message\UriInterface</computeroutput> Methods</title></title>
+
+<para><informaltable frame="all">
+    <tgroup cols="3" align="left" colsep="1" rowsep="1">
+      <colspec colname='c1'/>
+      <colspec colname='c2'/>
+      <colspec colname='c3'/>
+<thead>
+      <row  class='markdownTableHead'>
+<entry>
+<para>Method Name   </para>
+</entry><entry>
+<para>Description   </para>
+</entry><entry>
+<para>Notes    </para>
+</entry></row>
+</thead><tbody>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>getScheme()</computeroutput>   </para>
+</entry><entry>
+<para>Retrieve the scheme component of the URI.   </para>
+</entry><entry>
+<para></para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para><computeroutput>getAuthority()</computeroutput>   </para>
+</entry><entry>
+<para>Retrieve the authority component of the URI.   </para>
+</entry><entry>
+<para></para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>getUserInfo()</computeroutput>   </para>
+</entry><entry>
+<para>Retrieve the user information component of the URI.   </para>
+</entry><entry>
+<para></para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para><computeroutput>getHost()</computeroutput>   </para>
+</entry><entry>
+<para>Retrieve the host component of the URI.   </para>
+</entry><entry>
+<para></para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>getPort()</computeroutput>   </para>
+</entry><entry>
+<para>Retrieve the port component of the URI.   </para>
+</entry><entry>
+<para></para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para><computeroutput>getPath()</computeroutput>   </para>
+</entry><entry>
+<para>Retrieve the path component of the URI.   </para>
+</entry><entry>
+<para></para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>getQuery()</computeroutput>   </para>
+</entry><entry>
+<para>Retrieve the query string of the URI.   </para>
+</entry><entry>
+<para></para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para><computeroutput>getFragment()</computeroutput>   </para>
+</entry><entry>
+<para>Retrieve the fragment component of the URI.   </para>
+</entry><entry>
+<para></para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>withScheme($scheme)</computeroutput>   </para>
+</entry><entry>
+<para>Return an instance with the specified scheme.   </para>
+</entry><entry>
+<para></para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para><computeroutput>withUserInfo($user, $password = null)</computeroutput>   </para>
+</entry><entry>
+<para>Return an instance with the specified user information.   </para>
+</entry><entry>
+<para></para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>withHost($host)</computeroutput>   </para>
+</entry><entry>
+<para>Return an instance with the specified host.   </para>
+</entry><entry>
+<para></para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para><computeroutput>withPort($port)</computeroutput>   </para>
+</entry><entry>
+<para>Return an instance with the specified port.   </para>
+</entry><entry>
+<para></para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>withPath($path)</computeroutput>   </para>
+</entry><entry>
+<para>Return an instance with the specified path.   </para>
+</entry><entry>
+<para></para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para><computeroutput>withQuery($query)</computeroutput>   </para>
+</entry><entry>
+<para>Return an instance with the specified query string.   </para>
+</entry><entry>
+<para></para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>withFragment($fragment)</computeroutput>   </para>
+</entry><entry>
+<para>Return an instance with the specified URI fragment.   </para>
+</entry><entry>
+<para></para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para><computeroutput>__toString()</computeroutput>   </para>
+</entry><entry>
+<para>Return the string representation as a URI reference.   </para>
+</entry><entry>
+<para></para>
+</entry></row>
+    </tbody>
+    </tgroup>
+</informaltable>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2psr_2http-message_2docs_2_p_s_r7-_interfaces_1autotoc_md6937">
+<title><title><computeroutput>Psr\Http\Message\UploadedFileInterface</computeroutput> Methods</title></title>
+
+<para><informaltable frame="all">
+    <tgroup cols="3" align="left" colsep="1" rowsep="1">
+      <colspec colname='c1'/>
+      <colspec colname='c2'/>
+      <colspec colname='c3'/>
+<thead>
+      <row  class='markdownTableHead'>
+<entry>
+<para>Method Name   </para>
+</entry><entry>
+<para>Description   </para>
+</entry><entry>
+<para>Notes    </para>
+</entry></row>
+</thead><tbody>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>getStream()</computeroutput>   </para>
+</entry><entry>
+<para>Retrieve a stream representing the uploaded file.   </para>
+</entry><entry>
+<para></para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para><computeroutput>moveTo($targetPath)</computeroutput>   </para>
+</entry><entry>
+<para>Move the uploaded file to a new location.   </para>
+</entry><entry>
+<para></para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>getSize()</computeroutput>   </para>
+</entry><entry>
+<para>Retrieve the file size.   </para>
+</entry><entry>
+<para></para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para><computeroutput>getError()</computeroutput>   </para>
+</entry><entry>
+<para>Retrieve the error associated with the uploaded file.   </para>
+</entry><entry>
+<para></para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>getClientFilename()</computeroutput>   </para>
+</entry><entry>
+<para>Retrieve the filename sent by the client.   </para>
+</entry><entry>
+<para></para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para><computeroutput>getClientMediaType()</computeroutput>   </para>
+</entry><entry>
+<para>Retrieve the media type sent by the client.   </para>
+</entry><entry>
+<para></para>
+</entry></row>
+    </tbody>
+    </tgroup>
+</informaltable>
+</para>
+
+<para><blockquote>
+<para>&#8205;<computeroutput>RequestInterface</computeroutput>, <computeroutput>ServerRequestInterface</computeroutput>, <computeroutput>ResponseInterface</computeroutput> extend <computeroutput>MessageInterface</computeroutput> because the <computeroutput>Request</computeroutput> and the <computeroutput>Response</computeroutput> are <computeroutput>HTTP Messages</computeroutput>. When using <computeroutput>ServerRequestInterface</computeroutput>, both <computeroutput>RequestInterface</computeroutput> and <computeroutput>Psr\Http\Message\MessageInterface</computeroutput> methods are considered. </para>
+</blockquote></para>
+</section>
+</section>

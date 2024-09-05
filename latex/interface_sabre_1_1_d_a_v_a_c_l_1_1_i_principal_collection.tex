@@ -1,0 +1,128 @@
+\doxysection{Référence de l\textquotesingle{}interface IPrincipal\+Collection}
+\hypertarget{interface_sabre_1_1_d_a_v_a_c_l_1_1_i_principal_collection}{}\label{interface_sabre_1_1_d_a_v_a_c_l_1_1_i_principal_collection}\index{IPrincipalCollection@{IPrincipalCollection}}
+
+
+Graphe d\textquotesingle{}héritage de IPrincipal\+Collection\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{interface_sabre_1_1_d_a_v_a_c_l_1_1_i_principal_collection__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Graphe de collaboration de IPrincipal\+Collection\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=207pt]{interface_sabre_1_1_d_a_v_a_c_l_1_1_i_principal_collection__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{interface_sabre_1_1_d_a_v_a_c_l_1_1_i_principal_collection_a789f5237ff1b4c98bb0a81dfecb2439b}{search\+Principals}} (array \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{search\+Properties}}, \$test=\textquotesingle{}\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{allof}}\textquotesingle{})
+\item 
+\mbox{\hyperlink{interface_sabre_1_1_d_a_v_a_c_l_1_1_i_principal_collection_a37dcdf79ecf65cc3ba474dee19c19d94}{find\+By\+Uri}} (\$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{uri}})
+\end{DoxyCompactItemize}
+\doxysubsection*{Fonctions membres publiques hérités de \mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_i_collection}{ICollection}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_i_collection_a4135c8ffb4787bd20d7409ad699d8e0d}{create\+File}} (\$name, \$data=null)
+\item 
+\mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_i_collection_ad2c87f2e1012d1860d1d343a9ee54fa1}{create\+Directory}} (\$name)
+\item 
+\mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_i_collection_a1cfdba129d25b04b73af8290f58ba7c1}{get\+Child}} (\$name)
+\item 
+\mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_i_collection_a8650a4f6150ed357d88fa043f1685ac5}{get\+Children}} ()
+\item 
+\mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_i_collection_a9c5c664f8f1e4a514235a31837de9988}{child\+Exists}} (\$name)
+\end{DoxyCompactItemize}
+\doxysubsection*{Fonctions membres publiques hérités de \mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_i_node}{INode}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_i_node_a13bdffdd926f26b825ea57066334ff01}{delete}} ()
+\item 
+\mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_i_node_a3d0963e68bb313b163a73f2803c64600}{get\+Name}} ()
+\item 
+\mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_i_node_a2fe666694997d047711d7653eca2f132}{set\+Name}} (\$name)
+\item 
+\mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_i_node_aa388e2fda4fe702e8953c1a731868f18}{get\+Last\+Modified}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Principal Collection interface.
+
+Implement this interface to ensure that your principal collection can be searched using the principal-\/property-\/search REPORT.
+
+\begin{DoxyCopyright}{Copyright}
+Copyright (C) fruux GmbH (\href{https://fruux.com/}{\texttt{ https\+://fruux.\+com/}}) 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Auteur}
+Evert Pot (\href{http://evertpot.com/}{\texttt{ http\+://evertpot.\+com/}}) @license \href{http://sabre.io/license/}{\texttt{ http\+://sabre.\+io/license/}} Modified BSD License 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Documentation des fonctions membres}
+\Hypertarget{interface_sabre_1_1_d_a_v_a_c_l_1_1_i_principal_collection_a37dcdf79ecf65cc3ba474dee19c19d94}\label{interface_sabre_1_1_d_a_v_a_c_l_1_1_i_principal_collection_a37dcdf79ecf65cc3ba474dee19c19d94} 
+\index{IPrincipalCollection@{IPrincipalCollection}!findByUri@{findByUri}}
+\index{findByUri@{findByUri}!IPrincipalCollection@{IPrincipalCollection}}
+\doxysubsubsection{\texorpdfstring{findByUri()}{findByUri()}}
+{\footnotesize\ttfamily find\+By\+Uri (\begin{DoxyParamCaption}\item[{}]{\$uri }\end{DoxyParamCaption})}
+
+Finds a principal by its URI.
+
+This method may receive any type of uri, but mailto\+: addresses will be the most common.
+
+Implementation of this API is optional. It is currently used by the Cal\+DAV system to find principals based on their email addresses. If this API is not implemented, some features may not work correctly.
+
+This method must return a relative principal path, or null, if the principal was not found or you refuse to find it.
+
+
+\begin{DoxyParams}[1]{Paramètres}
+string & {\em \$uri} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+string 
+\end{DoxyReturn}
+
+
+Implémenté dans \mbox{\hyperlink{class_sabre_1_1_d_a_v_a_c_l_1_1_abstract_principal_collection_a37dcdf79ecf65cc3ba474dee19c19d94}{Abstract\+Principal\+Collection}}.
+
+\Hypertarget{interface_sabre_1_1_d_a_v_a_c_l_1_1_i_principal_collection_a789f5237ff1b4c98bb0a81dfecb2439b}\label{interface_sabre_1_1_d_a_v_a_c_l_1_1_i_principal_collection_a789f5237ff1b4c98bb0a81dfecb2439b} 
+\index{IPrincipalCollection@{IPrincipalCollection}!searchPrincipals@{searchPrincipals}}
+\index{searchPrincipals@{searchPrincipals}!IPrincipalCollection@{IPrincipalCollection}}
+\doxysubsubsection{\texorpdfstring{searchPrincipals()}{searchPrincipals()}}
+{\footnotesize\ttfamily search\+Principals (\begin{DoxyParamCaption}\item[{array}]{\$search\+Properties,  }\item[{}]{\$test = {\ttfamily \textquotesingle{}\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{allof}}\textquotesingle{}} }\end{DoxyParamCaption})}
+
+This method is used to search for principals matching a set of properties.
+
+This search is specifically used by RFC3744\textquotesingle{}s principal-\/property-\/search REPORT. You should at least allow searching on \href{http://sabredav.org/ns}{\texttt{ http\+://sabredav.\+org/ns}}\}email-\/address.
+
+The actual search should be a unicode-\/non-\/case-\/sensitive search. The keys in search\+Properties are the Web\+DAV property names, while the values are the property values to search on.
+
+By default, if multiple properties are submitted to this method, the various properties should be combined with \textquotesingle{}AND\textquotesingle{}. If \$test is set to \textquotesingle{}anyof\textquotesingle{}, it should be combined using \textquotesingle{}OR\textquotesingle{}.
+
+This method should simply return a list of \textquotesingle{}child names\textquotesingle{}, which may be used to call \$this-\/\texorpdfstring{$>$}{>}get\+Child in the future.
+
+
+\begin{DoxyParams}[1]{Paramètres}
+string & {\em \$test} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+array 
+\end{DoxyReturn}
+
+
+Implémenté dans \mbox{\hyperlink{class_sabre_1_1_d_a_v_a_c_l_1_1_abstract_principal_collection_a789f5237ff1b4c98bb0a81dfecb2439b}{Abstract\+Principal\+Collection}}.
+
+
+
+La documentation de cette interface a été générée à partir du fichier suivant \+:\begin{DoxyCompactItemize}
+\item 
+public/glpi/vendor/sabre/dav/lib/\+DAVACL/\mbox{\hyperlink{_i_principal_collection_8php}{IPrincipal\+Collection.\+php}}\end{DoxyCompactItemize}

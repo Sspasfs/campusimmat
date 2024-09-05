@@ -1,0 +1,160 @@
+\doxysection{Référence de la classe Error\+Handler}
+\hypertarget{class_laminas_1_1_stdlib_1_1_error_handler}{}\label{class_laminas_1_1_stdlib_1_1_error_handler}\index{ErrorHandler@{ErrorHandler}}
+
+
+Graphe de collaboration de Error\+Handler\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=199pt]{class_laminas_1_1_stdlib_1_1_error_handler__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Fonctions membres publiques statiques}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_laminas_1_1_stdlib_1_1_error_handler_a138aaa9f9e7078bf89401bfe8a756976}{started}} ()
+\item 
+static \mbox{\hyperlink{class_laminas_1_1_stdlib_1_1_error_handler_ad7905529b5feb3a10a3d5d68631bd500}{get\+Nested\+Level}} ()
+\item 
+static \mbox{\hyperlink{class_laminas_1_1_stdlib_1_1_error_handler_a963d7ece13141ac30ac8d76a51a10e08}{start}} (\$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{error\+Level}}=E\+\_\+\+WARNING)
+\item 
+static \mbox{\hyperlink{class_laminas_1_1_stdlib_1_1_error_handler_ab67035c6dfd8f432e54553b0122f272d}{stop}} (\$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{throw}}=false)
+\item 
+static \mbox{\hyperlink{class_laminas_1_1_stdlib_1_1_error_handler_a2d964e881b99820bf727aa0c4bd96cd9}{clean}} ()
+\item 
+static \mbox{\hyperlink{class_laminas_1_1_stdlib_1_1_error_handler_abbfe5c02c723a3b1316d280953e2ba07}{add\+Error}} (\$errno, \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{errstr}}=\textquotesingle{}\textquotesingle{}, \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{errfile}}=\textquotesingle{}\textquotesingle{}, \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{errline}}=0)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Attributs protégés statiques}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_laminas_1_1_stdlib_1_1_error_handler_a6a0169b26b5301f906b1ec481b3f1eea}{\$stack}} = \mbox{[}$\,$\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Error\+Handler that can be used to catch internal PHP errors and convert to an Error\+Exception instance. 
+
+\doxysubsection{Documentation des fonctions membres}
+\Hypertarget{class_laminas_1_1_stdlib_1_1_error_handler_abbfe5c02c723a3b1316d280953e2ba07}\label{class_laminas_1_1_stdlib_1_1_error_handler_abbfe5c02c723a3b1316d280953e2ba07} 
+\index{ErrorHandler@{ErrorHandler}!addError@{addError}}
+\index{addError@{addError}!ErrorHandler@{ErrorHandler}}
+\doxysubsubsection{\texorpdfstring{addError()}{addError()}}
+{\footnotesize\ttfamily static add\+Error (\begin{DoxyParamCaption}\item[{}]{\$errno,  }\item[{}]{\$errstr = {\ttfamily \textquotesingle{}\textquotesingle{}},  }\item[{}]{\$errfile = {\ttfamily \textquotesingle{}\textquotesingle{}},  }\item[{}]{\$errline = {\ttfamily 0} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Add an error to the stack
+
+
+\begin{DoxyParams}[1]{Paramètres}
+int & {\em \$errno} & \\
+\hline
+string & {\em \$errstr} & \\
+\hline
+string & {\em \$errfile} & \\
+\hline
+int & {\em \$errline} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+void 
+\end{DoxyReturn}
+\Hypertarget{class_laminas_1_1_stdlib_1_1_error_handler_a2d964e881b99820bf727aa0c4bd96cd9}\label{class_laminas_1_1_stdlib_1_1_error_handler_a2d964e881b99820bf727aa0c4bd96cd9} 
+\index{ErrorHandler@{ErrorHandler}!clean@{clean}}
+\index{clean@{clean}!ErrorHandler@{ErrorHandler}}
+\doxysubsubsection{\texorpdfstring{clean()}{clean()}}
+{\footnotesize\ttfamily static clean (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Stop all active handler
+
+\begin{DoxyReturn}{Renvoie}
+void 
+\end{DoxyReturn}
+\Hypertarget{class_laminas_1_1_stdlib_1_1_error_handler_ad7905529b5feb3a10a3d5d68631bd500}\label{class_laminas_1_1_stdlib_1_1_error_handler_ad7905529b5feb3a10a3d5d68631bd500} 
+\index{ErrorHandler@{ErrorHandler}!getNestedLevel@{getNestedLevel}}
+\index{getNestedLevel@{getNestedLevel}!ErrorHandler@{ErrorHandler}}
+\doxysubsubsection{\texorpdfstring{getNestedLevel()}{getNestedLevel()}}
+{\footnotesize\ttfamily static get\+Nested\+Level (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Get the current nested level
+
+\begin{DoxyReturn}{Renvoie}
+int 
+\end{DoxyReturn}
+\Hypertarget{class_laminas_1_1_stdlib_1_1_error_handler_a963d7ece13141ac30ac8d76a51a10e08}\label{class_laminas_1_1_stdlib_1_1_error_handler_a963d7ece13141ac30ac8d76a51a10e08} 
+\index{ErrorHandler@{ErrorHandler}!start@{start}}
+\index{start@{start}!ErrorHandler@{ErrorHandler}}
+\doxysubsubsection{\texorpdfstring{start()}{start()}}
+{\footnotesize\ttfamily static start (\begin{DoxyParamCaption}\item[{}]{\$error\+Level = {\ttfamily E\+\_\+WARNING} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Starting the error handler
+
+
+\begin{DoxyParams}[1]{Paramètres}
+int & {\em \$error\+Level} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+void 
+\end{DoxyReturn}
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=281pt]{class_laminas_1_1_stdlib_1_1_error_handler_a963d7ece13141ac30ac8d76a51a10e08_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_laminas_1_1_stdlib_1_1_error_handler_a138aaa9f9e7078bf89401bfe8a756976}\label{class_laminas_1_1_stdlib_1_1_error_handler_a138aaa9f9e7078bf89401bfe8a756976} 
+\index{ErrorHandler@{ErrorHandler}!started@{started}}
+\index{started@{started}!ErrorHandler@{ErrorHandler}}
+\doxysubsubsection{\texorpdfstring{started()}{started()}}
+{\footnotesize\ttfamily static started (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Check if this error handler is active
+
+\begin{DoxyReturn}{Renvoie}
+bool 
+\end{DoxyReturn}
+\Hypertarget{class_laminas_1_1_stdlib_1_1_error_handler_ab67035c6dfd8f432e54553b0122f272d}\label{class_laminas_1_1_stdlib_1_1_error_handler_ab67035c6dfd8f432e54553b0122f272d} 
+\index{ErrorHandler@{ErrorHandler}!stop@{stop}}
+\index{stop@{stop}!ErrorHandler@{ErrorHandler}}
+\doxysubsubsection{\texorpdfstring{stop()}{stop()}}
+{\footnotesize\ttfamily static stop (\begin{DoxyParamCaption}\item[{}]{\$throw = {\ttfamily false} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Stopping the error handler
+
+
+\begin{DoxyParams}[1]{Paramètres}
+bool & {\em \$throw} & Throw the Error\+Exception if any \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+null\texorpdfstring{$\vert$}{|}\+Error\+Exception 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Error\+Exception} & If an error has been caught and \$throw is true. \\
+\hline
+\end{DoxyExceptions}
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=280pt]{class_laminas_1_1_stdlib_1_1_error_handler_ab67035c6dfd8f432e54553b0122f272d_icgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Documentation des champs}
+\Hypertarget{class_laminas_1_1_stdlib_1_1_error_handler_a6a0169b26b5301f906b1ec481b3f1eea}\label{class_laminas_1_1_stdlib_1_1_error_handler_a6a0169b26b5301f906b1ec481b3f1eea} 
+\index{ErrorHandler@{ErrorHandler}!\$stack@{\$stack}}
+\index{\$stack@{\$stack}!ErrorHandler@{ErrorHandler}}
+\doxysubsubsection{\texorpdfstring{\$stack}{\$stack}}
+{\footnotesize\ttfamily \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{stack}} = \mbox{[}$\,$\mbox{]}\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+
+
+La documentation de cette classe a été générée à partir du fichier suivant \+:\begin{DoxyCompactItemize}
+\item 
+public/glpi/vendor/laminas/laminas-\/stdlib/src/\mbox{\hyperlink{vendor_2laminas_2laminas-stdlib_2src_2_error_handler_8php}{Error\+Handler.\+php}}\end{DoxyCompactItemize}

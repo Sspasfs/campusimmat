@@ -1,0 +1,1966 @@
+\chapter{GLPI REST API\+: Documentation}
+\hypertarget{md_public_2glpi_2apirest}{}\label{md_public_2glpi_2apirest}\index{GLPI REST API:  Documentation@{GLPI REST API:  Documentation}}
+\label{md_public_2glpi_2apirest_autotoc_md357}%
+\Hypertarget{md_public_2glpi_2apirest_autotoc_md357}%
+ \hypertarget{md_public_2glpi_2apirest_autotoc_md358}{}\doxysection{\texorpdfstring{Summary}{Summary}}\label{md_public_2glpi_2apirest_autotoc_md358}
+
+\begin{DoxyItemize}
+\item \doxylink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{Glossary}
+\item \doxylink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{Important}
+\item \doxylink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{Init session}
+\item \doxylink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{Kill session}
+\item \doxylink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{Lost password}
+\item \doxylink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{Get my profiles}
+\item \doxylink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{Get active profile}
+\item \doxylink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{Change active profile}
+\item \doxylink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{Get my entities}
+\item \doxylink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{Get active entities}
+\item \doxylink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{Change active entities}
+\item \doxylink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{Get full session}
+\item \doxylink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{Get GLPI config}
+\item \doxylink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{Get an item}
+\item \doxylink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{Get all items}
+\item \doxylink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{Get sub items}
+\item \doxylink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{Get multiple items}
+\item \doxylink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{List search\+Options}
+\item \doxylink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{Search items}
+\item \doxylink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{Add item(s)}
+\item \doxylink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{Update item(s)}
+\item \doxylink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{Delete item(s)}
+\item \doxylink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{Get available massive actions for an itemtype}
+\item \doxylink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{Get available massive actions for an item}
+\item \doxylink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{Get massive action parameters}
+\item \doxylink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{Apply massive action}
+\item \doxylink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{Special cases}
+\item \doxylink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{Errors}
+\item \doxylink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{Servers configuration}
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2apirest_autotoc_md359}{}\doxysection{\texorpdfstring{Glossary}{Glossary}}\label{md_public_2glpi_2apirest_autotoc_md359}
+Endpoint \+: Resource available though the API. The endpoint is the URL where your API can be accessed by a client application
+
+Method \+: HTTP verbs to indicate the desired action to be performed on the identified resource. See\+: \href{https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol\#Request_methods}{\texttt{ https\+://en.\+wikipedia.\+org/wiki/\+Hypertext\+\_\+\+Transfer\+\_\+\+Protocol\#\+Request\+\_\+methods}}
+
+itemtype \+: A \doxylink{class_g_l_p_i}{GLPI} type, could be an asset, an ITIL or a configuration object, etc. This type must be a class who inherits Common\+DTBM \doxylink{class_g_l_p_i}{GLPI} class.
+
+search\+Option \+: A column identifier (integer) of an itemtype (ex\+: 1 -\/\texorpdfstring{$>$}{>} id, 2 -\/\texorpdfstring{$>$}{>} name, ...). See \doxylink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{List search\+Options} endpoint.
+
+JSON Payload \+: content of HTTP Request in JSON format (HTTP body)
+
+Query string \+: URL parameters
+
+\doxylink{class_user}{User} token \+: Used in login process instead of login/password couple. It represent the user with a string. You can find user token in the settings tabs of users.
+
+\doxylink{class_session}{Session} token \+: A string describing a valid session in glpi. Except init\+Session endpoint who provide this token, all others require this string to be used.
+
+App(lication) token \+: An optional way to filter the access to the API. On API call, it will try to find an API client matching your IP and the app token (if provided). You can define an API client with an app token in general configuration for each of your external applications to identify them (each API client have its own history).\hypertarget{md_public_2glpi_2apirest_autotoc_md360}{}\doxysection{\texorpdfstring{Important}{Important}}\label{md_public_2glpi_2apirest_autotoc_md360}
+
+\begin{DoxyItemize}
+\item You should always provide a Content-\/\+Type header in your HTTP calls. Currently, the API supports\+:
+\begin{DoxyItemize}
+\item application/json
+\item multipart/form-\/data (for files upload, see \doxylink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{Add item(s)} endpoint.
+\end{DoxyItemize}
+\item GET requests must have an empty body. You must pass all parameters in URL. Failing to do so will trigger an HTTP 400 response.
+\item By default, sessions used in this API are read-\/only. Only some methods have write access to session\+:
+\begin{DoxyItemize}
+\item \doxylink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{init\+Session}
+\item \doxylink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{kill\+Session}
+\item \doxylink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{change\+Active\+Entities}
+\item \doxylink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{change\+Active\+Profile}
+\end{DoxyItemize}
+
+You could pass an additional parameter "{}session\+\_\+write=true"{} to bypass this default. This read-\/only mode allow to use this API with parallel calls. In write mode, sessions are locked and your client must wait the end of a call before the next one can execute.
+\item You can filter API access by enable the following parameters in \doxylink{class_g_l_p_i}{GLPI} General Configuration (API tab)\+:
+\begin{DoxyItemize}
+\item IPv4 range
+\item IPv6 address
+\item {\itshape App-\/\+Token} parameter\+: if not empty, you should pass this parameter in all of your API calls
+\end{DoxyItemize}
+\item \doxylink{class_session}{Session} and App tokens could be provided in query string instead of header parameters.
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2apirest_autotoc_md361}{}\doxysection{\texorpdfstring{Init session}{Init session}}\label{md_public_2glpi_2apirest_autotoc_md361}
+
+\begin{DoxyItemize}
+\item {\bfseries{URL}}\+: apirest.\+php/init\+Session/
+\item {\bfseries{Description}}\+: Request a session token to uses other API endpoints.
+\item {\bfseries{Method}}\+: GET
+\item {\bfseries{Parameters}}\+: (Headers)
+\begin{DoxyItemize}
+\item {\itshape App-\/\+Token}\+: authorization string provided by the \doxylink{class_g_l_p_i}{GLPI} API configuration. Optional.
+\item a couple {\itshape login} \& {\itshape password}\+: 2 parameters to login with user authentication. You should pass this 2 parameters in \href{https://en.wikipedia.org/wiki/Basic_access_authentication}{\texttt{ http basic auth}}. It consists in a Base64 string with login and password separated by "{}\+:"{} A valid Authorization header is\+:
+\begin{DoxyItemize}
+\item "{}\+Authorization\+: Basic base64(\{login\}\+:\{password\})"{}
+\end{DoxyItemize}
+\end{DoxyItemize}
+\end{DoxyItemize}
+
+\begin{quote}
+{\bfseries{OR}} \end{quote}
+
+\begin{DoxyItemize}
+\item an {\itshape user\+\_\+token} defined in \doxylink{class_user}{User} \doxylink{class_preference}{Preference} (See \textquotesingle{}Remote access key\textquotesingle{}) You should pass this parameter in \textquotesingle{}Authorization\textquotesingle{} HTTP header. A valid Authorization header is\+:
+\begin{DoxyItemize}
+\item "{}\+Authorization\+: user\+\_\+token q56hqkniwot8wntb3z1qarka5atf365taaa2uyjrn"{}
+\end{DoxyItemize}
+\end{DoxyItemize}
+
+{\bfseries{Parameters}}\+: (query string)
+\begin{DoxyItemize}
+\item {\itshape get\+\_\+full\+\_\+session} (default\+: false)\+: Get the full session, useful if you want to login and access session data in one request.
+\end{DoxyItemize}
+
+{\bfseries{Returns}}\+:
+\begin{DoxyItemize}
+\item 200 (OK) with the {\itshape session\+\_\+token} string.
+\item 400 (Bad Request) with a message indicating an error in input parameter.
+\item 401 (UNAUTHORIZED)
+\end{DoxyItemize}
+
+Examples usage (CURL)\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\$\ curl\ -\/X\ GET\ \(\backslash\)}
+\DoxyCodeLine{-\/H\ 'Content-\/Type:\ application/json'\ \(\backslash\)}
+\DoxyCodeLine{-\/H\ "{}Authorization:\ Basic\ Z2xwaTpnbHBp"{}\ \(\backslash\)}
+\DoxyCodeLine{-\/H\ "{}App-\/Token:\ f7g3csp8mgatg5ebc5elnazakw20i9fyev1qopya7"{}\ \(\backslash\)}
+\DoxyCodeLine{'http://path/to/glpi/apirest.php/initSession'}
+\DoxyCodeLine{}
+\DoxyCodeLine{<\ 200\ OK}
+\DoxyCodeLine{<\ \{}
+\DoxyCodeLine{\ \ \ "{}session\_token"{}:\ "{}83af7e620c83a50a18d3eac2f6ed05a3ca0bea62"{}}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\$\ curl\ -\/X\ GET\ \(\backslash\)}
+\DoxyCodeLine{-\/H\ 'Content-\/Type:\ application/json'\ \(\backslash\)}
+\DoxyCodeLine{-\/H\ "{}Authorization:\ user\_token\ q56hqkniwot8wntb3z1qarka5atf365taaa2uyjrn"{}\ \(\backslash\)}
+\DoxyCodeLine{-\/H\ "{}App-\/Token:\ f7g3csp8mgatg5ebc5elnazakw20i9fyev1qopya7"{}\ \(\backslash\)}
+\DoxyCodeLine{'http://path/to/glpi/apirest.php/initSession?get\_full\_session=true'}
+\DoxyCodeLine{}
+\DoxyCodeLine{<\ 200\ OK}
+\DoxyCodeLine{<\ \{}
+\DoxyCodeLine{\ \ \ "{}session\_token"{}:\ "{}83af7e620c83a50a18d3eac2f6ed05a3ca0bea62"{},}
+\DoxyCodeLine{\ \ \ "{}session"{}:\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ 'glpi\_plugins':\ ...,}
+\DoxyCodeLine{\ \ \ \ \ \ 'glpicookietest':\ ...,}
+\DoxyCodeLine{\ \ \ \ \ \ 'glpicsrftokens':\ ...,}
+\DoxyCodeLine{\ \ \ \ \ \ ...}
+\DoxyCodeLine{\ \ \ \}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\hypertarget{md_public_2glpi_2apirest_autotoc_md362}{}\doxysection{\texorpdfstring{Kill session}{Kill session}}\label{md_public_2glpi_2apirest_autotoc_md362}
+
+\begin{DoxyItemize}
+\item {\bfseries{URL}}\+: apirest.\+php/kill\+Session/
+\item {\bfseries{Description}}\+: Destroy a session identified by a session token.
+\item {\bfseries{Method}}\+: GET
+\item {\bfseries{Parameters}}\+: (Headers)
+\begin{DoxyItemize}
+\item {\itshape Session-\/\+Token}\+: session var provided by \doxylink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{init\+Session} endpoint. Mandatory.
+\item {\itshape App-\/\+Token}\+: authorization string provided by the \doxylink{class_g_l_p_i}{GLPI} API configuration. Optional.
+\end{DoxyItemize}
+\item {\bfseries{Returns}}\+:
+\begin{DoxyItemize}
+\item 200 (OK).
+\item 400 (Bad Request) with a message indicating an error in input parameter.
+\end{DoxyItemize}
+\end{DoxyItemize}
+
+Example usage (CURL)\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\$\ curl\ -\/X\ GET\ \(\backslash\)}
+\DoxyCodeLine{-\/H\ 'Content-\/Type:\ application/json'\ \(\backslash\)}
+\DoxyCodeLine{-\/H\ "{}Session-\/Token:\ 83af7e620c83a50a18d3eac2f6ed05a3ca0bea62"{}\ \(\backslash\)}
+\DoxyCodeLine{-\/H\ "{}App-\/Token:\ f7g3csp8mgatg5ebc5elnazakw20i9fyev1qopya7"{}\ \(\backslash\)}
+\DoxyCodeLine{'http://path/to/glpi/apirest.php/killSession'}
+\DoxyCodeLine{}
+\DoxyCodeLine{<\ 200\ OK}
+
+\end{DoxyCode}
+\hypertarget{md_public_2glpi_2apirest_autotoc_md363}{}\doxysection{\texorpdfstring{Lost password}{Lost password}}\label{md_public_2glpi_2apirest_autotoc_md363}
+This endpoint allows to request password recovery and password reset. This endpoint works under the following conditions\+:
+\begin{DoxyItemize}
+\item \doxylink{class_g_l_p_i}{GLPI} has notifications enabled
+\item the email address of the user belongs to a user account.
+\end{DoxyItemize}
+
+Reset password request\+:
+
+
+\begin{DoxyItemize}
+\item {\bfseries{URL}}\+: apirest.\+php/lost\+Password/
+\item {\bfseries{Description}}\+: Sends a notification to the user to reset his password
+\item {\bfseries{Method}}\+: PUT or PATCH
+\item {\bfseries{Parameters}}\+: (JSON Payload)
+\begin{DoxyItemize}
+\item {\itshape email}\+: email address of the user to recover. Mandatory.
+\end{DoxyItemize}
+\item {\bfseries{Returns}}\+:
+\begin{DoxyItemize}
+\item 200 (OK).
+\item 400 (Bad Request) with a message indicating an error in input parameter.
+\end{DoxyItemize}
+\end{DoxyItemize}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\$\ curl\ -\/X\ PUT\ \(\backslash\)}
+\DoxyCodeLine{-\/H\ 'Content-\/Type:\ application/json'\ \(\backslash\)}
+\DoxyCodeLine{-\/d\ '\{"{}email"{}:\ "{}user@domain.com"{}\}'\ \(\backslash\)}
+\DoxyCodeLine{'http://path/to/glpi/apirest.php/lostPassword'}
+\DoxyCodeLine{}
+\DoxyCodeLine{<\ 200\ OK}
+
+\end{DoxyCode}
+
+
+Password reset \+:
+
+
+\begin{DoxyItemize}
+\item {\bfseries{URL}}\+: apirest.\+php/lost\+Password/
+\item {\bfseries{Description}}\+: Sends a notification to the user to reset his password
+\item {\bfseries{Method}}\+: PUT or PATCH
+\item {\bfseries{Parameters}}\+: (JSON Payload)
+\begin{DoxyItemize}
+\item {\itshape email}\+: email address of the user to recover. Mandatory.
+\item {\itshape password\+\_\+forget\+\_\+token}\+: reset token
+\item {\itshape password}\+: the new password for the user
+\end{DoxyItemize}
+\item {\bfseries{Returns}}\+:
+\begin{DoxyItemize}
+\item 200 (OK).
+\item 400 (Bad Request) with a message indicating an error in input parameter.
+\end{DoxyItemize}
+\end{DoxyItemize}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\$\ curl\ -\/X\ PUT\ \(\backslash\)}
+\DoxyCodeLine{-\/H\ 'Content-\/Type:\ application/json'\ \(\backslash\)}
+\DoxyCodeLine{-\/d\ '\{"{}email"{}:\ "{}user@domain.com"{},\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ "{}password\_forget\_token"{}:\ "{}b0a4cfe81448299ebed57442f4f21929c80ebee5"{}\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ "{}password"{}:\ "{}NewPassword"{}\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \}'\ \(\backslash\)}
+\DoxyCodeLine{'http://path/to/glpi/apirest.php/lostPassword'}
+\DoxyCodeLine{}
+\DoxyCodeLine{<\ 200\ OK}
+
+\end{DoxyCode}
+\hypertarget{md_public_2glpi_2apirest_autotoc_md364}{}\doxysection{\texorpdfstring{Get my profiles}{Get my profiles}}\label{md_public_2glpi_2apirest_autotoc_md364}
+
+\begin{DoxyItemize}
+\item {\bfseries{URL}}\+: \href{getMyProfiles/?debug}{\texttt{ apirest.\+php/get\+My\+Profiles/}}
+\item {\bfseries{Description}}\+: Return all the profiles associated to logged user.
+\item {\bfseries{Method}}\+: GET
+\item {\bfseries{Parameters}}\+: (Headers)
+\begin{DoxyItemize}
+\item {\itshape Session-\/\+Token}\+: session var provided by \doxylink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{init\+Session} endpoint. Mandatory.
+\item {\itshape App-\/\+Token}\+: authorization string provided by the \doxylink{class_g_l_p_i}{GLPI} API configuration. Optional.
+\end{DoxyItemize}
+\item {\bfseries{Returns}}\+:
+\begin{DoxyItemize}
+\item 200 (OK) with an array of all profiles.
+\item 400 (Bad Request) with a message indicating an error in input parameter.
+\end{DoxyItemize}
+\end{DoxyItemize}
+
+Example usage (CURL)\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\$\ curl\ -\/X\ GET\ \(\backslash\)}
+\DoxyCodeLine{-\/H\ 'Content-\/Type:\ application/json'\ \(\backslash\)}
+\DoxyCodeLine{-\/H\ "{}Session-\/Token:\ 83af7e620c83a50a18d3eac2f6ed05a3ca0bea62"{}\ \(\backslash\)}
+\DoxyCodeLine{-\/H\ "{}App-\/Token:\ f7g3csp8mgatg5ebc5elnazakw20i9fyev1qopya7"{}\ \(\backslash\)}
+\DoxyCodeLine{'http://path/to/glpi/apirest.php/getMyProfiles'}
+\DoxyCodeLine{}
+\DoxyCodeLine{<\ 200\ OK}
+\DoxyCodeLine{<\ \{}
+\DoxyCodeLine{\ \ \ 'myprofiles':\ [}
+\DoxyCodeLine{\ \ \ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ 'id':\ 1}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ 'name':\ "{}Super-\/admin"{},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ 'entities':\ [}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ ...}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ ],}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ ...}
+\DoxyCodeLine{\ \ \ \ \ \ \},}
+\DoxyCodeLine{\ \ \ \ \ \ ....}
+\DoxyCodeLine{\ \ \ ]}
+
+\end{DoxyCode}
+\hypertarget{md_public_2glpi_2apirest_autotoc_md365}{}\doxysection{\texorpdfstring{Get active profile}{Get active profile}}\label{md_public_2glpi_2apirest_autotoc_md365}
+
+\begin{DoxyItemize}
+\item {\bfseries{URL}}\+: \href{getActiveProfile/?debug}{\texttt{ apirest.\+php/get\+Active\+Profile/}}
+\item {\bfseries{Description}}\+: Return the current active profile.
+\item {\bfseries{Method}}\+: GET
+\item {\bfseries{Parameters}}\+: (Headers)
+\begin{DoxyItemize}
+\item {\itshape Session-\/\+Token}\+: session var provided by \doxylink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{init\+Session} endpoint. Mandatory.
+\item {\itshape App-\/\+Token}\+: authorization string provided by the \doxylink{class_g_l_p_i}{GLPI} API configuration. Optional.
+\end{DoxyItemize}
+\item {\bfseries{Returns}}\+:
+\begin{DoxyItemize}
+\item 200 (OK) with an array representing current profile.
+\item 400 (Bad Request) with a message indicating an error in input parameter.
+\end{DoxyItemize}
+\end{DoxyItemize}
+
+Example usage (CURL)\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\$\ curl\ -\/X\ GET\ \(\backslash\)}
+\DoxyCodeLine{-\/H\ 'Content-\/Type:\ application/json'\ \(\backslash\)}
+\DoxyCodeLine{-\/H\ "{}Session-\/Token:\ 83af7e620c83a50a18d3eac2f6ed05a3ca0bea62"{}\ \(\backslash\)}
+\DoxyCodeLine{-\/H\ "{}App-\/Token:\ f7g3csp8mgatg5ebc5elnazakw20i9fyev1qopya7"{}\ \(\backslash\)}
+\DoxyCodeLine{'http://path/to/glpi/apirest.php/getActiveProfile'}
+\DoxyCodeLine{}
+\DoxyCodeLine{<\ 200\ OK}
+\DoxyCodeLine{<\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ 'name':\ "{}Super-\/admin"{},}
+\DoxyCodeLine{\ \ \ \ \ \ 'entities':\ [}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ ...}
+\DoxyCodeLine{\ \ \ \ \ \ ]}
+\DoxyCodeLine{\ \ \ \}}
+
+\end{DoxyCode}
+\hypertarget{md_public_2glpi_2apirest_autotoc_md366}{}\doxysection{\texorpdfstring{Change active profile}{Change active profile}}\label{md_public_2glpi_2apirest_autotoc_md366}
+
+\begin{DoxyItemize}
+\item {\bfseries{URL}}\+: \href{changeActiveProfile/?profiles_id=4&debug}{\texttt{ apirest.\+php/change\+Active\+Profile/}}
+\item {\bfseries{Description}}\+: \doxylink{class_change}{Change} active profile to the profiles\+\_\+id one. See \doxylink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{get\+My\+Profiles} endpoint for possible profiles.
+\item {\bfseries{Method}}\+: POST
+\item {\bfseries{Parameters}}\+: (Headers)
+\begin{DoxyItemize}
+\item {\itshape Session-\/\+Token}\+: session var provided by \doxylink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{init\+Session} endpoint. Mandatory.
+\item {\itshape App-\/\+Token}\+: authorization string provided by the \doxylink{class_g_l_p_i}{GLPI} API configuration. Optional.
+\end{DoxyItemize}
+\item {\bfseries{Parameters}}\+: (JSON Payload)
+\begin{DoxyItemize}
+\item {\itshape profiles\+\_\+id}\+: (default \textquotesingle{}all\textquotesingle{}) ID of the new active profile. Mandatory.
+\end{DoxyItemize}
+\item {\bfseries{Returns}}\+:
+\begin{DoxyItemize}
+\item 200 (OK).
+\item 400 (Bad Request) with a message indicating an error in input parameter.
+\item 404 (Not found) with a message indicating an error ig the profile does not exists or usable.
+\end{DoxyItemize}
+\end{DoxyItemize}
+
+Example usage (CURL)\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\$\ curl\ -\/X\ POST\ \(\backslash\)}
+\DoxyCodeLine{-\/H\ 'Content-\/Type:\ application/json'\ \(\backslash\)}
+\DoxyCodeLine{-\/H\ "{}Session-\/Token:\ 83af7e620c83a50a18d3eac2f6ed05a3ca0bea62"{}\ \(\backslash\)}
+\DoxyCodeLine{-\/H\ "{}App-\/Token:\ f7g3csp8mgatg5ebc5elnazakw20i9fyev1qopya7"{}\ \(\backslash\)}
+\DoxyCodeLine{-\/d\ '\{"{}profiles\_id"{}:\ 4\}'\ \(\backslash\)}
+\DoxyCodeLine{'http://path/to/glpi/apirest.php/changeActiveProfile'}
+\DoxyCodeLine{}
+\DoxyCodeLine{<\ 200\ OK}
+
+\end{DoxyCode}
+\hypertarget{md_public_2glpi_2apirest_autotoc_md367}{}\doxysection{\texorpdfstring{Get my entities}{Get my entities}}\label{md_public_2glpi_2apirest_autotoc_md367}
+
+\begin{DoxyItemize}
+\item {\bfseries{URL}}\+: \href{getMyEntities/?debug}{\texttt{ apirest.\+php/get\+My\+Entities/}}
+\item {\bfseries{Description}}\+: Return all the possible entities of the current logged user (and for current active profile).
+\item {\bfseries{Method}}\+: GET
+\item {\bfseries{Parameters}}\+: (Headers)
+\begin{DoxyItemize}
+\item {\itshape Session-\/\+Token}\+: session var provided by \doxylink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{init\+Session} endpoint. Mandatory.
+\item {\itshape App-\/\+Token}\+: authorization string provided by the \doxylink{class_g_l_p_i}{GLPI} API configuration. Optional.
+\end{DoxyItemize}
+\item {\bfseries{Parameters}}\+: (query string)
+\begin{DoxyItemize}
+\item {\itshape is\+\_\+recursive} (default\+: false)\+: Also display sub entities of the active entity. Optionnal
+\end{DoxyItemize}
+\item {\bfseries{Returns}}\+:
+\begin{DoxyItemize}
+\item 200 (OK) with an array of all entities (with id and name).
+\item 400 (Bad Request) with a message indicating an error in input parameter.
+\end{DoxyItemize}
+\end{DoxyItemize}
+
+Example usage (CURL)\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\$\ curl\ -\/X\ GET\ \(\backslash\)}
+\DoxyCodeLine{-\/H\ 'Content-\/Type:\ application/json'\ \(\backslash\)}
+\DoxyCodeLine{-\/H\ "{}Session-\/Token:\ 83af7e620c83a50a18d3eac2f6ed05a3ca0bea62"{}\ \(\backslash\)}
+\DoxyCodeLine{-\/H\ "{}App-\/Token:\ f7g3csp8mgatg5ebc5elnazakw20i9fyev1qopya7"{}\ \(\backslash\)}
+\DoxyCodeLine{'http://path/to/glpi/apirest.php/getMyEntities'}
+\DoxyCodeLine{}
+\DoxyCodeLine{<\ 200\ OK}
+\DoxyCodeLine{<\ \{}
+\DoxyCodeLine{\ \ \ 'myentities':\ [}
+\DoxyCodeLine{\ \ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ 'id':\ \ \ 71}
+\DoxyCodeLine{\ \ \ \ \ \ \ 'name':\ "{}my\_entity"{}}
+\DoxyCodeLine{\ \ \ \ \ \},}
+\DoxyCodeLine{\ \ \ ....}
+\DoxyCodeLine{\ \ \ ]}
+\DoxyCodeLine{\ \ \}}
+
+\end{DoxyCode}
+\hypertarget{md_public_2glpi_2apirest_autotoc_md368}{}\doxysection{\texorpdfstring{Get active entities}{Get active entities}}\label{md_public_2glpi_2apirest_autotoc_md368}
+
+\begin{DoxyItemize}
+\item {\bfseries{URL}}\+: \href{getActiveEntities/?debug}{\texttt{ apirest.\+php/get\+Active\+Entities/}}
+\item {\bfseries{Description}}\+: Return active entities of current logged user.
+\item {\bfseries{Method}}\+: GET
+\item {\bfseries{Parameters}}\+: (Headers)
+\begin{DoxyItemize}
+\item {\itshape Session-\/\+Token}\+: session var provided by \doxylink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{init\+Session} endpoint. Mandatory.
+\item {\itshape App-\/\+Token}\+: authorization string provided by the \doxylink{class_g_l_p_i}{GLPI} API configuration. Optional.
+\end{DoxyItemize}
+\item {\bfseries{Returns}}\+:
+\begin{DoxyItemize}
+\item 200 (OK) with an array with 3 keys\+:
+\begin{DoxyItemize}
+\item {\itshape active\+\_\+entity}\+: current set entity.
+\item {\itshape active\+\_\+entity\+\_\+recursive}\+: boolean, if we see sons of this entity.
+\item {\itshape active\+\_\+entities}\+: array all active entities (active\+\_\+entity and its sons).
+\end{DoxyItemize}
+\item 400 (Bad Request) with a message indicating an error in input parameter.
+\end{DoxyItemize}
+\end{DoxyItemize}
+
+Example usage (CURL)\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\$\ curl\ -\/X\ GET\ \(\backslash\)}
+\DoxyCodeLine{-\/H\ 'Content-\/Type:\ application/json'\ \(\backslash\)}
+\DoxyCodeLine{-\/H\ "{}Session-\/Token:\ 83af7e620c83a50a18d3eac2f6ed05a3ca0bea62"{}\ \(\backslash\)}
+\DoxyCodeLine{-\/H\ "{}App-\/Token:\ f7g3csp8mgatg5ebc5elnazakw20i9fyev1qopya7"{}\ \(\backslash\)}
+\DoxyCodeLine{'http://path/to/glpi/apirest.php/getActiveEntities'}
+\DoxyCodeLine{}
+\DoxyCodeLine{<\ 200\ OK}
+\DoxyCodeLine{<\ \{}
+\DoxyCodeLine{\ \ \ 'active\_entity':\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ 'id':\ 1,}
+\DoxyCodeLine{\ \ \ \ \ \ 'active\_entity\_recursive':\ true,}
+\DoxyCodeLine{\ \ \ \ \ \ 'active\_entities':\ [}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{"{}id"{}:1\},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{"{}id"{}:71\},...}
+\DoxyCodeLine{\ \ \ \ \ \ ]}
+\DoxyCodeLine{\ \ \ \}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\hypertarget{md_public_2glpi_2apirest_autotoc_md369}{}\doxysection{\texorpdfstring{Change active entities}{Change active entities}}\label{md_public_2glpi_2apirest_autotoc_md369}
+
+\begin{DoxyItemize}
+\item {\bfseries{URL}}\+: \href{changeActiveEntities/?entities_id=1&is_recursive=0&debug}{\texttt{ apirest.\+php/change\+Active\+Entities/}}
+\item {\bfseries{Description}}\+: \doxylink{class_change}{Change} active entity to the entities\+\_\+id one. See \doxylink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{get\+My\+Entities} endpoint for possible entities.
+\item {\bfseries{Method}}\+: POST
+\item {\bfseries{Parameters}}\+: (Headers)
+\begin{DoxyItemize}
+\item {\itshape Session-\/\+Token}\+: session var provided by \doxylink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{init\+Session} endpoint. Mandatory.
+\item {\itshape App-\/\+Token}\+: authorization string provided by the \doxylink{class_g_l_p_i}{GLPI} API configuration. Optional.
+\end{DoxyItemize}
+\item {\bfseries{Parameters}}\+: (JSON Payload)
+\begin{DoxyItemize}
+\item {\itshape entities\+\_\+id}\+: (default \textquotesingle{}all\textquotesingle{}) ID of the new active entity ("{}all"{} =\texorpdfstring{$>$}{>} load all possible entities). Optional.
+\item {\itshape is\+\_\+recursive}\+: (default false) Also display sub entities of the active entity. Optional.
+\end{DoxyItemize}
+\item {\bfseries{Returns}}\+:
+\begin{DoxyItemize}
+\item 200 (OK).
+\item 400 (Bad Request) with a message indicating an error in input parameter.
+\end{DoxyItemize}
+\end{DoxyItemize}
+
+Example usage (CURL)\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\$\ curl\ -\/X\ POST\ \(\backslash\)}
+\DoxyCodeLine{-\/H\ 'Content-\/Type:\ application/json'\ \(\backslash\)}
+\DoxyCodeLine{-\/H\ "{}Session-\/Token:\ 83af7e620c83a50a18d3eac2f6ed05a3ca0bea62"{}\ \(\backslash\)}
+\DoxyCodeLine{-\/H\ "{}App-\/Token:\ f7g3csp8mgatg5ebc5elnazakw20i9fyev1qopya7"{}\ \(\backslash\)}
+\DoxyCodeLine{-\/d\ '\{"{}entities\_id"{}:\ 1,\ "{}is\_recursive"{}:\ true\}'\ \(\backslash\)}
+\DoxyCodeLine{'http://path/to/glpi/apirest.php/changeActiveEntities'}
+\DoxyCodeLine{}
+\DoxyCodeLine{<\ 200\ OK}
+
+\end{DoxyCode}
+\hypertarget{md_public_2glpi_2apirest_autotoc_md370}{}\doxysection{\texorpdfstring{Get full session}{Get full session}}\label{md_public_2glpi_2apirest_autotoc_md370}
+
+\begin{DoxyItemize}
+\item {\bfseries{URL}}\+: \href{getFullSession/?debug}{\texttt{ apirest.\+php/get\+Full\+Session/}}
+\item {\bfseries{Description}}\+: Return the current php \$\+\_\+\+SESSION.
+\item {\bfseries{Method}}\+: GET
+\item {\bfseries{Parameters}}\+: (Headers)
+\begin{DoxyItemize}
+\item {\itshape Session-\/\+Token}\+: session var provided by \doxylink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{init\+Session} endpoint. Mandatory.
+\item {\itshape App-\/\+Token}\+: authorization string provided by the \doxylink{class_g_l_p_i}{GLPI} API configuration. Optional.
+\end{DoxyItemize}
+\item {\bfseries{Returns}}\+:
+\begin{DoxyItemize}
+\item 200 (OK) with an array representing the php session.
+\item 400 (Bad Request) with a message indicating an error in input parameter.
+\end{DoxyItemize}
+\end{DoxyItemize}
+
+Example usage (CURL)\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\$\ curl\ -\/X\ GET\ \(\backslash\)}
+\DoxyCodeLine{-\/H\ 'Content-\/Type:\ application/json'\ \(\backslash\)}
+\DoxyCodeLine{-\/H\ "{}Session-\/Token:\ 83af7e620c83a50a18d3eac2f6ed05a3ca0bea62"{}\ \(\backslash\)}
+\DoxyCodeLine{-\/H\ "{}App-\/Token:\ f7g3csp8mgatg5ebc5elnazakw20i9fyev1qopya7"{}\ \(\backslash\)}
+\DoxyCodeLine{'http://path/to/glpi/apirest.php/getFullSession'}
+\DoxyCodeLine{}
+\DoxyCodeLine{<\ 200\ OK}
+\DoxyCodeLine{<\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ 'session':\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ 'glpi\_plugins':\ ...,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ 'glpicookietest':\ ...,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ 'glpicsrftokens':\ ...,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ ...}
+\DoxyCodeLine{\ \ \ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \}}
+
+\end{DoxyCode}
+\hypertarget{md_public_2glpi_2apirest_autotoc_md371}{}\doxysection{\texorpdfstring{Get GLPI config}{Get GLPI config}}\label{md_public_2glpi_2apirest_autotoc_md371}
+
+\begin{DoxyItemize}
+\item {\bfseries{URL}}\+: \href{getGlpiConfig/?debug}{\texttt{ apirest.\+php/get\+Glpi\+Config/}}
+\item {\bfseries{Description}}\+: Return the current \$\+CFG\+\_\+\+GLPI.
+\item {\bfseries{Method}}\+: GET
+\item {\bfseries{Parameters}}\+: (Headers)
+\begin{DoxyItemize}
+\item {\itshape Session-\/\+Token}\+: session var provided by \doxylink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{init\+Session} endpoint. Mandatory.
+\item {\itshape App-\/\+Token}\+: authorization string provided by the \doxylink{class_g_l_p_i}{GLPI} API configuration. Optional.
+\end{DoxyItemize}
+\item {\bfseries{Returns}}\+:
+\begin{DoxyItemize}
+\item 200 (OK) with an array representing the php global variable \$\+CFG\+\_\+\+GLPI.
+\item 400 (Bad Request) with a message indicating an error in input parameter.
+\end{DoxyItemize}
+\end{DoxyItemize}
+
+Example usage (CURL)\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\$\ curl\ -\/X\ GET\ \(\backslash\)}
+\DoxyCodeLine{-\/H\ 'Content-\/Type:\ application/json'\ \(\backslash\)}
+\DoxyCodeLine{-\/H\ "{}Session-\/Token:\ 83af7e620c83a50a18d3eac2f6ed05a3ca0bea62"{}\ \(\backslash\)}
+\DoxyCodeLine{-\/H\ "{}App-\/Token:\ f7g3csp8mgatg5ebc5elnazakw20i9fyev1qopya7"{}\ \(\backslash\)}
+\DoxyCodeLine{'http://path/to/glpi/apirest.php/getGlpiConfig'}
+\DoxyCodeLine{}
+\DoxyCodeLine{<\ 200\ OK}
+\DoxyCodeLine{<\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ 'cfg\_glpi':\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ 'languages':\ ...,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ 'glpitables':\ ...,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ 'unicity\_types':...,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ ...}
+\DoxyCodeLine{\ \ \ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \}}
+
+\end{DoxyCode}
+\hypertarget{md_public_2glpi_2apirest_autotoc_md372}{}\doxysection{\texorpdfstring{Get an item}{Get an item}}\label{md_public_2glpi_2apirest_autotoc_md372}
+
+\begin{DoxyItemize}
+\item {\bfseries{URL}}\+: \href{User/2?debug}{\texttt{ apirest.\+php/\+:itemtype/\+:id}}
+\item {\bfseries{Description}}\+: Return the instance fields of itemtype identified by id.
+\item {\bfseries{Method}}\+: GET
+\item {\bfseries{Parameters}}\+: (Headers)
+\begin{DoxyItemize}
+\item {\itshape Session-\/\+Token}\+: session var provided by \doxylink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{init\+Session} endpoint. Mandatory.
+\item {\itshape App-\/\+Token}\+: authorization string provided by the \doxylink{class_g_l_p_i}{GLPI} API configuration. Optional.
+\end{DoxyItemize}
+\item {\bfseries{Parameters}}\+: (query string)
+\begin{DoxyItemize}
+\item {\itshape id}\+: unique identifier of the itemtype. Mandatory.
+\item {\itshape expand\+\_\+dropdowns} (default\+: false)\+: show dropdown name instead of id. Optional.
+\item {\itshape get\+\_\+hateoas} (default\+: true)\+: Show relations of the item in a links attribute. Optional.
+\item {\itshape get\+\_\+sha1} (default\+: false)\+: Get a sha1 signature instead of the full answer. Optional.
+\item {\itshape with\+\_\+devices}\+: Only for \mbox{[}\doxylink{class_computer}{Computer}, \doxylink{class_network_equipment}{Network\+Equipment}, \doxylink{class_peripheral}{Peripheral}, \doxylink{class_phone}{Phone}, \doxylink{class_printer}{Printer}\mbox{]}, retrieve the associated components. Optional.
+\item {\itshape with\+\_\+disks}\+: Only for \doxylink{class_computer}{Computer}, retrieve the associated file-\/systems. Optional.
+\item {\itshape with\+\_\+softwares}\+: Only for \doxylink{class_computer}{Computer}, retrieve the associated software\textquotesingle{}s installations. Optional.
+\item {\itshape with\+\_\+connections}\+: Only for \doxylink{class_computer}{Computer}, retrieve the associated direct connections (like peripherals and printers) .Optional.
+\item {\itshape with\+\_\+networkports}\+: Retrieve all network connections and advanced information. Optionnal.
+\item {\itshape with\+\_\+infocoms}\+: Retrieve financial and administrative information. Optional.
+\item {\itshape with\+\_\+contracts}\+: Retrieve associated contracts. Optional.
+\item {\itshape with\+\_\+documents}\+: Retrieve associated external documents. Optional.
+\item {\itshape with\+\_\+tickets}\+: Retrieve associated ITIL tickets. Optional.
+\item {\itshape with\+\_\+problems}\+: Retrieve associated ITIL problems. Optional.
+\item {\itshape with\+\_\+changes}\+: Retrieve associated ITIL changes. Optional.
+\item {\itshape with\+\_\+notes}\+: Retrieve Notes. Optional.
+\item {\itshape with\+\_\+logs}\+: Retrieve historical. Optional.
+\item {\itshape add\+\_\+keys\+\_\+names}\+: Retrieve friendly names. Array containing \doxylink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{fkey(s)} and/or "{}id"{}. Optional.
+\end{DoxyItemize}
+\item {\bfseries{Returns}}\+:
+\begin{DoxyItemize}
+\item 200 (OK) with item data (Last-\/\+Modified header should contain the date of last modification of the item).
+\item 401 (UNAUTHORIZED).
+\item 404 (NOT FOUND).
+\end{DoxyItemize}
+\end{DoxyItemize}
+
+Example usage (CURL)\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\$\ curl\ -\/X\ GET\ \(\backslash\)}
+\DoxyCodeLine{-\/H\ 'Content-\/Type:\ application/json'\ \(\backslash\)}
+\DoxyCodeLine{-\/H\ "{}Session-\/Token:\ 83af7e620c83a50a18d3eac2f6ed05a3ca0bea62"{}\ \(\backslash\)}
+\DoxyCodeLine{-\/H\ "{}App-\/Token:\ f7g3csp8mgatg5ebc5elnazakw20i9fyev1qopya7"{}\ \(\backslash\)}
+\DoxyCodeLine{'http://path/to/glpi/apirest.php/Computer/71?expand\_dropdowns=true'}
+\DoxyCodeLine{}
+\DoxyCodeLine{<\ 200\ OK}
+\DoxyCodeLine{<\ \{}
+\DoxyCodeLine{\ \ \ \ "{}id"{}:\ 71,}
+\DoxyCodeLine{\ \ \ \ "{}entities\_id"{}:\ "{}Root\ Entity"{},}
+\DoxyCodeLine{\ \ \ \ "{}name"{}:\ "{}adelaunay-\/ThinkPad-\/Edge-\/E320"{},}
+\DoxyCodeLine{\ \ \ \ "{}serial"{}:\ "{}12345"{},}
+\DoxyCodeLine{\ \ \ \ "{}otherserial"{}:\ "{}test2"{},}
+\DoxyCodeLine{\ \ \ \ "{}contact"{}:\ "{}adelaunay"{},}
+\DoxyCodeLine{\ \ \ \ "{}contact\_num"{}:\ null,}
+\DoxyCodeLine{\ \ \ \ "{}users\_id\_tech"{}:\ "{}\ "{},}
+\DoxyCodeLine{\ \ \ \ "{}groups\_id\_tech"{}:\ "{}\ "{},}
+\DoxyCodeLine{\ \ \ \ "{}comment"{}:\ "{}test222222qsdqsd"{},}
+\DoxyCodeLine{\ \ \ \ "{}date\_mod"{}:\ "{}2015-\/09-\/25\ 09:33:41"{},}
+\DoxyCodeLine{\ \ \ \ "{}autoupdatesystems\_id"{}:\ "{}\ "{},}
+\DoxyCodeLine{\ \ \ \ "{}locations\_id"{}:\ "{}00:0e:08:3b:7d:04"{},}
+\DoxyCodeLine{\ \ \ \ "{}networks\_id"{}:\ "{}\ "{},}
+\DoxyCodeLine{\ \ \ \ "{}computermodels\_id"{}:\ "{}1298A8G"{},}
+\DoxyCodeLine{\ \ \ \ "{}computertypes\_id"{}:\ "{}Notebook"{},}
+\DoxyCodeLine{\ \ \ \ "{}is\_template"{}:\ 0,}
+\DoxyCodeLine{\ \ \ \ "{}template\_name"{}:\ null,}
+\DoxyCodeLine{\ \ \ \ "{}manufacturers\_id"{}:\ "{}LENOVO"{},}
+\DoxyCodeLine{\ \ \ \ "{}is\_deleted"{}:\ 0,}
+\DoxyCodeLine{\ \ \ \ "{}is\_dynamic"{}:\ 1,}
+\DoxyCodeLine{\ \ \ \ "{}users\_id"{}:\ "{}adelaunay"{},}
+\DoxyCodeLine{\ \ \ \ "{}groups\_id"{}:\ "{}\ "{},}
+\DoxyCodeLine{\ \ \ \ "{}states\_id"{}:\ "{}Production"{},}
+\DoxyCodeLine{\ \ \ \ "{}ticket\_tco"{}:\ "{}0.0000"{},}
+\DoxyCodeLine{\ \ \ \ "{}uuid"{}:\ "{}"{},}
+\DoxyCodeLine{\ \ \ \ "{}date\_creation"{}:\ null,}
+\DoxyCodeLine{\ \ \ \ "{}links"{}:\ [\{}
+\DoxyCodeLine{\ \ \ \ \ \ \ "{}rel"{}:\ "{}Entity"{},}
+\DoxyCodeLine{\ \ \ \ \ \ \ "{}href"{}:\ "{}http://path/to/glpi/api/Entity/0"{}}
+\DoxyCodeLine{\ \ \ \ \},\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ "{}rel"{}:\ "{}Location"{},}
+\DoxyCodeLine{\ \ \ \ \ \ \ "{}href"{}:\ "{}http://path/to/glpi/api/Location/3"{}}
+\DoxyCodeLine{\ \ \ \ \},\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ "{}rel"{}:\ "{}Domain"{},}
+\DoxyCodeLine{\ \ \ \ \ \ \ "{}href"{}:\ "{}http://path/to/glpi/api/Domain/18"{}}
+\DoxyCodeLine{\ \ \ \ \},\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ "{}rel"{}:\ "{}ComputerModel"{},}
+\DoxyCodeLine{\ \ \ \ \ \ \ "{}href"{}:\ "{}http://path/to/glpi/api/ComputerModel/11"{}}
+\DoxyCodeLine{\ \ \ \ \},\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ "{}rel"{}:\ "{}ComputerType"{},}
+\DoxyCodeLine{\ \ \ \ \ \ \ "{}href"{}:\ "{}http://path/to/glpi/api/ComputerType/3"{}}
+\DoxyCodeLine{\ \ \ \ \},\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ "{}rel"{}:\ "{}Manufacturer"{},}
+\DoxyCodeLine{\ \ \ \ \ \ \ "{}href"{}:\ "{}http://path/to/glpi/api/Manufacturer/260"{}}
+\DoxyCodeLine{\ \ \ \ \},\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ "{}rel"{}:\ "{}User"{},}
+\DoxyCodeLine{\ \ \ \ \ \ \ "{}href"{}:\ "{}http://path/to/glpi/api/User/27"{}}
+\DoxyCodeLine{\ \ \ \ \},\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ "{}rel"{}:\ "{}State"{},}
+\DoxyCodeLine{\ \ \ \ \ \ \ "{}href"{}:\ "{}http://path/to/glpi/api/State/1"{}}
+\DoxyCodeLine{\ \ \ \ \}]}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+Note\+: To download a document see \doxylink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{Download a document file}.\hypertarget{md_public_2glpi_2apirest_autotoc_md373}{}\doxysection{\texorpdfstring{Get all items}{Get all items}}\label{md_public_2glpi_2apirest_autotoc_md373}
+
+\begin{DoxyItemize}
+\item {\bfseries{URL}}\+: \href{Computer/?debug}{\texttt{ apirest.\+php/\+:itemtype/}}
+\item {\bfseries{Description}}\+: Return a collection of rows of the itemtype.
+\item {\bfseries{Method}}\+: GET
+\item {\bfseries{Parameters}}\+: (Headers)
+\begin{DoxyItemize}
+\item {\itshape Session-\/\+Token}\+: session var provided by \doxylink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{init\+Session} endpoint. Mandatory.
+\item {\itshape App-\/\+Token}\+: authorization string provided by the \doxylink{class_g_l_p_i}{GLPI} API configuration. Optional.
+\end{DoxyItemize}
+\item {\bfseries{Parameters}}\+: (query string)
+\begin{DoxyItemize}
+\item {\itshape expand\+\_\+dropdowns} (default\+: false)\+: show dropdown name instead of id. Optional.
+\item {\itshape get\+\_\+hateoas} (default\+: true)\+: Show relation of item in a links attribute. Optional.
+\item {\itshape only\+\_\+id} (default\+: false)\+: keep only id keys in returned data. Optional.
+\item {\itshape range} (default\+: 0-\/49)\+: a string with a couple of number for start and end of pagination separated by a \textquotesingle{}-\/\textquotesingle{}. Ex\+: 150-\/199. Optional.
+\item {\itshape sort} (default 1)\+: name of the field to sort by. Optional.
+\item {\itshape order} (default ASC)\+: ASC -\/ Ascending sort / DESC Descending sort. Optional.
+\item {\itshape search\+Text} (default NULL)\+: array of filters to pass on the query (with key = field and value the text to search)
+\item {\itshape is\+\_\+deleted} (default\+: false)\+: Return deleted element. Optional.
+\item {\itshape add\+\_\+keys\+\_\+names}\+: Retrieve friendly names. Array containing \doxylink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{fkey(s)} and/or "{}id"{}. Optional.
+\item {\itshape with\+\_\+networkports}\+: Retrieve all network connections and advanced information. Optionnal.
+\end{DoxyItemize}
+\item {\bfseries{Returns}}\+:
+\begin{DoxyItemize}
+\item 200 (OK) with items data.
+\item 206 (PARTIAL CONTENT) with items data defined by range.
+\item 401 (UNAUTHORIZED).
+
+and theses headers\+:
+\begin{DoxyItemize}
+\item {\itshape Content-\/\+Range} offset – limit / count
+\item {\itshape Accept-\/\+Range} itemtype max
+\end{DoxyItemize}
+\end{DoxyItemize}
+\end{DoxyItemize}
+
+Example usage (CURL)\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\$\ curl\ -\/X\ GET\ \(\backslash\)}
+\DoxyCodeLine{-\/H\ 'Content-\/Type:\ application/json'\ \(\backslash\)}
+\DoxyCodeLine{-\/H\ "{}Session-\/Token:\ 83af7e620c83a50a18d3eac2f6ed05a3ca0bea62"{}\ \(\backslash\)}
+\DoxyCodeLine{-\/H\ "{}App-\/Token:\ f7g3csp8mgatg5ebc5elnazakw20i9fyev1qopya7"{}\ \(\backslash\)}
+\DoxyCodeLine{'http://path/to/glpi/apirest.php/Computer/?expand\_dropdowns=true'}
+\DoxyCodeLine{}
+\DoxyCodeLine{<\ 206\ OK}
+\DoxyCodeLine{<\ Content-\/Range:\ 0-\/49/200}
+\DoxyCodeLine{<\ Accept-\/Range:\ 990}
+\DoxyCodeLine{<\ [}
+\DoxyCodeLine{\ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ "{}id"{}:\ 34,}
+\DoxyCodeLine{\ \ \ \ \ \ "{}entities\_id"{}:\ "{}Root\ Entity"{},}
+\DoxyCodeLine{\ \ \ \ \ \ "{}name"{}:\ "{}glpi"{},}
+\DoxyCodeLine{\ \ \ \ \ \ "{}serial"{}:\ "{}VMware-\/42\ 01\ f4\ 65\ 27\ 59\ a9\ fb-\/11\ bc\ cd\ b8\ 64\ 68\ 1f\ 4b"{},}
+\DoxyCodeLine{\ \ \ \ \ \ "{}otherserial"{}:\ null,}
+\DoxyCodeLine{\ \ \ \ \ \ "{}contact"{}:\ "{}teclib"{},}
+\DoxyCodeLine{\ \ \ \ \ \ "{}contact\_num"{}:\ null,}
+\DoxyCodeLine{\ \ \ \ \ \ "{}users\_id\_tech"{}:\ "{}\&nbsp;"{},}
+\DoxyCodeLine{\ \ \ \ \ \ "{}groups\_id\_tech"{}:\ "{}\&nbsp;"{},}
+\DoxyCodeLine{\ \ \ \ \ \ "{}comment"{}:\ "{}x86\_64/00-\/09-\/15\ 08:03:28"{},}
+\DoxyCodeLine{\ \ \ \ \ \ "{}date\_mod"{}:\ "{}2011-\/12-\/16\ 17:52:55"{},}
+\DoxyCodeLine{\ \ \ \ \ \ "{}autoupdatesystems\_id"{}:\ "{}FusionInventory"{},}
+\DoxyCodeLine{\ \ \ \ \ \ "{}locations\_id"{}:\ "{}\&nbsp;"{},}
+\DoxyCodeLine{\ \ \ \ \ \ "{}networks\_id"{}:\ "{}\&nbsp;"{},}
+\DoxyCodeLine{\ \ \ \ \ \ "{}computermodels\_id"{}:\ "{}VMware\ Virtual\ Platform"{},}
+\DoxyCodeLine{\ \ \ \ \ \ "{}computertypes\_id"{}:\ "{}Other"{},}
+\DoxyCodeLine{\ \ \ \ \ \ "{}is\_template"{}:\ 0,}
+\DoxyCodeLine{\ \ \ \ \ \ "{}template\_name"{}:\ null,}
+\DoxyCodeLine{\ \ \ \ \ \ "{}manufacturers\_id"{}:\ "{}VMware,\ Inc."{},}
+\DoxyCodeLine{\ \ \ \ \ \ "{}is\_deleted"{}:\ 0,}
+\DoxyCodeLine{\ \ \ \ \ \ "{}is\_dynamic"{}:\ 1,}
+\DoxyCodeLine{\ \ \ \ \ \ "{}users\_id"{}:\ "{}\&nbsp;"{},}
+\DoxyCodeLine{\ \ \ \ \ \ "{}groups\_id"{}:\ "{}\&nbsp;"{},}
+\DoxyCodeLine{\ \ \ \ \ \ "{}states\_id"{}:\ "{}Production"{},}
+\DoxyCodeLine{\ \ \ \ \ \ "{}ticket\_tco"{}:\ "{}0.0000"{},}
+\DoxyCodeLine{\ \ \ \ \ \ "{}uuid"{}:\ "{}4201F465-\/2759-\/A9FB-\/11BC-\/CDB864681F4B"{},}
+\DoxyCodeLine{\ \ \ \ \ \ "{}links"{}:\ [\{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ "{}rel"{}:\ "{}Entity"{},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ "{}href"{}:\ "{}http://path/to/glpi/api/Entity/0"{}}
+\DoxyCodeLine{\ \ \ \ \ \ \},\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ "{}rel"{}:\ "{}AutoUpdateSystem"{},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ "{}href"{}:\ "{}http://path/to/glpi/api/AutoUpdateSystem/1"{}}
+\DoxyCodeLine{\ \ \ \ \ \ \},\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ "{}rel"{}:\ "{}Domain"{},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ "{}href"{}:\ "{}http://path/to/glpi/api/Domain/12"{}}
+\DoxyCodeLine{\ \ \ \ \ \ \},\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ "{}rel"{}:\ "{}ComputerModel"{},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ "{}href"{}:\ "{}http://path/to/glpi/api/ComputerModel/1"{}}
+\DoxyCodeLine{\ \ \ \ \ \ \},\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ "{}rel"{}:\ "{}ComputerType"{},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ "{}href"{}:\ "{}http://path/to/glpi/api/ComputerType/2"{}}
+\DoxyCodeLine{\ \ \ \ \ \ \},\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ "{}rel"{}:\ "{}Manufacturer"{},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ "{}href"{}:\ "{}http://path/to/glpi/api/Manufacturer/1"{}}
+\DoxyCodeLine{\ \ \ \ \ \ \},\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ "{}rel"{}:\ "{}State"{},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ "{}href"{}:\ "{}http://path/to/glpi/api/State/1"{}}
+\DoxyCodeLine{\ \ \ \ \ \ \}]}
+\DoxyCodeLine{\ \ \ \},}
+\DoxyCodeLine{\ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ "{}id"{}:\ 35,}
+\DoxyCodeLine{\ \ \ \ \ \ "{}entities\_id"{}:\ "{}Root\ Entity"{},}
+\DoxyCodeLine{\ \ \ \ \ \ "{}name"{}:\ "{}mavm1"{},}
+\DoxyCodeLine{\ \ \ \ \ \ "{}serial"{}:\ "{}VMware-\/42\ 20\ d3\ 04\ ac\ 49\ ed\ c8-\/ea\ 15\ 50\ 49\ e1\ 40\ 0f\ 6c"{},}
+\DoxyCodeLine{\ \ \ \ \ \ "{}otherserial"{}:\ null,}
+\DoxyCodeLine{\ \ \ \ \ \ "{}contact"{}:\ "{}teclib"{},}
+\DoxyCodeLine{\ \ \ \ \ \ "{}contact\_num"{}:\ null,}
+\DoxyCodeLine{\ \ \ \ \ \ "{}users\_id\_tech"{}:\ "{}\&nbsp;"{},}
+\DoxyCodeLine{\ \ \ \ \ \ "{}groups\_id\_tech"{}:\ "{}\&nbsp;"{},}
+\DoxyCodeLine{\ \ \ \ \ \ "{}comment"{}:\ "{}x86\_64/01-\/01-\/04\ 19:50:40"{},}
+\DoxyCodeLine{\ \ \ \ \ \ "{}date\_mod"{}:\ "{}2012-\/05-\/24\ 06:43:35"{},}
+\DoxyCodeLine{\ \ \ \ \ \ ...}
+\DoxyCodeLine{\ \ \ \}}
+\DoxyCodeLine{]}
+
+\end{DoxyCode}
+\hypertarget{md_public_2glpi_2apirest_autotoc_md374}{}\doxysection{\texorpdfstring{Get sub items}{Get sub items}}\label{md_public_2glpi_2apirest_autotoc_md374}
+
+\begin{DoxyItemize}
+\item {\bfseries{URL}}\+: \href{User/2/Log?debug}{\texttt{ apirest.\+php/\+:itemtype/\+:id/\+:sub\+\_\+itemtype}}
+\item {\bfseries{Description}}\+: Return a collection of rows of the sub\+\_\+itemtype for the identified item.
+\item {\bfseries{Method}}\+: GET
+\item {\bfseries{Parameters}}\+: (Headers)
+\begin{DoxyItemize}
+\item {\itshape Session-\/\+Token}\+: session var provided by \doxylink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{init\+Session} endpoint. Mandatory.
+\item {\itshape App-\/\+Token}\+: authorization string provided by the \doxylink{class_g_l_p_i}{GLPI} API configuration. Optional.
+\end{DoxyItemize}
+\item {\bfseries{Parameters}}\+: (query string)
+\begin{DoxyItemize}
+\item id\+: unique identifier of the parent itemtype. Mandatory.
+\item {\itshape expand\+\_\+dropdowns} (default\+: false)\+: show dropdown name instead of id. Optional.
+\item {\itshape get\+\_\+hateoas} (default\+: true)\+: Show item\textquotesingle{}s relations in a links attribute. Optional.
+\item {\itshape only\+\_\+id} (default\+: false)\+: keep only id keys in returned data. Optional.
+\item {\itshape range} (default\+: 0-\/49)\+: a string with a couple of number for start and end of pagination separated by a \textquotesingle{}-\/\textquotesingle{} char. Ex\+: 150-\/199. Optional.
+\item {\itshape sort} (default 1)\+: id of the "{}searchoption"{} to sort by. Optional.
+\item {\itshape order} (default ASC)\+: ASC -\/ Ascending sort / DESC Descending sort. Optional.
+\item {\itshape add\+\_\+keys\+\_\+names}\+: Retrieve friendly names. Array containing \doxylink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{fkey(s)} and/or "{}id"{}. Optional.
+\end{DoxyItemize}
+\item {\bfseries{Returns}}\+:
+\begin{DoxyItemize}
+\item 200 (OK) with the items data.
+\item 401 (UNAUTHORIZED).
+
+and theses headers\+:
+\begin{DoxyItemize}
+\item {\itshape Content-\/\+Range} offset – limit / count
+\item {\itshape Accept-\/\+Range} itemtype max
+\end{DoxyItemize}
+\end{DoxyItemize}
+\end{DoxyItemize}
+
+Example usage (CURL)\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\$\ curl\ -\/X\ GET\ \(\backslash\)}
+\DoxyCodeLine{-\/H\ 'Content-\/Type:\ application/json'\ \(\backslash\)}
+\DoxyCodeLine{-\/H\ "{}Session-\/Token:\ 83af7e620c83a50a18d3eac2f6ed05a3ca0bea62"{}\ \(\backslash\)}
+\DoxyCodeLine{-\/H\ "{}App-\/Token:\ f7g3csp8mgatg5ebc5elnazakw20i9fyev1qopya7"{}\ \(\backslash\)}
+\DoxyCodeLine{'http://path/to/glpi/apirest.php/User/2/Log'}
+\DoxyCodeLine{}
+\DoxyCodeLine{<\ 200\ OK}
+\DoxyCodeLine{<\ Content-\/Range:\ 0-\/49/200}
+\DoxyCodeLine{<\ Accept-\/Range:\ 990}
+\DoxyCodeLine{<\ [}
+\DoxyCodeLine{\ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ "{}id"{}:\ 22117,}
+\DoxyCodeLine{\ \ \ \ \ \ "{}itemtype"{}:\ "{}User"{},}
+\DoxyCodeLine{\ \ \ \ \ \ "{}items\_id"{}:\ 2,}
+\DoxyCodeLine{\ \ \ \ \ \ "{}itemtype\_link"{}:\ "{}Profile"{},}
+\DoxyCodeLine{\ \ \ \ \ \ "{}linked\_action"{}:\ 17,}
+\DoxyCodeLine{\ \ \ \ \ \ "{}user\_name"{}:\ "{}glpi\ (27)"{},}
+\DoxyCodeLine{\ \ \ \ \ \ "{}date\_mod"{}:\ "{}2015-\/10-\/13\ 10:00:59"{},}
+\DoxyCodeLine{\ \ \ \ \ \ "{}id\_search\_option"{}:\ 0,}
+\DoxyCodeLine{\ \ \ \ \ \ "{}old\_value"{}:\ "{}"{},}
+\DoxyCodeLine{\ \ \ \ \ \ "{}new\_value"{}:\ "{}super-\/admin\ (4)"{}}
+\DoxyCodeLine{\ \ \ \},\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ "{}id"{}:\ 22118,}
+\DoxyCodeLine{\ \ \ \ \ \ "{}itemtype"{}:\ "{}User"{},}
+\DoxyCodeLine{\ \ \ \ \ \ "{}items\_id"{}:\ 2,}
+\DoxyCodeLine{\ \ \ \ \ \ "{}itemtype\_link"{}:\ "{}"{},}
+\DoxyCodeLine{\ \ \ \ \ \ "{}linked\_action"{}:\ 0,}
+\DoxyCodeLine{\ \ \ \ \ \ "{}user\_name"{}:\ "{}glpi\ (2)"{},}
+\DoxyCodeLine{\ \ \ \ \ \ "{}date\_mod"{}:\ "{}2015-\/10-\/13\ 10:01:22"{},}
+\DoxyCodeLine{\ \ \ \ \ \ "{}id\_search\_option"{}:\ 80,}
+\DoxyCodeLine{\ \ \ \ \ \ "{}old\_value"{}:\ "{}Root\ entity\ (0)"{},}
+\DoxyCodeLine{\ \ \ \ \ \ "{}new\_value"{}:\ "{}Root\ entity\ >\ my\ entity\ (1)"{}}
+\DoxyCodeLine{\ \ \ \},\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ ...}
+\DoxyCodeLine{\ \ \ \}}
+\DoxyCodeLine{]}
+
+\end{DoxyCode}
+\hypertarget{md_public_2glpi_2apirest_autotoc_md375}{}\doxysection{\texorpdfstring{Get multiple items}{Get multiple items}}\label{md_public_2glpi_2apirest_autotoc_md375}
+
+\begin{DoxyItemize}
+\item {\bfseries{URL}}\+: apirest.\+php/get\+Multiple\+Items
+\item {\bfseries{Description}}\+: Virtually call \doxylink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{Get an item} for each line in input. So, you can have a ticket, a user in the same query.
+\item {\bfseries{Method}}\+: GET
+\item {\bfseries{Parameters}}\+: (Headers)
+\begin{DoxyItemize}
+\item {\itshape Session-\/\+Token}\+: session var provided by \doxylink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{init\+Session} endpoint. Mandatory.
+\item {\itshape App-\/\+Token}\+: authorization string provided by the \doxylink{class_g_l_p_i}{GLPI} API configuration. Optional.
+\end{DoxyItemize}
+\item {\bfseries{Parameters}}\+: (query string)
+\begin{DoxyItemize}
+\item {\itshape items}\+: items to retrieve. Mandatory. Each line of this array should contains two keys\+:
+\begin{DoxyItemize}
+\item itemtype
+\item items\+\_\+id
+\end{DoxyItemize}
+\item {\itshape expand\+\_\+dropdowns} (default\+: false)\+: show dropdown name instead of id. Optional.
+\item {\itshape get\+\_\+hateoas} (default\+: true)\+: Show relations of the item in a links attribute. Optional.
+\item {\itshape get\+\_\+sha1} (default\+: false)\+: Get a sha1 signature instead of the full answer. Optional.
+\item {\itshape with\+\_\+devices}\+: Only for \mbox{[}\doxylink{class_computer}{Computer}, \doxylink{class_network_equipment}{Network\+Equipment}, \doxylink{class_peripheral}{Peripheral}, \doxylink{class_phone}{Phone}, \doxylink{class_printer}{Printer}\mbox{]}, retrieve the associated components. Optional.
+\item {\itshape with\+\_\+disks}\+: Only for \doxylink{class_computer}{Computer}, retrieve the associated file-\/systems. Optional.
+\item {\itshape with\+\_\+softwares}\+: Only for \doxylink{class_computer}{Computer}, retrieve the associated software\textquotesingle{}s installations. Optional.
+\item {\itshape with\+\_\+connections}\+: Only for \doxylink{class_computer}{Computer}, retrieve the associated direct connections (like peripherals and printers) .Optional.
+\item {\itshape with\+\_\+networkports}\+: Retrieve all network connections and advanced information. Optionnal.
+\item {\itshape with\+\_\+infocoms}\+: Retrieve financial and administrative information. Optional.
+\item {\itshape with\+\_\+contracts}\+: Retrieve associated contracts. Optional.
+\item {\itshape with\+\_\+documents}\+: Retrieve associated external documents. Optional.
+\item {\itshape with\+\_\+tickets}\+: Retrieve associated ITIL tickets. Optional.
+\item {\itshape with\+\_\+problems}\+: Retrieve associated ITIL problems. Optional.
+\item {\itshape with\+\_\+changes}\+: Retrieve associated ITIL changes. Optional.
+\item {\itshape with\+\_\+notes}\+: Retrieve Notes. Optional.
+\item {\itshape with\+\_\+logs}\+: Retrieve historical. Optional.
+\item {\itshape add\+\_\+keys\+\_\+names}\+: Retrieve friendly names. Array containing \doxylink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{fkey(s)} and/or "{}id"{}. Optional.
+\end{DoxyItemize}
+\item {\bfseries{Returns}}\+:
+\begin{DoxyItemize}
+\item 200 (OK) with item data (Last-\/\+Modified header should contain the date of last modification of the item).
+\item 401 (UNAUTHORIZED).
+\item 404 (NOT FOUND).
+\end{DoxyItemize}
+\end{DoxyItemize}
+
+Example usage (CURL)\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\$\ curl\ -\/X\ GET\ \(\backslash\)}
+\DoxyCodeLine{-\/H\ 'Content-\/Type:\ application/json'\ \(\backslash\)}
+\DoxyCodeLine{-\/H\ "{}Session-\/Token:\ 83af7e620c83a50a18d3eac2f6ed05a3ca0bea62"{}\ \(\backslash\)}
+\DoxyCodeLine{-\/H\ "{}App-\/Token:\ f7g3csp8mgatg5ebc5elnazakw20i9fyev1qopya7"{}\ \(\backslash\)}
+\DoxyCodeLine{-\/d\ '\{"{}items"{}:\ [\{"{}itemtype"{}:\ "{}User"{},\ "{}items\_id"{}:\ 2\},\ \{"{}itemtype"{}:\ "{}Entity"{},\ "{}items\_id"{}:\ 0\}]\}'\ \(\backslash\)}
+\DoxyCodeLine{'http://path/to/glpi/apirest.php/getMultipleItems?items\(\backslash\)[0\(\backslash\)]\(\backslash\)[itemtype\(\backslash\)]\(\backslash\)=User\&items\(\backslash\)[0\(\backslash\)]\(\backslash\)[items\_id\(\backslash\)]\(\backslash\)=2\&items\(\backslash\)[1\(\backslash\)]\(\backslash\)[itemtype\(\backslash\)]\(\backslash\)=Entity\&items\(\backslash\)[1\(\backslash\)]\(\backslash\)[items\_id\(\backslash\)]\(\backslash\)=0'}
+\DoxyCodeLine{}
+\DoxyCodeLine{<\ 200\ OK}
+\DoxyCodeLine{<\ Content-\/Range:\ 0-\/49/200}
+\DoxyCodeLine{<\ Accept-\/Range:\ 990}
+\DoxyCodeLine{<\ [\{}
+\DoxyCodeLine{\ \ \ "{}id"{}:\ 2,}
+\DoxyCodeLine{\ \ \ "{}name"{}:\ "{}glpi"{},}
+\DoxyCodeLine{\ \ \ ...}
+\DoxyCodeLine{\},\ \{}
+\DoxyCodeLine{\ \ \ "{}id"{}:\ 0,}
+\DoxyCodeLine{\ \ \ "{}name"{}:\ "{}Root\ Entity"{},}
+\DoxyCodeLine{\ \ \ ...}
+\DoxyCodeLine{\}]}
+
+\end{DoxyCode}
+\hypertarget{md_public_2glpi_2apirest_autotoc_md376}{}\doxysection{\texorpdfstring{List search\+Options}{List search\+Options}}\label{md_public_2glpi_2apirest_autotoc_md376}
+
+\begin{DoxyItemize}
+\item {\bfseries{URL}}\+: \href{listSearchOptions/Computer?debug}{\texttt{ apirest.\+php/list\+Search\+Options/\+:itemtype}}
+\item {\bfseries{Description}}\+: List the searchoptions of provided itemtype. To use with \doxylink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{Search items}.
+\item {\bfseries{Method}}\+: GET
+\item {\bfseries{Parameters}}\+: (Headers)
+\begin{DoxyItemize}
+\item {\itshape Session-\/\+Token}\+: session var provided by \doxylink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{init\+Session} endpoint. Mandatory.
+\item {\itshape App-\/\+Token}\+: authorization string provided by the \doxylink{class_g_l_p_i}{GLPI} API configuration. Optional.
+\end{DoxyItemize}
+\item {\bfseries{Parameters}}\+: (query string)
+\begin{DoxyItemize}
+\item {\itshape raw}\+: return searchoption uncleaned (as provided by core)
+\end{DoxyItemize}
+\item {\bfseries{Returns}}\+:
+\begin{DoxyItemize}
+\item 200 (OK) with all searchoptions of specified itemtype (format\+: searchoption\+\_\+id\+: \{option\+\_\+content\}).
+\item 401 (UNAUTHORIZED).
+\end{DoxyItemize}
+\end{DoxyItemize}
+
+Example usage (CURL)\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\$\ curl\ -\/X\ GET\ \(\backslash\)}
+\DoxyCodeLine{-\/H\ 'Content-\/Type:\ application/json'\ \(\backslash\)}
+\DoxyCodeLine{-\/H\ "{}Session-\/Token:\ 83af7e620c83a50a18d3eac2f6ed05a3ca0bea62"{}\ \(\backslash\)}
+\DoxyCodeLine{-\/H\ "{}App-\/Token:\ f7g3csp8mgatg5ebc5elnazakw20i9fyev1qopya7"{}\ \(\backslash\)}
+\DoxyCodeLine{'http://path/to/glpi/apirest.php/listSearchOptions/Computer'}
+\DoxyCodeLine{<\ 200\ OK}
+\DoxyCodeLine{<\ \{}
+\DoxyCodeLine{\ \ \ \ "{}common"{}:\ "{}Characteristics"{},}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ 1:\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ 'name':\ 'Name'}
+\DoxyCodeLine{\ \ \ \ \ \ 'table':\ 'glpi\_computers'}
+\DoxyCodeLine{\ \ \ \ \ \ 'field':\ 'name'}
+\DoxyCodeLine{\ \ \ \ \ \ 'linkfield':\ 'name'}
+\DoxyCodeLine{\ \ \ \ \ \ 'datatype':\ 'itemlink'}
+\DoxyCodeLine{\ \ \ \ \ \ 'uid':\ 'Computer.name'}
+\DoxyCodeLine{\ \ \ \},}
+\DoxyCodeLine{\ \ \ 2:\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ 'name':\ 'ID'}
+\DoxyCodeLine{\ \ \ \ \ \ 'table':\ 'glpi\_computers'}
+\DoxyCodeLine{\ \ \ \ \ \ 'field':\ 'id'}
+\DoxyCodeLine{\ \ \ \ \ \ 'linkfield':\ 'id'}
+\DoxyCodeLine{\ \ \ \ \ \ 'datatype':\ 'number'}
+\DoxyCodeLine{\ \ \ \ \ \ 'uid':\ 'Computer.id'}
+\DoxyCodeLine{\ \ \ \},}
+\DoxyCodeLine{\ \ \ 3:\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ 'name':\ 'Location'}
+\DoxyCodeLine{\ \ \ \ \ \ 'table':\ 'glpi\_locations'}
+\DoxyCodeLine{\ \ \ \ \ \ 'field':\ 'completename'}
+\DoxyCodeLine{\ \ \ \ \ \ 'linkfield':\ 'locations\_id'}
+\DoxyCodeLine{\ \ \ \ \ \ 'datatype':\ 'dropdown'}
+\DoxyCodeLine{\ \ \ \ \ \ 'uid':\ 'Computer.Location.completename'}
+\DoxyCodeLine{\ \ \ \},}
+\DoxyCodeLine{\ \ \ ...}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\hypertarget{md_public_2glpi_2apirest_autotoc_md377}{}\doxysection{\texorpdfstring{Search items}{Search items}}\label{md_public_2glpi_2apirest_autotoc_md377}
+
+\begin{DoxyItemize}
+\item {\bfseries{URL}}\+: \href{search/Computer/?debug}{\texttt{ apirest.\+php/search/\+:itemtype/}}
+\item {\bfseries{Description}}\+: Expose the \doxylink{class_g_l_p_i}{GLPI} search\+Engine and combine criteria to retrieve a list of elements of specified itemtype. \begin{quote}
+Note\+: you can use \textquotesingle{}\doxylink{class_all_assets}{All\+Assets}\textquotesingle{} itemtype to retrieve a combination of all asset\textquotesingle{}s types. \end{quote}
+\texorpdfstring{$\ast$}{*} {\bfseries{Method}}\+: GET
+\item {\bfseries{Parameters}}\+: (Headers)
+\begin{DoxyItemize}
+\item {\itshape Session-\/\+Token}\+: session var provided by \doxylink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{init\+Session} endpoint. Mandatory.
+\item {\itshape App-\/\+Token}\+: authorization string provided by the \doxylink{class_g_l_p_i}{GLPI} API configuration. Optional.
+\end{DoxyItemize}
+\item {\bfseries{Parameters}}\+: (query string)
+\begin{DoxyItemize}
+\item {\itshape criteria}\+: array of criterion objects to filter search. Optional. You can optionally precise {\ttfamily meta=true} to pass a searchoption of another itemtype (meta-\/criteria). Each criterion object must provide at least\+:
+\begin{DoxyItemize}
+\item {\itshape link}\+: (optional for 1st element) logical operator in \mbox{[}AND, OR, AND NOT, AND NOT\mbox{]}.
+\end{DoxyItemize}
+
+And you can pass a direct searchoption usage \+:
+\begin{DoxyItemize}
+\item {\itshape field}\+: id of the searchoption.
+\item {\itshape meta}\+: boolean, is this criterion a meta one ?
+\item {\itshape itemtype}\+: for meta=true criterion, precise the itemtype to use.
+\item {\itshape searchtype}\+: type of search in \mbox{[}contains¹, equals², notequals², lessthan, morethan, under, notunder\mbox{]}.
+\item {\itshape value}\+: the value to search.
+\end{DoxyItemize}
+
+Or a list of sub-\/nodes with the key\+:
+\begin{DoxyItemize}
+\item {\itshape criteria}\+: nested criteria inside this criteria.
+\end{DoxyItemize}
+
+Ex\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{...}
+\DoxyCodeLine{"{}criteria"{}:}
+\DoxyCodeLine{\ \ \ [}
+\DoxyCodeLine{\ \ \ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ "{}field"{}:\ \ \ \ \ \ 1,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ "{}searchtype"{}:\ 'contains',}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ "{}value"{}:\ \ \ \ \ \ ''}
+\DoxyCodeLine{\ \ \ \ \ \ \},\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ "{}link"{}:\ \ \ \ \ \ \ 'AND',}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ "{}field"{}:\ \ \ \ \ \ 31,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ "{}searchtype"{}:\ 'equals',}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ "{}value"{}:\ \ \ \ \ \ 1}
+\DoxyCodeLine{\ \ \ \ \ \ \},\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ "{}link"{}:\ \ \ \ \ \ \ 'AND',}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ "{}meta"{}:\ \ \ \ \ \ \ true,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ "{}itemtype"{}:\ \ \ 'User',}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ "{}field"{}:\ \ \ \ \ \ 1,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ "{}searchtype"{}:\ 'equals',}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ "{}value"{}:\ \ \ \ \ \ 1}
+\DoxyCodeLine{\ \ \ \ \ \ \},\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ "{}link"{}:\ \ \ \ \ \ \ 'AND',}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ "{}criteria"{}\ :\ [}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}field"{}:\ \ \ \ \ \ 34,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}searchtype"{}:\ 'equals',}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}value"{}:\ \ \ \ \ \ 1}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \},\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}link"{}:\ \ \ \ \ \ \ 'OR',}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}field"{}:\ \ \ \ \ \ 35,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}searchtype"{}:\ 'equals',}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}value"{}:\ \ \ \ \ \ 1}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ ]}
+\DoxyCodeLine{\ \ \ \ \ \ \}}
+\DoxyCodeLine{\ \ \ ]}
+\DoxyCodeLine{...}
+
+\end{DoxyCode}
+
+\item {\itshape metacriteria} (optional)\+: array of meta-\/criterion objects to filter search. Optional. A meta search is a link with another itemtype (ex\+: \doxylink{class_computer}{Computer} with software). {\bfseries{Deprecated\+: Now criteria support meta flag, you should use it instead direct metacriteria option.}}
+
+Each meta-\/criterion object must provide\+:
+\begin{DoxyItemize}
+\item {\itshape link}\+: logical operator in \mbox{[}AND, OR, AND NOT, AND NOT\mbox{]}. Mandatory.
+\item {\itshape itemtype}\+: second itemtype to link.
+\item {\itshape field}\+: id of the searchoption.
+\item {\itshape searchtype}\+: type of search in \mbox{[}contains¹, equals², notequals², lessthan, morethan, under, notunder\mbox{]}.
+\item {\itshape value}\+: the value to search.
+\end{DoxyItemize}
+
+Ex\+:
+
+{\ttfamily json ... "{}metacriteria"{}\+: \mbox{[} \{ "{}link"{}\+: \textquotesingle{}AND\textquotesingle{}, "{}itemtype"{}\+: \textquotesingle{}\doxylink{class_monitor}{Monitor}\textquotesingle{}, "{}field"{}\+: 2, "{}searchtype"{}\+: \textquotesingle{}contains\textquotesingle{}, "{}value"{}\+: \textquotesingle{}\textquotesingle{} \}, \{ "{}link"{}\+: \textquotesingle{}AND\textquotesingle{}, "{}itemtype"{}\+: \textquotesingle{}\doxylink{class_monitor}{Monitor}\textquotesingle{}, "{}field"{}\+: 3, "{}searchtype"{}\+: \textquotesingle{}contains\textquotesingle{}, "{}value"{}\+: \textquotesingle{}\textquotesingle{} \} \mbox{]} ... }
+\item {\itshape sort} (default 1)\+: id of the searchoption to sort by. Optional.
+\item {\itshape order} (default ASC)\+: ASC -\/ Ascending sort / DESC Descending sort. Optional.
+\item {\itshape range} (default 0-\/49)\+: a string with a couple of number for start and end of pagination separated by a \textquotesingle{}-\/\textquotesingle{}. Ex\+: 150-\/199. Optional.
+\item {\itshape forcedisplay}\+: array of columns to display (default empty = use display preferences and searched criteria). Some columns will be always presents (1\+: id, 2\+: name, 80\+: \doxylink{class_entity}{Entity}). Optional.
+\item {\itshape rawdata} (default false)\+: a boolean for displaying raws data of the \doxylink{class_search}{Search} engine of \doxylink{class_g_l_p_i}{GLPI} (like SQL request, full searchoptions, etc)
+\item {\itshape withindexes} (default false)\+: a boolean to retrieve rows indexed by items id. By default this option is set to false, because order of JSON objects (which are identified by index) cannot be garrantued (from \href{http://json.org/}{\texttt{ http\+://json.\+org/}} \+: An object is an unordered set of name/value pairs). So, we provide arrays to guarantying sorted rows.
+\item {\itshape uid\+\_\+cols} (default false)\+: a boolean to identify cols by the \textquotesingle{}uniqid\textquotesingle{} of the searchoptions instead of a numeric value (see \doxylink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{List search\+Options} and \textquotesingle{}uid\textquotesingle{} field)
+\item {\itshape give\+Items} (default false)\+: a boolean to retrieve the data with the html parsed from core, new data are provided in data\+\_\+html key.
+\item ¹ -\/ {\itshape contains} will use a wildcard search per default. You can restrict at the beginning using the \texorpdfstring{$\ast$}{*}\texorpdfstring{$^\wedge$}{\string^}\texorpdfstring{$\ast$}{*} character, and/or at the end using the {\itshape \$} character.
+\item ² -\/ {\itshape equals} and {\itshape notequals} are designed to be used with dropdowns. Do not expect those operators to search for a strictly equal value (see ¹ above).
+\end{DoxyItemize}
+\item {\bfseries{Returns}}\+:
+\begin{DoxyItemize}
+\item 200 (OK) with all rows data with this format\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ \ \ "{}totalcount"{}:\ "{}:numberofresults\_without\_pagination"{},}
+\DoxyCodeLine{\ \ \ \ "{}range"{}:\ "{}:start-\/:end"{},}
+\DoxyCodeLine{\ \ \ \ "{}data"{}:\ [}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ "{}:searchoptions\_id"{}:\ "{}value"{},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ ...}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ ...}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ ],}
+\DoxyCodeLine{\ \ \ \ "{}rawdata"{}:\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ ...}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+\item 206 (PARTIAL CONTENT) with rows data (pagination doesn\textquotesingle{}t permit to display all rows).
+\item 401 (UNAUTHORIZED).
+
+and theses headers\+:
+\begin{DoxyItemize}
+\item {\itshape Content-\/\+Range} offset – limit / count
+\item {\itshape Accept-\/\+Range} itemtype max
+\end{DoxyItemize}
+\end{DoxyItemize}
+\end{DoxyItemize}
+
+Example usage (CURL)\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{curl\ -\/g\ -\/X\ GET\ \(\backslash\)}
+\DoxyCodeLine{-\/H\ 'Content-\/Type:\ application/json'\ \(\backslash\)}
+\DoxyCodeLine{-\/H\ "{}Session-\/Token:\ 83af7e620c83a50a18d3eac2f6ed05a3ca0bea62"{}\ \(\backslash\)}
+\DoxyCodeLine{-\/H\ "{}App-\/Token:\ f7g3csp8mgatg5ebc5elnazakw20i9fyev1qopya7"{}\ \(\backslash\)}
+\DoxyCodeLine{'http://path/to/glpi/apirest.php/search/Monitor?\(\backslash\)}
+\DoxyCodeLine{criteria\(\backslash\)[0\(\backslash\)]\(\backslash\)[link\(\backslash\)]\(\backslash\)=AND\(\backslash\)}
+\DoxyCodeLine{\(\backslash\)\&criteria\(\backslash\)[0\(\backslash\)]\(\backslash\)[itemtype\(\backslash\)]\(\backslash\)=Monitor\(\backslash\)}
+\DoxyCodeLine{\(\backslash\)\&criteria\(\backslash\)[0\(\backslash\)]\(\backslash\)[field\(\backslash\)]\(\backslash\)=23\(\backslash\)}
+\DoxyCodeLine{\(\backslash\)\&criteria\(\backslash\)[0\(\backslash\)]\(\backslash\)[searchtype\(\backslash\)]\(\backslash\)=contains\(\backslash\)}
+\DoxyCodeLine{\(\backslash\)\&criteria\(\backslash\)[0\(\backslash\)]\(\backslash\)[value\(\backslash\)]\(\backslash\)=GSM\(\backslash\)}
+\DoxyCodeLine{\(\backslash\)\&criteria\(\backslash\)[1\(\backslash\)]\(\backslash\)[link\(\backslash\)]\(\backslash\)=AND\(\backslash\)}
+\DoxyCodeLine{\(\backslash\)\&criteria\(\backslash\)[1\(\backslash\)]\(\backslash\)[itemtype\(\backslash\)]\(\backslash\)=Monitor\(\backslash\)}
+\DoxyCodeLine{\(\backslash\)\&criteria\(\backslash\)[1\(\backslash\)]\(\backslash\)[field\(\backslash\)]\(\backslash\)=1\(\backslash\)}
+\DoxyCodeLine{\(\backslash\)\&criteria\(\backslash\)[1\(\backslash\)]\(\backslash\)[searchtype\(\backslash\)]\(\backslash\)=contains\(\backslash\)}
+\DoxyCodeLine{\(\backslash\)\&criteria\(\backslash\)[1\(\backslash\)]\(\backslash\)[value\(\backslash\)]\(\backslash\)=W2\(\backslash\)}
+\DoxyCodeLine{\(\backslash\)\&range\(\backslash\)=0-\/2\(\backslash\)\&\&forcedisplay\(\backslash\)[0\(\backslash\)]\(\backslash\)=1'}
+\DoxyCodeLine{}
+\DoxyCodeLine{<\ 200\ OK}
+\DoxyCodeLine{<\ Content-\/Range:\ 0-\/2/2}
+\DoxyCodeLine{<\ Accept-\/Range:\ 990}
+\DoxyCodeLine{<\ \{"{}totalcount"{}:2,"{}count"{}:2,"{}data"{}:\{"{}11"{}:\{"{}1"{}:"{}W2242"{},"{}80"{}:"{}Root\ Entity"{},"{}23"{}:"{}GSM"{}\},"{}7"{}:\{"{}1"{}:"{}W2252"{},"{}80"{}:"{}Root\ Entity"{},"{}23"{}:"{}GSM"{}\}\}\}\%}
+
+\end{DoxyCode}
+\hypertarget{md_public_2glpi_2apirest_autotoc_md378}{}\doxysection{\texorpdfstring{Add item(s)}{Add item(s)}}\label{md_public_2glpi_2apirest_autotoc_md378}
+
+\begin{DoxyItemize}
+\item {\bfseries{URL}}\+: apirest.\+php/\+:itemtype/
+\item {\bfseries{Description}}\+: Add an object (or multiple objects) into \doxylink{class_g_l_p_i}{GLPI}.
+\item {\bfseries{Method}}\+: POST
+\item {\bfseries{Parameters}}\+: (Headers)
+\begin{DoxyItemize}
+\item {\itshape Session-\/\+Token}\+: session var provided by \doxylink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{init\+Session} endpoint. Mandatory.
+\item {\itshape App-\/\+Token}\+: authorization string provided by the \doxylink{class_g_l_p_i}{GLPI} API configuration. Optional.
+\end{DoxyItemize}
+\item {\bfseries{Parameters}}\+: (JSON Payload)
+\begin{DoxyItemize}
+\item {\itshape input}\+: an object with fields of itemtype to be inserted. You can add several items in one action by passing an array of objects. Mandatory.
+
+{\bfseries{Important\+:}} In case of \textquotesingle{}multipart/data\textquotesingle{} content\+\_\+type (aka file upload), you should insert your parameters into a \textquotesingle{}upload\+Manifest\textquotesingle{} parameter. Theses serialized data should be a JSON string.
+\end{DoxyItemize}
+\item {\bfseries{Returns}}\+:
+\begin{DoxyItemize}
+\item 201 (OK) with id of added items.
+\item 207 (Multi-\/\+Status) with id of added items and errors.
+\item 400 (Bad Request) with a message indicating an error in input parameter.
+\item 401 (UNAUTHORIZED).
+\item And additional header can be provided on creation success\+:
+\begin{DoxyItemize}
+\item \doxylink{class_location}{Location} when adding a single item.
+\item \doxylink{class_link}{Link} on bulk addition.
+\end{DoxyItemize}
+\end{DoxyItemize}
+\end{DoxyItemize}
+
+Examples usage (CURL)\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\$\ curl\ -\/X\ POST\ \(\backslash\)}
+\DoxyCodeLine{-\/H\ 'Content-\/Type:\ application/json'\ \(\backslash\)}
+\DoxyCodeLine{-\/H\ "{}Session-\/Token:\ 83af7e620c83a50a18d3eac2f6ed05a3ca0bea62"{}\ \(\backslash\)}
+\DoxyCodeLine{-\/H\ "{}App-\/Token:\ f7g3csp8mgatg5ebc5elnazakw20i9fyev1qopya7"{}\ \(\backslash\)}
+\DoxyCodeLine{-\/d\ '\{"{}input"{}:\ \{"{}name"{}:\ "{}My\ single\ computer"{},\ "{}serial"{}:\ "{}12345"{}\}\}'\ \(\backslash\)}
+\DoxyCodeLine{'http://path/to/glpi/apirest.php/Computer/'}
+\DoxyCodeLine{}
+\DoxyCodeLine{<\ 201\ OK}
+\DoxyCodeLine{<\ Location:\ http://path/to/glpi/api/Computer/15}
+\DoxyCodeLine{<\ \{"{}id"{}:\ 15\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{}
+\DoxyCodeLine{\$\ curl\ -\/X\ POST\ \(\backslash\)}
+\DoxyCodeLine{-\/H\ 'Content-\/Type:\ application/json'\ \(\backslash\)}
+\DoxyCodeLine{-\/H\ "{}Session-\/Token:\ 83af7e620c83a50a18d3eac2f6ed05a3ca0bea62"{}\ \(\backslash\)}
+\DoxyCodeLine{-\/H\ "{}App-\/Token:\ f7g3csp8mgatg5ebc5elnazakw20i9fyev1qopya7"{}\ \(\backslash\)}
+\DoxyCodeLine{-\/d\ '\{"{}input"{}:\ [\{"{}name"{}:\ "{}My\ first\ computer"{},\ "{}serial"{}:\ "{}12345"{}\},\ \{"{}name"{}:\ "{}My\ 2nd\ computer"{},\ "{}serial"{}:\ "{}67890"{}\},\ \{"{}name"{}:\ "{}My\ 3rd\ computer"{},\ "{}serial"{}:\ "{}qsd12sd"{}\}]\}'\ \(\backslash\)}
+\DoxyCodeLine{'http://path/to/glpi/apirest.php/Computer/'}
+\DoxyCodeLine{}
+\DoxyCodeLine{<\ 207\ OK}
+\DoxyCodeLine{<\ Link:\ http://path/to/glpi/api/Computer/8,http://path/to/glpi/api/Computer/9}
+\DoxyCodeLine{<\ [\ \{"{}id"{}:8,\ "{}message"{}:\ "{}"{}\},\ \{"{}id"{}:false,\ "{}message"{}:\ "{}You\ don't\ have\ permission\ to\ perform\ this\ action."{}\},\ \{"{}id"{}:9,\ "{}message"{}:\ "{}"{}\}\ ]}
+
+\end{DoxyCode}
+
+
+Note\+: To upload a document see \doxylink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{Upload a document file}.\hypertarget{md_public_2glpi_2apirest_autotoc_md379}{}\doxysection{\texorpdfstring{Update item(s)}{Update item(s)}}\label{md_public_2glpi_2apirest_autotoc_md379}
+
+\begin{DoxyItemize}
+\item {\bfseries{URL}}\+: apirest.\+php/\+:itemtype/\+:id
+\item {\bfseries{Description}}\+: \doxylink{class_update}{Update} an object (or multiple objects) existing in \doxylink{class_g_l_p_i}{GLPI}.
+\item {\bfseries{Method}}\+: PUT or PATCH
+\item {\bfseries{Parameters}}\+: (Headers)
+\begin{DoxyItemize}
+\item {\itshape Session-\/\+Token}\+: session var provided by \doxylink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{init\+Session} endpoint. Mandatory.
+\item {\itshape App-\/\+Token}\+: authorization string provided by the \doxylink{class_g_l_p_i}{GLPI} API configuration. Optional.
+\end{DoxyItemize}
+\item {\bfseries{Parameters}}\+: (JSON Payload)
+\begin{DoxyItemize}
+\item {\itshape id}\+: the unique identifier of the itemtype passed in URL. You {\bfseries{could skip}} this parameter by passing it in the input payload.
+\item {\itshape input}\+: Array of objects with fields of itemtype to be updated. Mandatory. You {\bfseries{could provide}} in each object a key named \textquotesingle{}id\textquotesingle{} to identify the \doxylink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{item(s)} to update.
+\end{DoxyItemize}
+\item {\bfseries{Returns}}\+:
+\begin{DoxyItemize}
+\item 200 (OK) with update status for each item.
+\item 207 (Multi-\/\+Status) with id of added items and errors.
+\item 400 (Bad Request) with a message indicating an error in input parameter.
+\item 401 (UNAUTHORIZED).
+\end{DoxyItemize}
+\end{DoxyItemize}
+
+Example usage (CURL)\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\$\ curl\ -\/X\ PUT\ \(\backslash\)}
+\DoxyCodeLine{-\/H\ 'Content-\/Type:\ application/json'\ \(\backslash\)}
+\DoxyCodeLine{-\/H\ "{}Session-\/Token:\ 83af7e620c83a50a18d3eac2f6ed05a3ca0bea62"{}\ \(\backslash\)}
+\DoxyCodeLine{-\/H\ "{}App-\/Token:\ f7g3csp8mgatg5ebc5elnazakw20i9fyev1qopya7"{}\ \(\backslash\)}
+\DoxyCodeLine{-\/d\ '\{"{}input"{}:\ \{"{}otherserial"{}:\ "{}xcvbn"{}\}\}'\ \(\backslash\)}
+\DoxyCodeLine{'http://path/to/glpi/apirest.php/Computer/10'}
+\DoxyCodeLine{}
+\DoxyCodeLine{<\ 200\ OK}
+\DoxyCodeLine{[\{"{}10"{}:true,\ "{}message"{}:\ "{}"{}\}]}
+\DoxyCodeLine{}
+\DoxyCodeLine{}
+\DoxyCodeLine{\$\ curl\ -\/X\ PUT\ \(\backslash\)}
+\DoxyCodeLine{-\/H\ 'Content-\/Type:\ application/json'\ \(\backslash\)}
+\DoxyCodeLine{-\/H\ "{}Session-\/Token:\ 83af7e620c83a50a18d3eac2f6ed05a3ca0bea62"{}\ \(\backslash\)}
+\DoxyCodeLine{-\/H\ "{}App-\/Token:\ f7g3csp8mgatg5ebc5elnazakw20i9fyev1qopya7"{}\ \(\backslash\)}
+\DoxyCodeLine{-\/d\ '\{"{}input"{}:\ \{"{}id"{}:\ 11,\ \ "{}otherserial"{}:\ "{}abcde"{}\}\}'\ \(\backslash\)}
+\DoxyCodeLine{'http://path/to/glpi/apirest.php/Computer/'}
+\DoxyCodeLine{}
+\DoxyCodeLine{<\ 200\ OK}
+\DoxyCodeLine{[\{"{}11"{}:true,\ "{}message"{}:\ "{}"{}\}]}
+\DoxyCodeLine{}
+\DoxyCodeLine{}
+\DoxyCodeLine{\$\ curl\ -\/X\ PUT\ \(\backslash\)}
+\DoxyCodeLine{-\/H\ 'Content-\/Type:\ application/json'\ \(\backslash\)}
+\DoxyCodeLine{-\/H\ "{}Session-\/Token:\ 83af7e620c83a50a18d3eac2f6ed05a3ca0bea62"{}\ \(\backslash\)}
+\DoxyCodeLine{-\/H\ "{}App-\/Token:\ f7g3csp8mgatg5ebc5elnazakw20i9fyev1qopya7"{}\ \(\backslash\)}
+\DoxyCodeLine{-\/d\ '\{"{}input"{}:\ [\{"{}id"{}:\ 16,\ \ "{}otherserial"{}:\ "{}abcde"{}\},\ \{"{}id"{}:\ 17,\ \ "{}otherserial"{}:\ "{}fghij"{}\}]\}'\ \(\backslash\)}
+\DoxyCodeLine{'http://path/to/glpi/apirest.php/Computer/'}
+\DoxyCodeLine{}
+\DoxyCodeLine{<\ 207\ OK}
+\DoxyCodeLine{[\{"{}8"{}:true,\ "{}message"{}:\ "{}"{}\},\{"{}2"{}:false,\ "{}message"{}:\ "{}Item\ not\ found"{}\}]}
+
+\end{DoxyCode}
+\hypertarget{md_public_2glpi_2apirest_autotoc_md380}{}\doxysection{\texorpdfstring{Delete item(s)}{Delete item(s)}}\label{md_public_2glpi_2apirest_autotoc_md380}
+
+\begin{DoxyItemize}
+\item {\bfseries{URL}}\+: apirest.\+php/\+:itemtype/\+:id
+\item {\bfseries{Description}}\+: Delete an object existing in \doxylink{class_g_l_p_i}{GLPI}.
+\item {\bfseries{Method}}\+: DELETE
+\item {\bfseries{Parameters}}\+: (Headers)
+\begin{DoxyItemize}
+\item {\itshape Session-\/\+Token}\+: session var provided by \doxylink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{init\+Session} endpoint. Mandatory.
+\item {\itshape App-\/\+Token}\+: authorization string provided by the \doxylink{class_g_l_p_i}{GLPI} API configuration. Optional.
+\end{DoxyItemize}
+\item {\bfseries{Parameters}}\+: (query string)
+\begin{DoxyItemize}
+\item {\itshape id}\+: unique identifier of the itemtype passed in the URL. You {\bfseries{could skip}} this parameter by passing it in the input payload. OR
+\item {\itshape input} Array of id who need to be deleted. This parameter is passed by payload.
+
+id parameter has precedence over input payload.
+\item {\itshape force\+\_\+purge} (default false)\+: boolean, if the itemtype have a trashbin, you can force purge (delete finally). Optional.
+\item {\itshape history} (default true)\+: boolean, set to false to disable saving of deletion in global history. Optional.
+\end{DoxyItemize}
+\item {\bfseries{Returns}}\+:
+\begin{DoxyItemize}
+\item 200 (OK) {\itshape in case of multiple deletion}.
+\item 204 (No Content) {\itshape in case of single deletion}.
+\item 207 (Multi-\/\+Status) with id of deleted items and errors.
+\item 400 (Bad Request) with a message indicating an error in input parameter.
+\item 401 (UNAUTHORIZED).
+\end{DoxyItemize}
+\end{DoxyItemize}
+
+Example usage (CURL)\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\$\ curl\ -\/X\ DELETE\ \(\backslash\)}
+\DoxyCodeLine{-\/H\ 'Content-\/Type:\ application/json'\ \(\backslash\)}
+\DoxyCodeLine{-\/H\ "{}Session-\/Token:\ 83af7e620c83a50a18d3eac2f6ed05a3ca0bea62"{}\ \(\backslash\)}
+\DoxyCodeLine{-\/H\ "{}App-\/Token:\ f7g3csp8mgatg5ebc5elnazakw20i9fyev1qopya7"{}\ \(\backslash\)}
+\DoxyCodeLine{'http://path/to/glpi/apirest.php/Computer/16?force\_purge=true'}
+\DoxyCodeLine{}
+\DoxyCodeLine{<\ 200\ OK}
+\DoxyCodeLine{[\{"{}16"{}:true,\ "{}message"{}:\ "{}"{}\}]}
+\DoxyCodeLine{}
+\DoxyCodeLine{\$\ curl\ -\/X\ DELETE\ \(\backslash\)}
+\DoxyCodeLine{-\/H\ 'Content-\/Type:\ application/json'\ \(\backslash\)}
+\DoxyCodeLine{-\/H\ "{}Session-\/Token:\ 83af7e620c83a50a18d3eac2f6ed05a3ca0bea62"{}\ \(\backslash\)}
+\DoxyCodeLine{-\/H\ "{}App-\/Token:\ f7g3csp8mgatg5ebc5elnazakw20i9fyev1qopya7"{}\ \(\backslash\)}
+\DoxyCodeLine{-\/d\ '\{"{}input"{}:\ \{"{}id"{}:\ 11\},\ "{}force\_purge"{}:\ true\}'\ \(\backslash\)}
+\DoxyCodeLine{'http://path/to/glpi/apirest.php/Computer/'}
+\DoxyCodeLine{}
+\DoxyCodeLine{<\ 200\ OK}
+\DoxyCodeLine{[\{"{}11"{}:true,\ "{}message"{}:\ "{}"{}\}]}
+\DoxyCodeLine{}
+\DoxyCodeLine{}
+\DoxyCodeLine{\$\ curl\ -\/X\ DELETE\ \(\backslash\)}
+\DoxyCodeLine{-\/H\ 'Content-\/Type:\ application/json'\ \(\backslash\)}
+\DoxyCodeLine{-\/H\ "{}Session-\/Token:\ 83af7e620c83a50a18d3eac2f6ed05a3ca0bea62"{}\ \(\backslash\)}
+\DoxyCodeLine{-\/H\ "{}App-\/Token:\ f7g3csp8mgatg5ebc5elnazakw20i9fyev1qopya7"{}\ \(\backslash\)}
+\DoxyCodeLine{-\/d\ '\{"{}input"{}:\ [\{"{}id"{}:\ 16\},\ \{"{}id"{}:\ 17\}]\}'\ \(\backslash\)}
+\DoxyCodeLine{'http://path/to/glpi/apirest.php/Computer/'}
+\DoxyCodeLine{}
+\DoxyCodeLine{<\ 207\ OK}
+\DoxyCodeLine{[\{"{}16"{}:true,\ "{}message"{}:\ "{}"{}\},\{"{}17"{}:false,\ "{}message"{}:\ "{}Item\ not\ found"{}\}]}
+
+\end{DoxyCode}
+\hypertarget{md_public_2glpi_2apirest_autotoc_md381}{}\doxysection{\texorpdfstring{Get available massive actions for an itemtype}{Get available massive actions for an itemtype}}\label{md_public_2glpi_2apirest_autotoc_md381}
+
+\begin{DoxyItemize}
+\item {\bfseries{URL}}\+: apirest.\+php/get\+Massive\+Actions/\+:itemtype/
+\item {\bfseries{Description}}\+: Show the availables massive actions for a given itemtype.
+\item {\bfseries{Method}}\+: GET
+\item {\bfseries{Parameters}}\+: (Headers)
+\begin{DoxyItemize}
+\item {\itshape Session-\/\+Token}\+: session var provided by \doxylink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{init\+Session} endpoint. Mandatory.
+\item {\itshape App-\/\+Token}\+: authorization string provided by the \doxylink{class_g_l_p_i}{GLPI} API configuration. Optional.
+\end{DoxyItemize}
+\item {\bfseries{Parameters}}\+: (query string)
+\begin{DoxyItemize}
+\item {\itshape is\+\_\+deleted} (default false)\+: Show specific actions for items in the trashbin.
+\end{DoxyItemize}
+\item {\bfseries{Returns}}\+:
+\begin{DoxyItemize}
+\item 200 (OK).
+\item 400 (Bad Request) with a message indicating an error in input parameter.
+\item 401 (UNAUTHORIZED).
+\end{DoxyItemize}
+\end{DoxyItemize}
+
+Example usage (CURL)\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\$\ curl\ -\/X\ GET\ \(\backslash\)}
+\DoxyCodeLine{-\/H\ 'Content-\/Type:\ application/json'\ \(\backslash\)}
+\DoxyCodeLine{-\/H\ "{}Session-\/Token:\ 83af7e620c83a50a18d3eac2f6ed05a3ca0bea62"{}\ \(\backslash\)}
+\DoxyCodeLine{-\/H\ "{}App-\/Token:\ f7g3csp8mgatg5ebc5elnazakw20i9fyev1qopya7"{}\ \(\backslash\)}
+\DoxyCodeLine{'http://path/to/glpi/apirest.php/getMassiveActions/Computer'}
+\DoxyCodeLine{}
+\DoxyCodeLine{<\ 200\ OK}
+\DoxyCodeLine{[}
+\DoxyCodeLine{\ \ \{}
+\DoxyCodeLine{\ \ \ \ "{}key"{}:\ "{}MassiveAction:update"{},}
+\DoxyCodeLine{\ \ \ \ "{}label"{}:\ "{}Update"{}}
+\DoxyCodeLine{\ \ \},}
+\DoxyCodeLine{\ \ \{}
+\DoxyCodeLine{\ \ \ \ "{}key"{}:\ "{}MassiveAction:clone"{},}
+\DoxyCodeLine{\ \ \ \ "{}label"{}:\ "{}Clone"{}}
+\DoxyCodeLine{\ \ \},}
+\DoxyCodeLine{\ \ \{}
+\DoxyCodeLine{\ \ \ \ "{}key"{}:\ "{}Infocom:activate"{},}
+\DoxyCodeLine{\ \ \ \ "{}label"{}:\ "{}Enable\ the\ financial\ and\ administrative\ information"{}}
+\DoxyCodeLine{\ \ \},}
+\DoxyCodeLine{\ \ \{}
+\DoxyCodeLine{\ \ \ \ "{}key"{}:\ "{}MassiveAction:delete"{},}
+\DoxyCodeLine{\ \ \ \ "{}label"{}:\ "{}Put\ in\ trashbin"{}}
+\DoxyCodeLine{\ \ \},}
+\DoxyCodeLine{\ \ \{}
+\DoxyCodeLine{\ \ \ \ "{}key"{}:\ "{}MassiveAction:add\_transfer\_list"{},}
+\DoxyCodeLine{\ \ \ \ "{}label"{}:\ "{}Add\ to\ transfer\ list"{}}
+\DoxyCodeLine{\ \ \},}
+\DoxyCodeLine{\ \ \{}
+\DoxyCodeLine{\ \ \ \ "{}key"{}:\ "{}Appliance:add\_item"{},}
+\DoxyCodeLine{\ \ \ \ "{}label"{}:\ "{}Associate\ to\ an\ appliance"{}}
+\DoxyCodeLine{\ \ \},}
+\DoxyCodeLine{\ \ \{}
+\DoxyCodeLine{\ \ \ \ "{}key"{}:\ "{}Item\_OperatingSystem:update"{},}
+\DoxyCodeLine{\ \ \ \ "{}label"{}:\ "{}Operating\ systems"{}}
+\DoxyCodeLine{\ \ \},}
+\DoxyCodeLine{\ \ \{}
+\DoxyCodeLine{\ \ \ \ "{}key"{}:\ "{}Computer\_Item:add"{},}
+\DoxyCodeLine{\ \ \ \ "{}label"{}:\ "{}Connect"{}}
+\DoxyCodeLine{\ \ \},}
+\DoxyCodeLine{\ \ \{}
+\DoxyCodeLine{\ \ \ \ "{}key"{}:\ "{}Item\_SoftwareVersion:add"{},}
+\DoxyCodeLine{\ \ \ \ "{}label"{}:\ "{}Install"{}}
+\DoxyCodeLine{\ \ \},}
+\DoxyCodeLine{\ \ \{}
+\DoxyCodeLine{\ \ \ \ "{}key"{}:\ "{}KnowbaseItem\_Item:add"{},}
+\DoxyCodeLine{\ \ \ \ "{}label"{}:\ "{}Link\ knowledgebase\ article"{}}
+\DoxyCodeLine{\ \ \},}
+\DoxyCodeLine{\ \ \{}
+\DoxyCodeLine{\ \ \ \ "{}key"{}:\ "{}Document\_Item:add"{},}
+\DoxyCodeLine{\ \ \ \ "{}label"{}:\ "{}Add\ a\ document"{}}
+\DoxyCodeLine{\ \ \},}
+\DoxyCodeLine{\ \ \{}
+\DoxyCodeLine{\ \ \ \ "{}key"{}:\ "{}Document\_Item:remove"{},}
+\DoxyCodeLine{\ \ \ \ "{}label"{}:\ "{}Remove\ a\ document"{}}
+\DoxyCodeLine{\ \ \},}
+\DoxyCodeLine{\ \ \{}
+\DoxyCodeLine{\ \ \ \ "{}key"{}:\ "{}Contract\_Item:add"{},}
+\DoxyCodeLine{\ \ \ \ "{}label"{}:\ "{}Add\ a\ contract"{}}
+\DoxyCodeLine{\ \ \},}
+\DoxyCodeLine{\ \ \{}
+\DoxyCodeLine{\ \ \ \ "{}key"{}:\ "{}Contract\_Item:remove"{},}
+\DoxyCodeLine{\ \ \ \ "{}label"{}:\ "{}Remove\ a\ contract"{}}
+\DoxyCodeLine{\ \ \},}
+\DoxyCodeLine{\ \ \{}
+\DoxyCodeLine{\ \ \ \ "{}key"{}:\ "{}MassiveAction:amend\_comment"{},}
+\DoxyCodeLine{\ \ \ \ "{}label"{}:\ "{}Amend\ comment"{}}
+\DoxyCodeLine{\ \ \},}
+\DoxyCodeLine{\ \ \{}
+\DoxyCodeLine{\ \ \ \ "{}key"{}:\ "{}MassiveAction:add\_note"{},}
+\DoxyCodeLine{\ \ \ \ "{}label"{}:\ "{}Add\ note"{}}
+\DoxyCodeLine{\ \ \},}
+\DoxyCodeLine{\ \ \{}
+\DoxyCodeLine{\ \ \ \ "{}key"{}:\ "{}Lock:unlock"{},}
+\DoxyCodeLine{\ \ \ \ "{}label"{}:\ "{}Unlock\ components"{}}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{]}
+\DoxyCodeLine{}
+\DoxyCodeLine{\$\ curl\ -\/X\ GET\ \(\backslash\)}
+\DoxyCodeLine{-\/H\ 'Content-\/Type:\ application/json'\ \(\backslash\)}
+\DoxyCodeLine{-\/H\ "{}Session-\/Token:\ 83af7e620c83a50a18d3eac2f6ed05a3ca0bea62"{}\ \(\backslash\)}
+\DoxyCodeLine{-\/H\ "{}App-\/Token:\ f7g3csp8mgatg5ebc5elnazakw20i9fyev1qopya7"{}\ \(\backslash\)}
+\DoxyCodeLine{'http://path/to/glpi/apirest.php/getMassiveActions/Computer?is\_deleted=1'}
+\DoxyCodeLine{}
+\DoxyCodeLine{<\ 200\ OK}
+\DoxyCodeLine{[}
+\DoxyCodeLine{\ \ \{}
+\DoxyCodeLine{\ \ \ \ "{}key"{}:\ "{}MassiveAction:purge\_item\_but\_devices"{},}
+\DoxyCodeLine{\ \ \ \ "{}label"{}:\ "{}Delete\ permanently\ but\ keep\ devices"{}}
+\DoxyCodeLine{\ \ \},}
+\DoxyCodeLine{\ \ \{}
+\DoxyCodeLine{\ \ \ \ "{}key"{}:\ "{}MassiveAction:purge"{},}
+\DoxyCodeLine{\ \ \ \ "{}label"{}:\ "{}Delete\ permanently\ and\ remove\ devices"{}}
+\DoxyCodeLine{\ \ \},}
+\DoxyCodeLine{\ \ \{}
+\DoxyCodeLine{\ \ \ \ "{}key"{}:\ "{}MassiveAction:restore"{},}
+\DoxyCodeLine{\ \ \ \ "{}label"{}:\ "{}Restore"{}}
+\DoxyCodeLine{\ \ \},}
+\DoxyCodeLine{\ \ \{}
+\DoxyCodeLine{\ \ \ \ "{}key"{}:\ "{}Lock:unlock"{},}
+\DoxyCodeLine{\ \ \ \ "{}label"{}:\ "{}Unlock\ components"{}}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{]}
+
+\end{DoxyCode}
+\hypertarget{md_public_2glpi_2apirest_autotoc_md382}{}\doxysection{\texorpdfstring{Get available massive actions for an item}{Get available massive actions for an item}}\label{md_public_2glpi_2apirest_autotoc_md382}
+
+\begin{DoxyItemize}
+\item {\bfseries{URL}}\+: apirest.\+php/get\+Massive\+Actions/\+:itemtype/\+:id
+\item {\bfseries{Description}}\+: Show the availables massive actions for a given item.
+\item {\bfseries{Method}}\+: GET
+\item {\bfseries{Parameters}}\+: (Headers)
+\begin{DoxyItemize}
+\item {\itshape Session-\/\+Token}\+: session var provided by \doxylink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{init\+Session} endpoint. Mandatory.
+\item {\itshape App-\/\+Token}\+: authorization string provided by the \doxylink{class_g_l_p_i}{GLPI} API configuration. Optional.
+\end{DoxyItemize}
+\item {\bfseries{Parameters}}\+: (query string)
+\item {\bfseries{Returns}}\+:
+\begin{DoxyItemize}
+\item 200 (OK).
+\item 400 (Bad Request) with a message indicating an error in input parameter.
+\item 401 (UNAUTHORIZED).
+\end{DoxyItemize}
+\end{DoxyItemize}
+
+Example usage (CURL)\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\$\ curl\ -\/X\ GET\ \(\backslash\)}
+\DoxyCodeLine{-\/H\ 'Content-\/Type:\ application/json'\ \(\backslash\)}
+\DoxyCodeLine{-\/H\ "{}Session-\/Token:\ 83af7e620c83a50a18d3eac2f6ed05a3ca0bea62"{}\ \(\backslash\)}
+\DoxyCodeLine{-\/H\ "{}App-\/Token:\ f7g3csp8mgatg5ebc5elnazakw20i9fyev1qopya7"{}\ \(\backslash\)}
+\DoxyCodeLine{'http://path/to/glpi/apirest.php/getMassiveActions/Computer/3'}
+\DoxyCodeLine{}
+\DoxyCodeLine{<\ 200\ OK}
+\DoxyCodeLine{[}
+\DoxyCodeLine{\ \ \{}
+\DoxyCodeLine{\ \ \ \ "{}key"{}:\ "{}MassiveAction:update"{},}
+\DoxyCodeLine{\ \ \ \ "{}label"{}:\ "{}Update"{}}
+\DoxyCodeLine{\ \ \},}
+\DoxyCodeLine{\ \ \{}
+\DoxyCodeLine{\ \ \ \ "{}key"{}:\ "{}MassiveAction:clone"{},}
+\DoxyCodeLine{\ \ \ \ "{}label"{}:\ "{}Clone"{}}
+\DoxyCodeLine{\ \ \},}
+\DoxyCodeLine{\ \ \{}
+\DoxyCodeLine{\ \ \ \ "{}key"{}:\ "{}Infocom:activate"{},}
+\DoxyCodeLine{\ \ \ \ "{}label"{}:\ "{}Enable\ the\ financial\ and\ administrative\ information"{}}
+\DoxyCodeLine{\ \ \},}
+\DoxyCodeLine{\ \ \{}
+\DoxyCodeLine{\ \ \ \ "{}key"{}:\ "{}MassiveAction:delete"{},}
+\DoxyCodeLine{\ \ \ \ "{}label"{}:\ "{}Put\ in\ trashbin"{}}
+\DoxyCodeLine{\ \ \},}
+\DoxyCodeLine{\ \ \{}
+\DoxyCodeLine{\ \ \ \ "{}key"{}:\ "{}MassiveAction:add\_transfer\_list"{},}
+\DoxyCodeLine{\ \ \ \ "{}label"{}:\ "{}Add\ to\ transfer\ list"{}}
+\DoxyCodeLine{\ \ \},}
+\DoxyCodeLine{\ \ \{}
+\DoxyCodeLine{\ \ \ \ "{}key"{}:\ "{}Appliance:add\_item"{},}
+\DoxyCodeLine{\ \ \ \ "{}label"{}:\ "{}Associate\ to\ an\ appliance"{}}
+\DoxyCodeLine{\ \ \},}
+\DoxyCodeLine{\ \ \{}
+\DoxyCodeLine{\ \ \ \ "{}key"{}:\ "{}Item\_OperatingSystem:update"{},}
+\DoxyCodeLine{\ \ \ \ "{}label"{}:\ "{}Operating\ systems"{}}
+\DoxyCodeLine{\ \ \},}
+\DoxyCodeLine{\ \ \{}
+\DoxyCodeLine{\ \ \ \ "{}key"{}:\ "{}Computer\_Item:add"{},}
+\DoxyCodeLine{\ \ \ \ "{}label"{}:\ "{}Connect"{}}
+\DoxyCodeLine{\ \ \},}
+\DoxyCodeLine{\ \ \{}
+\DoxyCodeLine{\ \ \ \ "{}key"{}:\ "{}Item\_SoftwareVersion:add"{},}
+\DoxyCodeLine{\ \ \ \ "{}label"{}:\ "{}Install"{}}
+\DoxyCodeLine{\ \ \},}
+\DoxyCodeLine{\ \ \{}
+\DoxyCodeLine{\ \ \ \ "{}key"{}:\ "{}KnowbaseItem\_Item:add"{},}
+\DoxyCodeLine{\ \ \ \ "{}label"{}:\ "{}Link\ knowledgebase\ article"{}}
+\DoxyCodeLine{\ \ \},}
+\DoxyCodeLine{\ \ \{}
+\DoxyCodeLine{\ \ \ \ "{}key"{}:\ "{}Document\_Item:add"{},}
+\DoxyCodeLine{\ \ \ \ "{}label"{}:\ "{}Add\ a\ document"{}}
+\DoxyCodeLine{\ \ \},}
+\DoxyCodeLine{\ \ \{}
+\DoxyCodeLine{\ \ \ \ "{}key"{}:\ "{}Document\_Item:remove"{},}
+\DoxyCodeLine{\ \ \ \ "{}label"{}:\ "{}Remove\ a\ document"{}}
+\DoxyCodeLine{\ \ \},}
+\DoxyCodeLine{\ \ \{}
+\DoxyCodeLine{\ \ \ \ "{}key"{}:\ "{}Contract\_Item:add"{},}
+\DoxyCodeLine{\ \ \ \ "{}label"{}:\ "{}Add\ a\ contract"{}}
+\DoxyCodeLine{\ \ \},}
+\DoxyCodeLine{\ \ \{}
+\DoxyCodeLine{\ \ \ \ "{}key"{}:\ "{}Contract\_Item:remove"{},}
+\DoxyCodeLine{\ \ \ \ "{}label"{}:\ "{}Remove\ a\ contract"{}}
+\DoxyCodeLine{\ \ \},}
+\DoxyCodeLine{\ \ \{}
+\DoxyCodeLine{\ \ \ \ "{}key"{}:\ "{}MassiveAction:amend\_comment"{},}
+\DoxyCodeLine{\ \ \ \ "{}label"{}:\ "{}Amend\ comment"{}}
+\DoxyCodeLine{\ \ \},}
+\DoxyCodeLine{\ \ \{}
+\DoxyCodeLine{\ \ \ \ "{}key"{}:\ "{}MassiveAction:add\_note"{},}
+\DoxyCodeLine{\ \ \ \ "{}label"{}:\ "{}Add\ note"{}}
+\DoxyCodeLine{\ \ \},}
+\DoxyCodeLine{\ \ \{}
+\DoxyCodeLine{\ \ \ \ "{}key"{}:\ "{}Lock:unlock"{},}
+\DoxyCodeLine{\ \ \ \ "{}label"{}:\ "{}Unlock\ components"{}}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{]}
+\DoxyCodeLine{}
+\DoxyCodeLine{}
+\DoxyCodeLine{\$\ curl\ -\/X\ GET\ \(\backslash\)}
+\DoxyCodeLine{-\/H\ 'Content-\/Type:\ application/json'\ \(\backslash\)}
+\DoxyCodeLine{-\/H\ "{}Session-\/Token:\ 83af7e620c83a50a18d3eac2f6ed05a3ca0bea62"{}\ \(\backslash\)}
+\DoxyCodeLine{-\/H\ "{}App-\/Token:\ f7g3csp8mgatg5ebc5elnazakw20i9fyev1qopya7"{}\ \(\backslash\)}
+\DoxyCodeLine{'http://path/to/glpi/apirest.php/getMassiveActions/Computer/4'}
+\DoxyCodeLine{}
+\DoxyCodeLine{<\ 200\ OK}
+\DoxyCodeLine{[}
+\DoxyCodeLine{\ \ \{}
+\DoxyCodeLine{\ \ \ \ "{}key"{}:\ "{}MassiveAction:purge\_item\_but\_devices"{},}
+\DoxyCodeLine{\ \ \ \ "{}label"{}:\ "{}Delete\ permanently\ but\ keep\ devices"{}}
+\DoxyCodeLine{\ \ \},}
+\DoxyCodeLine{\ \ \{}
+\DoxyCodeLine{\ \ \ \ "{}key"{}:\ "{}MassiveAction:purge"{},}
+\DoxyCodeLine{\ \ \ \ "{}label"{}:\ "{}Delete\ permanently\ and\ remove\ devices"{}}
+\DoxyCodeLine{\ \ \},}
+\DoxyCodeLine{\ \ \{}
+\DoxyCodeLine{\ \ \ \ "{}key"{}:\ "{}MassiveAction:restore"{},}
+\DoxyCodeLine{\ \ \ \ "{}label"{}:\ "{}Restore"{}}
+\DoxyCodeLine{\ \ \},}
+\DoxyCodeLine{\ \ \{}
+\DoxyCodeLine{\ \ \ \ "{}key"{}:\ "{}Lock:unlock"{},}
+\DoxyCodeLine{\ \ \ \ "{}label"{}:\ "{}Unlock\ components"{}}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{]}
+
+\end{DoxyCode}
+\hypertarget{md_public_2glpi_2apirest_autotoc_md383}{}\doxysection{\texorpdfstring{Get massive action parameters}{Get massive action parameters}}\label{md_public_2glpi_2apirest_autotoc_md383}
+
+\begin{DoxyItemize}
+\item {\bfseries{URL}}\+: apirest.\+php/get\+Massive\+Action\+Parameters/\+:itemtype/
+\item {\bfseries{Description}}\+: Show the availables parameters for a given massive action.
+\begin{DoxyItemize}
+\item Warning\+: experimental endpoint, some required parameters may be missing from the returned content.
+\end{DoxyItemize}
+\item {\bfseries{Method}}\+: GET
+\item {\bfseries{Parameters}}\+: (Headers)
+\begin{DoxyItemize}
+\item {\itshape Session-\/\+Token}\+: session var provided by \doxylink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{init\+Session} endpoint. Mandatory.
+\item {\itshape App-\/\+Token}\+: authorization string provided by the \doxylink{class_g_l_p_i}{GLPI} API configuration. Optional.
+\end{DoxyItemize}
+\item {\bfseries{Parameters}}\+: (query string)
+\item {\bfseries{Returns}}\+:
+\begin{DoxyItemize}
+\item 200 (OK).
+\item 400 (Bad Request) with a message indicating an error in input parameter.
+\item 401 (UNAUTHORIZED).
+\end{DoxyItemize}
+\end{DoxyItemize}
+
+Example usage (CURL)\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\$\ curl\ -\/X\ GET\ \(\backslash\)}
+\DoxyCodeLine{-\/H\ 'Content-\/Type:\ application/json'\ \(\backslash\)}
+\DoxyCodeLine{-\/H\ "{}Session-\/Token:\ 83af7e620c83a50a18d3eac2f6ed05a3ca0bea62"{}\ \(\backslash\)}
+\DoxyCodeLine{-\/H\ "{}App-\/Token:\ f7g3csp8mgatg5ebc5elnazakw20i9fyev1qopya7"{}\ \(\backslash\)}
+\DoxyCodeLine{'http://path/to/glpi/apirest.php/getMassiveActionParameters/Computer/MassiveAction:add\_note'}
+\DoxyCodeLine{}
+\DoxyCodeLine{<\ 200\ OK}
+\DoxyCodeLine{[}
+\DoxyCodeLine{\ \ \{}
+\DoxyCodeLine{\ \ \ \ "{}name"{}:\ "{}add\_note"{},}
+\DoxyCodeLine{\ \ \ \ "{}type"{}:\ "{}text"{}}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{]}
+\DoxyCodeLine{}
+\DoxyCodeLine{\$\ curl\ -\/X\ GET\ \(\backslash\)}
+\DoxyCodeLine{-\/H\ 'Content-\/Type:\ application/json'\ \(\backslash\)}
+\DoxyCodeLine{-\/H\ "{}Session-\/Token:\ 83af7e620c83a50a18d3eac2f6ed05a3ca0bea62"{}\ \(\backslash\)}
+\DoxyCodeLine{-\/H\ "{}App-\/Token:\ f7g3csp8mgatg5ebc5elnazakw20i9fyev1qopya7"{}\ \(\backslash\)}
+\DoxyCodeLine{'http://path/to/glpi/apirest.php/getMassiveActionParameters/Computer/Contract\_Item:add'}
+\DoxyCodeLine{}
+\DoxyCodeLine{<\ 200\ OK}
+\DoxyCodeLine{[}
+\DoxyCodeLine{\ \ \{}
+\DoxyCodeLine{\ \ \ \ "{}name"{}:\ "{}peer\_contracts\_id"{},}
+\DoxyCodeLine{\ \ \ \ "{}type"{}:\ "{}dropdown"{}}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{]}
+
+\end{DoxyCode}
+\hypertarget{md_public_2glpi_2apirest_autotoc_md384}{}\doxysection{\texorpdfstring{Apply massive action}{Apply massive action}}\label{md_public_2glpi_2apirest_autotoc_md384}
+
+\begin{DoxyItemize}
+\item {\bfseries{URL}}\+: apirest.\+php/apply\+Massive\+Action/\+:itemtype/
+\item {\bfseries{Description}}\+: Run the given massive action
+\item {\bfseries{Method}}\+: POST
+\item {\bfseries{Parameters}}\+: (Headers)
+\begin{DoxyItemize}
+\item {\itshape Session-\/\+Token}\+: session var provided by \doxylink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{init\+Session} endpoint. Mandatory.
+\item {\itshape App-\/\+Token}\+: authorization string provided by the \doxylink{class_g_l_p_i}{GLPI} API configuration. Optional.
+\end{DoxyItemize}
+\item {\bfseries{Parameters}}\+: (json payload)
+\begin{DoxyItemize}
+\item {\itshape ids} items to execute the action on. Mandatory.
+\item {\itshape specific action parameters} some actions require specific parameters to run. You can check them through the \textquotesingle{}get\+Massive\+Action\+Parameters\textquotesingle{} endpoint.
+\end{DoxyItemize}
+\item {\bfseries{Returns}}\+:
+\begin{DoxyItemize}
+\item 200 (OK) All items were processed.
+\item 207 (Multi-\/\+Status) Not all items were successfully processed.
+\item 400 (Bad Request) with a message indicating an error in input parameter.
+\item 401 (UNAUTHORIZED).
+\item 422 (Unprocessable \doxylink{class_entity}{Entity}) All items failed to be processed.
+\end{DoxyItemize}
+\end{DoxyItemize}
+
+Example usage (CURL)\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\$\ curl\ -\/X\ POST\ \(\backslash\)}
+\DoxyCodeLine{-\/H\ 'Content-\/Type:\ application/json'\ \(\backslash\)}
+\DoxyCodeLine{-\/H\ "{}Session-\/Token:\ 83af7e620c83a50a18d3eac2f6ed05a3ca0bea62"{}\ \(\backslash\)}
+\DoxyCodeLine{-\/H\ "{}App-\/Token:\ f7g3csp8mgatg5ebc5elnazakw20i9fyev1qopya7"{}\ \(\backslash\)}
+\DoxyCodeLine{-\/d\ '\{"{}ids"{}:\ [2,\ 3],\ "{}input"{}:\ \{"{}amendment"{}:\ "{}newtext"{}\}\}'}
+\DoxyCodeLine{'http://path/to/glpi/apirest.php/applyMassiveAction/Computer/MassiveAction:amend\_comment'}
+\DoxyCodeLine{}
+\DoxyCodeLine{<\ 200\ OK}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ "{}ok"{}:\ 2,}
+\DoxyCodeLine{\ \ "{}ko"{}:\ 0,}
+\DoxyCodeLine{\ \ "{}noright"{}:\ 0,}
+\DoxyCodeLine{\ \ "{}messages"{}:\ []}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\hypertarget{md_public_2glpi_2apirest_autotoc_md385}{}\doxysection{\texorpdfstring{Special cases}{Special cases}}\label{md_public_2glpi_2apirest_autotoc_md385}
+\hypertarget{md_public_2glpi_2apirest_autotoc_md386}{}\doxysubsection{\texorpdfstring{Upload a document file}{Upload a document file}}\label{md_public_2glpi_2apirest_autotoc_md386}
+See \doxylink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{Add item(s)} and apply specific instructions below.
+
+Uploading a file requires use of \textquotesingle{}multipart/data\textquotesingle{} content\+\_\+type. The input data must be send in a \textquotesingle{}upload\+Manifest\textquotesingle{} parameter and use the JSON format.
+
+Examples usage (CURL)\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\$\ curl\ -\/X\ POST\ \(\backslash\)}
+\DoxyCodeLine{-\/H\ 'Content-\/Type:\ multipart/form-\/data'\ \(\backslash\)}
+\DoxyCodeLine{-\/H\ "{}Session-\/Token:\ 83af7e620c83a50a18d3eac2f6ed05a3ca0bea62"{}\ \(\backslash\)}
+\DoxyCodeLine{-\/H\ "{}App-\/Token:\ f7g3csp8mgatg5ebc5elnazakw20i9fyev1qopya7"{}\ \(\backslash\)}
+\DoxyCodeLine{-\/F\ 'uploadManifest=\{"{}input"{}:\ \{"{}name"{}:\ "{}Uploaded\ document"{},\ "{}\_filename"{}\ :\ ["{}file.txt"{}]\}\};type=application/json'\ \(\backslash\)}
+\DoxyCodeLine{-\/F\ 'filename[0]=@file.txt'\ \(\backslash\)}
+\DoxyCodeLine{'http://path/to/glpi/apirest.php/Document/'}
+\DoxyCodeLine{}
+\DoxyCodeLine{<\ 201\ OK}
+\DoxyCodeLine{<\ Location:\ http://path/to/glpi/api/Document/1}
+\DoxyCodeLine{<\ \{"{}id"{}:\ 1,\ "{}message"{}:\ "{}Document\ move\ succeeded."{},\ "{}upload\_result"{}:\ \{...\}\}}
+
+\end{DoxyCode}
+\hypertarget{md_public_2glpi_2apirest_autotoc_md387}{}\doxysubsection{\texorpdfstring{Download a document file}{Download a document file}}\label{md_public_2glpi_2apirest_autotoc_md387}
+
+\begin{DoxyItemize}
+\item {\bfseries{URL}}\+: apirest.\+php/\+Document/\+:id
+\item {\bfseries{Description}}\+: Download a document.
+\item {\bfseries{Method}}\+: GET
+\item {\bfseries{Parameters}}\+: (Headers)
+\begin{DoxyItemize}
+\item {\itshape Session-\/\+Token}\+: session var provided by \doxylink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{init\+Session} endpoint. Mandatory.
+\item {\itshape App-\/\+Token}\+: authorization string provided by the \doxylink{class_g_l_p_i}{GLPI} API configuration. Optional.
+\item {\itshape Accept}\+: must be {\bfseries{application/octet-\/stream}}. This header OR the parameter {\itshape alt} is mandatory
+\end{DoxyItemize}
+\item {\bfseries{Parameters}}\+: (query string)
+\begin{DoxyItemize}
+\item {\itshape id}\+: unique identifier of the itemtype passed in the URL. You {\bfseries{could skip}} this parameter by passing it in the input payload.
+\item {\itshape alt}\+: must be \textquotesingle{}media\textquotesingle{}. This parameter or the header {\bfseries{Accept}} is mandatory.
+
+id parameter has precedence over input payload.
+\end{DoxyItemize}
+\item {\bfseries{Returns}}\+:
+\begin{DoxyItemize}
+\item 200 (OK) {\itshape in case of multiple deletion}.
+\item 400 (Bad Request) with a message indicating an error in input parameter.
+\item 401 (UNAUTHORIZED).
+\end{DoxyItemize}
+\end{DoxyItemize}
+
+Example usage (CURL)\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\$\ curl\ -\/X\ GET\ \(\backslash\)}
+\DoxyCodeLine{-\/H\ 'Content-\/Type:\ application/json'\ \(\backslash\)}
+\DoxyCodeLine{-\/H\ "{}Session-\/Token:\ 83af7e620c83a50a18d3eac2f6ed05a3ca0bea62"{}\ \(\backslash\)}
+\DoxyCodeLine{-\/H\ "{}App-\/Token:\ f7g3csp8mgatg5ebc5elnazakw20i9fyev1qopya7"{}\ \(\backslash\)}
+\DoxyCodeLine{-\/H\ "{}Accept:\ application/octet-\/stream"{}\ \(\backslash\)}
+\DoxyCodeLine{-\/d\ '\{"{}input"{}:\ \{"{}id"{}:\ 11\}\}'\ \(\backslash\)}
+\DoxyCodeLine{'http://path/to/glpi/apirest.php/Document/'}
+\DoxyCodeLine{}
+\DoxyCodeLine{<\ 200\ OK}
+
+\end{DoxyCode}
+
+
+The body of the answer contains the raw file attached to the document.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\$\ curl\ -\/X\ GET\ \(\backslash\)}
+\DoxyCodeLine{-\/H\ 'Content-\/Type:\ application/json'\ \(\backslash\)}
+\DoxyCodeLine{-\/H\ "{}Session-\/Token:\ 83af7e620c83a50a18d3eac2f6ed05a3ca0bea62"{}\ \(\backslash\)}
+\DoxyCodeLine{-\/H\ "{}App-\/Token:\ f7g3csp8mgatg5ebc5elnazakw20i9fyev1qopya7"{}\ \(\backslash\)}
+\DoxyCodeLine{-\/d\ '\{"{}input"{}:\ \{"{}id"{}:\ 11\}\}'\ \(\backslash\)}
+\DoxyCodeLine{'http://path/to/glpi/apirest.php/Document/\&alt=media'}
+\DoxyCodeLine{}
+\DoxyCodeLine{<\ 200\ OK}
+
+\end{DoxyCode}
+
+
+The body of the answer contains the raw file attached to the document.\hypertarget{md_public_2glpi_2apirest_autotoc_md388}{}\doxysubsection{\texorpdfstring{Get a user\textquotesingle{}s profile picture}{Get a user\textquotesingle{}s profile picture}}\label{md_public_2glpi_2apirest_autotoc_md388}
+
+\begin{DoxyItemize}
+\item {\bfseries{URL}}\+: apirest.\+php/\+User/\+:id/\+Picture
+\item {\bfseries{Description}}\+: Get a user\textquotesingle{}s profile picture.
+\item {\bfseries{Method}}\+: GET
+\item {\bfseries{Parameters}}\+: (Headers)
+\begin{DoxyItemize}
+\item {\itshape Session-\/\+Token}\+: session var provided by \doxylink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{init\+Session} endpoint. Mandatory.
+\item {\itshape App-\/\+Token}\+: authorization string provided by the \doxylink{class_g_l_p_i}{GLPI} API configuration. Optional.
+\end{DoxyItemize}
+\item {\bfseries{Returns}}\+:
+\begin{DoxyItemize}
+\item 200 (OK) with the raw image in the request body.
+\item 204 (No content) if the request is correct but the specified user doesn\textquotesingle{}t have a profile picture.
+\item 400 (Bad Request) with a message indicating an error in input parameter.
+\end{DoxyItemize}
+\end{DoxyItemize}
+
+Example usage (CURL)\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\$\ curl\ -\/X\ GET\ \(\backslash\)}
+\DoxyCodeLine{-\/H\ 'Content-\/Type:\ application/json'\ \(\backslash\)}
+\DoxyCodeLine{-\/H\ "{}Session-\/Token:\ 83af7e620c83a50a18d3eac2f6ed05a3ca0bea62"{}\ \(\backslash\)}
+\DoxyCodeLine{-\/H\ "{}App-\/Token:\ f7g3csp8mgatg5ebc5elnazakw20i9fyev1qopya7"{}\ \(\backslash\)}
+\DoxyCodeLine{'http://path/to/glpi/apirest.php/User/2/Picture/'}
+\DoxyCodeLine{}
+\DoxyCodeLine{<\ 200\ OK}
+
+\end{DoxyCode}
+
+
+The body of the answer contains the raw image.\hypertarget{md_public_2glpi_2apirest_autotoc_md389}{}\doxysubsection{\texorpdfstring{Sanitized content}{Sanitized content}}\label{md_public_2glpi_2apirest_autotoc_md389}
+By default, the API will return sanitized content. ~\newline
+ This mean that all HTML special characters will be encoded. ~\newline
+ You can disable this feature by adding the following header to your request\+: ~\newline
+
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{X-\/GLPI-\/Sanitized-\/Content:\ false}
+
+\end{DoxyCode}
+\hypertarget{md_public_2glpi_2apirest_autotoc_md390}{}\doxysection{\texorpdfstring{Errors}{Errors}}\label{md_public_2glpi_2apirest_autotoc_md390}
+\hypertarget{md_public_2glpi_2apirest_autotoc_md391}{}\doxysubsection{\texorpdfstring{ERROR\+\_\+\+ITEM\+\_\+\+NOT\+\_\+\+FOUND}{ERROR\+\_\+\+ITEM\+\_\+\+NOT\+\_\+\+FOUND}}\label{md_public_2glpi_2apirest_autotoc_md391}
+The desired resource (itemtype-\/id) was not found in the \doxylink{class_g_l_p_i}{GLPI} database.\hypertarget{md_public_2glpi_2apirest_autotoc_md392}{}\doxysubsection{\texorpdfstring{ERROR\+\_\+\+BAD\+\_\+\+ARRAY}{ERROR\+\_\+\+BAD\+\_\+\+ARRAY}}\label{md_public_2glpi_2apirest_autotoc_md392}
+The HTTP body must be an an array of objects.\hypertarget{md_public_2glpi_2apirest_autotoc_md393}{}\doxysubsection{\texorpdfstring{ERROR\+\_\+\+METHOD\+\_\+\+NOT\+\_\+\+ALLOWED}{ERROR\+\_\+\+METHOD\+\_\+\+NOT\+\_\+\+ALLOWED}}\label{md_public_2glpi_2apirest_autotoc_md393}
+You specified an inexistent or not not allowed resource.\hypertarget{md_public_2glpi_2apirest_autotoc_md394}{}\doxysubsection{\texorpdfstring{ERROR\+\_\+\+RIGHT\+\_\+\+MISSING}{ERROR\+\_\+\+RIGHT\+\_\+\+MISSING}}\label{md_public_2glpi_2apirest_autotoc_md394}
+The current logged user miss rights in his profile to do the provided action. Alter this profile or choose a new one for the user in \doxylink{class_g_l_p_i}{GLPI} main interface.\hypertarget{md_public_2glpi_2apirest_autotoc_md395}{}\doxysubsection{\texorpdfstring{ERROR\+\_\+\+SESSION\+\_\+\+TOKEN\+\_\+\+INVALID}{ERROR\+\_\+\+SESSION\+\_\+\+TOKEN\+\_\+\+INVALID}}\label{md_public_2glpi_2apirest_autotoc_md395}
+The Session-\/\+Token provided in header is invalid. You should redo an \doxylink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{Init session} request.\hypertarget{md_public_2glpi_2apirest_autotoc_md396}{}\doxysubsection{\texorpdfstring{ERROR\+\_\+\+SESSION\+\_\+\+TOKEN\+\_\+\+MISSING}{ERROR\+\_\+\+SESSION\+\_\+\+TOKEN\+\_\+\+MISSING}}\label{md_public_2glpi_2apirest_autotoc_md396}
+You miss to provide Session-\/\+Token in header of your HTTP request.\hypertarget{md_public_2glpi_2apirest_autotoc_md397}{}\doxysubsection{\texorpdfstring{ERROR\+\_\+\+APP\+\_\+\+TOKEN\+\_\+\+PARAMETERS\+\_\+\+MISSING}{ERROR\+\_\+\+APP\+\_\+\+TOKEN\+\_\+\+PARAMETERS\+\_\+\+MISSING}}\label{md_public_2glpi_2apirest_autotoc_md397}
+The current API requires an App-\/\+Token header for using its methods.\hypertarget{md_public_2glpi_2apirest_autotoc_md398}{}\doxysubsection{\texorpdfstring{ERROR\+\_\+\+WRONG\+\_\+\+APP\+\_\+\+TOKEN\+\_\+\+PARAMETER}{ERROR\+\_\+\+WRONG\+\_\+\+APP\+\_\+\+TOKEN\+\_\+\+PARAMETER}}\label{md_public_2glpi_2apirest_autotoc_md398}
+It seems the provided application token doesn\textquotesingle{}t exists in \doxylink{class_g_l_p_i}{GLPI} API configuration.\hypertarget{md_public_2glpi_2apirest_autotoc_md399}{}\doxysubsection{\texorpdfstring{ERROR\+\_\+\+NOT\+\_\+\+DELETED}{ERROR\+\_\+\+NOT\+\_\+\+DELETED}}\label{md_public_2glpi_2apirest_autotoc_md399}
+You must mark the item for deletion before actually deleting it\hypertarget{md_public_2glpi_2apirest_autotoc_md400}{}\doxysubsection{\texorpdfstring{ERROR\+\_\+\+NOT\+\_\+\+ALLOWED\+\_\+\+IP}{ERROR\+\_\+\+NOT\+\_\+\+ALLOWED\+\_\+\+IP}}\label{md_public_2glpi_2apirest_autotoc_md400}
+We can\textquotesingle{}t find an active client defined in configuration for your IP. Go to the \doxylink{class_g_l_p_i}{GLPI} Configuration \texorpdfstring{$>$}{>} Setup menu and API tab to check IP access.\hypertarget{md_public_2glpi_2apirest_autotoc_md401}{}\doxysubsection{\texorpdfstring{ERROR\+\_\+\+LOGIN\+\_\+\+PARAMETERS\+\_\+\+MISSING}{ERROR\+\_\+\+LOGIN\+\_\+\+PARAMETERS\+\_\+\+MISSING}}\label{md_public_2glpi_2apirest_autotoc_md401}
+One of theses \doxylink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{parameter(s)} is missing\+:
+
+
+\begin{DoxyItemize}
+\item login and password
+\item or user\+\_\+token
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2apirest_autotoc_md402}{}\doxysubsection{\texorpdfstring{ERROR\+\_\+\+LOGIN\+\_\+\+WITH\+\_\+\+CREDENTIALS\+\_\+\+DISABLED}{ERROR\+\_\+\+LOGIN\+\_\+\+WITH\+\_\+\+CREDENTIALS\+\_\+\+DISABLED}}\label{md_public_2glpi_2apirest_autotoc_md402}
+The \doxylink{class_g_l_p_i}{GLPI} setup forbid the login with credentials, you must login with your user\+\_\+token instead. See your personal preferences page or setup API access in \doxylink{class_g_l_p_i}{GLPI} main interface.\hypertarget{md_public_2glpi_2apirest_autotoc_md403}{}\doxysubsection{\texorpdfstring{ERROR\+\_\+\+GLPI\+\_\+\+LOGIN\+\_\+\+USER\+\_\+\+TOKEN}{ERROR\+\_\+\+GLPI\+\_\+\+LOGIN\+\_\+\+USER\+\_\+\+TOKEN}}\label{md_public_2glpi_2apirest_autotoc_md403}
+The provided user\+\_\+token seems invalid. Check your personal preferences page in \doxylink{class_g_l_p_i}{GLPI} main interface.\hypertarget{md_public_2glpi_2apirest_autotoc_md404}{}\doxysubsection{\texorpdfstring{ERROR\+\_\+\+GLPI\+\_\+\+LOGIN}{ERROR\+\_\+\+GLPI\+\_\+\+LOGIN}}\label{md_public_2glpi_2apirest_autotoc_md404}
+We cannot login you into \doxylink{class_g_l_p_i}{GLPI}. This error is not relative to API but \doxylink{class_g_l_p_i}{GLPI} core. Check the user administration and the \doxylink{class_g_l_p_i}{GLPI} logs files (in files/\+\_\+logs directory).\hypertarget{md_public_2glpi_2apirest_autotoc_md405}{}\doxysubsection{\texorpdfstring{ERROR\+\_\+\+ITEMTYPE\+\_\+\+NOT\+\_\+\+FOUND\+\_\+\+NOR\+\_\+\+COMMONDBTM}{ERROR\+\_\+\+ITEMTYPE\+\_\+\+NOT\+\_\+\+FOUND\+\_\+\+NOR\+\_\+\+COMMONDBTM}}\label{md_public_2glpi_2apirest_autotoc_md405}
+You asked a inexistent resource (endpoint). It\textquotesingle{}s not a predefined (init\+Session, get\+Full\+Session, etc) nor a \doxylink{class_g_l_p_i}{GLPI} \doxylink{class_common_d_b_t_m}{Common\+DBTM} resources.\hypertarget{md_public_2glpi_2apirest_autotoc_md406}{}\doxysubsection{\texorpdfstring{ERROR\+\_\+\+SQL}{ERROR\+\_\+\+SQL}}\label{md_public_2glpi_2apirest_autotoc_md406}
+We suspect an SQL error. This error is not relative to API but to \doxylink{class_g_l_p_i}{GLPI} core. Check the \doxylink{class_g_l_p_i}{GLPI} logs files (in files/\+\_\+logs directory).\hypertarget{md_public_2glpi_2apirest_autotoc_md407}{}\doxysubsection{\texorpdfstring{ERROR\+\_\+\+RANGE\+\_\+\+EXCEED\+\_\+\+TOTAL}{ERROR\+\_\+\+RANGE\+\_\+\+EXCEED\+\_\+\+TOTAL}}\label{md_public_2glpi_2apirest_autotoc_md407}
+The range parameter you provided is superior to the total count of available data.\hypertarget{md_public_2glpi_2apirest_autotoc_md408}{}\doxysubsection{\texorpdfstring{ERROR\+\_\+\+GLPI\+\_\+\+ADD}{ERROR\+\_\+\+GLPI\+\_\+\+ADD}}\label{md_public_2glpi_2apirest_autotoc_md408}
+We cannot add the object to \doxylink{class_g_l_p_i}{GLPI}. This error is not relative to API but to \doxylink{class_g_l_p_i}{GLPI} core. Check the \doxylink{class_g_l_p_i}{GLPI} logs files (in files/\+\_\+logs directory).\hypertarget{md_public_2glpi_2apirest_autotoc_md409}{}\doxysubsection{\texorpdfstring{ERROR\+\_\+\+GLPI\+\_\+\+PARTIAL\+\_\+\+ADD}{ERROR\+\_\+\+GLPI\+\_\+\+PARTIAL\+\_\+\+ADD}}\label{md_public_2glpi_2apirest_autotoc_md409}
+Some of the object you wanted to add triggers an error. Maybe a missing field or rights. You\textquotesingle{}ll find with this error a collection of results.\hypertarget{md_public_2glpi_2apirest_autotoc_md410}{}\doxysubsection{\texorpdfstring{ERROR\+\_\+\+GLPI\+\_\+\+UPDATE}{ERROR\+\_\+\+GLPI\+\_\+\+UPDATE}}\label{md_public_2glpi_2apirest_autotoc_md410}
+We cannot update the object to \doxylink{class_g_l_p_i}{GLPI}. This error is not relative to API but to \doxylink{class_g_l_p_i}{GLPI} core. Check the \doxylink{class_g_l_p_i}{GLPI} logs files (in files/\+\_\+logs directory).\hypertarget{md_public_2glpi_2apirest_autotoc_md411}{}\doxysubsection{\texorpdfstring{ERROR\+\_\+\+GLPI\+\_\+\+PARTIAL\+\_\+\+UPDATE}{ERROR\+\_\+\+GLPI\+\_\+\+PARTIAL\+\_\+\+UPDATE}}\label{md_public_2glpi_2apirest_autotoc_md411}
+Some of the object you wanted to update triggers an error. Maybe a missing field or rights. You\textquotesingle{}ll find with this error a collection of results.\hypertarget{md_public_2glpi_2apirest_autotoc_md412}{}\doxysubsection{\texorpdfstring{ERROR\+\_\+\+GLPI\+\_\+\+DELETE}{ERROR\+\_\+\+GLPI\+\_\+\+DELETE}}\label{md_public_2glpi_2apirest_autotoc_md412}
+We cannot delete the object to \doxylink{class_g_l_p_i}{GLPI}. This error is not relative to API but to \doxylink{class_g_l_p_i}{GLPI} core. Check the \doxylink{class_g_l_p_i}{GLPI} logs files (in files/\+\_\+logs directory).\hypertarget{md_public_2glpi_2apirest_autotoc_md413}{}\doxysubsection{\texorpdfstring{ERROR\+\_\+\+GLPI\+\_\+\+PARTIAL\+\_\+\+DELETE}{ERROR\+\_\+\+GLPI\+\_\+\+PARTIAL\+\_\+\+DELETE}}\label{md_public_2glpi_2apirest_autotoc_md413}
+Some of the objects you want to delete triggers an error, maybe a missing field or rights. You\textquotesingle{}ll find with this error, a collection of results.\hypertarget{md_public_2glpi_2apirest_autotoc_md414}{}\doxysubsection{\texorpdfstring{ERROR\+\_\+\+MASSIVEACTION\+\_\+\+KEY}{ERROR\+\_\+\+MASSIVEACTION\+\_\+\+KEY}}\label{md_public_2glpi_2apirest_autotoc_md414}
+Missing or invalid massive action key. Run \textquotesingle{}get\+Massive\+Actions\textquotesingle{} endpoint to see available keys.\hypertarget{md_public_2glpi_2apirest_autotoc_md415}{}\doxysubsection{\texorpdfstring{ERROR\+\_\+\+MASSIVEACTION\+\_\+\+NO\+\_\+\+IDS}{ERROR\+\_\+\+MASSIVEACTION\+\_\+\+NO\+\_\+\+IDS}}\label{md_public_2glpi_2apirest_autotoc_md415}
+No ids supplied when trying to run a massive action.\hypertarget{md_public_2glpi_2apirest_autotoc_md416}{}\doxysection{\texorpdfstring{Servers configuration}{Servers configuration}}\label{md_public_2glpi_2apirest_autotoc_md416}
+By default, you can use \href{http://path/to/glpi/apirest.php}{\texttt{ http\+://path/to/glpi/apirest.\+php}} without any additional configuration.
+
+You\textquotesingle{}ll find below some examples to configure your web server to redirect your \href{http://.../glpi/api/}{\texttt{ http\+://.../glpi/api/}} URL to the apirest.\+php file.\hypertarget{md_public_2glpi_2apirest_autotoc_md417}{}\doxysubsection{\texorpdfstring{Apache Httpd}{Apache Httpd}}\label{md_public_2glpi_2apirest_autotoc_md417}
+We provide in root .htaccess of \doxylink{class_g_l_p_i}{GLPI} an example to enable API URL rewriting.
+
+You need to uncomment (removing \#) theses lines\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\#<IfModule\ mod\_rewrite.c>}
+\DoxyCodeLine{\#\ \ \ RewriteEngine\ On}
+\DoxyCodeLine{\#\ \ \ RewriteCond\ \%\{REQUEST\_FILENAME\}\ !-\/f}
+\DoxyCodeLine{\#\ \ \ RewriteCond\ \%\{REQUEST\_FILENAME\}\ !-\/d}
+\DoxyCodeLine{\#\ \ \ RewriteRule\ api/(.*)\$\ apirest.php/\$1}
+\DoxyCodeLine{\#</IfModule>}
+
+\end{DoxyCode}
+
+
+By enabling URL rewriting, you could use API with this URL \+: \href{http://path/to/glpi/api/}{\texttt{ http\+://path/to/glpi/api/}}. You need also to enable rewrite module in apache httpd and permit \doxylink{class_g_l_p_i}{GLPI}\textquotesingle{}s .htaccess to override server configuration (see Allow\+Override directive).
+
+{\bfseries{Note for apache+fpm users\+:}}
+
+You may have difficulties to pass Authorization header in this configuration. You have two options \+:
+
+
+\begin{DoxyItemize}
+\item pass the {\ttfamily user\+\_\+token} or credentials (login/password) in the http query (as GET parameters).
+\item add env to your virtualhost\+: {\ttfamily Set\+Env\+If Authorization "{}(.\texorpdfstring{$\ast$}{*})"{} HTTP\+\_\+\+AUTHORIZATION=\$1}.
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2apirest_autotoc_md418}{}\doxysubsection{\texorpdfstring{Nginx}{Nginx}}\label{md_public_2glpi_2apirest_autotoc_md418}
+This example of configuration was achieved on ubuntu with php7 fpm.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{server\ \{}
+\DoxyCodeLine{\ \ \ listen\ 80\ default\_server;}
+\DoxyCodeLine{\ \ \ listen\ [::]:80\ default\_server;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \#\ change\ here\ to\ match\ your\ GLPI\ directory}
+\DoxyCodeLine{\ \ \ root\ /var/www/html/glpi/;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ index\ index.html\ index.htm\ index.nginx-\/debian.html\ index.php;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ server\_name\ localhost;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ location\ /\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ try\_files\ \$uri\ \$uri/\ =404;}
+\DoxyCodeLine{\ \ \ \ \ \ autoindex\ on;}
+\DoxyCodeLine{\ \ \ \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ location\ /api\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ rewrite\ \string^/api/(.*)\$\ /apirest.php/\$1\ last;}
+\DoxyCodeLine{\ \ \ \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ location\ \string~\ [\string^/]\(\backslash\).php(/|\$)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ fastcgi\_pass\ unix:/run/php/php7.0-\/fpm.sock;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ \#\ regex\ to\ split\ \$uri\ to\ \$fastcgi\_script\_name\ and\ \$fastcgi\_path}
+\DoxyCodeLine{\ \ \ \ \ \ fastcgi\_split\_path\_info\ \string^(.+\(\backslash\).php)(/.+)\$;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ \#\ Check\ that\ the\ PHP\ script\ exists\ before\ passing\ it}
+\DoxyCodeLine{\ \ \ \ \ \ try\_files\ \$fastcgi\_script\_name\ =404;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ \#\ Bypass\ the\ fact\ that\ try\_files\ resets\ \$fastcgi\_path\_info}
+\DoxyCodeLine{\ \ \ \ \ \ \#\ \#\ see:\ http://trac.nginx.org/nginx/ticket/321}
+\DoxyCodeLine{\ \ \ \ \ \ set\ \$path\_info\ \$fastcgi\_path\_info;}
+\DoxyCodeLine{\ \ \ \ \ \ fastcgi\_param\ \ PATH\_INFO\ \$path\_info;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ fastcgi\_param\ \ PATH\_TRANSLATED\ \ \ \ \$document\_root\$fastcgi\_script\_name;}
+\DoxyCodeLine{\ \ \ \ \ \ fastcgi\_param\ \ SCRIPT\_FILENAME\ \ \ \ \$document\_root\$fastcgi\_script\_name;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ include\ fastcgi\_params;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ \#\ allow\ directory\ index}
+\DoxyCodeLine{\ \ \ \ \ \ fastcgi\_index\ index.php;}
+\DoxyCodeLine{\ \ \ \}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+ 

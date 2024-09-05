@@ -1,0 +1,268 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_sabre_1_1_xml_1_1_reader" xml:lang="fr">
+<title>Référence de la classe Reader</title>
+<indexterm><primary>Reader</primary></indexterm>
+Graphe d&apos;héritage de Reader:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_sabre_1_1_xml_1_1_reader__inherit__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Graphe de collaboration de Reader:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_sabre_1_1_xml_1_1_reader__coll__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Fonctions membres publiques    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_sabre_1_1_xml_1_1_reader_1aaf77388006cbb958660a3bfdcdc8ea70">getClark</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_class_sabre_1_1_xml_1_1_reader_1a38d99acc70a1d8fd8f94455743b2d237">parse</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_class_sabre_1_1_xml_1_1_reader_1a88e46a5ebbfd54a5b004b54a4eaf19a9">parseGetElements</link> (array $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">elementMap</link>=null)</para>
+</listitem>
+            <listitem><para><link linkend="_class_sabre_1_1_xml_1_1_reader_1a22cb0164e3443582693ce64615e018fb">parseInnerTree</link> (array $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">elementMap</link>=null)</para>
+</listitem>
+            <listitem><para><link linkend="_class_sabre_1_1_xml_1_1_reader_1a5859e0d762cc8b894c519aad6fb77f20">readText</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_class_sabre_1_1_xml_1_1_reader_1aee7e66f6635580fea2bd031111162dd4">parseCurrentElement</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_class_sabre_1_1_xml_1_1_reader_1a5224e7c335461b895c831d6d45735e52">parseAttributes</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_class_sabre_1_1_xml_1_1_reader_1a32109c1b75b9e61f475a73e6f5041c49">getDeserializerForElementName</link> (string $name)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Description détaillée</title>
+
+<para>The Reader class expands upon PHP&apos;s built-in XMLReader.</para>
+
+<para>The intended usage, is to assign certain <link linkend="_class_x_m_l">XML</link> elements to PHP classes. These need to be registered using the $elementMap public property.</para>
+
+<para>After this is done, a single call to parse() will parse the entire document, and delegate sub-sections of the document to element classes.</para>
+
+<para><formalpara><title>Copyright</title>
+
+<para>Copyright (C) 2009-2015 fruux GmbH (<link xlink:href="https://fruux.com/">https://fruux.com/</link>). </para>
+</formalpara>
+<formalpara><title>Auteur</title>
+
+<para>Evert Pot (<link xlink:href="http://evertpot.com/">http://evertpot.com/</link>) @license <link xlink:href="http://sabre.io/license/">http://sabre.io/license/</link> Modified BSD License </para>
+</formalpara>
+</para>
+</section>
+<section>
+<title>Documentation des fonctions membres</title>
+<anchor xml:id="_class_sabre_1_1_xml_1_1_reader_1aaf77388006cbb958660a3bfdcdc8ea70"/><section>
+    <title>getClark()</title>
+<indexterm><primary>getClark</primary><secondary>Reader</secondary></indexterm>
+<indexterm><primary>Reader</primary><secondary>getClark</secondary></indexterm>
+<para><computeroutput>getClark ( )</computeroutput></para>
+<para>Returns the current nodename in clark-notation.</para>
+
+<para>For example: &quot;{http://www.w3.org/2005/Atom}feed&quot;. Or if no namespace is defined: &quot;{}feed&quot;.</para>
+
+<para>This method returns null if we&apos;re not currently on an element.</para>
+
+<para><formalpara><title>Renvoie</title>
+
+<para>string|null </para>
+</formalpara>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_sabre_1_1_xml_1_1_reader_aaf77388006cbb958660a3bfdcdc8ea70_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_sabre_1_1_xml_1_1_reader_1a32109c1b75b9e61f475a73e6f5041c49"/><section>
+    <title>getDeserializerForElementName()</title>
+<indexterm><primary>getDeserializerForElementName</primary><secondary>Reader</secondary></indexterm>
+<indexterm><primary>Reader</primary><secondary>getDeserializerForElementName</secondary></indexterm>
+<para><computeroutput>getDeserializerForElementName (string $name)</computeroutput></para>
+<para>Returns the function that should be used to parse the element identified by its clark-notation name. </para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_sabre_1_1_xml_1_1_reader_a32109c1b75b9e61f475a73e6f5041c49_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_sabre_1_1_xml_1_1_reader_1a38d99acc70a1d8fd8f94455743b2d237"/><section>
+    <title>parse()</title>
+<indexterm><primary>parse</primary><secondary>Reader</secondary></indexterm>
+<indexterm><primary>Reader</primary><secondary>parse</secondary></indexterm>
+<para><computeroutput>parse ( )</computeroutput></para>
+<para>Reads the entire document.</para>
+
+<para>This function returns an array with the following three elements:<itemizedlist>
+<listitem>
+<para>name - The root element name.</para>
+</listitem><listitem>
+<para>value - The value for the root element.</para>
+</listitem><listitem>
+<para>attributes - An array of attributes.</para>
+</listitem></itemizedlist>
+</para>
+
+<para>This function will also disable the standard libxml error handler (which usually just results in PHP errors), and throw exceptions instead. </para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_sabre_1_1_xml_1_1_reader_a38d99acc70a1d8fd8f94455743b2d237_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_sabre_1_1_xml_1_1_reader_1a5224e7c335461b895c831d6d45735e52"/><section>
+    <title>parseAttributes()</title>
+<indexterm><primary>parseAttributes</primary><secondary>Reader</secondary></indexterm>
+<indexterm><primary>Reader</primary><secondary>parseAttributes</secondary></indexterm>
+<para><computeroutput>parseAttributes ( )</computeroutput></para>
+<para>Grabs all the attributes from the current element, and returns them as a key-value array.</para>
+
+<para>If the attributes are part of the same namespace, they will simply be short keys. If they are defined on a different namespace, the attribute name will be returned in clark-notation. </para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_sabre_1_1_xml_1_1_reader_a5224e7c335461b895c831d6d45735e52_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_sabre_1_1_xml_1_1_reader_a5224e7c335461b895c831d6d45735e52_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_sabre_1_1_xml_1_1_reader_1aee7e66f6635580fea2bd031111162dd4"/><section>
+    <title>parseCurrentElement()</title>
+<indexterm><primary>parseCurrentElement</primary><secondary>Reader</secondary></indexterm>
+<indexterm><primary>Reader</primary><secondary>parseCurrentElement</secondary></indexterm>
+<para><computeroutput>parseCurrentElement ( )</computeroutput></para>
+<para>Parses the current <link linkend="_class_x_m_l">XML</link> element.</para>
+
+<para>This method returns arn array with 3 properties:<itemizedlist>
+<listitem>
+<para>name - A clark-notation <link linkend="_class_x_m_l">XML</link> element name.</para>
+</listitem><listitem>
+<para>value - The parsed value.</para>
+</listitem><listitem>
+<para>attributes - A key-value list of attributes. </para>
+</listitem></itemizedlist>
+</para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_sabre_1_1_xml_1_1_reader_aee7e66f6635580fea2bd031111162dd4_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_sabre_1_1_xml_1_1_reader_aee7e66f6635580fea2bd031111162dd4_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_sabre_1_1_xml_1_1_reader_1a88e46a5ebbfd54a5b004b54a4eaf19a9"/><section>
+    <title>parseGetElements()</title>
+<indexterm><primary>parseGetElements</primary><secondary>Reader</secondary></indexterm>
+<indexterm><primary>Reader</primary><secondary>parseGetElements</secondary></indexterm>
+<para><computeroutput>parseGetElements (array $elementMap = <computeroutput>null</computeroutput>
+)</computeroutput></para>
+<para>parseGetElements parses everything in the current sub-tree, and returns an array of elements.</para>
+
+<para>Each element has a &apos;name&apos;, &apos;value&apos; and &apos;attributes&apos; key.</para>
+
+<para>If the element didn&apos;t contain sub-elements, an empty array is always returned. If there was any text inside the element, it will be discarded.</para>
+
+<para>If the $elementMap argument is specified, the existing elementMap will be overridden while parsing the tree, and restored after this process. </para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_sabre_1_1_xml_1_1_reader_a88e46a5ebbfd54a5b004b54a4eaf19a9_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_sabre_1_1_xml_1_1_reader_1a22cb0164e3443582693ce64615e018fb"/><section>
+    <title>parseInnerTree()</title>
+<indexterm><primary>parseInnerTree</primary><secondary>Reader</secondary></indexterm>
+<indexterm><primary>Reader</primary><secondary>parseInnerTree</secondary></indexterm>
+<para><computeroutput>parseInnerTree (array $elementMap = <computeroutput>null</computeroutput>
+)</computeroutput></para>
+<para>Parses all elements below the current element.</para>
+
+<para>This method will return a string if this was a text-node, or an array if there were sub-elements.</para>
+
+<para>If there&apos;s both text and sub-elements, the text will be discarded.</para>
+
+<para>If the $elementMap argument is specified, the existing elementMap will be overridden while parsing the tree, and restored after this process.</para>
+
+<para><formalpara><title>Renvoie</title>
+
+<para>array|string|null </para>
+</formalpara>
+</para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_sabre_1_1_xml_1_1_reader_a22cb0164e3443582693ce64615e018fb_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_sabre_1_1_xml_1_1_reader_a22cb0164e3443582693ce64615e018fb_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_sabre_1_1_xml_1_1_reader_1a5859e0d762cc8b894c519aad6fb77f20"/><section>
+    <title>readText()</title>
+<indexterm><primary>readText</primary><secondary>Reader</secondary></indexterm>
+<indexterm><primary>Reader</primary><secondary>readText</secondary></indexterm>
+<para><computeroutput>readText ( )</computeroutput></para>
+<para>Reads all text below the current element, and returns this as a string. </para>
+</section>
+<para>
+La documentation de cette classe a été générée à partir du fichier suivant :</para>
+public/glpi/vendor/sabre/xml/lib/<link linkend="_sabre_2xml_2lib_2_reader_8php">Reader.php</link></section>
+</section>

@@ -1,0 +1,300 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_monolog_1_1_formatter_1_1_mongo_d_b_formatter" xml:lang="fr">
+<title>Référence de la classe MongoDBFormatter</title>
+<indexterm><primary>MongoDBFormatter</primary></indexterm>
+Graphe d&apos;héritage de MongoDBFormatter:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_monolog_1_1_formatter_1_1_mongo_d_b_formatter__inherit__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Graphe de collaboration de MongoDBFormatter:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_monolog_1_1_formatter_1_1_mongo_d_b_formatter__coll__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Fonctions membres publiques    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_monolog_1_1_formatter_1_1_mongo_d_b_formatter_1a995727c46a099e5c36b6f23dcce58c83">__construct</link> (int $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">maxNestingLevel</link>=3, bool $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">exceptionTraceAsString</link>=true)</para>
+</listitem>
+            <listitem><para><link linkend="_class_monolog_1_1_formatter_1_1_mongo_d_b_formatter_1a11f3cde7544eac9e23b0517d513a362b">formatBatch</link> (array $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">records</link>)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+Fonctions membres publiques hérités de <link linkend="_interface_monolog_1_1_formatter_1_1_formatter_interface">FormatterInterface</link>        <itemizedlist>
+            <listitem><para><link linkend="_interface_monolog_1_1_formatter_1_1_formatter_interface_1a6c29cbcdf76b0e0a692a2c5e73780bcd">format</link> (array $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">record</link>)</para>
+</listitem>
+        </itemizedlist>
+<simplesect>
+    <title>Fonctions membres protégées    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_monolog_1_1_formatter_1_1_mongo_d_b_formatter_1a6c501c3a8ef94b473fb545168088fdac">formatArray</link> (array $array, int $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">nestingLevel</link>=0)</para>
+</listitem>
+            <listitem><para><link linkend="_class_monolog_1_1_formatter_1_1_mongo_d_b_formatter_1a49827a2cb402d33decb3da2f86f0202d">formatObject</link> ($value, int $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">nestingLevel</link>)</para>
+</listitem>
+            <listitem><para><link linkend="_class_monolog_1_1_formatter_1_1_mongo_d_b_formatter_1a6d00fe4257525d1aac507e395e43fd12">formatException</link> (\Throwable $exception, int $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">nestingLevel</link>)</para>
+</listitem>
+            <listitem><para><link linkend="_class_monolog_1_1_formatter_1_1_mongo_d_b_formatter_1a7d4d38da770760aaa85c497dd6ccacb6">formatDate</link> (\DateTimeInterface $value, int $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">nestingLevel</link>)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Description détaillée</title>
+
+<para>Formats a record for use with the MongoDBHandler.</para>
+
+<para><formalpara><title>Auteur</title>
+
+<para>Florian Plattner <link xlink:href="mailto:me@florianplattner.de">me@florianplattner.de</link> </para>
+</formalpara>
+</para>
+</section>
+<section>
+<title>Documentation des constructeurs et destructeur</title>
+<anchor xml:id="_class_monolog_1_1_formatter_1_1_mongo_d_b_formatter_1a995727c46a099e5c36b6f23dcce58c83"/><section>
+    <title>__construct()</title>
+<indexterm><primary>__construct</primary><secondary>MongoDBFormatter</secondary></indexterm>
+<indexterm><primary>MongoDBFormatter</primary><secondary>__construct</secondary></indexterm>
+<para><computeroutput>__construct (int $maxNestingLevel = <computeroutput>3</computeroutput>
+, bool $exceptionTraceAsString = <computeroutput>true</computeroutput>
+)</computeroutput></para>
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>int</entry><entry>$maxNestingLevel</entry><entry>
+<para>0 means infinite nesting, the $record itself is level 1, $record[&apos;context&apos;] is 2 </para>
+</entry>
+                            </row>
+                            <row>
+<entry>bool</entry><entry>$exceptionTraceAsString</entry><entry>
+<para>set to false to log exception traces as a sub documents instead of strings </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
+</section>
+<section>
+<title>Documentation des fonctions membres</title>
+<anchor xml:id="_class_monolog_1_1_formatter_1_1_mongo_d_b_formatter_1a6c501c3a8ef94b473fb545168088fdac"/><section>
+    <title>formatArray()</title>
+<indexterm><primary>formatArray</primary><secondary>MongoDBFormatter</secondary></indexterm>
+<indexterm><primary>MongoDBFormatter</primary><secondary>formatArray</secondary></indexterm>
+<para><computeroutput>formatArray (array $array, int $nestingLevel = <computeroutput>0</computeroutput>
+)<computeroutput>[protected]</computeroutput></computeroutput></para>
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>mixed[]</entry><entry>$array</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>mixed[]|string Array except when max nesting level is reached then a string &quot;[...]&quot; </para>
+</formalpara>
+</para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_monolog_1_1_formatter_1_1_mongo_d_b_formatter_a6c501c3a8ef94b473fb545168088fdac_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_monolog_1_1_formatter_1_1_mongo_d_b_formatter_a6c501c3a8ef94b473fb545168088fdac_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_monolog_1_1_formatter_1_1_mongo_d_b_formatter_1a11f3cde7544eac9e23b0517d513a362b"/><section>
+    <title>formatBatch()</title>
+<indexterm><primary>formatBatch</primary><secondary>MongoDBFormatter</secondary></indexterm>
+<indexterm><primary>MongoDBFormatter</primary><secondary>formatBatch</secondary></indexterm>
+<para><computeroutput>formatBatch (array $records)</computeroutput></para>
+<para>
+<para>Formats a set of log records.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>array</entry><entry>$records</entry><entry>
+<para>A set of records to format </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>mixed The formatted set of records</para>
+</formalpara>
+@phpstan-param Record[] $records</para>
+</para>
+
+<para><formalpara><title>Renvoie</title>
+
+<para>array&lt;mixed[]&gt; </para>
+</formalpara>
+</para>
+<para>
+Implémente <link linkend="_interface_monolog_1_1_formatter_1_1_formatter_interface_1a11f3cde7544eac9e23b0517d513a362b">FormatterInterface</link>.</para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_monolog_1_1_formatter_1_1_mongo_d_b_formatter_a11f3cde7544eac9e23b0517d513a362b_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_monolog_1_1_formatter_1_1_mongo_d_b_formatter_1a7d4d38da770760aaa85c497dd6ccacb6"/><section>
+    <title>formatDate()</title>
+<indexterm><primary>formatDate</primary><secondary>MongoDBFormatter</secondary></indexterm>
+<indexterm><primary>MongoDBFormatter</primary><secondary>formatDate</secondary></indexterm>
+<para><computeroutput>formatDate (\DateTimeInterface $value, int $nestingLevel)<computeroutput>[protected]</computeroutput></computeroutput></para>Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_monolog_1_1_formatter_1_1_mongo_d_b_formatter_a7d4d38da770760aaa85c497dd6ccacb6_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_monolog_1_1_formatter_1_1_mongo_d_b_formatter_1a6d00fe4257525d1aac507e395e43fd12"/><section>
+    <title>formatException()</title>
+<indexterm><primary>formatException</primary><secondary>MongoDBFormatter</secondary></indexterm>
+<indexterm><primary>MongoDBFormatter</primary><secondary>formatException</secondary></indexterm>
+<para><computeroutput>formatException (\Throwable $exception, int $nestingLevel)<computeroutput>[protected]</computeroutput></computeroutput></para>
+<para><formalpara><title>Renvoie</title>
+
+<para>mixed[]|string </para>
+</formalpara>
+</para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_monolog_1_1_formatter_1_1_mongo_d_b_formatter_a6d00fe4257525d1aac507e395e43fd12_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_monolog_1_1_formatter_1_1_mongo_d_b_formatter_a6d00fe4257525d1aac507e395e43fd12_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_monolog_1_1_formatter_1_1_mongo_d_b_formatter_1a49827a2cb402d33decb3da2f86f0202d"/><section>
+    <title>formatObject()</title>
+<indexterm><primary>formatObject</primary><secondary>MongoDBFormatter</secondary></indexterm>
+<indexterm><primary>MongoDBFormatter</primary><secondary>formatObject</secondary></indexterm>
+<para><computeroutput>formatObject ( $value, int $nestingLevel)<computeroutput>[protected]</computeroutput></computeroutput></para>
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>mixed</entry><entry>$value</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>mixed[]|string </para>
+</formalpara>
+</para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_monolog_1_1_formatter_1_1_mongo_d_b_formatter_a49827a2cb402d33decb3da2f86f0202d_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_monolog_1_1_formatter_1_1_mongo_d_b_formatter_a49827a2cb402d33decb3da2f86f0202d_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<para>
+La documentation de cette classe a été générée à partir du fichier suivant :</para>
+public/glpi/vendor/monolog/monolog/src/Monolog/Formatter/<link linkend="__mongo_d_b_formatter_8php">MongoDBFormatter.php</link></section>
+</section>

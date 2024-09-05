@@ -1,0 +1,391 @@
+\doxysection{Référence de l\textquotesingle{}espace de nommage League\textbackslash{}OAuth2\textbackslash{}Client\textbackslash{}Tool}
+\hypertarget{namespace_league_1_1_o_auth2_1_1_client_1_1_tool}{}\label{namespace_league_1_1_o_auth2_1_1_client_1_1_tool}\index{League\textbackslash{}OAuth2\textbackslash{}Client\textbackslash{}Tool@{League\textbackslash{}OAuth2\textbackslash{}Client\textbackslash{}Tool}}
+\doxysubsubsection*{Structures de données}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_league_1_1_o_auth2_1_1_client_1_1_tool_1_1_request_factory}{Request\+Factory}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespace_league_1_1_o_auth2_1_1_client_1_1_tool_abce2808169f5caa834425fa5f3a537ea}{fill\+Properties}} (array \$options=\mbox{[}$\,$\mbox{]})
+\item 
+\mbox{\hyperlink{namespace_league_1_1_o_auth2_1_1_client_1_1_tool_a81bc25556068d1094a1a5d74ca460547}{get\+Guarded}} ()
+\item 
+\mbox{\hyperlink{namespace_league_1_1_o_auth2_1_1_client_1_1_tool_ae34b759b97cfe01ec06326c72ae4ed7d}{is\+Guarded}} (\$property)
+\item 
+\mbox{\hyperlink{namespace_league_1_1_o_auth2_1_1_client_1_1_tool_ab19232dd43f86498e880517d80327e13}{get\+Mac\+Signature}} (\$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{id}}, \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{ts}}, \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{nonce}})
+\item 
+\mbox{\hyperlink{namespace_league_1_1_o_auth2_1_1_client_1_1_tool_abf8544520d60025e4931d68242b638e0}{get\+Random\+State}} (\$length=32)
+\item 
+\mbox{\hyperlink{namespace_league_1_1_o_auth2_1_1_client_1_1_tool_ae6e9cbc764115b3a2ea02c42dadf9c19}{get\+Authorization\+Headers}} (\$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{token}}=null)
+\item 
+\mbox{\hyperlink{namespace_league_1_1_o_auth2_1_1_client_1_1_tool_a9616f4a294491c4787006ee585eab82d}{follow\+Request\+Redirects}} (\mbox{\hyperlink{interface_psr_1_1_http_1_1_message_1_1_request_interface}{Request\+Interface}} \$request)
+\item 
+\mbox{\hyperlink{namespace_league_1_1_o_auth2_1_1_client_1_1_tool_a2d33da7f4c2414bdeb504f772d9f5bf8}{get\+Http\+Client}} ()
+\item 
+\mbox{\hyperlink{namespace_league_1_1_o_auth2_1_1_client_1_1_tool_ad2b0ac69ced0e7a10403ee9bb7ce3b09}{get\+Redirect\+Limit}} ()
+\item 
+\mbox{\hyperlink{namespace_league_1_1_o_auth2_1_1_client_1_1_tool_af59c219f65321f33f460c22d5661b751}{is\+Redirect}} (\mbox{\hyperlink{interface_psr_1_1_http_1_1_message_1_1_response_interface}{Response\+Interface}} \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{response}})
+\item 
+\mbox{\hyperlink{namespace_league_1_1_o_auth2_1_1_client_1_1_tool_a3349ca4c9c94047641c9913a671b3940}{get\+Response}} (\mbox{\hyperlink{interface_psr_1_1_http_1_1_message_1_1_request_interface}{Request\+Interface}} \$request)
+\item 
+\mbox{\hyperlink{namespace_league_1_1_o_auth2_1_1_client_1_1_tool_ac35bf0b137946f56af1a9fe64ce0652e}{set\+Redirect\+Limit}} (\$limit)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{trait}} \mbox{\hyperlink{namespace_league_1_1_o_auth2_1_1_client_1_1_tool_ae426e72801c811d5dd3684af1febed61}{Guarded\+Property\+Trait}}
+\item 
+\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{trait}} \mbox{\hyperlink{namespace_league_1_1_o_auth2_1_1_client_1_1_tool_a1304b0cc8d9b6070ab5c7934e0fb9284}{Mac\+Authorization\+Trait}}
+\item 
+\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{trait}} \mbox{\hyperlink{namespace_league_1_1_o_auth2_1_1_client_1_1_tool_a3c2c44d5190fea8f0a8b9fe4da4d492e}{Provider\+Redirect\+Trait}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+This file is part of the league/oauth2-\/client library
+
+For the full copyright and license information, please view the LICENSE file that was distributed with this source code.
+
+\begin{DoxyCopyright}{Copyright}
+Copyright (c) Alex Bilbie \href{mailto:hello@alexbilbie.com}{\texttt{ hello@alexbilbie.\+com}} @license \href{http://opensource.org/licenses/MIT}{\texttt{ http\+://opensource.\+org/licenses/\+MIT}} MIT \doxylink{}{Documentation  \href{https://packagist.org/packages/league/oauth2-client}{\texttt{ https\+://packagist.\+org/packages/league/oauth2-\/client}} Packagist  \href{https://github.com/thephpleague/oauth2-client}{\texttt{ https\+://github.\+com/thephpleague/oauth2-\/client}} Git\+Hub }
+\end{DoxyCopyright}
+
+
+\doxysubsection{Documentation des fonctions}
+\Hypertarget{namespace_league_1_1_o_auth2_1_1_client_1_1_tool_abce2808169f5caa834425fa5f3a537ea}\label{namespace_league_1_1_o_auth2_1_1_client_1_1_tool_abce2808169f5caa834425fa5f3a537ea} 
+\index{League\textbackslash{}OAuth2\textbackslash{}Client\textbackslash{}Tool@{League\textbackslash{}OAuth2\textbackslash{}Client\textbackslash{}Tool}!fillProperties@{fillProperties}}
+\index{fillProperties@{fillProperties}!League\textbackslash{}OAuth2\textbackslash{}Client\textbackslash{}Tool@{League\textbackslash{}OAuth2\textbackslash{}Client\textbackslash{}Tool}}
+\doxysubsubsection{\texorpdfstring{fillProperties()}{fillProperties()}}
+{\footnotesize\ttfamily fill\+Properties (\begin{DoxyParamCaption}\item[{array}]{\$options = {\ttfamily \mbox{[}\mbox{]}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+Attempts to mass assign the given options to explicitly defined properties, skipping over any properties that are defined in the guarded array.
+
+
+\begin{DoxyParams}[1]{Paramètres}
+array & {\em \$options} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+mixed 
+\end{DoxyReturn}
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=349pt]{namespace_league_1_1_o_auth2_1_1_client_1_1_tool_abce2808169f5caa834425fa5f3a537ea_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{namespace_league_1_1_o_auth2_1_1_client_1_1_tool_a9616f4a294491c4787006ee585eab82d}\label{namespace_league_1_1_o_auth2_1_1_client_1_1_tool_a9616f4a294491c4787006ee585eab82d} 
+\index{League\textbackslash{}OAuth2\textbackslash{}Client\textbackslash{}Tool@{League\textbackslash{}OAuth2\textbackslash{}Client\textbackslash{}Tool}!followRequestRedirects@{followRequestRedirects}}
+\index{followRequestRedirects@{followRequestRedirects}!League\textbackslash{}OAuth2\textbackslash{}Client\textbackslash{}Tool@{League\textbackslash{}OAuth2\textbackslash{}Client\textbackslash{}Tool}}
+\doxysubsubsection{\texorpdfstring{followRequestRedirects()}{followRequestRedirects()}}
+{\footnotesize\ttfamily follow\+Request\+Redirects (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{interface_psr_1_1_http_1_1_message_1_1_request_interface}{Request\+Interface}}}]{\$request }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+Retrieves a response for a given request and retrieves subsequent responses, with authorization headers, if a redirect is detected.
+
+
+\begin{DoxyParams}[1]{Paramètres}
+Request\+Interface & {\em \$request} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+Response\+Interface 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Bad\+Response\+Exception} & \\
+\hline
+\end{DoxyExceptions}
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespace_league_1_1_o_auth2_1_1_client_1_1_tool_a9616f4a294491c4787006ee585eab82d_cgraph}
+\end{center}
+\end{figure}
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=310pt]{namespace_league_1_1_o_auth2_1_1_client_1_1_tool_a9616f4a294491c4787006ee585eab82d_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{namespace_league_1_1_o_auth2_1_1_client_1_1_tool_ae6e9cbc764115b3a2ea02c42dadf9c19}\label{namespace_league_1_1_o_auth2_1_1_client_1_1_tool_ae6e9cbc764115b3a2ea02c42dadf9c19} 
+\index{League\textbackslash{}OAuth2\textbackslash{}Client\textbackslash{}Tool@{League\textbackslash{}OAuth2\textbackslash{}Client\textbackslash{}Tool}!getAuthorizationHeaders@{getAuthorizationHeaders}}
+\index{getAuthorizationHeaders@{getAuthorizationHeaders}!League\textbackslash{}OAuth2\textbackslash{}Client\textbackslash{}Tool@{League\textbackslash{}OAuth2\textbackslash{}Client\textbackslash{}Tool}}
+\doxysubsubsection{\texorpdfstring{getAuthorizationHeaders()}{getAuthorizationHeaders()}}
+{\footnotesize\ttfamily get\+Authorization\+Headers (\begin{DoxyParamCaption}\item[{}]{\$token = {\ttfamily null} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+Returns the authorization headers for the \textquotesingle{}mac\textquotesingle{} grant.
+
+
+\begin{DoxyParams}[1]{Paramètres}
+Access\+Token\+Interface | string | null & {\em \$token} & Either a string or an access token instance \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+array @code\+Coverage\+Ignore
+\end{DoxyReturn}
+\begin{DoxyRefDesc}{A faire}
+\item[\mbox{\hyperlink{todo__todo000030}{A faire}}]This is currently untested and provided only as an example. If you complete the implementation, please create a pull request for \href{https://github.com/thephpleague/oauth2-client}{\texttt{ https\+://github.\+com/thephpleague/oauth2-\/client}} \end{DoxyRefDesc}
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=329pt]{namespace_league_1_1_o_auth2_1_1_client_1_1_tool_ae6e9cbc764115b3a2ea02c42dadf9c19_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{namespace_league_1_1_o_auth2_1_1_client_1_1_tool_a81bc25556068d1094a1a5d74ca460547}\label{namespace_league_1_1_o_auth2_1_1_client_1_1_tool_a81bc25556068d1094a1a5d74ca460547} 
+\index{League\textbackslash{}OAuth2\textbackslash{}Client\textbackslash{}Tool@{League\textbackslash{}OAuth2\textbackslash{}Client\textbackslash{}Tool}!getGuarded@{getGuarded}}
+\index{getGuarded@{getGuarded}!League\textbackslash{}OAuth2\textbackslash{}Client\textbackslash{}Tool@{League\textbackslash{}OAuth2\textbackslash{}Client\textbackslash{}Tool}}
+\doxysubsubsection{\texorpdfstring{getGuarded()}{getGuarded()}}
+{\footnotesize\ttfamily get\+Guarded (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Returns current guarded properties.
+
+\begin{DoxyReturn}{Renvoie}
+array 
+\end{DoxyReturn}
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=349pt]{namespace_league_1_1_o_auth2_1_1_client_1_1_tool_a81bc25556068d1094a1a5d74ca460547_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{namespace_league_1_1_o_auth2_1_1_client_1_1_tool_a2d33da7f4c2414bdeb504f772d9f5bf8}\label{namespace_league_1_1_o_auth2_1_1_client_1_1_tool_a2d33da7f4c2414bdeb504f772d9f5bf8} 
+\index{League\textbackslash{}OAuth2\textbackslash{}Client\textbackslash{}Tool@{League\textbackslash{}OAuth2\textbackslash{}Client\textbackslash{}Tool}!getHttpClient@{getHttpClient}}
+\index{getHttpClient@{getHttpClient}!League\textbackslash{}OAuth2\textbackslash{}Client\textbackslash{}Tool@{League\textbackslash{}OAuth2\textbackslash{}Client\textbackslash{}Tool}}
+\doxysubsubsection{\texorpdfstring{getHttpClient()}{getHttpClient()}}
+{\footnotesize\ttfamily get\+Http\+Client (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [abstract]}}
+
+Returns the HTTP client instance.
+
+\begin{DoxyReturn}{Renvoie}
+\doxylink{namespace_guzzle_http}{Guzzle\+Http}\textbackslash{}\+Client\+Interface 
+\end{DoxyReturn}
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespace_league_1_1_o_auth2_1_1_client_1_1_tool_a2d33da7f4c2414bdeb504f772d9f5bf8_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{namespace_league_1_1_o_auth2_1_1_client_1_1_tool_ab19232dd43f86498e880517d80327e13}\label{namespace_league_1_1_o_auth2_1_1_client_1_1_tool_ab19232dd43f86498e880517d80327e13} 
+\index{League\textbackslash{}OAuth2\textbackslash{}Client\textbackslash{}Tool@{League\textbackslash{}OAuth2\textbackslash{}Client\textbackslash{}Tool}!getMacSignature@{getMacSignature}}
+\index{getMacSignature@{getMacSignature}!League\textbackslash{}OAuth2\textbackslash{}Client\textbackslash{}Tool@{League\textbackslash{}OAuth2\textbackslash{}Client\textbackslash{}Tool}}
+\doxysubsubsection{\texorpdfstring{getMacSignature()}{getMacSignature()}}
+{\footnotesize\ttfamily get\+Mac\+Signature (\begin{DoxyParamCaption}\item[{}]{\$id,  }\item[{}]{\$ts,  }\item[{}]{\$nonce }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [abstract]}, {\ttfamily [protected]}}
+
+Returns the MAC signature for the current request.
+
+
+\begin{DoxyParams}[1]{Paramètres}
+string & {\em \$id} & \\
+\hline
+integer & {\em \$ts} & \\
+\hline
+string & {\em \$nonce} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+string 
+\end{DoxyReturn}
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=329pt]{namespace_league_1_1_o_auth2_1_1_client_1_1_tool_ab19232dd43f86498e880517d80327e13_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{namespace_league_1_1_o_auth2_1_1_client_1_1_tool_abf8544520d60025e4931d68242b638e0}\label{namespace_league_1_1_o_auth2_1_1_client_1_1_tool_abf8544520d60025e4931d68242b638e0} 
+\index{League\textbackslash{}OAuth2\textbackslash{}Client\textbackslash{}Tool@{League\textbackslash{}OAuth2\textbackslash{}Client\textbackslash{}Tool}!getRandomState@{getRandomState}}
+\index{getRandomState@{getRandomState}!League\textbackslash{}OAuth2\textbackslash{}Client\textbackslash{}Tool@{League\textbackslash{}OAuth2\textbackslash{}Client\textbackslash{}Tool}}
+\doxysubsubsection{\texorpdfstring{getRandomState()}{getRandomState()}}
+{\footnotesize\ttfamily get\+Random\+State (\begin{DoxyParamCaption}\item[{}]{\$length = {\ttfamily 32} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [abstract]}, {\ttfamily [protected]}}
+
+Returns a new random string to use as the state parameter in an authorization flow.
+
+
+\begin{DoxyParams}[1]{Paramètres}
+int & {\em \$length} & Length of the random string to be generated. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+string 
+\end{DoxyReturn}
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=329pt]{namespace_league_1_1_o_auth2_1_1_client_1_1_tool_abf8544520d60025e4931d68242b638e0_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{namespace_league_1_1_o_auth2_1_1_client_1_1_tool_ad2b0ac69ced0e7a10403ee9bb7ce3b09}\label{namespace_league_1_1_o_auth2_1_1_client_1_1_tool_ad2b0ac69ced0e7a10403ee9bb7ce3b09} 
+\index{League\textbackslash{}OAuth2\textbackslash{}Client\textbackslash{}Tool@{League\textbackslash{}OAuth2\textbackslash{}Client\textbackslash{}Tool}!getRedirectLimit@{getRedirectLimit}}
+\index{getRedirectLimit@{getRedirectLimit}!League\textbackslash{}OAuth2\textbackslash{}Client\textbackslash{}Tool@{League\textbackslash{}OAuth2\textbackslash{}Client\textbackslash{}Tool}}
+\doxysubsubsection{\texorpdfstring{getRedirectLimit()}{getRedirectLimit()}}
+{\footnotesize\ttfamily get\+Redirect\+Limit (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Retrieves current redirect limit.
+
+\begin{DoxyReturn}{Renvoie}
+integer 
+\end{DoxyReturn}
+\Hypertarget{namespace_league_1_1_o_auth2_1_1_client_1_1_tool_a3349ca4c9c94047641c9913a671b3940}\label{namespace_league_1_1_o_auth2_1_1_client_1_1_tool_a3349ca4c9c94047641c9913a671b3940} 
+\index{League\textbackslash{}OAuth2\textbackslash{}Client\textbackslash{}Tool@{League\textbackslash{}OAuth2\textbackslash{}Client\textbackslash{}Tool}!getResponse@{getResponse}}
+\index{getResponse@{getResponse}!League\textbackslash{}OAuth2\textbackslash{}Client\textbackslash{}Tool@{League\textbackslash{}OAuth2\textbackslash{}Client\textbackslash{}Tool}}
+\doxysubsubsection{\texorpdfstring{getResponse()}{getResponse()}}
+{\footnotesize\ttfamily get\+Response (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{interface_psr_1_1_http_1_1_message_1_1_request_interface}{Request\+Interface}}}]{\$request }\end{DoxyParamCaption})}
+
+Sends a request instance and returns a response instance.
+
+WARNING\+: This method does not attempt to catch exceptions caused by HTTP errors! It is recommended to wrap this method in a try/catch block.
+
+
+\begin{DoxyParams}[1]{Paramètres}
+Request\+Interface & {\em \$request} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+Response\+Interface 
+\end{DoxyReturn}
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespace_league_1_1_o_auth2_1_1_client_1_1_tool_a3349ca4c9c94047641c9913a671b3940_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{namespace_league_1_1_o_auth2_1_1_client_1_1_tool_ae34b759b97cfe01ec06326c72ae4ed7d}\label{namespace_league_1_1_o_auth2_1_1_client_1_1_tool_ae34b759b97cfe01ec06326c72ae4ed7d} 
+\index{League\textbackslash{}OAuth2\textbackslash{}Client\textbackslash{}Tool@{League\textbackslash{}OAuth2\textbackslash{}Client\textbackslash{}Tool}!isGuarded@{isGuarded}}
+\index{isGuarded@{isGuarded}!League\textbackslash{}OAuth2\textbackslash{}Client\textbackslash{}Tool@{League\textbackslash{}OAuth2\textbackslash{}Client\textbackslash{}Tool}}
+\doxysubsubsection{\texorpdfstring{isGuarded()}{isGuarded()}}
+{\footnotesize\ttfamily is\+Guarded (\begin{DoxyParamCaption}\item[{}]{\$property }\end{DoxyParamCaption})}
+
+Determines if the given property is guarded.
+
+
+\begin{DoxyParams}[1]{Paramètres}
+string & {\em \$property} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+bool 
+\end{DoxyReturn}
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=243pt]{namespace_league_1_1_o_auth2_1_1_client_1_1_tool_ae34b759b97cfe01ec06326c72ae4ed7d_cgraph}
+\end{center}
+\end{figure}
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=246pt]{namespace_league_1_1_o_auth2_1_1_client_1_1_tool_ae34b759b97cfe01ec06326c72ae4ed7d_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{namespace_league_1_1_o_auth2_1_1_client_1_1_tool_af59c219f65321f33f460c22d5661b751}\label{namespace_league_1_1_o_auth2_1_1_client_1_1_tool_af59c219f65321f33f460c22d5661b751} 
+\index{League\textbackslash{}OAuth2\textbackslash{}Client\textbackslash{}Tool@{League\textbackslash{}OAuth2\textbackslash{}Client\textbackslash{}Tool}!isRedirect@{isRedirect}}
+\index{isRedirect@{isRedirect}!League\textbackslash{}OAuth2\textbackslash{}Client\textbackslash{}Tool@{League\textbackslash{}OAuth2\textbackslash{}Client\textbackslash{}Tool}}
+\doxysubsubsection{\texorpdfstring{isRedirect()}{isRedirect()}}
+{\footnotesize\ttfamily is\+Redirect (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{interface_psr_1_1_http_1_1_message_1_1_response_interface}{Response\+Interface}}}]{\$response }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+Determines if a given response is a redirect.
+
+
+\begin{DoxyParams}[1]{Paramètres}
+Response\+Interface & {\em \$response} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+boolean 
+\end{DoxyReturn}
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespace_league_1_1_o_auth2_1_1_client_1_1_tool_af59c219f65321f33f460c22d5661b751_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{namespace_league_1_1_o_auth2_1_1_client_1_1_tool_ac35bf0b137946f56af1a9fe64ce0652e}\label{namespace_league_1_1_o_auth2_1_1_client_1_1_tool_ac35bf0b137946f56af1a9fe64ce0652e} 
+\index{League\textbackslash{}OAuth2\textbackslash{}Client\textbackslash{}Tool@{League\textbackslash{}OAuth2\textbackslash{}Client\textbackslash{}Tool}!setRedirectLimit@{setRedirectLimit}}
+\index{setRedirectLimit@{setRedirectLimit}!League\textbackslash{}OAuth2\textbackslash{}Client\textbackslash{}Tool@{League\textbackslash{}OAuth2\textbackslash{}Client\textbackslash{}Tool}}
+\doxysubsubsection{\texorpdfstring{setRedirectLimit()}{setRedirectLimit()}}
+{\footnotesize\ttfamily set\+Redirect\+Limit (\begin{DoxyParamCaption}\item[{}]{\$limit }\end{DoxyParamCaption})}
+
+Updates the redirect limit.
+
+
+\begin{DoxyParams}[1]{Paramètres}
+integer & {\em \$limit} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+League\textbackslash{}\+OAuth2\textbackslash{}\+Client\textbackslash{}\+Provider\textbackslash{}\+Abstract\+Provider 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Invalid\+Argument\+Exception} & \\
+\hline
+\end{DoxyExceptions}
+
+
+\doxysubsection{Documentation des variables}
+\Hypertarget{namespace_league_1_1_o_auth2_1_1_client_1_1_tool_ae426e72801c811d5dd3684af1febed61}\label{namespace_league_1_1_o_auth2_1_1_client_1_1_tool_ae426e72801c811d5dd3684af1febed61} 
+\index{League\textbackslash{}OAuth2\textbackslash{}Client\textbackslash{}Tool@{League\textbackslash{}OAuth2\textbackslash{}Client\textbackslash{}Tool}!GuardedPropertyTrait@{GuardedPropertyTrait}}
+\index{GuardedPropertyTrait@{GuardedPropertyTrait}!League\textbackslash{}OAuth2\textbackslash{}Client\textbackslash{}Tool@{League\textbackslash{}OAuth2\textbackslash{}Client\textbackslash{}Tool}}
+\doxysubsubsection{\texorpdfstring{GuardedPropertyTrait}{GuardedPropertyTrait}}
+{\footnotesize\ttfamily \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{trait}} Guarded\+Property\+Trait}
+
+{\bfseries Valeur initiale \+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ \ \ }
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{protected}\ \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\$guarded}}\ =\ []}
+
+\end{DoxyCode}
+Provides support for blacklisting explicit properties from the mass assignment behavior. \Hypertarget{namespace_league_1_1_o_auth2_1_1_client_1_1_tool_a1304b0cc8d9b6070ab5c7934e0fb9284}\label{namespace_league_1_1_o_auth2_1_1_client_1_1_tool_a1304b0cc8d9b6070ab5c7934e0fb9284} 
+\index{League\textbackslash{}OAuth2\textbackslash{}Client\textbackslash{}Tool@{League\textbackslash{}OAuth2\textbackslash{}Client\textbackslash{}Tool}!MacAuthorizationTrait@{MacAuthorizationTrait}}
+\index{MacAuthorizationTrait@{MacAuthorizationTrait}!League\textbackslash{}OAuth2\textbackslash{}Client\textbackslash{}Tool@{League\textbackslash{}OAuth2\textbackslash{}Client\textbackslash{}Tool}}
+\doxysubsubsection{\texorpdfstring{MacAuthorizationTrait}{MacAuthorizationTrait}}
+{\footnotesize\ttfamily \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{trait}} Mac\+Authorization\+Trait}
+
+{\bfseries Valeur initiale \+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ \ \ }
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{abstract}\ \textcolor{keyword}{protected}\ \textcolor{keyword}{function}\ \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{getTokenId}}(AccessToken\ \$token)}
+
+\end{DoxyCode}
+Enables {\ttfamily MAC} header authorization for providers.
+
+\doxylink{}{Message Authentication Code (MAC) Tokens }\Hypertarget{namespace_league_1_1_o_auth2_1_1_client_1_1_tool_a3c2c44d5190fea8f0a8b9fe4da4d492e}\label{namespace_league_1_1_o_auth2_1_1_client_1_1_tool_a3c2c44d5190fea8f0a8b9fe4da4d492e} 
+\index{League\textbackslash{}OAuth2\textbackslash{}Client\textbackslash{}Tool@{League\textbackslash{}OAuth2\textbackslash{}Client\textbackslash{}Tool}!ProviderRedirectTrait@{ProviderRedirectTrait}}
+\index{ProviderRedirectTrait@{ProviderRedirectTrait}!League\textbackslash{}OAuth2\textbackslash{}Client\textbackslash{}Tool@{League\textbackslash{}OAuth2\textbackslash{}Client\textbackslash{}Tool}}
+\doxysubsubsection{\texorpdfstring{ProviderRedirectTrait}{ProviderRedirectTrait}}
+{\footnotesize\ttfamily \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{trait}} Provider\+Redirect\+Trait}
+
+{\bfseries Valeur initiale \+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ \ \ }
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{protected}\ \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\$redirectLimit}}\ =\ 2}
+
+\end{DoxyCode}

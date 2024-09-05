@@ -1,0 +1,312 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_interface_guzzle_http_1_1_client_interface" xml:lang="fr">
+<title>Référence de l&apos;interface ClientInterface</title>
+<indexterm><primary>ClientInterface</primary></indexterm>
+Graphe d&apos;héritage de ClientInterface:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="interface_guzzle_http_1_1_client_interface__inherit__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Graphe de collaboration de ClientInterface:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="interface_guzzle_http_1_1_client_interface__coll__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Fonctions membres publiques    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_interface_guzzle_http_1_1_client_interface_1a79dbc4de862ed0389dc53da81cff765e">send</link> (<link linkend="_interface_psr_1_1_http_1_1_message_1_1_request_interface">RequestInterface</link> $<link linkend="_interface_guzzle_http_1_1_client_interface_1a615d208d1c7fe4691b7ee9eec3f5eb4b">request</link>, array $options=[])</para>
+</listitem>
+            <listitem><para><link linkend="_interface_guzzle_http_1_1_client_interface_1acc4af8670c8e19590b205f2a477397e2">sendAsync</link> (<link linkend="_interface_psr_1_1_http_1_1_message_1_1_request_interface">RequestInterface</link> $<link linkend="_interface_guzzle_http_1_1_client_interface_1a615d208d1c7fe4691b7ee9eec3f5eb4b">request</link>, array $options=[])</para>
+</listitem>
+            <listitem><para><link linkend="_interface_guzzle_http_1_1_client_interface_1a615d208d1c7fe4691b7ee9eec3f5eb4b">request</link> (string $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">method</link>, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">uri</link>, array $options=[])</para>
+</listitem>
+            <listitem><para><link linkend="_interface_guzzle_http_1_1_client_interface_1a4a81ba549dcf2e189e634af20dabe6da">requestAsync</link> (string $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">method</link>, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">uri</link>, array $options=[])</para>
+</listitem>
+            <listitem><para><link linkend="_interface_guzzle_http_1_1_client_interface_1a50a8bdf2c9aa3bf12ea443fd67ccdcfe">getConfig</link> (?string $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">option</link>=null)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Champs de données    </title>
+        <itemizedlist>
+            <listitem><para>const <link linkend="_interface_guzzle_http_1_1_client_interface_1a3131af273a7c8eca1728d5b8660bb9c0">MAJOR_VERSION</link> = 7</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Description détaillée</title>
+
+<para>Client interface for sending HTTP requests. </para>
+</section>
+<section>
+<title>Documentation des fonctions membres</title>
+<anchor xml:id="_interface_guzzle_http_1_1_client_interface_1a50a8bdf2c9aa3bf12ea443fd67ccdcfe"/><section>
+    <title>getConfig()</title>
+<indexterm><primary>getConfig</primary><secondary>ClientInterface</secondary></indexterm>
+<indexterm><primary>ClientInterface</primary><secondary>getConfig</secondary></indexterm>
+<para><computeroutput>getConfig (?string $option = <computeroutput>null</computeroutput>
+)</computeroutput></para>
+<para>Get a client configuration option.</para>
+
+<para>These options include default request options of the client, a &quot;handler&quot; (if utilized by the concrete client), and a &quot;base_uri&quot; if utilized by the concrete client.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string | null</entry><entry>$option</entry><entry>
+<para>The config option to retrieve.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>mixed</para>
+</formalpara>
+<para><link linkend="_deprecated_1_deprecated000027">Obsolète</link> 
+<para>ClientInterface::getConfig will be removed in guzzlehttp/guzzle:8.0. </para>
+</para></para>
+<para>
+Implémenté dans <link linkend="_class_guzzle_http_1_1_client_1a50a8bdf2c9aa3bf12ea443fd67ccdcfe">Client</link>.</para>
+</section>
+<anchor xml:id="_interface_guzzle_http_1_1_client_interface_1a615d208d1c7fe4691b7ee9eec3f5eb4b"/><section>
+    <title>request()</title>
+<indexterm><primary>request</primary><secondary>ClientInterface</secondary></indexterm>
+<indexterm><primary>ClientInterface</primary><secondary>request</secondary></indexterm>
+<para><computeroutput>request (string $method,  $uri, array $options = <computeroutput>[]</computeroutput>
+)</computeroutput></para>
+<para>Create and send an HTTP request.</para>
+
+<para>Use an absolute path to override the base path of the client, or a relative path to append to the base path of the client. The URL can contain the query string as well.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$method</entry><entry>
+<para>HTTP method. </para>
+</entry>
+                            </row>
+                            <row>
+<entry>string | UriInterface</entry><entry>$uri</entry><entry>
+<para>URI object or string. </para>
+</entry>
+                            </row>
+                            <row>
+<entry>array</entry><entry>$options</entry><entry>
+<para>Request options to apply.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>GuzzleException</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Implémenté dans <link linkend="_class_guzzle_http_1_1_client_1a6c404324a51407f52f33717842c0c587">Client</link>.</para>
+</section>
+<anchor xml:id="_interface_guzzle_http_1_1_client_interface_1a4a81ba549dcf2e189e634af20dabe6da"/><section>
+    <title>requestAsync()</title>
+<indexterm><primary>requestAsync</primary><secondary>ClientInterface</secondary></indexterm>
+<indexterm><primary>ClientInterface</primary><secondary>requestAsync</secondary></indexterm>
+<para><computeroutput>requestAsync (string $method,  $uri, array $options = <computeroutput>[]</computeroutput>
+)</computeroutput></para>
+<para>Create and send an asynchronous HTTP request.</para>
+
+<para>Use an absolute path to override the base path of the client, or a relative path to append to the base path of the client. The URL can contain the query string as well. Use an array to provide a URL template and additional variables to use in the URL template expansion.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$method</entry><entry>
+<para>HTTP method </para>
+</entry>
+                            </row>
+                            <row>
+<entry>string | UriInterface</entry><entry>$uri</entry><entry>
+<para>URI object or string. </para>
+</entry>
+                            </row>
+                            <row>
+<entry>array</entry><entry>$options</entry><entry>
+<para>Request options to apply. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Implémenté dans <link linkend="_class_guzzle_http_1_1_client_1a2c1bb98c2de7bb6b136fb22cbb6b17ce">Client</link>.</para>
+</section>
+<anchor xml:id="_interface_guzzle_http_1_1_client_interface_1a79dbc4de862ed0389dc53da81cff765e"/><section>
+    <title>send()</title>
+<indexterm><primary>send</primary><secondary>ClientInterface</secondary></indexterm>
+<indexterm><primary>ClientInterface</primary><secondary>send</secondary></indexterm>
+<para><computeroutput>send (<link linkend="_interface_psr_1_1_http_1_1_message_1_1_request_interface">RequestInterface</link> $request, array $options = <computeroutput>[]</computeroutput>
+)</computeroutput></para>
+<para>Send an HTTP request.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>RequestInterface</entry><entry>$request</entry><entry>
+<para>Request to send </para>
+</entry>
+                            </row>
+                            <row>
+<entry>array</entry><entry>$options</entry><entry>
+<para>Request options to apply to the given request and to the transfer.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>GuzzleException</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Implémenté dans <link linkend="_class_guzzle_http_1_1_client_1a79dbc4de862ed0389dc53da81cff765e">Client</link>.</para>
+</section>
+<anchor xml:id="_interface_guzzle_http_1_1_client_interface_1acc4af8670c8e19590b205f2a477397e2"/><section>
+    <title>sendAsync()</title>
+<indexterm><primary>sendAsync</primary><secondary>ClientInterface</secondary></indexterm>
+<indexterm><primary>ClientInterface</primary><secondary>sendAsync</secondary></indexterm>
+<para><computeroutput>sendAsync (<link linkend="_interface_psr_1_1_http_1_1_message_1_1_request_interface">RequestInterface</link> $request, array $options = <computeroutput>[]</computeroutput>
+)</computeroutput></para>
+<para>Asynchronously send an HTTP request.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>RequestInterface</entry><entry>$request</entry><entry>
+<para>Request to send </para>
+</entry>
+                            </row>
+                            <row>
+<entry>array</entry><entry>$options</entry><entry>
+<para>Request options to apply to the given request and to the transfer. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Implémenté dans <link linkend="_class_guzzle_http_1_1_client_1acc4af8670c8e19590b205f2a477397e2">Client</link>.</para>
+</section>
+</section>
+<section>
+<title>Documentation des champs</title>
+<anchor xml:id="_interface_guzzle_http_1_1_client_interface_1a3131af273a7c8eca1728d5b8660bb9c0"/><section>
+    <title>MAJOR_VERSION</title>
+<indexterm><primary>MAJOR_VERSION</primary><secondary>ClientInterface</secondary></indexterm>
+<indexterm><primary>ClientInterface</primary><secondary>MAJOR_VERSION</secondary></indexterm>
+<para><computeroutput>const MAJOR_VERSION = 7</computeroutput></para>
+<para>The Guzzle major version. </para>
+</section>
+<para>
+La documentation de cette interface a été générée à partir du fichier suivant :</para>
+public/glpi/vendor/guzzlehttp/guzzle/src/<link linkend="_guzzlehttp_2guzzle_2src_2_client_interface_8php">ClientInterface.php</link></section>
+</section>

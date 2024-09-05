@@ -1,0 +1,109 @@
+\doxysection{Référence de la classe Json\+Parser}
+\hypertarget{class_seld_1_1_json_lint_1_1_json_parser}{}\label{class_seld_1_1_json_lint_1_1_json_parser}\index{JsonParser@{JsonParser}}
+
+
+Graphe de collaboration de Json\+Parser\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=267pt]{class_seld_1_1_json_lint_1_1_json_parser__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_seld_1_1_json_lint_1_1_json_parser_a712e94fd9cee8772efcc3b40f8569470}{lint}} (\$input, \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{flags}}=0)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Champs de données}
+\begin{DoxyCompactItemize}
+\item 
+const \mbox{\hyperlink{class_seld_1_1_json_lint_1_1_json_parser_af14032b186e6dba059994e4f27d92aeb}{DETECT\+\_\+\+KEY\+\_\+\+CONFLICTS}} = 1
+\item 
+const \mbox{\hyperlink{class_seld_1_1_json_lint_1_1_json_parser_ab1a58456cd55f888e134c60132a0bce4}{ALLOW\+\_\+\+DUPLICATE\+\_\+\+KEYS}} = 2
+\item 
+const \mbox{\hyperlink{class_seld_1_1_json_lint_1_1_json_parser_ab741e4534cf2860d1bff1b4349a5674e}{PARSE\+\_\+\+TO\+\_\+\+ASSOC}} = 4
+\item 
+const \mbox{\hyperlink{class_seld_1_1_json_lint_1_1_json_parser_a1c283f279c762a08395cffd2ad34918f}{ALLOW\+\_\+\+COMMENTS}} = 8
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Fonctions membres protégées}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_seld_1_1_json_lint_1_1_json_parser_a56a029dec65b6bb7cfd9b864eb375788}{parse\+Error}} (\$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{str}}, \$hash=null)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Parser class
+
+Example\+:
+
+\$parser = new Json\+Parser(); // returns null if it\textquotesingle{}s valid json, or an error object \$parser-\/\texorpdfstring{$>$}{>}lint(\$json); // returns parsed json, like json\+\_\+decode does, but slower, throws exceptions on failure. \$parser-\/\texorpdfstring{$>$}{>}parse(\$json);
+
+Ported from \href{https://github.com/zaach/jsonlint}{\texttt{ https\+://github.\+com/zaach/jsonlint}} 
+
+\doxysubsection{Documentation des fonctions membres}
+\Hypertarget{class_seld_1_1_json_lint_1_1_json_parser_a712e94fd9cee8772efcc3b40f8569470}\label{class_seld_1_1_json_lint_1_1_json_parser_a712e94fd9cee8772efcc3b40f8569470} 
+\index{JsonParser@{JsonParser}!lint@{lint}}
+\index{lint@{lint}!JsonParser@{JsonParser}}
+\doxysubsubsection{\texorpdfstring{lint()}{lint()}}
+{\footnotesize\ttfamily lint (\begin{DoxyParamCaption}\item[{}]{\$input,  }\item[{}]{\$flags = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}[1]{Paramètres}
+string & {\em \$input} & JSON string \\
+\hline
+int & {\em \$flags} & Bitmask of parse/lint options (see constants of this class) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+null\texorpdfstring{$\vert$}{|}\+Parsing\+Exception null if no error is found, a Parsing\+Exception containing all details otherwise
+\end{DoxyReturn}
+@phpstan-\/param int-\/mask-\/of\texorpdfstring{$<$}{<}self\+:\+:\texorpdfstring{$\ast$}{*}\texorpdfstring{$>$}{>} \$flags \Hypertarget{class_seld_1_1_json_lint_1_1_json_parser_a56a029dec65b6bb7cfd9b864eb375788}\label{class_seld_1_1_json_lint_1_1_json_parser_a56a029dec65b6bb7cfd9b864eb375788} 
+\index{JsonParser@{JsonParser}!parseError@{parseError}}
+\index{parseError@{parseError}!JsonParser@{JsonParser}}
+\doxysubsubsection{\texorpdfstring{parseError()}{parseError()}}
+{\footnotesize\ttfamily parse\+Error (\begin{DoxyParamCaption}\item[{}]{\$str,  }\item[{}]{\$hash = {\ttfamily null} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+\begin{DoxyParams}[1]{Paramètres}
+string & {\em \$str} & \\
+\hline
+ & {\em array\{text} & string, token\+: string\texorpdfstring{$\vert$}{|}int, line\+: int, loc\+: array\{first\+\_\+line\+: int, first\+\_\+column\+: int, last\+\_\+line\+: int, last\+\_\+column\+: int\}, expected\+: string\mbox{[}\mbox{]}\}\texorpdfstring{$\vert$}{|}null \$hash \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+never 
+\end{DoxyReturn}
+
+
+\doxysubsection{Documentation des champs}
+\Hypertarget{class_seld_1_1_json_lint_1_1_json_parser_a1c283f279c762a08395cffd2ad34918f}\label{class_seld_1_1_json_lint_1_1_json_parser_a1c283f279c762a08395cffd2ad34918f} 
+\index{JsonParser@{JsonParser}!ALLOW\_COMMENTS@{ALLOW\_COMMENTS}}
+\index{ALLOW\_COMMENTS@{ALLOW\_COMMENTS}!JsonParser@{JsonParser}}
+\doxysubsubsection{\texorpdfstring{ALLOW\_COMMENTS}{ALLOW\_COMMENTS}}
+{\footnotesize\ttfamily const ALLOW\+\_\+\+COMMENTS = 8}
+
+\Hypertarget{class_seld_1_1_json_lint_1_1_json_parser_ab1a58456cd55f888e134c60132a0bce4}\label{class_seld_1_1_json_lint_1_1_json_parser_ab1a58456cd55f888e134c60132a0bce4} 
+\index{JsonParser@{JsonParser}!ALLOW\_DUPLICATE\_KEYS@{ALLOW\_DUPLICATE\_KEYS}}
+\index{ALLOW\_DUPLICATE\_KEYS@{ALLOW\_DUPLICATE\_KEYS}!JsonParser@{JsonParser}}
+\doxysubsubsection{\texorpdfstring{ALLOW\_DUPLICATE\_KEYS}{ALLOW\_DUPLICATE\_KEYS}}
+{\footnotesize\ttfamily const ALLOW\+\_\+\+DUPLICATE\+\_\+\+KEYS = 2}
+
+\Hypertarget{class_seld_1_1_json_lint_1_1_json_parser_af14032b186e6dba059994e4f27d92aeb}\label{class_seld_1_1_json_lint_1_1_json_parser_af14032b186e6dba059994e4f27d92aeb} 
+\index{JsonParser@{JsonParser}!DETECT\_KEY\_CONFLICTS@{DETECT\_KEY\_CONFLICTS}}
+\index{DETECT\_KEY\_CONFLICTS@{DETECT\_KEY\_CONFLICTS}!JsonParser@{JsonParser}}
+\doxysubsubsection{\texorpdfstring{DETECT\_KEY\_CONFLICTS}{DETECT\_KEY\_CONFLICTS}}
+{\footnotesize\ttfamily const DETECT\+\_\+\+KEY\+\_\+\+CONFLICTS = 1}
+
+\Hypertarget{class_seld_1_1_json_lint_1_1_json_parser_ab741e4534cf2860d1bff1b4349a5674e}\label{class_seld_1_1_json_lint_1_1_json_parser_ab741e4534cf2860d1bff1b4349a5674e} 
+\index{JsonParser@{JsonParser}!PARSE\_TO\_ASSOC@{PARSE\_TO\_ASSOC}}
+\index{PARSE\_TO\_ASSOC@{PARSE\_TO\_ASSOC}!JsonParser@{JsonParser}}
+\doxysubsubsection{\texorpdfstring{PARSE\_TO\_ASSOC}{PARSE\_TO\_ASSOC}}
+{\footnotesize\ttfamily const PARSE\+\_\+\+TO\+\_\+\+ASSOC = 4}
+
+
+
+La documentation de cette classe a été générée à partir du fichier suivant \+:\begin{DoxyCompactItemize}
+\item 
+public/glpi/vendor/seld/jsonlint/src/\+Seld/\+Json\+Lint/\mbox{\hyperlink{_json_parser_8php}{Json\+Parser.\+php}}\end{DoxyCompactItemize}

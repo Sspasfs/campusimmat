@@ -1,0 +1,523 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_sabre_1_1_d_a_v_1_1_tree" xml:lang="fr">
+<title>Référence de la classe Tree</title>
+<indexterm><primary>Tree</primary></indexterm>
+Graphe de collaboration de Tree:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_sabre_1_1_d_a_v_1_1_tree__coll__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Fonctions membres publiques    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_sabre_1_1_d_a_v_1_1_tree_1a624b5edeaf7fcb2936c4483b7d946106">__construct</link> (<link linkend="_interface_sabre_1_1_d_a_v_1_1_i_collection">ICollection</link> $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">rootNode</link>)</para>
+</listitem>
+            <listitem><para><link linkend="_class_sabre_1_1_d_a_v_1_1_tree_1ac73e1df78168121681f367d91bb154f7">getNodeForPath</link> ($path)</para>
+</listitem>
+            <listitem><para><link linkend="_class_sabre_1_1_d_a_v_1_1_tree_1abdb8db867b8f6e31918d7c7dcd498f64">nodeExists</link> ($path)</para>
+</listitem>
+            <listitem><para><link linkend="_class_sabre_1_1_d_a_v_1_1_tree_1aa2158cb4ac7389d477139823c89a9b33">copy</link> ($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">sourcePath</link>, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">destinationPath</link>)</para>
+</listitem>
+            <listitem><para><link linkend="_class_sabre_1_1_d_a_v_1_1_tree_1a091c1c1674edd72d58aa13aa51c20258">move</link> ($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">sourcePath</link>, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">destinationPath</link>)</para>
+</listitem>
+            <listitem><para><link linkend="_class_sabre_1_1_d_a_v_1_1_tree_1af7fd3d73b2e3a63615deedd5c4801f17">delete</link> ($path)</para>
+</listitem>
+            <listitem><para><link linkend="_class_sabre_1_1_d_a_v_1_1_tree_1a2be78c63113f819cbf7fd786d77b0bb5">getChildren</link> ($path)</para>
+</listitem>
+            <listitem><para><link linkend="_class_sabre_1_1_d_a_v_1_1_tree_1a69ec10a74c1431bfaa06bc66ccbea9d7">markDirty</link> ($path)</para>
+</listitem>
+            <listitem><para><link linkend="_class_sabre_1_1_d_a_v_1_1_tree_1a230262e463ed3a02c8cf032786a8543d">getMultipleNodes</link> ($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">paths</link>)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Fonctions membres protégées    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_sabre_1_1_d_a_v_1_1_tree_1a6109c0931705dbd5b707093d9b042b37">copyNode</link> (<link linkend="_interface_sabre_1_1_d_a_v_1_1_i_node">INode</link> $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">source</link>, <link linkend="_interface_sabre_1_1_d_a_v_1_1_i_collection">ICollection</link> $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">destinationParent</link>, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">destinationName</link>=null)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Attributs protégés    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_sabre_1_1_d_a_v_1_1_tree_1a79045a1d0d4538a42a2007c85e539441">$rootNode</link></para>
+</listitem>
+            <listitem><para><link linkend="_class_sabre_1_1_d_a_v_1_1_tree_1ac2dc76d756ec398393d4b1d23659276c">$cache</link> = []</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Description détaillée</title>
+
+<para>The tree object is responsible for basic tree operations.</para>
+
+<para>It allows for fetching nodes by path, facilitates deleting, copying and moving.</para>
+
+<para><formalpara><title>Copyright</title>
+
+<para>Copyright (C) fruux GmbH (<link xlink:href="https://fruux.com/">https://fruux.com/</link>) </para>
+</formalpara>
+<formalpara><title>Auteur</title>
+
+<para>Evert Pot (<link xlink:href="http://evertpot.com/">http://evertpot.com/</link>) @license <link xlink:href="http://sabre.io/license/">http://sabre.io/license/</link> Modified BSD License </para>
+</formalpara>
+</para>
+</section>
+<section>
+<title>Documentation des constructeurs et destructeur</title>
+<anchor xml:id="_class_sabre_1_1_d_a_v_1_1_tree_1a624b5edeaf7fcb2936c4483b7d946106"/><section>
+    <title>__construct()</title>
+<indexterm><primary>__construct</primary><secondary>Tree</secondary></indexterm>
+<indexterm><primary>Tree</primary><secondary>__construct</secondary></indexterm>
+<para><computeroutput>__construct (<link linkend="_interface_sabre_1_1_d_a_v_1_1_i_collection">ICollection</link> $rootNode)</computeroutput></para>
+<para>Creates the object.</para>
+
+<para>This method expects the rootObject to be passed as a parameter </para>
+</section>
+</section>
+<section>
+<title>Documentation des fonctions membres</title>
+<anchor xml:id="_class_sabre_1_1_d_a_v_1_1_tree_1aa2158cb4ac7389d477139823c89a9b33"/><section>
+    <title>copy()</title>
+<indexterm><primary>copy</primary><secondary>Tree</secondary></indexterm>
+<indexterm><primary>Tree</primary><secondary>copy</secondary></indexterm>
+<para><computeroutput>copy ( $sourcePath,  $destinationPath)</computeroutput></para>
+<para>Copies a file from path to another.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$sourcePath</entry><entry>
+<para>The source location </para>
+</entry>
+                            </row>
+                            <row>
+<entry>string</entry><entry>$destinationPath</entry><entry>
+<para>The full destination path </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_sabre_1_1_d_a_v_1_1_tree_aa2158cb4ac7389d477139823c89a9b33_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_sabre_1_1_d_a_v_1_1_tree_aa2158cb4ac7389d477139823c89a9b33_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_sabre_1_1_d_a_v_1_1_tree_1a6109c0931705dbd5b707093d9b042b37"/><section>
+    <title>copyNode()</title>
+<indexterm><primary>copyNode</primary><secondary>Tree</secondary></indexterm>
+<indexterm><primary>Tree</primary><secondary>copyNode</secondary></indexterm>
+<para><computeroutput>copyNode (<link linkend="_interface_sabre_1_1_d_a_v_1_1_i_node">INode</link> $source, <link linkend="_interface_sabre_1_1_d_a_v_1_1_i_collection">ICollection</link> $destinationParent,  $destinationName = <computeroutput>null</computeroutput>
+)<computeroutput>[protected]</computeroutput></computeroutput></para>
+<para>copyNode.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$destinationName</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_sabre_1_1_d_a_v_1_1_tree_a6109c0931705dbd5b707093d9b042b37_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_sabre_1_1_d_a_v_1_1_tree_a6109c0931705dbd5b707093d9b042b37_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_sabre_1_1_d_a_v_1_1_tree_1af7fd3d73b2e3a63615deedd5c4801f17"/><section>
+    <title>delete()</title>
+<indexterm><primary>delete</primary><secondary>Tree</secondary></indexterm>
+<indexterm><primary>Tree</primary><secondary>delete</secondary></indexterm>
+<para><computeroutput>delete ( $path)</computeroutput></para>
+<para>Deletes a node from the tree.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$path</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_sabre_1_1_d_a_v_1_1_tree_af7fd3d73b2e3a63615deedd5c4801f17_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_sabre_1_1_d_a_v_1_1_tree_1a2be78c63113f819cbf7fd786d77b0bb5"/><section>
+    <title>getChildren()</title>
+<indexterm><primary>getChildren</primary><secondary>Tree</secondary></indexterm>
+<indexterm><primary>Tree</primary><secondary>getChildren</secondary></indexterm>
+<para><computeroutput>getChildren ( $path)</computeroutput></para>
+<para>Returns a list of childnodes for a given path.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$path</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>\Traversable </para>
+</formalpara>
+</para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_sabre_1_1_d_a_v_1_1_tree_a2be78c63113f819cbf7fd786d77b0bb5_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_sabre_1_1_d_a_v_1_1_tree_1a230262e463ed3a02c8cf032786a8543d"/><section>
+    <title>getMultipleNodes()</title>
+<indexterm><primary>getMultipleNodes</primary><secondary>Tree</secondary></indexterm>
+<indexterm><primary>Tree</primary><secondary>getMultipleNodes</secondary></indexterm>
+<para><computeroutput>getMultipleNodes ( $paths)</computeroutput></para>
+<para>This method tells the tree system to pre-fetch and cache a list of children of a single parent.</para>
+
+<para>There are a bunch of operations in the WebDAV stack that request many children (based on uris), and sometimes fetching many at once can optimize this.</para>
+
+<para>This method returns an array with the found nodes. It&apos;s keys are the original paths. The result may be out of order.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>array</entry><entry>$paths</entry><entry>
+<para>list of nodes that must be fetched</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>array </para>
+</formalpara>
+</para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_sabre_1_1_d_a_v_1_1_tree_a230262e463ed3a02c8cf032786a8543d_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_sabre_1_1_d_a_v_1_1_tree_1ac73e1df78168121681f367d91bb154f7"/><section>
+    <title>getNodeForPath()</title>
+<indexterm><primary>getNodeForPath</primary><secondary>Tree</secondary></indexterm>
+<indexterm><primary>Tree</primary><secondary>getNodeForPath</secondary></indexterm>
+<para><computeroutput>getNodeForPath ( $path)</computeroutput></para>
+<para>Returns the INode object for the requested path.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$path</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>INode </para>
+</formalpara>
+</para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_sabre_1_1_d_a_v_1_1_tree_ac73e1df78168121681f367d91bb154f7_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_sabre_1_1_d_a_v_1_1_tree_ac73e1df78168121681f367d91bb154f7_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_sabre_1_1_d_a_v_1_1_tree_1a69ec10a74c1431bfaa06bc66ccbea9d7"/><section>
+    <title>markDirty()</title>
+<indexterm><primary>markDirty</primary><secondary>Tree</secondary></indexterm>
+<indexterm><primary>Tree</primary><secondary>markDirty</secondary></indexterm>
+<para><computeroutput>markDirty ( $path)</computeroutput></para>
+<para>This method is called with every tree update.</para>
+
+<para>Examples of tree updates are:<itemizedlist>
+<listitem>
+<para>node deletions</para>
+</listitem><listitem>
+<para>node creations</para>
+</listitem><listitem>
+<para>copy</para>
+</listitem><listitem>
+<para>move</para>
+</listitem><listitem>
+<para>renaming nodes</para>
+</listitem></itemizedlist>
+</para>
+
+<para>If Tree classes implement a form of caching, this will allow them to make sure caches will be expired.</para>
+
+<para>If a path is passed, it is assumed that the entire subtree is dirty</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$path</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_sabre_1_1_d_a_v_1_1_tree_a69ec10a74c1431bfaa06bc66ccbea9d7_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_sabre_1_1_d_a_v_1_1_tree_1a091c1c1674edd72d58aa13aa51c20258"/><section>
+    <title>move()</title>
+<indexterm><primary>move</primary><secondary>Tree</secondary></indexterm>
+<indexterm><primary>Tree</primary><secondary>move</secondary></indexterm>
+<para><computeroutput>move ( $sourcePath,  $destinationPath)</computeroutput></para>
+<para>Moves a file from one location to another.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$sourcePath</entry><entry>
+<para>The path to the file which should be moved </para>
+</entry>
+                            </row>
+                            <row>
+<entry>string</entry><entry>$destinationPath</entry><entry>
+<para>The full destination path, so not just the destination parent node </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_sabre_1_1_d_a_v_1_1_tree_a091c1c1674edd72d58aa13aa51c20258_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_sabre_1_1_d_a_v_1_1_tree_1abdb8db867b8f6e31918d7c7dcd498f64"/><section>
+    <title>nodeExists()</title>
+<indexterm><primary>nodeExists</primary><secondary>Tree</secondary></indexterm>
+<indexterm><primary>Tree</primary><secondary>nodeExists</secondary></indexterm>
+<para><computeroutput>nodeExists ( $path)</computeroutput></para>
+<para>This function allows you to check if a node exists.</para>
+
+<para>Implementors of this class should override this method to make it cheaper.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$path</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>bool </para>
+</formalpara>
+</para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_sabre_1_1_d_a_v_1_1_tree_abdb8db867b8f6e31918d7c7dcd498f64_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+</section>
+<section>
+<title>Documentation des champs</title>
+<anchor xml:id="_class_sabre_1_1_d_a_v_1_1_tree_1ac2dc76d756ec398393d4b1d23659276c"/><section>
+    <title>$cache</title>
+<indexterm><primary>$cache</primary><secondary>Tree</secondary></indexterm>
+<indexterm><primary>Tree</primary><secondary>$cache</secondary></indexterm>
+<para><computeroutput>$<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">cache</link> = []<computeroutput>[protected]</computeroutput></computeroutput></para></section>
+<anchor xml:id="_class_sabre_1_1_d_a_v_1_1_tree_1a79045a1d0d4538a42a2007c85e539441"/><section>
+    <title>$rootNode</title>
+<indexterm><primary>$rootNode</primary><secondary>Tree</secondary></indexterm>
+<indexterm><primary>Tree</primary><secondary>$rootNode</secondary></indexterm>
+<para><computeroutput>$<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">rootNode</link><computeroutput>[protected]</computeroutput></computeroutput></para></section>
+<para>
+La documentation de cette classe a été générée à partir du fichier suivant :</para>
+public/glpi/vendor/sabre/dav/lib/DAV/<link linkend="__tree_8php">Tree.php</link></section>
+</section>

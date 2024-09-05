@@ -1,0 +1,378 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_monolog_1_1_handler_1_1_handler_wrapper" xml:lang="fr">
+<title>Référence de la classe HandlerWrapper</title>
+<indexterm><primary>HandlerWrapper</primary></indexterm>
+Graphe d&apos;héritage de HandlerWrapper:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_monolog_1_1_handler_1_1_handler_wrapper__inherit__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Graphe de collaboration de HandlerWrapper:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_monolog_1_1_handler_1_1_handler_wrapper__coll__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Fonctions membres publiques    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_monolog_1_1_handler_1_1_handler_wrapper_1ab2e9501469dd778b098cc85831c5c55f">__construct</link> (<link linkend="_interface_monolog_1_1_handler_1_1_handler_interface">HandlerInterface</link> $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">handler</link>)</para>
+</listitem>
+            <listitem><para><link linkend="_class_monolog_1_1_handler_1_1_handler_wrapper_1abbfbbcd3430dea8422ecd3c725737758">isHandling</link> (array $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">record</link>)</para>
+</listitem>
+            <listitem><para><link linkend="_class_monolog_1_1_handler_1_1_handler_wrapper_1ad54b568c673b7b4fc724268a54313603">handle</link> (array $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">record</link>)</para>
+</listitem>
+            <listitem><para><link linkend="_class_monolog_1_1_handler_1_1_handler_wrapper_1a944865926b0302ad2d802bea1eec3a57">handleBatch</link> (array $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">records</link>)</para>
+</listitem>
+            <listitem><para><link linkend="_class_monolog_1_1_handler_1_1_handler_wrapper_1aa69c8bf1f1dcf4e72552efff1fe3e87e">close</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_class_monolog_1_1_handler_1_1_handler_wrapper_1a14c91c0ddce4f5cb91bc031e68c00453">pushProcessor</link> (<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">callable</link> $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">callback</link>)</para>
+</listitem>
+            <listitem><para><link linkend="_class_monolog_1_1_handler_1_1_handler_wrapper_1aece5018a30e181b7c02b82a8470b5017">popProcessor</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_class_monolog_1_1_handler_1_1_handler_wrapper_1a87804f2347dd817752ef1faa1f0dea05">setFormatter</link> (<link linkend="_interface_monolog_1_1_formatter_1_1_formatter_interface">FormatterInterface</link> $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">formatter</link>)</para>
+</listitem>
+            <listitem><para><link linkend="_class_monolog_1_1_handler_1_1_handler_wrapper_1aad3a8e83c90770a1f71a75bb51e782d8">getFormatter</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_class_monolog_1_1_handler_1_1_handler_wrapper_1a4a20559544fdf4dcb457e258dc976cf8">reset</link> ()</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Attributs protégés    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_monolog_1_1_handler_1_1_handler_wrapper_1a9285a7f684c72e9bb78fdef1bcbe3fd0">$handler</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Description détaillée</title>
+
+<para>This simple wrapper class can be used to extend handlers functionality.</para>
+
+<para>Example: A custom filtering that can be applied to any handler.</para>
+
+<para>Inherit from this class and override handle() like this:</para>
+
+<para>public function handle(array $record) { if ($record meets certain conditions) { return false; } return $this-&gt;handler-&gt;handle($record); }</para>
+
+<para><formalpara><title>Auteur</title>
+
+<para>Alexey Karapetov <link xlink:href="mailto:alexey@karapetov.com">alexey@karapetov.com</link> </para>
+</formalpara>
+</para>
+</section>
+<section>
+<title>Documentation des constructeurs et destructeur</title>
+<anchor xml:id="_class_monolog_1_1_handler_1_1_handler_wrapper_1ab2e9501469dd778b098cc85831c5c55f"/><section>
+    <title>__construct()</title>
+<indexterm><primary>__construct</primary><secondary>HandlerWrapper</secondary></indexterm>
+<indexterm><primary>HandlerWrapper</primary><secondary>__construct</secondary></indexterm>
+<para><computeroutput>__construct (<link linkend="_interface_monolog_1_1_handler_1_1_handler_interface">HandlerInterface</link> $handler)</computeroutput></para></section>
+</section>
+<section>
+<title>Documentation des fonctions membres</title>
+<anchor xml:id="_class_monolog_1_1_handler_1_1_handler_wrapper_1aa69c8bf1f1dcf4e72552efff1fe3e87e"/><section>
+    <title>close()</title>
+<indexterm><primary>close</primary><secondary>HandlerWrapper</secondary></indexterm>
+<indexterm><primary>HandlerWrapper</primary><secondary>close</secondary></indexterm>
+<para><computeroutput>close ( )</computeroutput></para>
+<para>
+<para>Closes the handler.</para>
+
+<para>Ends a log cycle and frees all resources used by the handler.</para>
+
+<para>Closing a <link linkend="_class_monolog_1_1_handler_1_1_handler">Handler</link> means flushing all buffers and freeing any open resources/handles.</para>
+
+<para>Implementations have to be idempotent (i.e. it should be possible to call close several times without breakage) and ideally handlers should be able to reopen themselves on <link linkend="_interface_monolog_1_1_handler_1_1_handler_interface_1ad54b568c673b7b4fc724268a54313603">handle()</link> after they have been closed.</para>
+
+<para>This is useful at the end of a request and will be called automatically when the object is destroyed if you extend <link linkend="_namespace_monolog">Monolog</link>\Handler\Handler.</para>
+
+<para>If you are thinking of calling this method yourself, most likely you should be calling <link linkend="_interface_monolog_1_1_resettable_interface_1a4a20559544fdf4dcb457e258dc976cf8">ResettableInterface::reset</link> instead. Have a look.</para>
+ </para>
+<para>
+Implémente <link linkend="_interface_monolog_1_1_handler_1_1_handler_interface_1aa69c8bf1f1dcf4e72552efff1fe3e87e">HandlerInterface</link>.</para>
+</section>
+<anchor xml:id="_class_monolog_1_1_handler_1_1_handler_wrapper_1aad3a8e83c90770a1f71a75bb51e782d8"/><section>
+    <title>getFormatter()</title>
+<indexterm><primary>getFormatter</primary><secondary>HandlerWrapper</secondary></indexterm>
+<indexterm><primary>HandlerWrapper</primary><secondary>getFormatter</secondary></indexterm>
+<para><computeroutput>getFormatter ( )</computeroutput></para>
+<para>
+<para>Gets the formatter.</para>
+
+<para><formalpara><title>Renvoie</title>
+
+<para>FormatterInterface</para>
+</formalpara>
+</para>
+ </para>
+<para>
+Implémente <link linkend="_interface_monolog_1_1_handler_1_1_formattable_handler_interface_1aad3a8e83c90770a1f71a75bb51e782d8">FormattableHandlerInterface</link>.</para>
+</section>
+<anchor xml:id="_class_monolog_1_1_handler_1_1_handler_wrapper_1ad54b568c673b7b4fc724268a54313603"/><section>
+    <title>handle()</title>
+<indexterm><primary>handle</primary><secondary>HandlerWrapper</secondary></indexterm>
+<indexterm><primary>HandlerWrapper</primary><secondary>handle</secondary></indexterm>
+<para><computeroutput>handle (array $record)</computeroutput></para>
+<para>
+<para>Handles a record.</para>
+
+<para>All records may be passed to this method, and the handler should discard those that it does not want to handle.</para>
+
+<para>The return value of this function controls the bubbling process of the handler stack. Unless the bubbling is interrupted (by returning true), the <link linkend="_class_monolog_1_1_logger">Logger</link> class will keep on calling further handlers in the stack with a given log record.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>array</entry><entry>$record</entry><entry>
+<para>The record to handle </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>bool true means that this handler handled the record, and that bubbling is not permitted. false means the record was either not processed or that this handler allows bubbling.</para>
+</formalpara>
+@phpstan-param Record $record</para>
+ </para>
+<para>
+Implémente <link linkend="_interface_monolog_1_1_handler_1_1_handler_interface_1ad54b568c673b7b4fc724268a54313603">HandlerInterface</link>.</para>
+</section>
+<anchor xml:id="_class_monolog_1_1_handler_1_1_handler_wrapper_1a944865926b0302ad2d802bea1eec3a57"/><section>
+    <title>handleBatch()</title>
+<indexterm><primary>handleBatch</primary><secondary>HandlerWrapper</secondary></indexterm>
+<indexterm><primary>HandlerWrapper</primary><secondary>handleBatch</secondary></indexterm>
+<para><computeroutput>handleBatch (array $records)</computeroutput></para>
+<para>
+<para>Handles a set of records at once.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>array</entry><entry>$records</entry><entry>
+<para>The records to handle (an array of record arrays)</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                @phpstan-param Record[] $records</para>
+ </para>
+<para>
+Implémente <link linkend="_interface_monolog_1_1_handler_1_1_handler_interface_1a944865926b0302ad2d802bea1eec3a57">HandlerInterface</link>.</para>
+</section>
+<anchor xml:id="_class_monolog_1_1_handler_1_1_handler_wrapper_1abbfbbcd3430dea8422ecd3c725737758"/><section>
+    <title>isHandling()</title>
+<indexterm><primary>isHandling</primary><secondary>HandlerWrapper</secondary></indexterm>
+<indexterm><primary>HandlerWrapper</primary><secondary>isHandling</secondary></indexterm>
+<para><computeroutput>isHandling (array $record)</computeroutput></para>
+<para>
+<para>Checks whether the given record will be handled by this handler.</para>
+
+<para>This is mostly done for performance reasons, to avoid calling processors for nothing.</para>
+
+<para>Handlers should still check the record levels within <link linkend="_interface_monolog_1_1_handler_1_1_handler_interface_1ad54b568c673b7b4fc724268a54313603">handle()</link>, returning false in <link linkend="_interface_monolog_1_1_handler_1_1_handler_interface_1abbfbbcd3430dea8422ecd3c725737758">isHandling()</link> is no guarantee that <link linkend="_interface_monolog_1_1_handler_1_1_handler_interface_1ad54b568c673b7b4fc724268a54313603">handle()</link> will not be called, and <link linkend="_interface_monolog_1_1_handler_1_1_handler_interface_1abbfbbcd3430dea8422ecd3c725737758">isHandling()</link> might not be called for a given record.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>array</entry><entry>$record</entry><entry>
+<para>Partial log record containing only a level key</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>bool</para>
+</formalpara>
+@phpstan-param array{level: Level} $record</para>
+ </para>
+<para>
+Implémente <link linkend="_interface_monolog_1_1_handler_1_1_handler_interface_1abbfbbcd3430dea8422ecd3c725737758">HandlerInterface</link>.</para>
+</section>
+<anchor xml:id="_class_monolog_1_1_handler_1_1_handler_wrapper_1aece5018a30e181b7c02b82a8470b5017"/><section>
+    <title>popProcessor()</title>
+<indexterm><primary>popProcessor</primary><secondary>HandlerWrapper</secondary></indexterm>
+<indexterm><primary>HandlerWrapper</primary><secondary>popProcessor</secondary></indexterm>
+<para><computeroutput>popProcessor ( )</computeroutput></para>
+<para>
+<para>Removes the processor on top of the stack and returns it.</para>
+
+<para>@psalm-return ProcessorInterface|callable(Record): Record $callback</para>
+
+<para>
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry></entry>
+<entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                LogicException In case the processor stack is empty <formalpara><title>Renvoie</title>
+
+<para>callable|ProcessorInterface</para>
+</formalpara>
+</para>
+ </para>
+<para>
+Implémente <link linkend="_interface_monolog_1_1_handler_1_1_processable_handler_interface_1aece5018a30e181b7c02b82a8470b5017">ProcessableHandlerInterface</link>.</para>
+</section>
+<anchor xml:id="_class_monolog_1_1_handler_1_1_handler_wrapper_1a14c91c0ddce4f5cb91bc031e68c00453"/><section>
+    <title>pushProcessor()</title>
+<indexterm><primary>pushProcessor</primary><secondary>HandlerWrapper</secondary></indexterm>
+<indexterm><primary>HandlerWrapper</primary><secondary>pushProcessor</secondary></indexterm>
+<para><computeroutput>pushProcessor (<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">callable</link> $callback)</computeroutput></para>
+<para>
+<para>Adds a processor in the stack.</para>
+
+<para>@psalm-param ProcessorInterface|callable(Record): Record $callback</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>ProcessorInterface | callable</entry><entry>$callback</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para><link linkend="_interface_monolog_1_1_handler_1_1_handler_interface">HandlerInterface</link> self</para>
+</formalpara>
+</para>
+ </para>
+<para>
+Implémente <link linkend="_interface_monolog_1_1_handler_1_1_processable_handler_interface_1a14c91c0ddce4f5cb91bc031e68c00453">ProcessableHandlerInterface</link>.</para>
+</section>
+<anchor xml:id="_class_monolog_1_1_handler_1_1_handler_wrapper_1a4a20559544fdf4dcb457e258dc976cf8"/><section>
+    <title>reset()</title>
+<indexterm><primary>reset</primary><secondary>HandlerWrapper</secondary></indexterm>
+<indexterm><primary>HandlerWrapper</primary><secondary>reset</secondary></indexterm>
+<para><computeroutput>reset ( )</computeroutput></para>
+<para><formalpara><title>Renvoie</title>
+
+<para>void </para>
+</formalpara>
+</para>
+<para>
+Implémente <link linkend="_interface_monolog_1_1_resettable_interface_1a4a20559544fdf4dcb457e258dc976cf8">ResettableInterface</link>.</para>
+</section>
+<anchor xml:id="_class_monolog_1_1_handler_1_1_handler_wrapper_1a87804f2347dd817752ef1faa1f0dea05"/><section>
+    <title>setFormatter()</title>
+<indexterm><primary>setFormatter</primary><secondary>HandlerWrapper</secondary></indexterm>
+<indexterm><primary>HandlerWrapper</primary><secondary>setFormatter</secondary></indexterm>
+<para><computeroutput>setFormatter (<link linkend="_interface_monolog_1_1_formatter_1_1_formatter_interface">FormatterInterface</link> $formatter)</computeroutput></para>
+<para>
+<para>Sets the formatter.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>FormatterInterface</entry><entry>$formatter</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para><link linkend="_interface_monolog_1_1_handler_1_1_handler_interface">HandlerInterface</link> self</para>
+</formalpara>
+</para>
+ </para>
+<para>
+Implémente <link linkend="_interface_monolog_1_1_handler_1_1_formattable_handler_interface_1a87804f2347dd817752ef1faa1f0dea05">FormattableHandlerInterface</link>.</para>
+</section>
+</section>
+<section>
+<title>Documentation des champs</title>
+<anchor xml:id="_class_monolog_1_1_handler_1_1_handler_wrapper_1a9285a7f684c72e9bb78fdef1bcbe3fd0"/><section>
+    <title>$handler</title>
+<indexterm><primary>$handler</primary><secondary>HandlerWrapper</secondary></indexterm>
+<indexterm><primary>HandlerWrapper</primary><secondary>$handler</secondary></indexterm>
+<para><computeroutput>$<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">handler</link><computeroutput>[protected]</computeroutput></computeroutput></para></section>
+<para>
+La documentation de cette classe a été générée à partir du fichier suivant :</para>
+public/glpi/vendor/monolog/monolog/src/Monolog/Handler/<link linkend="__handler_wrapper_8php">HandlerWrapper.php</link></section>
+</section>

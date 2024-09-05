@@ -1,0 +1,2452 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__core_extension_8php" xml:lang="fr">
+<title>Référence du fichier public/glpi/vendor/twig/twig/src/Extension/CoreExtension.php</title>
+<indexterm><primary>public/glpi/vendor/twig/twig/src/Extension/CoreExtension.php</primary></indexterm>
+<simplesect>
+    <title>Structures de données    </title>
+        <itemizedlist>
+            <listitem><para>class <link linkend="_class_twig_1_1_extension_1_1_core_extension">CoreExtension</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Espaces de nommage    </title>
+        <itemizedlist>
+            <listitem><para>namespace <link linkend="_namespace_twig">Twig</link></para>
+</listitem>
+            <listitem><para>namespace <link linkend="_namespace_twig_1_1_extension">Twig\Extension</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Fonctions    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="__core_extension_8php_1acdac197154574e891f0edffdfa46a9c1">twig_cycle</link> ($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">values</link>, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">position</link>)</para>
+</listitem>
+            <listitem><para><link linkend="__core_extension_8php_1a58143cb7cfe98f1ef38883299f5c1dee">twig_random</link> (<link linkend="_class_twig_1_1_environment">Environment</link> $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">env</link>, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">values</link>=null, $max=null)</para>
+</listitem>
+            <listitem><para><link linkend="__core_extension_8php_1afb0a4462da7b07cd8ef58b8971471348">twig_date_format_filter</link> (<link linkend="_class_twig_1_1_environment">Environment</link> $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">env</link>, $date, $format=null, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">timezone</link>=null)</para>
+</listitem>
+            <listitem><para><link linkend="__core_extension_8php_1a07e489c9601a8f4f0f5c524126964a64">twig_date_modify_filter</link> (<link linkend="_class_twig_1_1_environment">Environment</link> $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">env</link>, $date, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">modifier</link>)</para>
+</listitem>
+            <listitem><para><link linkend="__core_extension_8php_1a256f713fc398e53c34a8b510a6b252f8">twig_sprintf</link> ($format,... $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">values</link>)</para>
+</listitem>
+            <listitem><para><link linkend="__core_extension_8php_1aa8f1fbdc8eaf8db4b9deea49e2cbd59d">twig_date_converter</link> (<link linkend="_class_twig_1_1_environment">Environment</link> $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">env</link>, $date=null, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">timezone</link>=null)</para>
+</listitem>
+            <listitem><para><link linkend="__core_extension_8php_1ad7b11011c24881206b82608150d3ba36">twig_replace_filter</link> ($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">str</link>, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">from</link>)</para>
+</listitem>
+            <listitem><para><link linkend="__core_extension_8php_1a3871a1576a44a93cfac02da165345918">twig_round</link> ($value, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">precision</link>=0, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">method</link>=&apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">common</link>&apos;)</para>
+</listitem>
+            <listitem><para><link linkend="__core_extension_8php_1a7c44483478720c8d780b28f769777a11">twig_number_format_filter</link> (<link linkend="_class_twig_1_1_environment">Environment</link> $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">env</link>, $number, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">decimal</link>=null, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">decimalPoint</link>=null, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">thousandSep</link>=null)</para>
+</listitem>
+            <listitem><para><link linkend="__core_extension_8php_1aa3f48766e0124a7c43c08c04dc40fe27">twig_urlencode_filter</link> ($url)</para>
+</listitem>
+            <listitem><para><link linkend="__core_extension_8php_1a2d50d273b88123237405a3388a6012a5">twig_array_merge</link> (... $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">arrays</link>)</para>
+</listitem>
+            <listitem><para><link linkend="__core_extension_8php_1a54423653cc7a283018b0f5f6190674e0">twig_slice</link> (<link linkend="_class_twig_1_1_environment">Environment</link> $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">env</link>, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">item</link>, $start, $length=null, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">preserveKeys</link>=false)</para>
+</listitem>
+            <listitem><para><link linkend="__core_extension_8php_1af8fd790efc18bdd1032b7a1472346128">twig_first</link> (<link linkend="_class_twig_1_1_environment">Environment</link> $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">env</link>, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">item</link>)</para>
+</listitem>
+            <listitem><para><link linkend="__core_extension_8php_1ac5a5585f07103df0baf49ffafe5183a0">twig_last</link> (<link linkend="_class_twig_1_1_environment">Environment</link> $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">env</link>, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">item</link>)</para>
+</listitem>
+            <listitem><para><link linkend="__core_extension_8php_1abc9e6cfa5e9862ae3e0a8d6a7f861377">twig_join_filter</link> ($value, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">glue</link>=&apos;&apos;, $and=null)</para>
+</listitem>
+            <listitem><para><link linkend="__core_extension_8php_1abf0d1d2febf9f600321025a5268b5408">twig_split_filter</link> (<link linkend="_class_twig_1_1_environment">Environment</link> $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">env</link>, $value, $delimiter, $limit=null)</para>
+</listitem>
+            <listitem><para><link linkend="__core_extension_8php_1adf5ce5c7b07db84385ba1338e106fc3b">_twig_default_filter</link> ($value, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">default</link>=&apos;&apos;)</para>
+</listitem>
+            <listitem><para><link linkend="__core_extension_8php_1a385fc99eefd1e84922ecbb771b2630f5">twig_get_array_keys_filter</link> ($array)</para>
+</listitem>
+            <listitem><para><link linkend="__core_extension_8php_1a7cf8cc6e5af517dab5808a1106307ab3">twig_reverse_filter</link> (<link linkend="_class_twig_1_1_environment">Environment</link> $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">env</link>, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">item</link>, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">preserveKeys</link>=false)</para>
+</listitem>
+            <listitem><para><link linkend="__core_extension_8php_1a3006f420be01bab3497a0e35afd8edb6">twig_sort_filter</link> (<link linkend="_class_twig_1_1_environment">Environment</link> $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">env</link>, $array, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">arrow</link>=null)</para>
+</listitem>
+            <listitem><para><link linkend="__core_extension_8php_1a865b65eeb9df87675788913e1e69fc7d">twig_in_filter</link> ($value, $compare)</para>
+</listitem>
+            <listitem><para><link linkend="__core_extension_8php_1a76c9a3e591fd568aa228cd768b990508">twig_compare</link> ($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">a</link>, $b)</para>
+</listitem>
+            <listitem><para><link linkend="__core_extension_8php_1a2a4f32e0612eddffee628079e2aeb8c9">twig_matches</link> (string $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">regexp</link>, ?string $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">str</link>)</para>
+</listitem>
+            <listitem><para><link linkend="__core_extension_8php_1a9349109367189fd0ebd5abd109ce8b97">twig_trim_filter</link> ($string, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">characterMask</link>=null, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">side</link>=&apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">both</link>&apos;)</para>
+</listitem>
+            <listitem><para><link linkend="__core_extension_8php_1a10aac936e185fb3dd7b64dae59941323">twig_nl2br</link> ($string)</para>
+</listitem>
+            <listitem><para><link linkend="__core_extension_8php_1a15f656023e3e1f540fcb4e982c3c71cd">twig_spaceless</link> ($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">content</link>)</para>
+</listitem>
+            <listitem><para><link linkend="__core_extension_8php_1ae288325a1d8fc4e036d1e828d7fac1f6">twig_convert_encoding</link> ($string, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">to</link>, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">from</link>)</para>
+</listitem>
+            <listitem><para><link linkend="__core_extension_8php_1a9406216b24c030f1de8792d9a386eb77">twig_length_filter</link> (<link linkend="_class_twig_1_1_environment">Environment</link> $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">env</link>, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">thing</link>)</para>
+</listitem>
+            <listitem><para><link linkend="__core_extension_8php_1a643a13433b9ae2cdaf47b9e6961fdd6d">twig_upper_filter</link> (<link linkend="_class_twig_1_1_environment">Environment</link> $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">env</link>, $string)</para>
+</listitem>
+            <listitem><para><link linkend="__core_extension_8php_1aa0bb65fe0b0be9985c7cbd73c649e4db">twig_lower_filter</link> (<link linkend="_class_twig_1_1_environment">Environment</link> $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">env</link>, $string)</para>
+</listitem>
+            <listitem><para><link linkend="__core_extension_8php_1a056180943ea95bf83fd3fedcdf5889f2">twig_striptags</link> ($string, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">allowable_tags</link>=null)</para>
+</listitem>
+            <listitem><para><link linkend="__core_extension_8php_1ac4d183808e43b0a866c05d1374835b46">twig_title_string_filter</link> (<link linkend="_class_twig_1_1_environment">Environment</link> $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">env</link>, $string)</para>
+</listitem>
+            <listitem><para><link linkend="__core_extension_8php_1aa6c7d82fc698023738d4e912a212a371">twig_capitalize_string_filter</link> (<link linkend="_class_twig_1_1_environment">Environment</link> $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">env</link>, $string)</para>
+</listitem>
+            <listitem><para><link linkend="__core_extension_8php_1a01c03508433819ad3d9b5afd9ba53193">twig_call_macro</link> (<link linkend="_class_twig_1_1_template">Template</link> $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">template</link>, string $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">method</link>, array $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">args</link>, int $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">lineno</link>, array $context, <link linkend="_class_twig_1_1_source">Source</link> $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">source</link>)</para>
+</listitem>
+            <listitem><para><link linkend="__core_extension_8php_1a62b2aa48653c37ade953be5493461c59">twig_ensure_traversable</link> ($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">seq</link>)</para>
+</listitem>
+            <listitem><para><link linkend="__core_extension_8php_1add6085b705776ea6e84cec0f1f6c6e8b">twig_to_array</link> ($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">seq</link>, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">preserveKeys</link>=true)</para>
+</listitem>
+            <listitem><para><link linkend="__core_extension_8php_1ac345ab6a3d1194b2ac8ed45b678f9756">twig_test_empty</link> ($value)</para>
+</listitem>
+            <listitem><para><link linkend="__core_extension_8php_1a09136b1251daa404746c546d31deb4d4">twig_test_iterable</link> ($value)</para>
+</listitem>
+            <listitem><para><link linkend="__core_extension_8php_1a4505cf4718aff71887e0160fa1f15493">twig_include</link> (<link linkend="_class_twig_1_1_environment">Environment</link> $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">env</link>, $context, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">template</link>, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">variables</link>=[], $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">withContext</link>=true, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">ignoreMissing</link>=false, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">sandboxed</link>=false)</para>
+</listitem>
+            <listitem><para><link linkend="__core_extension_8php_1a9e3ff38f0adb3137277b4707a01272cb">twig_source</link> (<link linkend="_class_twig_1_1_environment">Environment</link> $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">env</link>, $name, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">ignoreMissing</link>=false)</para>
+</listitem>
+            <listitem><para><link linkend="__core_extension_8php_1a31028d0e894853c9f66384acfea8cc15">twig_constant</link> ($constant, $object=null)</para>
+</listitem>
+            <listitem><para><link linkend="__core_extension_8php_1a0c25ef89e9287e906470fc60337a03a0">twig_constant_is_defined</link> ($constant, $object=null)</para>
+</listitem>
+            <listitem><para><link linkend="__core_extension_8php_1ababc8bbe08cab8543e5caa12dc3e890a">twig_array_batch</link> ($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">items</link>, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">size</link>, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">fill</link>=null, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">preserveKeys</link>=true)</para>
+</listitem>
+            <listitem><para><link linkend="__core_extension_8php_1aeb74e277ae38926f0b4c91f83c580705">twig_get_attribute</link> (<link linkend="_class_twig_1_1_environment">Environment</link> $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">env</link>, <link linkend="_class_twig_1_1_source">Source</link> $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">source</link>, $object, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">item</link>, array $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">arguments</link>=[], $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">type</link>=&apos;any&apos;, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">isDefinedTest</link>=false, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">ignoreStrictCheck</link>=false, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">sandboxed</link>=false, int $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">lineno</link>=-1)</para>
+</listitem>
+            <listitem><para><link linkend="__core_extension_8php_1a26a804fe9c04629942fa7054d5535114">twig_array_column</link> ($array, $name, $index=null)</para>
+</listitem>
+            <listitem><para><link linkend="__core_extension_8php_1a9b8628805b70519268067524b98b254a">twig_array_filter</link> (<link linkend="_class_twig_1_1_environment">Environment</link> $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">env</link>, $array, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">arrow</link>)</para>
+</listitem>
+            <listitem><para><link linkend="__core_extension_8php_1a03129d7130c47c72bc6a553f0510d9d8">twig_array_map</link> (<link linkend="_class_twig_1_1_environment">Environment</link> $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">env</link>, $array, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">arrow</link>)</para>
+</listitem>
+            <listitem><para><link linkend="__core_extension_8php_1ad4f20a3cef4673a1b2027227ea45bf7b">twig_array_reduce</link> (<link linkend="_class_twig_1_1_environment">Environment</link> $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">env</link>, $array, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">arrow</link>, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">initial</link>=null)</para>
+</listitem>
+            <listitem><para><link linkend="__core_extension_8php_1aa6c14f3f4590cb732b67e200eba0ca0c">twig_array_some</link> (<link linkend="_class_twig_1_1_environment">Environment</link> $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">env</link>, $array, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">arrow</link>)</para>
+</listitem>
+            <listitem><para><link linkend="__core_extension_8php_1af3bf0635c5240ceb80099c00d65fbd7e">twig_array_every</link> (<link linkend="_class_twig_1_1_environment">Environment</link> $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">env</link>, $array, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">arrow</link>)</para>
+</listitem>
+            <listitem><para><link linkend="__core_extension_8php_1adae81b38e06ec6dd98905fff5019f654">twig_check_arrow_in_sandbox</link> (<link linkend="_class_twig_1_1_environment">Environment</link> $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">env</link>, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">arrow</link>, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">thing</link>, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">type</link>)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Documentation des fonctions</title>
+<anchor xml:id="__core_extension_8php_1adf5ce5c7b07db84385ba1338e106fc3b"/><section>
+    <title>_twig_default_filter()</title>
+<indexterm><primary>_twig_default_filter</primary><secondary>CoreExtension.php</secondary></indexterm>
+<indexterm><primary>CoreExtension.php</primary><secondary>_twig_default_filter</secondary></indexterm>
+<para><computeroutput>_twig_default_filter ( $value,  $default = <computeroutput>&apos;&apos;</computeroutput>
+)</computeroutput></para>Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="_core_extension_8php_adf5ce5c7b07db84385ba1338e106fc3b_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="_core_extension_8php_adf5ce5c7b07db84385ba1338e106fc3b_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="__core_extension_8php_1ababc8bbe08cab8543e5caa12dc3e890a"/><section>
+    <title>twig_array_batch()</title>
+<indexterm><primary>twig_array_batch</primary><secondary>CoreExtension.php</secondary></indexterm>
+<indexterm><primary>CoreExtension.php</primary><secondary>twig_array_batch</secondary></indexterm>
+<para><computeroutput>twig_array_batch ( $items,  $size,  $fill = <computeroutput>null</computeroutput>
+,  $preserveKeys = <computeroutput>true</computeroutput>
+)</computeroutput></para>
+<para>Batches item.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>array</entry><entry>$items</entry><entry>
+<para>An array of items </para>
+</entry>
+                            </row>
+                            <row>
+<entry>int</entry><entry>$size</entry><entry>
+<para>The size of the batch </para>
+</entry>
+                            </row>
+                            <row>
+<entry>mixed</entry><entry>$fill</entry><entry>
+<para>A value used to fill missing items</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>array </para>
+</formalpara>
+</para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="_core_extension_8php_ababc8bbe08cab8543e5caa12dc3e890a_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="__core_extension_8php_1a26a804fe9c04629942fa7054d5535114"/><section>
+    <title>twig_array_column()</title>
+<indexterm><primary>twig_array_column</primary><secondary>CoreExtension.php</secondary></indexterm>
+<indexterm><primary>CoreExtension.php</primary><secondary>twig_array_column</secondary></indexterm>
+<para><computeroutput>twig_array_column ( $array,  $name,  $index = <computeroutput>null</computeroutput>
+)</computeroutput></para>
+<para>Returns the values from a single column in the input array.</para>
+
+<para><literallayout>
+ {% set items = [{ &apos;fruit&apos; : &apos;apple&apos;}, {&apos;fruit&apos; : &apos;orange&apos; }] %}
+
+ {% set fruits = items|column(&apos;fruit&apos;) %}
+
+ {# fruits now contains [&apos;apple&apos;, &apos;orange&apos;] #}
+</literallayout></para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>array | Traversable</entry><entry>$array</entry><entry>
+<para>An array </para>
+</entry>
+                            </row>
+                            <row>
+<entry>mixed</entry><entry>$name</entry><entry>
+<para>The column name </para>
+</entry>
+                            </row>
+                            <row>
+<entry>mixed</entry><entry>$index</entry><entry>
+<para>The column to use as the index/keys for the returned array</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>array The array of values </para>
+</formalpara>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="_core_extension_8php_a26a804fe9c04629942fa7054d5535114_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="__core_extension_8php_1af3bf0635c5240ceb80099c00d65fbd7e"/><section>
+    <title>twig_array_every()</title>
+<indexterm><primary>twig_array_every</primary><secondary>CoreExtension.php</secondary></indexterm>
+<indexterm><primary>CoreExtension.php</primary><secondary>twig_array_every</secondary></indexterm>
+<para><computeroutput>twig_array_every (<link linkend="_class_twig_1_1_environment">Environment</link> $env,  $array,  $arrow)</computeroutput></para>Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="_core_extension_8php_af3bf0635c5240ceb80099c00d65fbd7e_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="__core_extension_8php_1a9b8628805b70519268067524b98b254a"/><section>
+    <title>twig_array_filter()</title>
+<indexterm><primary>twig_array_filter</primary><secondary>CoreExtension.php</secondary></indexterm>
+<indexterm><primary>CoreExtension.php</primary><secondary>twig_array_filter</secondary></indexterm>
+<para><computeroutput>twig_array_filter (<link linkend="_class_twig_1_1_environment">Environment</link> $env,  $array,  $arrow)</computeroutput></para>Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="_core_extension_8php_a9b8628805b70519268067524b98b254a_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="_core_extension_8php_a9b8628805b70519268067524b98b254a_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="__core_extension_8php_1a03129d7130c47c72bc6a553f0510d9d8"/><section>
+    <title>twig_array_map()</title>
+<indexterm><primary>twig_array_map</primary><secondary>CoreExtension.php</secondary></indexterm>
+<indexterm><primary>CoreExtension.php</primary><secondary>twig_array_map</secondary></indexterm>
+<para><computeroutput>twig_array_map (<link linkend="_class_twig_1_1_environment">Environment</link> $env,  $array,  $arrow)</computeroutput></para>Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="_core_extension_8php_a03129d7130c47c72bc6a553f0510d9d8_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="_core_extension_8php_a03129d7130c47c72bc6a553f0510d9d8_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="__core_extension_8php_1a2d50d273b88123237405a3388a6012a5"/><section>
+    <title>twig_array_merge()</title>
+<indexterm><primary>twig_array_merge</primary><secondary>CoreExtension.php</secondary></indexterm>
+<indexterm><primary>CoreExtension.php</primary><secondary>twig_array_merge</secondary></indexterm>
+<para><computeroutput>twig_array_merge ( $arrays)</computeroutput></para>
+<para>Merges any number of arrays or Traversable objects.</para>
+
+<para>{% set items = { &apos;apple&apos;: &apos;fruit&apos;, &apos;orange&apos;: &apos;fruit&apos; } %}</para>
+
+<para>{% set items = items|merge({ &apos;peugeot&apos;: &apos;car&apos; }, { &apos;banana&apos;: &apos;fruit&apos; }) %}</para>
+
+<para>{# items now contains { &apos;apple&apos;: &apos;fruit&apos;, &apos;orange&apos;: &apos;fruit&apos;, &apos;peugeot&apos;: &apos;car&apos;, &apos;banana&apos;: &apos;fruit&apos; } #}</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>array|</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                Traversable ...$arrays Any number of arrays or Traversable objects to merge</para>
+
+<para><formalpara><title>Renvoie</title>
+
+<para>array The merged array </para>
+</formalpara>
+</para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="_core_extension_8php_a2d50d273b88123237405a3388a6012a5_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="__core_extension_8php_1ad4f20a3cef4673a1b2027227ea45bf7b"/><section>
+    <title>twig_array_reduce()</title>
+<indexterm><primary>twig_array_reduce</primary><secondary>CoreExtension.php</secondary></indexterm>
+<indexterm><primary>CoreExtension.php</primary><secondary>twig_array_reduce</secondary></indexterm>
+<para><computeroutput>twig_array_reduce (<link linkend="_class_twig_1_1_environment">Environment</link> $env,  $array,  $arrow,  $initial = <computeroutput>null</computeroutput>
+)</computeroutput></para>Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="_core_extension_8php_ad4f20a3cef4673a1b2027227ea45bf7b_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="__core_extension_8php_1aa6c14f3f4590cb732b67e200eba0ca0c"/><section>
+    <title>twig_array_some()</title>
+<indexterm><primary>twig_array_some</primary><secondary>CoreExtension.php</secondary></indexterm>
+<indexterm><primary>CoreExtension.php</primary><secondary>twig_array_some</secondary></indexterm>
+<para><computeroutput>twig_array_some (<link linkend="_class_twig_1_1_environment">Environment</link> $env,  $array,  $arrow)</computeroutput></para>Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="_core_extension_8php_aa6c14f3f4590cb732b67e200eba0ca0c_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="__core_extension_8php_1a01c03508433819ad3d9b5afd9ba53193"/><section>
+    <title>twig_call_macro()</title>
+<indexterm><primary>twig_call_macro</primary><secondary>CoreExtension.php</secondary></indexterm>
+<indexterm><primary>CoreExtension.php</primary><secondary>twig_call_macro</secondary></indexterm>
+<para><computeroutput>twig_call_macro (<link linkend="_class_twig_1_1_template">Template</link> $template, string $method, array $args, int $lineno, array $context, <link linkend="_class_twig_1_1_source">Source</link> $source)</computeroutput></para></section>
+<anchor xml:id="__core_extension_8php_1aa6c7d82fc698023738d4e912a212a371"/><section>
+    <title>twig_capitalize_string_filter()</title>
+<indexterm><primary>twig_capitalize_string_filter</primary><secondary>CoreExtension.php</secondary></indexterm>
+<indexterm><primary>CoreExtension.php</primary><secondary>twig_capitalize_string_filter</secondary></indexterm>
+<para><computeroutput>twig_capitalize_string_filter (<link linkend="_class_twig_1_1_environment">Environment</link> $env,  $string)</computeroutput></para>
+<para>Returns a capitalized string.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string | null</entry><entry>$string</entry><entry>
+<para>A string</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>string The capitalized string </para>
+</formalpara>
+</para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="_core_extension_8php_aa6c7d82fc698023738d4e912a212a371_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="__core_extension_8php_1adae81b38e06ec6dd98905fff5019f654"/><section>
+    <title>twig_check_arrow_in_sandbox()</title>
+<indexterm><primary>twig_check_arrow_in_sandbox</primary><secondary>CoreExtension.php</secondary></indexterm>
+<indexterm><primary>CoreExtension.php</primary><secondary>twig_check_arrow_in_sandbox</secondary></indexterm>
+<para><computeroutput>twig_check_arrow_in_sandbox (<link linkend="_class_twig_1_1_environment">Environment</link> $env,  $arrow,  $thing,  $type)</computeroutput></para>Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="_core_extension_8php_adae81b38e06ec6dd98905fff5019f654_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="_core_extension_8php_adae81b38e06ec6dd98905fff5019f654_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="__core_extension_8php_1a76c9a3e591fd568aa228cd768b990508"/><section>
+    <title>twig_compare()</title>
+<indexterm><primary>twig_compare</primary><secondary>CoreExtension.php</secondary></indexterm>
+<indexterm><primary>CoreExtension.php</primary><secondary>twig_compare</secondary></indexterm>
+<para><computeroutput>twig_compare ( $a,  $b)</computeroutput></para>
+<para>Compares two values using a more strict version of the PHP non-strict comparison operator.</para>
+
+<para><formalpara><title>Voir également</title>
+
+<para><link xlink:href="https://wiki.php.net/rfc/string_to_number_comparison">https://wiki.php.net/rfc/string_to_number_comparison</link> </para>
+
+<para><link xlink:href="https://wiki.php.net/rfc/trailing_whitespace_numerics">https://wiki.php.net/rfc/trailing_whitespace_numerics</link> </para>
+</formalpara>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="_core_extension_8php_a76c9a3e591fd568aa228cd768b990508_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="__core_extension_8php_1a31028d0e894853c9f66384acfea8cc15"/><section>
+    <title>twig_constant()</title>
+<indexterm><primary>twig_constant</primary><secondary>CoreExtension.php</secondary></indexterm>
+<indexterm><primary>CoreExtension.php</primary><secondary>twig_constant</secondary></indexterm>
+<para><computeroutput>twig_constant ( $constant,  $object = <computeroutput>null</computeroutput>
+)</computeroutput></para>
+<para>Provides the ability to get constants from instances as well as class/global constants.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$constant</entry><entry>
+<para>The name of the constant </para>
+</entry>
+                            </row>
+                            <row>
+<entry>object | null</entry><entry>$object</entry><entry>
+<para>The object to get the constant from</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>string </para>
+</formalpara>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="_core_extension_8php_a31028d0e894853c9f66384acfea8cc15_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="__core_extension_8php_1a0c25ef89e9287e906470fc60337a03a0"/><section>
+    <title>twig_constant_is_defined()</title>
+<indexterm><primary>twig_constant_is_defined</primary><secondary>CoreExtension.php</secondary></indexterm>
+<indexterm><primary>CoreExtension.php</primary><secondary>twig_constant_is_defined</secondary></indexterm>
+<para><computeroutput>twig_constant_is_defined ( $constant,  $object = <computeroutput>null</computeroutput>
+)</computeroutput></para>
+<para>Checks if a constant exists.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$constant</entry><entry>
+<para>The name of the constant </para>
+</entry>
+                            </row>
+                            <row>
+<entry>object | null</entry><entry>$object</entry><entry>
+<para>The object to get the constant from</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>bool </para>
+</formalpara>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="_core_extension_8php_a0c25ef89e9287e906470fc60337a03a0_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="__core_extension_8php_1ae288325a1d8fc4e036d1e828d7fac1f6"/><section>
+    <title>twig_convert_encoding()</title>
+<indexterm><primary>twig_convert_encoding</primary><secondary>CoreExtension.php</secondary></indexterm>
+<indexterm><primary>CoreExtension.php</primary><secondary>twig_convert_encoding</secondary></indexterm>
+<para><computeroutput>twig_convert_encoding ( $string,  $to,  $from)</computeroutput></para>
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string | null</entry><entry>$string</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>string</entry><entry>$to</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>string</entry><entry>$from</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>string </para>
+</formalpara>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="_core_extension_8php_ae288325a1d8fc4e036d1e828d7fac1f6_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="__core_extension_8php_1acdac197154574e891f0edffdfa46a9c1"/><section>
+    <title>twig_cycle()</title>
+<indexterm><primary>twig_cycle</primary><secondary>CoreExtension.php</secondary></indexterm>
+<indexterm><primary>CoreExtension.php</primary><secondary>twig_cycle</secondary></indexterm>
+<para><computeroutput>twig_cycle ( $values,  $position)</computeroutput></para>
+<para>Cycles over a value.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>\ArrayAccess | array</entry><entry>$values</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>int</entry><entry>$position</entry><entry>
+<para>The cycle position</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>string The next value in the cycle </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="__core_extension_8php_1aa8f1fbdc8eaf8db4b9deea49e2cbd59d"/><section>
+    <title>twig_date_converter()</title>
+<indexterm><primary>twig_date_converter</primary><secondary>CoreExtension.php</secondary></indexterm>
+<indexterm><primary>CoreExtension.php</primary><secondary>twig_date_converter</secondary></indexterm>
+<para><computeroutput>twig_date_converter (<link linkend="_class_twig_1_1_environment">Environment</link> $env,  $date = <computeroutput>null</computeroutput>
+,  $timezone = <computeroutput>null</computeroutput>
+)</computeroutput></para>
+<para>Converts an input to a \DateTime instance.</para>
+
+<para>{% if date(user.created_at) &lt; date(&apos;+2days&apos;) %} {# do something #} {% endif %}</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>\DateTimeInterface | string | null</entry><entry>$date</entry><entry>
+<para>A date or null to use the current time </para>
+</entry>
+                            </row>
+                            <row>
+<entry>\DateTimeZone | string | false | null</entry><entry>$timezone</entry><entry>
+<para>The target timezone, null to use the default, false to leave unchanged</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>\DateTimeInterface </para>
+</formalpara>
+</para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="_core_extension_8php_aa8f1fbdc8eaf8db4b9deea49e2cbd59d_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="_core_extension_8php_aa8f1fbdc8eaf8db4b9deea49e2cbd59d_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="__core_extension_8php_1afb0a4462da7b07cd8ef58b8971471348"/><section>
+    <title>twig_date_format_filter()</title>
+<indexterm><primary>twig_date_format_filter</primary><secondary>CoreExtension.php</secondary></indexterm>
+<indexterm><primary>CoreExtension.php</primary><secondary>twig_date_format_filter</secondary></indexterm>
+<para><computeroutput>twig_date_format_filter (<link linkend="_class_twig_1_1_environment">Environment</link> $env,  $date,  $format = <computeroutput>null</computeroutput>
+,  $timezone = <computeroutput>null</computeroutput>
+)</computeroutput></para>
+<para>Converts a date to the given format.</para>
+
+<para>{{ post.published_at|date(&quot;m/d/Y&quot;) }}</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>\DateTimeInterface | \DateInterval | string</entry><entry>$date</entry><entry>
+<para>A date </para>
+</entry>
+                            </row>
+                            <row>
+<entry>string | null</entry><entry>$format</entry><entry>
+<para>The target format, null to use the default </para>
+</entry>
+                            </row>
+                            <row>
+<entry>\DateTimeZone | string | false | null</entry><entry>$timezone</entry><entry>
+<para>The target timezone, null to use the default, false to leave unchanged</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>string The formatted date </para>
+</formalpara>
+</para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="_core_extension_8php_afb0a4462da7b07cd8ef58b8971471348_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="_core_extension_8php_afb0a4462da7b07cd8ef58b8971471348_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="__core_extension_8php_1a07e489c9601a8f4f0f5c524126964a64"/><section>
+    <title>twig_date_modify_filter()</title>
+<indexterm><primary>twig_date_modify_filter</primary><secondary>CoreExtension.php</secondary></indexterm>
+<indexterm><primary>CoreExtension.php</primary><secondary>twig_date_modify_filter</secondary></indexterm>
+<para><computeroutput>twig_date_modify_filter (<link linkend="_class_twig_1_1_environment">Environment</link> $env,  $date,  $modifier)</computeroutput></para>
+<para>Returns a new date object modified.</para>
+
+<para>{{ post.published_at|date_modify(&quot;-1day&quot;)|date(&quot;m/d/Y&quot;) }}</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>\DateTimeInterface | string</entry><entry>$date</entry><entry>
+<para>A date </para>
+</entry>
+                            </row>
+                            <row>
+<entry>string</entry><entry>$modifier</entry><entry>
+<para>A modifier string</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>\DateTimeInterface </para>
+</formalpara>
+</para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="_core_extension_8php_a07e489c9601a8f4f0f5c524126964a64_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="__core_extension_8php_1a62b2aa48653c37ade953be5493461c59"/><section>
+    <title>twig_ensure_traversable()</title>
+<indexterm><primary>twig_ensure_traversable</primary><secondary>CoreExtension.php</secondary></indexterm>
+<indexterm><primary>CoreExtension.php</primary><secondary>twig_ensure_traversable</secondary></indexterm>
+<para><computeroutput>twig_ensure_traversable ( $seq)</computeroutput></para>Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="_core_extension_8php_a62b2aa48653c37ade953be5493461c59_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="__core_extension_8php_1af8fd790efc18bdd1032b7a1472346128"/><section>
+    <title>twig_first()</title>
+<indexterm><primary>twig_first</primary><secondary>CoreExtension.php</secondary></indexterm>
+<indexterm><primary>CoreExtension.php</primary><secondary>twig_first</secondary></indexterm>
+<para><computeroutput>twig_first (<link linkend="_class_twig_1_1_environment">Environment</link> $env,  $item)</computeroutput></para>
+<para>Returns the first element of the item.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>mixed</entry><entry>$item</entry><entry>
+<para>A variable</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>mixed The first element of the item </para>
+</formalpara>
+</para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="_core_extension_8php_af8fd790efc18bdd1032b7a1472346128_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="_core_extension_8php_af8fd790efc18bdd1032b7a1472346128_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="__core_extension_8php_1a385fc99eefd1e84922ecbb771b2630f5"/><section>
+    <title>twig_get_array_keys_filter()</title>
+<indexterm><primary>twig_get_array_keys_filter</primary><secondary>CoreExtension.php</secondary></indexterm>
+<indexterm><primary>CoreExtension.php</primary><secondary>twig_get_array_keys_filter</secondary></indexterm>
+<para><computeroutput>twig_get_array_keys_filter ( $array)</computeroutput></para>
+<para>Returns the keys for the given array.</para>
+
+<para>It is useful when you want to iterate over the keys of an array:</para>
+
+<para>{% for key in array|keys %} {# ... #} {% endfor %}</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>array</entry><entry>$array</entry><entry>
+<para>An array</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>array The keys </para>
+</formalpara>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="_core_extension_8php_a385fc99eefd1e84922ecbb771b2630f5_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="__core_extension_8php_1aeb74e277ae38926f0b4c91f83c580705"/><section>
+    <title>twig_get_attribute()</title>
+<indexterm><primary>twig_get_attribute</primary><secondary>CoreExtension.php</secondary></indexterm>
+<indexterm><primary>CoreExtension.php</primary><secondary>twig_get_attribute</secondary></indexterm>
+<para><computeroutput>twig_get_attribute (<link linkend="_class_twig_1_1_environment">Environment</link> $env, <link linkend="_class_twig_1_1_source">Source</link> $source,  $object,  $item, array $arguments = <computeroutput>[]</computeroutput>
+,  $type = <computeroutput>&apos;any&apos;</computeroutput>
+,  $isDefinedTest = <computeroutput>false</computeroutput>
+,  $ignoreStrictCheck = <computeroutput>false</computeroutput>
+,  $sandboxed = <computeroutput>false</computeroutput>
+, int $lineno = <computeroutput>-1</computeroutput>
+)</computeroutput></para>
+<para>Returns the attribute value for a given array/object.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>mixed</entry><entry>$object</entry><entry>
+<para>The object or array from where to get the item </para>
+</entry>
+                            </row>
+                            <row>
+<entry>mixed</entry><entry>$item</entry><entry>
+<para>The item to get from the array or object </para>
+</entry>
+                            </row>
+                            <row>
+<entry>array</entry><entry>$arguments</entry><entry>
+<para>An array of arguments to pass if the item is an object method </para>
+</entry>
+                            </row>
+                            <row>
+<entry>string</entry><entry>$type</entry><entry>
+<para>The type of attribute (</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Voir également</title>
+
+<para>\Twig\Template <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">constants</link>) </para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>bool</entry><entry>$isDefinedTest</entry><entry>
+<para>Whether this is only a defined check </para>
+</entry>
+                            </row>
+                            <row>
+<entry>bool</entry><entry>$ignoreStrictCheck</entry><entry>
+<para>Whether to ignore the strict attribute check or not </para>
+</entry>
+                            </row>
+                            <row>
+<entry>int</entry><entry>$lineno</entry><entry>
+<para>The template line where the attribute was called</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>mixed The attribute value, or a Boolean when $isDefinedTest is true, or null when the attribute is not set and $ignoreStrictCheck is true</para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>RuntimeError</entry><entry>
+<para>if the attribute does not exist and <link linkend="_namespace_twig">Twig</link> is running in strict mode and $isDefinedTest is false </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="_core_extension_8php_aeb74e277ae38926f0b4c91f83c580705_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="__core_extension_8php_1a865b65eeb9df87675788913e1e69fc7d"/><section>
+    <title>twig_in_filter()</title>
+<indexterm><primary>twig_in_filter</primary><secondary>CoreExtension.php</secondary></indexterm>
+<indexterm><primary>CoreExtension.php</primary><secondary>twig_in_filter</secondary></indexterm>
+<para><computeroutput>twig_in_filter ( $value,  $compare)</computeroutput></para>Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="_core_extension_8php_a865b65eeb9df87675788913e1e69fc7d_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="_core_extension_8php_a865b65eeb9df87675788913e1e69fc7d_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="__core_extension_8php_1a4505cf4718aff71887e0160fa1f15493"/><section>
+    <title>twig_include()</title>
+<indexterm><primary>twig_include</primary><secondary>CoreExtension.php</secondary></indexterm>
+<indexterm><primary>CoreExtension.php</primary><secondary>twig_include</secondary></indexterm>
+<para><computeroutput>twig_include (<link linkend="_class_twig_1_1_environment">Environment</link> $env,  $context,  $template,  $variables = <computeroutput>[]</computeroutput>
+,  $withContext = <computeroutput>true</computeroutput>
+,  $ignoreMissing = <computeroutput>false</computeroutput>
+,  $sandboxed = <computeroutput>false</computeroutput>
+)</computeroutput></para>
+<para>Renders a template.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>array</entry><entry>$context</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>string | array | TemplateWrapper</entry><entry>$template</entry><entry>
+<para>The template to render or an array of templates to try consecutively </para>
+</entry>
+                            </row>
+                            <row>
+<entry>array</entry><entry>$variables</entry><entry>
+<para>The variables to pass to the template </para>
+</entry>
+                            </row>
+                            <row>
+<entry>bool</entry><entry>$withContext</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>bool</entry><entry>$ignoreMissing</entry><entry>
+<para>Whether to ignore missing templates or not </para>
+</entry>
+                            </row>
+                            <row>
+<entry>bool</entry><entry>$sandboxed</entry><entry>
+<para>Whether to sandbox the template or not</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>string The rendered template </para>
+</formalpara>
+</para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="_core_extension_8php_a4505cf4718aff71887e0160fa1f15493_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="_core_extension_8php_a4505cf4718aff71887e0160fa1f15493_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="__core_extension_8php_1abc9e6cfa5e9862ae3e0a8d6a7f861377"/><section>
+    <title>twig_join_filter()</title>
+<indexterm><primary>twig_join_filter</primary><secondary>CoreExtension.php</secondary></indexterm>
+<indexterm><primary>CoreExtension.php</primary><secondary>twig_join_filter</secondary></indexterm>
+<para><computeroutput>twig_join_filter ( $value,  $glue = <computeroutput>&apos;&apos;</computeroutput>
+,  $and = <computeroutput>null</computeroutput>
+)</computeroutput></para>
+<para>Joins the values to a string.</para>
+
+<para>The separators between elements are empty strings per default, you can define them with the optional parameters.</para>
+
+<para>{{ [1, 2, 3]|join(&apos;, &apos;, &apos; and &apos;) }} {# returns 1, 2 and 3 #}</para>
+
+<para>{{ [1, 2, 3]|join(&apos;|&apos;) }} {# returns 1|2|3 #}</para>
+
+<para>{{ [1, 2, 3]|join }} {# returns 123 #}</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>array</entry><entry>$value</entry><entry>
+<para>An array </para>
+</entry>
+                            </row>
+                            <row>
+<entry>string</entry><entry>$glue</entry><entry>
+<para>The separator </para>
+</entry>
+                            </row>
+                            <row>
+<entry>string | null</entry><entry>$and</entry><entry>
+<para>The separator for the last pair</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>string The concatenated string </para>
+</formalpara>
+</para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="_core_extension_8php_abc9e6cfa5e9862ae3e0a8d6a7f861377_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="_core_extension_8php_abc9e6cfa5e9862ae3e0a8d6a7f861377_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="__core_extension_8php_1ac5a5585f07103df0baf49ffafe5183a0"/><section>
+    <title>twig_last()</title>
+<indexterm><primary>twig_last</primary><secondary>CoreExtension.php</secondary></indexterm>
+<indexterm><primary>CoreExtension.php</primary><secondary>twig_last</secondary></indexterm>
+<para><computeroutput>twig_last (<link linkend="_class_twig_1_1_environment">Environment</link> $env,  $item)</computeroutput></para>
+<para>Returns the last element of the item.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>mixed</entry><entry>$item</entry><entry>
+<para>A variable</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>mixed The last element of the item </para>
+</formalpara>
+</para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="_core_extension_8php_ac5a5585f07103df0baf49ffafe5183a0_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="__core_extension_8php_1a9406216b24c030f1de8792d9a386eb77"/><section>
+    <title>twig_length_filter()</title>
+<indexterm><primary>twig_length_filter</primary><secondary>CoreExtension.php</secondary></indexterm>
+<indexterm><primary>CoreExtension.php</primary><secondary>twig_length_filter</secondary></indexterm>
+<para><computeroutput>twig_length_filter (<link linkend="_class_twig_1_1_environment">Environment</link> $env,  $thing)</computeroutput></para>
+<para>Returns the length of a variable.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>mixed</entry><entry>$thing</entry><entry>
+<para>A variable</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>int The length of the value </para>
+</formalpara>
+</para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="_core_extension_8php_a9406216b24c030f1de8792d9a386eb77_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="_core_extension_8php_a9406216b24c030f1de8792d9a386eb77_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="__core_extension_8php_1aa0bb65fe0b0be9985c7cbd73c649e4db"/><section>
+    <title>twig_lower_filter()</title>
+<indexterm><primary>twig_lower_filter</primary><secondary>CoreExtension.php</secondary></indexterm>
+<indexterm><primary>CoreExtension.php</primary><secondary>twig_lower_filter</secondary></indexterm>
+<para><computeroutput>twig_lower_filter (<link linkend="_class_twig_1_1_environment">Environment</link> $env,  $string)</computeroutput></para>
+<para>Converts a string to lowercase.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string | null</entry><entry>$string</entry><entry>
+<para>A string</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>string The lowercased string </para>
+</formalpara>
+</para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="_core_extension_8php_aa0bb65fe0b0be9985c7cbd73c649e4db_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="_core_extension_8php_aa0bb65fe0b0be9985c7cbd73c649e4db_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="__core_extension_8php_1a2a4f32e0612eddffee628079e2aeb8c9"/><section>
+    <title>twig_matches()</title>
+<indexterm><primary>twig_matches</primary><secondary>CoreExtension.php</secondary></indexterm>
+<indexterm><primary>CoreExtension.php</primary><secondary>twig_matches</secondary></indexterm>
+<para><computeroutput>twig_matches (string $regexp, ?string $str)</computeroutput></para>
+<para><formalpara><title>Renvoie</title>
+
+<para>int</para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>RuntimeError</entry><entry>
+<para>When an invalid pattern is used </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
+<anchor xml:id="__core_extension_8php_1a10aac936e185fb3dd7b64dae59941323"/><section>
+    <title>twig_nl2br()</title>
+<indexterm><primary>twig_nl2br</primary><secondary>CoreExtension.php</secondary></indexterm>
+<indexterm><primary>CoreExtension.php</primary><secondary>twig_nl2br</secondary></indexterm>
+<para><computeroutput>twig_nl2br ( $string)</computeroutput></para>
+<para>Inserts HTML line breaks before all newlines in a string.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string | null</entry><entry>$string</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>string </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="__core_extension_8php_1a7c44483478720c8d780b28f769777a11"/><section>
+    <title>twig_number_format_filter()</title>
+<indexterm><primary>twig_number_format_filter</primary><secondary>CoreExtension.php</secondary></indexterm>
+<indexterm><primary>CoreExtension.php</primary><secondary>twig_number_format_filter</secondary></indexterm>
+<para><computeroutput>twig_number_format_filter (<link linkend="_class_twig_1_1_environment">Environment</link> $env,  $number,  $decimal = <computeroutput>null</computeroutput>
+,  $decimalPoint = <computeroutput>null</computeroutput>
+,  $thousandSep = <computeroutput>null</computeroutput>
+)</computeroutput></para>
+<para>Number format filter.</para>
+
+<para>All of the formatting options can be left null, in that case the defaults will be used. Supplying any of the parameters will override the defaults set in the environment object.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>mixed</entry><entry>$number</entry><entry>
+<para>A float/int/string of the number to format </para>
+</entry>
+                            </row>
+                            <row>
+<entry>int</entry><entry>$decimal</entry><entry>
+<para>the number of decimal points to display </para>
+</entry>
+                            </row>
+                            <row>
+<entry>string</entry><entry>$decimalPoint</entry><entry>
+<para>the <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">character(s)</link> to use for the decimal point </para>
+</entry>
+                            </row>
+                            <row>
+<entry>string</entry><entry>$thousandSep</entry><entry>
+<para>the <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">character(s)</link> to use for the thousands separator</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>string The formatted number </para>
+</formalpara>
+</para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="_core_extension_8php_a7c44483478720c8d780b28f769777a11_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="__core_extension_8php_1a58143cb7cfe98f1ef38883299f5c1dee"/><section>
+    <title>twig_random()</title>
+<indexterm><primary>twig_random</primary><secondary>CoreExtension.php</secondary></indexterm>
+<indexterm><primary>CoreExtension.php</primary><secondary>twig_random</secondary></indexterm>
+<para><computeroutput>twig_random (<link linkend="_class_twig_1_1_environment">Environment</link> $env,  $values = <computeroutput>null</computeroutput>
+,  $max = <computeroutput>null</computeroutput>
+)</computeroutput></para>
+<para>Returns a random value depending on the supplied parameter type:<itemizedlist>
+<listitem>
+<para>a random item from a \Traversable or array</para>
+</listitem><listitem>
+<para>a random character from a string</para>
+</listitem><listitem>
+<para>a random integer between 0 and the integer parameter.</para>
+</listitem></itemizedlist>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>\Traversable | array | int | float | string</entry><entry>$values</entry><entry>
+<para>The values to pick a random item from </para>
+</entry>
+                            </row>
+                            <row>
+<entry>int | null</entry><entry>$max</entry><entry>
+<para>Maximum value used when $values is an int</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>mixed A random value from the given sequence</para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>RuntimeError</entry><entry>
+<para>when $values is an empty array (does not apply to an empty string which is returned as is) </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="_core_extension_8php_a58143cb7cfe98f1ef38883299f5c1dee_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="_core_extension_8php_a58143cb7cfe98f1ef38883299f5c1dee_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="__core_extension_8php_1ad7b11011c24881206b82608150d3ba36"/><section>
+    <title>twig_replace_filter()</title>
+<indexterm><primary>twig_replace_filter</primary><secondary>CoreExtension.php</secondary></indexterm>
+<indexterm><primary>CoreExtension.php</primary><secondary>twig_replace_filter</secondary></indexterm>
+<para><computeroutput>twig_replace_filter ( $str,  $from)</computeroutput></para>
+<para>Replaces strings within a string.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string | null</entry><entry>$str</entry><entry>
+<para>String to replace in </para>
+</entry>
+                            </row>
+                            <row>
+<entry>array | \Traversable</entry><entry>$from</entry><entry>
+<para>Replace values</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>string </para>
+</formalpara>
+</para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="_core_extension_8php_ad7b11011c24881206b82608150d3ba36_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="_core_extension_8php_ad7b11011c24881206b82608150d3ba36_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="__core_extension_8php_1a7cf8cc6e5af517dab5808a1106307ab3"/><section>
+    <title>twig_reverse_filter()</title>
+<indexterm><primary>twig_reverse_filter</primary><secondary>CoreExtension.php</secondary></indexterm>
+<indexterm><primary>CoreExtension.php</primary><secondary>twig_reverse_filter</secondary></indexterm>
+<para><computeroutput>twig_reverse_filter (<link linkend="_class_twig_1_1_environment">Environment</link> $env,  $item,  $preserveKeys = <computeroutput>false</computeroutput>
+)</computeroutput></para>
+<para>Reverses a variable.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>array | \Traversable | string | null</entry><entry>$item</entry><entry>
+<para>An array, a \Traversable instance, or a string </para>
+</entry>
+                            </row>
+                            <row>
+<entry>bool</entry><entry>$preserveKeys</entry><entry>
+<para>Whether to preserve key or not</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>mixed The reversed input </para>
+</formalpara>
+</para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="_core_extension_8php_a7cf8cc6e5af517dab5808a1106307ab3_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="_core_extension_8php_a7cf8cc6e5af517dab5808a1106307ab3_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="__core_extension_8php_1a3871a1576a44a93cfac02da165345918"/><section>
+    <title>twig_round()</title>
+<indexterm><primary>twig_round</primary><secondary>CoreExtension.php</secondary></indexterm>
+<indexterm><primary>CoreExtension.php</primary><secondary>twig_round</secondary></indexterm>
+<para><computeroutput>twig_round ( $value,  $precision = <computeroutput>0</computeroutput>
+,  $method = <computeroutput>&apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">common</link>&apos;</computeroutput>
+)</computeroutput></para>
+<para>Rounds a number.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>int | float | string | null</entry><entry>$value</entry><entry>
+<para>The value to round </para>
+</entry>
+                            </row>
+                            <row>
+<entry>int | float</entry><entry>$precision</entry><entry>
+<para>The rounding precision </para>
+</entry>
+                            </row>
+                            <row>
+<entry>string</entry><entry>$method</entry><entry>
+<para>The method to use for rounding</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>int|float The rounded number </para>
+</formalpara>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="_core_extension_8php_a3871a1576a44a93cfac02da165345918_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="__core_extension_8php_1a54423653cc7a283018b0f5f6190674e0"/><section>
+    <title>twig_slice()</title>
+<indexterm><primary>twig_slice</primary><secondary>CoreExtension.php</secondary></indexterm>
+<indexterm><primary>CoreExtension.php</primary><secondary>twig_slice</secondary></indexterm>
+<para><computeroutput>twig_slice (<link linkend="_class_twig_1_1_environment">Environment</link> $env,  $item,  $start,  $length = <computeroutput>null</computeroutput>
+,  $preserveKeys = <computeroutput>false</computeroutput>
+)</computeroutput></para>
+<para>Slices a variable.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>mixed</entry><entry>$item</entry><entry>
+<para>A variable </para>
+</entry>
+                            </row>
+                            <row>
+<entry>int</entry><entry>$start</entry><entry>
+<para>Start of the slice </para>
+</entry>
+                            </row>
+                            <row>
+<entry>int</entry><entry>$length</entry><entry>
+<para>Size of the slice </para>
+</entry>
+                            </row>
+                            <row>
+<entry>bool</entry><entry>$preserveKeys</entry><entry>
+<para>Whether to preserve key or not (when the input is an array)</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>mixed The sliced variable </para>
+</formalpara>
+</para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="_core_extension_8php_a54423653cc7a283018b0f5f6190674e0_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="_core_extension_8php_a54423653cc7a283018b0f5f6190674e0_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="__core_extension_8php_1a3006f420be01bab3497a0e35afd8edb6"/><section>
+    <title>twig_sort_filter()</title>
+<indexterm><primary>twig_sort_filter</primary><secondary>CoreExtension.php</secondary></indexterm>
+<indexterm><primary>CoreExtension.php</primary><secondary>twig_sort_filter</secondary></indexterm>
+<para><computeroutput>twig_sort_filter (<link linkend="_class_twig_1_1_environment">Environment</link> $env,  $array,  $arrow = <computeroutput>null</computeroutput>
+)</computeroutput></para>
+<para>Sorts an array.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>array | \Traversable</entry><entry>$array</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>array </para>
+</formalpara>
+</para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="_core_extension_8php_a3006f420be01bab3497a0e35afd8edb6_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="_core_extension_8php_a3006f420be01bab3497a0e35afd8edb6_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="__core_extension_8php_1a9e3ff38f0adb3137277b4707a01272cb"/><section>
+    <title>twig_source()</title>
+<indexterm><primary>twig_source</primary><secondary>CoreExtension.php</secondary></indexterm>
+<indexterm><primary>CoreExtension.php</primary><secondary>twig_source</secondary></indexterm>
+<para><computeroutput>twig_source (<link linkend="_class_twig_1_1_environment">Environment</link> $env,  $name,  $ignoreMissing = <computeroutput>false</computeroutput>
+)</computeroutput></para>
+<para>Returns a template content without rendering it.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$name</entry><entry>
+<para>The template name </para>
+</entry>
+                            </row>
+                            <row>
+<entry>bool</entry><entry>$ignoreMissing</entry><entry>
+<para>Whether to ignore missing templates or not</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>string The template source </para>
+</formalpara>
+</para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="_core_extension_8php_a9e3ff38f0adb3137277b4707a01272cb_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="__core_extension_8php_1a15f656023e3e1f540fcb4e982c3c71cd"/><section>
+    <title>twig_spaceless()</title>
+<indexterm><primary>twig_spaceless</primary><secondary>CoreExtension.php</secondary></indexterm>
+<indexterm><primary>CoreExtension.php</primary><secondary>twig_spaceless</secondary></indexterm>
+<para><computeroutput>twig_spaceless ( $content)</computeroutput></para>
+<para>Removes whitespaces between HTML tags.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string | null</entry><entry>$string</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>string </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="__core_extension_8php_1abf0d1d2febf9f600321025a5268b5408"/><section>
+    <title>twig_split_filter()</title>
+<indexterm><primary>twig_split_filter</primary><secondary>CoreExtension.php</secondary></indexterm>
+<indexterm><primary>CoreExtension.php</primary><secondary>twig_split_filter</secondary></indexterm>
+<para><computeroutput>twig_split_filter (<link linkend="_class_twig_1_1_environment">Environment</link> $env,  $value,  $delimiter,  $limit = <computeroutput>null</computeroutput>
+)</computeroutput></para>
+<para>Splits the string into an array.</para>
+
+<para>{{ &quot;one,two,three&quot;|split(&apos;,&apos;) }} {# returns [one, two, three] #}</para>
+
+<para>{{ &quot;one,two,three,four,five&quot;|split(&apos;,&apos;, 3) }} {# returns [one, two, &quot;three,four,five&quot;] #}</para>
+
+<para>{{ &quot;123&quot;|split(&apos;&apos;) }} {# returns [1, 2, 3] #}</para>
+
+<para>{{ &quot;aabbcc&quot;|split(&apos;&apos;, 2) }} {# returns [aa, bb, cc] #}</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string | null</entry><entry>$value</entry><entry>
+<para>A string </para>
+</entry>
+                            </row>
+                            <row>
+<entry>string</entry><entry>$delimiter</entry><entry>
+<para>The delimiter </para>
+</entry>
+                            </row>
+                            <row>
+<entry>int</entry><entry>$limit</entry><entry>
+<para>The limit</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>array The split string as an array </para>
+</formalpara>
+</para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="_core_extension_8php_abf0d1d2febf9f600321025a5268b5408_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="__core_extension_8php_1a256f713fc398e53c34a8b510a6b252f8"/><section>
+    <title>twig_sprintf()</title>
+<indexterm><primary>twig_sprintf</primary><secondary>CoreExtension.php</secondary></indexterm>
+<indexterm><primary>CoreExtension.php</primary><secondary>twig_sprintf</secondary></indexterm>
+<para><computeroutput>twig_sprintf ( $format,  $values)</computeroutput></para>
+<para>Returns a formatted string.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string | null</entry><entry>$format</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry></entry><entry>...$values</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>string </para>
+</formalpara>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="_core_extension_8php_a256f713fc398e53c34a8b510a6b252f8_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="__core_extension_8php_1a056180943ea95bf83fd3fedcdf5889f2"/><section>
+    <title>twig_striptags()</title>
+<indexterm><primary>twig_striptags</primary><secondary>CoreExtension.php</secondary></indexterm>
+<indexterm><primary>CoreExtension.php</primary><secondary>twig_striptags</secondary></indexterm>
+<para><computeroutput>twig_striptags ( $string,  $allowable_tags = <computeroutput>null</computeroutput>
+)</computeroutput></para>
+<para>Strips HTML and PHP tags from a string.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string | null</entry><entry>$string</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>string[] | string | null</entry><entry>$string</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>string </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="__core_extension_8php_1ac345ab6a3d1194b2ac8ed45b678f9756"/><section>
+    <title>twig_test_empty()</title>
+<indexterm><primary>twig_test_empty</primary><secondary>CoreExtension.php</secondary></indexterm>
+<indexterm><primary>CoreExtension.php</primary><secondary>twig_test_empty</secondary></indexterm>
+<para><computeroutput>twig_test_empty ( $value)</computeroutput></para>
+<para>Checks if a variable is empty.</para>
+
+<para>{# evaluates to true if the foo variable is null, false, or the empty string #} {% if foo is empty %} {# ... #} {% endif %}</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>mixed</entry><entry>$value</entry><entry>
+<para>A variable</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>bool true if the value is empty, false otherwise </para>
+</formalpara>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="_core_extension_8php_ac345ab6a3d1194b2ac8ed45b678f9756_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="__core_extension_8php_1a09136b1251daa404746c546d31deb4d4"/><section>
+    <title>twig_test_iterable()</title>
+<indexterm><primary>twig_test_iterable</primary><secondary>CoreExtension.php</secondary></indexterm>
+<indexterm><primary>CoreExtension.php</primary><secondary>twig_test_iterable</secondary></indexterm>
+<para><computeroutput>twig_test_iterable ( $value)</computeroutput></para>
+<para>Checks if a variable is traversable.</para>
+
+<para>{# evaluates to true if the foo variable is an array or a traversable object #} {% if foo is iterable %} {# ... #} {% endif %}</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>mixed</entry><entry>$value</entry><entry>
+<para>A variable</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>bool true if the value is traversable</para>
+</formalpara>
+<para><link linkend="_deprecated_1_deprecated000234">Obsolète</link> 
+<para>since <link linkend="_namespace_twig">Twig</link> 3.8, to be removed in 4.0 (use the native &quot;is_iterable&quot; function instead) </para>
+</para></para>
+</section>
+<anchor xml:id="__core_extension_8php_1ac4d183808e43b0a866c05d1374835b46"/><section>
+    <title>twig_title_string_filter()</title>
+<indexterm><primary>twig_title_string_filter</primary><secondary>CoreExtension.php</secondary></indexterm>
+<indexterm><primary>CoreExtension.php</primary><secondary>twig_title_string_filter</secondary></indexterm>
+<para><computeroutput>twig_title_string_filter (<link linkend="_class_twig_1_1_environment">Environment</link> $env,  $string)</computeroutput></para>
+<para>Returns a titlecased string.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string | null</entry><entry>$string</entry><entry>
+<para>A string</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>string The titlecased string </para>
+</formalpara>
+</para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="_core_extension_8php_ac4d183808e43b0a866c05d1374835b46_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="__core_extension_8php_1add6085b705776ea6e84cec0f1f6c6e8b"/><section>
+    <title>twig_to_array()</title>
+<indexterm><primary>twig_to_array</primary><secondary>CoreExtension.php</secondary></indexterm>
+<indexterm><primary>CoreExtension.php</primary><secondary>twig_to_array</secondary></indexterm>
+<para><computeroutput>twig_to_array ( $seq,  $preserveKeys = <computeroutput>true</computeroutput>
+)</computeroutput></para>Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="_core_extension_8php_add6085b705776ea6e84cec0f1f6c6e8b_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="__core_extension_8php_1a9349109367189fd0ebd5abd109ce8b97"/><section>
+    <title>twig_trim_filter()</title>
+<indexterm><primary>twig_trim_filter</primary><secondary>CoreExtension.php</secondary></indexterm>
+<indexterm><primary>CoreExtension.php</primary><secondary>twig_trim_filter</secondary></indexterm>
+<para><computeroutput>twig_trim_filter ( $string,  $characterMask = <computeroutput>null</computeroutput>
+,  $side = <computeroutput>&apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">both</link>&apos;</computeroutput>
+)</computeroutput></para>
+<para>Returns a trimmed string.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string | null</entry><entry>$string</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>string | null</entry><entry>$characterMask</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>string</entry><entry>$side</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>string</para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>RuntimeError</entry><entry>
+<para>When an invalid trimming side is used (not a string or not &apos;left&apos;, &apos;right&apos;, or &apos;both&apos;) </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="_core_extension_8php_a9349109367189fd0ebd5abd109ce8b97_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="__core_extension_8php_1a643a13433b9ae2cdaf47b9e6961fdd6d"/><section>
+    <title>twig_upper_filter()</title>
+<indexterm><primary>twig_upper_filter</primary><secondary>CoreExtension.php</secondary></indexterm>
+<indexterm><primary>CoreExtension.php</primary><secondary>twig_upper_filter</secondary></indexterm>
+<para><computeroutput>twig_upper_filter (<link linkend="_class_twig_1_1_environment">Environment</link> $env,  $string)</computeroutput></para>
+<para>Converts a string to uppercase.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string | null</entry><entry>$string</entry><entry>
+<para>A string</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>string The uppercased string </para>
+</formalpara>
+</para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="_core_extension_8php_a643a13433b9ae2cdaf47b9e6961fdd6d_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="__core_extension_8php_1aa3f48766e0124a7c43c08c04dc40fe27"/><section>
+    <title>twig_urlencode_filter()</title>
+<indexterm><primary>twig_urlencode_filter</primary><secondary>CoreExtension.php</secondary></indexterm>
+<indexterm><primary>CoreExtension.php</primary><secondary>twig_urlencode_filter</secondary></indexterm>
+<para><computeroutput>twig_urlencode_filter ( $url)</computeroutput></para>
+<para>URL encodes (RFC 3986) a string as a path segment or an array as a query string.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string | array | null</entry><entry>$url</entry><entry>
+<para>A URL or an array of query parameters</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>string The URL encoded value </para>
+</formalpara>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="_core_extension_8php_aa3f48766e0124a7c43c08c04dc40fe27_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+</section>
+</section>

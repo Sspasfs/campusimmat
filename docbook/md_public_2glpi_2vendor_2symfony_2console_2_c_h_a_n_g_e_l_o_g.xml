@@ -1,0 +1,375 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_md_public_2glpi_2vendor_2symfony_2console_2_c_h_a_n_g_e_l_o_g" xml:lang="fr">
+<title>CHANGELOG</title>
+<indexterm><primary>CHANGELOG</primary></indexterm>
+<section xml:id="_md_public_2glpi_2vendor_2symfony_2console_2_c_h_a_n_g_e_l_o_g_1autotoc_md7355">
+<title><title>5.4</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Add <computeroutput>TesterTrait::assertCommandIsSuccessful()</computeroutput> to test command</para>
+</listitem><listitem>
+<para>Deprecate <computeroutput>HelperSet::setCommand()</computeroutput> and <computeroutput>getCommand()</computeroutput> without replacement</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2symfony_2console_2_c_h_a_n_g_e_l_o_g_1autotoc_md7356">
+<title><title>5.3</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Add <computeroutput>GithubActionReporter</computeroutput> to render annotations in a Github Action</para>
+</listitem><listitem>
+<para>Add <computeroutput>InputOption::VALUE_NEGATABLE</computeroutput> flag to handle <computeroutput>--foo</computeroutput>/<computeroutput>--no-foo</computeroutput> options</para>
+</listitem><listitem>
+<para>Add the <computeroutput>Command::$defaultDescription</computeroutput> static property and the <computeroutput>description</computeroutput> attribute on the <computeroutput>console.command</computeroutput> tag to allow the <computeroutput>list</computeroutput> command to instantiate commands lazily</para>
+</listitem><listitem>
+<para>Add option <computeroutput>--short</computeroutput> to the <computeroutput>list</computeroutput> command</para>
+</listitem><listitem>
+<para>Add support for bright colors</para>
+</listitem><listitem>
+<para>Add <computeroutput>#[AsCommand]</computeroutput> attribute for declaring commands on PHP 8</para>
+</listitem><listitem>
+<para>Add <computeroutput>Helper::width()</computeroutput> and <computeroutput>Helper::length()</computeroutput></para>
+</listitem><listitem>
+<para>The <computeroutput>--ansi</computeroutput> and <computeroutput>--no-ansi</computeroutput> options now default to <computeroutput>null</computeroutput>.</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2symfony_2console_2_c_h_a_n_g_e_l_o_g_1autotoc_md7357">
+<title><title>5.2.0</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>Added <computeroutput>SingleCommandApplication::setAutoExit()</computeroutput> to allow testing via <computeroutput>CommandTester</computeroutput></para>
+</listitem><listitem>
+<para>added support for multiline responses to questions through <computeroutput>Question::setMultiline()</computeroutput> and <computeroutput>Question::isMultiline()</computeroutput></para>
+</listitem><listitem>
+<para>Added <computeroutput>SignalRegistry</computeroutput> class to stack signals handlers</para>
+</listitem><listitem>
+<para>Added support for signals:<itemizedlist>
+<listitem>
+<para>Added <computeroutput>Application::getSignalRegistry()</computeroutput> and <computeroutput>Application::setSignalsToDispatchEvent()</computeroutput> methods</para>
+</listitem><listitem>
+<para>Added <computeroutput>SignalableCommandInterface</computeroutput> interface</para>
+</listitem></itemizedlist>
+</para>
+</listitem><listitem>
+<para>Added <computeroutput>TableCellStyle</computeroutput> class to customize table cell</para>
+</listitem><listitem>
+<para>Removed <computeroutput>php</computeroutput> prefix invocation from help messages.</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2symfony_2console_2_c_h_a_n_g_e_l_o_g_1autotoc_md7358">
+<title><title>5.1.0</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para><computeroutput>Command::setHidden()</computeroutput> is final since Symfony 5.1</para>
+</listitem><listitem>
+<para>Add <computeroutput>SingleCommandApplication</computeroutput></para>
+</listitem><listitem>
+<para>Add <computeroutput>Cursor</computeroutput> class</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2symfony_2console_2_c_h_a_n_g_e_l_o_g_1autotoc_md7359">
+<title><title>5.0.0</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>removed support for finding hidden commands using an abbreviation, use the full name instead</para>
+</listitem><listitem>
+<para>removed <computeroutput>TableStyle::setCrossingChar()</computeroutput> method in favor of <computeroutput>TableStyle::setDefaultCrossingChar()</computeroutput></para>
+</listitem><listitem>
+<para>removed <computeroutput>TableStyle::setHorizontalBorderChar()</computeroutput> method in favor of <computeroutput>TableStyle::setDefaultCrossingChars()</computeroutput></para>
+</listitem><listitem>
+<para>removed <computeroutput>TableStyle::getHorizontalBorderChar()</computeroutput> method in favor of <computeroutput>TableStyle::getBorderChars()</computeroutput></para>
+</listitem><listitem>
+<para>removed <computeroutput>TableStyle::setVerticalBorderChar()</computeroutput> method in favor of <computeroutput>TableStyle::setVerticalBorderChars()</computeroutput></para>
+</listitem><listitem>
+<para>removed <computeroutput>TableStyle::getVerticalBorderChar()</computeroutput> method in favor of <computeroutput>TableStyle::getBorderChars()</computeroutput></para>
+</listitem><listitem>
+<para>removed support for returning <computeroutput>null</computeroutput> from <computeroutput>Command::execute()</computeroutput>, return <computeroutput>0</computeroutput> instead</para>
+</listitem><listitem>
+<para><computeroutput>ProcessHelper::run()</computeroutput> accepts only <computeroutput>array|Symfony\Component\Process\Process</computeroutput> for its <computeroutput>command</computeroutput> argument</para>
+</listitem><listitem>
+<para><computeroutput>Application::setDispatcher</computeroutput> accepts only <computeroutput>Symfony\Contracts\EventDispatcher\EventDispatcherInterface</computeroutput> for its <computeroutput>dispatcher</computeroutput> argument</para>
+</listitem><listitem>
+<para>renamed <computeroutput>Application::renderException()</computeroutput> and <computeroutput>Application::doRenderException()</computeroutput> to <computeroutput>renderThrowable()</computeroutput> and <computeroutput>doRenderThrowable()</computeroutput> respectively.</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2symfony_2console_2_c_h_a_n_g_e_l_o_g_1autotoc_md7360">
+<title><title>4.4.0</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>deprecated finding hidden commands using an abbreviation, use the full name instead</para>
+</listitem><listitem>
+<para>added <computeroutput>Question::setTrimmable</computeroutput> default to true to allow the answer to be trimmed</para>
+</listitem><listitem>
+<para>added method <computeroutput>minSecondsBetweenRedraws()</computeroutput> and <computeroutput>maxSecondsBetweenRedraws()</computeroutput> on <computeroutput>ProgressBar</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>Application</computeroutput> implements <computeroutput>ResetInterface</computeroutput></para>
+</listitem><listitem>
+<para>marked all dispatched event classes as <computeroutput>@final</computeroutput></para>
+</listitem><listitem>
+<para>added support for displaying table horizontally</para>
+</listitem><listitem>
+<para>deprecated returning <computeroutput>null</computeroutput> from <computeroutput>Command::execute()</computeroutput>, return <computeroutput>0</computeroutput> instead</para>
+</listitem><listitem>
+<para>Deprecated the <computeroutput>Application::renderException()</computeroutput> and <computeroutput>Application::doRenderException()</computeroutput> methods, use <computeroutput>renderThrowable()</computeroutput> and <computeroutput>doRenderThrowable()</computeroutput> instead.</para>
+</listitem><listitem>
+<para>added support for the <computeroutput>NO_COLOR</computeroutput> env var (<link xlink:href="https://no-color.org/">https://no-color.org/</link>)</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2symfony_2console_2_c_h_a_n_g_e_l_o_g_1autotoc_md7361">
+<title><title>4.3.0</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>added support for hyperlinks</para>
+</listitem><listitem>
+<para>added <computeroutput>ProgressBar::iterate()</computeroutput> method that simplify updating the progress bar when iterating</para>
+</listitem><listitem>
+<para>added <computeroutput>Question::setAutocompleterCallback()</computeroutput> to provide a callback function that dynamically generates suggestions as the user types</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2symfony_2console_2_c_h_a_n_g_e_l_o_g_1autotoc_md7362">
+<title><title>4.2.0</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>allowed passing commands as &#8216;[$process, &apos;ENV_VAR&#8217; =&gt; &apos;value&apos;]<computeroutput>to </computeroutput>ProcessHelper::run()<computeroutput>to pass environment variables</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>deprecated passing a command as a string to</computeroutput>ProcessHelper::run()<computeroutput>, pass it the command as an array of its arguments instead</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>made the</computeroutput>ProcessHelper<computeroutput>class final</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>added</computeroutput>WrappableOutputFormatterInterface::formatAndWrap()<computeroutput>(implemented in</computeroutput>OutputFormatter<computeroutput>)</computeroutput></para>
+</listitem><listitem>
+<para><computeroutput>added</computeroutput>capture_stderr_separately<computeroutput>option to</computeroutput>CommandTester::execute()`</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2symfony_2console_2_c_h_a_n_g_e_l_o_g_1autotoc_md7363">
+<title><title>4.1.0</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>added option to run suggested command if command is not found and only 1 alternative is available</para>
+</listitem><listitem>
+<para>added option to modify console output and print multiple modifiable sections</para>
+</listitem><listitem>
+<para>added support for iterable messages in output <computeroutput>write</computeroutput> and <computeroutput>writeln</computeroutput> methods</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2symfony_2console_2_c_h_a_n_g_e_l_o_g_1autotoc_md7364">
+<title><title>4.0.0</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para><computeroutput>OutputFormatter</computeroutput> throws an exception when unknown options are used</para>
+</listitem><listitem>
+<para>removed <computeroutput>QuestionHelper::setInputStream()/getInputStream()</computeroutput></para>
+</listitem><listitem>
+<para>removed <computeroutput>Application::getTerminalWidth()/getTerminalHeight()</computeroutput> and <computeroutput>Application::setTerminalDimensions()/getTerminalDimensions()</computeroutput></para>
+</listitem><listitem>
+<para>removed <computeroutput>ConsoleExceptionEvent</computeroutput></para>
+</listitem><listitem>
+<para>removed <computeroutput>ConsoleEvents::EXCEPTION</computeroutput></para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2symfony_2console_2_c_h_a_n_g_e_l_o_g_1autotoc_md7365">
+<title><title>3.4.0</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>added <computeroutput>SHELL_VERBOSITY</computeroutput> env var to control verbosity</para>
+</listitem><listitem>
+<para>added <computeroutput>CommandLoaderInterface</computeroutput>, <computeroutput>FactoryCommandLoader</computeroutput> and PSR-11 <computeroutput>ContainerCommandLoader</computeroutput> for commands lazy-loading</para>
+</listitem><listitem>
+<para>added a case-insensitive command name matching fallback</para>
+</listitem><listitem>
+<para>added static <computeroutput>Command::$defaultName/getDefaultName()</computeroutput>, allowing for commands to be registered at compile time in the application command loader. Setting the <computeroutput>$defaultName</computeroutput> property avoids the need for filling the <computeroutput>command</computeroutput> attribute on the <computeroutput>console.command</computeroutput> tag when using <computeroutput>AddConsoleCommandPass</computeroutput>.</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2symfony_2console_2_c_h_a_n_g_e_l_o_g_1autotoc_md7366">
+<title><title>3.3.0</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>added <computeroutput>ExceptionListener</computeroutput></para>
+</listitem><listitem>
+<para>added <computeroutput>AddConsoleCommandPass</computeroutput> (originally in FrameworkBundle)</para>
+</listitem><listitem>
+<para>[BC BREAK] <computeroutput>Input::getOption()</computeroutput> no longer returns the default value for options with value optional explicitly passed empty</para>
+</listitem><listitem>
+<para>added console.error event to catch exceptions thrown by other listeners</para>
+</listitem><listitem>
+<para>deprecated console.exception event in favor of console.error</para>
+</listitem><listitem>
+<para>added ability to handle <computeroutput>CommandNotFoundException</computeroutput> through the <computeroutput>console.error</computeroutput> event</para>
+</listitem><listitem>
+<para>deprecated default validation in <computeroutput>SymfonyQuestionHelper::ask</computeroutput></para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2symfony_2console_2_c_h_a_n_g_e_l_o_g_1autotoc_md7367">
+<title><title>3.2.0</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>added <computeroutput>setInputs()</computeroutput> method to CommandTester for ease testing of commands expecting inputs</para>
+</listitem><listitem>
+<para>added <computeroutput>setStream()</computeroutput> and <computeroutput>getStream()</computeroutput> methods to Input (implement StreamableInputInterface)</para>
+</listitem><listitem>
+<para>added StreamableInputInterface</para>
+</listitem><listitem>
+<para>added LockableTrait</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2symfony_2console_2_c_h_a_n_g_e_l_o_g_1autotoc_md7368">
+<title><title>3.1.0</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>added truncate method to FormatterHelper</para>
+</listitem><listitem>
+<para>added setColumnWidth(s) method to Table</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2symfony_2console_2_c_h_a_n_g_e_l_o_g_1autotoc_md7369">
+<title><title>2.8.3</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>remove readline support from the question helper as it caused issues</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2symfony_2console_2_c_h_a_n_g_e_l_o_g_1autotoc_md7370">
+<title><title>2.8.0</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>use readline for user input in the question helper when available to allow the use of arrow keys</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2symfony_2console_2_c_h_a_n_g_e_l_o_g_1autotoc_md7371">
+<title><title>2.6.0</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>added a Process helper</para>
+</listitem><listitem>
+<para>added a DebugFormatter helper</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2symfony_2console_2_c_h_a_n_g_e_l_o_g_1autotoc_md7372">
+<title><title>2.5.0</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>deprecated the dialog helper (use the question helper instead)</para>
+</listitem><listitem>
+<para>deprecated TableHelper in favor of Table</para>
+</listitem><listitem>
+<para>deprecated ProgressHelper in favor of ProgressBar</para>
+</listitem><listitem>
+<para>added ConsoleLogger</para>
+</listitem><listitem>
+<para>added a question helper</para>
+</listitem><listitem>
+<para>added a way to set the process name of a command</para>
+</listitem><listitem>
+<para>added a way to set a default command instead of <computeroutput>ListCommand</computeroutput></para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2symfony_2console_2_c_h_a_n_g_e_l_o_g_1autotoc_md7373">
+<title><title>2.4.0</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>added a way to force terminal dimensions</para>
+</listitem><listitem>
+<para>added a convenient method to detect verbosity level</para>
+</listitem><listitem>
+<para>[BC BREAK] made descriptors use output instead of returning a string</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2symfony_2console_2_c_h_a_n_g_e_l_o_g_1autotoc_md7374">
+<title><title>2.3.0</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>added multiselect support to the select dialog helper</para>
+</listitem><listitem>
+<para>added Table Helper for tabular data rendering</para>
+</listitem><listitem>
+<para>added support for events in <computeroutput>Application</computeroutput></para>
+</listitem><listitem>
+<para>added a way to normalize EOLs in <computeroutput>ApplicationTester::getDisplay()</computeroutput> and <computeroutput>CommandTester::getDisplay()</computeroutput></para>
+</listitem><listitem>
+<para>added a way to set the progress bar progress via the <computeroutput>setCurrent</computeroutput> method</para>
+</listitem><listitem>
+<para>added support for multiple InputOption shortcuts, written as &#8216;&#8217;-a|-b|-c&apos;`</para>
+</listitem><listitem>
+<para>added two additional verbosity levels, VERBOSITY_VERY_VERBOSE and VERBOSITY_DEBUG</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2symfony_2console_2_c_h_a_n_g_e_l_o_g_1autotoc_md7375">
+<title><title>2.2.0</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>added support for colorization on Windows via ConEmu</para>
+</listitem><listitem>
+<para>add a method to Dialog Helper to ask for a question and hide the response</para>
+</listitem><listitem>
+<para>added support for interactive selections in console (DialogHelper::select())</para>
+</listitem><listitem>
+<para>added support for autocompletion as you type in Dialog Helper</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2symfony_2console_2_c_h_a_n_g_e_l_o_g_1autotoc_md7376">
+<title><title>2.1.0</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para>added ConsoleOutputInterface</para>
+</listitem><listitem>
+<para>added the possibility to disable a command (Command::isEnabled())</para>
+</listitem><listitem>
+<para>added suggestions when a command does not exist</para>
+</listitem><listitem>
+<para>added a &#8211;raw option to the list command</para>
+</listitem><listitem>
+<para>added support for STDERR in the console output class (errors are now sent to STDERR)</para>
+</listitem><listitem>
+<para>made the defaults (helper set, commands, input definition) in Application more easily customizable</para>
+</listitem><listitem>
+<para>added support for the shell even if readline is not available</para>
+</listitem><listitem>
+<para>added support for process isolation in Symfony shell via <computeroutput>--process-isolation</computeroutput> switch</para>
+</listitem><listitem>
+<para>added support for <computeroutput>--</computeroutput>, which disables options parsing after that point (tokens will be parsed as arguments) </para>
+</listitem></itemizedlist>
+</para>
+</section>
+</section>

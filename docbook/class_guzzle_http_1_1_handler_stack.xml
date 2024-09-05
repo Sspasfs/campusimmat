@@ -1,0 +1,378 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_guzzle_http_1_1_handler_stack" xml:lang="fr">
+<title>Référence de la classe HandlerStack</title>
+<indexterm><primary>HandlerStack</primary></indexterm>
+Graphe de collaboration de HandlerStack:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_guzzle_http_1_1_handler_stack__coll__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Fonctions membres publiques    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_guzzle_http_1_1_handler_stack_1a52b7d7c22decbf37cf3910c000cee2e7">__construct</link> (<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">callable</link> $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">handler</link>=null)</para>
+</listitem>
+            <listitem><para><link linkend="_class_guzzle_http_1_1_handler_stack_1a8b41a62c59d4d0d86e7525197f2904f5">__invoke</link> (<link linkend="_interface_psr_1_1_http_1_1_message_1_1_request_interface">RequestInterface</link> $request, array $options)</para>
+</listitem>
+            <listitem><para><link linkend="_class_guzzle_http_1_1_handler_stack_1a7516ca30af0db3cdbf9a7739b48ce91d">__toString</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_class_guzzle_http_1_1_handler_stack_1ad5f92023a61a32d636168993cd33663d">setHandler</link> (<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">callable</link> $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">handler</link>)</para>
+</listitem>
+            <listitem><para><link linkend="_class_guzzle_http_1_1_handler_stack_1a7edeac8f4a9ffc9b859342c719bb4ddb">hasHandler</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_class_guzzle_http_1_1_handler_stack_1ac789640a2f2d079e36d690f61c0a83bf">unshift</link> (<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">callable</link> $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">middleware</link>, ?string $name=null)</para>
+</listitem>
+            <listitem><para><link linkend="_class_guzzle_http_1_1_handler_stack_1a2c22d9b723ab3b0c4100b8c278a233f5">push</link> (<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">callable</link> $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">middleware</link>, string $name=&apos;&apos;)</para>
+</listitem>
+            <listitem><para><link linkend="_class_guzzle_http_1_1_handler_stack_1a34ddc384c55bcf20547b88673faf1bc4">before</link> (string $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">findName</link>, <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">callable</link> $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">middleware</link>, string $withName=&apos;&apos;)</para>
+</listitem>
+            <listitem><para><link linkend="_class_guzzle_http_1_1_handler_stack_1a1ccd5b8376271a114b25448113bb40e7">after</link> (string $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">findName</link>, <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">callable</link> $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">middleware</link>, string $withName=&apos;&apos;)</para>
+</listitem>
+            <listitem><para><link linkend="_class_guzzle_http_1_1_handler_stack_1a03456a8aed6a1c5fd4dba807235e6745">remove</link> ($remove)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Fonctions membres publiques statiques    </title>
+        <itemizedlist>
+            <listitem><para>static <link linkend="_class_guzzle_http_1_1_handler_stack_1a16f15e9f8f4584c76741e861fc04d356">create</link> (?<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">callable</link> $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">handler</link>=null)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Description détaillée</title>
+
+<para>Creates a composed Guzzle handler function by stacking middlewares on top of an HTTP handler function.</para>
+
+<para>@final </para>
+</section>
+<section>
+<title>Documentation des constructeurs et destructeur</title>
+<anchor xml:id="_class_guzzle_http_1_1_handler_stack_1a52b7d7c22decbf37cf3910c000cee2e7"/><section>
+    <title>__construct()</title>
+<indexterm><primary>__construct</primary><secondary>HandlerStack</secondary></indexterm>
+<indexterm><primary>HandlerStack</primary><secondary>__construct</secondary></indexterm>
+<para><computeroutput>__construct (<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">callable</link> $handler = <computeroutput>null</computeroutput>
+)</computeroutput></para>
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>(callable(RequestInterface, array)</entry><entry>
+<para>PromiseInterface)|null $handler Underlying HTTP handler. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
+</section>
+<section>
+<title>Documentation des fonctions membres</title>
+<anchor xml:id="_class_guzzle_http_1_1_handler_stack_1a8b41a62c59d4d0d86e7525197f2904f5"/><section>
+    <title>__invoke()</title>
+<indexterm><primary>__invoke</primary><secondary>HandlerStack</secondary></indexterm>
+<indexterm><primary>HandlerStack</primary><secondary>__invoke</secondary></indexterm>
+<para><computeroutput>__invoke (<link linkend="_interface_psr_1_1_http_1_1_message_1_1_request_interface">RequestInterface</link> $request, array $options)</computeroutput></para>
+<para>Invokes the handler stack as a composed handler</para>
+
+<para><formalpara><title>Renvoie</title>
+
+<para>ResponseInterface|PromiseInterface </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_class_guzzle_http_1_1_handler_stack_1a7516ca30af0db3cdbf9a7739b48ce91d"/><section>
+    <title>__toString()</title>
+<indexterm><primary>__toString</primary><secondary>HandlerStack</secondary></indexterm>
+<indexterm><primary>HandlerStack</primary><secondary>__toString</secondary></indexterm>
+<para><computeroutput>__toString ( )</computeroutput></para>
+<para>Dumps a string representation of the stack.</para>
+
+<para><formalpara><title>Renvoie</title>
+
+<para>string </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_class_guzzle_http_1_1_handler_stack_1a1ccd5b8376271a114b25448113bb40e7"/><section>
+    <title>after()</title>
+<indexterm><primary>after</primary><secondary>HandlerStack</secondary></indexterm>
+<indexterm><primary>HandlerStack</primary><secondary>after</secondary></indexterm>
+<para><computeroutput>after (string $findName, <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">callable</link> $middleware, string $withName = <computeroutput>&apos;&apos;</computeroutput>
+)</computeroutput></para>
+<para>Add a middleware after another middleware by name.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$findName</entry><entry>
+<para>Middleware to find </para>
+</entry>
+                            </row>
+                            <row>
+<entry></entry><entry><link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">callable(callable)</link></entry><entry>
+<para>callable $middleware Middleware function </para>
+</entry>
+                            </row>
+                            <row>
+<entry>string</entry><entry>$withName</entry><entry>
+<para>Name to register for this middleware. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
+<anchor xml:id="_class_guzzle_http_1_1_handler_stack_1a34ddc384c55bcf20547b88673faf1bc4"/><section>
+    <title>before()</title>
+<indexterm><primary>before</primary><secondary>HandlerStack</secondary></indexterm>
+<indexterm><primary>HandlerStack</primary><secondary>before</secondary></indexterm>
+<para><computeroutput>before (string $findName, <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">callable</link> $middleware, string $withName = <computeroutput>&apos;&apos;</computeroutput>
+)</computeroutput></para>
+<para>Add a middleware before another middleware by name.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$findName</entry><entry>
+<para>Middleware to find </para>
+</entry>
+                            </row>
+                            <row>
+<entry></entry><entry><link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">callable(callable)</link></entry><entry>
+<para>callable $middleware Middleware function </para>
+</entry>
+                            </row>
+                            <row>
+<entry>string</entry><entry>$withName</entry><entry>
+<para>Name to register for this middleware. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
+<anchor xml:id="_class_guzzle_http_1_1_handler_stack_1a16f15e9f8f4584c76741e861fc04d356"/><section>
+    <title>create()</title>
+<indexterm><primary>create</primary><secondary>HandlerStack</secondary></indexterm>
+<indexterm><primary>HandlerStack</primary><secondary>create</secondary></indexterm>
+<para><computeroutput>static create (?<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">callable</link> $handler = <computeroutput>null</computeroutput>
+)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>Creates a default handler stack that can be used by clients.</para>
+
+<para>The returned handler will wrap the provided handler or use the most appropriate default handler for your system. The returned HandlerStack has support for cookies, redirects, HTTP error exceptions, and preparing a body before sending.</para>
+
+<para>The returned handler stack can be passed to a client in the &quot;handler&quot; option.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>(callable(RequestInterface, array)</entry><entry>
+<para>PromiseInterface)|null $handler HTTP handler function to use with the stack. If no handler is provided, the best handler for your system will be utilized. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_guzzle_http_1_1_handler_stack_a16f15e9f8f4584c76741e861fc04d356_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_guzzle_http_1_1_handler_stack_1a7edeac8f4a9ffc9b859342c719bb4ddb"/><section>
+    <title>hasHandler()</title>
+<indexterm><primary>hasHandler</primary><secondary>HandlerStack</secondary></indexterm>
+<indexterm><primary>HandlerStack</primary><secondary>hasHandler</secondary></indexterm>
+<para><computeroutput>hasHandler ( )</computeroutput></para>
+<para>Returns true if the builder has a handler. </para>
+</section>
+<anchor xml:id="_class_guzzle_http_1_1_handler_stack_1a2c22d9b723ab3b0c4100b8c278a233f5"/><section>
+    <title>push()</title>
+<indexterm><primary>push</primary><secondary>HandlerStack</secondary></indexterm>
+<indexterm><primary>HandlerStack</primary><secondary>push</secondary></indexterm>
+<para><computeroutput>push (<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">callable</link> $middleware, string $name = <computeroutput>&apos;&apos;</computeroutput>
+)</computeroutput></para>
+<para>Push a middleware to the top of the stack.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry></entry><entry><link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">callable(callable)</link></entry><entry>
+<para>callable $middleware Middleware function </para>
+</entry>
+                            </row>
+                            <row>
+<entry>string</entry><entry>$name</entry><entry>
+<para>Name to register for this middleware. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
+<anchor xml:id="_class_guzzle_http_1_1_handler_stack_1a03456a8aed6a1c5fd4dba807235e6745"/><section>
+    <title>remove()</title>
+<indexterm><primary>remove</primary><secondary>HandlerStack</secondary></indexterm>
+<indexterm><primary>HandlerStack</primary><secondary>remove</secondary></indexterm>
+<para><computeroutput>remove ( $remove)</computeroutput></para>
+<para>Remove a middleware by instance or name from the stack.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>callable | string</entry><entry>$remove</entry><entry>
+<para>Middleware to remove by instance or name. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
+<anchor xml:id="_class_guzzle_http_1_1_handler_stack_1ad5f92023a61a32d636168993cd33663d"/><section>
+    <title>setHandler()</title>
+<indexterm><primary>setHandler</primary><secondary>HandlerStack</secondary></indexterm>
+<indexterm><primary>HandlerStack</primary><secondary>setHandler</secondary></indexterm>
+<para><computeroutput>setHandler (<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">callable</link> $handler)</computeroutput></para>
+<para>Set the HTTP handler that actually returns a promise.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry><link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">callable(RequestInterface</link>, array)</entry><entry>
+<para>PromiseInterface $handler Accepts a request and array of options and returns a Promise. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
+<anchor xml:id="_class_guzzle_http_1_1_handler_stack_1ac789640a2f2d079e36d690f61c0a83bf"/><section>
+    <title>unshift()</title>
+<indexterm><primary>unshift</primary><secondary>HandlerStack</secondary></indexterm>
+<indexterm><primary>HandlerStack</primary><secondary>unshift</secondary></indexterm>
+<para><computeroutput>unshift (<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">callable</link> $middleware, ?string $name = <computeroutput>null</computeroutput>
+)</computeroutput></para>
+<para>Unshift a middleware to the bottom of the stack.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry></entry><entry><link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">callable(callable)</link></entry><entry>
+<para>callable $middleware Middleware function </para>
+</entry>
+                            </row>
+                            <row>
+<entry>string</entry><entry>$name</entry><entry>
+<para>Name to register for this middleware. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
+<para>
+La documentation de cette classe a été générée à partir du fichier suivant :</para>
+public/glpi/vendor/guzzlehttp/guzzle/src/<link linkend="__handler_stack_8php">HandlerStack.php</link></section>
+</section>

@@ -1,0 +1,100 @@
+\doxysection{Référence de la classe Exception}
+\hypertarget{class_sabre_1_1_d_a_v_1_1_exception}{}\label{class_sabre_1_1_d_a_v_1_1_exception}\index{Exception@{Exception}}
+
+
+Graphe d\textquotesingle{}héritage de Exception\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_sabre_1_1_d_a_v_1_1_exception__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Graphe de collaboration de Exception\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=224pt]{class_sabre_1_1_d_a_v_1_1_exception__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_exception_a7bc9a144ae2c5920e9c736c2fdc589e6}{get\+HTTPCode}} ()
+\item 
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_exception_aada677894615f1e8fea11714c959ab33}{serialize}} (\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_server}{Server}} \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{server}}, \textbackslash{}DOMElement \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{error\+Node}})
+\item 
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_exception_a37b60f76ee578e82612c40950ce780c7}{get\+HTTPHeaders}} (\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_server}{Server}} \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{server}})
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Main Exception class.
+
+This class defines a get\+HTTPCode method, which should return the appropriate HTTP code for the Exception occurred. The default for this is 500.
+
+This class also allows you to generate custom xml data for your exceptions. This will be displayed in the \textquotesingle{}error\textquotesingle{} element in the failing response.
+
+\begin{DoxyCopyright}{Copyright}
+Copyright (C) fruux GmbH (\href{https://fruux.com/}{\texttt{ https\+://fruux.\+com/}}) 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Auteur}
+Evert Pot (\href{http://evertpot.com/}{\texttt{ http\+://evertpot.\+com/}}) @license \href{http://sabre.io/license/}{\texttt{ http\+://sabre.\+io/license/}} Modified BSD License 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Documentation des fonctions membres}
+\Hypertarget{class_sabre_1_1_d_a_v_1_1_exception_a7bc9a144ae2c5920e9c736c2fdc589e6}\label{class_sabre_1_1_d_a_v_1_1_exception_a7bc9a144ae2c5920e9c736c2fdc589e6} 
+\index{Exception@{Exception}!getHTTPCode@{getHTTPCode}}
+\index{getHTTPCode@{getHTTPCode}!Exception@{Exception}}
+\doxysubsubsection{\texorpdfstring{getHTTPCode()}{getHTTPCode()}}
+{\footnotesize\ttfamily get\+HTTPCode (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Returns the HTTP statuscode for this exception.
+
+\begin{DoxyReturn}{Renvoie}
+int 
+\end{DoxyReturn}
+
+
+Réimplémentée dans \mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_exception_1_1_bad_request_a7bc9a144ae2c5920e9c736c2fdc589e6}{Bad\+Request}}, \mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_exception_1_1_conflict_a7bc9a144ae2c5920e9c736c2fdc589e6}{Conflict}}, \mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_exception_1_1_forbidden_a7bc9a144ae2c5920e9c736c2fdc589e6}{Forbidden}}, \mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_exception_1_1_insufficient_storage_a7bc9a144ae2c5920e9c736c2fdc589e6}{Insufficient\+Storage}}, \mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_exception_1_1_length_required_a7bc9a144ae2c5920e9c736c2fdc589e6}{Length\+Required}}, \mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_exception_1_1_locked_a7bc9a144ae2c5920e9c736c2fdc589e6}{Locked}}, \mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_exception_1_1_method_not_allowed_a7bc9a144ae2c5920e9c736c2fdc589e6}{Method\+Not\+Allowed}}, \mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_exception_1_1_not_authenticated_a7bc9a144ae2c5920e9c736c2fdc589e6}{Not\+Authenticated}}, \mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_exception_1_1_not_found_a7bc9a144ae2c5920e9c736c2fdc589e6}{Not\+Found}}, \mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_exception_1_1_not_implemented_a7bc9a144ae2c5920e9c736c2fdc589e6}{Not\+Implemented}}, \mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_exception_1_1_payment_required_a7bc9a144ae2c5920e9c736c2fdc589e6}{Payment\+Required}}, \mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_exception_1_1_precondition_failed_a7bc9a144ae2c5920e9c736c2fdc589e6}{Precondition\+Failed}}, \mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_exception_1_1_requested_range_not_satisfiable_a7bc9a144ae2c5920e9c736c2fdc589e6}{Requested\+Range\+Not\+Satisfiable}}, \mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_exception_1_1_service_unavailable_a7bc9a144ae2c5920e9c736c2fdc589e6}{Service\+Unavailable}}, et \mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_exception_1_1_unsupported_media_type_a7bc9a144ae2c5920e9c736c2fdc589e6}{Unsupported\+Media\+Type}}.
+
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=297pt]{class_sabre_1_1_d_a_v_1_1_exception_a7bc9a144ae2c5920e9c736c2fdc589e6_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_sabre_1_1_d_a_v_1_1_exception_a37b60f76ee578e82612c40950ce780c7}\label{class_sabre_1_1_d_a_v_1_1_exception_a37b60f76ee578e82612c40950ce780c7} 
+\index{Exception@{Exception}!getHTTPHeaders@{getHTTPHeaders}}
+\index{getHTTPHeaders@{getHTTPHeaders}!Exception@{Exception}}
+\doxysubsubsection{\texorpdfstring{getHTTPHeaders()}{getHTTPHeaders()}}
+{\footnotesize\ttfamily get\+HTTPHeaders (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_server}{Server}}}]{\$server }\end{DoxyParamCaption})}
+
+This method allows the exception to return any extra HTTP response headers.
+
+The headers must be returned as an array.
+
+\begin{DoxyReturn}{Renvoie}
+array 
+\end{DoxyReturn}
+
+
+Réimplémentée dans \mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_exception_1_1_method_not_allowed_a37b60f76ee578e82612c40950ce780c7}{Method\+Not\+Allowed}}.
+
+\Hypertarget{class_sabre_1_1_d_a_v_1_1_exception_aada677894615f1e8fea11714c959ab33}\label{class_sabre_1_1_d_a_v_1_1_exception_aada677894615f1e8fea11714c959ab33} 
+\index{Exception@{Exception}!serialize@{serialize}}
+\index{serialize@{serialize}!Exception@{Exception}}
+\doxysubsubsection{\texorpdfstring{serialize()}{serialize()}}
+{\footnotesize\ttfamily serialize (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_server}{Server}}}]{\$server,  }\item[{\textbackslash{}DOMElement}]{\$error\+Node }\end{DoxyParamCaption})}
+
+This method allows the exception to include additional information into the Web\+DAV error response. 
+
+La documentation de cette classe a été générée à partir du fichier suivant \+:\begin{DoxyCompactItemize}
+\item 
+public/glpi/vendor/sabre/dav/lib/\+DAV/\mbox{\hyperlink{sabre_2dav_2lib_2_d_a_v_2_exception_8php}{Exception.\+php}}\end{DoxyCompactItemize}

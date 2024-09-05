@@ -1,0 +1,113 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_guzzle_http_1_1_promise_1_1_each_promise" xml:lang="fr">
+<title>Référence de la classe EachPromise</title>
+<indexterm><primary>EachPromise</primary></indexterm>
+Graphe d&apos;héritage de EachPromise:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_guzzle_http_1_1_promise_1_1_each_promise__inherit__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Graphe de collaboration de EachPromise:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_guzzle_http_1_1_promise_1_1_each_promise__coll__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Fonctions membres publiques    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_guzzle_http_1_1_promise_1_1_each_promise_1ac352c08c3dceca10f89879679d4863aa">__construct</link> ($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">iterable</link>, array $config=[])</para>
+</listitem>
+            <listitem><para><link linkend="_class_guzzle_http_1_1_promise_1_1_each_promise_1a544e3978ada76faea2f7c4f5ef4d438b">promise</link> ()</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Description détaillée</title>
+
+<para>Represents a promise that iterates over many promises and invokes side-effect functions in the process. </para>
+</section>
+<section>
+<title>Documentation des constructeurs et destructeur</title>
+<anchor xml:id="_class_guzzle_http_1_1_promise_1_1_each_promise_1ac352c08c3dceca10f89879679d4863aa"/><section>
+    <title>__construct()</title>
+<indexterm><primary>__construct</primary><secondary>EachPromise</secondary></indexterm>
+<indexterm><primary>EachPromise</primary><secondary>__construct</secondary></indexterm>
+<para><computeroutput>__construct ( $iterable, array $config = <computeroutput>[]</computeroutput>
+)</computeroutput></para>
+<para>Configuration hash can include the following key value pairs:</para>
+
+<para><itemizedlist>
+<listitem>
+<para>fulfilled: (callable) Invoked when a promise fulfills. The function is invoked with three arguments: the fulfillment value, the index position from the iterable list of the promise, and the aggregate promise that manages all of the promises. The aggregate promise may be resolved from within the callback to short-circuit the promise.</para>
+</listitem><listitem>
+<para>rejected: (callable) Invoked when a promise is rejected. The function is invoked with three arguments: the rejection reason, the index position from the iterable list of the promise, and the aggregate promise that manages all of the promises. The aggregate promise may be resolved from within the callback to short-circuit the promise.</para>
+</listitem><listitem>
+<para>concurrency: (integer) Pass this configuration option to limit the allowed number of outstanding concurrently executing promises, creating a capped pool of promises. There is no limit by default.</para>
+</listitem></itemizedlist>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>mixed</entry><entry>$iterable</entry><entry>
+<para>Promises or values to iterate. </para>
+</entry>
+                            </row>
+                            <row>
+<entry>array</entry><entry>$config</entry><entry>
+<para>Configuration options </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_guzzle_http_1_1_promise_1_1_each_promise_ac352c08c3dceca10f89879679d4863aa_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+</section>
+<section>
+<title>Documentation des fonctions membres</title>
+<anchor xml:id="_class_guzzle_http_1_1_promise_1_1_each_promise_1a544e3978ada76faea2f7c4f5ef4d438b"/><section>
+    <title>promise()</title>
+<indexterm><primary>promise</primary><secondary>EachPromise</secondary></indexterm>
+<indexterm><primary>EachPromise</primary><secondary>promise</secondary></indexterm>
+<para><computeroutput>promise ( )</computeroutput></para>
+<para>@psalm-suppress InvalidNullableReturnType </para>
+
+<para>@psalm-assert Promise $this-&gt;aggregate</para>
+
+<para>@psalm-suppress NullableReturnStatement @phpstan-ignore-next-line</para>
+<para>
+Implémente <link linkend="_interface_guzzle_http_1_1_promise_1_1_promisor_interface_1a544e3978ada76faea2f7c4f5ef4d438b">PromisorInterface</link>.</para>
+</section>
+<para>
+La documentation de cette classe a été générée à partir du fichier suivant :</para>
+public/glpi/vendor/guzzlehttp/promises/src/<link linkend="__each_promise_8php">EachPromise.php</link></section>
+</section>

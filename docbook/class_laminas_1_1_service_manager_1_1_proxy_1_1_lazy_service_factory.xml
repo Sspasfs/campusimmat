@@ -1,0 +1,175 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_laminas_1_1_service_manager_1_1_proxy_1_1_lazy_service_factory" xml:lang="fr">
+<title>Référence de la classe LazyServiceFactory</title>
+<indexterm><primary>LazyServiceFactory</primary></indexterm>
+Graphe d&apos;héritage de LazyServiceFactory:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_laminas_1_1_service_manager_1_1_proxy_1_1_lazy_service_factory__inherit__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Graphe de collaboration de LazyServiceFactory:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_laminas_1_1_service_manager_1_1_proxy_1_1_lazy_service_factory__coll__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Fonctions membres publiques    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_laminas_1_1_service_manager_1_1_proxy_1_1_lazy_service_factory_1aa9dd35287a3ca61331844f00edd9c0d3">__construct</link> (LazyLoadingValueHolderFactory $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">proxyFactory</link>, array $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">servicesMap</link>)</para>
+</listitem>
+            <listitem><para><link linkend="_class_laminas_1_1_service_manager_1_1_proxy_1_1_lazy_service_factory_1a67d7f11cb132fb6d4d3546155ce705b6">__invoke</link> (<link linkend="_interface_interop_1_1_container_1_1_container_interface">ContainerInterface</link> $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">container</link>, $name, <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">callable</link> $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">callback</link>, ?array $options=null)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Description détaillée</title>
+
+<para>Delegator factory responsible of instantiating lazy loading value holder proxies of given services at runtime</para>
+
+<para><link linkend="_">https://github.com/Ocramius/ProxyManager/blob/master/docs/lazy-loading-value-holder.md</link></para>
+</section>
+<section>
+<title>Documentation des constructeurs et destructeur</title>
+<anchor xml:id="_class_laminas_1_1_service_manager_1_1_proxy_1_1_lazy_service_factory_1aa9dd35287a3ca61331844f00edd9c0d3"/><section>
+    <title>__construct()</title>
+<indexterm><primary>__construct</primary><secondary>LazyServiceFactory</secondary></indexterm>
+<indexterm><primary>LazyServiceFactory</primary><secondary>__construct</secondary></indexterm>
+<para><computeroutput>__construct (LazyLoadingValueHolderFactory $proxyFactory, array $servicesMap)</computeroutput></para>
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>array&lt;string, class-string&gt;</entry><entry>
+<para>$servicesMap A map of service names to class names of their respective classes </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
+</section>
+<section>
+<title>Documentation des fonctions membres</title>
+<anchor xml:id="_class_laminas_1_1_service_manager_1_1_proxy_1_1_lazy_service_factory_1a67d7f11cb132fb6d4d3546155ce705b6"/><section>
+    <title>__invoke()</title>
+<indexterm><primary>__invoke</primary><secondary>LazyServiceFactory</secondary></indexterm>
+<indexterm><primary>LazyServiceFactory</primary><secondary>__invoke</secondary></indexterm>
+<para><computeroutput>__invoke (<link linkend="_interface_interop_1_1_container_1_1_container_interface">ContainerInterface</link> $container,  $name, <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">callable</link> $callback, ?array $options = <computeroutput>null</computeroutput>
+)</computeroutput></para>
+<para>
+<para>A factory that creates delegates of a given service</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$name</entry><entry>
+<para>@psalm-param <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">callable()</link>:mixed $callback </para>
+</entry>
+                            </row>
+                            <row>
+<entry>null | array</entry><entry>$options</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>object </para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>ServiceNotFoundException</entry><entry>
+<para>If unable to resolve the service. </para>
+</entry>
+                            </row>
+                            <row>
+<entry>ServiceNotCreatedException</entry><entry>
+<para>If an exception is raised when creating a service. </para>
+</entry>
+                            </row>
+                            <row>
+<entry>ContainerException</entry><entry>
+<para>If any other error occurs.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$name</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>VirtualProxyInterface </para>
+</formalpara>
+</para>
+<para>
+Implémente <link linkend="_interface_laminas_1_1_service_manager_1_1_factory_1_1_delegator_factory_interface_1a67d7f11cb132fb6d4d3546155ce705b6">DelegatorFactoryInterface</link>.</para>
+</section>
+<para>
+La documentation de cette classe a été générée à partir du fichier suivant :</para>
+public/glpi/vendor/laminas/laminas-servicemanager/src/Proxy/<link linkend="__lazy_service_factory_8php">LazyServiceFactory.php</link></section>
+</section>

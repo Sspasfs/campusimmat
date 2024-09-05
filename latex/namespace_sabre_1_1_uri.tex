@@ -1,0 +1,209 @@
+\doxysection{Référence de l\textquotesingle{}espace de nommage Sabre\textbackslash{}Uri}
+\hypertarget{namespace_sabre_1_1_uri}{}\label{namespace_sabre_1_1_uri}\index{Sabre\textbackslash{}Uri@{Sabre\textbackslash{}Uri}}
+\doxysubsubsection*{Structures de données}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_sabre_1_1_uri_1_1_invalid_uri_exception}{Invalid\+Uri\+Exception}}
+\item 
+class \mbox{\hyperlink{class_sabre_1_1_uri_1_1_version}{Version}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespace_sabre_1_1_uri_a530f4c5d84c11023bfd5e7e093997a11}{resolve}} (string \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{base\+Path}}, string \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{new\+Path}})
+\item 
+\mbox{\hyperlink{namespace_sabre_1_1_uri_ae53435a758cbc72a19a0b3d2794b5ccf}{normalize}} (string \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{uri}})
+\item 
+\mbox{\hyperlink{namespace_sabre_1_1_uri_a282c0fa09e3895aad7195d6c7071ca16}{parse}} (string \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{uri}})
+\item 
+\mbox{\hyperlink{namespace_sabre_1_1_uri_a05383c03702ec0525c86be0e88e2023e}{build}} (array \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{parts}})
+\item 
+\mbox{\hyperlink{namespace_sabre_1_1_uri_a9c9fad3e3f06187375bf1eadb359cafe}{split}} (string \$path)
+\item 
+\mbox{\hyperlink{namespace_sabre_1_1_uri_a7560381bbee5cad477c431c98733d37c}{\+\_\+parse\+\_\+fallback}} (string \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{uri}})
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Documentation des fonctions}
+\Hypertarget{namespace_sabre_1_1_uri_a7560381bbee5cad477c431c98733d37c}\label{namespace_sabre_1_1_uri_a7560381bbee5cad477c431c98733d37c} 
+\index{Sabre\textbackslash{}Uri@{Sabre\textbackslash{}Uri}!\_parse\_fallback@{\_parse\_fallback}}
+\index{\_parse\_fallback@{\_parse\_fallback}!Sabre\textbackslash{}Uri@{Sabre\textbackslash{}Uri}}
+\doxysubsubsection{\texorpdfstring{\_parse\_fallback()}{\_parse\_fallback()}}
+{\footnotesize\ttfamily \+\_\+parse\+\_\+fallback (\begin{DoxyParamCaption}\item[{string}]{\$uri }\end{DoxyParamCaption})}
+
+This function is another implementation of parse\+\_\+url, except this one is fully written in PHP.
+
+The reason is that the PHP bug team is not willing to admit that there are bugs in the parse\+\_\+url implementation.
+
+This function is only called if the main parse method fails. It\textquotesingle{}s pretty crude and probably slow, so the original parse\+\_\+url is usually preferred.
+
+\begin{DoxyReturn}{Renvoie}
+array$<$string, mixed$>$
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Invalid\+Uri\+Exception} & \\
+\hline
+\end{DoxyExceptions}
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespace_sabre_1_1_uri_a7560381bbee5cad477c431c98733d37c_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{namespace_sabre_1_1_uri_a05383c03702ec0525c86be0e88e2023e}\label{namespace_sabre_1_1_uri_a05383c03702ec0525c86be0e88e2023e} 
+\index{Sabre\textbackslash{}Uri@{Sabre\textbackslash{}Uri}!build@{build}}
+\index{build@{build}!Sabre\textbackslash{}Uri@{Sabre\textbackslash{}Uri}}
+\doxysubsubsection{\texorpdfstring{build()}{build()}}
+{\footnotesize\ttfamily build (\begin{DoxyParamCaption}\item[{array}]{\$parts }\end{DoxyParamCaption})}
+
+This function takes the components returned from PHP\textquotesingle{}s parse\+\_\+url, and uses it to generate a new uri.
+
+
+\begin{DoxyParams}{Paramètres}
+{\em array$<$string,int\texorpdfstring{$\vert$}{|}string\texorpdfstring{$\vert$}{|}null$>$} & \$parts \\
+\hline
+\end{DoxyParams}
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespace_sabre_1_1_uri_a05383c03702ec0525c86be0e88e2023e_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{namespace_sabre_1_1_uri_ae53435a758cbc72a19a0b3d2794b5ccf}\label{namespace_sabre_1_1_uri_ae53435a758cbc72a19a0b3d2794b5ccf} 
+\index{Sabre\textbackslash{}Uri@{Sabre\textbackslash{}Uri}!normalize@{normalize}}
+\index{normalize@{normalize}!Sabre\textbackslash{}Uri@{Sabre\textbackslash{}Uri}}
+\doxysubsubsection{\texorpdfstring{normalize()}{normalize()}}
+{\footnotesize\ttfamily normalize (\begin{DoxyParamCaption}\item[{string}]{\$uri }\end{DoxyParamCaption})}
+
+Takes a URI or partial URI as its argument, and normalizes it.
+
+After normalizing a URI, you can safely compare it to other URIs. This function will for instance convert a \%7E into a tilde, according to rfc3986.
+
+It will also change a \%3a into a \%3A.
+
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Invalid\+Uri\+Exception} & \\
+\hline
+\end{DoxyExceptions}
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=334pt]{namespace_sabre_1_1_uri_ae53435a758cbc72a19a0b3d2794b5ccf_cgraph}
+\end{center}
+\end{figure}
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespace_sabre_1_1_uri_ae53435a758cbc72a19a0b3d2794b5ccf_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{namespace_sabre_1_1_uri_a282c0fa09e3895aad7195d6c7071ca16}\label{namespace_sabre_1_1_uri_a282c0fa09e3895aad7195d6c7071ca16} 
+\index{Sabre\textbackslash{}Uri@{Sabre\textbackslash{}Uri}!parse@{parse}}
+\index{parse@{parse}!Sabre\textbackslash{}Uri@{Sabre\textbackslash{}Uri}}
+\doxysubsubsection{\texorpdfstring{parse()}{parse()}}
+{\footnotesize\ttfamily parse (\begin{DoxyParamCaption}\item[{string}]{\$uri }\end{DoxyParamCaption})}
+
+Parses a URI and returns its individual components.
+
+This method largely behaves the same as PHP\textquotesingle{}s parse\+\_\+url, except that it will return an array with all the array keys, including the ones that are not set by parse\+\_\+url, which makes it a bit easier to work with.
+
+Unlike PHP\textquotesingle{}s parse\+\_\+url, it will also convert any non-\/ascii characters to percent-\/encoded strings. PHP\textquotesingle{}s parse\+\_\+url corrupts these characters on OS X.
+
+\begin{DoxyReturn}{Renvoie}
+array$<$string, string$>$
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Invalid\+Uri\+Exception} & \\
+\hline
+\end{DoxyExceptions}
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=240pt]{namespace_sabre_1_1_uri_a282c0fa09e3895aad7195d6c7071ca16_cgraph}
+\end{center}
+\end{figure}
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespace_sabre_1_1_uri_a282c0fa09e3895aad7195d6c7071ca16_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{namespace_sabre_1_1_uri_a530f4c5d84c11023bfd5e7e093997a11}\label{namespace_sabre_1_1_uri_a530f4c5d84c11023bfd5e7e093997a11} 
+\index{Sabre\textbackslash{}Uri@{Sabre\textbackslash{}Uri}!resolve@{resolve}}
+\index{resolve@{resolve}!Sabre\textbackslash{}Uri@{Sabre\textbackslash{}Uri}}
+\doxysubsubsection{\texorpdfstring{resolve()}{resolve()}}
+{\footnotesize\ttfamily resolve (\begin{DoxyParamCaption}\item[{string}]{\$base\+Path,  }\item[{string}]{\$new\+Path }\end{DoxyParamCaption})}
+
+This file contains all the uri handling functions.
+
+\begin{DoxyCopyright}{Copyright}
+Copyright (C) fruux GmbH (\href{https://fruux.com/}{\texttt{ https\+://fruux.\+com/}}) 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Auteur}
+Evert Pot (\href{http://evertpot.com/}{\texttt{ http\+://evertpot.\+com/}}) @license \href{http://sabre.io/license/}{\texttt{ http\+://sabre.\+io/license/}} Resolves relative urls, like a browser would.
+\end{DoxyAuthor}
+This function takes a base\+Path, which itself {\itshape may} also be relative, and then applies the relative path on top of it.
+
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Invalid\+Uri\+Exception} & \\
+\hline
+\end{DoxyExceptions}
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=324pt]{namespace_sabre_1_1_uri_a530f4c5d84c11023bfd5e7e093997a11_cgraph}
+\end{center}
+\end{figure}
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespace_sabre_1_1_uri_a530f4c5d84c11023bfd5e7e093997a11_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{namespace_sabre_1_1_uri_a9c9fad3e3f06187375bf1eadb359cafe}\label{namespace_sabre_1_1_uri_a9c9fad3e3f06187375bf1eadb359cafe} 
+\index{Sabre\textbackslash{}Uri@{Sabre\textbackslash{}Uri}!split@{split}}
+\index{split@{split}!Sabre\textbackslash{}Uri@{Sabre\textbackslash{}Uri}}
+\doxysubsubsection{\texorpdfstring{split()}{split()}}
+{\footnotesize\ttfamily split (\begin{DoxyParamCaption}\item[{string}]{\$path }\end{DoxyParamCaption})}
+
+Returns the \textquotesingle{}dirname\textquotesingle{} and \textquotesingle{}basename\textquotesingle{} for a path.
+
+The reason there is a custom function for this purpose, is because basename() is locale aware (behaviour changes if C locale or a UTF-\/8 locale is used) and we need a method that just operates on UTF-\/8 characters.
+
+In addition basename and dirname are platform aware, and will treat backslash () as a directory separator on Windows.
+
+This method returns the 2 components as an array.
+
+If there is no dirname, it will return an empty string. Any / appearing at the end of the string is stripped off.
+
+\begin{DoxyReturn}{Renvoie}
+array$<$int, mixed$>$ 
+\end{DoxyReturn}
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{namespace_sabre_1_1_uri_a9c9fad3e3f06187375bf1eadb359cafe_icgraph}
+\end{center}
+\end{figure}

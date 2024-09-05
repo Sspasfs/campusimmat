@@ -1,0 +1,266 @@
+\doxysection{Référence de la classe Writer}
+\hypertarget{class_sabre_1_1_xml_1_1_writer}{}\label{class_sabre_1_1_xml_1_1_writer}\index{Writer@{Writer}}
+
+
+Graphe d\textquotesingle{}héritage de Writer\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=191pt]{class_sabre_1_1_xml_1_1_writer__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Graphe de collaboration de Writer\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=191pt]{class_sabre_1_1_xml_1_1_writer__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_sabre_1_1_xml_1_1_writer_aa438eeb4ffc5f1897b4ad42be429cef1}{write}} (\$value)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_xml_1_1_writer_ae3c239a73b3b77a9ae8f4e5c398676fc}{start\+Element}} (\$name)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_xml_1_1_writer_ad4e290d2e8ccd36032ddf13242b9bf03}{write\+Element}} (\$name, \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{content}}=null)
+\item 
+\mbox{\hyperlink{class_sabre_1_1_xml_1_1_writer_a4622fefb02a9ed84569184dbc340f6c8}{write\+Attributes}} (array \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{attributes}})
+\item 
+\mbox{\hyperlink{class_sabre_1_1_xml_1_1_writer_af7d06329e3f9eacc42a525422c5ec300}{write\+Attribute}} (\$name, \$value)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Attributs protégés}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_sabre_1_1_xml_1_1_writer_a666ef6d035637e8235cc9134e52b7d3a}{\$adhoc\+Namespaces}} = \mbox{[}$\,$\mbox{]}
+\item 
+\mbox{\hyperlink{class_sabre_1_1_xml_1_1_writer_a4e940dd32f672bdde10bd426e7112c11}{\$namespaces\+Written}} = false
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+The \doxylink{class_x_m_l}{XML} Writer class.
+
+This class works exactly as PHP\textquotesingle{}s built-\/in XMLWriter, with a few additions.
+
+Namespaces can be registered beforehand, globally. When the first element is written, namespaces will automatically be declared.
+
+The write\+Attribute, start\+Element and write\+Element can now take a clark-\/notation element name (example\+: \{\href{http://www.w3.org/2005/Atom}{\texttt{ http\+://www.\+w3.\+org/2005/\+Atom}}\}link).
+
+If, when writing the namespace is a known one a prefix will automatically be selected, otherwise a random prefix will be generated.
+
+Instead of standard string values, the writer can take Element classes (as defined by this library) to delegate the serialization.
+
+The write() method can take array structures to quickly write out simple xml trees.
+
+\begin{DoxyCopyright}{Copyright}
+Copyright (C) 2009-\/2015 fruux GmbH (\href{https://fruux.com/}{\texttt{ https\+://fruux.\+com/}}). 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Auteur}
+Evert Pot (\href{http://evertpot.com/}{\texttt{ http\+://evertpot.\+com/}}) @license \href{http://sabre.io/license/}{\texttt{ http\+://sabre.\+io/license/}} Modified BSD License 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Documentation des fonctions membres}
+\Hypertarget{class_sabre_1_1_xml_1_1_writer_ae3c239a73b3b77a9ae8f4e5c398676fc}\label{class_sabre_1_1_xml_1_1_writer_ae3c239a73b3b77a9ae8f4e5c398676fc} 
+\index{Writer@{Writer}!startElement@{startElement}}
+\index{startElement@{startElement}!Writer@{Writer}}
+\doxysubsubsection{\texorpdfstring{startElement()}{startElement()}}
+{\footnotesize\ttfamily start\+Element (\begin{DoxyParamCaption}\item[{}]{\$name }\end{DoxyParamCaption})}
+
+Opens a new element.
+
+You can either just use a local elementname, or you can use clark-\/ notation to start a new element.
+
+Example\+: \begin{DoxyVerb}$writer->startElement('{http://www.w3.org/2005/Atom}entry');
+\end{DoxyVerb}
+ Would result in something like\+: \begin{DoxyVerb}<entry xmlns="http://w3.org/2005/Atom">
+\end{DoxyVerb}
+ Note\+: this function doesn\textquotesingle{}t have the string typehint, because PHP\textquotesingle{}s XMLWriter\+::start\+Element doesn\textquotesingle{}t either.
+
+
+\begin{DoxyParams}[1]{Paramètres}
+string & {\em \$name} & \\
+\hline
+\end{DoxyParams}
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_sabre_1_1_xml_1_1_writer_ae3c239a73b3b77a9ae8f4e5c398676fc_cgraph}
+\end{center}
+\end{figure}
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_sabre_1_1_xml_1_1_writer_ae3c239a73b3b77a9ae8f4e5c398676fc_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_sabre_1_1_xml_1_1_writer_aa438eeb4ffc5f1897b4ad42be429cef1}\label{class_sabre_1_1_xml_1_1_writer_aa438eeb4ffc5f1897b4ad42be429cef1} 
+\index{Writer@{Writer}!write@{write}}
+\index{write@{write}!Writer@{Writer}}
+\doxysubsubsection{\texorpdfstring{write()}{write()}}
+{\footnotesize\ttfamily write (\begin{DoxyParamCaption}\item[{}]{\$value }\end{DoxyParamCaption})}
+
+Writes a value to the output stream.
+
+The following values are supported\+:
+\begin{DoxyEnumerate}
+\item Scalar values will be written as-\/is, as text.
+\item Null values will be skipped (resulting in a short xml tag).
+\item If a value is an instance of an Element class, writing will be delegated to the object.
+\item If a value is an array, two formats are supported.
+\end{DoxyEnumerate}
+
+Array format 1\+: \mbox{[} "{}\{namespace\}name1"{} =\texorpdfstring{$>$}{>} "{}.."{}, "{}\{namespace\}name2"{} =\texorpdfstring{$>$}{>} "{}.."{}, \mbox{]}
+
+One element will be created for each key in this array. The values of this array support any format this method supports (this method is called recursively).
+
+Array format 2\+:
+
+\mbox{[} \mbox{[} "{}name"{} =\texorpdfstring{$>$}{>} "{}\{namespace\}name1"{} "{}value"{} =\texorpdfstring{$>$}{>} "{}.."{}, "{}attributes"{} =\texorpdfstring{$>$}{>} \mbox{[} "{}attr"{} =\texorpdfstring{$>$}{>} "{}attribute value"{}, \mbox{]} \mbox{]}, \mbox{[} "{}name"{} =\texorpdfstring{$>$}{>} "{}\{namespace\}name1"{} "{}value"{} =\texorpdfstring{$>$}{>} "{}.."{}, "{}attributes"{} =\texorpdfstring{$>$}{>} \mbox{[} "{}attr"{} =\texorpdfstring{$>$}{>} "{}attribute value"{}, \mbox{]} \mbox{]} \mbox{]}
+
+
+\begin{DoxyParams}[1]{Paramètres}
+mixed & {\em \$value} & \\
+\hline
+\end{DoxyParams}
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_sabre_1_1_xml_1_1_writer_aa438eeb4ffc5f1897b4ad42be429cef1_cgraph}
+\end{center}
+\end{figure}
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_sabre_1_1_xml_1_1_writer_aa438eeb4ffc5f1897b4ad42be429cef1_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_sabre_1_1_xml_1_1_writer_af7d06329e3f9eacc42a525422c5ec300}\label{class_sabre_1_1_xml_1_1_writer_af7d06329e3f9eacc42a525422c5ec300} 
+\index{Writer@{Writer}!writeAttribute@{writeAttribute}}
+\index{writeAttribute@{writeAttribute}!Writer@{Writer}}
+\doxysubsubsection{\texorpdfstring{writeAttribute()}{writeAttribute()}}
+{\footnotesize\ttfamily write\+Attribute (\begin{DoxyParamCaption}\item[{}]{\$name,  }\item[{}]{\$value }\end{DoxyParamCaption})}
+
+Writes a new attribute.
+
+The name may be specified in clark-\/notation.
+
+Returns true when successful.
+
+Note\+: this function doesn\textquotesingle{}t have typehints, because for some reason PHP\textquotesingle{}s XMLWriter\+::write\+Attribute doesn\textquotesingle{}t either.
+
+
+\begin{DoxyParams}[1]{Paramètres}
+string & {\em \$name} & \\
+\hline
+string & {\em \$value} & \\
+\hline
+\end{DoxyParams}
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=338pt]{class_sabre_1_1_xml_1_1_writer_af7d06329e3f9eacc42a525422c5ec300_cgraph}
+\end{center}
+\end{figure}
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_sabre_1_1_xml_1_1_writer_af7d06329e3f9eacc42a525422c5ec300_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_sabre_1_1_xml_1_1_writer_a4622fefb02a9ed84569184dbc340f6c8}\label{class_sabre_1_1_xml_1_1_writer_a4622fefb02a9ed84569184dbc340f6c8} 
+\index{Writer@{Writer}!writeAttributes@{writeAttributes}}
+\index{writeAttributes@{writeAttributes}!Writer@{Writer}}
+\doxysubsubsection{\texorpdfstring{writeAttributes()}{writeAttributes()}}
+{\footnotesize\ttfamily write\+Attributes (\begin{DoxyParamCaption}\item[{array}]{\$attributes }\end{DoxyParamCaption})}
+
+Writes a list of attributes.
+
+Attributes are specified as a key-\/\texorpdfstring{$>$}{>}value array.
+
+The key is an attribute name. If the key is a \textquotesingle{}local\+Name\textquotesingle{}, the current xml namespace is assumed. If it\textquotesingle{}s a \textquotesingle{}clark notation key\textquotesingle{}, this namespace will be used instead. Voici le graphe d\textquotesingle{}appel pour cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_sabre_1_1_xml_1_1_writer_a4622fefb02a9ed84569184dbc340f6c8_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_sabre_1_1_xml_1_1_writer_ad4e290d2e8ccd36032ddf13242b9bf03}\label{class_sabre_1_1_xml_1_1_writer_ad4e290d2e8ccd36032ddf13242b9bf03} 
+\index{Writer@{Writer}!writeElement@{writeElement}}
+\index{writeElement@{writeElement}!Writer@{Writer}}
+\doxysubsubsection{\texorpdfstring{writeElement()}{writeElement()}}
+{\footnotesize\ttfamily write\+Element (\begin{DoxyParamCaption}\item[{}]{\$name,  }\item[{}]{\$content = {\ttfamily null} }\end{DoxyParamCaption})}
+
+Write a full element tag and it\textquotesingle{}s contents.
+
+This method automatically closes the element as well.
+
+The element name may be specified in clark-\/notation.
+
+Examples\+:
+
+\$writer-\/\texorpdfstring{$>$}{>}write\+Element(\textquotesingle{}\{\href{http://www.w3.org/2005/Atom}{\texttt{ http\+://www.\+w3.\+org/2005/\+Atom}}\}author\textquotesingle{},null); becomes\+: $<$author xmlns="{}http\+://www.\+w3.\+org/2005"{} $>$
+
+\$writer-\/\texorpdfstring{$>$}{>}write\+Element(\textquotesingle{}\{\href{http://www.w3.org/2005/Atom}{\texttt{ http\+://www.\+w3.\+org/2005/\+Atom}}\}author\textquotesingle{}, \mbox{[} \textquotesingle{}\{\href{http://www.w3.org/2005/Atom}{\texttt{ http\+://www.\+w3.\+org/2005/\+Atom}}\}name\textquotesingle{} =\texorpdfstring{$>$}{>} \textquotesingle{}Evert Pot\textquotesingle{}, \mbox{]}); becomes\+: $<$author xmlns="{}http\+://www.\+w3.\+org/2005"{} $>$$<$name$>$Evert Pot$<$/name$>$$<$/author$>$
+
+Note\+: this function doesn\textquotesingle{}t have the string typehint, because PHP\textquotesingle{}s XMLWriter\+::start\+Element doesn\textquotesingle{}t either.
+
+
+\begin{DoxyParams}[1]{Paramètres}
+array | string | object | null & {\em \$content} & \\
+\hline
+\end{DoxyParams}
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_sabre_1_1_xml_1_1_writer_ad4e290d2e8ccd36032ddf13242b9bf03_cgraph}
+\end{center}
+\end{figure}
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_sabre_1_1_xml_1_1_writer_ad4e290d2e8ccd36032ddf13242b9bf03_icgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Documentation des champs}
+\Hypertarget{class_sabre_1_1_xml_1_1_writer_a666ef6d035637e8235cc9134e52b7d3a}\label{class_sabre_1_1_xml_1_1_writer_a666ef6d035637e8235cc9134e52b7d3a} 
+\index{Writer@{Writer}!\$adhocNamespaces@{\$adhocNamespaces}}
+\index{\$adhocNamespaces@{\$adhocNamespaces}!Writer@{Writer}}
+\doxysubsubsection{\texorpdfstring{\$adhocNamespaces}{\$adhocNamespaces}}
+{\footnotesize\ttfamily \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{adhoc\+Namespaces}} = \mbox{[}$\,$\mbox{]}\hspace{0.3cm}{\ttfamily [protected]}}
+
+\Hypertarget{class_sabre_1_1_xml_1_1_writer_a4e940dd32f672bdde10bd426e7112c11}\label{class_sabre_1_1_xml_1_1_writer_a4e940dd32f672bdde10bd426e7112c11} 
+\index{Writer@{Writer}!\$namespacesWritten@{\$namespacesWritten}}
+\index{\$namespacesWritten@{\$namespacesWritten}!Writer@{Writer}}
+\doxysubsubsection{\texorpdfstring{\$namespacesWritten}{\$namespacesWritten}}
+{\footnotesize\ttfamily \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{namespaces\+Written}} = false\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+La documentation de cette classe a été générée à partir du fichier suivant \+:\begin{DoxyCompactItemize}
+\item 
+public/glpi/vendor/sabre/xml/lib/\mbox{\hyperlink{sabre_2xml_2lib_2_writer_8php}{Writer.\+php}}\end{DoxyCompactItemize}

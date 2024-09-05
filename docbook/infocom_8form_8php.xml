@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_infocom_8form_8php" xml:lang="fr">
+<title>Référence du fichier public/glpi/front/infocom.form.php</title>
+<indexterm><primary>public/glpi/front/infocom.form.php</primary></indexterm>
+<simplesect>
+    <title>Variables    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_infocom_8form_8php_1af45cf0888bdf580619219f95eafbd0b8">$ic</link> = <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">new</link> <link linkend="_class_infocom">Infocom</link>()</para>
+</listitem>
+            <listitem><para><link linkend="_dropdown_location_8php_1a52332c22f84432520971794825a5a8e7">if</link>(<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">isset</link>($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">_POST</link>[&apos;add&apos;])) else <link linkend="_dropdown_location_8php_1a52332c22f84432520971794825a5a8e7">if</link>(<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">isset</link>( $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">_POST</link>[&quot;purge&quot;])) else <link linkend="_dropdown_location_8php_1a52332c22f84432520971794825a5a8e7">if</link>(<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">isset</link>($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">_POST</link>[&quot;update&quot;])) <link linkend="_infocom_8form_8php_1ae67f19900844c60a6558035975a8e582">else</link></para>
+</listitem>
+            <listitem><para><link linkend="_dropdown_location_8php_1a52332c22f84432520971794825a5a8e7">if</link>(<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">isset</link>($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">_GET</link>[&quot;id&quot;])) <link linkend="_infocom_8form_8php_1aef87881acea07ffab6d32a834483594f">$item</link> = false</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Documentation des variables</title>
+<anchor xml:id="_infocom_8form_8php_1af45cf0888bdf580619219f95eafbd0b8"/><section>
+    <title>$ic</title>
+<indexterm><primary>$ic</primary><secondary>infocom.form.php</secondary></indexterm>
+<indexterm><primary>infocom.form.php</primary><secondary>$ic</secondary></indexterm>
+<para><computeroutput>$<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">ic</link> = <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">new</link> <link linkend="_class_infocom">Infocom</link>()</computeroutput></para></section>
+<anchor xml:id="_infocom_8form_8php_1aef87881acea07ffab6d32a834483594f"/><section>
+    <title>$item</title>
+<indexterm><primary>$item</primary><secondary>infocom.form.php</secondary></indexterm>
+<indexterm><primary>infocom.form.php</primary><secondary>$item</secondary></indexterm>
+<para><computeroutput><link linkend="_dropdown_location_8php_1a52332c22f84432520971794825a5a8e7">if</link> (<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">isset</link>( $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">_GET</link>[&quot;id&quot;])) $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">item</link> = false</computeroutput></para></section>
+<anchor xml:id="_infocom_8form_8php_1ae67f19900844c60a6558035975a8e582"/><section>
+    <title>else</title>
+<indexterm><primary>else</primary><secondary>infocom.form.php</secondary></indexterm>
+<indexterm><primary>infocom.form.php</primary><secondary>else</secondary></indexterm>
+<para><computeroutput><link linkend="_dropdown_location_8php_1a52332c22f84432520971794825a5a8e7">if</link>(<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">isset</link>( $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">_POST</link>[ &apos;add&apos;])) else <link linkend="_dropdown_location_8php_1a52332c22f84432520971794825a5a8e7">if</link>(<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">isset</link>($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">_POST</link>[&quot;purge&quot;])) else <link linkend="_dropdown_location_8php_1a52332c22f84432520971794825a5a8e7">if</link> (<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">isset</link>( $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">_POST</link>[&quot;update&quot;])) else</computeroutput></para><emphasis role="strong">Valeur initiale :</emphasis><programlisting linenumbering="unnumbered">{
+&#32;&#32;&#32;&#32;Session::checkRight(<emphasis role="stringliteral">&quot;infocom&quot;</emphasis>,&#32;<link linkend="_define_8php_1add302975378da047de904daa059a332b">READ</link>)
+</programlisting></section>
+</section>
+</section>

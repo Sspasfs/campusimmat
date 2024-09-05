@@ -1,0 +1,60 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_ticket_8form_8php" xml:lang="fr">
+<title>Référence du fichier public/glpi/front/ticket.form.php</title>
+<indexterm><primary>public/glpi/front/ticket.form.php</primary></indexterm>
+<simplesect>
+    <title>Variables    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">global</link> <link linkend="_ticket_8form_8php_1a2e00a61703ee4673cdfb5eb376a9b295">$CFG_GLPI</link></para>
+</listitem>
+            <listitem><para><link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">global</link> <link linkend="_ticket_8form_8php_1a56f6c6070edb21a35cfa9e1df79ba61c">$DB</link></para>
+</listitem>
+            <listitem><para><link linkend="_ticket_8form_8php_1acb9fb2ab6b595f2e6e0a89651713fc17">$track</link> = <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">new</link> <link linkend="_class_ticket">Ticket</link>()</para>
+</listitem>
+            <listitem><para><link linkend="_dropdown_location_8php_1a52332c22f84432520971794825a5a8e7">if</link>(!<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">isset</link>($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">_GET</link>[&apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">id</link>&apos;])) <link linkend="_ticket_8form_8php_1aeb2e34396eab3747d69598c3e4e8515f">$date_fields</link></para>
+</listitem>
+            <listitem><para><link linkend="_get_user_picture_8php_1a0df27c645324b72eaf7093e10f310670">foreach</link>( $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">date_fields</link> <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">as</link> $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">date_field</link>) <link linkend="_dropdown_location_8php_1a52332c22f84432520971794825a5a8e7">if</link>(<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">isset</link>($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">_UPOST</link>[&apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">_actors</link>&apos;])) <link linkend="_dropdown_location_8php_1a52332c22f84432520971794825a5a8e7">if</link>(<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">isset</link>( $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">_POST</link>[&quot;add&quot;])) else <link linkend="_dropdown_location_8php_1a52332c22f84432520971794825a5a8e7">if</link>(<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">isset</link>($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">_POST</link>[&apos;update&apos;])) else <link linkend="_dropdown_location_8php_1a52332c22f84432520971794825a5a8e7">if</link>(<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">isset</link>( $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">_POST</link>[ &apos;delete&apos;])) else <link linkend="_dropdown_location_8php_1a52332c22f84432520971794825a5a8e7">if</link>(<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">isset</link>($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">_POST</link>[&apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">purge</link>&apos;])) else <link linkend="_dropdown_location_8php_1a52332c22f84432520971794825a5a8e7">if</link>(<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">isset</link>( $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">_POST</link>[&quot;restore&quot;])) else <link linkend="_dropdown_location_8php_1a52332c22f84432520971794825a5a8e7">if</link>(<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">isset</link>($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">_POST</link>[&apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">sla_delete</link>&apos;])) else <link linkend="_dropdown_location_8php_1a52332c22f84432520971794825a5a8e7">if</link>(<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">isset</link>( $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">_POST</link>[ &apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">ola_delete</link>&apos;])) else <link linkend="_dropdown_location_8php_1a52332c22f84432520971794825a5a8e7">if</link>(<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">isset</link>($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">_POST</link>[&apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">addme_as_actor</link>&apos;])) else <link linkend="_dropdown_location_8php_1a52332c22f84432520971794825a5a8e7">if</link>(<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">isset</link>( $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">_POST</link>[ &apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">delete_document</link>&apos;])) <link linkend="_dropdown_location_8php_1a52332c22f84432520971794825a5a8e7">if</link>(<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">isset</link>($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">_GET</link>[&quot;id&quot;]) &amp;&amp;($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">_GET</link>[&quot;id&quot;] &gt; 0)) <link linkend="_ticket_8form_8php_1a620e5e922dd0f2befb177c54008c0644">else</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Documentation des variables</title>
+<anchor xml:id="_ticket_8form_8php_1a2e00a61703ee4673cdfb5eb376a9b295"/><section>
+    <title>$CFG_GLPI</title>
+<indexterm><primary>$CFG_GLPI</primary><secondary>ticket.form.php</secondary></indexterm>
+<indexterm><primary>ticket.form.php</primary><secondary>$CFG_GLPI</secondary></indexterm>
+<para><computeroutput><link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">global</link> $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">CFG_GLPI</link></computeroutput></para></section>
+<anchor xml:id="_ticket_8form_8php_1aeb2e34396eab3747d69598c3e4e8515f"/><section>
+    <title>$date_fields</title>
+<indexterm><primary>$date_fields</primary><secondary>ticket.form.php</secondary></indexterm>
+<indexterm><primary>ticket.form.php</primary><secondary>$date_fields</secondary></indexterm>
+<para><computeroutput><link linkend="_dropdown_location_8php_1a52332c22f84432520971794825a5a8e7">if</link> (!<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">isset</link>( $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">_GET</link>[ &apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">id</link>&apos;])) $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">date_fields</link></computeroutput></para><emphasis role="strong">Valeur initiale :</emphasis><programlisting linenumbering="unnumbered">=&#32;[
+&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&apos;date&apos;</emphasis>,
+&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&apos;due_date&apos;</emphasis>,
+&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&apos;time_to_own&apos;</emphasis>
+]
+</programlisting></section>
+<anchor xml:id="_ticket_8form_8php_1a56f6c6070edb21a35cfa9e1df79ba61c"/><section>
+    <title>$DB</title>
+<indexterm><primary>$DB</primary><secondary>ticket.form.php</secondary></indexterm>
+<indexterm><primary>ticket.form.php</primary><secondary>$DB</secondary></indexterm>
+<para><computeroutput><link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">global</link> $<link linkend="_class_d_b">DB</link></computeroutput></para></section>
+<anchor xml:id="_ticket_8form_8php_1acb9fb2ab6b595f2e6e0a89651713fc17"/><section>
+    <title>$track</title>
+<indexterm><primary>$track</primary><secondary>ticket.form.php</secondary></indexterm>
+<indexterm><primary>ticket.form.php</primary><secondary>$track</secondary></indexterm>
+<para><computeroutput>$<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">track</link> = <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">new</link> <link linkend="_class_ticket">Ticket</link>()</computeroutput></para></section>
+<anchor xml:id="_ticket_8form_8php_1a620e5e922dd0f2befb177c54008c0644"/><section>
+    <title>else</title>
+<indexterm><primary>else</primary><secondary>ticket.form.php</secondary></indexterm>
+<indexterm><primary>ticket.form.php</primary><secondary>else</secondary></indexterm>
+<para><computeroutput><link linkend="_dropdown_location_8php_1a52332c22f84432520971794825a5a8e7">if</link>(<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">isset</link>($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">_REQUEST</link>[&apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">_add_fromitem</link>&apos;]) &amp;&amp;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">isset</link>($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">_REQUEST</link>[&apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">itemtype</link>&apos;]) &amp;&amp;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">isset</link>($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">_REQUEST</link>[&apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">items_id</link>&apos;])) <link linkend="_dropdown_location_8php_1a52332c22f84432520971794825a5a8e7">if</link> (<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">isset</link>( $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">_GET</link>[ &apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">showglobalkanban</link>&apos;]) &amp;&amp;$<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">_GET</link>[ &apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">showglobalkanban</link>&apos;]) else</computeroutput></para><emphasis role="strong">Valeur initiale :</emphasis><programlisting linenumbering="unnumbered">{
+&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(Session::getCurrentInterface()&#32;!=&#32;<emphasis role="stringliteral">&apos;central&apos;</emphasis>)&#32;{
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;Html::redirect(<link linkend="_ticket_8form_8php_1a2e00a61703ee4673cdfb5eb376a9b295">$CFG_GLPI</link>[<emphasis role="stringliteral">&quot;root_doc&quot;</emphasis>]&#32;.&#32;<emphasis role="stringliteral">&quot;/front/helpdesk.public.php?create_ticket=1&quot;</emphasis>);
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">die</link>;
+&#32;&#32;&#32;&#32;}
+
+&#32;&#32;&#32;&#32;unset(<link linkend="_get_user_picture_8php_1a73daf9162cb4c7a9ae93a4b79eb00d94">$_REQUEST</link>[<emphasis role="stringliteral">&apos;id&apos;</emphasis>])
+</programlisting></section>
+</section>
+</section>

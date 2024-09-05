@@ -1,0 +1,486 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_autoload_8function_8php" xml:lang="fr">
+<title>Référence du fichier public/glpi/inc/autoload.function.php</title>
+<indexterm><primary>public/glpi/inc/autoload.function.php</primary></indexterm>
+<simplesect>
+    <title>Fonctions    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_autoload_8function_8php_1ab4e318ad07e38b1cd122362832786aca">isCommandLine</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_autoload_8function_8php_1a00370b448958fc4d545e649de32d26fa">__s</link> ($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">str</link>, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">domain</link>=&apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">glpi</link>&apos;)</para>
+</listitem>
+            <listitem><para><link linkend="_autoload_8function_8php_1affc4787304a41a695a489fc24d60877d">_sx</link> ($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">ctx</link>, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">str</link>, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">domain</link>=&apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">glpi</link>&apos;)</para>
+</listitem>
+            <listitem><para><link linkend="_autoload_8function_8php_1a57f28521c4c340ac46a435555d5e0a83">_sn</link> ($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">sing</link>, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">plural</link>, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">nb</link>, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">domain</link>=&apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">glpi</link>&apos;)</para>
+</listitem>
+            <listitem><para><link linkend="_autoload_8function_8php_1a2111ba1b23d22b49aee91462961bda8a">_x</link> ($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">ctx</link>, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">str</link>, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">domain</link>=&apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">glpi</link>&apos;)</para>
+</listitem>
+            <listitem><para><link linkend="_autoload_8function_8php_1aa9cb038b22fa9ffda6cf89e5fe46bce3">_nx</link> ($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">ctx</link>, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">sing</link>, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">plural</link>, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">nb</link>, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">domain</link>=&apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">glpi</link>&apos;)</para>
+</listitem>
+            <listitem><para><link linkend="_autoload_8function_8php_1ad9076177351f4336de1e91b5c6789e40">glpi_autoload</link> ($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">classname</link>)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Variables    </title>
+        <itemizedlist>
+            <listitem><para>const <link linkend="_autoload_8function_8php_1a0d76c47e9542c399f98acde90ef54e70">NS_GLPI</link> (!defined(&apos;<link linkend="_apirest_8php_1af6315dcee605fda09b6c3109c1b739b1">GLPI_ROOT</link>&apos;)) &apos;Glpi\\&apos;</para>
+</listitem>
+            <listitem><para>const <link linkend="_autoload_8function_8php_1aeb0ea1a67eaf904ab30a0ba71ce810c0">NS_PLUG</link> &apos;GlpiPlugin\\&apos;</para>
+</listitem>
+            <listitem><para><link linkend="_autoload_8function_8php_1a449f2648637f0fe4b674b0889e693269">$needrun</link> = false</para>
+</listitem>
+            <listitem><para><link linkend="_autoload_8function_8php_1a9efb4b2d7105a707e0fab1ba3330c8b9">$autoload</link> = <link linkend="_apirest_8php_1af6315dcee605fda09b6c3109c1b739b1">GLPI_ROOT</link> . &apos;/<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">vendor</link>/autoload.php&apos;</para>
+</listitem>
+            <listitem><para><link linkend="_dropdown_location_8php_1a52332c22f84432520971794825a5a8e7">if</link>(!file_exists($autoload)) <link linkend="_actorinformation_8php_1a261cb4406f3e438761eb84a7d2102c75">else</link> <link linkend="_dropdown_location_8php_1a52332c22f84432520971794825a5a8e7">if</link>(file_exists(<link linkend="_apirest_8php_1af6315dcee605fda09b6c3109c1b739b1">GLPI_ROOT</link> . &apos;/composer.lock&apos;)) <link linkend="_dropdown_location_8php_1a52332c22f84432520971794825a5a8e7">if</link>(!file_exists(<link linkend="_apirest_8php_1af6315dcee605fda09b6c3109c1b739b1">GLPI_ROOT</link> . &apos;/<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">public</link>/<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">lib</link>&apos;)) <link linkend="_actorinformation_8php_1a261cb4406f3e438761eb84a7d2102c75">else</link> <link linkend="_dropdown_location_8php_1a52332c22f84432520971794825a5a8e7">if</link>(file_exists(<link linkend="_apirest_8php_1af6315dcee605fda09b6c3109c1b739b1">GLPI_ROOT</link> . &apos;/<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">package</link>-<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">lock.json</link>&apos;)) <link linkend="_dropdown_location_8php_1a52332c22f84432520971794825a5a8e7">if</link>($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">needrun</link>) <link linkend="_autoload_8function_8php_1a09b50482ac14270405dd1b922ca6290f">$need_mo_compile</link> = false</para>
+</listitem>
+            <listitem><para><link linkend="_autoload_8function_8php_1aba15f21143a6e58b00d02eec4aec4982">$locales_files</link> = <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">scandir</link>(<link linkend="_apirest_8php_1af6315dcee605fda09b6c3109c1b739b1">GLPI_ROOT</link> . &apos;/<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">locales</link>&apos;)</para>
+</listitem>
+            <listitem><para><link linkend="_autoload_8function_8php_1a1b96111d206376b07ec836191fd72045">$po_files</link> = <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">preg_grep</link>(&apos;/\.<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">po$</link>/&apos;, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">locales_files</link>)</para>
+</listitem>
+            <listitem><para><link linkend="_autoload_8function_8php_1af9d85392d7a29214bc4f5cfb23196c8e">$mo_files</link> = <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">preg_grep</link>(&apos;/\.<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">mo$</link>/&apos;, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">locales_files</link>)</para>
+</listitem>
+            <listitem><para>if(count($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">mo_files</link>)&lt; count($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">po_files</link>)) <link linkend="_actorinformation_8php_1a261cb4406f3e438761eb84a7d2102c75">else</link> if(file_exists(<link linkend="_apirest_8php_1af6315dcee605fda09b6c3109c1b739b1">GLPI_ROOT</link> . &apos;/<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">locales</link>/<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">glpi.pot</link>&apos;)) <link linkend="_autoload_8function_8php_1a427aa13cd290ffaecfb4f0d6a8dfd18d">if</link> ( $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">need_mo_compile</link>)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Documentation des fonctions</title>
+<anchor xml:id="_autoload_8function_8php_1a00370b448958fc4d545e649de32d26fa"/><section>
+    <title>__s()</title>
+<indexterm><primary>__s</primary><secondary>autoload.function.php</secondary></indexterm>
+<indexterm><primary>autoload.function.php</primary><secondary>__s</secondary></indexterm>
+<para><computeroutput>__s ( $str,  $domain = <computeroutput>&apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">glpi</link>&apos;</computeroutput>
+)</computeroutput></para>
+<para>Translate a string and escape HTML entities</para>
+
+<para><formalpara><title>Depuis</title>
+
+<para>0.84</para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$str</entry><entry>
+<para>String to translate </para>
+</entry>
+                            </row>
+                            <row>
+<entry>string</entry><entry>$domain</entry><entry>
+<para>domain used (default is glpi, may be plugin name)</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>string </para>
+</formalpara>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="autoload_8function_8php_a00370b448958fc4d545e649de32d26fa_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_autoload_8function_8php_1aa9cb038b22fa9ffda6cf89e5fe46bce3"/><section>
+    <title>_nx()</title>
+<indexterm><primary>_nx</primary><secondary>autoload.function.php</secondary></indexterm>
+<indexterm><primary>autoload.function.php</primary><secondary>_nx</secondary></indexterm>
+<para><computeroutput>_nx ( $ctx,  $sing,  $plural,  $nb,  $domain = <computeroutput>&apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">glpi</link>&apos;</computeroutput>
+)</computeroutput></para>
+<para>Pluralized contextualized translation</para>
+
+<para><formalpara><title>Depuis</title>
+
+<para>0.84</para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$ctx</entry><entry>
+<para>context </para>
+</entry>
+                            </row>
+                            <row>
+<entry>string</entry><entry>$sing</entry><entry>
+<para>in singular </para>
+</entry>
+                            </row>
+                            <row>
+<entry>string</entry><entry>$plural</entry><entry>
+<para>in plural </para>
+</entry>
+                            </row>
+                            <row>
+<entry>integer</entry><entry>$nb</entry><entry>
+<para>to select singular or plural </para>
+</entry>
+                            </row>
+                            <row>
+<entry>string</entry><entry>$domain</entry><entry>
+<para>domain used (default is glpi, may be plugin name)</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>string </para>
+</formalpara>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="autoload_8function_8php_aa9cb038b22fa9ffda6cf89e5fe46bce3_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_autoload_8function_8php_1a57f28521c4c340ac46a435555d5e0a83"/><section>
+    <title>_sn()</title>
+<indexterm><primary>_sn</primary><secondary>autoload.function.php</secondary></indexterm>
+<indexterm><primary>autoload.function.php</primary><secondary>_sn</secondary></indexterm>
+<para><computeroutput>_sn ( $sing,  $plural,  $nb,  $domain = <computeroutput>&apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">glpi</link>&apos;</computeroutput>
+)</computeroutput></para>
+<para>Pluralized translation with HTML entities escaped</para>
+
+<para><formalpara><title>Depuis</title>
+
+<para>0.84</para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$sing</entry><entry>
+<para>in singular </para>
+</entry>
+                            </row>
+                            <row>
+<entry>string</entry><entry>$plural</entry><entry>
+<para>in plural </para>
+</entry>
+                            </row>
+                            <row>
+<entry>integer</entry><entry>$nb</entry><entry>
+<para>to select singular or plural </para>
+</entry>
+                            </row>
+                            <row>
+<entry>string</entry><entry>$domain</entry><entry>
+<para>domain used (default is glpi, may be plugin name)</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>string protected string (with htmlentities) </para>
+</formalpara>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="autoload_8function_8php_a57f28521c4c340ac46a435555d5e0a83_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_autoload_8function_8php_1affc4787304a41a695a489fc24d60877d"/><section>
+    <title>_sx()</title>
+<indexterm><primary>_sx</primary><secondary>autoload.function.php</secondary></indexterm>
+<indexterm><primary>autoload.function.php</primary><secondary>_sx</secondary></indexterm>
+<para><computeroutput>_sx ( $ctx,  $str,  $domain = <computeroutput>&apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">glpi</link>&apos;</computeroutput>
+)</computeroutput></para>
+<para>Translate a contextualized string and escape HTML entities</para>
+
+<para><formalpara><title>Depuis</title>
+
+<para>0.84</para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$ctx</entry><entry>
+<para>context </para>
+</entry>
+                            </row>
+                            <row>
+<entry>string</entry><entry>$str</entry><entry>
+<para>to translate </para>
+</entry>
+                            </row>
+                            <row>
+<entry>string</entry><entry>$domain</entry><entry>
+<para>domain used (default is glpi, may be plugin name)</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>string protected string (with htmlentities) </para>
+</formalpara>
+</para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="autoload_8function_8php_affc4787304a41a695a489fc24d60877d_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_autoload_8function_8php_1a2111ba1b23d22b49aee91462961bda8a"/><section>
+    <title>_x()</title>
+<indexterm><primary>_x</primary><secondary>autoload.function.php</secondary></indexterm>
+<indexterm><primary>autoload.function.php</primary><secondary>_x</secondary></indexterm>
+<para><computeroutput>_x ( $ctx,  $str,  $domain = <computeroutput>&apos;<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">glpi</link>&apos;</computeroutput>
+)</computeroutput></para>
+<para>Contextualized translation</para>
+
+<para><formalpara><title>Depuis</title>
+
+<para>0.84</para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$ctx</entry><entry>
+<para>context </para>
+</entry>
+                            </row>
+                            <row>
+<entry>string</entry><entry>$str</entry><entry>
+<para>to translate </para>
+</entry>
+                            </row>
+                            <row>
+<entry>string</entry><entry>$domain</entry><entry>
+<para>domain used (default is glpi, may be plugin name)</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>string </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_autoload_8function_8php_1ad9076177351f4336de1e91b5c6789e40"/><section>
+    <title>glpi_autoload()</title>
+<indexterm><primary>glpi_autoload</primary><secondary>autoload.function.php</secondary></indexterm>
+<indexterm><primary>autoload.function.php</primary><secondary>glpi_autoload</secondary></indexterm>
+<para><computeroutput>glpi_autoload ( $classname)</computeroutput></para>
+<para>Classes loader</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$classname</entry><entry>
+<para>: class to load</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>void|boolean </para>
+</formalpara>
+</para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="autoload_8function_8php_ad9076177351f4336de1e91b5c6789e40_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_autoload_8function_8php_1ab4e318ad07e38b1cd122362832786aca"/><section>
+    <title>isCommandLine()</title>
+<indexterm><primary>isCommandLine</primary><secondary>autoload.function.php</secondary></indexterm>
+<indexterm><primary>autoload.function.php</primary><secondary>isCommandLine</secondary></indexterm>
+<para><computeroutput>isCommandLine ( )</computeroutput></para>
+<para>Is the script launch in Command line?</para>
+
+<para><formalpara><title>Renvoie</title>
+
+<para>boolean </para>
+</formalpara>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="autoload_8function_8php_ab4e318ad07e38b1cd122362832786aca_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+</section>
+<section>
+<title>Documentation des variables</title>
+<anchor xml:id="_autoload_8function_8php_1a9efb4b2d7105a707e0fab1ba3330c8b9"/><section>
+    <title>$autoload</title>
+<indexterm><primary>$autoload</primary><secondary>autoload.function.php</secondary></indexterm>
+<indexterm><primary>autoload.function.php</primary><secondary>$autoload</secondary></indexterm>
+<para><computeroutput>$autoload = <link linkend="_apirest_8php_1af6315dcee605fda09b6c3109c1b739b1">GLPI_ROOT</link> . &apos;/<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">vendor</link>/autoload.php&apos;</computeroutput></para></section>
+<anchor xml:id="_autoload_8function_8php_1aba15f21143a6e58b00d02eec4aec4982"/><section>
+    <title>$locales_files</title>
+<indexterm><primary>$locales_files</primary><secondary>autoload.function.php</secondary></indexterm>
+<indexterm><primary>autoload.function.php</primary><secondary>$locales_files</secondary></indexterm>
+<para><computeroutput>$<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">locales_files</link> = <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">scandir</link>(<link linkend="_apirest_8php_1af6315dcee605fda09b6c3109c1b739b1">GLPI_ROOT</link> . &apos;/<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">locales</link>&apos;)</computeroutput></para></section>
+<anchor xml:id="_autoload_8function_8php_1af9d85392d7a29214bc4f5cfb23196c8e"/><section>
+    <title>$mo_files</title>
+<indexterm><primary>$mo_files</primary><secondary>autoload.function.php</secondary></indexterm>
+<indexterm><primary>autoload.function.php</primary><secondary>$mo_files</secondary></indexterm>
+<para><computeroutput>$<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">mo_files</link> = <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">preg_grep</link>(&apos;/\.<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">mo$</link>/&apos;, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">locales_files</link>)</computeroutput></para></section>
+<anchor xml:id="_autoload_8function_8php_1a09b50482ac14270405dd1b922ca6290f"/><section>
+    <title>$need_mo_compile</title>
+<indexterm><primary>$need_mo_compile</primary><secondary>autoload.function.php</secondary></indexterm>
+<indexterm><primary>autoload.function.php</primary><secondary>$need_mo_compile</secondary></indexterm>
+<para><computeroutput><link linkend="_dropdown_location_8php_1a52332c22f84432520971794825a5a8e7">if</link>(!file_exists( $autoload)) <link linkend="_actorinformation_8php_1a261cb4406f3e438761eb84a7d2102c75">else</link> <link linkend="_dropdown_location_8php_1a52332c22f84432520971794825a5a8e7">if</link>(file_exists(<link linkend="_apirest_8php_1af6315dcee605fda09b6c3109c1b739b1">GLPI_ROOT</link> . &apos;/composer.lock&apos;)) <link linkend="_dropdown_location_8php_1a52332c22f84432520971794825a5a8e7">if</link>(!file_exists(<link linkend="_apirest_8php_1af6315dcee605fda09b6c3109c1b739b1">GLPI_ROOT</link> . &apos;/<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">public</link>/<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">lib</link>&apos;)) <link linkend="_actorinformation_8php_1a261cb4406f3e438761eb84a7d2102c75">else</link> <link linkend="_dropdown_location_8php_1a52332c22f84432520971794825a5a8e7">if</link>(file_exists(<link linkend="_apirest_8php_1af6315dcee605fda09b6c3109c1b739b1">GLPI_ROOT</link> . &apos;/<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">package</link>-<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">lock.json</link>&apos;)) <link linkend="_dropdown_location_8php_1a52332c22f84432520971794825a5a8e7">if</link> ( $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">needrun</link>) $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">need_mo_compile</link> = false</computeroutput></para></section>
+<anchor xml:id="_autoload_8function_8php_1a449f2648637f0fe4b674b0889e693269"/><section>
+    <title>$needrun</title>
+<indexterm><primary>$needrun</primary><secondary>autoload.function.php</secondary></indexterm>
+<indexterm><primary>autoload.function.php</primary><secondary>$needrun</secondary></indexterm>
+<para><computeroutput>$<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">needrun</link> = false</computeroutput></para></section>
+<anchor xml:id="_autoload_8function_8php_1a1b96111d206376b07ec836191fd72045"/><section>
+    <title>$po_files</title>
+<indexterm><primary>$po_files</primary><secondary>autoload.function.php</secondary></indexterm>
+<indexterm><primary>autoload.function.php</primary><secondary>$po_files</secondary></indexterm>
+<para><computeroutput>$<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">po_files</link> = <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">preg_grep</link>(&apos;/\.<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">po$</link>/&apos;, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">locales_files</link>)</computeroutput></para></section>
+<anchor xml:id="_autoload_8function_8php_1a427aa13cd290ffaecfb4f0d6a8dfd18d"/><section>
+    <title>if</title>
+<indexterm><primary>if</primary><secondary>autoload.function.php</secondary></indexterm>
+<indexterm><primary>autoload.function.php</primary><secondary>if</secondary></indexterm>
+<para><computeroutput>if(count( $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">mo_files</link>)&lt; count( $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">po_files</link>)) <link linkend="_actorinformation_8php_1a261cb4406f3e438761eb84a7d2102c75">else</link> if(file_exists(<link linkend="_apirest_8php_1af6315dcee605fda09b6c3109c1b739b1">GLPI_ROOT</link> . &apos;/<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">locales</link>/<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">glpi.pot</link>&apos;)) if($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">need_mo_compile</link>) ( $need_mo_compile)</computeroutput></para></section>
+<anchor xml:id="_autoload_8function_8php_1a0d76c47e9542c399f98acde90ef54e70"/><section>
+    <title>NS_GLPI</title>
+<indexterm><primary>NS_GLPI</primary><secondary>autoload.function.php</secondary></indexterm>
+<indexterm><primary>autoload.function.php</primary><secondary>NS_GLPI</secondary></indexterm>
+<para><computeroutput>const NS_GLPI(!defined( &apos;<link linkend="_apirest_8php_1af6315dcee605fda09b6c3109c1b739b1">GLPI_ROOT</link>&apos;)) (! defined &apos;GLPI_ROOT&apos;) &apos;Glpi\\&apos;</computeroutput></para>
+<para><informaltable frame='bottom'><tgroup cols='1'><colspec align='center'/><tbody><row><entry align='center'>
+</entry></row></tbody></tgroup></informaltable>
+</para>
+
+<para><link linkend="_class_g_l_p_i">GLPI</link> - Gestionnaire Libre de Parc Informatique</para>
+
+<para><link xlink:href="http://glpi-project.org">http://glpi-project.org</link></para>
+
+<para><formalpara><title>Copyright</title>
+
+<para>2015-2024 Teclib&apos; and contributors. </para>
+
+<para>2003-2014 by the INDEPNET Development Team. @licence <link xlink:href="https://www.gnu.org/licenses/gpl-3.0.html">https://www.gnu.org/licenses/gpl-3.0.html</link></para>
+</formalpara>
+<informaltable frame='bottom'><tgroup cols='1'><colspec align='center'/><tbody><row><entry align='center'>
+</entry></row></tbody></tgroup></informaltable>
+</para>
+
+<para>LICENSE</para>
+
+<para>This file is part of <link linkend="_class_g_l_p_i">GLPI</link>.</para>
+
+<para>This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free <link linkend="_class_software">Software</link> Foundation, either version 3 of the License, or (at your option) any later version.</para>
+
+<para>This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.</para>
+
+<para>You should have received a copy of the GNU General Public License along with this program. If not, see <link xlink:href="https://www.gnu.org/licenses/">https://www.gnu.org/licenses/</link>.</para>
+
+<para><informaltable frame='bottom'><tgroup cols='1'><colspec align='center'/><tbody><row><entry align='center'>
+</entry></row></tbody></tgroup></informaltable>
+ </para>
+</section>
+<anchor xml:id="_autoload_8function_8php_1aeb0ea1a67eaf904ab30a0ba71ce810c0"/><section>
+    <title>NS_PLUG</title>
+<indexterm><primary>NS_PLUG</primary><secondary>autoload.function.php</secondary></indexterm>
+<indexterm><primary>autoload.function.php</primary><secondary>NS_PLUG</secondary></indexterm>
+<para><computeroutput>const NS_PLUG &apos;GlpiPlugin\\&apos;</computeroutput></para></section>
+</section>
+</section>

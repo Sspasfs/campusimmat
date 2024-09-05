@@ -1,0 +1,292 @@
+\doxysection{Référence de la classe Lexer}
+\hypertarget{class_seld_1_1_json_lint_1_1_lexer}{}\label{class_seld_1_1_json_lint_1_1_lexer}\index{Lexer@{Lexer}}
+
+
+Graphe de collaboration de Lexer\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=251pt]{class_seld_1_1_json_lint_1_1_lexer__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_seld_1_1_json_lint_1_1_lexer_abe9e2e8b0963b4e4a33ffca8377167dc}{\+\_\+\+\_\+construct}} (\$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{flags}}=0)
+\item 
+\mbox{\hyperlink{class_seld_1_1_json_lint_1_1_lexer_a0957b4e657a26ed209e609283e7eff0c}{lex}} ()
+\item 
+\mbox{\hyperlink{class_seld_1_1_json_lint_1_1_lexer_acdbd2280cbfbe555eafd0f1109afa753}{set\+Input}} (\$input)
+\item 
+\mbox{\hyperlink{class_seld_1_1_json_lint_1_1_lexer_a692a185d6012d3476184c2d40a6a2182}{show\+Position}} ()
+\item 
+\mbox{\hyperlink{class_seld_1_1_json_lint_1_1_lexer_aeb2736856da000c5e6a8301515e3258f}{get\+Past\+Input}} ()
+\item 
+\mbox{\hyperlink{class_seld_1_1_json_lint_1_1_lexer_ab115680b5f0b247c837ffd529d632418}{get\+Upcoming\+Input}} ()
+\item 
+\mbox{\hyperlink{class_seld_1_1_json_lint_1_1_lexer_a8751b4c1197588b38d205f3a9b8c930e}{get\+Full\+Upcoming\+Input}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Champs de données}
+\begin{DoxyCompactItemize}
+\item 
+const \mbox{\hyperlink{class_seld_1_1_json_lint_1_1_lexer_abcce3792747746abf207343a8bf18fcf}{EOF}} = 1
+\item 
+const \mbox{\hyperlink{class_seld_1_1_json_lint_1_1_lexer_a66b708b9b0d2dbd8b1f1ac2a8791da59}{T\+\_\+\+INVALID}} = -\/1
+\item 
+const \mbox{\hyperlink{class_seld_1_1_json_lint_1_1_lexer_a1d59dfbdcaf470c6c47284e725bba4a5}{T\+\_\+\+SKIP\+\_\+\+WHITESPACE}} = 0
+\item 
+const \mbox{\hyperlink{class_seld_1_1_json_lint_1_1_lexer_a03afccb860636e49ea87a9a978f15d95}{T\+\_\+\+ERROR}} = 2
+\item 
+const \mbox{\hyperlink{class_seld_1_1_json_lint_1_1_lexer_ae0419bb9a4ac57e20db8334d08903bfc}{T\+\_\+\+BREAK\+\_\+\+LINE}} = 3
+\item 
+const \mbox{\hyperlink{class_seld_1_1_json_lint_1_1_lexer_a093f615d95a616c6902cb0426b7e3cfc}{T\+\_\+\+COMMENT}} = 30
+\item 
+const \mbox{\hyperlink{class_seld_1_1_json_lint_1_1_lexer_ac350a7a21d11e6dcfee5bc457127022d}{T\+\_\+\+OPEN\+\_\+\+COMMENT}} = 31
+\item 
+const \mbox{\hyperlink{class_seld_1_1_json_lint_1_1_lexer_af060ed1fe935b0484e96da88ef545729}{T\+\_\+\+CLOSE\+\_\+\+COMMENT}} = 32
+\item 
+\mbox{\hyperlink{class_seld_1_1_json_lint_1_1_lexer_a640ddca7cd0457b524948887ff2529e8}{\$match}}
+\item 
+\mbox{\hyperlink{class_seld_1_1_json_lint_1_1_lexer_a7b0dfeae891fcb68612a9aa17a23931a}{\$yylineno}}
+\item 
+\mbox{\hyperlink{class_seld_1_1_json_lint_1_1_lexer_a5629bda13a46c8c1ecda2a1d84367164}{\$yyleng}}
+\item 
+\mbox{\hyperlink{class_seld_1_1_json_lint_1_1_lexer_ad742a7c592381dfe3d315f618976e326}{\$yytext}}
+\item 
+\mbox{\hyperlink{class_seld_1_1_json_lint_1_1_lexer_a96f602213fc4560b256661c8f0c99beb}{\$yylloc}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Fonctions membres protégées}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_seld_1_1_json_lint_1_1_lexer_a3bb6a95b85e1844c77e912bcfbcdfa83}{parse\+Error}} (\$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{str}})
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+Lexer class
+
+Ported from \href{https://github.com/zaach/jsonlint}{\texttt{ https\+://github.\+com/zaach/jsonlint}} 
+
+\doxysubsection{Documentation des constructeurs et destructeur}
+\Hypertarget{class_seld_1_1_json_lint_1_1_lexer_abe9e2e8b0963b4e4a33ffca8377167dc}\label{class_seld_1_1_json_lint_1_1_lexer_abe9e2e8b0963b4e4a33ffca8377167dc} 
+\index{Lexer@{Lexer}!\_\_construct@{\_\_construct}}
+\index{\_\_construct@{\_\_construct}!Lexer@{Lexer}}
+\doxysubsubsection{\texorpdfstring{\_\_construct()}{\_\_construct()}}
+{\footnotesize\ttfamily \+\_\+\+\_\+construct (\begin{DoxyParamCaption}\item[{}]{\$flags = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}[1]{Paramètres}
+int & {\em \$flags} & \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Documentation des fonctions membres}
+\Hypertarget{class_seld_1_1_json_lint_1_1_lexer_a8751b4c1197588b38d205f3a9b8c930e}\label{class_seld_1_1_json_lint_1_1_lexer_a8751b4c1197588b38d205f3a9b8c930e} 
+\index{Lexer@{Lexer}!getFullUpcomingInput@{getFullUpcomingInput}}
+\index{getFullUpcomingInput@{getFullUpcomingInput}!Lexer@{Lexer}}
+\doxysubsubsection{\texorpdfstring{getFullUpcomingInput()}{getFullUpcomingInput()}}
+{\footnotesize\ttfamily get\+Full\+Upcoming\+Input (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{Renvoie}
+string 
+\end{DoxyReturn}
+\Hypertarget{class_seld_1_1_json_lint_1_1_lexer_aeb2736856da000c5e6a8301515e3258f}\label{class_seld_1_1_json_lint_1_1_lexer_aeb2736856da000c5e6a8301515e3258f} 
+\index{Lexer@{Lexer}!getPastInput@{getPastInput}}
+\index{getPastInput@{getPastInput}!Lexer@{Lexer}}
+\doxysubsubsection{\texorpdfstring{getPastInput()}{getPastInput()}}
+{\footnotesize\ttfamily get\+Past\+Input (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{Renvoie}
+string 
+\end{DoxyReturn}
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=327pt]{class_seld_1_1_json_lint_1_1_lexer_aeb2736856da000c5e6a8301515e3258f_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_seld_1_1_json_lint_1_1_lexer_ab115680b5f0b247c837ffd529d632418}\label{class_seld_1_1_json_lint_1_1_lexer_ab115680b5f0b247c837ffd529d632418} 
+\index{Lexer@{Lexer}!getUpcomingInput@{getUpcomingInput}}
+\index{getUpcomingInput@{getUpcomingInput}!Lexer@{Lexer}}
+\doxysubsubsection{\texorpdfstring{getUpcomingInput()}{getUpcomingInput()}}
+{\footnotesize\ttfamily get\+Upcoming\+Input (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{Renvoie}
+string 
+\end{DoxyReturn}
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_seld_1_1_json_lint_1_1_lexer_ab115680b5f0b247c837ffd529d632418_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_seld_1_1_json_lint_1_1_lexer_a0957b4e657a26ed209e609283e7eff0c}\label{class_seld_1_1_json_lint_1_1_lexer_a0957b4e657a26ed209e609283e7eff0c} 
+\index{Lexer@{Lexer}!lex@{lex}}
+\index{lex@{lex}!Lexer@{Lexer}}
+\doxysubsubsection{\texorpdfstring{lex()}{lex()}}
+{\footnotesize\ttfamily lex (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{Renvoie}
+0\texorpdfstring{$\vert$}{|}1\texorpdfstring{$\vert$}{|}4\texorpdfstring{$\vert$}{|}6\texorpdfstring{$\vert$}{|}8\texorpdfstring{$\vert$}{|}10\texorpdfstring{$\vert$}{|}11\texorpdfstring{$\vert$}{|}14\texorpdfstring{$\vert$}{|}17\texorpdfstring{$\vert$}{|}18\texorpdfstring{$\vert$}{|}21\texorpdfstring{$\vert$}{|}22\texorpdfstring{$\vert$}{|}23\texorpdfstring{$\vert$}{|}24\texorpdfstring{$\vert$}{|}30\texorpdfstring{$\vert$}{|}-\/1 
+\end{DoxyReturn}
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_seld_1_1_json_lint_1_1_lexer_a0957b4e657a26ed209e609283e7eff0c_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_seld_1_1_json_lint_1_1_lexer_a3bb6a95b85e1844c77e912bcfbcdfa83}\label{class_seld_1_1_json_lint_1_1_lexer_a3bb6a95b85e1844c77e912bcfbcdfa83} 
+\index{Lexer@{Lexer}!parseError@{parseError}}
+\index{parseError@{parseError}!Lexer@{Lexer}}
+\doxysubsubsection{\texorpdfstring{parseError()}{parseError()}}
+{\footnotesize\ttfamily parse\+Error (\begin{DoxyParamCaption}\item[{}]{\$str }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+\begin{DoxyParams}[1]{Paramètres}
+string & {\em \$str} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+never 
+\end{DoxyReturn}
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=206pt]{class_seld_1_1_json_lint_1_1_lexer_a3bb6a95b85e1844c77e912bcfbcdfa83_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_seld_1_1_json_lint_1_1_lexer_acdbd2280cbfbe555eafd0f1109afa753}\label{class_seld_1_1_json_lint_1_1_lexer_acdbd2280cbfbe555eafd0f1109afa753} 
+\index{Lexer@{Lexer}!setInput@{setInput}}
+\index{setInput@{setInput}!Lexer@{Lexer}}
+\doxysubsubsection{\texorpdfstring{setInput()}{setInput()}}
+{\footnotesize\ttfamily set\+Input (\begin{DoxyParamCaption}\item[{}]{\$input }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}[1]{Paramètres}
+string & {\em \$input} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+\$this 
+\end{DoxyReturn}
+\Hypertarget{class_seld_1_1_json_lint_1_1_lexer_a692a185d6012d3476184c2d40a6a2182}\label{class_seld_1_1_json_lint_1_1_lexer_a692a185d6012d3476184c2d40a6a2182} 
+\index{Lexer@{Lexer}!showPosition@{showPosition}}
+\index{showPosition@{showPosition}!Lexer@{Lexer}}
+\doxysubsubsection{\texorpdfstring{showPosition()}{showPosition()}}
+{\footnotesize\ttfamily show\+Position (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{Renvoie}
+string 
+\end{DoxyReturn}
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=286pt]{class_seld_1_1_json_lint_1_1_lexer_a692a185d6012d3476184c2d40a6a2182_cgraph}
+\end{center}
+\end{figure}
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=219pt]{class_seld_1_1_json_lint_1_1_lexer_a692a185d6012d3476184c2d40a6a2182_icgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Documentation des champs}
+\Hypertarget{class_seld_1_1_json_lint_1_1_lexer_a640ddca7cd0457b524948887ff2529e8}\label{class_seld_1_1_json_lint_1_1_lexer_a640ddca7cd0457b524948887ff2529e8} 
+\index{Lexer@{Lexer}!\$match@{\$match}}
+\index{\$match@{\$match}!Lexer@{Lexer}}
+\doxysubsubsection{\texorpdfstring{\$match}{\$match}}
+{\footnotesize\ttfamily \$match}
+
+\Hypertarget{class_seld_1_1_json_lint_1_1_lexer_a5629bda13a46c8c1ecda2a1d84367164}\label{class_seld_1_1_json_lint_1_1_lexer_a5629bda13a46c8c1ecda2a1d84367164} 
+\index{Lexer@{Lexer}!\$yyleng@{\$yyleng}}
+\index{\$yyleng@{\$yyleng}!Lexer@{Lexer}}
+\doxysubsubsection{\texorpdfstring{\$yyleng}{\$yyleng}}
+{\footnotesize\ttfamily \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{yyleng}}}
+
+\Hypertarget{class_seld_1_1_json_lint_1_1_lexer_a7b0dfeae891fcb68612a9aa17a23931a}\label{class_seld_1_1_json_lint_1_1_lexer_a7b0dfeae891fcb68612a9aa17a23931a} 
+\index{Lexer@{Lexer}!\$yylineno@{\$yylineno}}
+\index{\$yylineno@{\$yylineno}!Lexer@{Lexer}}
+\doxysubsubsection{\texorpdfstring{\$yylineno}{\$yylineno}}
+{\footnotesize\ttfamily \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{yylineno}}}
+
+\Hypertarget{class_seld_1_1_json_lint_1_1_lexer_a96f602213fc4560b256661c8f0c99beb}\label{class_seld_1_1_json_lint_1_1_lexer_a96f602213fc4560b256661c8f0c99beb} 
+\index{Lexer@{Lexer}!\$yylloc@{\$yylloc}}
+\index{\$yylloc@{\$yylloc}!Lexer@{Lexer}}
+\doxysubsubsection{\texorpdfstring{\$yylloc}{\$yylloc}}
+{\footnotesize\ttfamily \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{yylloc}}}
+
+\Hypertarget{class_seld_1_1_json_lint_1_1_lexer_ad742a7c592381dfe3d315f618976e326}\label{class_seld_1_1_json_lint_1_1_lexer_ad742a7c592381dfe3d315f618976e326} 
+\index{Lexer@{Lexer}!\$yytext@{\$yytext}}
+\index{\$yytext@{\$yytext}!Lexer@{Lexer}}
+\doxysubsubsection{\texorpdfstring{\$yytext}{\$yytext}}
+{\footnotesize\ttfamily \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{yytext}}}
+
+\Hypertarget{class_seld_1_1_json_lint_1_1_lexer_abcce3792747746abf207343a8bf18fcf}\label{class_seld_1_1_json_lint_1_1_lexer_abcce3792747746abf207343a8bf18fcf} 
+\index{Lexer@{Lexer}!EOF@{EOF}}
+\index{EOF@{EOF}!Lexer@{Lexer}}
+\doxysubsubsection{\texorpdfstring{EOF}{EOF}}
+{\footnotesize\ttfamily const EOF = 1}
+
+\Hypertarget{class_seld_1_1_json_lint_1_1_lexer_ae0419bb9a4ac57e20db8334d08903bfc}\label{class_seld_1_1_json_lint_1_1_lexer_ae0419bb9a4ac57e20db8334d08903bfc} 
+\index{Lexer@{Lexer}!T\_BREAK\_LINE@{T\_BREAK\_LINE}}
+\index{T\_BREAK\_LINE@{T\_BREAK\_LINE}!Lexer@{Lexer}}
+\doxysubsubsection{\texorpdfstring{T\_BREAK\_LINE}{T\_BREAK\_LINE}}
+{\footnotesize\ttfamily const T\+\_\+\+BREAK\+\_\+\+LINE = 3}
+
+\Hypertarget{class_seld_1_1_json_lint_1_1_lexer_af060ed1fe935b0484e96da88ef545729}\label{class_seld_1_1_json_lint_1_1_lexer_af060ed1fe935b0484e96da88ef545729} 
+\index{Lexer@{Lexer}!T\_CLOSE\_COMMENT@{T\_CLOSE\_COMMENT}}
+\index{T\_CLOSE\_COMMENT@{T\_CLOSE\_COMMENT}!Lexer@{Lexer}}
+\doxysubsubsection{\texorpdfstring{T\_CLOSE\_COMMENT}{T\_CLOSE\_COMMENT}}
+{\footnotesize\ttfamily const T\+\_\+\+CLOSE\+\_\+\+COMMENT = 32}
+
+\Hypertarget{class_seld_1_1_json_lint_1_1_lexer_a093f615d95a616c6902cb0426b7e3cfc}\label{class_seld_1_1_json_lint_1_1_lexer_a093f615d95a616c6902cb0426b7e3cfc} 
+\index{Lexer@{Lexer}!T\_COMMENT@{T\_COMMENT}}
+\index{T\_COMMENT@{T\_COMMENT}!Lexer@{Lexer}}
+\doxysubsubsection{\texorpdfstring{T\_COMMENT}{T\_COMMENT}}
+{\footnotesize\ttfamily const T\+\_\+\+COMMENT = 30}
+
+\Hypertarget{class_seld_1_1_json_lint_1_1_lexer_a03afccb860636e49ea87a9a978f15d95}\label{class_seld_1_1_json_lint_1_1_lexer_a03afccb860636e49ea87a9a978f15d95} 
+\index{Lexer@{Lexer}!T\_ERROR@{T\_ERROR}}
+\index{T\_ERROR@{T\_ERROR}!Lexer@{Lexer}}
+\doxysubsubsection{\texorpdfstring{T\_ERROR}{T\_ERROR}}
+{\footnotesize\ttfamily const T\+\_\+\+ERROR = 2}
+
+\Hypertarget{class_seld_1_1_json_lint_1_1_lexer_a66b708b9b0d2dbd8b1f1ac2a8791da59}\label{class_seld_1_1_json_lint_1_1_lexer_a66b708b9b0d2dbd8b1f1ac2a8791da59} 
+\index{Lexer@{Lexer}!T\_INVALID@{T\_INVALID}}
+\index{T\_INVALID@{T\_INVALID}!Lexer@{Lexer}}
+\doxysubsubsection{\texorpdfstring{T\_INVALID}{T\_INVALID}}
+{\footnotesize\ttfamily const T\+\_\+\+INVALID = -\/1}
+
+\Hypertarget{class_seld_1_1_json_lint_1_1_lexer_ac350a7a21d11e6dcfee5bc457127022d}\label{class_seld_1_1_json_lint_1_1_lexer_ac350a7a21d11e6dcfee5bc457127022d} 
+\index{Lexer@{Lexer}!T\_OPEN\_COMMENT@{T\_OPEN\_COMMENT}}
+\index{T\_OPEN\_COMMENT@{T\_OPEN\_COMMENT}!Lexer@{Lexer}}
+\doxysubsubsection{\texorpdfstring{T\_OPEN\_COMMENT}{T\_OPEN\_COMMENT}}
+{\footnotesize\ttfamily const T\+\_\+\+OPEN\+\_\+\+COMMENT = 31}
+
+\Hypertarget{class_seld_1_1_json_lint_1_1_lexer_a1d59dfbdcaf470c6c47284e725bba4a5}\label{class_seld_1_1_json_lint_1_1_lexer_a1d59dfbdcaf470c6c47284e725bba4a5} 
+\index{Lexer@{Lexer}!T\_SKIP\_WHITESPACE@{T\_SKIP\_WHITESPACE}}
+\index{T\_SKIP\_WHITESPACE@{T\_SKIP\_WHITESPACE}!Lexer@{Lexer}}
+\doxysubsubsection{\texorpdfstring{T\_SKIP\_WHITESPACE}{T\_SKIP\_WHITESPACE}}
+{\footnotesize\ttfamily const T\+\_\+\+SKIP\+\_\+\+WHITESPACE = 0}
+
+
+
+La documentation de cette classe a été générée à partir du fichier suivant \+:\begin{DoxyCompactItemize}
+\item 
+public/glpi/vendor/seld/jsonlint/src/\+Seld/\+Json\+Lint/\mbox{\hyperlink{seld_2jsonlint_2src_2_seld_2_json_lint_2_lexer_8php}{Lexer.\+php}}\end{DoxyCompactItemize}

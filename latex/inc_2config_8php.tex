@@ -1,0 +1,62 @@
+\doxysection{Référence du fichier public/glpi/inc/config.php}
+\hypertarget{inc_2config_8php}{}\label{inc_2config_8php}\index{public/glpi/inc/config.php@{public/glpi/inc/config.php}}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{global}} \mbox{\hyperlink{inc_2config_8php_a2e00a61703ee4673cdfb5eb376a9b295}{\$\+CFG\+\_\+\+GLPI}}
+\item 
+\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{global}} \mbox{\hyperlink{inc_2config_8php_afbbfb0fec011d4cb90ba39184f1939c8}{\$\+GLPI}} = \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{new}} \mbox{\hyperlink{class_g_l_p_i}{GLPI}}()
+\item 
+\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{global}} \mbox{\hyperlink{inc_2config_8php_a829bfa0114cf4c327b3ad59afda570fb}{\$\+GLPI\+\_\+\+CACHE}} = \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{cache\+\_\+manager}}-\/$>$get\+Core\+Cache\+Instance()
+\item 
+\mbox{\hyperlink{inc_2config_8php_a58c8c85ef924907b8db4bd27120f0b8f}{\$cache\+\_\+manager}} = \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{new}} \mbox{\hyperlink{class_glpi_1_1_cache_1_1_cache_manager}{Cache\+Manager}}()
+\item 
+\mbox{\hyperlink{dropdown_location_8php_a52332c22f84432520971794825a5a8e7}{if}}( \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{skip\+\_\+db\+\_\+check}} ?? false) \mbox{\hyperlink{paragonie_2sodium__compat_2autoload_8php_a996627e786133d369a87f2710aab5bcf}{elseif}}(!file\+\_\+exists(\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{GLPI\+\_\+\+CONFIG\+\_\+\+DIR}} . "{}/config\+\_\+db.\+php"{})) \mbox{\hyperlink{inc_2config_8php_a92e36e9bde543dd73e4040cc6dc8eb0a}{else}}
+\item 
+\mbox{\hyperlink{inc_2config_8php_aab4542c6fdf7dcc6752de57c2d3e18eb}{\$missing\+\_\+db\+\_\+config}} = !class\+\_\+exists(\textquotesingle{}\mbox{\hyperlink{class_d_b}{DB}}\textquotesingle{}, false)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Documentation des variables}
+\Hypertarget{inc_2config_8php_a58c8c85ef924907b8db4bd27120f0b8f}\label{inc_2config_8php_a58c8c85ef924907b8db4bd27120f0b8f} 
+\index{config.php@{config.php}!\$cache\_manager@{\$cache\_manager}}
+\index{\$cache\_manager@{\$cache\_manager}!config.php@{config.php}}
+\doxysubsubsection{\texorpdfstring{\$cache\_manager}{\$cache\_manager}}
+{\footnotesize\ttfamily \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{cache\+\_\+manager}} = \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{new}} \mbox{\hyperlink{class_glpi_1_1_cache_1_1_cache_manager}{Cache\+Manager}}()}
+
+\Hypertarget{inc_2config_8php_a2e00a61703ee4673cdfb5eb376a9b295}\label{inc_2config_8php_a2e00a61703ee4673cdfb5eb376a9b295} 
+\index{config.php@{config.php}!\$CFG\_GLPI@{\$CFG\_GLPI}}
+\index{\$CFG\_GLPI@{\$CFG\_GLPI}!config.php@{config.php}}
+\doxysubsubsection{\texorpdfstring{\$CFG\_GLPI}{\$CFG\_GLPI}}
+{\footnotesize\ttfamily \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{global}} \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{CFG\+\_\+\+GLPI}}}
+
+\Hypertarget{inc_2config_8php_afbbfb0fec011d4cb90ba39184f1939c8}\label{inc_2config_8php_afbbfb0fec011d4cb90ba39184f1939c8} 
+\index{config.php@{config.php}!\$GLPI@{\$GLPI}}
+\index{\$GLPI@{\$GLPI}!config.php@{config.php}}
+\doxysubsubsection{\texorpdfstring{\$GLPI}{\$GLPI}}
+{\footnotesize\ttfamily \mbox{\hyperlink{dropdown_location_8php_a52332c22f84432520971794825a5a8e7}{if}} (!\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{isset}}( \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\+\_\+\+SESSION}}\mbox{[} \textquotesingle{}\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{glpi\+\_\+use\+\_\+mode}}\textquotesingle{}\mbox{]})) \$\mbox{\hyperlink{class_g_l_p_i}{GLPI}} = \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{new}} \mbox{\hyperlink{class_g_l_p_i}{GLPI}}()}
+
+\Hypertarget{inc_2config_8php_a829bfa0114cf4c327b3ad59afda570fb}\label{inc_2config_8php_a829bfa0114cf4c327b3ad59afda570fb} 
+\index{config.php@{config.php}!\$GLPI\_CACHE@{\$GLPI\_CACHE}}
+\index{\$GLPI\_CACHE@{\$GLPI\_CACHE}!config.php@{config.php}}
+\doxysubsubsection{\texorpdfstring{\$GLPI\_CACHE}{\$GLPI\_CACHE}}
+{\footnotesize\ttfamily \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{GLPI\+\_\+\+CACHE}} = \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{cache\+\_\+manager}}-\/$>$get\+Core\+Cache\+Instance()}
+
+\Hypertarget{inc_2config_8php_aab4542c6fdf7dcc6752de57c2d3e18eb}\label{inc_2config_8php_aab4542c6fdf7dcc6752de57c2d3e18eb} 
+\index{config.php@{config.php}!\$missing\_db\_config@{\$missing\_db\_config}}
+\index{\$missing\_db\_config@{\$missing\_db\_config}!config.php@{config.php}}
+\doxysubsubsection{\texorpdfstring{\$missing\_db\_config}{\$missing\_db\_config}}
+{\footnotesize\ttfamily \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{missing\+\_\+db\+\_\+config}} = !class\+\_\+exists(\textquotesingle{}\mbox{\hyperlink{class_d_b}{DB}}\textquotesingle{}, false)}
+
+\Hypertarget{inc_2config_8php_a92e36e9bde543dd73e4040cc6dc8eb0a}\label{inc_2config_8php_a92e36e9bde543dd73e4040cc6dc8eb0a} 
+\index{config.php@{config.php}!else@{else}}
+\index{else@{else}!config.php@{config.php}}
+\doxysubsubsection{\texorpdfstring{else}{else}}
+{\footnotesize\ttfamily \mbox{\hyperlink{dropdown_location_8php_a52332c22f84432520971794825a5a8e7}{if}} ( \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{missing\+\_\+db\+\_\+config}}) else}
+
+{\bfseries Valeur initiale \+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{include\_once}}(\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{GLPI\_CONFIG\_DIR}}\ .\ \textcolor{stringliteral}{"{}/config\_db.php"{}})}
+
+\end{DoxyCode}

@@ -1,0 +1,189 @@
+\chapter{Delegate lookup feature Meta Document}
+\hypertarget{md_public_2glpi_2vendor_2container-interop_2container-interop_2docs_2_delegate-lookup-meta}{}\label{md_public_2glpi_2vendor_2container-interop_2container-interop_2docs_2_delegate-lookup-meta}\index{Delegate lookup feature Meta Document@{Delegate lookup feature Meta Document}}
+\hypertarget{md_public_2glpi_2vendor_2container-interop_2container-interop_2docs_2_delegate-lookup-meta_autotoc_md5719}{}\doxysection{\texorpdfstring{1. Summary}{1. Summary}}\label{md_public_2glpi_2vendor_2container-interop_2container-interop_2docs_2_delegate-lookup-meta_autotoc_md5719}
+This document describes the {\itshape delegate lookup feature}. Containers are not required to implement this feature to respect the {\ttfamily Container\+Interface}. However, containers implementing this feature will offer a greater lever of interoperability with other containers, allowing multiple containers to share entries in the same application. Implementation of this feature is therefore recommanded.\hypertarget{md_public_2glpi_2vendor_2container-interop_2container-interop_2docs_2_delegate-lookup-meta_autotoc_md5720}{}\doxysection{\texorpdfstring{2. Why Bother?}{2. Why Bother?}}\label{md_public_2glpi_2vendor_2container-interop_2container-interop_2docs_2_delegate-lookup-meta_autotoc_md5720}
+The \href{../src/Interop/Container/ContainerInterface.php}{\texttt{ {\ttfamily Container\+Interface}}} (\doxysectlink{md_public_2glpi_2vendor_2container-interop_2container-interop_2docs_2_container_interface}{meta doc}{0}) standardizes how frameworks and libraries make use of a container to obtain objects and parameters.
+
+By standardizing such a behavior, frameworks and libraries relying on the {\ttfamily Container\+Interface} could work with any compatible container. That would allow end users to choose their own container based on their own preferences.
+
+The {\ttfamily Container\+Interface} is also enough if we want to have several containers side-\/by-\/side in the same application. For instance, this is what the \href{https://github.com/jeremeamia/acclimate-container/blob/master/src/CompositeContainer.php}{\texttt{ Composite\+Container}} class of \href{https://github.com/jeremeamia/acclimate-container}{\texttt{ Acclimate}} is designed for\+:
+
+
+
+However, an instance in container 1 cannot reference an instance in container 2.
+
+It would be better if an instance of container 1 could reference an instance in container 2, and the opposite should be true.
+
+
+
+In the sample above, entry 1 in container 1 is referencing entry 3 in container 2.\hypertarget{md_public_2glpi_2vendor_2container-interop_2container-interop_2docs_2_delegate-lookup-meta_autotoc_md5721}{}\doxysection{\texorpdfstring{3. Scope}{3. Scope}}\label{md_public_2glpi_2vendor_2container-interop_2container-interop_2docs_2_delegate-lookup-meta_autotoc_md5721}
+\hypertarget{md_public_2glpi_2vendor_2container-interop_2container-interop_2docs_2_delegate-lookup-meta_autotoc_md5722}{}\doxysubsection{\texorpdfstring{3.\+1 Goals}{3.\+1 Goals}}\label{md_public_2glpi_2vendor_2container-interop_2container-interop_2docs_2_delegate-lookup-meta_autotoc_md5722}
+The goal of the {\itshape delegate lookup} feature is to allow several containers to share entries.\hypertarget{md_public_2glpi_2vendor_2container-interop_2container-interop_2docs_2_delegate-lookup-meta_autotoc_md5723}{}\doxysection{\texorpdfstring{4. Approaches}{4. Approaches}}\label{md_public_2glpi_2vendor_2container-interop_2container-interop_2docs_2_delegate-lookup-meta_autotoc_md5723}
+\hypertarget{md_public_2glpi_2vendor_2container-interop_2container-interop_2docs_2_delegate-lookup-meta_autotoc_md5724}{}\doxysubsection{\texorpdfstring{4.\+1 Chosen Approach}{4.\+1 Chosen Approach}}\label{md_public_2glpi_2vendor_2container-interop_2container-interop_2docs_2_delegate-lookup-meta_autotoc_md5724}
+Containers implementing this feature can perform dependency lookups in other containers.
+
+A container implementing this feature\+:
+
+
+\begin{DoxyItemize}
+\item must implement the {\ttfamily Container\+Interface}
+\item must provide a way to register a {\itshape delegate container} (using a constructor parameter, or a setter, or any possible way). The {\itshape delegate container} must implement the {\ttfamily Container\+Interface}.
+\end{DoxyItemize}
+
+When a {\itshape delegate container} is configured on a container\+:
+
+
+\begin{DoxyItemize}
+\item Calls to the {\ttfamily get} method should only return an entry if the entry is part of the container. If the entry is not part of the container, an exception should be thrown (as required in the {\ttfamily Container\+Interface}).
+\item Calls to the {\ttfamily has} method should only return {\itshape true} if the entry is part of the container. If the entry is not part of the container, {\itshape false} should be returned.
+\begin{DoxyItemize}
+\item Finally, the important part\+: if the entry we are fetching has dependencies, {\bfseries{instead}} of perfoming the dependency lookup in the container, the lookup is performed on the {\itshape delegate container}.
+\end{DoxyItemize}
+\end{DoxyItemize}
+
+Important! By default, the lookup should be performed on the delegate container {\bfseries{only}}, not on the container itself.
+
+It is however allowed for containers to provide exception cases for special entries, and a way to lookup into the same container (or another container) instead of the delegate container.\hypertarget{md_public_2glpi_2vendor_2container-interop_2container-interop_2docs_2_delegate-lookup-meta_autotoc_md5725}{}\doxysubsection{\texorpdfstring{4.\+2 Typical usage}{4.\+2 Typical usage}}\label{md_public_2glpi_2vendor_2container-interop_2container-interop_2docs_2_delegate-lookup-meta_autotoc_md5725}
+The {\itshape delegate container} will usually be a composite container. A composite container is a container that contains several other containers. When performing a lookup on a composite container, the inner containers are queried until one container returns an entry. An inner container implementing the {\itshape delegate lookup feature} will return entries it contains, but if these entries have dependencies, the dependencies lookup calls will be performed on the composite container, giving a chance to all containers to answer.
+
+Interestingly enough, the order in which containers are added in the composite container matters. Indeed, the first containers to be added in the composite container can "{}override"{} the entries of containers with lower priority.
+
+
+
+In the example above, "{}container 2"{} contains a controller "{}my\+Controller"{} and the controller is referencing an "{}entity\+Manager"{} entry. "{}\+Container 1"{} contains also an entry named "{}entity\+Manager"{}. Without the {\itshape delegate lookup} feature, when requesting the "{}my\+Controller"{} instance to container 2, it would take in charge the instanciation of both entries.
+
+However, using the {\itshape delegate lookup} feature, here is what happens when we ask the composite container for the "{}my\+Controller"{} instance\+:
+
+
+\begin{DoxyItemize}
+\item The composite container asks container 1 if if contains the "{}my\+Controller"{} instance. The answer is no.
+\item The composite container asks container 2 if if contains the "{}my\+Controller"{} instance. The answer is yes.
+\item The composite container performs a {\ttfamily get} call on container 2 for the "{}my\+Controller"{} instance.
+\item Container 2 sees that "{}my\+Controller"{} has a dependency on "{}entity\+Manager"{}.
+\item Container 2 delegates the lookup of "{}entity\+Manager"{} to the composite container.
+\item The composite container asks container 1 if if contains the "{}entity\+Manager"{} instance. The answer is yes.
+\item The composite container performs a {\ttfamily get} call on container 1 for the "{}entity\+Manager"{} instance.
+\end{DoxyItemize}
+
+In the end, we get a controller instanciated by container 2 that references an entity\+Manager instanciated by container 1.\hypertarget{md_public_2glpi_2vendor_2container-interop_2container-interop_2docs_2_delegate-lookup-meta_autotoc_md5726}{}\doxysubsection{\texorpdfstring{4.\+3 Alternative\+: the fallback strategy}{4.\+3 Alternative\+: the fallback strategy}}\label{md_public_2glpi_2vendor_2container-interop_2container-interop_2docs_2_delegate-lookup-meta_autotoc_md5726}
+The first proposed approach we tried was to perform all the lookups in the "{}local"{} container, and if a lookup fails in the container, to use the delegate container. In this scenario, the delegate container is used in "{}fallback"{} mode.
+
+This strategy has been described in @moufmouf blog post\+: \href{http://mouf-php.com/container-interop-whats-next}{\texttt{ http\+://mouf-\/php.\+com/container-\/interop-\/whats-\/next}} (solution 1). It was also discussed \href{https://github.com/container-interop/container-interop/pull/8\#issuecomment-33570697}{\texttt{ here}} and \href{https://github.com/container-interop/container-interop/pull/20\#issuecomment-56599631}{\texttt{ here}}.
+
+Problems with this strategy\+:
+
+
+\begin{DoxyItemize}
+\item Heavy problem regarding infinite loops
+\item Unable to overload a container entry with the delegate container entry
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2container-interop_2container-interop_2docs_2_delegate-lookup-meta_autotoc_md5727}{}\doxysubsection{\texorpdfstring{4.\+4 Alternative\+: force implementing an interface}{4.\+4 Alternative\+: force implementing an interface}}\label{md_public_2glpi_2vendor_2container-interop_2container-interop_2docs_2_delegate-lookup-meta_autotoc_md5727}
+The first proposed approach was to develop a {\ttfamily Parent\+Aware\+Container\+Interface} interface. It was proposed here\+: \href{https://github.com/container-interop/container-interop/pull/8}{\texttt{ https\+://github.\+com/container-\/interop/container-\/interop/pull/8}}
+
+The interface would have had the behaviour of the delegate lookup feature but would have forced the addition of a {\ttfamily set\+Parent\+Containter} method\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{interface\ }\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{ParentAwareContainerInterface}}\ \textcolor{keyword}{extends}\ \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{ReadableContainerInterface}}\ \{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{function}\ \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{setParentContainer}}(ContainerInterface\ \$container);}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+The interface idea was first questioned by @\+Ocramius \href{https://github.com/container-interop/container-interop/pull/8\#issuecomment-51721777}{\texttt{ here}}. @\+Ocramius expressed the idea that an interface should not contain setters, otherwise, it is forcing implementation details on the class implementing the interface. Then @mnapoli made a proposal for a "{}convention"{} \href{https://github.com/container-interop/container-interop/pull/8\#issuecomment-51841079}{\texttt{ here}}, this idea was further discussed until all participants in the discussion agreed to remove the interface idea and replace it with a "{}standard"{} feature.
+
+{\bfseries{Pros\+:}}
+
+If we had had an interface, we could have delegated the registration of the delegate/composite container to the the delegate/composite container itself. For instance\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\$containerA}}\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{ContainerA}}();}
+\DoxyCodeLine{\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\$containerB}}\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{ContainerB}}();}
+\DoxyCodeLine{}
+\DoxyCodeLine{\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\$compositeContainer}}\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{CompositeContainer}}([\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\$containerA}},\ \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\$containerB}}]);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ The\ call\ to\ 'setParentContainer'\ is\ delegated\ to\ the\ CompositeContainer}}
+\DoxyCodeLine{\textcolor{comment}{//\ It\ is\ not\ the\ responsibility\ of\ the\ user\ anymore.}}
+\DoxyCodeLine{\textcolor{keyword}{class\ }\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{CompositeContainer}}\ \{}
+\DoxyCodeLine{\ \ \ \ ...}
+\DoxyCodeLine{\ \ \ \ }
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{function}\ \mbox{\hyperlink{namespace_symfony_1_1_contracts_1_1_service_a79a70b0586b2c3bfc7b4f0aa05c171cc}{\_\_construct}}(\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\$containers}})\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordflow}{foreach}\ (\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\$containers}}\ \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{as}}\ \$container)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\$container\ \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{instanceof}}\ \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{ParentAwareContainerInterface}})\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \$container-\/>setParentContainer(\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\$this}});}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ ...}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+{\bfseries{Cons\+:}}
+
+Cons have been extensively discussed \href{https://github.com/container-interop/container-interop/pull/8\#issuecomment-51721777}{\texttt{ here}}. Basically, forcing a setter into an interface is a bad idea. Setters are similar to constructor arguments, and it\textquotesingle{}s a bad idea to standardize a constructor\+: how the delegate container is configured into a container is an implementation detail. This outweights the benefits of the interface.\hypertarget{md_public_2glpi_2vendor_2container-interop_2container-interop_2docs_2_delegate-lookup-meta_autotoc_md5728}{}\doxysubsection{\texorpdfstring{4.\+4 Alternative\+: no exception case for delegate lookups}{4.\+4 Alternative\+: no exception case for delegate lookups}}\label{md_public_2glpi_2vendor_2container-interop_2container-interop_2docs_2_delegate-lookup-meta_autotoc_md5728}
+Originally, the proposed wording for delegate lookup calls was\+:
+
+\begin{quote}
+Important! The lookup MUST be performed on the delegate container {\bfseries{only}}, not on the container itself. \end{quote}
+This was later replaced by\+:
+
+\begin{quote}
+Important! By default, the lookup SHOULD be performed on the delegate container {\bfseries{only}}, not on the container itself.
+
+It is however allowed for containers to provide exception cases for special entries, and a way to lookup into the same container (or another container) instead of the delegate container. \end{quote}
+Exception cases have been allowed to avoid breaking dependencies with some services that must be provided by the container (on @njasm proposal). This was proposed here\+: \href{https://github.com/container-interop/container-interop/pull/20\#issuecomment-56597235}{\texttt{ https\+://github.\+com/container-\/interop/container-\/interop/pull/20\#issuecomment-\/56597235}}\hypertarget{md_public_2glpi_2vendor_2container-interop_2container-interop_2docs_2_delegate-lookup-meta_autotoc_md5729}{}\doxysubsection{\texorpdfstring{4.\+5 Alternative\+: having one of the containers act as the composite container}{4.\+5 Alternative\+: having one of the containers act as the composite container}}\label{md_public_2glpi_2vendor_2container-interop_2container-interop_2docs_2_delegate-lookup-meta_autotoc_md5729}
+In real-\/life scenarios, we usually have a big framework (Symfony 2, Zend Framework 2, etc...) and we want to add another DI container to this container. Most of the time, the "{}big"{} framework will be responsible for creating the controller\textquotesingle{}s instances, using it\textquotesingle{}s own DI container. Until {\itshape container-\/interop} is fully adopted, the "{}big"{} framework will not be aware of the existence of a composite container that it should use instead of its own container.
+
+For this real-\/life use cases, @mnapoli and @moufmouf proposed to extend the "{}big"{} framework\textquotesingle{}s DI container to make it act as a composite container.
+
+This has been discussed \href{https://github.com/container-interop/container-interop/pull/8\#issuecomment-40367194}{\texttt{ here}} and \href{http://mouf-php.com/container-interop-whats-next\#solution4}{\texttt{ here}}.
+
+This was implemented in Symfony 2 using\+:
+
+
+\begin{DoxyItemize}
+\item \href{https://github.com/thecodingmachine/interop.symfony.di/tree/v0.1.0}{\texttt{ interop.\+symfony.\+di}}
+\item \href{https://github.com/mnapoli/framework-interop/}{\texttt{ framework interop}}
+\end{DoxyItemize}
+
+This was implemented in Silex using\+:
+
+
+\begin{DoxyItemize}
+\item \href{https://github.com/thecodingmachine/interop.silex.di}{\texttt{ interop.\+silex.\+di}}
+\end{DoxyItemize}
+
+Having a container act as the composite container is not part of the delegate lookup standard because it is simply a temporary design pattern used to make existing frameworks that do not support yet Container\+Interop play nice with other DI containers.\hypertarget{md_public_2glpi_2vendor_2container-interop_2container-interop_2docs_2_delegate-lookup-meta_autotoc_md5730}{}\doxysection{\texorpdfstring{5. Implementations}{5. Implementations}}\label{md_public_2glpi_2vendor_2container-interop_2container-interop_2docs_2_delegate-lookup-meta_autotoc_md5730}
+The following projects already implement the delegate lookup feature\+:
+
+
+\begin{DoxyItemize}
+\item \href{http://mouf-php.com}{\texttt{ Mouf}}, through the \href{https://github.com/thecodingmachine/mouf/blob/2.0/src/Mouf/MoufManager.php\#L2120}{\texttt{ {\ttfamily set\+Delegate\+Lookup\+Container} method}}
+\item \href{http://php-di.org/}{\texttt{ PHP-\/\+DI}}, through the \href{https://github.com/mnapoli/PHP-DI/blob/master/src/DI/Container.php\#L72}{\texttt{ {\ttfamily \$wrapper\+Container} parameter of the constructor}}
+\item \href{https://github.com/moufmouf/pimple-interop}{\texttt{ pimple-\/interop}}, through the \href{https://github.com/moufmouf/pimple-interop/blob/master/src/Interop/Container/Pimple/PimpleInterop.php\#L62}{\texttt{ {\ttfamily \$container} parameter of the constructor}}
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2container-interop_2container-interop_2docs_2_delegate-lookup-meta_autotoc_md5731}{}\doxysection{\texorpdfstring{6. People}{6. People}}\label{md_public_2glpi_2vendor_2container-interop_2container-interop_2docs_2_delegate-lookup-meta_autotoc_md5731}
+Are listed here all people that contributed in the discussions, by alphabetical order\+:
+
+
+\begin{DoxyItemize}
+\item \href{https://github.com/drealecs}{\texttt{ Alexandru Pătrănescu}}
+\item \href{https://github.com/potherca}{\texttt{ Ben Peachey}}
+\item \href{https://github.com/moufmouf}{\texttt{ David Négrier}}
+\item \href{https://github.com/jeremeamia}{\texttt{ Jeremy Lindblom}}
+\item \href{https://github.com/Ocramius}{\texttt{ Marco Pivetta}}
+\item \href{https://github.com/mnapoli}{\texttt{ Matthieu Napoli}}
+\item \href{https://github.com/njasm}{\texttt{ Nelson J Morais}}
+\item \href{https://github.com/philsturgeon}{\texttt{ Phil Sturgeon}}
+\item \href{https://github.com/shochdoerfer}{\texttt{ Stephan Hochdörfer}}
+\end{DoxyItemize}\hypertarget{md_public_2glpi_2vendor_2container-interop_2container-interop_2docs_2_delegate-lookup-meta_autotoc_md5732}{}\doxysection{\texorpdfstring{7. Relevant Links}{7. Relevant Links}}\label{md_public_2glpi_2vendor_2container-interop_2container-interop_2docs_2_delegate-lookup-meta_autotoc_md5732}
+{\itshape {\bfseries{Note\+:}} Order descending chronologically.}
+
+
+\begin{DoxyItemize}
+\item \href{https://github.com/container-interop/container-interop/pull/20}{\texttt{ Pull request on the delegate lookup feature}}
+\item \href{https://github.com/container-interop/container-interop/pull/8}{\texttt{ Pull request on the interface idea}}
+\item \href{http://mouf-php.com/container-interop-whats-next}{\texttt{ Original article exposing the delegate lookup idea along many others}} 
+\end{DoxyItemize}

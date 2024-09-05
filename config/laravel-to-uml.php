@@ -21,15 +21,15 @@ return [
     'jobs'          => false,
     'listeners'     => false,
     'mails'         => false,
-    'middlewares'   => false,
+    'middlewares'   => true,
     'models'        => true,
     'notifications' => false,
     'observers'     => false,
     'policies'      => false,
     'providers'     => false,
     'requests'      => true,
-    'resources'     => false,
-    'rules'         => false,
+    'resources'     => true,
+    'rules'         => true,
 
     /**
      * You can define specific nomnoml styling.

@@ -1,0 +1,79 @@
+\doxysection{Référence de l\textquotesingle{}interface Translator\+Interface}
+\hypertarget{interface_symfony_1_1_contracts_1_1_translation_1_1_translator_interface}{}\label{interface_symfony_1_1_contracts_1_1_translation_1_1_translator_interface}\index{TranslatorInterface@{TranslatorInterface}}
+
+
+Graphe de collaboration de Translator\+Interface\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=197pt]{interface_symfony_1_1_contracts_1_1_translation_1_1_translator_interface__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{interface_symfony_1_1_contracts_1_1_translation_1_1_translator_interface_a527fde6c2cd889a6657342c6414254e2}{trans}} (string \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{id}}, array \$parameters=\mbox{[}$\,$\mbox{]}, string \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{domain}}=null, string \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{locale}}=null)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+\begin{DoxyAuthor}{Auteur}
+Fabien Potencier \href{mailto:fabien@symfony.com}{\texttt{ fabien@symfony.\+com}}
+\end{DoxyAuthor}
+@method string get\+Locale() Returns the default locale 
+
+\doxysubsection{Documentation des fonctions membres}
+\Hypertarget{interface_symfony_1_1_contracts_1_1_translation_1_1_translator_interface_a527fde6c2cd889a6657342c6414254e2}\label{interface_symfony_1_1_contracts_1_1_translation_1_1_translator_interface_a527fde6c2cd889a6657342c6414254e2} 
+\index{TranslatorInterface@{TranslatorInterface}!trans@{trans}}
+\index{trans@{trans}!TranslatorInterface@{TranslatorInterface}}
+\doxysubsubsection{\texorpdfstring{trans()}{trans()}}
+{\footnotesize\ttfamily trans (\begin{DoxyParamCaption}\item[{string}]{\$id,  }\item[{array}]{\$parameters = {\ttfamily \mbox{[}\mbox{]}},  }\item[{string}]{\$domain = {\ttfamily null},  }\item[{string}]{\$locale = {\ttfamily null} }\end{DoxyParamCaption})}
+
+Translates the given message.
+
+When a number is provided as a parameter named "{}\%count\%"{}, the message is parsed for plural forms and a translation is chosen according to this number using the following rules\+:
+
+Given a message with different plural translations separated by a pipe (\texorpdfstring{$\vert$}{|}), this method returns the correct portion of the message based on the given number, locale and the pluralization rules in the message itself.
+
+The message supports two different types of pluralization rules\+:
+
+interval\+: \{0\} There are no apples\texorpdfstring{$\vert$}{|}\{1\} There is one apple\texorpdfstring{$\vert$}{|}\mbox{]}1,Inf\mbox{]} There are count\% apples indexed\+: There is one apple\texorpdfstring{$\vert$}{|}\+There are count\% apples
+
+The indexed solution can also contain labels (e.\+g. one\+: There is one apple). This is purely for making the translations more clear -\/ it does not affect the functionality.
+
+The two methods can also be mixed\+: \{0\} There are no apples\texorpdfstring{$\vert$}{|}one\+: There is one apple\texorpdfstring{$\vert$}{|}more\+: There are count\% apples
+
+An interval can represent a finite set of numbers\+: \{1,2,3,4\}
+
+An interval can represent numbers between two numbers\+: \mbox{[}1, +Inf\mbox{]} \mbox{]}-\/1,2\mbox{[}
+
+The left delimiter can be \mbox{[} (inclusive) or \mbox{]} (exclusive). The right delimiter can be \mbox{[} (exclusive) or \mbox{]} (inclusive). Beside numbers, you can use -\/Inf and +Inf for the infinite.
+
+\begin{DoxySeeAlso}{Voir également}
+\href{https://en.wikipedia.org/wiki/ISO_31-11}{\texttt{ https\+://en.\+wikipedia.\+org/wiki/\+ISO\+\_\+31-\/11}}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}[1]{Paramètres}
+string & {\em \$id} & The message id (may also be an object that can be cast to string) \\
+\hline
+array & {\em \$parameters} & An array of parameters for the message \\
+\hline
+string | null & {\em \$domain} & The domain for the message or null to use the default \\
+\hline
+string | null & {\em \$locale} & The locale or null to use the default\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+string
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em } & \\
+\hline
+\end{DoxyExceptions}
+Invalid\+Argument\+Exception If the locale contains invalid characters 
+
+La documentation de cette interface a été générée à partir du fichier suivant \+:\begin{DoxyCompactItemize}
+\item 
+public/glpi/vendor/symfony/translation-\/contracts/\mbox{\hyperlink{symfony_2translation-contracts_2_translator_interface_8php}{Translator\+Interface.\+php}}\end{DoxyCompactItemize}

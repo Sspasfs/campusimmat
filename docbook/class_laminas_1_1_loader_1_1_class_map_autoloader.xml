@@ -1,0 +1,504 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_laminas_1_1_loader_1_1_class_map_autoloader" xml:lang="fr">
+<title>Référence de la classe ClassMapAutoloader</title>
+<indexterm><primary>ClassMapAutoloader</primary></indexterm>
+Graphe d&apos;héritage de ClassMapAutoloader:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_laminas_1_1_loader_1_1_class_map_autoloader__inherit__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Graphe de collaboration de ClassMapAutoloader:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_laminas_1_1_loader_1_1_class_map_autoloader__coll__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Fonctions membres publiques    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_laminas_1_1_loader_1_1_class_map_autoloader_1ae8cda3b1eced24bb5ffaab1fcb107cf7">__construct</link> ($options=null)</para>
+</listitem>
+            <listitem><para><link linkend="_class_laminas_1_1_loader_1_1_class_map_autoloader_1a8213e4c39213f7d6250f72ff6f2699f2">setOptions</link> ($options)</para>
+</listitem>
+            <listitem><para><link linkend="_class_laminas_1_1_loader_1_1_class_map_autoloader_1afc24615fd6e8946646da266f2e347a0c">registerAutoloadMap</link> ($map)</para>
+</listitem>
+            <listitem><para><link linkend="_class_laminas_1_1_loader_1_1_class_map_autoloader_1a5af2ee1c0daa895e80152d8f9593e8ca">registerAutoloadMaps</link> ($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">locations</link>)</para>
+</listitem>
+            <listitem><para><link linkend="_class_laminas_1_1_loader_1_1_class_map_autoloader_1a60885640f190ac7911e287eddfac4e5a">getAutoloadMap</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_class_laminas_1_1_loader_1_1_class_map_autoloader_1aad6cfb5484c7eda55731134910c7a280">autoload</link> ($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">class</link>)</para>
+</listitem>
+            <listitem><para><link linkend="_class_laminas_1_1_loader_1_1_class_map_autoloader_1acc294a6cc8e69743746820e3d15e3f78">register</link> ()</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Fonctions membres publiques statiques    </title>
+        <itemizedlist>
+            <listitem><para>static <link linkend="_class_laminas_1_1_loader_1_1_class_map_autoloader_1a1a45bec27aa6b43b0f7b09aef11c84bb">realPharPath</link> ($path)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Fonctions membres protégées    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_laminas_1_1_loader_1_1_class_map_autoloader_1aca360fde8de16aa7900843e8684e36fb">loadMapFromFile</link> ($location)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Attributs protégés    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_laminas_1_1_loader_1_1_class_map_autoloader_1a665e26eb46944625af1dd68b3413c64b">$mapsLoaded</link> = []</para>
+</listitem>
+            <listitem><para><link linkend="_class_laminas_1_1_loader_1_1_class_map_autoloader_1acdcfcd6e65900bdadd894106750cf520">$map</link> = []</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Description détaillée</title>
+
+<para>Class-map autoloader</para>
+
+<para>Utilizes class-map files to lookup classfile locations. </para>
+</section>
+<section>
+<title>Documentation des constructeurs et destructeur</title>
+<anchor xml:id="_class_laminas_1_1_loader_1_1_class_map_autoloader_1ae8cda3b1eced24bb5ffaab1fcb107cf7"/><section>
+    <title>__construct()</title>
+<indexterm><primary>__construct</primary><secondary>ClassMapAutoloader</secondary></indexterm>
+<indexterm><primary>ClassMapAutoloader</primary><secondary>__construct</secondary></indexterm>
+<para><computeroutput>__construct ( $options = <computeroutput>null</computeroutput>
+)</computeroutput></para>
+<para>Constructor</para>
+
+<para>Create a new instance, and optionally configure the autoloader.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>null | array | Traversable</entry><entry>$options</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Implémente <link linkend="_interface_laminas_1_1_loader_1_1_spl_autoloader_1ae8cda3b1eced24bb5ffaab1fcb107cf7">SplAutoloader</link>.</para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_laminas_1_1_loader_1_1_class_map_autoloader_ae8cda3b1eced24bb5ffaab1fcb107cf7_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+</section>
+<section>
+<title>Documentation des fonctions membres</title>
+<anchor xml:id="_class_laminas_1_1_loader_1_1_class_map_autoloader_1aad6cfb5484c7eda55731134910c7a280"/><section>
+    <title>autoload()</title>
+<indexterm><primary>autoload</primary><secondary>ClassMapAutoloader</secondary></indexterm>
+<indexterm><primary>ClassMapAutoloader</primary><secondary>autoload</secondary></indexterm>
+<para><computeroutput>autoload ( $class)</computeroutput></para>
+<para>
+<para>Autoload a class</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$class</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>mixed False [if unable to load $class] get_class($class) [if $class is successfully loaded]</para>
+</formalpara>
+</para>
+ </para>
+<para>
+Implémente <link linkend="_interface_laminas_1_1_loader_1_1_spl_autoloader_1aad6cfb5484c7eda55731134910c7a280">SplAutoloader</link>.</para>
+</section>
+<anchor xml:id="_class_laminas_1_1_loader_1_1_class_map_autoloader_1a60885640f190ac7911e287eddfac4e5a"/><section>
+    <title>getAutoloadMap()</title>
+<indexterm><primary>getAutoloadMap</primary><secondary>ClassMapAutoloader</secondary></indexterm>
+<indexterm><primary>ClassMapAutoloader</primary><secondary>getAutoloadMap</secondary></indexterm>
+<para><computeroutput>getAutoloadMap ( )</computeroutput></para>
+<para>Retrieve current autoload map</para>
+
+<para><formalpara><title>Renvoie</title>
+
+<para>array </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_class_laminas_1_1_loader_1_1_class_map_autoloader_1aca360fde8de16aa7900843e8684e36fb"/><section>
+    <title>loadMapFromFile()</title>
+<indexterm><primary>loadMapFromFile</primary><secondary>ClassMapAutoloader</secondary></indexterm>
+<indexterm><primary>ClassMapAutoloader</primary><secondary>loadMapFromFile</secondary></indexterm>
+<para><computeroutput>loadMapFromFile ( $location)<computeroutput>[protected]</computeroutput></computeroutput></para>
+<para>Load a map from a file</para>
+
+<para>If the map has been previously loaded, returns the current instance; otherwise, returns whatever was returned by calling <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">include()</link> on the location.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$location</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>ClassMapAutoloader|mixed </para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>Exception</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                InvalidArgumentException For nonexistent locations. </para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_laminas_1_1_loader_1_1_class_map_autoloader_aca360fde8de16aa7900843e8684e36fb_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_laminas_1_1_loader_1_1_class_map_autoloader_1a1a45bec27aa6b43b0f7b09aef11c84bb"/><section>
+    <title>realPharPath()</title>
+<indexterm><primary>realPharPath</primary><secondary>ClassMapAutoloader</secondary></indexterm>
+<indexterm><primary>ClassMapAutoloader</primary><secondary>realPharPath</secondary></indexterm>
+<para><computeroutput>static realPharPath ( $path)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>Resolve the <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">real_path()</link> to a file within a phar.</para>
+
+<para><formalpara><title>Voir également</title>
+
+<para><link xlink:href="https://bugs.php.net/bug.php?id=52769">https://bugs.php.net/bug.php?id=52769</link></para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$path</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>string </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_class_laminas_1_1_loader_1_1_class_map_autoloader_1acc294a6cc8e69743746820e3d15e3f78"/><section>
+    <title>register()</title>
+<indexterm><primary>register</primary><secondary>ClassMapAutoloader</secondary></indexterm>
+<indexterm><primary>ClassMapAutoloader</primary><secondary>register</secondary></indexterm>
+<para><computeroutput>register ( )</computeroutput></para>
+<para>Register the autoloader with spl_autoload registry</para>
+
+<para><formalpara><title>Renvoie</title>
+
+<para>void </para>
+</formalpara>
+</para>
+<para>
+Implémente <link linkend="_interface_laminas_1_1_loader_1_1_spl_autoloader_1acc294a6cc8e69743746820e3d15e3f78">SplAutoloader</link>.</para>
+</section>
+<anchor xml:id="_class_laminas_1_1_loader_1_1_class_map_autoloader_1afc24615fd6e8946646da266f2e347a0c"/><section>
+    <title>registerAutoloadMap()</title>
+<indexterm><primary>registerAutoloadMap</primary><secondary>ClassMapAutoloader</secondary></indexterm>
+<indexterm><primary>ClassMapAutoloader</primary><secondary>registerAutoloadMap</secondary></indexterm>
+<para><computeroutput>registerAutoloadMap ( $map)</computeroutput></para>
+<para>Register an autoload map</para>
+
+<para>An autoload map may be either an associative array, or a file returning an associative array.</para>
+
+<para>An autoload map should be an associative array containing classname/file pairs.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string | array</entry><entry>$map</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>Exception</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                InvalidArgumentException <formalpara><title>Renvoie</title>
+
+<para>ClassMapAutoloader </para>
+</formalpara>
+</para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_laminas_1_1_loader_1_1_class_map_autoloader_afc24615fd6e8946646da266f2e347a0c_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_laminas_1_1_loader_1_1_class_map_autoloader_afc24615fd6e8946646da266f2e347a0c_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_laminas_1_1_loader_1_1_class_map_autoloader_1a5af2ee1c0daa895e80152d8f9593e8ca"/><section>
+    <title>registerAutoloadMaps()</title>
+<indexterm><primary>registerAutoloadMaps</primary><secondary>ClassMapAutoloader</secondary></indexterm>
+<indexterm><primary>ClassMapAutoloader</primary><secondary>registerAutoloadMaps</secondary></indexterm>
+<para><computeroutput>registerAutoloadMaps ( $locations)</computeroutput></para>
+<para>Register many autoload maps at once</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>array</entry><entry>$locations</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>Exception</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                InvalidArgumentException <formalpara><title>Renvoie</title>
+
+<para>ClassMapAutoloader </para>
+</formalpara>
+</para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_laminas_1_1_loader_1_1_class_map_autoloader_a5af2ee1c0daa895e80152d8f9593e8ca_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_laminas_1_1_loader_1_1_class_map_autoloader_a5af2ee1c0daa895e80152d8f9593e8ca_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_laminas_1_1_loader_1_1_class_map_autoloader_1a8213e4c39213f7d6250f72ff6f2699f2"/><section>
+    <title>setOptions()</title>
+<indexterm><primary>setOptions</primary><secondary>ClassMapAutoloader</secondary></indexterm>
+<indexterm><primary>ClassMapAutoloader</primary><secondary>setOptions</secondary></indexterm>
+<para><computeroutput>setOptions ( $options)</computeroutput></para>
+<para>Configure the autoloader</para>
+
+<para>Proxies to <computeroutput><link linkend="_">registerAutoloadMaps()</link></computeroutput>.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>array | Traversable</entry><entry>$options</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>ClassMapAutoloader </para>
+</formalpara>
+</para>
+<para>
+Implémente <link linkend="_interface_laminas_1_1_loader_1_1_spl_autoloader_1a8213e4c39213f7d6250f72ff6f2699f2">SplAutoloader</link>.</para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_laminas_1_1_loader_1_1_class_map_autoloader_a8213e4c39213f7d6250f72ff6f2699f2_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_laminas_1_1_loader_1_1_class_map_autoloader_a8213e4c39213f7d6250f72ff6f2699f2_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+</section>
+<section>
+<title>Documentation des champs</title>
+<anchor xml:id="_class_laminas_1_1_loader_1_1_class_map_autoloader_1acdcfcd6e65900bdadd894106750cf520"/><section>
+    <title>$map</title>
+<indexterm><primary>$map</primary><secondary>ClassMapAutoloader</secondary></indexterm>
+<indexterm><primary>ClassMapAutoloader</primary><secondary>$map</secondary></indexterm>
+<para><computeroutput>$map = []<computeroutput>[protected]</computeroutput></computeroutput></para></section>
+<anchor xml:id="_class_laminas_1_1_loader_1_1_class_map_autoloader_1a665e26eb46944625af1dd68b3413c64b"/><section>
+    <title>$mapsLoaded</title>
+<indexterm><primary>$mapsLoaded</primary><secondary>ClassMapAutoloader</secondary></indexterm>
+<indexterm><primary>ClassMapAutoloader</primary><secondary>$mapsLoaded</secondary></indexterm>
+<para><computeroutput>$<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">mapsLoaded</link> = []<computeroutput>[protected]</computeroutput></computeroutput></para></section>
+<para>
+La documentation de cette classe a été générée à partir du fichier suivant :</para>
+public/glpi/vendor/laminas/laminas-loader/src/<link linkend="__class_map_autoloader_8php">ClassMapAutoloader.php</link></section>
+</section>

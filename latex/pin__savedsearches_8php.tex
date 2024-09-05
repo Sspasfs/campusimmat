@@ -1,0 +1,66 @@
+\doxysection{Référence du fichier public/glpi/ajax/pin\+\_\+savedsearches.php}
+\hypertarget{pin__savedsearches_8php}{}\label{pin__savedsearches_8php}\index{public/glpi/ajax/pin\_savedsearches.php@{public/glpi/ajax/pin\_savedsearches.php}}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{dropdown_location_8php_a52332c22f84432520971794825a5a8e7}{if}}(!is\+\_\+string(\$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\+\_\+\+POST}}\mbox{[}\textquotesingle{}\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{itemtype}}\textquotesingle{}\mbox{]})\texorpdfstring{$\vert$}{|}\texorpdfstring{$\vert$}{|}\mbox{\hyperlink{db_8function_8php_a5bb7668a0ab5705035e0608178fabcba}{get\+Item\+For\+Itemtype}}(\$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\+\_\+\+POST}}\mbox{[}\textquotesingle{}\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{itemtype}}\textquotesingle{}\mbox{]})===false) \mbox{\hyperlink{pin__savedsearches_8php_a191c1ca87426336c32a8a6a0d8907bc7}{\$all\+\_\+pinned}} = \mbox{\hyperlink{db_8function_8php_ae5a4014b03338fde633b1efaf8216c56}{import\+Array\+From\+DB}}(\$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\+\_\+\+SESSION}}\mbox{[}\textquotesingle{}\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{glpisavedsearches\+\_\+pinned}}\textquotesingle{}\mbox{]})
+\item 
+\mbox{\hyperlink{pin__savedsearches_8php_a118bd411de4fe01408290ada7b49232c}{\$already\+\_\+pinned}} = \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{all\+\_\+pinned}}\mbox{[}\$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\+\_\+\+POST}}\mbox{[}\textquotesingle{}\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{itemtype}}\textquotesingle{}\mbox{]}\mbox{]} ?? 0
+\item 
+\mbox{\hyperlink{pin__savedsearches_8php_afc9f73b2fb46714a55b00a21ff47beb9}{\$all\+\_\+pinned}} \mbox{[}\$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\+\_\+\+POST}}\mbox{[}\textquotesingle{}\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{itemtype}}\textquotesingle{}\mbox{]}\mbox{]} = \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{already\+\_\+pinned}} ? 0 \+: 1
+\item 
+\mbox{\hyperlink{pin__savedsearches_8php_a73ef2387d743332994e931d57d62947e}{\$\+\_\+\+SESSION}} \mbox{[}\textquotesingle{}\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{glpisavedsearches\+\_\+pinned}}\textquotesingle{}\mbox{]} = \mbox{\hyperlink{db_8function_8php_a4eee645f37d507cda31107ef2fce80e9}{export\+Array\+To\+DB}}(\$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{all\+\_\+pinned}})
+\item 
+\mbox{\hyperlink{pin__savedsearches_8php_a598ca4e71b15a1313ec95f0df1027ca5}{\$user}} = \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{new}} \mbox{\hyperlink{class_user}{User}}()
+\item 
+\mbox{\hyperlink{pin__savedsearches_8php_a944564ee11ad329573548875b62a269e}{\$success}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Documentation des variables}
+\Hypertarget{pin__savedsearches_8php_a73ef2387d743332994e931d57d62947e}\label{pin__savedsearches_8php_a73ef2387d743332994e931d57d62947e} 
+\index{pin\_savedsearches.php@{pin\_savedsearches.php}!\$\_SESSION@{\$\_SESSION}}
+\index{\$\_SESSION@{\$\_SESSION}!pin\_savedsearches.php@{pin\_savedsearches.php}}
+\doxysubsubsection{\texorpdfstring{\$\_SESSION}{\$\_SESSION}}
+{\footnotesize\ttfamily \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\+\_\+\+SESSION}}\mbox{[} \textquotesingle{}\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{glpisavedsearches\+\_\+pinned}}\textquotesingle{}\mbox{]} = \mbox{\hyperlink{db_8function_8php_a4eee645f37d507cda31107ef2fce80e9}{export\+Array\+To\+DB}}(\$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{all\+\_\+pinned}})}
+
+\Hypertarget{pin__savedsearches_8php_a191c1ca87426336c32a8a6a0d8907bc7}\label{pin__savedsearches_8php_a191c1ca87426336c32a8a6a0d8907bc7} 
+\index{pin\_savedsearches.php@{pin\_savedsearches.php}!\$all\_pinned@{\$all\_pinned}}
+\index{\$all\_pinned@{\$all\_pinned}!pin\_savedsearches.php@{pin\_savedsearches.php}}
+\doxysubsubsection{\texorpdfstring{\$all\_pinned}{\$all\_pinned}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{dropdown_location_8php_a52332c22f84432520971794825a5a8e7}{if}} (!is\+\_\+string( \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\+\_\+\+POST}}\mbox{[} \textquotesingle{}\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{itemtype}}\textquotesingle{}\mbox{]})\texorpdfstring{$\vert$}{|}\texorpdfstring{$\vert$}{|}\mbox{\hyperlink{db_8function_8php_a5bb7668a0ab5705035e0608178fabcba}{get\+Item\+For\+Itemtype}}( \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\+\_\+\+POST}}\mbox{[} \textquotesingle{}\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{itemtype}}\textquotesingle{}\mbox{]})===false) \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{all\+\_\+pinned}} = \mbox{\hyperlink{db_8function_8php_ae5a4014b03338fde633b1efaf8216c56}{import\+Array\+From\+DB}}(\$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\+\_\+\+SESSION}}\mbox{[}\textquotesingle{}\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{glpisavedsearches\+\_\+pinned}}\textquotesingle{}\mbox{]})}
+
+\Hypertarget{pin__savedsearches_8php_afc9f73b2fb46714a55b00a21ff47beb9}\label{pin__savedsearches_8php_afc9f73b2fb46714a55b00a21ff47beb9} 
+\index{pin\_savedsearches.php@{pin\_savedsearches.php}!\$all\_pinned@{\$all\_pinned}}
+\index{\$all\_pinned@{\$all\_pinned}!pin\_savedsearches.php@{pin\_savedsearches.php}}
+\doxysubsubsection{\texorpdfstring{\$all\_pinned}{\$all\_pinned}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{all\+\_\+pinned}}\mbox{[} \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\+\_\+\+POST}}\mbox{[} \textquotesingle{}\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{itemtype}}\textquotesingle{}\mbox{]}\mbox{]} = \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{already\+\_\+pinned}} ? 0 \+: 1}
+
+\Hypertarget{pin__savedsearches_8php_a118bd411de4fe01408290ada7b49232c}\label{pin__savedsearches_8php_a118bd411de4fe01408290ada7b49232c} 
+\index{pin\_savedsearches.php@{pin\_savedsearches.php}!\$already\_pinned@{\$already\_pinned}}
+\index{\$already\_pinned@{\$already\_pinned}!pin\_savedsearches.php@{pin\_savedsearches.php}}
+\doxysubsubsection{\texorpdfstring{\$already\_pinned}{\$already\_pinned}}
+{\footnotesize\ttfamily \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{already\+\_\+pinned}} = \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{all\+\_\+pinned}}\mbox{[}\$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{\+\_\+\+POST}}\mbox{[}\textquotesingle{}\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{itemtype}}\textquotesingle{}\mbox{]}\mbox{]} ?? 0}
+
+\Hypertarget{pin__savedsearches_8php_a944564ee11ad329573548875b62a269e}\label{pin__savedsearches_8php_a944564ee11ad329573548875b62a269e} 
+\index{pin\_savedsearches.php@{pin\_savedsearches.php}!\$success@{\$success}}
+\index{\$success@{\$success}!pin\_savedsearches.php@{pin\_savedsearches.php}}
+\doxysubsubsection{\texorpdfstring{\$success}{\$success}}
+{\footnotesize\ttfamily \$success}
+
+{\bfseries Valeur initiale \+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ \mbox{\hyperlink{pin__savedsearches_8php_a598ca4e71b15a1313ec95f0df1027ca5}{\$user}}-\/>update(}
+\DoxyCodeLine{\ \ \ \ [}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{'id'}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ =>\ Session::getLoginUserID(),}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{'savedsearches\_pinned'}\ =>\ \mbox{\hyperlink{pin__savedsearches_8php_a73ef2387d743332994e931d57d62947e}{\$\_SESSION}}[\textcolor{stringliteral}{'glpisavedsearches\_pinned'}],}
+\DoxyCodeLine{\ \ \ \ ]}
+\DoxyCodeLine{)}
+
+\end{DoxyCode}
+\Hypertarget{pin__savedsearches_8php_a598ca4e71b15a1313ec95f0df1027ca5}\label{pin__savedsearches_8php_a598ca4e71b15a1313ec95f0df1027ca5} 
+\index{pin\_savedsearches.php@{pin\_savedsearches.php}!\$user@{\$user}}
+\index{\$user@{\$user}!pin\_savedsearches.php@{pin\_savedsearches.php}}
+\doxysubsubsection{\texorpdfstring{\$user}{\$user}}
+{\footnotesize\ttfamily \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{user}} = \mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{new}} \mbox{\hyperlink{class_user}{User}}()}
+

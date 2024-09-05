@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EleveController;
 use App\Http\Controllers\PlaqueImmatriculationController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\Admin\UserController;
 use Illuminate\Support\Facades\Auth;
 
 // Route pour la page d'accueil
@@ -72,3 +73,4 @@ Route::post('/', [AuthController::class, 'login']);
 
 // Route pour se déconnecter
 Route::post('/logout', [AuthController::class, 'logout'])->name('auth.logout');
+

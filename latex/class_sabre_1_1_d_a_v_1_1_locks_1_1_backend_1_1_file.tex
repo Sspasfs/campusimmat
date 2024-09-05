@@ -1,0 +1,201 @@
+\doxysection{Référence de la classe File}
+\hypertarget{class_sabre_1_1_d_a_v_1_1_locks_1_1_backend_1_1_file}{}\label{class_sabre_1_1_d_a_v_1_1_locks_1_1_backend_1_1_file}\index{File@{File}}
+
+
+Graphe d\textquotesingle{}héritage de File\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=215pt]{class_sabre_1_1_d_a_v_1_1_locks_1_1_backend_1_1_file__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Graphe de collaboration de File\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=215pt]{class_sabre_1_1_d_a_v_1_1_locks_1_1_backend_1_1_file__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_locks_1_1_backend_1_1_file_aebb3d3de2a8dc53a1798c228ef8c2323}{\+\_\+\+\_\+construct}} (\$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{locks\+File}})
+\item 
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_locks_1_1_backend_1_1_file_a31f3021e5b754764e8a8fc9a30879760}{get\+Locks}} (\$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{uri}}, \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{return\+Child\+Locks}})
+\item 
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_locks_1_1_backend_1_1_file_aa895a289b49a66aafd67a514d8e0a9ad}{lock}} (\$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{uri}}, \mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_locks_1_1_lock_info}{Lock\+Info}} \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{lock\+Info}})
+\item 
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_locks_1_1_backend_1_1_file_add50ff5fce2f8cc6f1debda6a6aa2a6f}{unlock}} (\$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{uri}}, \mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_locks_1_1_lock_info}{Lock\+Info}} \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{lock\+Info}})
+\end{DoxyCompactItemize}
+\doxysubsection*{Fonctions membres publiques hérités de \mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_locks_1_1_backend_1_1_backend_interface}{Backend\+Interface}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_locks_1_1_backend_1_1_backend_interface_ac95bb7419230a597f99f6858c62a6c40}{lock}} (\$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{uri}}, \mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_locks_1_1_lock_info}{Locks\textbackslash{}\+Lock\+Info}} \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{lock\+Info}})
+\item 
+\mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_locks_1_1_backend_1_1_backend_interface_a86e763d661929d11405b3e45aa908534}{unlock}} (\$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{uri}}, \mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_locks_1_1_lock_info}{Locks\textbackslash{}\+Lock\+Info}} \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{lock\+Info}})
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Fonctions membres protégées}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_locks_1_1_backend_1_1_file_a81a67162a6288d78fc4c55283325f0b4}{get\+Data}} ()
+\item 
+\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_locks_1_1_backend_1_1_file_ad2d40420e87f194d90d883910f80b937}{put\+Data}} (array \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{new\+Data}})
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+This Locks backend stores all locking information in a single file.
+
+Note that this is not nearly as robust as a database. If you are considering using this backend, keep in mind that the PDO backend can work with Sq\+Lite, which is designed to be a good file-\/based database.
+
+It literally solves the problem this class solves as well, but much better.
+
+\begin{DoxyCopyright}{Copyright}
+Copyright (C) fruux GmbH (\href{https://fruux.com/}{\texttt{ https\+://fruux.\+com/}}) 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Auteur}
+Evert Pot (\href{http://evertpot.com/}{\texttt{ http\+://evertpot.\+com/}}) @license \href{http://sabre.io/license/}{\texttt{ http\+://sabre.\+io/license/}} Modified BSD License 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Documentation des constructeurs et destructeur}
+\Hypertarget{class_sabre_1_1_d_a_v_1_1_locks_1_1_backend_1_1_file_aebb3d3de2a8dc53a1798c228ef8c2323}\label{class_sabre_1_1_d_a_v_1_1_locks_1_1_backend_1_1_file_aebb3d3de2a8dc53a1798c228ef8c2323} 
+\index{File@{File}!\_\_construct@{\_\_construct}}
+\index{\_\_construct@{\_\_construct}!File@{File}}
+\doxysubsubsection{\texorpdfstring{\_\_construct()}{\_\_construct()}}
+{\footnotesize\ttfamily \+\_\+\+\_\+construct (\begin{DoxyParamCaption}\item[{}]{\$locks\+File }\end{DoxyParamCaption})}
+
+Constructor.
+
+
+\begin{DoxyParams}[1]{Paramètres}
+string & {\em \$locks\+File} & path to file \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Documentation des fonctions membres}
+\Hypertarget{class_sabre_1_1_d_a_v_1_1_locks_1_1_backend_1_1_file_a81a67162a6288d78fc4c55283325f0b4}\label{class_sabre_1_1_d_a_v_1_1_locks_1_1_backend_1_1_file_a81a67162a6288d78fc4c55283325f0b4} 
+\index{File@{File}!getData@{getData}}
+\index{getData@{getData}!File@{File}}
+\doxysubsubsection{\texorpdfstring{getData()}{getData()}}
+{\footnotesize\ttfamily get\+Data (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+Loads the lockdata from the filesystem.
+
+\begin{DoxyReturn}{Renvoie}
+array 
+\end{DoxyReturn}
+Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=222pt]{class_sabre_1_1_d_a_v_1_1_locks_1_1_backend_1_1_file_a81a67162a6288d78fc4c55283325f0b4_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_sabre_1_1_d_a_v_1_1_locks_1_1_backend_1_1_file_a31f3021e5b754764e8a8fc9a30879760}\label{class_sabre_1_1_d_a_v_1_1_locks_1_1_backend_1_1_file_a31f3021e5b754764e8a8fc9a30879760} 
+\index{File@{File}!getLocks@{getLocks}}
+\index{getLocks@{getLocks}!File@{File}}
+\doxysubsubsection{\texorpdfstring{getLocks()}{getLocks()}}
+{\footnotesize\ttfamily get\+Locks (\begin{DoxyParamCaption}\item[{}]{\$uri,  }\item[{}]{\$return\+Child\+Locks }\end{DoxyParamCaption})}
+
+Returns a list of Sabre\textbackslash{}\+DAV\textbackslash{}\+Locks\textbackslash{}\+Lock\+Info objects.
+
+This method should return all the locks for a particular uri, including locks that might be set on a parent uri.
+
+If return\+Child\+Locks is set to true, this method should also look for any locks in the subtree of the uri for locks.
+
+
+\begin{DoxyParams}[1]{Paramètres}
+string & {\em \$uri} & \\
+\hline
+bool & {\em \$return\+Child\+Locks} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+array 
+\end{DoxyReturn}
+
+
+Implémente \mbox{\hyperlink{interface_sabre_1_1_d_a_v_1_1_locks_1_1_backend_1_1_backend_interface_a31f3021e5b754764e8a8fc9a30879760}{Backend\+Interface}}.
+
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=222pt]{class_sabre_1_1_d_a_v_1_1_locks_1_1_backend_1_1_file_a31f3021e5b754764e8a8fc9a30879760_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_sabre_1_1_d_a_v_1_1_locks_1_1_backend_1_1_file_aa895a289b49a66aafd67a514d8e0a9ad}\label{class_sabre_1_1_d_a_v_1_1_locks_1_1_backend_1_1_file_aa895a289b49a66aafd67a514d8e0a9ad} 
+\index{File@{File}!lock@{lock}}
+\index{lock@{lock}!File@{File}}
+\doxysubsubsection{\texorpdfstring{lock()}{lock()}}
+{\footnotesize\ttfamily lock (\begin{DoxyParamCaption}\item[{}]{\$uri,  }\item[{\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_locks_1_1_lock_info}{Lock\+Info}}}]{\$lock\+Info }\end{DoxyParamCaption})}
+
+Locks a uri.
+
+
+\begin{DoxyParams}[1]{Paramètres}
+string & {\em \$uri} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+bool 
+\end{DoxyReturn}
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=201pt]{class_sabre_1_1_d_a_v_1_1_locks_1_1_backend_1_1_file_aa895a289b49a66aafd67a514d8e0a9ad_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_sabre_1_1_d_a_v_1_1_locks_1_1_backend_1_1_file_ad2d40420e87f194d90d883910f80b937}\label{class_sabre_1_1_d_a_v_1_1_locks_1_1_backend_1_1_file_ad2d40420e87f194d90d883910f80b937} 
+\index{File@{File}!putData@{putData}}
+\index{putData@{putData}!File@{File}}
+\doxysubsubsection{\texorpdfstring{putData()}{putData()}}
+{\footnotesize\ttfamily put\+Data (\begin{DoxyParamCaption}\item[{array}]{\$new\+Data }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+Saves the lockdata. Voici le graphe des appelants de cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=211pt]{class_sabre_1_1_d_a_v_1_1_locks_1_1_backend_1_1_file_ad2d40420e87f194d90d883910f80b937_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_sabre_1_1_d_a_v_1_1_locks_1_1_backend_1_1_file_add50ff5fce2f8cc6f1debda6a6aa2a6f}\label{class_sabre_1_1_d_a_v_1_1_locks_1_1_backend_1_1_file_add50ff5fce2f8cc6f1debda6a6aa2a6f} 
+\index{File@{File}!unlock@{unlock}}
+\index{unlock@{unlock}!File@{File}}
+\doxysubsubsection{\texorpdfstring{unlock()}{unlock()}}
+{\footnotesize\ttfamily unlock (\begin{DoxyParamCaption}\item[{}]{\$uri,  }\item[{\mbox{\hyperlink{class_sabre_1_1_d_a_v_1_1_locks_1_1_lock_info}{Lock\+Info}}}]{\$lock\+Info }\end{DoxyParamCaption})}
+
+Removes a lock from a uri.
+
+
+\begin{DoxyParams}[1]{Paramètres}
+string & {\em \$uri} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+bool 
+\end{DoxyReturn}
+Voici le graphe d\textquotesingle{}appel pour cette fonction \+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=211pt]{class_sabre_1_1_d_a_v_1_1_locks_1_1_backend_1_1_file_add50ff5fce2f8cc6f1debda6a6aa2a6f_cgraph}
+\end{center}
+\end{figure}
+
+
+La documentation de cette classe a été générée à partir du fichier suivant \+:\begin{DoxyCompactItemize}
+\item 
+public/glpi/vendor/sabre/dav/lib/\+DAV/\+Locks/\+Backend/\mbox{\hyperlink{sabre_2dav_2lib_2_d_a_v_2_locks_2_backend_2_file_8php}{File.\+php}}\end{DoxyCompactItemize}

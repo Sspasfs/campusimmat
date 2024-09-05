@@ -1,0 +1,352 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_laminas_1_1_loader_1_1_autoloader_factory" xml:lang="fr">
+<title>Référence de la classe AutoloaderFactory</title>
+<indexterm><primary>AutoloaderFactory</primary></indexterm>
+Graphe de collaboration de AutoloaderFactory:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_laminas_1_1_loader_1_1_autoloader_factory__coll__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Fonctions membres publiques statiques    </title>
+        <itemizedlist>
+            <listitem><para>static <link linkend="_class_laminas_1_1_loader_1_1_autoloader_factory_1ac6b73e729e9157db6e813def368105a1">factory</link> ($options=null)</para>
+</listitem>
+            <listitem><para>static <link linkend="_class_laminas_1_1_loader_1_1_autoloader_factory_1aab8e100773f7bc9ab70687b9d32ebab2">getRegisteredAutoloaders</link> ()</para>
+</listitem>
+            <listitem><para>static <link linkend="_class_laminas_1_1_loader_1_1_autoloader_factory_1ae67a7a05ce6ebb206dd983287e4f4a30">getRegisteredAutoloader</link> ($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">class</link>)</para>
+</listitem>
+            <listitem><para>static <link linkend="_class_laminas_1_1_loader_1_1_autoloader_factory_1abfa243bed58b3001762de04d4f973505">unregisterAutoloaders</link> ()</para>
+</listitem>
+            <listitem><para>static <link linkend="_class_laminas_1_1_loader_1_1_autoloader_factory_1a7dac6a6e699f3ab64729566b34057123">unregisterAutoloader</link> ($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">autoloaderClass</link>)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Champs de données    </title>
+        <itemizedlist>
+            <listitem><para>const <link linkend="_class_laminas_1_1_loader_1_1_autoloader_factory_1ac0b0adbf48aa430e38c7880dbc9bbd4e">STANDARD_AUTOLOADER</link> = StandardAutoloader::class</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Fonctions membres protégées statiques    </title>
+        <itemizedlist>
+            <listitem><para>static <link linkend="_class_laminas_1_1_loader_1_1_autoloader_factory_1a514dedc4d85acf1e8db22f2fcd339167">getStandardAutoloader</link> ()</para>
+</listitem>
+            <listitem><para>static <link linkend="_class_laminas_1_1_loader_1_1_autoloader_factory_1a5f34af9613b8d799831780ee39b7f66f">isSubclassOf</link> ($className, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">type</link>)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Attributs protégés statiques    </title>
+        <itemizedlist>
+            <listitem><para>static <link linkend="_class_laminas_1_1_loader_1_1_autoloader_factory_1ade57fa58e6103ea68f43451f7232ec11">$loaders</link> = []</para>
+</listitem>
+            <listitem><para>static <link linkend="_class_laminas_1_1_loader_1_1_autoloader_factory_1ac104f2d58c5713978faedebdc5dfbf59">$standardAutoloader</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Documentation des fonctions membres</title>
+<anchor xml:id="_class_laminas_1_1_loader_1_1_autoloader_factory_1ac6b73e729e9157db6e813def368105a1"/><section>
+    <title>factory()</title>
+<indexterm><primary>factory</primary><secondary>AutoloaderFactory</secondary></indexterm>
+<indexterm><primary>AutoloaderFactory</primary><secondary>factory</secondary></indexterm>
+<para><computeroutput>array <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">All</link> <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">autoloaders</link> <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">registered</link> <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">using</link> <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">the</link> factory ( $options = <computeroutput>null</computeroutput>
+)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>Factory for autoloaders</para>
+
+<para>Options should be an array or Traversable object of the following structure: <computeroutput> array( &apos;&lt;autoloader class name&gt;&apos; =&gt; $autoloaderOptions, ) </computeroutput></para>
+
+<para>The factory will then loop through and instantiate each autoloader with the specified options, and register each with the spl_autoloader.</para>
+
+<para>You may retrieve the concrete autoloader instances later using <computeroutput><link linkend="_">getRegisteredAutoloaders()</link></computeroutput>.</para>
+
+<para>Note that the class names must be resolvable on the include_path or via the Laminas library, using PSR-0 rules (unless the class has already been loaded).</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>array | Traversable</entry><entry>$options</entry><entry>
+<para>(optional) options to use. Defaults to Laminas\Loader\StandardAutoloader </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>void </para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>Exception</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                InvalidArgumentException For invalid options. 
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>Exception</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                InvalidArgumentException For unloadable autoloader classes. 
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>Exception</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                DomainException For autoloader classes not implementing SplAutoloader. </para>
+</section>
+<anchor xml:id="_class_laminas_1_1_loader_1_1_autoloader_factory_1ae67a7a05ce6ebb206dd983287e4f4a30"/><section>
+    <title>getRegisteredAutoloader()</title>
+<indexterm><primary>getRegisteredAutoloader</primary><secondary>AutoloaderFactory</secondary></indexterm>
+<indexterm><primary>AutoloaderFactory</primary><secondary>getRegisteredAutoloader</secondary></indexterm>
+<para><computeroutput>static getRegisteredAutoloader ( $class)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>Retrieves an autoloader by class name</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$class</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>SplAutoloader </para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>Exception</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                InvalidArgumentException For non-registered class. </para>
+</section>
+<anchor xml:id="_class_laminas_1_1_loader_1_1_autoloader_factory_1aab8e100773f7bc9ab70687b9d32ebab2"/><section>
+    <title>getRegisteredAutoloaders()</title>
+<indexterm><primary>getRegisteredAutoloaders</primary><secondary>AutoloaderFactory</secondary></indexterm>
+<indexterm><primary>AutoloaderFactory</primary><secondary>getRegisteredAutoloaders</secondary></indexterm>
+<para><computeroutput>static getRegisteredAutoloaders ( )<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>Get a list of all autoloaders registered with the factory</para>
+
+<para>Returns an array of autoloader instances.</para>
+
+<para><formalpara><title>Renvoie</title>
+
+<para>array </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_class_laminas_1_1_loader_1_1_autoloader_factory_1a514dedc4d85acf1e8db22f2fcd339167"/><section>
+    <title>getStandardAutoloader()</title>
+<indexterm><primary>getStandardAutoloader</primary><secondary>AutoloaderFactory</secondary></indexterm>
+<indexterm><primary>AutoloaderFactory</primary><secondary>getStandardAutoloader</secondary></indexterm>
+<para><computeroutput>static getStandardAutoloader ( )<computeroutput>[static]</computeroutput>, <computeroutput>[protected]</computeroutput></computeroutput></para>
+<para>Get an instance of the standard autoloader</para>
+
+<para>Used to attempt to resolve autoloader classes, using the StandardAutoloader. The instance is marked as a fallback autoloader, to allow resolving autoloaders not under the &quot;Laminas&quot; namespace.</para>
+
+<para><formalpara><title>Renvoie</title>
+
+<para>SplAutoloader </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_class_laminas_1_1_loader_1_1_autoloader_factory_1a5f34af9613b8d799831780ee39b7f66f"/><section>
+    <title>isSubclassOf()</title>
+<indexterm><primary>isSubclassOf</primary><secondary>AutoloaderFactory</secondary></indexterm>
+<indexterm><primary>AutoloaderFactory</primary><secondary>isSubclassOf</secondary></indexterm>
+<para><computeroutput>static isSubclassOf ( $className,  $type)<computeroutput>[static]</computeroutput>, <computeroutput>[protected]</computeroutput></computeroutput></para>
+<para>Checks if the object has this class as one of its parents</para>
+
+<para><para><link linkend="_deprecated_1_deprecated000069">Obsolète</link> 
+<para>since laminas 2.3 requires PHP &gt;= 5.3.23</para>
+</para></para>
+
+<para><formalpara><title>Voir également</title>
+
+<para><link xlink:href="https://bugs.php.net/bug.php?id=53727">https://bugs.php.net/bug.php?id=53727</link> </para>
+
+<para><link xlink:href="https://github.com/zendframework/zf2/pull/1807">https://github.com/zendframework/zf2/pull/1807</link></para>
+</formalpara>
+
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$className</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>string</entry><entry>$type</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>bool </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_class_laminas_1_1_loader_1_1_autoloader_factory_1a7dac6a6e699f3ab64729566b34057123"/><section>
+    <title>unregisterAutoloader()</title>
+<indexterm><primary>unregisterAutoloader</primary><secondary>AutoloaderFactory</secondary></indexterm>
+<indexterm><primary>AutoloaderFactory</primary><secondary>unregisterAutoloader</secondary></indexterm>
+<para><computeroutput>static unregisterAutoloader ( $autoloaderClass)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>Unregister a single autoloader by class name</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$autoloaderClass</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>bool </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_class_laminas_1_1_loader_1_1_autoloader_factory_1abfa243bed58b3001762de04d4f973505"/><section>
+    <title>unregisterAutoloaders()</title>
+<indexterm><primary>unregisterAutoloaders</primary><secondary>AutoloaderFactory</secondary></indexterm>
+<indexterm><primary>AutoloaderFactory</primary><secondary>unregisterAutoloaders</secondary></indexterm>
+<para><computeroutput>static unregisterAutoloaders ( )<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>Unregisters all autoloaders that have been registered via the factory. This will NOT unregister autoloaders registered outside of the fctory.</para>
+
+<para><formalpara><title>Renvoie</title>
+
+<para>void </para>
+</formalpara>
+</para>
+</section>
+</section>
+<section>
+<title>Documentation des champs</title>
+<anchor xml:id="_class_laminas_1_1_loader_1_1_autoloader_factory_1ade57fa58e6103ea68f43451f7232ec11"/><section>
+    <title>$loaders</title>
+<indexterm><primary>$loaders</primary><secondary>AutoloaderFactory</secondary></indexterm>
+<indexterm><primary>AutoloaderFactory</primary><secondary>$loaders</secondary></indexterm>
+<para><computeroutput>$<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">loaders</link> = []<computeroutput>[static]</computeroutput>, <computeroutput>[protected]</computeroutput></computeroutput></para></section>
+<anchor xml:id="_class_laminas_1_1_loader_1_1_autoloader_factory_1ac104f2d58c5713978faedebdc5dfbf59"/><section>
+    <title>$standardAutoloader</title>
+<indexterm><primary>$standardAutoloader</primary><secondary>AutoloaderFactory</secondary></indexterm>
+<indexterm><primary>AutoloaderFactory</primary><secondary>$standardAutoloader</secondary></indexterm>
+<para><computeroutput>$<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">standardAutoloader</link><computeroutput>[static]</computeroutput>, <computeroutput>[protected]</computeroutput></computeroutput></para></section>
+<anchor xml:id="_class_laminas_1_1_loader_1_1_autoloader_factory_1ac0b0adbf48aa430e38c7880dbc9bbd4e"/><section>
+    <title>STANDARD_AUTOLOADER</title>
+<indexterm><primary>STANDARD_AUTOLOADER</primary><secondary>AutoloaderFactory</secondary></indexterm>
+<indexterm><primary>AutoloaderFactory</primary><secondary>STANDARD_AUTOLOADER</secondary></indexterm>
+<para><computeroutput>const STANDARD_AUTOLOADER = StandardAutoloader::class</computeroutput></para></section>
+<para>
+La documentation de cette classe a été générée à partir du fichier suivant :</para>
+public/glpi/vendor/laminas/laminas-loader/src/<link linkend="__autoloader_factory_8php">AutoloaderFactory.php</link></section>
+</section>

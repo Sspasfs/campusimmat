@@ -1,0 +1,200 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_laminas_1_1_i18n_1_1_view_1_1_helper_1_1_plural" xml:lang="fr">
+<title>Référence de la classe Plural</title>
+<indexterm><primary>Plural</primary></indexterm>
+Graphe d&apos;héritage de Plural:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_laminas_1_1_i18n_1_1_view_1_1_helper_1_1_plural__inherit__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Graphe de collaboration de Plural:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_laminas_1_1_i18n_1_1_view_1_1_helper_1_1_plural__coll__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Fonctions membres publiques    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_laminas_1_1_i18n_1_1_view_1_1_helper_1_1_plural_1a4d1cfc580a0ba59a1b24f94f3c92a367">__invoke</link> ($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">strings</link>, $number)</para>
+</listitem>
+            <listitem><para><link linkend="_class_laminas_1_1_i18n_1_1_view_1_1_helper_1_1_plural_1a49d01904fd9684a5eaaf12842e82a8fc">setPluralRule</link> ($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">pluralRule</link>)</para>
+</listitem>
+            <listitem><para><link linkend="_class_laminas_1_1_i18n_1_1_view_1_1_helper_1_1_plural_1a062eec69876423c8073c1631f81e1345">getPluralRule</link> ()</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Attributs protégés    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_laminas_1_1_i18n_1_1_view_1_1_helper_1_1_plural_1a85b0fb17593555da65ddd33db4ad8444">$rule</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Description détaillée</title>
+
+<para>Helper for rendering text based on a count number (like the I18n plural translation helper, but when translation is not needed).</para>
+
+<para>Please note that we did not write any hard-coded rules for languages, as languages can evolve, we preferred to let the developer define the rules himself, instead of potentially break applications if we change rules in the future.</para>
+
+<para>However, you can find most of the up-to-date plural rules for most languages in those links:<itemizedlist>
+<listitem>
+<para><link xlink:href="http://unicode.org/repos/cldr-tmp/trunk/diff/supplemental/language_plural_rules.html">http://unicode.org/repos/cldr-tmp/trunk/diff/supplemental/language_plural_rules.html</link></para>
+</listitem><listitem>
+<para><link xlink:href="https://developer.mozilla.org/en-US/docs/Localization_and_Plurals">https://developer.mozilla.org/en-US/docs/Localization_and_Plurals</link> </para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section>
+<title>Documentation des fonctions membres</title>
+<anchor xml:id="_class_laminas_1_1_i18n_1_1_view_1_1_helper_1_1_plural_1a4d1cfc580a0ba59a1b24f94f3c92a367"/><section>
+    <title>__invoke()</title>
+<indexterm><primary>__invoke</primary><secondary>Plural</secondary></indexterm>
+<indexterm><primary>Plural</primary><secondary>__invoke</secondary></indexterm>
+<para><computeroutput>__invoke ( $strings,  $number)</computeroutput></para>
+<para>Given an array of strings, a number and, if wanted, an optional locale (the default one is used otherwise), this picks the right string according to plural rules of the locale</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>array | string</entry><entry>$strings</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>int</entry><entry>$number</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>Exception</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                InvalidArgumentException <formalpara><title>Renvoie</title>
+
+<para>string </para>
+</formalpara>
+</para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_laminas_1_1_i18n_1_1_view_1_1_helper_1_1_plural_a4d1cfc580a0ba59a1b24f94f3c92a367_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_laminas_1_1_i18n_1_1_view_1_1_helper_1_1_plural_1a062eec69876423c8073c1631f81e1345"/><section>
+    <title>getPluralRule()</title>
+<indexterm><primary>getPluralRule</primary><secondary>Plural</secondary></indexterm>
+<indexterm><primary>Plural</primary><secondary>getPluralRule</secondary></indexterm>
+<para><computeroutput>getPluralRule ( )</computeroutput></para>
+<para>Get the plural rule to use</para>
+
+<para><formalpara><title>Renvoie</title>
+
+<para>PluralRule </para>
+</formalpara>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_laminas_1_1_i18n_1_1_view_1_1_helper_1_1_plural_a062eec69876423c8073c1631f81e1345_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_laminas_1_1_i18n_1_1_view_1_1_helper_1_1_plural_1a49d01904fd9684a5eaaf12842e82a8fc"/><section>
+    <title>setPluralRule()</title>
+<indexterm><primary>setPluralRule</primary><secondary>Plural</secondary></indexterm>
+<indexterm><primary>Plural</primary><secondary>setPluralRule</secondary></indexterm>
+<para><computeroutput>setPluralRule ( $pluralRule)</computeroutput></para>
+<para>Set the plural rule to use</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>PluralRule | string</entry><entry>$pluralRule</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>$this </para>
+</formalpara>
+</para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_laminas_1_1_i18n_1_1_view_1_1_helper_1_1_plural_a49d01904fd9684a5eaaf12842e82a8fc_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+</section>
+<section>
+<title>Documentation des champs</title>
+<anchor xml:id="_class_laminas_1_1_i18n_1_1_view_1_1_helper_1_1_plural_1a85b0fb17593555da65ddd33db4ad8444"/><section>
+    <title>$rule</title>
+<indexterm><primary>$rule</primary><secondary>Plural</secondary></indexterm>
+<indexterm><primary>Plural</primary><secondary>$rule</secondary></indexterm>
+<para><computeroutput>$<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">rule</link><computeroutput>[protected]</computeroutput></computeroutput></para></section>
+<para>
+La documentation de cette classe a été générée à partir du fichier suivant :</para>
+public/glpi/vendor/laminas/laminas-i18n/src/View/Helper/<link linkend="__plural_8php">Plural.php</link></section>
+</section>

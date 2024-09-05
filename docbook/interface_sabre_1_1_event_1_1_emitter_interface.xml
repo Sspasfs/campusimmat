@@ -1,0 +1,149 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_interface_sabre_1_1_event_1_1_emitter_interface" xml:lang="fr">
+<title>Référence de l&apos;interface EmitterInterface</title>
+<indexterm><primary>EmitterInterface</primary></indexterm>
+Graphe d&apos;héritage de EmitterInterface:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="interface_sabre_1_1_event_1_1_emitter_interface__inherit__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Graphe de collaboration de EmitterInterface:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="interface_sabre_1_1_event_1_1_emitter_interface__coll__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Fonctions membres publiques    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_interface_sabre_1_1_event_1_1_emitter_interface_1a33e6415f7f3f457744ad1746759646c4">on</link> (string $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">eventName</link>, <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">callable</link> $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">callBack</link>, int $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">priority</link>=100)</para>
+</listitem>
+            <listitem><para><link linkend="_interface_sabre_1_1_event_1_1_emitter_interface_1a150b782ec28a64c0fc324a02e8523341">once</link> (string $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">eventName</link>, <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">callable</link> $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">callBack</link>, int $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">priority</link>=100)</para>
+</listitem>
+            <listitem><para><link linkend="_interface_sabre_1_1_event_1_1_emitter_interface_1a17650c695025842efe69c5ef3dae0473">emit</link> (string $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">eventName</link>, array $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">arguments</link>=[], <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">callable</link> $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">continueCallBack</link>=null)</para>
+</listitem>
+            <listitem><para><link linkend="_interface_sabre_1_1_event_1_1_emitter_interface_1aba0d942bfcf8fd7abc2f58749f5b8432">listeners</link> (string $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">eventName</link>)</para>
+</listitem>
+            <listitem><para><link linkend="_interface_sabre_1_1_event_1_1_emitter_interface_1a0e747e11d0882655ee8a77dd1f4b5298">removeListener</link> (string $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">eventName</link>, <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">callable</link> $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">listener</link>)</para>
+</listitem>
+            <listitem><para><link linkend="_interface_sabre_1_1_event_1_1_emitter_interface_1a0016e4737c8baecc64f62655510b252f">removeAllListeners</link> (string $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">eventName</link>=null)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Description détaillée</title>
+
+<para>Event Emitter Interface.</para>
+
+<para>Anything that accepts listeners and emits events should implement this interface.</para>
+
+<para><formalpara><title>Copyright</title>
+
+<para>Copyright (C) fruux GmbH (<link xlink:href="https://fruux.com/">https://fruux.com/</link>) </para>
+</formalpara>
+<formalpara><title>Auteur</title>
+
+<para>Evert Pot (<link xlink:href="http://evertpot.com/">http://evertpot.com/</link>) @license <link xlink:href="http://sabre.io/license/">http://sabre.io/license/</link> Modified BSD License </para>
+</formalpara>
+</para>
+</section>
+<section>
+<title>Documentation des fonctions membres</title>
+<anchor xml:id="_interface_sabre_1_1_event_1_1_emitter_interface_1a17650c695025842efe69c5ef3dae0473"/><section>
+    <title>emit()</title>
+<indexterm><primary>emit</primary><secondary>EmitterInterface</secondary></indexterm>
+<indexterm><primary>EmitterInterface</primary><secondary>emit</secondary></indexterm>
+<para><computeroutput>emit (string $eventName, array $arguments = <computeroutput>[]</computeroutput>
+, <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">callable</link> $continueCallBack = <computeroutput>null</computeroutput>
+)</computeroutput></para>
+<para>Emits an event.</para>
+
+<para>This method will return true if 0 or more listeners were successfully handled. false is returned if one of the events broke the event chain.</para>
+
+<para>If the continueCallBack is specified, this callback will be called every time before the next event handler is called.</para>
+
+<para>If the continueCallback returns false, event propagation stops. This allows you to use the eventEmitter as a means for listeners to implement functionality in your application, and break the event loop as soon as some condition is fulfilled.</para>
+
+<para>Note that returning false from an event subscriber breaks propagation and returns false, but if the continue-callback stops propagation, this is still considered a &apos;successful&apos; operation and returns true.</para>
+
+<para>Lastly, if there are 5 event handlers for an event. The continueCallback will be called at most 4 times. </para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="interface_sabre_1_1_event_1_1_emitter_interface_a17650c695025842efe69c5ef3dae0473_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_interface_sabre_1_1_event_1_1_emitter_interface_1aba0d942bfcf8fd7abc2f58749f5b8432"/><section>
+    <title>listeners()</title>
+<indexterm><primary>listeners</primary><secondary>EmitterInterface</secondary></indexterm>
+<indexterm><primary>EmitterInterface</primary><secondary>listeners</secondary></indexterm>
+<para><computeroutput>listeners (string $eventName)</computeroutput></para>
+<para>Returns the list of listeners for an event.</para>
+
+<para>The list is returned as an array, and the list of events are sorted by their priority.</para>
+
+<para><formalpara><title>Renvoie</title>
+
+<para>callable[] </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_interface_sabre_1_1_event_1_1_emitter_interface_1a33e6415f7f3f457744ad1746759646c4"/><section>
+    <title>on()</title>
+<indexterm><primary>on</primary><secondary>EmitterInterface</secondary></indexterm>
+<indexterm><primary>EmitterInterface</primary><secondary>on</secondary></indexterm>
+<para><computeroutput>on (string $eventName, <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">callable</link> $callBack, int $priority = <computeroutput>100</computeroutput>
+)</computeroutput></para>
+<para>Subscribe to an event. </para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="interface_sabre_1_1_event_1_1_emitter_interface_a33e6415f7f3f457744ad1746759646c4_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_interface_sabre_1_1_event_1_1_emitter_interface_1a150b782ec28a64c0fc324a02e8523341"/><section>
+    <title>once()</title>
+<indexterm><primary>once</primary><secondary>EmitterInterface</secondary></indexterm>
+<indexterm><primary>EmitterInterface</primary><secondary>once</secondary></indexterm>
+<para><computeroutput>once (string $eventName, <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">callable</link> $callBack, int $priority = <computeroutput>100</computeroutput>
+)</computeroutput></para>
+<para>Subscribe to an event exactly once. </para>
+</section>
+<anchor xml:id="_interface_sabre_1_1_event_1_1_emitter_interface_1a0016e4737c8baecc64f62655510b252f"/><section>
+    <title>removeAllListeners()</title>
+<indexterm><primary>removeAllListeners</primary><secondary>EmitterInterface</secondary></indexterm>
+<indexterm><primary>EmitterInterface</primary><secondary>removeAllListeners</secondary></indexterm>
+<para><computeroutput>removeAllListeners (string $eventName = <computeroutput>null</computeroutput>
+)</computeroutput></para>
+<para>Removes all listeners.</para>
+
+<para>If the eventName argument is specified, all listeners for that event are removed. If it is not specified, every listener for every event is removed. </para>
+</section>
+<anchor xml:id="_interface_sabre_1_1_event_1_1_emitter_interface_1a0e747e11d0882655ee8a77dd1f4b5298"/><section>
+    <title>removeListener()</title>
+<indexterm><primary>removeListener</primary><secondary>EmitterInterface</secondary></indexterm>
+<indexterm><primary>EmitterInterface</primary><secondary>removeListener</secondary></indexterm>
+<para><computeroutput>removeListener (string $eventName, <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">callable</link> $listener)</computeroutput></para>
+<para>Removes a specific listener from an event.</para>
+
+<para>If the listener could not be found, this method will return false. If it was removed it will return true. </para>
+</section>
+<para>
+La documentation de cette interface a été générée à partir du fichier suivant :</para>
+public/glpi/vendor/sabre/event/lib/<link linkend="__emitter_interface_8php">EmitterInterface.php</link></section>
+</section>

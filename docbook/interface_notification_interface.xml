@@ -1,0 +1,149 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_interface_notification_interface" xml:lang="fr">
+<title>Référence de l&apos;interface NotificationInterface</title>
+<indexterm><primary>NotificationInterface</primary></indexterm>
+Graphe d&apos;héritage de NotificationInterface:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="interface_notification_interface__inherit__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Graphe de collaboration de NotificationInterface:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="interface_notification_interface__coll__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Fonctions membres publiques    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_interface_notification_interface_1a9cf3a655861ad4b52feb5e69692066f3">sendNotification</link> ()</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Fonctions membres publiques statiques    </title>
+        <itemizedlist>
+            <listitem><para>static <link linkend="_interface_notification_interface_1a4fecb6650bfbec7cfc5a4ce997756fed">check</link> ($value, $options=[])</para>
+</listitem>
+            <listitem><para>static <link linkend="_interface_notification_interface_1a862eab8aa918644c18f5611e49deeed2">testNotification</link> ()</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Description détaillée</title>
+
+<para><informaltable frame='bottom'><tgroup cols='1'><colspec align='center'/><tbody><row><entry align='center'>
+</entry></row></tbody></tgroup></informaltable>
+</para>
+
+<para><link linkend="_class_g_l_p_i">GLPI</link> - Gestionnaire Libre de Parc Informatique</para>
+
+<para><link xlink:href="http://glpi-project.org">http://glpi-project.org</link></para>
+
+<para><formalpara><title>Copyright</title>
+
+<para>2015-2024 Teclib&apos; and contributors. </para>
+
+<para>2003-2014 by the INDEPNET Development Team. @licence <link xlink:href="https://www.gnu.org/licenses/gpl-3.0.html">https://www.gnu.org/licenses/gpl-3.0.html</link></para>
+</formalpara>
+<informaltable frame='bottom'><tgroup cols='1'><colspec align='center'/><tbody><row><entry align='center'>
+</entry></row></tbody></tgroup></informaltable>
+</para>
+
+<para>LICENSE</para>
+
+<para>This file is part of <link linkend="_class_g_l_p_i">GLPI</link>.</para>
+
+<para>This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free <link linkend="_class_software">Software</link> Foundation, either version 3 of the License, or (at your option) any later version.</para>
+
+<para>This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.</para>
+
+<para>You should have received a copy of the GNU General Public License along with this program. If not, see <link xlink:href="https://www.gnu.org/licenses/">https://www.gnu.org/licenses/</link>.</para>
+
+<para><informaltable frame='bottom'><tgroup cols='1'><colspec align='center'/><tbody><row><entry align='center'>
+</entry></row></tbody></tgroup></informaltable>
+ Interface to implement for each notification mode </para>
+</section>
+<section>
+<title>Documentation des fonctions membres</title>
+<anchor xml:id="_interface_notification_interface_1a4fecb6650bfbec7cfc5a4ce997756fed"/><section>
+    <title>check()</title>
+<indexterm><primary>check</primary><secondary>NotificationInterface</secondary></indexterm>
+<indexterm><primary>NotificationInterface</primary><secondary>check</secondary></indexterm>
+<para><computeroutput>static check ( $value,  $options = <computeroutput>[]</computeroutput>
+)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>Check data</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>mixed</entry><entry>$value</entry><entry>
+<para>The data to check (may differ for every notification mode) </para>
+</entry>
+                            </row>
+                            <row>
+<entry>array</entry><entry>$options</entry><entry>
+<para>Optionnal special options (may be needed)</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>boolean </para>
+</formalpara>
+</para>
+<para>
+Implémenté dans <link linkend="_class_notification_ajax_1a4fecb6650bfbec7cfc5a4ce997756fed">NotificationAjax</link>, et <link linkend="_class_notification_mailing_1a4fecb6650bfbec7cfc5a4ce997756fed">NotificationMailing</link>.</para>
+</section>
+<anchor xml:id="_interface_notification_interface_1a9cf3a655861ad4b52feb5e69692066f3"/><section>
+    <title>sendNotification()</title>
+<indexterm><primary>sendNotification</primary><secondary>NotificationInterface</secondary></indexterm>
+<indexterm><primary>NotificationInterface</primary><secondary>sendNotification</secondary></indexterm>
+<para><computeroutput>sendNotification ( )</computeroutput></para>
+<para>Send notifications</para>
+
+<para><formalpara><title>Renvoie</title>
+
+<para>boolean </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_interface_notification_interface_1a862eab8aa918644c18f5611e49deeed2"/><section>
+    <title>testNotification()</title>
+<indexterm><primary>testNotification</primary><secondary>NotificationInterface</secondary></indexterm>
+<indexterm><primary>NotificationInterface</primary><secondary>testNotification</secondary></indexterm>
+<para><computeroutput>static testNotification ( )<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>Method to test notification</para>
+
+<para><formalpara><title>Renvoie</title>
+
+<para>mixed </para>
+</formalpara>
+</para>
+<para>
+Implémenté dans <link linkend="_class_notification_ajax_1a862eab8aa918644c18f5611e49deeed2">NotificationAjax</link>.</para>
+</section>
+<para>
+La documentation de cette interface a été générée à partir du fichier suivant :</para>
+public/glpi/src/<link linkend="_src_2_notification_interface_8php">NotificationInterface.php</link></section>
+</section>

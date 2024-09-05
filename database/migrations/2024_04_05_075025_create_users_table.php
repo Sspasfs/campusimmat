@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('mail');
             $table->string('password');
             $table->string('name');
+            $table->boolean('is_admin')->default(false);
         });
     }
 

@@ -1,0 +1,627 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_md_public_2glpi_2vendor_2donatj_2phpuseragentparser_2_r_e_a_d_m_e" xml:lang="fr">
+<title>PHP User Agent Parser</title>
+<indexterm><primary>PHP User Agent Parser</primary></indexterm>
+
+<para><anchor xml:id="_md_public_2glpi_2vendor_2donatj_2phpuseragentparser_2_r_e_a_d_m_e_1autotoc_md5752"/> <link xlink:href="https://gitter.im/PhpUserAgentParser/Lobby?utm_source=badge&amp;utm_medium=badge&amp;utm_campaign=pr-badge&amp;utm_content=badge"></link></para>
+
+<para><link xlink:href="https://packagist.org/packages/donatj/phpuseragentparser"></link> <link xlink:href="https://packagist.org/packages/donatj/phpuseragentparser"></link> <link xlink:href="https://packagist.org/packages/donatj/phpuseragentparser"></link> <link xlink:href="https://github.com/donatj/phpUserAgent/actions?query=workflow%3ACI"></link></para>
+<section xml:id="_md_public_2glpi_2vendor_2donatj_2phpuseragentparser_2_r_e_a_d_m_e_1autotoc_md5753">
+<title><title>What It Is</title></title>
+
+<para>A simple, streamlined PHP user-agent parser!</para>
+
+<para>Licensed under the MIT license: <link xlink:href="https://www.opensource.org/licenses/mit-license.php">https://www.opensource.org/licenses/mit-license.php</link></para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2donatj_2phpuseragentparser_2_r_e_a_d_m_e_1autotoc_md5754">
+<title><title>Upgrading to <computeroutput>1.*</computeroutput></title></title>
+
+<para>The new <computeroutput>1.*</computeroutput> release <emphasis role="bold">does not break compatibility</emphasis> with <computeroutput>0.*</computeroutput> and nothing need to change to upgrade. However, the global <computeroutput>parse_user_agent</computeroutput> is now deprecated; it has been replaced with the namespaced <computeroutput>\donatj\UserAgent\parse_user_agent</computeroutput> and functions exactly the same. You can easily replace any existing call to <computeroutput>parse_user_agent</computeroutput> with <computeroutput>\donatj\UserAgent\parse_user_agent</computeroutput></para>
+
+<para>In addition, 1.x adds a convenience object wrapper you may use should you prefer. More information on this is in the Usage section below.</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2donatj_2phpuseragentparser_2_r_e_a_d_m_e_1autotoc_md5755">
+<title><title>Why Use This</title></title>
+
+<para>You have your choice in user-agent parsers. This one detects <emphasis role="bold">all modern browsers</emphasis> in a very light, quick, understandable fashion. It is less than 200 lines of code, and consists of just three regular expressions! It can also correctly identify exotic versions of IE others fail on.</para>
+
+<para>It offers 100% unit test coverage, is installable via <link linkend="_namespace_composer">Composer</link>, and is very easy to use.</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2donatj_2phpuseragentparser_2_r_e_a_d_m_e_1autotoc_md5756">
+<title><title>What It Does Not Do</title></title>
+
+<para>This is not meant as a browser &quot;knowledge engine&quot; but rather a simple parser. Anything not adequately provided directly by the user agent string itself will simply not be provided by this.</para>
+<section xml:id="_md_public_2glpi_2vendor_2donatj_2phpuseragentparser_2_r_e_a_d_m_e_1autotoc_md5757">
+<title><title>OS Versions</title></title>
+
+<para>User-agent strings <emphasis role="bold">are not</emphasis> a reliable source of OS Version!</para>
+
+<para><itemizedlist>
+<listitem>
+<para>Many agents simply don&apos;t send the information.</para>
+</listitem><listitem>
+<para>Others provide varying levels of accuracy.</para>
+</listitem><listitem>
+<para>Parsing Windows versions alone almost nearly doubles the size of the code.</para>
+</listitem></itemizedlist>
+</para>
+
+<para>I&apos;m much more interested in keeping this thing <emphasis>tiny</emphasis> and accurate than adding niché features and would rather focus on things that can be <emphasis role="bold">done well</emphasis>.</para>
+
+<para>All that said, there is the start of a <link xlink:href="https://github.com/donatj/PhpUserAgent/tree/os_version_detection">branch to do it</link> I created for a client if you want to poke it, I update it from time to time, but frankly if you need to <emphasis>reliably detect OS Version</emphasis>, using user-agent isn&apos;t the way to do it. I&apos;d go with JavaScript.</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2donatj_2phpuseragentparser_2_r_e_a_d_m_e_1autotoc_md5758">
+<title><title>Undetectable Browsers</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para><emphasis role="bold">Brave</emphasis> - Brave is simply not differentiable from Chrome. This was a design decision on their part.</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2donatj_2phpuseragentparser_2_r_e_a_d_m_e_1autotoc_md5759">
+<title><title>Undetectable Platforms</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para><emphasis role="bold">iPadOS 13+</emphasis> - Starting with iPadOS 13 and further hardened in 14, iPadOS returns the <emphasis role="bold">exact</emphasis> same string as macOS. It is no longer distinguishable by UA string. (See: <link xlink:href="https://github.com/donatj/PhpUserAgent/issues/69">#69</link>)</para>
+</listitem></itemizedlist>
+</para>
+</section>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2donatj_2phpuseragentparser_2_r_e_a_d_m_e_1autotoc_md5760">
+<title><title>Requirements</title></title>
+
+<para><itemizedlist>
+<listitem>
+<para><emphasis role="bold">php</emphasis>: &gt;=5.4.0</para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2donatj_2phpuseragentparser_2_r_e_a_d_m_e_1autotoc_md5761">
+<title><title>Installing</title></title>
+
+<para>PHP <link linkend="_class_user">User</link> <link linkend="_class_agent">Agent</link> is available through Packagist via <link linkend="_namespace_composer">Composer</link>.</para>
+
+<para>Install the latest version with:</para>
+
+<para><literallayout><computeroutput>composer&#32;require&#32;&apos;donatj/phpuseragentparser&apos;
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2donatj_2phpuseragentparser_2_r_e_a_d_m_e_1autotoc_md5762">
+<title><title>Usage</title></title>
+
+<para>The classic procedural use is as simple as:</para>
+
+<para><literallayout><computeroutput>$ua_info&#32;=&#32;parse_user_agent();
+/*
+[
+&#32;&#32;&#32;&#32;&apos;platform&apos;&#32;=&gt;&#32;&apos;[Detected&#32;Platform]&apos;,
+&#32;&#32;&#32;&#32;&apos;browser&apos;&#32;&#32;=&gt;&#32;&apos;[Detected&#32;Browser]&apos;,
+&#32;&#32;&#32;&#32;&apos;version&apos;&#32;&#32;=&gt;&#32;&apos;[Detected&#32;Browser&#32;Version]&apos;,
+]
+*/
+</computeroutput></literallayout></para>
+
+<para>The new object oriented wrapper form:</para>
+
+<para><literallayout><computeroutput>$parser&#32;=&#32;new&#32;UserAgentParser();
+
+$ua&#32;=&#32;$parser-&gt;parse();
+//&#32;or
+$ua&#32;=&#32;$parser();
+
+$ua-&gt;platform();
+$ua-&gt;browser();
+$ua-&gt;browserVersion();
+</computeroutput></literallayout></para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2donatj_2phpuseragentparser_2_r_e_a_d_m_e_1autotoc_md5763">
+<title><title>Currently Detected Platforms</title></title>
+
+<para>Predefined helper constants from <computeroutput>donatj\UserAgent\Platforms</computeroutput> <?linebreak?></para>
+
+<para><informaltable frame="all">
+    <tgroup cols="2" align="left" colsep="1" rowsep="1">
+      <colspec colname='c1'/>
+      <colspec colname='c2'/>
+<thead>
+      <row  class='markdownTableHead'>
+<entry>
+<para>Constant   </para>
+</entry><entry>
+<para>Platform    </para>
+</entry></row>
+</thead><tbody>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>Platforms::MACINTOSH</computeroutput>   </para>
+</entry><entry>
+<para>Macintosh    </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para><computeroutput>Platforms::CHROME_OS</computeroutput>   </para>
+</entry><entry>
+<para>Chrome OS    </para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>Platforms::LINUX</computeroutput>   </para>
+</entry><entry>
+<para>Linux    </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para><computeroutput>Platforms::WINDOWS</computeroutput>   </para>
+</entry><entry>
+<para>Windows    </para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>Platforms::ANDROID</computeroutput>   </para>
+</entry><entry>
+<para>Android    </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para><computeroutput>Platforms::BLACKBERRY</computeroutput>   </para>
+</entry><entry>
+<para>BlackBerry    </para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>Platforms::FREEBSD</computeroutput>   </para>
+</entry><entry>
+<para>FreeBSD    </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para><computeroutput>Platforms::IPAD</computeroutput>   </para>
+</entry><entry>
+<para>iPad    </para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>Platforms::IPHONE</computeroutput>   </para>
+</entry><entry>
+<para>iPhone    </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para><computeroutput>Platforms::IPOD</computeroutput>   </para>
+</entry><entry>
+<para>iPod    </para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>Platforms::KINDLE</computeroutput>   </para>
+</entry><entry>
+<para>Kindle    </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para><computeroutput>Platforms::KINDLE_FIRE</computeroutput>   </para>
+</entry><entry>
+<para>Kindle Fire    </para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>Platforms::NETBSD</computeroutput>   </para>
+</entry><entry>
+<para>NetBSD    </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para><computeroutput>Platforms::NEW_NINTENDO_3DS</computeroutput>   </para>
+</entry><entry>
+<para>New Nintendo 3DS    </para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>Platforms::NINTENDO_3DS</computeroutput>   </para>
+</entry><entry>
+<para>Nintendo 3DS    </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para><computeroutput>Platforms::NINTENDO_DS</computeroutput>   </para>
+</entry><entry>
+<para>Nintendo DS    </para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>Platforms::NINTENDO_SWITCH</computeroutput>   </para>
+</entry><entry>
+<para>Nintendo Switch    </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para><computeroutput>Platforms::NINTENDO_WII</computeroutput>   </para>
+</entry><entry>
+<para>Nintendo Wii    </para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>Platforms::NINTENDO_WIIU</computeroutput>   </para>
+</entry><entry>
+<para>Nintendo WiiU    </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para><computeroutput>Platforms::OPENBSD</computeroutput>   </para>
+</entry><entry>
+<para>OpenBSD    </para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>Platforms::PLAYBOOK</computeroutput>   </para>
+</entry><entry>
+<para>PlayBook    </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para><computeroutput>Platforms::PLAYSTATION_3</computeroutput>   </para>
+</entry><entry>
+<para>PlayStation 3    </para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>Platforms::PLAYSTATION_4</computeroutput>   </para>
+</entry><entry>
+<para>PlayStation 4    </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para><computeroutput>Platforms::PLAYSTATION_5</computeroutput>   </para>
+</entry><entry>
+<para>PlayStation 5    </para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>Platforms::PLAYSTATION_VITA</computeroutput>   </para>
+</entry><entry>
+<para>PlayStation Vita    </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para><computeroutput>Platforms::SAILFISH</computeroutput>   </para>
+</entry><entry>
+<para>Sailfish    </para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>Platforms::SYMBIAN</computeroutput>   </para>
+</entry><entry>
+<para>Symbian    </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para><computeroutput>Platforms::TIZEN</computeroutput>   </para>
+</entry><entry>
+<para>Tizen    </para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>Platforms::WINDOWS_PHONE</computeroutput>   </para>
+</entry><entry>
+<para>Windows <link linkend="_class_phone">Phone</link>    </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para><computeroutput>Platforms::XBOX</computeroutput>   </para>
+</entry><entry>
+<para>Xbox    </para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>Platforms::XBOX_ONE</computeroutput>   </para>
+</entry><entry>
+<para>Xbox One   </para>
+</entry></row>
+    </tbody>
+    </tgroup>
+</informaltable>
+</para>
+</section>
+<section xml:id="_md_public_2glpi_2vendor_2donatj_2phpuseragentparser_2_r_e_a_d_m_e_1autotoc_md5764">
+<title><title>Currently Detected Browsers</title></title>
+
+<para>Predefined helper constants from <computeroutput>donatj\UserAgent\Browsers</computeroutput> <?linebreak?></para>
+
+<para><informaltable frame="all">
+    <tgroup cols="2" align="left" colsep="1" rowsep="1">
+      <colspec colname='c1'/>
+      <colspec colname='c2'/>
+<thead>
+      <row  class='markdownTableHead'>
+<entry>
+<para>Constant   </para>
+</entry><entry>
+<para>Browser    </para>
+</entry></row>
+</thead><tbody>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>Browsers::ADSBOT_GOOGLE</computeroutput>   </para>
+</entry><entry>
+<para>AdsBot-Google    </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para><computeroutput>Browsers::ANDROID_BROWSER</computeroutput>   </para>
+</entry><entry>
+<para>Android Browser    </para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>Browsers::APPLEBOT</computeroutput>   </para>
+</entry><entry>
+<para>Applebot    </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para><computeroutput>Browsers::BAIDUSPIDER</computeroutput>   </para>
+</entry><entry>
+<para>Baiduspider    </para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>Browsers::BINGBOT</computeroutput>   </para>
+</entry><entry>
+<para>bingbot    </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para><computeroutput>Browsers::BLACKBERRY_BROWSER</computeroutput>   </para>
+</entry><entry>
+<para>BlackBerry Browser    </para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>Browsers::BROWSER</computeroutput>   </para>
+</entry><entry>
+<para>Browser    </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para><computeroutput>Browsers::BUNJALLOO</computeroutput>   </para>
+</entry><entry>
+<para>Bunjalloo    </para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>Browsers::CAMINO</computeroutput>   </para>
+</entry><entry>
+<para>Camino    </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para><computeroutput>Browsers::CHROME</computeroutput>   </para>
+</entry><entry>
+<para>Chrome    </para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>Browsers::CURL</computeroutput>   </para>
+</entry><entry>
+<para>curl    </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para><computeroutput>Browsers::EDGE</computeroutput>   </para>
+</entry><entry>
+<para>Edge    </para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>Browsers::FACEBOOKEXTERNALHIT</computeroutput>   </para>
+</entry><entry>
+<para>facebookexternalhit    </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para><computeroutput>Browsers::FEEDVALIDATOR</computeroutput>   </para>
+</entry><entry>
+<para>FeedValidator    </para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>Browsers::FIREFOX</computeroutput>   </para>
+</entry><entry>
+<para>Firefox    </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para><computeroutput>Browsers::GOOGLEBOT</computeroutput>   </para>
+</entry><entry>
+<para>Googlebot    </para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>Browsers::GOOGLEBOT_IMAGE</computeroutput>   </para>
+</entry><entry>
+<para>Googlebot-Image    </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para><computeroutput>Browsers::GOOGLEBOT_VIDEO</computeroutput>   </para>
+</entry><entry>
+<para>Googlebot-Video    </para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>Browsers::HEADLESSCHROME</computeroutput>   </para>
+</entry><entry>
+<para>HeadlessChrome    </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para><computeroutput>Browsers::IEMOBILE</computeroutput>   </para>
+</entry><entry>
+<para>IEMobile    </para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>Browsers::IMESSAGEBOT</computeroutput>   </para>
+</entry><entry>
+<para>iMessageBot    </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para><computeroutput>Browsers::KINDLE</computeroutput>   </para>
+</entry><entry>
+<para>Kindle    </para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>Browsers::LYNX</computeroutput>   </para>
+</entry><entry>
+<para>Lynx    </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para><computeroutput>Browsers::MIDORI</computeroutput>   </para>
+</entry><entry>
+<para>Midori    </para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>Browsers::MIUIBROWSER</computeroutput>   </para>
+</entry><entry>
+<para>MiuiBrowser    </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para><computeroutput>Browsers::MSIE</computeroutput>   </para>
+</entry><entry>
+<para>MSIE    </para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>Browsers::MSNBOT_MEDIA</computeroutput>   </para>
+</entry><entry>
+<para>msnbot-media    </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para><computeroutput>Browsers::NETFRONT</computeroutput>   </para>
+</entry><entry>
+<para>NetFront    </para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>Browsers::NINTENDOBROWSER</computeroutput>   </para>
+</entry><entry>
+<para>NintendoBrowser    </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para><computeroutput>Browsers::OCULUSBROWSER</computeroutput>   </para>
+</entry><entry>
+<para>OculusBrowser    </para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>Browsers::OPERA</computeroutput>   </para>
+</entry><entry>
+<para>Opera    </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para><computeroutput>Browsers::PUFFIN</computeroutput>   </para>
+</entry><entry>
+<para>Puffin    </para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>Browsers::SAFARI</computeroutput>   </para>
+</entry><entry>
+<para>Safari    </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para><computeroutput>Browsers::SAILFISHBROWSER</computeroutput>   </para>
+</entry><entry>
+<para>SailfishBrowser    </para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>Browsers::SAMSUNGBROWSER</computeroutput>   </para>
+</entry><entry>
+<para>SamsungBrowser    </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para><computeroutput>Browsers::SILK</computeroutput>   </para>
+</entry><entry>
+<para>Silk    </para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>Browsers::TELEGRAMBOT</computeroutput>   </para>
+</entry><entry>
+<para>TelegramBot    </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para><computeroutput>Browsers::TIZENBROWSER</computeroutput>   </para>
+</entry><entry>
+<para>TizenBrowser    </para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>Browsers::TWITTERBOT</computeroutput>   </para>
+</entry><entry>
+<para>Twitterbot    </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para><computeroutput>Browsers::UC_BROWSER</computeroutput>   </para>
+</entry><entry>
+<para>UC Browser    </para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>Browsers::VALVE_STEAM_TENFOOT</computeroutput>   </para>
+</entry><entry>
+<para>Valve Steam Tenfoot    </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para><computeroutput>Browsers::VIVALDI</computeroutput>   </para>
+</entry><entry>
+<para>Vivaldi    </para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>Browsers::WGET</computeroutput>   </para>
+</entry><entry>
+<para>Wget    </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para><computeroutput>Browsers::WORDPRESS</computeroutput>   </para>
+</entry><entry>
+<para>WordPress    </para>
+</entry></row>
+      <row  class='markdownTableRowOdd'>
+<entry>
+<para><computeroutput>Browsers::YANDEX</computeroutput>   </para>
+</entry><entry>
+<para>Yandex    </para>
+</entry></row>
+      <row  class='markdownTableRowEven'>
+<entry>
+<para><computeroutput>Browsers::YANDEXBOT</computeroutput>   </para>
+</entry><entry>
+<para>YandexBot   </para>
+</entry></row>
+    </tbody>
+    </tgroup>
+</informaltable>
+</para>
+
+<para>More information is available at <link xlink:href="https://donatstudios.com/PHP-Parser-HTTP_USER_AGENT">Donat Studios</link>. </para>
+</section>
+</section>

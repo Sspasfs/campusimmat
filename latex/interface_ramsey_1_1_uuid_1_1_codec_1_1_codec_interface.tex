@@ -1,0 +1,126 @@
+\doxysection{Référence de l\textquotesingle{}interface Codec\+Interface}
+\hypertarget{interface_ramsey_1_1_uuid_1_1_codec_1_1_codec_interface}{}\label{interface_ramsey_1_1_uuid_1_1_codec_1_1_codec_interface}\index{CodecInterface@{CodecInterface}}
+
+
+Graphe d\textquotesingle{}héritage de Codec\+Interface\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{interface_ramsey_1_1_uuid_1_1_codec_1_1_codec_interface__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Graphe de collaboration de Codec\+Interface\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=224pt]{interface_ramsey_1_1_uuid_1_1_codec_1_1_codec_interface__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{interface_ramsey_1_1_uuid_1_1_codec_1_1_codec_interface_a2b51c9f6a06e2cfa3b855676fa3b3fd7}{encode}} (\mbox{\hyperlink{interface_ramsey_1_1_uuid_1_1_uuid_interface}{Uuid\+Interface}} \$uuid)
+\item 
+\mbox{\hyperlink{interface_ramsey_1_1_uuid_1_1_codec_1_1_codec_interface_a3c78fb7e30c430ec86edd907d580541a}{encode\+Binary}} (\mbox{\hyperlink{interface_ramsey_1_1_uuid_1_1_uuid_interface}{Uuid\+Interface}} \$uuid)
+\item 
+\mbox{\hyperlink{interface_ramsey_1_1_uuid_1_1_codec_1_1_codec_interface_ab4189bfc952c2c92c053a789aa62ef38}{decode}} (string \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{encoded\+Uuid}})
+\item 
+\mbox{\hyperlink{interface_ramsey_1_1_uuid_1_1_codec_1_1_codec_interface_ad7dad29f1dbff24b63f686b1af1ba2f3}{decode\+Bytes}} (string \$\mbox{\hyperlink{report_8contract_8php_a77b973d137fb33212e018b042df6e3e7}{bytes}})
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+A codec encodes and decodes a UUID according to defined rules
+
+@psalm-\/immutable 
+
+\doxysubsection{Documentation des fonctions membres}
+\Hypertarget{interface_ramsey_1_1_uuid_1_1_codec_1_1_codec_interface_ab4189bfc952c2c92c053a789aa62ef38}\label{interface_ramsey_1_1_uuid_1_1_codec_1_1_codec_interface_ab4189bfc952c2c92c053a789aa62ef38} 
+\index{CodecInterface@{CodecInterface}!decode@{decode}}
+\index{decode@{decode}!CodecInterface@{CodecInterface}}
+\doxysubsubsection{\texorpdfstring{decode()}{decode()}}
+{\footnotesize\ttfamily decode (\begin{DoxyParamCaption}\item[{string}]{\$encoded\+Uuid }\end{DoxyParamCaption})}
+
+Returns a Uuid\+Interface derived from a hexadecimal string representation
+
+
+\begin{DoxyParams}[1]{Paramètres}
+string & {\em \$encoded\+Uuid} & The hexadecimal string representation to convert into a Uuid\+Interface instance\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+Uuid\+Interface An instance of a UUID decoded from a hexadecimal string representation 
+\end{DoxyReturn}
+
+
+Implémenté dans \mbox{\hyperlink{class_ramsey_1_1_uuid_1_1_codec_1_1_guid_string_codec_ab4189bfc952c2c92c053a789aa62ef38}{Guid\+String\+Codec}}, \mbox{\hyperlink{class_ramsey_1_1_uuid_1_1_codec_1_1_string_codec_ab4189bfc952c2c92c053a789aa62ef38}{String\+Codec}}, et \mbox{\hyperlink{class_ramsey_1_1_uuid_1_1_codec_1_1_timestamp_first_comb_codec_ab4189bfc952c2c92c053a789aa62ef38}{Timestamp\+First\+Comb\+Codec}}.
+
+\Hypertarget{interface_ramsey_1_1_uuid_1_1_codec_1_1_codec_interface_ad7dad29f1dbff24b63f686b1af1ba2f3}\label{interface_ramsey_1_1_uuid_1_1_codec_1_1_codec_interface_ad7dad29f1dbff24b63f686b1af1ba2f3} 
+\index{CodecInterface@{CodecInterface}!decodeBytes@{decodeBytes}}
+\index{decodeBytes@{decodeBytes}!CodecInterface@{CodecInterface}}
+\doxysubsubsection{\texorpdfstring{decodeBytes()}{decodeBytes()}}
+{\footnotesize\ttfamily decode\+Bytes (\begin{DoxyParamCaption}\item[{string}]{\$bytes }\end{DoxyParamCaption})}
+
+Returns a Uuid\+Interface derived from a binary string representation
+
+
+\begin{DoxyParams}[1]{Paramètres}
+string & {\em \$bytes} & The binary string representation to convert into a Uuid\+Interface instance\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+Uuid\+Interface An instance of a UUID decoded from a binary string representation 
+\end{DoxyReturn}
+
+
+Implémenté dans \mbox{\hyperlink{class_ramsey_1_1_uuid_1_1_codec_1_1_guid_string_codec_ad7dad29f1dbff24b63f686b1af1ba2f3}{Guid\+String\+Codec}}, \mbox{\hyperlink{class_ramsey_1_1_uuid_1_1_codec_1_1_ordered_time_codec_ad7dad29f1dbff24b63f686b1af1ba2f3}{Ordered\+Time\+Codec}}, \mbox{\hyperlink{class_ramsey_1_1_uuid_1_1_codec_1_1_string_codec_ad7dad29f1dbff24b63f686b1af1ba2f3}{String\+Codec}}, et \mbox{\hyperlink{class_ramsey_1_1_uuid_1_1_codec_1_1_timestamp_first_comb_codec_ad7dad29f1dbff24b63f686b1af1ba2f3}{Timestamp\+First\+Comb\+Codec}}.
+
+\Hypertarget{interface_ramsey_1_1_uuid_1_1_codec_1_1_codec_interface_a2b51c9f6a06e2cfa3b855676fa3b3fd7}\label{interface_ramsey_1_1_uuid_1_1_codec_1_1_codec_interface_a2b51c9f6a06e2cfa3b855676fa3b3fd7} 
+\index{CodecInterface@{CodecInterface}!encode@{encode}}
+\index{encode@{encode}!CodecInterface@{CodecInterface}}
+\doxysubsubsection{\texorpdfstring{encode()}{encode()}}
+{\footnotesize\ttfamily encode (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{interface_ramsey_1_1_uuid_1_1_uuid_interface}{Uuid\+Interface}}}]{\$uuid }\end{DoxyParamCaption})}
+
+Returns a hexadecimal string representation of a Uuid\+Interface
+
+
+\begin{DoxyParams}[1]{Paramètres}
+Uuid\+Interface & {\em \$uuid} & The UUID for which to create a hexadecimal string representation\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+string Hexadecimal string representation of a UUID
+\end{DoxyReturn}
+@psalm-\/return non-\/empty-\/string 
+
+Implémenté dans \mbox{\hyperlink{class_ramsey_1_1_uuid_1_1_codec_1_1_timestamp_first_comb_codec_a2b51c9f6a06e2cfa3b855676fa3b3fd7}{Timestamp\+First\+Comb\+Codec}}.
+
+\Hypertarget{interface_ramsey_1_1_uuid_1_1_codec_1_1_codec_interface_a3c78fb7e30c430ec86edd907d580541a}\label{interface_ramsey_1_1_uuid_1_1_codec_1_1_codec_interface_a3c78fb7e30c430ec86edd907d580541a} 
+\index{CodecInterface@{CodecInterface}!encodeBinary@{encodeBinary}}
+\index{encodeBinary@{encodeBinary}!CodecInterface@{CodecInterface}}
+\doxysubsubsection{\texorpdfstring{encodeBinary()}{encodeBinary()}}
+{\footnotesize\ttfamily encode\+Binary (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{interface_ramsey_1_1_uuid_1_1_uuid_interface}{Uuid\+Interface}}}]{\$uuid }\end{DoxyParamCaption})}
+
+Returns a binary string representation of a Uuid\+Interface
+
+
+\begin{DoxyParams}[1]{Paramètres}
+Uuid\+Interface & {\em \$uuid} & The UUID for which to create a binary string representation\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+string Binary string representation of a UUID
+\end{DoxyReturn}
+@psalm-\/return non-\/empty-\/string 
+
+Implémenté dans \mbox{\hyperlink{class_ramsey_1_1_uuid_1_1_codec_1_1_ordered_time_codec_a3c78fb7e30c430ec86edd907d580541a}{Ordered\+Time\+Codec}}, \mbox{\hyperlink{class_ramsey_1_1_uuid_1_1_codec_1_1_string_codec_a3c78fb7e30c430ec86edd907d580541a}{String\+Codec}}, et \mbox{\hyperlink{class_ramsey_1_1_uuid_1_1_codec_1_1_timestamp_first_comb_codec_a3c78fb7e30c430ec86edd907d580541a}{Timestamp\+First\+Comb\+Codec}}.
+
+
+
+La documentation de cette interface a été générée à partir du fichier suivant \+:\begin{DoxyCompactItemize}
+\item 
+public/glpi/vendor/ramsey/uuid/src/\+Codec/\mbox{\hyperlink{_codec_interface_8php}{Codec\+Interface.\+php}}\end{DoxyCompactItemize}

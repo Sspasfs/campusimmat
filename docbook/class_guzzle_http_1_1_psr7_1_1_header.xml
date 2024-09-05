@@ -1,0 +1,130 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_guzzle_http_1_1_psr7_1_1_header" xml:lang="fr">
+<title>Référence de la classe Header</title>
+<indexterm><primary>Header</primary></indexterm>
+Graphe de collaboration de Header:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_guzzle_http_1_1_psr7_1_1_header__coll__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Fonctions membres publiques statiques    </title>
+        <itemizedlist>
+            <listitem><para>static <link linkend="_class_guzzle_http_1_1_psr7_1_1_header_1a535636e0c7e95467993f6d51916c78b1">parse</link> ($header)</para>
+</listitem>
+            <listitem><para>static <link linkend="_class_guzzle_http_1_1_psr7_1_1_header_1ad63994a240a515477ff53b6e7eb4643f">normalize</link> ($header)</para>
+</listitem>
+            <listitem><para>static <link linkend="_class_guzzle_http_1_1_psr7_1_1_header_1ada8780a4ea3077d6a404ed9fbbb5a1be">splitList</link> ($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">values</link>)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Documentation des fonctions membres</title>
+<anchor xml:id="_class_guzzle_http_1_1_psr7_1_1_header_1ad63994a240a515477ff53b6e7eb4643f"/><section>
+    <title>normalize()</title>
+<indexterm><primary>normalize</primary><secondary>Header</secondary></indexterm>
+<indexterm><primary>Header</primary><secondary>normalize</secondary></indexterm>
+<para><computeroutput>static normalize ( $header)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>Converts an array of header values that may contain comma separated headers into an array of headers with no comma separated values.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string | array</entry><entry>$header</entry><entry>
+<para>Header to normalize.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <para><link linkend="_deprecated_1_deprecated000060">Obsolète</link> 
+<para>Use self::splitList() instead. </para>
+</para></para>
+</section>
+<anchor xml:id="_class_guzzle_http_1_1_psr7_1_1_header_1a535636e0c7e95467993f6d51916c78b1"/><section>
+    <title>parse()</title>
+<indexterm><primary>parse</primary><secondary>Header</secondary></indexterm>
+<indexterm><primary>Header</primary><secondary>parse</secondary></indexterm>
+<para><computeroutput>static parse ( $header)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>Parse an array of header values containing &quot;;&quot; separated data into an array of associative arrays representing the header key value pair data of the header. When a parameter does not contain a value, but just contains a key, this function will inject a key with a &apos;&apos; string value.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string | array</entry><entry>$header</entry><entry>
+<para>Header to parse into components. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
+<anchor xml:id="_class_guzzle_http_1_1_psr7_1_1_header_1ada8780a4ea3077d6a404ed9fbbb5a1be"/><section>
+    <title>splitList()</title>
+<indexterm><primary>splitList</primary><secondary>Header</secondary></indexterm>
+<indexterm><primary>Header</primary><secondary>splitList</secondary></indexterm>
+<para><computeroutput>static splitList ( $values)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>Splits a HTTP header defined to contain a comma-separated list into each individual value. Empty values will be removed.</para>
+
+<para>Example headers include &apos;accept&apos;, &apos;cache-control&apos; and &apos;if-none-match&apos;.</para>
+
+<para>This method must not be used to parse headers that are not defined as a list, such as &apos;user-agent&apos; or &apos;set-cookie&apos;.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string | string[]</entry><entry>$values</entry><entry>
+<para>Header value as returned by MessageInterface::getHeader()</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>string[] </para>
+</formalpara>
+</para>
+</section>
+<para>
+La documentation de cette classe a été générée à partir du fichier suivant :</para>
+public/glpi/vendor/guzzlehttp/psr7/src/<link linkend="__header_8php">Header.php</link></section>
+</section>

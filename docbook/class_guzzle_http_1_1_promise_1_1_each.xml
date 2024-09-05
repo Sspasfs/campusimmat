@@ -1,0 +1,208 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_guzzle_http_1_1_promise_1_1_each" xml:lang="fr">
+<title>Référence de la classe Each</title>
+<indexterm><primary>Each</primary></indexterm>
+Graphe de collaboration de Each:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_guzzle_http_1_1_promise_1_1_each__coll__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Fonctions membres publiques statiques    </title>
+        <itemizedlist>
+            <listitem><para>static <link linkend="_class_guzzle_http_1_1_promise_1_1_each_1aac02552716da6c7780b34d5c1d3aac5f">of</link> ( $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">iterable</link>, <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">callable</link> $onFulfilled=null, <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">callable</link> $onRejected=null)</para>
+</listitem>
+            <listitem><para>static <link linkend="_class_guzzle_http_1_1_promise_1_1_each_1a7a6421293f06e72df7c23ae9e1f0d602">ofLimit</link> ( $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">iterable</link>, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">concurrency</link>, <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">callable</link> $onFulfilled=null, <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">callable</link> $onRejected=null)</para>
+</listitem>
+            <listitem><para>static <link linkend="_class_guzzle_http_1_1_promise_1_1_each_1a594752db970c75cfd83428c68ddc1b24">ofLimitAll</link> ( $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">iterable</link>, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">concurrency</link>, <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">callable</link> $onFulfilled=null)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Documentation des fonctions membres</title>
+<anchor xml:id="_class_guzzle_http_1_1_promise_1_1_each_1aac02552716da6c7780b34d5c1d3aac5f"/><section>
+    <title>of()</title>
+<indexterm><primary>of</primary><secondary>Each</secondary></indexterm>
+<indexterm><primary>Each</primary><secondary>of</secondary></indexterm>
+<para><computeroutput>static of ( $iterable, <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">callable</link> $onFulfilled = <computeroutput>null</computeroutput>
+, <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">callable</link> $onRejected = <computeroutput>null</computeroutput>
+)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>Given an iterator that yields promises or values, returns a promise that is fulfilled with a null value when the iterator has been consumed or the aggregate promise has been fulfilled or rejected.</para>
+
+<para>$onFulfilled is a function that accepts the fulfilled value, iterator index, and the aggregate promise. The callback can invoke any necessary side effects and choose to resolve or reject the aggregate if needed.</para>
+
+<para>$onRejected is a function that accepts the rejection reason, iterator index, and the aggregate promise. The callback can invoke any necessary side effects and choose to resolve or reject the aggregate if needed.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>mixed</entry><entry>$iterable</entry><entry>
+<para>Iterator or array to iterate over. </para>
+</entry>
+                            </row>
+                            <row>
+<entry>callable</entry><entry>$onFulfilled</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>callable</entry><entry>$onRejected</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>PromiseInterface </para>
+</formalpara>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_guzzle_http_1_1_promise_1_1_each_aac02552716da6c7780b34d5c1d3aac5f_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_guzzle_http_1_1_promise_1_1_each_1a7a6421293f06e72df7c23ae9e1f0d602"/><section>
+    <title>ofLimit()</title>
+<indexterm><primary>ofLimit</primary><secondary>Each</secondary></indexterm>
+<indexterm><primary>Each</primary><secondary>ofLimit</secondary></indexterm>
+<para><computeroutput>static ofLimit ( $iterable,  $concurrency, <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">callable</link> $onFulfilled = <computeroutput>null</computeroutput>
+, <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">callable</link> $onRejected = <computeroutput>null</computeroutput>
+)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>Like of, but only allows a certain number of outstanding promises at any given time.</para>
+
+<para>$concurrency may be an integer or a function that accepts the number of pending promises and returns a numeric concurrency limit value to allow for dynamic a concurrency size.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>mixed</entry><entry>$iterable</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>int | callable</entry><entry>$concurrency</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>callable</entry><entry>$onFulfilled</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>callable</entry><entry>$onRejected</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>PromiseInterface </para>
+</formalpara>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_guzzle_http_1_1_promise_1_1_each_a7a6421293f06e72df7c23ae9e1f0d602_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_guzzle_http_1_1_promise_1_1_each_1a594752db970c75cfd83428c68ddc1b24"/><section>
+    <title>ofLimitAll()</title>
+<indexterm><primary>ofLimitAll</primary><secondary>Each</secondary></indexterm>
+<indexterm><primary>Each</primary><secondary>ofLimitAll</secondary></indexterm>
+<para><computeroutput>static ofLimitAll ( $iterable,  $concurrency, <link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">callable</link> $onFulfilled = <computeroutput>null</computeroutput>
+)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>Like limit, but ensures that no promise in the given $iterable argument is rejected. If any promise is rejected, then the aggregate promise is rejected with the encountered rejection.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>mixed</entry><entry>$iterable</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>int | callable</entry><entry>$concurrency</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>callable</entry><entry>$onFulfilled</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Renvoie</title>
+
+<para>PromiseInterface </para>
+</formalpara>
+</para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_guzzle_http_1_1_promise_1_1_each_a594752db970c75cfd83428c68ddc1b24_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_guzzle_http_1_1_promise_1_1_each_a594752db970c75cfd83428c68ddc1b24_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<para>
+La documentation de cette classe a été générée à partir du fichier suivant :</para>
+public/glpi/vendor/guzzlehttp/promises/src/<link linkend="__each_8php">Each.php</link></section>
+</section>

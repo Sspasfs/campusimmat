@@ -1,0 +1,98 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_symfony_1_1_component_1_1_console_1_1_console_events" xml:lang="fr">
+<title>Référence de la classe ConsoleEvents</title>
+<indexterm><primary>ConsoleEvents</primary></indexterm>
+Graphe de collaboration de ConsoleEvents:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_symfony_1_1_component_1_1_console_1_1_console_events__coll__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Champs de données    </title>
+        <itemizedlist>
+            <listitem><para>const <link linkend="_class_symfony_1_1_component_1_1_console_1_1_console_events_1a403d47aa1a7f1505b4a2c81e6e4bf9cb">COMMAND</link> = &apos;console.command&apos;</para>
+</listitem>
+            <listitem><para>const <link linkend="_class_symfony_1_1_component_1_1_console_1_1_console_events_1a6fe585e0e1c17d557abe4e7ba5ef15c6">SIGNAL</link> = &apos;console.signal&apos;</para>
+</listitem>
+            <listitem><para>const <link linkend="_class_symfony_1_1_component_1_1_console_1_1_console_events_1a4ec31c5c270b857558fa05824261e3f7">TERMINATE</link> = &apos;console.terminate&apos;</para>
+</listitem>
+            <listitem><para>const <link linkend="_class_symfony_1_1_component_1_1_console_1_1_console_events_1a7f79d7b73cfb40bb7855d4260393cc0f">ERROR</link> = &apos;console.error&apos;</para>
+</listitem>
+            <listitem><para>const <link linkend="_class_symfony_1_1_component_1_1_console_1_1_console_events_1aabb8279358993271b960766e8f2a3b17">ALIASES</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Description détaillée</title>
+
+<para>Contains all events dispatched by an Application.</para>
+
+<para><formalpara><title>Auteur</title>
+
+<para>Francesco Levorato <link xlink:href="mailto:git@flevour.net">git@flevour.net</link> </para>
+</formalpara>
+</para>
+</section>
+<section>
+<title>Documentation des champs</title>
+<anchor xml:id="_class_symfony_1_1_component_1_1_console_1_1_console_events_1aabb8279358993271b960766e8f2a3b17"/><section>
+    <title>ALIASES</title>
+<indexterm><primary>ALIASES</primary><secondary>ConsoleEvents</secondary></indexterm>
+<indexterm><primary>ConsoleEvents</primary><secondary>ALIASES</secondary></indexterm>
+<para><computeroutput>const ALIASES</computeroutput></para><emphasis role="strong">Valeur initiale :</emphasis><programlisting linenumbering="unnumbered">=&#32;[
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;ConsoleCommandEvent::class&#32;=&gt;&#32;<link linkend="_class_symfony_1_1_component_1_1_console_1_1_console_events_1a403d47aa1a7f1505b4a2c81e6e4bf9cb">self::COMMAND</link>,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;ConsoleErrorEvent::class&#32;=&gt;&#32;<link linkend="_class_symfony_1_1_component_1_1_console_1_1_console_events_1a7f79d7b73cfb40bb7855d4260393cc0f">self::ERROR</link>,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;ConsoleSignalEvent::class&#32;=&gt;&#32;<link linkend="_class_symfony_1_1_component_1_1_console_1_1_console_events_1a6fe585e0e1c17d557abe4e7ba5ef15c6">self::SIGNAL</link>,
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;ConsoleTerminateEvent::class&#32;=&gt;&#32;<link linkend="_class_symfony_1_1_component_1_1_console_1_1_console_events_1a4ec31c5c270b857558fa05824261e3f7">self::TERMINATE</link>,
+&#32;&#32;&#32;&#32;]
+</programlisting>
+<para>Event aliases.</para>
+
+<para>These aliases can be consumed by RegisterListenersPass. </para>
+</section>
+<anchor xml:id="_class_symfony_1_1_component_1_1_console_1_1_console_events_1a403d47aa1a7f1505b4a2c81e6e4bf9cb"/><section>
+    <title>COMMAND</title>
+<indexterm><primary>COMMAND</primary><secondary>ConsoleEvents</secondary></indexterm>
+<indexterm><primary>ConsoleEvents</primary><secondary>COMMAND</secondary></indexterm>
+<para><computeroutput>const COMMAND = &apos;console.command&apos;</computeroutput></para>
+<para>The COMMAND event allows you to attach listeners before any command is executed by the console. It also allows you to modify the command, input and output before they are handed to the command.</para>
+
+<para>@Event(&quot;Symfony\Component\Console\Event\ConsoleCommandEvent&quot;) </para>
+</section>
+<anchor xml:id="_class_symfony_1_1_component_1_1_console_1_1_console_events_1a7f79d7b73cfb40bb7855d4260393cc0f"/><section>
+    <title>ERROR</title>
+<indexterm><primary>ERROR</primary><secondary>ConsoleEvents</secondary></indexterm>
+<indexterm><primary>ConsoleEvents</primary><secondary>ERROR</secondary></indexterm>
+<para><computeroutput>const ERROR = &apos;console.error&apos;</computeroutput></para>
+<para>The ERROR event occurs when an uncaught exception or error appears.</para>
+
+<para>This event allows you to deal with the exception/error or to modify the thrown exception.</para>
+
+<para>@Event(&quot;Symfony\Component\Console\Event\ConsoleErrorEvent&quot;) </para>
+</section>
+<anchor xml:id="_class_symfony_1_1_component_1_1_console_1_1_console_events_1a6fe585e0e1c17d557abe4e7ba5ef15c6"/><section>
+    <title>SIGNAL</title>
+<indexterm><primary>SIGNAL</primary><secondary>ConsoleEvents</secondary></indexterm>
+<indexterm><primary>ConsoleEvents</primary><secondary>SIGNAL</secondary></indexterm>
+<para><computeroutput>const SIGNAL = &apos;console.signal&apos;</computeroutput></para>
+<para>The SIGNAL event allows you to perform some actions after the command execution was interrupted.</para>
+
+<para>@Event(&quot;Symfony\Component\Console\Event\ConsoleSignalEvent&quot;) </para>
+</section>
+<anchor xml:id="_class_symfony_1_1_component_1_1_console_1_1_console_events_1a4ec31c5c270b857558fa05824261e3f7"/><section>
+    <title>TERMINATE</title>
+<indexterm><primary>TERMINATE</primary><secondary>ConsoleEvents</secondary></indexterm>
+<indexterm><primary>ConsoleEvents</primary><secondary>TERMINATE</secondary></indexterm>
+<para><computeroutput>const TERMINATE = &apos;console.terminate&apos;</computeroutput></para>
+<para>The TERMINATE event allows you to attach listeners after a command is executed by the console.</para>
+
+<para>@Event(&quot;Symfony\Component\Console\Event\ConsoleTerminateEvent&quot;) </para>
+</section>
+<para>
+La documentation de cette classe a été générée à partir du fichier suivant :</para>
+public/glpi/vendor/symfony/console/<link linkend="__console_events_8php">ConsoleEvents.php</link></section>
+</section>

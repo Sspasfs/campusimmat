@@ -1,0 +1,207 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_interface_sabre_1_1_d_a_v_1_1_property_storage_1_1_backend_1_1_backend_interface" xml:lang="fr">
+<title>Référence de l&apos;interface BackendInterface</title>
+<indexterm><primary>BackendInterface</primary></indexterm>
+Graphe d&apos;héritage de BackendInterface:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="interface_sabre_1_1_d_a_v_1_1_property_storage_1_1_backend_1_1_backend_interface__inherit__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Graphe de collaboration de BackendInterface:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="interface_sabre_1_1_d_a_v_1_1_property_storage_1_1_backend_1_1_backend_interface__coll__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Fonctions membres publiques    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_interface_sabre_1_1_d_a_v_1_1_property_storage_1_1_backend_1_1_backend_interface_1a5b0229833a819b9e940c36adfc1b0e50">propFind</link> ($path, <link linkend="_class_sabre_1_1_d_a_v_1_1_prop_find">PropFind</link> $propFind)</para>
+</listitem>
+            <listitem><para><link linkend="_interface_sabre_1_1_d_a_v_1_1_property_storage_1_1_backend_1_1_backend_interface_1a877f26517c6bdde1b43078208ae481a4">propPatch</link> ($path, <link linkend="_class_sabre_1_1_d_a_v_1_1_prop_patch">PropPatch</link> $propPatch)</para>
+</listitem>
+            <listitem><para><link linkend="_interface_sabre_1_1_d_a_v_1_1_property_storage_1_1_backend_1_1_backend_interface_1af7fd3d73b2e3a63615deedd5c4801f17">delete</link> ($path)</para>
+</listitem>
+            <listitem><para><link linkend="_interface_sabre_1_1_d_a_v_1_1_property_storage_1_1_backend_1_1_backend_interface_1a2003fd87e7824a4650557039d32c561e">move</link> ($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">source</link>, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">destination</link>)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Description détaillée</title>
+
+<para>Propertystorage backend interface.</para>
+
+<para>Propertystorage backends must implement this interface to be used by the propertystorage plugin.</para>
+
+<para><formalpara><title>Copyright</title>
+
+<para>Copyright (C) fruux GmbH (<link xlink:href="https://fruux.com/">https://fruux.com/</link>) </para>
+</formalpara>
+<formalpara><title>Auteur</title>
+
+<para>Evert Pot (<link xlink:href="http://evertpot.com/">http://evertpot.com/</link>) @license <link xlink:href="http://sabre.io/license/">http://sabre.io/license/</link> Modified BSD License </para>
+</formalpara>
+</para>
+</section>
+<section>
+<title>Documentation des fonctions membres</title>
+<anchor xml:id="_interface_sabre_1_1_d_a_v_1_1_property_storage_1_1_backend_1_1_backend_interface_1af7fd3d73b2e3a63615deedd5c4801f17"/><section>
+    <title>delete()</title>
+<indexterm><primary>delete</primary><secondary>BackendInterface</secondary></indexterm>
+<indexterm><primary>BackendInterface</primary><secondary>delete</secondary></indexterm>
+<para><computeroutput>delete ( $path)</computeroutput></para>
+<para>This method is called after a node is deleted.</para>
+
+<para>This allows a backend to clean up all associated properties.</para>
+
+<para>The delete method will get called once for the deletion of an entire tree.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$path</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Implémenté dans <link linkend="_class_sabre_1_1_d_a_v_1_1_property_storage_1_1_backend_1_1_p_d_o_1af7fd3d73b2e3a63615deedd5c4801f17">PDO</link>.</para>
+</section>
+<anchor xml:id="_interface_sabre_1_1_d_a_v_1_1_property_storage_1_1_backend_1_1_backend_interface_1a2003fd87e7824a4650557039d32c561e"/><section>
+    <title>move()</title>
+<indexterm><primary>move</primary><secondary>BackendInterface</secondary></indexterm>
+<indexterm><primary>BackendInterface</primary><secondary>move</secondary></indexterm>
+<para><computeroutput>move ( $source,  $destination)</computeroutput></para>
+<para>This method is called after a successful MOVE.</para>
+
+<para>This should be used to migrate all properties from one path to another. Note that entire collections may be moved, so ensure that all properties for children are also moved along.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$source</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+<entry>string</entry><entry>$destination</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Implémenté dans <link linkend="_class_sabre_1_1_d_a_v_1_1_property_storage_1_1_backend_1_1_p_d_o_1a2003fd87e7824a4650557039d32c561e">PDO</link>.</para>
+</section>
+<anchor xml:id="_interface_sabre_1_1_d_a_v_1_1_property_storage_1_1_backend_1_1_backend_interface_1a5b0229833a819b9e940c36adfc1b0e50"/><section>
+    <title>propFind()</title>
+<indexterm><primary>propFind</primary><secondary>BackendInterface</secondary></indexterm>
+<indexterm><primary>BackendInterface</primary><secondary>propFind</secondary></indexterm>
+<para><computeroutput>propFind ( $path, <link linkend="_class_sabre_1_1_d_a_v_1_1_prop_find">PropFind</link> $propFind)</computeroutput></para>
+<para>Fetches properties for a path.</para>
+
+<para>This method received a PropFind object, which contains all the information about the properties that need to be fetched.</para>
+
+<para>Usually you would just want to call &apos;get404Properties&apos; on this object, as this will give you the <emphasis>exact</emphasis> list of properties that need to be fetched, and haven&apos;t yet.</para>
+
+<para>However, you can also support the &apos;allprops&apos; property here. In that case, you should check for $propFind-&gt;isAllProps().</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$path</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Implémenté dans <link linkend="_class_sabre_1_1_d_a_v_1_1_property_storage_1_1_backend_1_1_p_d_o_1a5b0229833a819b9e940c36adfc1b0e50">PDO</link>.</para>
+</section>
+<anchor xml:id="_interface_sabre_1_1_d_a_v_1_1_property_storage_1_1_backend_1_1_backend_interface_1a877f26517c6bdde1b43078208ae481a4"/><section>
+    <title>propPatch()</title>
+<indexterm><primary>propPatch</primary><secondary>BackendInterface</secondary></indexterm>
+<indexterm><primary>BackendInterface</primary><secondary>propPatch</secondary></indexterm>
+<para><computeroutput>propPatch ( $path, <link linkend="_class_sabre_1_1_d_a_v_1_1_prop_patch">PropPatch</link> $propPatch)</computeroutput></para>
+<para>Updates properties for a path.</para>
+
+<para>This method received a PropPatch object, which contains all the information about the update.</para>
+
+<para>Usually you would want to call &apos;handleRemaining&apos; on this object, to get; a list of all properties that need to be stored.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$path</entry><entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Implémenté dans <link linkend="_class_sabre_1_1_d_a_v_1_1_property_storage_1_1_backend_1_1_p_d_o_1a877f26517c6bdde1b43078208ae481a4">PDO</link>.</para>
+</section>
+<para>
+La documentation de cette interface a été générée à partir du fichier suivant :</para>
+public/glpi/vendor/sabre/dav/lib/DAV/PropertyStorage/Backend/<link linkend="__d_a_v_2_property_storage_2_backend_2_backend_interface_8php">BackendInterface.php</link></section>
+</section>

@@ -1,0 +1,315 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_symfony_1_1_component_1_1_console_1_1_input_1_1_input_argument" xml:lang="fr">
+<title>Référence de la classe InputArgument</title>
+<indexterm><primary>InputArgument</primary></indexterm>
+Graphe de collaboration de InputArgument:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_symfony_1_1_component_1_1_console_1_1_input_1_1_input_argument__coll__graph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Fonctions membres publiques    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_symfony_1_1_component_1_1_console_1_1_input_1_1_input_argument_1a9bb754e6bad67cfe7074007a6d196531">__construct</link> (string $name, int $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">mode</link>=null, string $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">description</link>=&apos;&apos;, $<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">default</link>=null)</para>
+</listitem>
+            <listitem><para><link linkend="_class_symfony_1_1_component_1_1_console_1_1_input_1_1_input_argument_1a3d0963e68bb313b163a73f2803c64600">getName</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_class_symfony_1_1_component_1_1_console_1_1_input_1_1_input_argument_1ac26faa299b04174755ce0cca5f774585">isRequired</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_class_symfony_1_1_component_1_1_console_1_1_input_1_1_input_argument_1a2f0ab131ec6fa3f6f91721eb72ca10f0">isArray</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_class_symfony_1_1_component_1_1_console_1_1_input_1_1_input_argument_1aae7b38e461eb4bb55b0fc924ca924201">setDefault</link> ($<link linkend="_report_8contract_8php_1a77b973d137fb33212e018b042df6e3e7">default</link>=null)</para>
+</listitem>
+            <listitem><para><link linkend="_class_symfony_1_1_component_1_1_console_1_1_input_1_1_input_argument_1adc30a2a4d3e48cb6aee21562afbc4022">getDefault</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_class_symfony_1_1_component_1_1_console_1_1_input_1_1_input_argument_1a2e7bb35c71bf1824456ceb944cb7a845">getDescription</link> ()</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Champs de données    </title>
+        <itemizedlist>
+            <listitem><para>const <link linkend="_class_symfony_1_1_component_1_1_console_1_1_input_1_1_input_argument_1a4af9e891afe0982a6bc3b1338da3dfe6">REQUIRED</link> = 1</para>
+</listitem>
+            <listitem><para>const <link linkend="_class_symfony_1_1_component_1_1_console_1_1_input_1_1_input_argument_1a0a925b0673e0899cf6882ba6643ba79e">OPTIONAL</link> = 2</para>
+</listitem>
+            <listitem><para>const <link linkend="_class_symfony_1_1_component_1_1_console_1_1_input_1_1_input_argument_1af9eb4906b6ce9917c507b712befeb256">IS_ARRAY</link> = 4</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Description détaillée</title>
+
+<para>Represents a command line argument.</para>
+
+<para><formalpara><title>Auteur</title>
+
+<para>Fabien Potencier <link xlink:href="mailto:fabien@symfony.com">fabien@symfony.com</link> </para>
+</formalpara>
+</para>
+</section>
+<section>
+<title>Documentation des constructeurs et destructeur</title>
+<anchor xml:id="_class_symfony_1_1_component_1_1_console_1_1_input_1_1_input_argument_1a9bb754e6bad67cfe7074007a6d196531"/><section>
+    <title>__construct()</title>
+<indexterm><primary>__construct</primary><secondary>InputArgument</secondary></indexterm>
+<indexterm><primary>InputArgument</primary><secondary>__construct</secondary></indexterm>
+<para><computeroutput>__construct (string $name, int $mode = <computeroutput>null</computeroutput>
+, string $description = <computeroutput>&apos;&apos;</computeroutput>
+,  $default = <computeroutput>null</computeroutput>
+)</computeroutput></para>
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string</entry><entry>$name</entry><entry>
+<para>The argument name </para>
+</entry>
+                            </row>
+                            <row>
+<entry>int | null</entry><entry>$mode</entry><entry>
+<para>The argument mode: a bit mask of self::REQUIRED, self::OPTIONAL and self::IS_ARRAY </para>
+</entry>
+                            </row>
+                            <row>
+<entry>string</entry><entry>$description</entry><entry>
+<para>A description text </para>
+</entry>
+                            </row>
+                            <row>
+<entry>string | bool | int | float | array | null</entry><entry>$default</entry><entry>
+<para>The default value (for self::OPTIONAL mode only)</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>InvalidArgumentException</entry><entry>
+<para>When argument mode is not valid </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_symfony_1_1_component_1_1_console_1_1_input_1_1_input_argument_a9bb754e6bad67cfe7074007a6d196531_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+</section>
+<section>
+<title>Documentation des fonctions membres</title>
+<anchor xml:id="_class_symfony_1_1_component_1_1_console_1_1_input_1_1_input_argument_1adc30a2a4d3e48cb6aee21562afbc4022"/><section>
+    <title>getDefault()</title>
+<indexterm><primary>getDefault</primary><secondary>InputArgument</secondary></indexterm>
+<indexterm><primary>InputArgument</primary><secondary>getDefault</secondary></indexterm>
+<para><computeroutput>getDefault ( )</computeroutput></para>
+<para>Returns the default value.</para>
+
+<para><formalpara><title>Renvoie</title>
+
+<para>string|bool|int|float|array|null </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_class_symfony_1_1_component_1_1_console_1_1_input_1_1_input_argument_1a2e7bb35c71bf1824456ceb944cb7a845"/><section>
+    <title>getDescription()</title>
+<indexterm><primary>getDescription</primary><secondary>InputArgument</secondary></indexterm>
+<indexterm><primary>InputArgument</primary><secondary>getDescription</secondary></indexterm>
+<para><computeroutput>getDescription ( )</computeroutput></para>
+<para>Returns the description text.</para>
+
+<para><formalpara><title>Renvoie</title>
+
+<para>string </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_class_symfony_1_1_component_1_1_console_1_1_input_1_1_input_argument_1a3d0963e68bb313b163a73f2803c64600"/><section>
+    <title>getName()</title>
+<indexterm><primary>getName</primary><secondary>InputArgument</secondary></indexterm>
+<indexterm><primary>InputArgument</primary><secondary>getName</secondary></indexterm>
+<para><computeroutput>getName ( )</computeroutput></para>
+<para>Returns the argument name.</para>
+
+<para><formalpara><title>Renvoie</title>
+
+<para>string </para>
+</formalpara>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_symfony_1_1_component_1_1_console_1_1_input_1_1_input_argument_a3d0963e68bb313b163a73f2803c64600_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_symfony_1_1_component_1_1_console_1_1_input_1_1_input_argument_1a2f0ab131ec6fa3f6f91721eb72ca10f0"/><section>
+    <title>isArray()</title>
+<indexterm><primary>isArray</primary><secondary>InputArgument</secondary></indexterm>
+<indexterm><primary>InputArgument</primary><secondary>isArray</secondary></indexterm>
+<para><computeroutput>isArray ( )</computeroutput></para>
+<para>Returns true if the argument can take multiple values.</para>
+
+<para><formalpara><title>Renvoie</title>
+
+<para>bool true if mode is self::IS_ARRAY, false otherwise </para>
+</formalpara>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_symfony_1_1_component_1_1_console_1_1_input_1_1_input_argument_a2f0ab131ec6fa3f6f91721eb72ca10f0_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_symfony_1_1_component_1_1_console_1_1_input_1_1_input_argument_1ac26faa299b04174755ce0cca5f774585"/><section>
+    <title>isRequired()</title>
+<indexterm><primary>isRequired</primary><secondary>InputArgument</secondary></indexterm>
+<indexterm><primary>InputArgument</primary><secondary>isRequired</secondary></indexterm>
+<para><computeroutput>isRequired ( )</computeroutput></para>
+<para>Returns true if the argument is required.</para>
+
+<para><formalpara><title>Renvoie</title>
+
+<para>bool true if parameter mode is self::REQUIRED, false otherwise </para>
+</formalpara>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_symfony_1_1_component_1_1_console_1_1_input_1_1_input_argument_ac26faa299b04174755ce0cca5f774585_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_symfony_1_1_component_1_1_console_1_1_input_1_1_input_argument_1aae7b38e461eb4bb55b0fc924ca924201"/><section>
+    <title>setDefault()</title>
+<indexterm><primary>setDefault</primary><secondary>InputArgument</secondary></indexterm>
+<indexterm><primary>InputArgument</primary><secondary>setDefault</secondary></indexterm>
+<para><computeroutput>setDefault ( $default = <computeroutput>null</computeroutput>
+)</computeroutput></para>
+<para>Sets the default value.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Paramètres</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>string | bool | int | float | array | null</entry><entry>$default</entry><entry></entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                
+                <formalpara>
+                    <title>
+Exceptions</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>LogicException</entry><entry>
+<para>When incorrect default value is given </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+Voici le graphe d&apos;appel pour cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_symfony_1_1_component_1_1_console_1_1_input_1_1_input_argument_aae7b38e461eb4bb55b0fc924ca924201_cgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+Voici le graphe des appelants de cette fonction :<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_symfony_1_1_component_1_1_console_1_1_input_1_1_input_argument_aae7b38e461eb4bb55b0fc924ca924201_icgraph.svg"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+</section>
+<section>
+<title>Documentation des champs</title>
+<anchor xml:id="_class_symfony_1_1_component_1_1_console_1_1_input_1_1_input_argument_1af9eb4906b6ce9917c507b712befeb256"/><section>
+    <title>IS_ARRAY</title>
+<indexterm><primary>IS_ARRAY</primary><secondary>InputArgument</secondary></indexterm>
+<indexterm><primary>InputArgument</primary><secondary>IS_ARRAY</secondary></indexterm>
+<para><computeroutput>const IS_ARRAY = 4</computeroutput></para></section>
+<anchor xml:id="_class_symfony_1_1_component_1_1_console_1_1_input_1_1_input_argument_1a0a925b0673e0899cf6882ba6643ba79e"/><section>
+    <title>OPTIONAL</title>
+<indexterm><primary>OPTIONAL</primary><secondary>InputArgument</secondary></indexterm>
+<indexterm><primary>InputArgument</primary><secondary>OPTIONAL</secondary></indexterm>
+<para><computeroutput>const OPTIONAL = 2</computeroutput></para></section>
+<anchor xml:id="_class_symfony_1_1_component_1_1_console_1_1_input_1_1_input_argument_1a4af9e891afe0982a6bc3b1338da3dfe6"/><section>
+    <title>REQUIRED</title>
+<indexterm><primary>REQUIRED</primary><secondary>InputArgument</secondary></indexterm>
+<indexterm><primary>InputArgument</primary><secondary>REQUIRED</secondary></indexterm>
+<para><computeroutput>const REQUIRED = 1</computeroutput></para></section>
+<para>
+La documentation de cette classe a été générée à partir du fichier suivant :</para>
+public/glpi/vendor/symfony/console/Input/<link linkend="__input_argument_8php">InputArgument.php</link></section>
+</section>

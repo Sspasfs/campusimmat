@@ -1,0 +1,87 @@
+\doxysection{Référence de l\textquotesingle{}interface Splitter\+Interface}
+\hypertarget{interface_sabre_1_1_v_object_1_1_splitter_1_1_splitter_interface}{}\label{interface_sabre_1_1_v_object_1_1_splitter_1_1_splitter_interface}\index{SplitterInterface@{SplitterInterface}}
+
+
+Graphe d\textquotesingle{}héritage de Splitter\+Interface\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=300pt]{interface_sabre_1_1_v_object_1_1_splitter_1_1_splitter_interface__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Graphe de collaboration de Splitter\+Interface\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=181pt]{interface_sabre_1_1_v_object_1_1_splitter_1_1_splitter_interface__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{interface_sabre_1_1_v_object_1_1_splitter_1_1_splitter_interface_ade22206ffe41068eed8c5a35952f7543}{\+\_\+\+\_\+construct}} (\$input)
+\item 
+\mbox{\hyperlink{interface_sabre_1_1_v_object_1_1_splitter_1_1_splitter_interface_a40b8da315cd66793e9fd685973ea8782}{get\+Next}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Description détaillée}
+\doxylink{class_v_object}{VObject} splitter.
+
+The splitter is responsible for reading a large v\+Card or i\+Calendar object, and splitting it into multiple objects.
+
+This is for example for Card and Cal\+DAV, which require every event and vcard to exist in their own objects, instead of one large one.
+
+\begin{DoxyCopyright}{Copyright}
+Copyright (C) fruux GmbH (\href{https://fruux.com/}{\texttt{ https\+://fruux.\+com/}}) 
+\end{DoxyCopyright}
+\begin{DoxyAuthor}{Auteur}
+Dominik Tobschall (\href{http://tobschall.de/}{\texttt{ http\+://tobschall.\+de/}}) @license \href{http://sabre.io/license/}{\texttt{ http\+://sabre.\+io/license/}} Modified BSD License 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Documentation des constructeurs et destructeur}
+\Hypertarget{interface_sabre_1_1_v_object_1_1_splitter_1_1_splitter_interface_ade22206ffe41068eed8c5a35952f7543}\label{interface_sabre_1_1_v_object_1_1_splitter_1_1_splitter_interface_ade22206ffe41068eed8c5a35952f7543} 
+\index{SplitterInterface@{SplitterInterface}!\_\_construct@{\_\_construct}}
+\index{\_\_construct@{\_\_construct}!SplitterInterface@{SplitterInterface}}
+\doxysubsubsection{\texorpdfstring{\_\_construct()}{\_\_construct()}}
+{\footnotesize\ttfamily \+\_\+\+\_\+construct (\begin{DoxyParamCaption}\item[{}]{\$input }\end{DoxyParamCaption})}
+
+Constructor.
+
+The splitter should receive an readable file stream as its input.
+
+
+\begin{DoxyParams}[1]{Paramètres}
+resource & {\em \$input} & \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Documentation des fonctions membres}
+\Hypertarget{interface_sabre_1_1_v_object_1_1_splitter_1_1_splitter_interface_a40b8da315cd66793e9fd685973ea8782}\label{interface_sabre_1_1_v_object_1_1_splitter_1_1_splitter_interface_a40b8da315cd66793e9fd685973ea8782} 
+\index{SplitterInterface@{SplitterInterface}!getNext@{getNext}}
+\index{getNext@{getNext}!SplitterInterface@{SplitterInterface}}
+\doxysubsubsection{\texorpdfstring{getNext()}{getNext()}}
+{\footnotesize\ttfamily get\+Next (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Every time get\+Next() is called, a new object will be parsed, until we hit the end of the stream.
+
+When the end is reached, null will be returned.
+
+\begin{DoxyReturn}{Renvoie}
+\textbackslash{}\+Sabre\textbackslash{}\+VObject\textbackslash{}\+Component\texorpdfstring{$\vert$}{|}null 
+\end{DoxyReturn}
+
+
+Implémenté dans \mbox{\hyperlink{class_sabre_1_1_v_object_1_1_splitter_1_1_i_calendar_a40b8da315cd66793e9fd685973ea8782}{ICalendar}}, et \mbox{\hyperlink{class_sabre_1_1_v_object_1_1_splitter_1_1_v_card_a40b8da315cd66793e9fd685973ea8782}{VCard}}.
+
+
+
+La documentation de cette interface a été générée à partir du fichier suivant \+:\begin{DoxyCompactItemize}
+\item 
+public/glpi/vendor/sabre/vobject/lib/\+Splitter/\mbox{\hyperlink{_splitter_interface_8php}{Splitter\+Interface.\+php}}\end{DoxyCompactItemize}

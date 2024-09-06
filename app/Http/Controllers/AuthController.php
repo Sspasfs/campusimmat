@@ -16,12 +16,12 @@ class AuthController extends Controller
     {
         // Validation des données de connexion
         $request->validate([
-            'mail' => 'required|email',
+            'email' => 'required|email',
             'password' => 'required',
         ]);
 
         // Tentative d'authentification
-        $user = User::where('mail', $request->mail)->first();
+        $user = User::where('email', $request->mail)->first();
 
         if ($user && password_verify($request->password, $user->password)) {
             // Authentification réussie, connectez l'utilisateur

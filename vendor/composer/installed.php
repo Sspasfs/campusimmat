@@ -5,7 +5,7 @@
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => '19f574f43d6d16fe5d298505c71cad1a9388e438',
+        'reference' => 'da4ca8a9cde016f8c018d2d08614c963f506e14c',
         'name' => 'laravel/laravel',
         'dev' => true,
     ),
@@ -574,7 +574,7 @@
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => '19f574f43d6d16fe5d298505c71cad1a9388e438',
+            'reference' => 'da4ca8a9cde016f8c018d2d08614c963f506e14c',
             'dev_requirement' => false,
         ),
         'laravel/pint' => array(
@@ -1293,6 +1293,15 @@
             'install_path' => __DIR__ . '/../spatie/laravel-package-tools',
             'aliases' => array(),
             'reference' => 'c7413972cf22ffdff97b68499c22baa04eddb6a2',
+            'dev_requirement' => false,
+        ),
+        'spatie/laravel-permission' => array(
+            'pretty_version' => '6.9.0',
+            'version' => '6.9.0.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../spatie/laravel-permission',
+            'aliases' => array(),
+            'reference' => 'fe973a58b44380d0e8620107259b7bda22f70408',
             'dev_requirement' => false,
         ),
         'spatie/once' => array(

@@ -18,5 +18,7 @@ class DatabaseSeeder extends Seeder
 
         // Créer 30 plaques d'immatriculation
         PlaqueImmatriculation::factory(30)->create();
+
+        $this->call(RolesAndPermissionsSeeder::class);
     }
 }

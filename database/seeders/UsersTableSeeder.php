@@ -11,7 +11,7 @@ class UsersTableSeeder extends Seeder
     {
         User::create([
             'name' => 'Test',
-            'mail' => 'test@test.fr', // Correction du champ 'mail' en 'email'
+            'email' => 'test@test.fr', // Correction du champ 'mail' en 'email'
             'password' => bcrypt('test'), // Assurez-vous de hasher le mot de passe
             'is_admin' => true, // Définit l'utilisateur comme administrateur
         ]);

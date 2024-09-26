@@ -5,17 +5,16 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Spatie\Permission\Models\Role;
 use App\Models\User;
 
 class AuthController extends Controller
 {
-    // Affiche le formulaire de connexion
     public function showLoginForm()
     {
         return view('auth.login');
     }
 
-    // Gestion de la connexion
     public function login(Request $request)
     {
         // Validation des données de connexion
@@ -36,16 +35,15 @@ class AuthController extends Controller
             $request->session()->regenerate();
 
             // Redirige vers la page de bienvenue ou tableau de bord
-            return redirect()->intended('welcome'); // Modifie 'welcome' si une autre route est souhaitée
-        } else {
-            // Authentification échouée, retourne avec une erreur
-            return back()->withErrors([
-                'email' => 'Adresse email ou mot de passe incorrect.',
-            ])->onlyInput('email'); // Garder l'email saisi
+            return redirect()->intended('welcome'); // Change "welcome" selon ta route souhaitée
         }
+
+        // Authentification échouée, retourne avec une erreur
+        return back()->withErrors([
+            'email' => 'Adresse email ou mot de passe incorrect.',
+        ])->onlyInput('email'); // Garde l'email saisi
     }
 
-    // Gestion de la déconnexion
     public function logout(Request $request)
     {
         Auth::logout();
